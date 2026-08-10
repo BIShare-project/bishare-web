@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "Transferência de Arquivos Criptografada — Envie com Segurança, Grátis | BIShare",
+    "description": "Envie arquivos com criptografia de ponta a ponta. O BIShare criptografa no seu navegador antes do upload — a chave nunca chega ao servidor, então só você e quem recebe podem abrir. Sem conta, grátis.",
+    "ogTitle": "Transferência de arquivos criptografada — de ponta a ponta, no seu navegador"
+  },
+  "hero": {
+    "eyebrow": "Transferência de arquivos criptografada",
+    "title": "Envie arquivos com criptografia de ponta a ponta de verdade",
+    "body": "A maioria das ferramentas de transferência \"segura\" criptografa seu arquivo <strong>nos servidores delas</strong> — o que significa que elas ficam com as chaves. O BIShare criptografa o arquivo <strong>no seu navegador antes do upload</strong>, e a chave viaja no link, sem nunca tocar nossos servidores. Só armazenamos texto cifrado que não conseguimos ler. <highlight>Criptografado de ponta a ponta, sem conta, grátis.</highlight>",
+    "ctaPrimary": "Baixe o BIShare grátis",
+    "ctaSecondary": "Como funciona"
+  },
+  "why": {
+    "title": "Criptografado em trânsito não é o mesmo que ponta a ponta",
+    "body": "Muitos serviços dizem \"criptografado\", mas querem dizer criptografado <strong>do lado deles</strong> — eles ainda podem ler seus arquivos, e qualquer um que os invada também. Criptografia de ponta a ponta significa que só quem envia e quem recebe têm a chave. Com o BIShare, a chave é gerada no seu navegador e fica no #fragment do link, que nunca é enviado em nenhuma requisição — então o servidor armazena bytes que, de fato, não consegue descriptografar."
+  },
+  "how": {
+    "title": "Como o BIShare criptografa sua transferência",
+    "items": {
+      "0": {
+        "h": "Criptografado antes do upload",
+        "b": "Ative a criptografia de ponta a ponta e o arquivo é criptografado no seu navegador com AES-256-GCM. Só o texto cifrado é enviado — em blocos e por streaming, para que até arquivos de vários gigabytes nunca fiquem retidos na memória."
+      },
+      "1": {
+        "h": "A chave fica com você",
+        "b": "A chave de descriptografia é colocada no fragmento do link (#), que os navegadores nunca transmitem a um servidor. Compartilhe o link e o navegador de quem recebe descriptografa localmente. Perdeu o link, e nem nós conseguimos recuperar o arquivo."
+      },
+      "2": {
+        "h": "Ou nunca faça upload",
+        "b": "Na mesma rede, o BIShare envia arquivos direto entre os dispositivos por um canal criptografado — o arquivo nunca chega à nuvem, então não há nada para interceptar ou armazenar."
+      }
+    }
+  },
+  "comparison": {
+    "title": "Transferência na nuvem vs ZIP com senha vs BIShare",
+    "cols": { "airdrop": "Transferência na nuvem", "quick": "ZIP com senha", "bishare": "BIShare" },
+    "rows": {
+      "r0": "Criptografia de ponta a ponta",
+      "r1": "A chave nunca chega ao servidor",
+      "r2": "Sem precisar de conta",
+      "r3": "Funciona offline, dispositivo a dispositivo",
+      "r4": "Grátis para usar"
+    }
+  },
+  "faq": {
+    "title": "Transferência de arquivos criptografada: perguntas frequentes",
+    "items": {
+      "0": {
+        "q": "O que é transferência de arquivos com criptografia de ponta a ponta?",
+        "a": "Significa que o arquivo é criptografado antes de sair do seu dispositivo e só pode ser descriptografado por quem recebe — o serviço que o move não consegue lê-lo. O BIShare faz isso criptografando no seu navegador e mantendo a chave fora do alcance do servidor."
+      },
+      "1": {
+        "q": "Qual a diferença em relação a um ZIP protegido por senha?",
+        "a": "Um ZIP com senha ainda depende de você compartilhar uma senha por outro canal, e o arquivo é tão forte quanto essa senha. O BIShare usa uma chave aleatória de força total e a transporta no fragmento do link, então não há senha fraca nem nada para o servidor ver."
+      },
+      "2": {
+        "q": "O servidor chega a ver meu arquivo?",
+        "a": "Nas transferências criptografadas, apenas texto cifrado — a chave nunca chega até nós, então não conseguimos descriptografá-lo. Nas transferências entre dispositivos por perto, o arquivo nunca passa pelos nossos servidores."
+      },
+      "3": {
+        "q": "Preciso de conta para enviar com segurança?",
+        "a": "Não. A criptografia é integrada e grátis, sem cadastro. Você compartilha um link ou código, e quem recebe abre em qualquer navegador."
+      },
+      "4": {
+        "q": "Posso enviar arquivos grandes criptografados?",
+        "a": "Sim. A criptografia funciona por streaming em blocos, então você pode enviar arquivos grandes — até 10 GB grátis por um link criptografado, e sem limite de tamanho para transferências por perto na sua própria rede Wi-Fi."
+      }
+    }
+  },
+  "cta": {
+    "title": "Envie seu próximo arquivo criptografado de ponta a ponta",
+    "body": "Criptografia de verdade, sem conta, sem custo. Pegue o BIShare para o seu celular ou computador — quem recebe só precisa de um navegador.",
+    "download": "Baixar o BIShare"
+  },
+  "a11y": { "yes": "Sim", "no": "Não" }
+}

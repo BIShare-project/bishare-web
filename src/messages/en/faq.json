@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "FAQ",
+    "ogTitle": "BIShare FAQ",
+    "description": "Answers about getting started, transfers, privacy, and troubleshooting — file sizes, the same-network rule, 24-hour share links, end-to-end encryption, and rooms."
+  },
+  "hero": {
+    "eyebrow": "FAQ",
+    "title": "Questions, answered",
+    "sub": "Everything people ask before their first transfer — and the honest details in between. Jump to a topic or scroll through.",
+    "topicsAria": "FAQ topics"
+  },
+  "cta": {
+    "title": "Still curious?",
+    "sub": "If your question isn't here, a person will answer it. No bots, no ticket maze.",
+    "contact": "Contact us",
+    "securityLink": "How we keep transfers private"
+  },
+  "groups": {
+    "getting-started": {
+      "label": "Getting started",
+      "blurb": "Platforms and what the other person needs.",
+      "items": [
+        {
+          "q": "Do I need an account to use BIShare?",
+          "a": "No — BIShare has no accounts at all. Install the app or open bishare.app and start sending and receiving immediately. Nothing to sign up for, no email, no profile."
+        },
+        {
+          "q": "Which platforms does BIShare run on?",
+          "a": "Five platforms: iOS, Android, macOS, Windows, and Linux. The app is available in 13 languages, and any modern web browser can send and receive files without installing anything.",
+          "linkLabel": "Get the app for your platform"
+        },
+        {
+          "q": "Does the other person need the app?",
+          "a": "Not necessarily. Anyone can open a share link or enter a share code in their browser to download files, and browser transfer lets any computer on your network exchange files with your device directly. The app makes everything faster and unlocks every feature, but it is never required on both ends."
+        },
+        {
+          "q": "What does BIShare cost?",
+          "a": "It's free. Transfers over your own network have no size caps and no account, and remote share links and rooms are free too. No subscriptions, no paywalled features."
+        }
+      ]
+    },
+    "transfers": {
+      "label": "Transfers",
+      "blurb": "Size limits, speed, the same-network rule, and groups.",
+      "items": [
+        {
+          "q": "How big can the files I send be?",
+          "a": "Between devices on the same network there is no size limit — a 40 GB project folder moves as easily as a photo. Remote shares that travel through a link are free up to 10 GB per file and delete themselves after 24 hours."
+        },
+        {
+          "q": "Do both devices need to be on the same Wi-Fi?",
+          "a": "For nearby transfers, yes — both devices must be on the same network. A phone hotspot counts, so it works with no internet at all. On different networks, use a remote share instead: the file becomes a link, a QR code, and a six-character code that work anywhere."
+        },
+        {
+          "q": "What happens if a transfer is interrupted?",
+          "a": "Transfers are resumable. If the connection drops midway, the transfer picks up where it stopped instead of starting over — the pieces that already arrived are kept, and only the missing part is sent again. Browser uploads resume the same way."
+        },
+        {
+          "q": "How fast are transfers?",
+          "a": "As fast as your network allows. Nearby transfers travel directly from device to device with no server hop in between, so the only ceiling is your Wi-Fi itself."
+        },
+        {
+          "q": "Can I share with a whole group at once?",
+          "a": "Yes — create a room. Share its four-character code and up to 20 people can join, each able to drop files in and pull files out. Rooms on the same network work without internet; remote rooms work from anywhere."
+        }
+      ]
+    },
+    "privacy-security": {
+      "label": "Privacy & security",
+      "blurb": "Encryption, what we can see, and what happens to shares.",
+      "items": [
+        {
+          "q": "Is BIShare really end-to-end encrypted?",
+          "a": "Yes. Your devices agree on a secret using X25519 key exchange, and every file is sealed with AES-256-GCM using its own fresh key. The keys never leave your devices, so only the sender and the receiver can read what is transferred.",
+          "linkLabel": "See how the encryption works"
+        },
+        {
+          "q": "Can BIShare see the files I send?",
+          "a": "No. Nearby transfers never touch a server — they travel straight between your devices. Remote shares are encrypted in transit and at rest, are never scanned or opened, and are permanently deleted after 24 hours."
+        },
+        {
+          "q": "What happens to a remote share after 24 hours?",
+          "a": "The file is permanently deleted from cloud storage, and the link, QR code, and share code all stop working. One-time links go further: they delete themselves right after the first download."
+        },
+        {
+          "q": "Does BIShare track me or show ads?",
+          "a": "No tracking, no ads, and no selling of data. BIShare does not build advertising profiles or follow you around the internet.",
+          "linkLabel": "Read the Privacy Policy"
+        }
+      ]
+    },
+    "troubleshooting": {
+      "label": "Troubleshooting",
+      "blurb": "When devices hide, transfers pause, or links stop working.",
+      "items": [
+        {
+          "q": "My devices can't see each other. What should I check?",
+          "a": "First, confirm both devices are on the same network — that is the most common cause. Guest and public Wi-Fi networks often isolate devices from each other, and an active VPN can hide a device too. Also check your visibility setting: if discovery is set to favorites-only or off, new devices won't find you. When in doubt, a personal hotspot always works."
+        },
+        {
+          "q": "Why does a transfer pause when I switch apps on iPhone?",
+          "a": "iOS strictly limits what apps can do in the background, so a large transfer can pause if BIShare leaves the foreground. Keep the app open — and the screen on — during big transfers. If a pause happens anyway, the transfer resumes where it left off when you return."
+        },
+        {
+          "q": "A link or code isn't working. Why?",
+          "a": "Remote shares expire after 24 hours, and one-time links stop working after their first download — an expired share can't be revived, so ask the sender to share again. For six-character codes, double-check the characters. For nearby transfers, the sending device must be online and on your network."
+        }
+      ]
+    }
+  }
+}

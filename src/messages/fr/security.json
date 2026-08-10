@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "Sécurité",
+    "description": "Comment BIShare protège la confidentialité de vos fichiers : un chiffrement de bout en bout dont les clés ne quittent jamais vos appareils, des transferts locaux qui ne passent jamais par un serveur, et des partages distants qui s'effacent d'eux-mêmes au bout de 24 heures."
+  },
+  "hero": {
+    "eyebrow": "Sécurité",
+    "title": "Confidentiel par conception",
+    "sub": "Vos fichiers voyagent scellés, empruntent le chemin le plus court possible et ne laissent aucune trace. Pas grâce à un réglage que vous auriez déniché, mais par la façon même dont BIShare est bâti.",
+    "badge": "Les clés ne quittent jamais vos appareils"
+  },
+  "flowHeading": "Comment se déroule un transfert chiffré de bout en bout",
+  "encryption": {
+    "eyebrow": "Chiffrement de bout en bout",
+    "title": "Verrouillé avant de partir. Déverrouillé à l'arrivée.",
+    "sub": "Seuls les deux appareils d'un transfert peuvent lire les fichiers qui circulent entre eux. Voici ce qui se passe en coulisses, en mots simples, la technologie nommée une seule fois.",
+    "cards": {
+      "handshake": {
+        "tag": "X25519",
+        "title": "Un secret convenu en silence",
+        "desc": "Avant que quoi que ce soit ne bouge, les deux appareils s'accordent sur un secret partagé sans jamais l'envoyer sur le réseau. Qui enregistrerait chaque paquet de cette poignée de main n'en tirerait toujours rien d'exploitable."
+      },
+      "perFile": {
+        "tag": "CLÉS PAR FICHIER",
+        "title": "Chaque fichier a sa propre clé",
+        "desc": "Chaque transfert est scellé avec sa propre clé, toute neuve. Même dans le pire des cas imaginables, une clé ne pourrait ouvrir qu'un seul fichier — jamais votre historique, jamais le transfert suivant."
+      },
+      "cipher": {
+        "tag": "AES-256-GCM",
+        "title": "Scellé et infalsifiable",
+        "desc": "Les fichiers sont brouillés avec la même classe de chiffrement que celle qui protège le trafic bancaire et gouvernemental, sceau intégré. Si un seul octet est modifié en transit, le transfert est rejeté."
+      }
+    }
+  },
+  "local": {
+    "label": "Local d'abord",
+    "title": "Votre réseau, c'est tout le trajet.",
+    "body": "Quand deux appareils partagent le même Wi-Fi ou point d'accès, les fichiers voyagent directement de l'un à l'autre. Aucune étape d'envoi, aucun intermédiaire, aucune copie ailleurs — parce qu'il n'y a tout simplement aucun serveur sur le chemin.",
+    "points": [
+      "Les transferts de proximité ne passent jamais par un serveur — ni le nôtre ni celui de personne",
+      "Fonctionne entièrement hors ligne : le Wi-Fi ou le partage de connexion du téléphone suffit",
+      "Rien de stocké dans le cloud, donc rien à en fuiter",
+      "Les fichiers existent en exactement deux endroits : l'expéditeur et le destinataire"
+    ],
+    "visual": {
+      "tagDirect": "DIRECT",
+      "sameNetwork": "Même réseau",
+      "phone": "Votre téléphone",
+      "laptop": "Votre ordinateur",
+      "srBeam": "Un fichier voyage directement de votre téléphone à votre ordinateur via votre propre réseau.",
+      "noServer": "Aucun serveur n'est contacté. Le transfert commence et se termine sur votre propre réseau."
+    }
+  },
+  "remote": {
+    "label": "Partages distants",
+    "title": "Protégé en transit. Disparu en 24 heures.",
+    "body": "Quand la personne se trouve sur un autre réseau, votre fichier fait un bref détour surveillé par un stockage cloud sécurisé. Il est chiffré à l'aller, chiffré pendant l'attente et supprimé selon le calendrier prévu — à chaque fois.",
+    "points": [
+      "Chiffré en transit et chiffré au repos",
+      "Supprimé automatiquement au bout de 24 heures — sans rien faire",
+      "Les liens à usage unique s'autodétruisent après le premier téléchargement",
+      "Nous n'analysons, n'indexons et ne regardons jamais ce que vous partagez"
+    ],
+    "visual": {
+      "tagRemote": "DISTANT",
+      "tagEncrypted": "CHIFFRÉ",
+      "linkActive": "Lien actif",
+      "assurance": {
+        "transit": {
+          "title": "Chiffré en transit",
+          "desc": "Scellé à la montée comme à la descente."
+        },
+        "rest": {
+          "title": "Chiffré au repos",
+          "desc": "Stocké brouillé en attendant d'être récupéré."
+        },
+        "deleted": {
+          "title": "Supprimé au bout de 24 heures",
+          "desc": "Automatiquement, qu'il ait été téléchargé ou non."
+        }
+      },
+      "timeRemaining": "Temps restant"
+    }
+  },
+  "dont": {
+    "eyebrow": "Tout aussi important",
+    "title": "Ce que nous ne faisons pas",
+    "sub": "La confidentialité, c'est surtout une affaire de retenue. Ce ne sont pas des réglages à dénicher : c'est ainsi que BIShare fonctionne, par défaut et pour toujours.",
+    "never": "Jamais",
+    "items": {
+      "tracking": {
+        "title": "Aucun pistage",
+        "desc": "Pas de profils comportementaux, pas d'identifiants publicitaires, personne qui vous suit sur le web."
+      },
+      "ads": {
+        "title": "Aucune publicité",
+        "desc": "BIShare est un outil, pas une régie publicitaire. Votre attention n'est pas le produit."
+      },
+      "selling": {
+        "title": "Aucune vente de données",
+        "desc": "Nous ne vendons, ne louons ni n'échangeons vos données. Il n'y a aucun courtier en données à l'autre bout."
+      },
+      "scanning": {
+        "title": "Aucune analyse de fichiers",
+        "desc": "Nous n'ouvrons, n'analysons ni n'examinons jamais ce que vous transférez. Vos fichiers ne regardent que vous."
+      }
+    }
+  },
+  "disclosure": {
+    "eyebrow": "Divulgation responsable",
+    "title": "Une faille repérée ? Prévenez-nous d'abord.",
+    "body": "Une promesse de sécurité ne vaut que par l'examen qu'elle affronte. Si vous découvrez une vulnérabilité dans BIShare, écrivez-nous avec les étapes pour la reproduire. Nous lisons chaque signalement, et la recherche de bonne foi est toujours la bienvenue.",
+    "privacyLink": "Lire la politique de confidentialité"
+  },
+  "flow": {
+    "keysNeverLeave": "Les clés ne quittent jamais vos appareils",
+    "srDescription": "L'appareil A chiffre le fichier, les données chiffrées traversent le réseau, et seul l'appareil B peut les déchiffrer. Les clés de chiffrement ne quittent jamais ni l'un ni l'autre.",
+    "deviceA": {
+      "name": "Appareil A",
+      "role": "Expéditeur — chiffre"
+    },
+    "deviceB": {
+      "name": "Appareil B",
+      "role": "Destinataire — déchiffre"
+    },
+    "keyStaysHere": "La clé reste ici",
+    "whatNetworkSees": "Ce que voit le réseau",
+    "plaintext": "Texte en clair",
+    "ciphertext": "Texte chiffré",
+    "unreadable": "Illisible",
+    "steps": {
+      "sealed": {
+        "title": "Scellé sur votre appareil",
+        "desc": "Le fichier est chiffré avant qu'un seul octet ne parte."
+      },
+      "transit": {
+        "title": "Texte chiffré en transit",
+        "desc": "Le réseau ne transporte jamais que du bruit brouillé."
+      },
+      "unlocked": {
+        "title": "Déverrouillé à l'arrivée",
+        "desc": "Seul l'appareil destinataire détient la clé correspondante."
+      }
+    }
+  }
+}

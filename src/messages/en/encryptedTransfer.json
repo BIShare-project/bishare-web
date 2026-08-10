@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "Encrypted File Transfer — Send Files Securely, Free | BIShare",
+    "description": "Send files with end-to-end encryption. BIShare encrypts in your browser before upload — the key never reaches the server, so only you and the recipient can open it. No account, free.",
+    "ogTitle": "Encrypted file transfer — end-to-end, in your browser"
+  },
+  "hero": {
+    "eyebrow": "Encrypted file transfer",
+    "title": "Send files with real end-to-end encryption",
+    "body": "Most \"secure\" transfer tools encrypt your file <strong>on their servers</strong> — which means they hold the keys. BIShare encrypts the file <strong>in your browser before it uploads</strong>, and the key rides in the link, never touching our servers. We only ever store ciphertext we can't read. <highlight>End-to-end encrypted, no account, free.</highlight>",
+    "ctaPrimary": "Get BIShare free",
+    "ctaSecondary": "How it works"
+  },
+  "why": {
+    "title": "Encrypted in transit isn't the same as end-to-end",
+    "body": "Plenty of services say \"encrypted\" but mean encrypted <strong>on their side</strong> — they can still read your files, and so can anyone who breaches them. End-to-end encryption means only the sender and recipient hold the key. With BIShare the key is generated in your browser and lives in the link's #fragment, which is never sent in any request — so the server stores bytes it genuinely cannot decrypt."
+  },
+  "how": {
+    "title": "How BIShare encrypts your transfer",
+    "items": {
+      "0": {
+        "h": "Encrypted before upload",
+        "b": "Toggle on end-to-end encryption and the file is encrypted in your browser with AES-256-GCM. Only ciphertext is ever uploaded — chunked and streamed so even multi-gigabyte files never sit in memory."
+      },
+      "1": {
+        "h": "The key stays with you",
+        "b": "The decryption key is placed in the link fragment (#), which browsers never transmit to a server. Share the link and the recipient's browser decrypts locally. Lose the link, and even we can't recover the file."
+      },
+      "2": {
+        "h": "Or never upload at all",
+        "b": "On the same network, BIShare sends files straight between devices over an encrypted channel — the file never reaches the cloud, so there's nothing to intercept or store."
+      }
+    }
+  },
+  "comparison": {
+    "title": "Cloud transfer vs Password ZIP vs BIShare",
+    "cols": { "airdrop": "Cloud transfer", "quick": "Password ZIP", "bishare": "BIShare" },
+    "rows": {
+      "r0": "End-to-end encrypted",
+      "r1": "Key never reaches the server",
+      "r2": "No account needed",
+      "r3": "Works offline, device-to-device",
+      "r4": "Free to use"
+    }
+  },
+  "faq": {
+    "title": "Encrypted file transfer: FAQ",
+    "items": {
+      "0": {
+        "q": "What is end-to-end encrypted file transfer?",
+        "a": "It means the file is encrypted before it leaves your device and can only be decrypted by the recipient — the service moving it can't read it. BIShare does this by encrypting in your browser and keeping the key out of the server's reach."
+      },
+      "1": {
+        "q": "How is this different from a password-protected ZIP?",
+        "a": "A password ZIP still relies on you sharing a password out-of-band, and the archive is only as strong as that password. BIShare uses a full-strength random key and moves it in the link fragment, so there's no weak password and nothing for the server to see."
+      },
+      "2": {
+        "q": "Does the server ever see my file?",
+        "a": "For encrypted transfers, only ciphertext — the key never reaches us, so we can't decrypt it. For nearby device-to-device transfers, the file never touches our servers at all."
+      },
+      "3": {
+        "q": "Do I need an account to send securely?",
+        "a": "No. Encryption is built in and free with no sign-up. You share a link or code, and the recipient opens it in any browser."
+      },
+      "4": {
+        "q": "Can I send large files encrypted?",
+        "a": "Yes. Encryption streams in chunks, so you can send large files — up to 10 GB free via an encrypted link, and with no size cap for nearby transfers over your own Wi-Fi."
+      }
+    }
+  },
+  "cta": {
+    "title": "Send your next file end-to-end encrypted",
+    "body": "Real encryption, no account, no cost. Grab BIShare for your phone or computer — the recipient just needs a browser.",
+    "download": "Download BIShare"
+  },
+  "a11y": { "yes": "Yes", "no": "No" }
+}

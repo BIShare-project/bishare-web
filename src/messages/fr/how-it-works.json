@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "title": "Comment ça marche",
+    "ogTitle": "Comment fonctionne BIShare",
+    "description": "Vitesse locale quand vos appareils sont proches, un lien quand ils ne le sont pas. Découvrez comment BIShare déplace vos fichiers à proximité et les partage partout — chiffré de bout en bout, sans compte."
+  },
+  "hero": {
+    "eyebrow": "Comment ça marche",
+    "title": "Le local d’abord, le cloud quand il le faut",
+    "sub": "À proximité, les fichiers filent à la vitesse locale et ne touchent jamais un serveur. À distance, ils passent par un lien — une URL, un QR code, un code de six caractères. Sans compte."
+  },
+  "flow": {
+    "eyebrow": "Le parcours",
+    "title": "Quatre étapes, zéro chichi",
+    "sub": "Un seul canal chiffré de votre main à la leur — le faisceau, c’est tout le trajet.",
+    "stepLabel": "Étape {step}",
+    "steps": [
+      {
+        "title": "Choisissez vos fichiers",
+        "desc": "Photos, vidéos, dossiers, projets entiers — choisissez ce que vous voulez dans l’app, ou déposez-le directement dans votre navigateur sur bishare.app.",
+        "tag": "TOUTE TAILLE"
+      },
+      {
+        "title": "Choisissez une destination",
+        "desc": "Un appareil qui apparaît à proximité, un lien pour quelqu’un de loin, ou un salon pour tout le groupe. BIShare détecte les appareils proches automatiquement.",
+        "tag": "DÉTECTION AUTO"
+      },
+      {
+        "title": "Transfert chiffré",
+        "desc": "Chaque transfert est scellé en AES-256 avant de quitter votre appareil. Les transferts proches passent en direct et ne touchent jamais un serveur.",
+        "tag": "AES-256-GCM"
+      },
+      {
+        "title": "Ça arrive. C’est tout.",
+        "desc": "Les fichiers arrivent intacts et vérifiés. Tout ce qui est partagé par un lien s’efface de lui-même au bout de 24 heures.",
+        "tag": "SUPPRESSION À 24 H"
+      }
+    ]
+  },
+  "routes": {
+    "eyebrow": "Les voies",
+    "title": "Quatre façons d’y arriver",
+    "sub": "Choisissez celle qui colle au moment — toutes finissent avec le fichier là où il doit être.",
+    "bestForLabel": "Idéal pour",
+    "methods": [
+      {
+        "title": "Appareils proches",
+        "bestFor": "Gros fichiers, même endroit",
+        "points": [
+          "Les appareils de votre réseau apparaissent automatiquement",
+          "Aucune limite de taille, pleine vitesse du réseau",
+          "Chiffré de bout en bout, sans internet"
+        ]
+      },
+      {
+        "title": "Liens et codes",
+        "bestFor": "Réseaux différents",
+        "points": [
+          "Chaque partage donne un lien, un QR code et un code de six caractères",
+          "Jusqu’à 1 Go par fichier, supprimé au bout de 24 heures",
+          "Les liens à usage unique disparaissent après le premier téléchargement"
+        ]
+      },
+      {
+        "title": "Accès navigateur",
+        "bestFor": "Quand ils n’ont pas l’app",
+        "points": [
+          "Ouvrez votre appareil depuis n’importe quel navigateur du réseau",
+          "Les dossiers se téléchargent en un seul zip",
+          "Les envois reprennent si la connexion tombe"
+        ]
+      },
+      {
+        "title": "Salons",
+        "bestFor": "Groupes et événements",
+        "points": [
+          "Un code de quatre caractères, jusqu’à 20 personnes",
+          "Chacun peut ajouter et récupérer des fichiers",
+          "En local sur votre réseau, ou partout via un lien"
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Les détails, expliqués",
+    "sub": "La version courte de tout ce qu’on nous demande.",
+    "items": [
+      {
+        "q": "Ai-je besoin d’un compte ?",
+        "a": "Non. Tout le monde peut envoyer et recevoir des transferts sans inscription — rien à créer, pas d’e-mail, aucun profil à gérer. Installez et commencez à envoyer."
+      },
+      {
+        "q": "L’autre personne a-t-elle besoin de l’app ?",
+        "a": "Pas forcément. N’importe qui peut télécharger un fichier partagé dans son navigateur avec le lien ou le code, et l’accès navigateur permet à tout ordinateur de votre réseau d’échanger des fichiers avec votre appareil. L’app accélère tout — mais elle n’est jamais obligatoire des deux côtés."
+      },
+      {
+        "q": "Quelle taille peuvent faire les fichiers ?",
+        "a": "Entre appareils du même réseau : aucune limite — envoyez un dossier de 40 Go si vous voulez. Les partages qui passent par un lien sont gratuits jusqu’à 1 Go par fichier et supprimés au bout de 24 heures."
+      },
+      {
+        "q": "Est-ce vraiment chiffré de bout en bout ?",
+        "a": "Oui. Les transferts sont chiffrés en AES-256-GCM avec un échange de clés X25519. Les transferts proches vont d’appareil à appareil et ne touchent jamais un serveur ; les partages distants sont conservés sur une infrastructure sécurisée et supprimés automatiquement."
+      },
+      {
+        "q": "Que se passe-t-il après 24 heures ?",
+        "a": "Les fichiers partagés sont définitivement supprimés — les liens et les codes cessent simplement de fonctionner. Les liens à usage unique vont plus loin et s’effacent dès le tout premier téléchargement."
+      },
+      {
+        "q": "Et si un transfert est interrompu ?",
+        "a": "Les envois par navigateur sont reprenables : si la connexion tombe ou qu’un onglet se ferme, l’envoi repart de là où il s’est arrêté au lieu de tout recommencer."
+      },
+      {
+        "q": "Quelles plateformes sont prises en charge ?",
+        "a": "iOS, Android, macOS, Windows et Linux — plus tout navigateur web moderne pour recevoir et faire des envois ponctuels. L’app est disponible en 13 langues."
+      },
+      {
+        "q": "Puis-je partager avec tout un groupe ?",
+        "a": "Oui — créez un salon. Partagez son code de quatre caractères et jusqu’à 20 personnes peuvent rejoindre, chacune pouvant envoyer et télécharger des fichiers. Les salons fonctionnent en local sans internet, ou partout via un lien."
+      },
+      {
+        "q": "Puis-je contrôler qui m’envoie des fichiers ?",
+        "a": "Entièrement. Définissez un code PIN que les expéditeurs doivent saisir, choisissez qui peut découvrir votre appareil — tout le monde, les favoris uniquement ou personne — et activez l’acceptation automatique seulement pour les appareils de confiance."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Essayez tout de suite",
+    "sub": "Envoyez votre premier fichier depuis le navigateur en moins d’une minute — ou obtenez l’app pour l’expérience complète.",
+    "sendNow": "Envoyer un fichier",
+    "getApp": "Obtenir l’app",
+    "exploreAll": "Explorer toutes les fonctionnalités"
+  }
+}

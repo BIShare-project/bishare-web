@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "Sicherheit",
+    "description": "Wie BIShare deine Dateien privat hält: Ende-zu-Ende-Verschlüsselung mit Schlüsseln, die deine Geräte nie verlassen, lokale Übertragungen, die keinen Server berühren, und Remote-Freigaben, die sich nach 24 Stunden von selbst löschen."
+  },
+  "hero": {
+    "eyebrow": "Sicherheit",
+    "title": "Privat von Grund auf",
+    "sub": "Deine Dateien reisen versiegelt, nehmen den kürzestmöglichen Weg und hinterlassen nichts. Nicht wegen einer Einstellung, die du gefunden hast — sondern weil BIShare so gebaut ist.",
+    "badge": "Schlüssel verlassen nie deine Geräte"
+  },
+  "flowHeading": "So läuft eine Ende-zu-Ende-verschlüsselte Übertragung ab",
+  "encryption": {
+    "eyebrow": "Ende-zu-Ende-Verschlüsselung",
+    "title": "Verschlossen vor dem Start. Geöffnet bei der Ankunft.",
+    "sub": "Nur die beiden Geräte einer Übertragung können die Dateien lesen, die zwischen ihnen wandern. Das passiert unter der Haube — in klaren Worten, die Technologie genau einmal benannt.",
+    "cards": {
+      "handshake": {
+        "tag": "X25519",
+        "title": "Ein Geheimnis, still vereinbart",
+        "desc": "Bevor sich etwas bewegt, einigen sich beide Geräte auf ein gemeinsames Geheimnis, ohne es je über das Netzwerk zu senden. Wer jedes Paket dieses Handshakes aufzeichnet, hat am Ende trotzdem nichts Brauchbares."
+      },
+      "perFile": {
+        "tag": "SCHLÜSSEL PRO DATEI",
+        "title": "Jede Datei erhält ihren eigenen Schlüssel",
+        "desc": "Jede Übertragung wird mit einem frischen, eigenen Schlüssel versiegelt. Selbst im schlimmsten denkbaren Fall könnte ein Schlüssel nur eine einzige Datei öffnen — nie deinen Verlauf, nie die nächste Übertragung."
+      },
+      "cipher": {
+        "tag": "AES-256-GCM",
+        "title": "Versiegelt und manipulationssicher",
+        "desc": "Dateien werden mit derselben Verschlüsselungsklasse verwürfelt, die Banken- und Behördenverkehr schützt — mit eingebautem Siegel. Wird auch nur ein Byte unterwegs verändert, wird die Übertragung abgewiesen."
+      }
+    }
+  },
+  "local": {
+    "label": "Lokal zuerst",
+    "title": "Dein Netzwerk ist der ganze Weg.",
+    "body": "Wenn zwei Geräte im selben WLAN oder Hotspot sind, wandern die Dateien direkt zwischen ihnen. Kein Upload-Schritt, kein Vermittler, keine Kopie irgendwo sonst — weil überhaupt kein Server im Weg steht.",
+    "points": [
+      "Übertragungen in der Nähe berühren nie einen Server — nicht unseren, nicht irgendjemandes",
+      "Funktioniert völlig offline: WLAN oder ein Handy-Hotspot genügt",
+      "Nichts in der Cloud gespeichert heißt: nichts, das daraus abfließen könnte",
+      "Dateien existieren an genau zwei Orten: beim Absender und beim Empfänger"
+    ],
+    "visual": {
+      "tagDirect": "DIREKT",
+      "sameNetwork": "Gleiches Netzwerk",
+      "phone": "Dein Handy",
+      "laptop": "Dein Laptop",
+      "srBeam": "Eine Datei wandert direkt von deinem Handy zu deinem Laptop über dein eigenes Netzwerk.",
+      "noServer": "Kein Server wird kontaktiert. Die Übertragung beginnt und endet in deinem eigenen Netzwerk."
+    }
+  },
+  "remote": {
+    "label": "Remote-Freigaben",
+    "title": "Geschützt unterwegs. Weg nach 24 Stunden.",
+    "body": "Wenn die andere Person in einem anderen Netzwerk ist, nimmt deine Datei einen kurzen, bewachten Umweg über sicheren Cloud-Speicher. Sie wird auf dem Hinweg verschlüsselt, bleibt beim Warten verschlüsselt und wird planmäßig gelöscht — jedes Mal.",
+    "points": [
+      "Verschlüsselt unterwegs und verschlüsselt im Ruhezustand",
+      "Nach 24 Stunden automatisch gelöscht — ohne dein Zutun",
+      "Einmal-Links zerstören sich nach dem ersten Download selbst",
+      "Wir scannen, indexieren oder betrachten nie, was du teilst"
+    ],
+    "visual": {
+      "tagRemote": "REMOTE",
+      "tagEncrypted": "VERSCHLÜSSELT",
+      "linkActive": "Link aktiv",
+      "assurance": {
+        "transit": {
+          "title": "Verschlüsselt unterwegs",
+          "desc": "Versiegelt auf dem Hin- und auf dem Rückweg."
+        },
+        "rest": {
+          "title": "Verschlüsselt im Ruhezustand",
+          "desc": "Verwürfelt gespeichert, während sie auf Abholung wartet."
+        },
+        "deleted": {
+          "title": "Nach 24 Stunden gelöscht",
+          "desc": "Automatisch, ob heruntergeladen oder nicht."
+        }
+      },
+      "timeRemaining": "Verbleibende Zeit"
+    }
+  },
+  "dont": {
+    "eyebrow": "Genauso wichtig",
+    "title": "Was wir nicht tun",
+    "sub": "Privatsphäre ist vor allem eine Frage der Zurückhaltung. Das sind keine Einstellungen, die du suchen musst — so arbeitet BIShare, standardmäßig und immer.",
+    "never": "Niemals",
+    "items": {
+      "tracking": {
+        "title": "Kein Tracking",
+        "desc": "Keine Verhaltensprofile, keine Werbe-IDs, niemand, der dir durchs Internet folgt."
+      },
+      "ads": {
+        "title": "Keine Werbung",
+        "desc": "BIShare ist ein Werkzeug, kein Werbenetzwerk. Deine Aufmerksamkeit ist nicht das Produkt."
+      },
+      "selling": {
+        "title": "Kein Datenverkauf",
+        "desc": "Wir verkaufen, vermieten oder handeln nicht mit deinen Daten. Am anderen Ende sitzt kein Datenhändler."
+      },
+      "scanning": {
+        "title": "Kein Datei-Scanning",
+        "desc": "Wir öffnen, scannen oder analysieren nie, was du überträgst. Deine Dateien sind deine Sache."
+      }
+    }
+  },
+  "disclosure": {
+    "eyebrow": "Verantwortungsvolle Offenlegung",
+    "title": "Eine Schwachstelle entdeckt? Sag es zuerst uns.",
+    "body": "Sicherheitsversprechen sind nur so viel wert wie die Prüfung, der sie standhalten. Wenn du eine Schwachstelle in BIShare findest, schreib uns mit den Schritten zur Reproduktion. Wir lesen jeden Bericht, und Forschung in gutem Glauben ist immer willkommen.",
+    "privacyLink": "Datenschutzrichtlinie lesen"
+  },
+  "flow": {
+    "keysNeverLeave": "Schlüssel verlassen nie deine Geräte",
+    "srDescription": "Gerät A verschlüsselt die Datei, die verschlüsselten Daten wandern durchs Netzwerk, und nur Gerät B kann sie entschlüsseln. Die Verschlüsselungsschlüssel verlassen keines der beiden Geräte.",
+    "deviceA": {
+      "name": "Gerät A",
+      "role": "Sender — verschlüsselt"
+    },
+    "deviceB": {
+      "name": "Gerät B",
+      "role": "Empfänger — entschlüsselt"
+    },
+    "keyStaysHere": "Schlüssel bleibt hier",
+    "whatNetworkSees": "Was das Netzwerk sieht",
+    "plaintext": "Klartext",
+    "ciphertext": "Chiffretext",
+    "unreadable": "Unlesbar",
+    "steps": {
+      "sealed": {
+        "title": "Auf deinem Gerät versiegelt",
+        "desc": "Die Datei wird verschlüsselt, bevor auch nur ein Byte losgeht."
+      },
+      "transit": {
+        "title": "Chiffretext unterwegs",
+        "desc": "Das Netzwerk trägt nur verwürfeltes Rauschen."
+      },
+      "unlocked": {
+        "title": "Bei Ankunft entschlüsselt",
+        "desc": "Nur das empfangende Gerät hält den passenden Schlüssel."
+      }
+    }
+  }
+}

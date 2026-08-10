@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "Security",
+    "description": "How BIShare keeps your files private: end-to-end encryption with keys that never leave your devices, local transfers that never touch a server, and remote shares that delete themselves after 24 hours."
+  },
+  "hero": {
+    "eyebrow": "Security",
+    "title": "Private by design",
+    "sub": "Your files travel sealed, take the shortest possible path, and leave nothing behind. Not because of a setting you found — because of how BIShare is built.",
+    "badge": "Keys never leave your devices"
+  },
+  "flowHeading": "How an end-to-end encrypted transfer works",
+  "encryption": {
+    "eyebrow": "End-to-end encryption",
+    "title": "Locked before it leaves. Unlocked on arrival.",
+    "sub": "Only the two devices in a transfer can read the files moving between them. Here is what happens under the hood — in plain words, with the technology named once.",
+    "cards": {
+      "handshake": {
+        "tag": "X25519",
+        "title": "A secret agreed in silence",
+        "desc": "Before anything moves, both devices agree on a shared secret without ever sending it across the network. Someone recording every packet of that handshake still ends up with nothing usable."
+      },
+      "perFile": {
+        "tag": "PER-FILE KEYS",
+        "title": "Every file gets its own key",
+        "desc": "Each transfer is sealed with a fresh key of its own. Even in the worst imaginable case, one key could only ever open one file — never your history, never the next transfer."
+      },
+      "cipher": {
+        "tag": "AES-256-GCM",
+        "title": "Sealed and tamper-evident",
+        "desc": "Files are scrambled with the same cipher class that protects banking and government traffic — with a built-in seal. If a single byte is altered in transit, the transfer is rejected."
+      }
+    }
+  },
+  "local": {
+    "label": "Local-first",
+    "title": "Your network is the whole journey.",
+    "body": "When two devices share the same Wi-Fi or hotspot, files travel straight between them. There is no upload step, no middleman, and no copy anywhere else — because there is no server in the path at all.",
+    "points": [
+      "Nearby transfers never touch a server — not ours, not anyone's",
+      "Works completely offline: Wi-Fi or a phone hotspot is enough",
+      "Nothing stored in the cloud means nothing to leak from it",
+      "Files exist in exactly two places: the sender and the receiver"
+    ],
+    "visual": {
+      "tagDirect": "DIRECT",
+      "sameNetwork": "Same network",
+      "phone": "Your phone",
+      "laptop": "Your laptop",
+      "srBeam": "A file travels directly from your phone to your laptop over your own network.",
+      "noServer": "No server is contacted. The transfer starts and ends on your own network."
+    }
+  },
+  "remote": {
+    "label": "Remote shares",
+    "title": "Protected in transit. Gone in 24 hours.",
+    "body": "When the other person is on a different network, your file takes a short, guarded detour through secure cloud storage. It is encrypted on the way there, encrypted while it waits, and deleted on schedule — every time.",
+    "points": [
+      "Encrypted in transit and encrypted at rest",
+      "Deleted automatically after 24 hours — no action needed",
+      "One-time links self-destruct after the first download",
+      "We never scan, index, or look at what you share"
+    ],
+    "visual": {
+      "tagRemote": "REMOTE",
+      "tagEncrypted": "ENCRYPTED",
+      "linkActive": "Link active",
+      "assurance": {
+        "transit": {
+          "title": "Encrypted in transit",
+          "desc": "Sealed on the way up and on the way down."
+        },
+        "rest": {
+          "title": "Encrypted at rest",
+          "desc": "Stored scrambled while it waits to be picked up."
+        },
+        "deleted": {
+          "title": "Deleted after 24 hours",
+          "desc": "Automatically, whether or not it was downloaded."
+        }
+      },
+      "timeRemaining": "Time remaining"
+    }
+  },
+  "dont": {
+    "eyebrow": "Just as important",
+    "title": "What we don't do",
+    "sub": "Privacy is mostly about restraint. These aren't settings you have to find — they're how BIShare works, by default and always.",
+    "never": "Never",
+    "items": {
+      "tracking": {
+        "title": "No tracking",
+        "desc": "No behavioral profiles, no advertising identifiers, no following you around the internet."
+      },
+      "ads": {
+        "title": "No ads",
+        "desc": "BIShare is a tool, not an ad network. Your attention is not the product."
+      },
+      "selling": {
+        "title": "No selling data",
+        "desc": "We don't sell, rent, or trade your data. There is no data broker on the other end."
+      },
+      "scanning": {
+        "title": "No file scanning",
+        "desc": "We never open, scan, or analyze what you transfer. Your files are your business."
+      }
+    }
+  },
+  "disclosure": {
+    "eyebrow": "Responsible disclosure",
+    "title": "Found a weakness? Tell us first.",
+    "body": "Security claims are only as good as the scrutiny they survive. If you discover a vulnerability in BIShare, email us with the steps to reproduce it. We read every report, and good-faith research is always welcome.",
+    "privacyLink": "Read the Privacy Policy"
+  },
+  "flow": {
+    "keysNeverLeave": "Keys never leave your devices",
+    "srDescription": "Device A encrypts the file, the encrypted data travels across the network, and only Device B can decrypt it. The encryption keys never leave either device.",
+    "deviceA": {
+      "name": "Device A",
+      "role": "Sender — encrypts"
+    },
+    "deviceB": {
+      "name": "Device B",
+      "role": "Receiver — decrypts"
+    },
+    "keyStaysHere": "Key stays here",
+    "whatNetworkSees": "What the network sees",
+    "plaintext": "Plaintext",
+    "ciphertext": "Ciphertext",
+    "unreadable": "Unreadable",
+    "steps": {
+      "sealed": {
+        "title": "Sealed on your device",
+        "desc": "The file is encrypted before a single byte leaves."
+      },
+      "transit": {
+        "title": "Ciphertext in transit",
+        "desc": "The network only ever carries scrambled noise."
+      },
+      "unlocked": {
+        "title": "Unlocked on arrival",
+        "desc": "Only the receiving device holds the matching key."
+      }
+    }
+  }
+}

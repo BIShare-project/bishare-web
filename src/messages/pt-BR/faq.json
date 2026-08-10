@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "Perguntas frequentes",
+    "ogTitle": "Perguntas frequentes do BIShare",
+    "description": "Respostas sobre os primeiros passos, transferências, privacidade e solução de problemas — tamanhos de arquivo, a regra da mesma rede, links de compartilhamento de 24 horas, criptografia de ponta a ponta e salas."
+  },
+  "hero": {
+    "eyebrow": "Perguntas frequentes",
+    "title": "Perguntas, respondidas",
+    "sub": "Tudo o que as pessoas perguntam antes da primeira transferência — com os detalhes sinceros no meio do caminho. Pule para um tema ou role a página.",
+    "topicsAria": "Temas das perguntas frequentes"
+  },
+  "cta": {
+    "title": "Ainda com dúvidas?",
+    "sub": "Se sua pergunta não está aqui, uma pessoa vai respondê-la. Sem bots, sem labirinto de tíquetes.",
+    "contact": "Fale conosco",
+    "securityLink": "Como mantemos as transferências privadas"
+  },
+  "groups": {
+    "getting-started": {
+      "label": "Primeiros passos",
+      "blurb": "Plataformas e o que a outra pessoa precisa.",
+      "items": [
+        {
+          "q": "Preciso de uma conta para usar o BIShare?",
+          "a": "Não — o BIShare não tem conta nenhuma. Instale o app ou abra bishare.app e comece a enviar e receber na hora. Nada para cadastrar, sem e-mail, sem perfil."
+        },
+        {
+          "q": "Em quais plataformas o BIShare funciona?",
+          "a": "Cinco plataformas: iOS, Android, macOS, Windows e Linux. O app está disponível em 13 idiomas, e qualquer navegador web moderno pode enviar e receber arquivos sem instalar nada.",
+          "linkLabel": "Baixe o app para a sua plataforma"
+        },
+        {
+          "q": "A outra pessoa precisa do app?",
+          "a": "Não necessariamente. Qualquer pessoa pode abrir um link de compartilhamento ou digitar um código no navegador para baixar arquivos, e a transferência pelo navegador deixa qualquer computador da sua rede trocar arquivos diretamente com o seu dispositivo. O app deixa tudo mais rápido e libera todos os recursos, mas nunca é obrigatório nas duas pontas."
+        },
+        {
+          "q": "Quanto custa o BIShare?",
+          "a": "É grátis. Transferências pela sua própria rede não têm limite de tamanho nem conta, e os links de compartilhamento remoto e as salas também são grátis. Sem assinaturas, sem recursos pagos."
+        }
+      ]
+    },
+    "transfers": {
+      "label": "Transferências",
+      "blurb": "Limites de tamanho, velocidade, a regra da mesma rede e grupos.",
+      "items": [
+        {
+          "q": "Qual o tamanho máximo dos arquivos que posso enviar?",
+          "a": "Entre dispositivos na mesma rede não há limite de tamanho — uma pasta de projeto de 40 GB se move tão fácil quanto uma foto. Compartilhamentos remotos que viajam por um link são grátis até 10 GB por arquivo e se apagam sozinhos após 24 horas."
+        },
+        {
+          "q": "Os dois dispositivos precisam estar no mesmo Wi-Fi?",
+          "a": "Para transferências próximas, sim — ambos precisam estar na mesma rede. O hotspot do celular conta, então funciona sem internet alguma. Em redes diferentes, use um compartilhamento remoto: o arquivo vira um link, um QR code e um código de seis caracteres que funcionam em qualquer lugar."
+        },
+        {
+          "q": "O que acontece se uma transferência for interrompida?",
+          "a": "As transferências podem ser retomadas. Se a conexão cair no meio, a transferência continua de onde parou em vez de recomeçar — as partes que já chegaram são mantidas, e só a parte que faltava é reenviada. Uploads pelo navegador retomam do mesmo jeito."
+        },
+        {
+          "q": "Qual a velocidade das transferências?",
+          "a": "Tão rápidas quanto sua rede permitir. As transferências próximas vão direto de dispositivo para dispositivo, sem passar por servidor, então o único limite é o seu próprio Wi-Fi."
+        },
+        {
+          "q": "Posso compartilhar com um grupo inteiro de uma vez?",
+          "a": "Sim — crie uma sala. Compartilhe o código de quatro caracteres e até 20 pessoas podem entrar, cada uma podendo colocar e retirar arquivos. Salas na mesma rede funcionam sem internet; salas remotas funcionam de qualquer lugar."
+        }
+      ]
+    },
+    "privacy-security": {
+      "label": "Privacidade e segurança",
+      "blurb": "Criptografia, o que conseguimos ver e o que acontece com os compartilhamentos.",
+      "items": [
+        {
+          "q": "O BIShare é mesmo criptografado de ponta a ponta?",
+          "a": "Sim. Seus dispositivos combinam um segredo por troca de chaves X25519, e cada arquivo é lacrado com AES-256-GCM usando sua própria chave nova. As chaves nunca saem dos seus dispositivos, então só quem envia e quem recebe consegue ler o que é transferido.",
+          "linkLabel": "Veja como a criptografia funciona"
+        },
+        {
+          "q": "O BIShare consegue ver os arquivos que eu envio?",
+          "a": "Não. As transferências próximas nunca tocam um servidor — vão direto entre os seus dispositivos. Os compartilhamentos remotos são criptografados em trânsito e em repouso, nunca são escaneados ou abertos, e são apagados permanentemente após 24 horas."
+        },
+        {
+          "q": "O que acontece com um compartilhamento remoto depois de 24 horas?",
+          "a": "O arquivo é apagado permanentemente do armazenamento na nuvem, e o link, o QR code e o código de compartilhamento param de funcionar. Links de uso único vão além: apagam-se sozinhos logo após o primeiro download."
+        },
+        {
+          "q": "O BIShare me rastreia ou mostra anúncios?",
+          "a": "Sem rastreamento, sem anúncios e sem venda de dados. O BIShare não cria perfis de publicidade nem persegue você pela internet.",
+          "linkLabel": "Leia a Política de Privacidade"
+        }
+      ]
+    },
+    "troubleshooting": {
+      "label": "Solução de problemas",
+      "blurb": "Quando os dispositivos somem, as transferências pausam ou os links param de funcionar.",
+      "items": [
+        {
+          "q": "Meus dispositivos não se enxergam. O que devo verificar?",
+          "a": "Primeiro, confirme que ambos estão na mesma rede — essa é a causa mais comum. Redes Wi-Fi de convidados e públicas costumam isolar os dispositivos uns dos outros, e uma VPN ativa também pode esconder um dispositivo. Verifique ainda sua configuração de visibilidade: se a descoberta estiver como só favoritos ou desligada, novos dispositivos não vão encontrar você. Na dúvida, um hotspot pessoal sempre funciona."
+        },
+        {
+          "q": "Por que uma transferência pausa quando troco de app no iPhone?",
+          "a": "O iOS limita bastante o que os apps podem fazer em segundo plano, então uma transferência grande pode pausar se o BIShare sair do primeiro plano. Mantenha o app aberto — e a tela ligada — durante transferências grandes. Se ainda assim pausar, a transferência retoma de onde parou quando você voltar."
+        },
+        {
+          "q": "Um link ou código não está funcionando. Por quê?",
+          "a": "Compartilhamentos remotos expiram após 24 horas, e links de uso único param de funcionar depois do primeiro download — um compartilhamento expirado não pode ser revivido, então peça para quem enviou compartilhar de novo. Para códigos de seis caracteres, confira bem os caracteres. Para transferências próximas, o dispositivo que envia precisa estar on-line e na sua rede."
+        }
+      ]
+    }
+  }
+}

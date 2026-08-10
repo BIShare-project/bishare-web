@@ -1,0 +1,218 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ────────────────────────────────────────────────────────────────────────────
+   BIShare Admin — Design System (E5.5). Dark-first, enterprise/premium.
+   Reference class: Linear / Vercel / Stripe. Tokens are the single source of
+   truth; every admin surface reads them. Chart palette below is the VALIDATED
+   dataviz set (dark categorical ALL PASS, light PASS with relief) — do NOT
+   substitute chart hues by eye. This app is admin-only; the marketing site
+   lives in bishare-web, so global :root/.dark scoping is safe here.
+   ──────────────────────────────────────────────────────────────────────────── */
+:root {
+  --radius: 0.7rem;
+
+  /* surfaces & ink (light) */
+  --background: #f7f7f5;
+  --foreground: #0b0b0b;
+  --surface-1: #fcfcfb;
+  --surface-2: #f0efec;
+  --text-secondary: #52514e;
+
+  --card: #fcfcfb;
+  --card-foreground: #0b0b0b;
+  --popover: #fcfcfb;
+  --popover-foreground: #0b0b0b;
+
+  --primary: #2a78d6;
+  --primary-foreground: #ffffff;
+  --secondary: #f0efec;
+  --secondary-foreground: #0b0b0b;
+  --muted: #f0efec;
+  --muted-foreground: #8a8983;
+  --accent: #f0efec;
+  --accent-foreground: #0b0b0b;
+
+  --destructive: #d03b3b;
+  --destructive-foreground: #ffffff;
+
+  --border: #e4e3df;
+  --input: #e4e3df;
+  --ring: #2a78d6;
+
+  /* status (reserved — icon + label always; never a chart series) */
+  --good: #0ca30c;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+
+  /* chart categorical (fixed order — never cycle; 8th+ → "Other") */
+  --chart-1: #2a78d6;
+  --chart-2: #1baf7a;
+  --chart-3: #eda100;
+  --chart-4: #008300;
+  --chart-5: #4a3aa7;
+  --chart-6: #e34948;
+  --chart-7: #e87ba4;
+  --chart-8: #eb6834;
+
+  /* sequential (magnitude, single blue hue, light→dark) */
+  --seq-1: #cde2fb;
+  --seq-2: #86b6ef;
+  --seq-3: #3987e5;
+  --seq-4: #1c5cab;
+
+  /* sidebar */
+  --sidebar: #fcfcfb;
+  --sidebar-foreground: #0b0b0b;
+  --sidebar-primary: #2a78d6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f0efec;
+  --sidebar-accent-foreground: #0b0b0b;
+  --sidebar-border: #e4e3df;
+  --sidebar-ring: #2a78d6;
+}
+
+.dark {
+  /* surfaces & ink (dark) */
+  --background: #0e0e0d;
+  --foreground: #ffffff;
+  --surface-1: #1a1a19;
+  --surface-2: #242422;
+  --text-secondary: #c3c2b7;
+
+  --card: #1a1a19;
+  --card-foreground: #ffffff;
+  --popover: #1a1a19;
+  --popover-foreground: #ffffff;
+
+  --primary: #3987e5;
+  --primary-foreground: #ffffff;
+  --secondary: #242422;
+  --secondary-foreground: #ffffff;
+  --muted: #242422;
+  --muted-foreground: #87867e;
+  --accent: #242422;
+  --accent-foreground: #ffffff;
+
+  --destructive: #e05656;
+  --destructive-foreground: #ffffff;
+
+  --border: #2e2e2b;
+  --input: #34342f;
+  --ring: #3987e5;
+
+  --good: #23b723;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #e05656;
+
+  --chart-1: #3987e5;
+  --chart-2: #199e70;
+  --chart-3: #c98500;
+  --chart-4: #008300;
+  --chart-5: #9085e9;
+  --chart-6: #e66767;
+  --chart-7: #d55181;
+  --chart-8: #d95926;
+
+  --seq-1: #1c3a5e;
+  --seq-2: #235a9a;
+  --seq-3: #3987e5;
+  --seq-4: #86b6ef;
+
+  --sidebar: #1a1a19;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #3987e5;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #242422;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2e2e2b;
+  --sidebar-ring: #3987e5;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-text-secondary: var(--text-secondary);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-good: var(--good);
+  --color-warning: var(--warning);
+  --color-serious: var(--serious);
+  --color-critical: var(--critical);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-chart-8: var(--chart-8);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* Calm, dense motion baseline (Linear-like): 150ms interactive transitions. */
+  a,
+  button,
+  [data-slot="badge"],
+  [role="menuitem"] {
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Recharts: keep focus outlines off the SVG surface; tooltip wrappers inherit
+   admin tokens (they render inside the themed tree, not a portal). */
+.recharts-surface:focus,
+.recharts-wrapper:focus {
+  outline: none;
+}

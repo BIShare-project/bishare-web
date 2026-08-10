@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "Transfert de fichiers chiffré — Envoyez en toute sécurité, gratuit | BIShare",
+    "description": "Envoyez des fichiers avec un chiffrement de bout en bout. BIShare chiffre dans votre navigateur avant le téléversement — la clé n'atteint jamais le serveur, donc vous seul et le destinataire pouvez l'ouvrir. Sans compte, gratuit.",
+    "ogTitle": "Transfert chiffré — de bout en bout, dans votre navigateur"
+  },
+  "hero": {
+    "eyebrow": "Transfert de fichiers chiffré",
+    "title": "Envoyez des fichiers avec un vrai chiffrement de bout en bout",
+    "body": "La plupart des outils de transfert « sécurisés » chiffrent votre fichier <strong>sur leurs serveurs</strong> — ce qui signifie qu'ils détiennent les clés. BIShare chiffre le fichier <strong>dans votre navigateur avant le téléversement</strong>, et la clé voyage dans le lien, sans jamais toucher nos serveurs. Nous ne stockons que du texte chiffré que nous ne pouvons pas lire. <highlight>Chiffré de bout en bout, sans compte, gratuit.</highlight>",
+    "ctaPrimary": "Obtenez BIShare gratuitement",
+    "ctaSecondary": "Comment ça marche"
+  },
+  "why": {
+    "title": "Chiffré en transit n'est pas la même chose que de bout en bout",
+    "body": "Beaucoup de services disent « chiffré » mais entendent chiffré <strong>de leur côté</strong> — ils peuvent toujours lire vos fichiers, et quiconque les pirate aussi. Le chiffrement de bout en bout signifie que seuls l'expéditeur et le destinataire détiennent la clé. Avec BIShare, la clé est générée dans votre navigateur et vit dans le #fragment du lien, qui n'est jamais envoyé dans aucune requête — donc le serveur stocke des octets qu'il ne peut vraiment pas déchiffrer."
+  },
+  "how": {
+    "title": "Comment BIShare chiffre votre transfert",
+    "items": {
+      "0": {
+        "h": "Chiffré avant le téléversement",
+        "b": "Activez le chiffrement de bout en bout et le fichier est chiffré dans votre navigateur avec AES-256-GCM. Seul le texte chiffré est téléversé — découpé et diffusé en flux, de sorte que même les fichiers de plusieurs gigaoctets ne restent jamais en mémoire."
+      },
+      "1": {
+        "h": "La clé reste avec vous",
+        "b": "La clé de déchiffrement est placée dans le fragment du lien (#), que les navigateurs ne transmettent jamais à un serveur. Partagez le lien et le navigateur du destinataire déchiffre localement. Perdez le lien, et même nous ne pouvons pas récupérer le fichier."
+      },
+      "2": {
+        "h": "Ou ne téléversez rien du tout",
+        "b": "Sur le même réseau, BIShare envoie les fichiers directement d'un appareil à l'autre via un canal chiffré — le fichier n'atteint jamais le cloud, donc il n'y a rien à intercepter ni à stocker."
+      }
+    }
+  },
+  "comparison": {
+    "title": "Transfert cloud vs ZIP protégé par mot de passe vs BIShare",
+    "cols": { "airdrop": "Transfert cloud", "quick": "ZIP par mot de passe", "bishare": "BIShare" },
+    "rows": {
+      "r0": "Chiffré de bout en bout",
+      "r1": "La clé n'atteint jamais le serveur",
+      "r2": "Aucun compte nécessaire",
+      "r3": "Fonctionne hors ligne, entre appareils",
+      "r4": "Gratuit à utiliser"
+    }
+  },
+  "faq": {
+    "title": "Transfert de fichiers chiffré : FAQ",
+    "items": {
+      "0": {
+        "q": "Qu'est-ce qu'un transfert de fichiers chiffré de bout en bout ?",
+        "a": "Cela signifie que le fichier est chiffré avant de quitter votre appareil et ne peut être déchiffré que par le destinataire — le service qui l'achemine ne peut pas le lire. BIShare y parvient en chiffrant dans votre navigateur et en gardant la clé hors de portée du serveur."
+      },
+      "1": {
+        "q": "En quoi est-ce différent d'un ZIP protégé par mot de passe ?",
+        "a": "Un ZIP par mot de passe repose toujours sur le partage d'un mot de passe par un autre canal, et l'archive ne vaut que ce que vaut ce mot de passe. BIShare utilise une clé aléatoire de pleine force et l'achemine dans le fragment du lien, donc pas de mot de passe faible et rien que le serveur puisse voir."
+      },
+      "2": {
+        "q": "Le serveur voit-il mon fichier à un moment donné ?",
+        "a": "Pour les transferts chiffrés, seulement du texte chiffré — la clé ne nous parvient jamais, donc nous ne pouvons pas le déchiffrer. Pour les transferts à proximité entre appareils, le fichier ne touche jamais nos serveurs."
+      },
+      "3": {
+        "q": "Ai-je besoin d'un compte pour envoyer en toute sécurité ?",
+        "a": "Non. Le chiffrement est intégré et gratuit, sans inscription. Vous partagez un lien ou un code, et le destinataire l'ouvre dans n'importe quel navigateur."
+      },
+      "4": {
+        "q": "Puis-je envoyer de gros fichiers chiffrés ?",
+        "a": "Oui. Le chiffrement se fait en flux par morceaux, donc vous pouvez envoyer de gros fichiers — jusqu'à 10 GB gratuitement via un lien chiffré, et sans limite de taille pour les transferts à proximité via votre propre Wi-Fi."
+      }
+    }
+  },
+  "cta": {
+    "title": "Envoyez votre prochain fichier chiffré de bout en bout",
+    "body": "Un vrai chiffrement, sans compte, sans frais. Prenez BIShare pour votre téléphone ou votre ordinateur — le destinataire n'a besoin que d'un navigateur.",
+    "download": "Télécharger BIShare"
+  },
+  "a11y": { "yes": "Oui", "no": "Non" }
+}

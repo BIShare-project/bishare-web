@@ -1,0 +1,1819 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-raised: var(--background-raised);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono-plex, ui-monospace, SFMono-Regular, Menlo, monospace);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Brand + status colors (from-brand-from / via-brand-mid / to-brand-to) */
+  --color-brand-from: var(--brand-from);
+  --color-brand-mid: var(--brand-mid);
+  --color-brand-to: var(--brand-to);
+  --color-violet: var(--violet);
+  --color-violet-soft: var(--violet-soft);
+  --color-success: var(--success);
+  --color-accent-blue: var(--accent-blue);
+
+  /* Radius scale: sm 12 / md 16 / lg 20 / xl 24 (base 16px, hero surfaces 28) */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+}
+
+:root {
+  /* ── DARK — Geist: pure black, near-white ink, hairline grid ─────────── */
+  color-scheme: dark;
+
+  --background: #000000; /* pure black */
+  --background-raised: #0a0a0a; /* raised surfaces, bordered grid cells */
+  --foreground: #ededed; /* Geist near-white, not pure */
+  --card: #0a0a0a;
+  --card-foreground: #ededed;
+  --popover: #0a0a0a;
+  --popover-foreground: #ededed;
+  --primary: #ffffff; /* INVERT button: white fill, black ink in dark */
+  --primary-foreground: #000000;
+  --secondary: #161616;
+  --secondary-foreground: #ededed;
+  --muted: #111111;
+  --muted-foreground: #a1a1a1; /* Geist gray */
+  --accent: #161616;
+  --accent-foreground: #ededed;
+  --destructive: #ff5c5c;
+  --border: rgba(255, 255, 255, 0.1); /* hairline #262626-ish */
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: #3b82f6; /* focus accent */
+  --success: #4ade80;
+  --accent-blue: #3b82f6; /* the one restrained color accent */
+
+  /* Accent system — exactly 2 hues */
+  --brand-from: #3b82f6; /* blue-500 */
+  --brand-mid: #38bdf8; /* sky-400, gradient midpoint */
+  --brand-to: #22d3ee; /* cyan-400 */
+  --violet: #8b5cf6; /* support tone — backgrounds/aurora ONLY, never text */
+  --violet-soft: #a78bfa;
+
+  --brand-gradient: linear-gradient(
+    135deg,
+    var(--brand-from),
+    var(--brand-mid) 50%,
+    var(--brand-to)
+  );
+  --brand-gradient-text: linear-gradient(
+    100deg,
+    #60a5fa 0%,
+    #38bdf8 35%,
+    #22d3ee 60%,
+    #a5b4fc 100%
+  );
+
+  --radius: 0.625rem; /* 10px base — Geist sharpness */
+
+  /* ── Glass 2.0 ──────────────────────────────────────────────────────── */
+  --glass-surface: rgba(13, 20, 38, 0.55);
+  --glass-surface-heavy: rgba(10, 17, 34, 0.75); /* header, dialogs */
+  --glass-border: rgba(148, 163, 199, 0.14);
+  --glass-blur: 20px;
+  --glass-inner-glow: inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 40px rgba(59, 130, 246, 0.04);
+
+  /* ── Elevation recipes (calm: soft shadow, not a glow bloom) ─────────── */
+  --glow-primary: 0 2px 10px -3px rgba(59, 130, 246, 0.4);
+  --glow-primary-hover: 0 4px 18px -4px rgba(59, 130, 246, 0.5);
+  --glow-card: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --glow-card-hover: 0 4px 16px -6px rgba(0, 0, 0, 0.35);
+  --glow-violet: 0 0 40px -12px rgba(139, 92, 246, 0.25);
+  --shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.5), var(--glow-card);
+  --shadow-glass: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.35), var(--glow-card);
+
+  /* Legacy button shadow names → glow recipes (ui/button + brandButton) */
+  --shadow-btn-primary: var(--glow-primary);
+  --shadow-btn-primary-hover: var(--glow-primary-hover);
+
+  /* Charts + sidebar recolored to the blue scheme (kept for shadcn primitives) */
+  --chart-1: #3b82f6;
+  --chart-2: #22d3ee;
+  --chart-3: #8b5cf6;
+  --chart-4: #0ea5e9;
+  --chart-5: #1d4ed8;
+  --sidebar: #070d1d;
+  --sidebar-foreground: #e8edf7;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #101a30;
+  --sidebar-accent-foreground: #e8edf7;
+  --sidebar-border: rgba(148, 163, 199, 0.13);
+  --sidebar-ring: #60a5fa;
+}
+
+.light {
+  /* ── LIGHT — Geist: pure white, black ink, hairline grid ─────────────── */
+  color-scheme: light;
+
+  --background: #ffffff; /* pure white */
+  --background-raised: #fafafa;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #0a0a0a; /* INVERT button: black fill, white ink in light */
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #0a0a0a;
+  --muted: #fafafa;
+  --muted-foreground: #666666; /* Geist gray-600 */
+  --accent: #f5f5f5;
+  --accent-foreground: #0a0a0a;
+  --destructive: #e5484d;
+  --border: rgba(0, 0, 0, 0.09); /* #eaeaea hairline */
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --input: rgba(0, 0, 0, 0.12);
+  --ring: #0070f3; /* Vercel blue focus */
+  --success: #15803d;
+  --accent-blue: #0060df; /* the one restrained color accent (AA-safe on white for link text ≈ 5.5:1) */
+
+  --glass-surface: rgba(255, 255, 255, 0.65);
+  --glass-surface-heavy: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(15, 33, 71, 0.1);
+  --glass-blur: 20px;
+  --glass-inner-glow: inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 0 40px rgba(59, 130, 246, 0.03);
+
+  /* Elevation recipes (calm): soft ambient shadow tuned for the light bg */
+  --glow-primary: 0 2px 10px -3px rgba(37, 99, 235, 0.32),
+    0 1px 2px rgba(11, 20, 36, 0.06);
+  --glow-primary-hover: 0 4px 18px -4px rgba(37, 99, 235, 0.42),
+    0 1px 2px rgba(11, 20, 36, 0.08);
+  --glow-card: 0 1px 2px rgba(11, 20, 36, 0.05);
+  --glow-card-hover: 0 6px 20px -8px rgba(11, 20, 36, 0.14);
+  --glow-violet: 0 0 40px -12px rgba(139, 92, 246, 0.14),
+    0 8px 30px rgba(11, 20, 36, 0.06);
+  --shadow-modal: 0 24px 64px rgba(11, 20, 36, 0.14), var(--glow-card);
+  --shadow-glass: 0 12px 40px rgba(11, 20, 36, 0.1);
+  --shadow-card-hover: 0 8px 30px rgba(11, 20, 36, 0.08), var(--glow-card);
+
+  /* Gradient text: darkened stops for >=4.5:1 on the light bg (review #3;
+     reverify caught #0284c7 sky-600 at ~3.7:1 → sky-700). Dark palette above
+     is untouched. */
+  --brand-gradient-text: linear-gradient(
+    100deg,
+    #1d4ed8 0%,
+    #0369a1 35%,
+    #0e7490 60%,
+    #4338ca 100%
+  );
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0b1424;
+  --sidebar-primary: #2563eb;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef2fa;
+  --sidebar-accent-foreground: #0b1424;
+  --sidebar-border: rgba(15, 33, 71, 0.1);
+  --sidebar-ring: #2563eb;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  ::selection {
+    background: rgba(59, 130, 246, 0.35);
+    color: var(--foreground);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer components {
+  /* ── Glass 2.0 surface (translucent fill + blur + inner glow) ───────── */
+  .glass {
+    background-color: var(--glass-surface);
+    border-color: var(--glass-border);
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-inner-glow);
+  }
+  .glass-heavy {
+    background-color: var(--glass-surface-heavy);
+    border-color: var(--glass-border);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 8px));
+    backdrop-filter: blur(calc(var(--glass-blur) + 8px));
+    box-shadow: var(--glass-inner-glow);
+  }
+
+  /* ── Brand gradient fill ────────────────────────────────────────────── */
+  .bg-brand-gradient {
+    background-image: var(--brand-gradient);
+  }
+
+  /* ── Display type ───────────────────────────────────────────────────── */
+  .display {
+    letter-spacing: -0.03em;
+  }
+
+  /* ── Geist premium primitives ───────────────────────────────────────── */
+
+  /* Faint hairline grid, edge-faded — the Vercel/Geist hero backdrop. */
+  .geist-grid {
+    background-image:
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 100% 70% at 50% 0%,
+      #000 30%,
+      transparent 78%
+    );
+    mask-image: radial-gradient(
+      ellipse 100% 70% at 50% 0%,
+      #000 30%,
+      transparent 78%
+    );
+  }
+
+  /* Soft monochrome spotlight bloom behind the hero (theme-adaptive). */
+  .spotlight-radial::before {
+    content: "";
+    position: absolute;
+    inset: -20% 0 auto 0;
+    height: 120%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      60% 50% at 50% 0%,
+      color-mix(in srgb, var(--foreground) 8%, transparent),
+      transparent 70%
+    );
+  }
+
+  /* Signature top light-catch line for framed product surfaces. */
+  .frame-top-line {
+    position: relative;
+  }
+  .frame-top-line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--foreground) 40%, transparent),
+      transparent
+    );
+  }
+
+  /* Conic sheen border for the hero product frame (static, premium). */
+  .sheen-border {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--card), var(--card)) padding-box,
+      conic-gradient(
+          from 180deg at 50% 0%,
+          color-mix(in srgb, var(--foreground) 22%, transparent),
+          transparent 30%,
+          transparent 70%,
+          color-mix(in srgb, var(--foreground) 22%, transparent)
+        )
+        border-box;
+  }
+
+  /* ── Gradient shimmer text ──────────────────────────────────────────── */
+  .text-shimmer {
+    background: var(--brand-gradient-text);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ── Static gradient border (technique A: padding-box/border-box) ───── */
+  .gradient-border {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--card), var(--card)) padding-box,
+      linear-gradient(
+          155deg,
+          rgba(96, 165, 250, 0.45) 0%,
+          rgba(148, 163, 199, 0.12) 30%,
+          rgba(148, 163, 199, 0.08) 70%,
+          rgba(34, 211, 238, 0.35) 100%
+        )
+        border-box;
+    box-shadow: var(--glass-inner-glow);
+  }
+  /* Glass variant: translucent fill so backdrop-blur reads through */
+  .gradient-border-glass {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(
+          color-mix(in srgb, var(--card) 60%, transparent),
+          color-mix(in srgb, var(--card) 60%, transparent)
+        )
+        padding-box,
+      linear-gradient(
+          155deg,
+          rgba(96, 165, 250, 0.45) 0%,
+          rgba(148, 163, 199, 0.12) 30%,
+          rgba(148, 163, 199, 0.08) 70%,
+          rgba(34, 211, 238, 0.35) 100%
+        )
+        border-box;
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--glass-inner-glow);
+  }
+
+  /* ── Animated conic border (technique B: masked ring) ───────────────── */
+  /* Perf (review #11): the spin is transform-driven, never paint-driven.
+     `.conic-border` alone renders a STATIC masked ring (::before). The
+     rotating variant needs a `.conic-ring` child (GradientBorderCard renders
+     it): a stationary mask-ring clip containing an oversized square with a
+     static conic gradient, rotated on the compositor. */
+  .conic-border {
+    position: relative;
+  }
+  .conic-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px; /* border width */
+    background: conic-gradient(
+      from 0deg,
+      rgba(148, 163, 199, 0.1) 0%,
+      rgba(96, 165, 250, 0.9) 12%,
+      rgba(34, 211, 238, 0.9) 20%,
+      rgba(148, 163, 199, 0.1) 32%,
+      rgba(148, 163, 199, 0.1) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+  /* The animated ring child supersedes the static ::before ring */
+  .conic-border:has(> .conic-ring)::before {
+    content: none;
+  }
+  .conic-ring {
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px; /* border width */
+    overflow: clip;
+    container-type: size; /* lets ::before size itself from W+H (cq units) */
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .conic-ring::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* Square of side W+H ≥ the host diagonal, so every rotation angle still
+       covers the ring; the mask above hides all of it except the 1px ring. */
+    width: calc(100cqw + 100cqh);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(
+      from 0deg,
+      rgba(148, 163, 199, 0.1) 0%,
+      rgba(96, 165, 250, 0.9) 12%,
+      rgba(34, 211, 238, 0.9) 20%,
+      rgba(148, 163, 199, 0.1) 32%,
+      rgba(148, 163, 199, 0.1) 100%
+    );
+    will-change: transform;
+  }
+
+  /* ── Glow pulse (hero CTA) ──────────────────────────────────────────── */
+  /* The peak glow lives on a ::after whose OPACITY animates — the button's
+     own box-shadow stays static, so the pulse is compositor-only (review
+     #10). `isolation: isolate` keeps the z-index:-1 pseudo above the page
+     but under the button's own background/content. */
+  .glow-pulse {
+    position: relative;
+    isolation: isolate;
+  }
+  .glow-pulse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow:
+      0 0 0 1px rgba(59, 130, 246, 0.35),
+      0 4px 32px -2px rgba(59, 130, 246, 0.55),
+      0 10px 72px -6px rgba(34, 211, 238, 0.38);
+  }
+
+  /* ── Aurora blobs (ONE animated background layer per viewport) ──────── */
+  .aurora {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .aurora::before,
+  .aurora::after,
+  .aurora > i {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    will-change: transform;
+  }
+  @media (min-width: 768px) {
+    .aurora::before,
+    .aurora::after,
+    .aurora > i {
+      filter: blur(90px);
+    }
+  }
+  .aurora::before {
+    /* primary blue→cyan blob */
+    width: 60vw;
+    height: 60vw;
+    max-width: 900px;
+    max-height: 900px;
+    top: -20%;
+    right: -10%;
+    background: radial-gradient(
+      closest-side,
+      rgba(59, 130, 246, 0.22),
+      rgba(34, 211, 238, 0.1) 55%,
+      transparent 75%
+    );
+  }
+  .aurora::after {
+    /* violet support blob */
+    width: 44vw;
+    height: 44vw;
+    max-width: 640px;
+    max-height: 640px;
+    top: 30%;
+    left: -12%;
+    background: radial-gradient(
+      closest-side,
+      rgba(139, 92, 246, 0.16),
+      transparent 70%
+    );
+  }
+  .aurora > i {
+    /* cyan floor wash */
+    width: 50vw;
+    height: 30vw;
+    bottom: -10%;
+    left: 30%;
+    background: radial-gradient(
+      closest-side,
+      rgba(34, 211, 238, 0.1),
+      transparent 70%
+    );
+  }
+  /* Section variant: half-size primary blob, no violet */
+  .aurora-section::before {
+    width: 34vw;
+    height: 34vw;
+    max-width: 520px;
+    max-height: 520px;
+    top: -12%;
+    right: 4%;
+  }
+  .aurora-section::after {
+    display: none;
+  }
+  .aurora-section > i {
+    width: 30vw;
+    height: 20vw;
+    left: 8%;
+  }
+  /* Footer variant: single bottom-anchored blue blob at low alpha */
+  .aurora-footer::before {
+    width: 70vw;
+    height: 36vw;
+    max-width: 1000px;
+    max-height: 480px;
+    top: auto;
+    bottom: -24%;
+    right: 12%;
+    background: radial-gradient(
+      closest-side,
+      rgba(59, 130, 246, 0.12),
+      transparent 72%
+    );
+  }
+  .aurora-footer::after,
+  .aurora-footer > i {
+    display: none;
+  }
+  .light .aurora {
+    opacity: 0.32;
+  }
+
+  /* ── Noise overlay (fixed, site-wide, rendered once in layout) ────────
+     Plain alpha layer — no blend mode (review #15): mix-blend-overlay forced
+     an extra blending pass over the whole viewport every frame. */
+  .noise {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+  .light .noise {
+    opacity: 0.03;
+  }
+
+  /* ── Grid backdrops ─────────────────────────────────────────────────── */
+  .grid-dots {
+    background-image: radial-gradient(
+      rgba(148, 163, 199, 0.14) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 30%,
+      transparent 75%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 40%,
+      #000 30%,
+      transparent 75%
+    );
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(rgba(148, 163, 199, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 199, 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 70% at 50% 30%,
+      #000 20%,
+      transparent 80%
+    );
+    mask-image: radial-gradient(
+      ellipse 80% 70% at 50% 30%,
+      #000 20%,
+      transparent 80%
+    );
+  }
+  .light .grid-dots {
+    background-image: radial-gradient(
+      rgba(15, 33, 71, 0.12) 1px,
+      transparent 1px
+    );
+  }
+  .light .grid-lines {
+    background-image:
+      linear-gradient(rgba(15, 33, 71, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 33, 71, 0.06) 1px, transparent 1px);
+  }
+
+  /* ── Gradient divider (replaces border-t section separators) ────────── */
+  .divider-gradient {
+    height: 1px;
+    border: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(96, 165, 250, 0.35) 30%,
+      rgba(34, 211, 238, 0.35) 70%,
+      transparent
+    );
+  }
+
+  /* ── Spotlight card (cursor-tracked radial fill) ────────────────────── */
+  .spotlight-card {
+    position: relative;
+  }
+  .spotlight-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.35s;
+    background: radial-gradient(
+      var(--spot-r, 480px) circle at var(--mx, 50%) var(--my, 50%),
+      rgba(96, 165, 250, 0.1),
+      rgba(34, 211, 238, 0.05) 40%,
+      transparent 65%
+    );
+    pointer-events: none;
+  }
+  @media (hover: hover) {
+    .spotlight-card:hover::after {
+      opacity: 1;
+    }
+  }
+
+  /* ── Marquee (masked edges, dual-copy track) ────────────────────────── */
+  .marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+  .marquee-row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-right: 3rem;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* ── Beam (two-path dash technique; pathLength=100 normalized) ──────── */
+  .beam-pulse {
+    stroke-dasharray: 28 72;
+    stroke-dashoffset: 100;
+  }
+
+  /* ── Hero CSS entrances (SSR-visible, no JS required) ───────────────── */
+  .hero-rise {
+    animation-delay: var(--rise-delay, 0s);
+  }
+
+  /* ── Pulsing status dot (hero badge) ────────────────────────────────── */
+  .pulse-dot {
+    position: relative;
+  }
+  .pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: inherit;
+  }
+
+  /* ── Ciphertext ticker (privacy mock) ───────────────────────────────── */
+  .cipher-line {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 10%,
+      #000 90%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 10%,
+      #000 90%,
+      transparent
+    );
+  }
+  .cipher-line > span {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  /* ── Skeleton shimmer bar (dashboard mock) ──────────────────────────── */
+  /* Shimmer is a transform-translated ::before highlight, not an animated
+     background-position (review #11) — compositor-only. */
+  .skeleton-bar {
+    position: relative;
+    overflow: hidden;
+    background: rgba(148, 163, 199, 0.1);
+  }
+  .skeleton-bar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      rgba(148, 163, 199, 0) 0%,
+      rgba(148, 163, 199, 0.12) 50%,
+      rgba(148, 163, 199, 0) 100%
+    );
+  }
+
+  /* ── Radar mock parts ───────────────────────────────────────────────── */
+  .radar-sweep {
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      rgba(34, 211, 238, 0.35),
+      transparent 60deg
+    );
+  }
+  .radar-blip {
+    opacity: 0.9; /* static fallback: peers visible */
+  }
+
+  /* ── Hero constellation nodes (gentle float; parallax added by JS) ───── */
+  .node-float {
+    animation-delay: var(--float-delay, 0s);
+  }
+
+  /* ── Key-exchange chips (scroll-story beat 2; static: chips at rest) ─── */
+  .key-chip-a,
+  .key-chip-b {
+    will-change: transform;
+  }
+
+  /* ── Arrive burst ring (scroll-story beat 3; static: faint ring) ─────── */
+  .arrive-burst {
+    opacity: 0.25;
+  }
+
+  /* ── Clipboard morph mock (static fallback: chip A visible) ─────────── */
+  .clip-chip-b {
+    opacity: 0;
+  }
+
+  /* ── Transfer-beam mock chip (static fallback: mid-path) ────────────── */
+  .beam-chip {
+    offset-path: path("M 30 70 C 110 30, 190 110, 270 70");
+    offset-distance: 50%;
+    offset-rotate: 0deg;
+  }
+
+  /* ── Dashboard rows mock progress (static fallback: complete) ───────── */
+  .mock-progress-fill {
+    transform-origin: left;
+  }
+
+  /* ── Theme toggle icon swap (CSS-gated on html.light — zero-state safe) ─ */
+  .theme-icon-sun {
+    display: none;
+  }
+  .light .theme-icon-sun {
+    display: block;
+  }
+  .light .theme-icon-moon {
+    display: none;
+  }
+
+  /* ── Phone prototype (hero interactive demo) ────────────────────────── */
+  /* Metallic frame edge: graphite in dark, silver in light. */
+  .phone-frame {
+    background: linear-gradient(
+      165deg,
+      #46506b 0%,
+      #141a2c 24%,
+      #2c3450 50%,
+      #10162a 76%,
+      #3d4763 100%
+    );
+    box-shadow:
+      0 30px 90px -30px rgba(59, 130, 246, 0.4),
+      0 18px 50px rgba(0, 0, 0, 0.5),
+      inset 0 1px 1px rgba(255, 255, 255, 0.22),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.6);
+  }
+  .light .phone-frame {
+    background: linear-gradient(
+      165deg,
+      #e6eaf4 0%,
+      #aab3c9 24%,
+      #d5dbe9 50%,
+      #9aa4bd 76%,
+      #dde2ee 100%
+    );
+    box-shadow:
+      0 30px 90px -30px rgba(59, 130, 246, 0.3),
+      0 18px 50px rgba(11, 20, 36, 0.22),
+      inset 0 1px 1px rgba(255, 255, 255, 0.8),
+      inset 0 -1px 1px rgba(11, 20, 36, 0.25);
+  }
+  /* Nearby-device pulsing ring (static pose: hidden — border + hint chip
+     carry the affordance) */
+  .device-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(96, 165, 250, 0.5);
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* Progress ring (static pose: 65% complete; 264 ≈ 2π·42) */
+  .demo-ring {
+    stroke-dasharray: 264;
+    stroke-dashoffset: 92;
+  }
+  /* Check draw-on (static pose: fully drawn; --draw = path length) */
+  .demo-check-circle,
+  .demo-check-mark {
+    stroke-dasharray: var(--draw, 208);
+    stroke-dashoffset: 0;
+  }
+  /* Demo beam fired across the hero canvas: pure light packet, no base path */
+  .demo-beam .beam-base {
+    display: none;
+  }
+  /* Landing burst on the receiving node (static pose: hidden) */
+  .demo-burst {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* ── E2E flow diagram (security centerpiece) ─────────────────────────
+     A layered HUD surface: hairline grid + accent bloom under a hairline
+     card, an encrypted channel with light packets and traveling data
+     chips, and a wire-tap ticker. Every animation below is transform /
+     opacity only and lives in the no-preference block; the rules here are
+     the static poses (= the reduced-motion rendering). */
+
+  /* ── Shared HUD surface primitives (E2E diagram + product mocks) ─────── */
+
+  /* Backdrop: fine grid, edge-faded */
+  .hud-grid {
+    background-image:
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 34px 34px;
+    opacity: 0.55;
+    -webkit-mask-image: radial-gradient(
+      ellipse 68% 78% at 50% 50%,
+      #000 8%,
+      transparent 76%
+    );
+    mask-image: radial-gradient(
+      ellipse 68% 78% at 50% 50%,
+      #000 8%,
+      transparent 76%
+    );
+  }
+
+  /* Backdrop: accent bloom (behind the seal, or under an "active" mock) */
+  .hud-bloom {
+    background: radial-gradient(
+      44% 52% at 50% 46%,
+      color-mix(in srgb, var(--accent-blue) 13%, transparent),
+      transparent 72%
+    );
+    opacity: 0.6;
+    will-change: transform, opacity;
+  }
+  .light .hud-bloom {
+    opacity: 0.45;
+  }
+
+  /* Accent icon tile: gradient fill + inner light (shared with the E2E nodes) */
+  .hud-tile {
+    background:
+      linear-gradient(
+        155deg,
+        color-mix(in srgb, var(--accent-blue) 16%, transparent),
+        transparent 62%
+      ),
+      var(--card);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--foreground) 8%, transparent),
+      0 12px 26px -20px color-mix(in srgb, var(--accent-blue) 90%, transparent);
+  }
+
+  /* Progress meter: static fill, a light sweep travelling across it. */
+  .metric-fill {
+    position: relative;
+    overflow: hidden;
+  }
+  .metric-fill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, #fff 55%, transparent),
+      transparent
+    );
+  }
+
+  /* Generic payload runner: a chip crossing a track edge to edge. Same
+     own-width trick as the E2E channel, so travel stays responsive.
+     Static pose: parked mid-track. */
+  .hud-runner {
+    transform: translateX(46%);
+    will-change: transform;
+  }
+
+  /* QR scan line (static pose: hidden) */
+  .qr-scan {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .qr-scan::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 18%;
+    opacity: 0;
+    will-change: transform;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in srgb, var(--accent-blue) 28%, transparent),
+      transparent
+    );
+  }
+
+  /* Drop zone: dashed border breathing between rest and ready (static: rest) */
+  .drop-zone {
+    position: relative;
+  }
+  .drop-zone::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border: 1px dashed color-mix(in srgb, var(--accent-blue) 60%, transparent);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Device node + its icon tile */
+  .e2e-node {
+    transition:
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  @media (hover: hover) {
+    .e2e-node:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--glow-card-hover);
+    }
+  }
+  .e2e-node-sheen {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--foreground) 28%, transparent),
+      transparent
+    );
+  }
+  .e2e-orbit {
+    will-change: transform;
+  }
+  /* Key pill: breathing accent halo (static pose: off) */
+  .e2e-key {
+    position: relative;
+  }
+  .e2e-key::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--accent-blue) 40%, transparent),
+      0 0 18px -4px color-mix(in srgb, var(--accent-blue) 75%, transparent);
+  }
+
+  /* Seal halo rings (static pose: hidden — the badge carries the moment) */
+  .e2e-halo {
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  /* Data chips riding the channel. The runner spans the full track, so a
+     transform in % of its own width maps to % of the channel — responsive
+     travel without touching layout. */
+  .e2e-runner {
+    will-change: transform;
+  }
+  .e2e-runner-plain {
+    transform: translateX(24%); /* static pose: file before the seal */
+  }
+  .e2e-runner-cipher {
+    transform: translateX(72%); /* static pose: ciphertext after it */
+  }
+  .e2e-chip {
+    box-shadow: var(--glow-card-hover);
+  }
+  /* RTL mirrors the whole channel; un-mirror the chip glyphs. */
+  [dir="rtl"] .e2e-channel {
+    transform: scaleX(-1);
+  }
+  [dir="rtl"] .e2e-chip {
+    transform: scaleX(-1);
+  }
+
+  /* Wire-tap scanline (static pose: hidden) */
+  .e2e-scan {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .e2e-scan::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -18%;
+    width: 18%;
+    opacity: 0;
+    will-change: transform;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--accent-blue) 24%, transparent),
+      transparent
+    );
+  }
+
+  /* Step cells (hairline grid via gap-px on a bordered wrapper) */
+  .e2e-step {
+    transition: background-color 0.3s ease;
+  }
+  @media (hover: hover) {
+    .e2e-step:hover {
+      background-color: var(--background-raised);
+    }
+  }
+}
+
+/* ═══ Keyframes — every loop gated behind no-preference; base styles above
+   double as the static reduced-motion fallback. ═══ */
+@media (prefers-reduced-motion: no-preference) {
+  .conic-ring::before {
+    animation: conic-spin 6s linear infinite;
+  }
+  .aurora::before {
+    animation: drift-a 26s ease-in-out infinite alternate;
+  }
+  .aurora::after {
+    animation: drift-b 32s ease-in-out infinite alternate;
+  }
+  /* Static aurora (AuroraBackground `static` prop): decorative in-card halos
+     freeze their drift so only one animated aurora runs per viewport. */
+  .aurora-static::before,
+  .aurora-static::after,
+  .aurora-static > i {
+    animation: none;
+  }
+  .text-shimmer.animate {
+    animation: shimmer 5s ease-in-out infinite;
+  }
+  .glow-pulse::after {
+    animation: glow-pulse 3.2s ease-in-out infinite;
+  }
+  .beam-pulse {
+    animation: beam-travel var(--beam-dur, 2.8s) cubic-bezier(0.4, 0, 0.2, 1)
+      infinite;
+  }
+  .marquee-track {
+    animation: marquee var(--marquee-dur, 36s) linear infinite;
+  }
+  .hero-rise {
+    animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--rise-delay, 0s);
+  }
+  .pulse-dot::after {
+    animation: pulse-dot 2.4s ease-out infinite;
+  }
+  .cipher-line > span {
+    animation: cipher-scroll 6s linear infinite;
+  }
+  .skeleton-bar::before {
+    animation: skeleton-slide 2.4s linear infinite;
+  }
+  .radar-sweep {
+    animation: radar-spin var(--radar-dur, 4s) linear infinite;
+  }
+  .node-float {
+    animation: node-float 7s ease-in-out infinite alternate;
+    animation-delay: var(--float-delay, 0s);
+  }
+  .key-chip-a {
+    animation: key-swap-a 4s ease-in-out infinite;
+  }
+  .key-chip-b {
+    animation: key-swap-b 4s ease-in-out infinite;
+  }
+  .arrive-burst {
+    animation: arrive-burst 4s ease-out infinite;
+  }
+  .arrive-chip {
+    animation: arrive-chip 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .radar-blip {
+    opacity: 0;
+    animation: radar-blip 4s ease-out infinite;
+    animation-delay: var(--blip-delay, 1s);
+  }
+  .clip-chip-a {
+    animation: clip-a 4s ease-in-out infinite;
+  }
+  .clip-chip-b {
+    animation: clip-b 4s ease-in-out infinite;
+  }
+  .beam-chip {
+    animation: chip-travel 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  .mock-progress-fill {
+    animation: mock-progress 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    animation-delay: var(--row-delay, 0s);
+  }
+  .mock-check {
+    animation: mock-check 6s ease-out infinite;
+    animation-delay: var(--row-delay, 0s);
+  }
+  .avatar-pop {
+    animation: avatar-pop 5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  }
+  .drop-card {
+    animation: drop-in 5s ease-in-out infinite;
+  }
+  .drop-progress {
+    transform-origin: left;
+    animation: drop-progress 5s ease-in-out infinite;
+  }
+  .success-pulse {
+    animation: success-pulse 0.6s ease-out 1;
+  }
+  .theme-toggle .theme-icon-sun,
+  .theme-toggle .theme-icon-moon {
+    animation: theme-icon-in 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .device-ring {
+    animation: device-ring 2.6s ease-out infinite;
+  }
+  .demo-ring {
+    animation: demo-ring 2.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+  .demo-check-circle {
+    animation: demo-draw-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .demo-check-mark {
+    animation: demo-draw-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+  .demo-toast {
+    animation: toast-rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+  }
+  .demo-hint {
+    animation: hint-bob 2.8s ease-in-out infinite;
+  }
+  .demo-burst {
+    animation: demo-burst 1.3s ease-out forwards;
+  }
+
+  /* Shared HUD primitives */
+  .hud-bloom {
+    animation: hud-breathe 9s ease-in-out infinite alternate;
+  }
+  .metric-fill::after {
+    animation: metric-sweep 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation-delay: var(--sweep-delay, 0s);
+  }
+  .hud-runner {
+    animation: hud-run var(--run-dur, 3.4s) cubic-bezier(0.4, 0, 0.2, 1)
+      infinite;
+  }
+  .qr-scan::before {
+    animation: qr-scan 4.2s ease-in-out infinite;
+  }
+  .drop-zone::after {
+    animation: drop-ready 3.6s ease-in-out infinite;
+  }
+
+  /* E2E flow diagram */
+  .e2e-orbit {
+    animation: radar-spin var(--orbit-dur, 26s) linear infinite;
+  }
+  .e2e-key::after {
+    animation: e2e-key-glow 4.2s ease-in-out infinite;
+    animation-delay: var(--key-delay, 0s);
+  }
+  .e2e-halo {
+    animation: e2e-halo 3.6s ease-out infinite;
+    animation-delay: var(--halo-delay, 0s);
+  }
+  .e2e-runner-plain {
+    animation: e2e-run-plain var(--e2e-dur, 3.8s) linear infinite;
+  }
+  .e2e-runner-cipher {
+    animation: e2e-run-cipher var(--e2e-dur, 3.8s) linear infinite;
+  }
+  .e2e-scan::before {
+    animation: e2e-scan 6s ease-in-out infinite;
+  }
+}
+
+/* Reduced motion: hide the traveling beam packet, brighten the base path */
+@media (prefers-reduced-motion: reduce) {
+  .beam-pulse {
+    display: none;
+  }
+  .beam-base {
+    opacity: 0.5;
+  }
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .marquee-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .marquee-row[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+@keyframes conic-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes drift-a {
+  to {
+    transform: translate(-6%, 8%) scale(1.08);
+  }
+}
+@keyframes drift-b {
+  to {
+    transform: translate(8%, -6%) scale(1.12);
+  }
+}
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes beam-travel {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+@keyframes pulse-dot {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+@keyframes cipher-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes skeleton-slide {
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes radar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes radar-blip {
+  0%,
+  8% {
+    opacity: 0;
+  }
+  14%,
+  42% {
+    opacity: 1;
+  }
+  58%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes clip-a {
+  0%,
+  35% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  50%,
+  85% {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@keyframes clip-b {
+  0%,
+  35% {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(6px);
+  }
+  50%,
+  85% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(6px);
+  }
+}
+@keyframes chip-travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+@keyframes mock-progress {
+  0% {
+    transform: scaleX(0.05);
+  }
+  42%,
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes mock-check {
+  0%,
+  40% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  48%,
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  97%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+@keyframes avatar-pop {
+  0%,
+  15% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  26%,
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  82%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes drop-in {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  20%,
+  92% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+@keyframes drop-progress {
+  0%,
+  24% {
+    transform: scaleX(0);
+  }
+  62%,
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes success-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 24px rgba(74, 222, 128, 0);
+  }
+}
+@keyframes node-float {
+  to {
+    transform: translateY(-9px);
+  }
+}
+@keyframes key-swap-a {
+  0%,
+  12% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  48%,
+  62% {
+    transform: translateX(var(--key-travel, 72px));
+    opacity: 1;
+  }
+  78%,
+  100% {
+    transform: translateX(var(--key-travel, 72px));
+    opacity: 0;
+  }
+}
+@keyframes key-swap-b {
+  0%,
+  12% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  48%,
+  62% {
+    transform: translateX(calc(var(--key-travel, 72px) * -1));
+    opacity: 1;
+  }
+  78%,
+  100% {
+    transform: translateX(calc(var(--key-travel, 72px) * -1));
+    opacity: 0;
+  }
+}
+@keyframes arrive-burst {
+  0%,
+  55% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  62% {
+    opacity: 0.9;
+  }
+  86%,
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+@keyframes theme-icon-in {
+  from {
+    transform: rotate(90deg) scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes arrive-chip {
+  0%,
+  18% {
+    opacity: 0;
+    transform: translate(-72px, -56px) scale(0.9);
+  }
+  30% {
+    opacity: 1;
+  }
+  58%,
+  74% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  88%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes device-ring {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+}
+@keyframes demo-ring {
+  from {
+    stroke-dashoffset: 264;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes demo-draw-in {
+  from {
+    stroke-dashoffset: var(--draw, 208);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes toast-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes hint-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes demo-burst {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.72);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
+/* ── Shared HUD primitives ────────────────────────────────────────────── */
+@keyframes hud-breathe {
+  from {
+    opacity: 0.4;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+@keyframes metric-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  55%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes hud-run {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  14%,
+  82% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(94%);
+    opacity: 0;
+  }
+}
+@keyframes qr-scan {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  12%,
+  74% {
+    opacity: 1;
+  }
+  86%,
+  100% {
+    transform: translateY(455%);
+    opacity: 0;
+  }
+}
+@keyframes drop-ready {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  45%,
+  62% {
+    opacity: 0.85;
+  }
+}
+
+/* ── E2E flow diagram ─────────────────────────────────────────────────── */
+@keyframes e2e-key-glow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+@keyframes e2e-halo {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+/* Plaintext chip: leaves the sender, dissolves into the seal. */
+@keyframes e2e-run-plain {
+  0% {
+    transform: translateX(2%);
+    opacity: 0;
+  }
+  12%,
+  40% {
+    opacity: 1;
+  }
+  48%,
+  100% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
+/* Ciphertext chip: emerges from the seal, lands on the receiver. */
+@keyframes e2e-run-cipher {
+  0%,
+  50% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  66%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(97%);
+    opacity: 0;
+  }
+}
+@keyframes e2e-scan {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  12%,
+  78% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(650%);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "FAQ",
+    "ogTitle": "BIShare-FAQ",
+    "description": "Antworten zu den ersten Schritten, Übertragungen, Datenschutz und Fehlerbehebung – Dateigrößen, die Gleiches-Netzwerk-Regel, 24-Stunden-Freigabelinks, Ende-zu-Ende-Verschlüsselung und Räume."
+  },
+  "hero": {
+    "eyebrow": "FAQ",
+    "title": "Fragen, beantwortet",
+    "sub": "Alles, was man vor der ersten Übertragung fragt – und die ehrlichen Details dazwischen. Spring zu einem Thema oder scroll einfach durch.",
+    "topicsAria": "FAQ-Themen"
+  },
+  "cta": {
+    "title": "Noch neugierig?",
+    "sub": "Steht deine Frage nicht hier, antwortet ein echter Mensch. Keine Bots, kein Ticket-Labyrinth.",
+    "contact": "Kontakt aufnehmen",
+    "securityLink": "So halten wir Übertragungen privat"
+  },
+  "groups": {
+    "getting-started": {
+      "label": "Erste Schritte",
+      "blurb": "Plattformen und was die andere Person braucht.",
+      "items": [
+        {
+          "q": "Brauche ich ein Konto, um BIShare zu nutzen?",
+          "a": "Nein – BIShare hat gar keine Konten. Installiere die App oder öffne bishare.app und beginne sofort mit dem Senden und Empfangen. Nichts zu registrieren, keine E-Mail, kein Profil."
+        },
+        {
+          "q": "Auf welchen Plattformen läuft BIShare?",
+          "a": "Fünf Plattformen: iOS, Android, macOS, Windows und Linux. Die App gibt es in 13 Sprachen, und jeder moderne Webbrowser kann Dateien senden und empfangen, ohne etwas zu installieren.",
+          "linkLabel": "Hol dir die App für deine Plattform"
+        },
+        {
+          "q": "Braucht die andere Person die App?",
+          "a": "Nicht unbedingt. Jede und jeder kann einen Freigabelink öffnen oder einen Freigabecode im Browser eingeben, um Dateien herunterzuladen, und die Browser-Übertragung lässt jeden Computer in deinem Netzwerk direkt mit deinem Gerät Dateien austauschen. Die App macht alles schneller und schaltet jede Funktion frei, ist aber nie an beiden Enden erforderlich."
+        },
+        {
+          "q": "Was kostet BIShare?",
+          "a": "Es ist kostenlos. Übertragungen über dein eigenes Netzwerk haben keine Größenbeschränkung und kein Konto, und auch Remote-Freigabelinks und Räume sind kostenlos. Keine Abos, keine kostenpflichtigen Funktionen."
+        }
+      ]
+    },
+    "transfers": {
+      "label": "Übertragungen",
+      "blurb": "Größenlimits, Tempo, die Gleiches-Netzwerk-Regel und Gruppen.",
+      "items": [
+        {
+          "q": "Wie groß dürfen die Dateien sein, die ich sende?",
+          "a": "Zwischen Geräten im selben Netzwerk gibt es keine Größenbeschränkung – ein 40-GB-Projektordner wandert so leicht wie ein Foto. Remote-Freigaben, die über einen Link laufen, sind bis 10 GB pro Datei kostenlos und löschen sich nach 24 Stunden selbst."
+        },
+        {
+          "q": "Müssen beide Geräte im selben WLAN sein?",
+          "a": "Für Übertragungen in der Nähe ja – beide Geräte müssen im selben Netzwerk sein. Ein Handy-Hotspot zählt, also klappt es ganz ohne Internet. In unterschiedlichen Netzwerken nimm stattdessen eine Remote-Freigabe: Die Datei wird zu einem Link, einem QR-Code und einem sechsstelligen Code, die überall funktionieren."
+        },
+        {
+          "q": "Was passiert, wenn eine Übertragung unterbrochen wird?",
+          "a": "Übertragungen lassen sich fortsetzen. Bricht die Verbindung mittendrin ab, macht die Übertragung dort weiter, wo sie gestoppt hat, statt neu zu beginnen – die bereits angekommenen Teile bleiben erhalten, und nur der fehlende Teil wird erneut gesendet. Browser-Uploads werden genauso fortgesetzt."
+        },
+        {
+          "q": "Wie schnell sind die Übertragungen?",
+          "a": "So schnell, wie es dein Netzwerk zulässt. Übertragungen in der Nähe laufen direkt von Gerät zu Gerät, ohne Umweg über einen Server – die einzige Grenze ist dein WLAN selbst."
+        },
+        {
+          "q": "Kann ich mit einer ganzen Gruppe auf einmal teilen?",
+          "a": "Ja – erstelle einen Raum. Teile seinen vierstelligen Code, und bis zu 20 Personen können beitreten, die jeweils Dateien ablegen und herausnehmen können. Räume im selben Netzwerk funktionieren ohne Internet; Remote-Räume funktionieren von überall."
+        }
+      ]
+    },
+    "privacy-security": {
+      "label": "Datenschutz & Sicherheit",
+      "blurb": "Verschlüsselung, was wir sehen können und was mit Freigaben geschieht.",
+      "items": [
+        {
+          "q": "Ist BIShare wirklich Ende-zu-Ende-verschlüsselt?",
+          "a": "Ja. Deine Geräte einigen sich per X25519-Schlüsselaustausch auf ein Geheimnis, und jede Datei wird mit AES-256-GCM und einem eigenen frischen Schlüssel versiegelt. Die Schlüssel verlassen deine Geräte nie, sodass nur Sender und Empfänger lesen können, was übertragen wird.",
+          "linkLabel": "So funktioniert die Verschlüsselung"
+        },
+        {
+          "q": "Kann BIShare die Dateien sehen, die ich sende?",
+          "a": "Nein. Übertragungen in der Nähe berühren nie einen Server – sie laufen direkt zwischen deinen Geräten. Remote-Freigaben sind bei der Übertragung und im Ruhezustand verschlüsselt, werden nie gescannt oder geöffnet und nach 24 Stunden dauerhaft gelöscht."
+        },
+        {
+          "q": "Was passiert mit einer Remote-Freigabe nach 24 Stunden?",
+          "a": "Die Datei wird dauerhaft aus dem Cloud-Speicher gelöscht, und Link, QR-Code sowie Freigabecode funktionieren allesamt nicht mehr. Einmal-Links gehen weiter: Sie löschen sich direkt nach dem ersten Download selbst."
+        },
+        {
+          "q": "Verfolgt mich BIShare oder zeigt Werbung?",
+          "a": "Kein Tracking, keine Werbung und kein Datenverkauf. BIShare erstellt keine Werbeprofile und folgt dir nicht durchs Internet.",
+          "linkLabel": "Datenschutzerklärung lesen"
+        }
+      ]
+    },
+    "troubleshooting": {
+      "label": "Fehlerbehebung",
+      "blurb": "Wenn Geräte verschwinden, Übertragungen stocken oder Links nicht mehr funktionieren.",
+      "items": [
+        {
+          "q": "Meine Geräte sehen sich nicht. Was soll ich prüfen?",
+          "a": "Prüfe zuerst, ob beide Geräte im selben Netzwerk sind – das ist die häufigste Ursache. Gäste- und öffentliche WLANs isolieren Geräte oft voneinander, und ein aktives VPN kann ein Gerät ebenfalls verbergen. Prüfe auch deine Sichtbarkeitseinstellung: Steht die Erkennung auf nur Favoriten oder aus, finden dich neue Geräte nicht. Im Zweifel funktioniert ein persönlicher Hotspot immer."
+        },
+        {
+          "q": "Warum pausiert eine Übertragung, wenn ich auf dem iPhone die App wechsle?",
+          "a": "iOS beschränkt streng, was Apps im Hintergrund tun dürfen, sodass eine große Übertragung pausieren kann, wenn BIShare in den Hintergrund gerät. Lass die App bei großen Übertragungen offen – und den Bildschirm an. Kommt es doch zu einer Pause, wird die Übertragung bei deiner Rückkehr dort fortgesetzt, wo sie aufgehört hat."
+        },
+        {
+          "q": "Ein Link oder Code funktioniert nicht. Warum?",
+          "a": "Remote-Freigaben verfallen nach 24 Stunden, und Einmal-Links funktionieren nach ihrem ersten Download nicht mehr – eine verfallene Freigabe lässt sich nicht wiederbeleben, bitte also den Absender, erneut zu teilen. Prüfe bei sechsstelligen Codes die Zeichen genau. Bei Übertragungen in der Nähe muss das sendende Gerät online und in deinem Netzwerk sein."
+        }
+      ]
+    }
+  }
+}

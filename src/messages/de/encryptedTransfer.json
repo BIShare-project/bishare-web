@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "title": "Verschlüsselte Dateiübertragung — Dateien sicher senden, kostenlos | BIShare",
+    "description": "Sende Dateien mit Ende-zu-Ende-Verschlüsselung. BIShare verschlüsselt im Browser vor dem Upload — der Schlüssel erreicht nie den Server, sodass nur du und der Empfänger sie öffnen können. Ohne Konto, kostenlos.",
+    "ogTitle": "Verschlüsselte Dateiübertragung — Ende-zu-Ende, im Browser"
+  },
+  "hero": {
+    "eyebrow": "Verschlüsselte Dateiübertragung",
+    "title": "Sende Dateien mit echter Ende-zu-Ende-Verschlüsselung",
+    "body": "Die meisten \"sicheren\" Übertragungstools verschlüsseln deine Datei <strong>auf ihren Servern</strong> — das heißt, sie halten die Schlüssel. BIShare verschlüsselt die Datei <strong>in deinem Browser, bevor sie hochgeladen wird</strong>, und der Schlüssel reist im Link, ohne unsere Server je zu berühren. Wir speichern nur verschlüsselte Daten, die wir nicht lesen können. <highlight>Ende-zu-Ende verschlüsselt, ohne Konto, kostenlos.</highlight>",
+    "ctaPrimary": "BIShare kostenlos holen",
+    "ctaSecondary": "So funktioniert's"
+  },
+  "why": {
+    "title": "Verschlüsselt bei der Übertragung ist nicht dasselbe wie Ende-zu-Ende",
+    "body": "Viele Dienste sagen \"verschlüsselt\", meinen aber verschlüsselt <strong>auf ihrer Seite</strong> — sie können deine Dateien weiterhin lesen, und jeder, der sie hackt, ebenso. Ende-zu-Ende-Verschlüsselung bedeutet, dass nur Sender und Empfänger den Schlüssel besitzen. Bei BIShare wird der Schlüssel in deinem Browser erzeugt und lebt im #Fragment des Links, das in keiner Anfrage gesendet wird — der Server speichert also Bytes, die er wirklich nicht entschlüsseln kann."
+  },
+  "how": {
+    "title": "So verschlüsselt BIShare deine Übertragung",
+    "items": {
+      "0": {
+        "h": "Verschlüsselt vor dem Upload",
+        "b": "Aktiviere die Ende-zu-Ende-Verschlüsselung und die Datei wird in deinem Browser mit AES-256-GCM verschlüsselt. Es werden nur verschlüsselte Daten hochgeladen — in Blöcken gestreamt, sodass selbst Dateien mit mehreren Gigabyte nie im Speicher liegen."
+      },
+      "1": {
+        "h": "Der Schlüssel bleibt bei dir",
+        "b": "Der Entschlüsselungsschlüssel wird im Link-Fragment (#) platziert, das Browser nie an einen Server übertragen. Teile den Link und der Browser des Empfängers entschlüsselt lokal. Verlierst du den Link, können selbst wir die Datei nicht wiederherstellen."
+      },
+      "2": {
+        "h": "Oder gar nicht hochladen",
+        "b": "Im selben Netzwerk sendet BIShare Dateien direkt zwischen Geräten über einen verschlüsselten Kanal — die Datei erreicht die Cloud nie, es gibt also nichts abzufangen oder zu speichern."
+      }
+    }
+  },
+  "comparison": {
+    "title": "Cloud-Übertragung vs Passwort-ZIP vs BIShare",
+    "cols": { "airdrop": "Cloud-Übertragung", "quick": "Passwort-ZIP", "bishare": "BIShare" },
+    "rows": {
+      "r0": "Ende-zu-Ende verschlüsselt",
+      "r1": "Schlüssel erreicht nie den Server",
+      "r2": "Kein Konto nötig",
+      "r3": "Funktioniert offline, von Gerät zu Gerät",
+      "r4": "Kostenlos nutzbar"
+    }
+  },
+  "faq": {
+    "title": "Verschlüsselte Dateiübertragung: FAQ",
+    "items": {
+      "0": {
+        "q": "Was ist Ende-zu-Ende-verschlüsselte Dateiübertragung?",
+        "a": "Es bedeutet, dass die Datei verschlüsselt wird, bevor sie dein Gerät verlässt, und nur vom Empfänger entschlüsselt werden kann — der übertragende Dienst kann sie nicht lesen. BIShare erreicht das, indem es im Browser verschlüsselt und den Schlüssel außerhalb der Reichweite des Servers hält."
+      },
+      "1": {
+        "q": "Wie unterscheidet sich das von einer passwortgeschützten ZIP?",
+        "a": "Eine Passwort-ZIP hängt weiterhin davon ab, dass du ein Passwort auf einem anderen Weg teilst, und das Archiv ist nur so stark wie dieses Passwort. BIShare nutzt einen vollwertigen Zufallsschlüssel und bewegt ihn im Link-Fragment, sodass es kein schwaches Passwort und nichts für den Server zu sehen gibt."
+      },
+      "2": {
+        "q": "Sieht der Server je meine Datei?",
+        "a": "Bei verschlüsselten Übertragungen nur verschlüsselte Daten — der Schlüssel erreicht uns nie, wir können sie also nicht entschlüsseln. Bei Übertragungen in der Nähe von Gerät zu Gerät berührt die Datei unsere Server überhaupt nicht."
+      },
+      "3": {
+        "q": "Brauche ich ein Konto, um sicher zu senden?",
+        "a": "Nein. Verschlüsselung ist eingebaut und kostenlos, ganz ohne Anmeldung. Du teilst einen Link oder Code, und der Empfänger öffnet ihn in jedem Browser."
+      },
+      "4": {
+        "q": "Kann ich große Dateien verschlüsselt senden?",
+        "a": "Ja. Die Verschlüsselung streamt in Blöcken, sodass du große Dateien senden kannst — bis zu 10 GB kostenlos über einen verschlüsselten Link und ohne Größenbeschränkung bei Übertragungen in der Nähe über dein eigenes Wi-Fi."
+      }
+    }
+  },
+  "cta": {
+    "title": "Sende deine nächste Datei Ende-zu-Ende verschlüsselt",
+    "body": "Echte Verschlüsselung, ohne Konto, ohne Kosten. Hol dir BIShare für dein Handy oder deinen Computer — der Empfänger braucht nur einen Browser.",
+    "download": "BIShare herunterladen"
+  },
+  "a11y": { "yes": "Ja", "no": "Nein" }
+}

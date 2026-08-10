@@ -1,0 +1,16 @@
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+  Access-Control-Allow-Origin: *
+
+/.well-known/assetlinks.json
+  Content-Type: application/json
+  Access-Control-Allow-Origin: *
+
+/manifest.webmanifest
+  Content-Type: application/manifest+json
+
+# Never let the service worker itself get cached — a stale sw.js would pin an
+# old caching strategy on returning visitors. Browsers refetch it on every load.
+/sw.js
+  Content-Type: text/javascript
+  Cache-Control: no-cache

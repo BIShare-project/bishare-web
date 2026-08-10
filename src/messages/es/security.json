@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "Seguridad",
+    "description": "Cómo BIShare mantiene tus archivos privados: cifrado de extremo a extremo con claves que nunca salen de tus dispositivos, transferencias locales que jamás pasan por un servidor y envíos remotos que se borran solos a las 24 horas."
+  },
+  "hero": {
+    "eyebrow": "Seguridad",
+    "title": "Privado por diseño",
+    "sub": "Tus archivos viajan sellados, toman el camino más corto posible y no dejan rastro. No por un ajuste que encontraste, sino por cómo está construido BIShare.",
+    "badge": "Las claves nunca salen de tus dispositivos"
+  },
+  "flowHeading": "Cómo funciona una transferencia cifrada de extremo a extremo",
+  "encryption": {
+    "eyebrow": "Cifrado de extremo a extremo",
+    "title": "Bloqueado antes de salir. Desbloqueado al llegar.",
+    "sub": "Solo los dos dispositivos de una transferencia pueden leer los archivos que se mueven entre ellos. Esto es lo que ocurre bajo el capó, en palabras claras y nombrando la tecnología una sola vez.",
+    "cards": {
+      "handshake": {
+        "tag": "X25519",
+        "title": "Un secreto acordado en silencio",
+        "desc": "Antes de que nada se mueva, ambos dispositivos acuerdan un secreto compartido sin enviarlo jamás por la red. Quien grabe cada paquete de ese saludo criptográfico se queda igualmente sin nada aprovechable."
+      },
+      "perFile": {
+        "tag": "CLAVES POR ARCHIVO",
+        "title": "Cada archivo tiene su propia clave",
+        "desc": "Cada transferencia se sella con una clave nueva y propia. Incluso en el peor caso imaginable, una clave solo podría abrir un archivo: nunca tu historial, nunca la siguiente transferencia."
+      },
+      "cipher": {
+        "tag": "AES-256-GCM",
+        "title": "Sellado y a prueba de manipulaciones",
+        "desc": "Los archivos se cifran con la misma clase de cifrado que protege el tráfico bancario y gubernamental, con un sello incorporado. Si se altera un solo byte en tránsito, la transferencia se rechaza."
+      }
+    }
+  },
+  "local": {
+    "label": "Local primero",
+    "title": "Tu red es todo el trayecto.",
+    "body": "Cuando dos dispositivos comparten el mismo Wi-Fi o punto de acceso, los archivos viajan directamente entre ellos. No hay paso de subida, ni intermediario, ni copia en ningún otro sitio, porque no hay ningún servidor en el camino.",
+    "points": [
+      "Las transferencias cercanas nunca pasan por un servidor: ni el nuestro ni el de nadie",
+      "Funciona totalmente sin conexión: basta con Wi-Fi o el punto de acceso del móvil",
+      "Nada guardado en la nube significa que no hay nada que filtrar desde ella",
+      "Los archivos existen en exactamente dos lugares: quien envía y quien recibe"
+    ],
+    "visual": {
+      "tagDirect": "DIRECTO",
+      "sameNetwork": "Misma red",
+      "phone": "Tu teléfono",
+      "laptop": "Tu portátil",
+      "srBeam": "Un archivo viaja directamente de tu teléfono a tu portátil a través de tu propia red.",
+      "noServer": "No se contacta con ningún servidor. La transferencia empieza y termina en tu propia red."
+    }
+  },
+  "remote": {
+    "label": "Envíos remotos",
+    "title": "Protegido en tránsito. Desaparece en 24 horas.",
+    "body": "Cuando la otra persona está en una red distinta, tu archivo hace un desvío breve y vigilado por un almacenamiento en la nube seguro. Se cifra de camino allí, permanece cifrado mientras espera y se borra según lo previsto, siempre.",
+    "points": [
+      "Cifrado en tránsito y cifrado en reposo",
+      "Se borra automáticamente a las 24 horas, sin hacer nada",
+      "Los enlaces de un solo uso se autodestruyen tras la primera descarga",
+      "Nunca escaneamos, indexamos ni miramos lo que compartes"
+    ],
+    "visual": {
+      "tagRemote": "REMOTO",
+      "tagEncrypted": "CIFRADO",
+      "linkActive": "Enlace activo",
+      "assurance": {
+        "transit": {
+          "title": "Cifrado en tránsito",
+          "desc": "Sellado tanto al subir como al bajar."
+        },
+        "rest": {
+          "title": "Cifrado en reposo",
+          "desc": "Se guarda cifrado mientras espera a ser recogido."
+        },
+        "deleted": {
+          "title": "Borrado a las 24 horas",
+          "desc": "De forma automática, se haya descargado o no."
+        }
+      },
+      "timeRemaining": "Tiempo restante"
+    }
+  },
+  "dont": {
+    "eyebrow": "Igual de importante",
+    "title": "Lo que no hacemos",
+    "sub": "La privacidad es sobre todo cuestión de contención. Esto no son ajustes que tengas que buscar: así funciona BIShare, por defecto y siempre.",
+    "never": "Nunca",
+    "items": {
+      "tracking": {
+        "title": "Sin rastreo",
+        "desc": "Sin perfiles de comportamiento, sin identificadores publicitarios, sin seguirte por internet."
+      },
+      "ads": {
+        "title": "Sin anuncios",
+        "desc": "BIShare es una herramienta, no una red publicitaria. Tu atención no es el producto."
+      },
+      "selling": {
+        "title": "Sin vender datos",
+        "desc": "No vendemos, alquilamos ni intercambiamos tus datos. No hay ningún intermediario de datos al otro lado."
+      },
+      "scanning": {
+        "title": "Sin escanear archivos",
+        "desc": "Nunca abrimos, escaneamos ni analizamos lo que transfieres. Tus archivos son asunto tuyo."
+      }
+    }
+  },
+  "disclosure": {
+    "eyebrow": "Divulgación responsable",
+    "title": "¿Encontraste una debilidad? Cuéntanoslo primero.",
+    "body": "Las promesas de seguridad valen lo que el escrutinio que resisten. Si descubres una vulnerabilidad en BIShare, escríbenos con los pasos para reproducirla. Leemos cada informe, y la investigación de buena fe siempre es bienvenida.",
+    "privacyLink": "Leer la Política de Privacidad"
+  },
+  "flow": {
+    "keysNeverLeave": "Las claves nunca salen de tus dispositivos",
+    "srDescription": "El Dispositivo A cifra el archivo, los datos cifrados viajan por la red y solo el Dispositivo B puede descifrarlos. Las claves de cifrado nunca salen de ninguno de los dos dispositivos.",
+    "deviceA": {
+      "name": "Dispositivo A",
+      "role": "Emisor: cifra"
+    },
+    "deviceB": {
+      "name": "Dispositivo B",
+      "role": "Receptor: descifra"
+    },
+    "keyStaysHere": "La clave se queda aquí",
+    "whatNetworkSees": "Lo que ve la red",
+    "plaintext": "Texto claro",
+    "ciphertext": "Texto cifrado",
+    "unreadable": "Ilegible",
+    "steps": {
+      "sealed": {
+        "title": "Sellado en tu dispositivo",
+        "desc": "El archivo se cifra antes de que salga un solo byte."
+      },
+      "transit": {
+        "title": "Texto cifrado en tránsito",
+        "desc": "La red solo transporta ruido revuelto."
+      },
+      "unlocked": {
+        "title": "Desbloqueado al llegar",
+        "desc": "Solo el dispositivo receptor tiene la clave correspondiente."
+      }
+    }
+  }
+}

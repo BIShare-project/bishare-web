@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "FAQ",
+    "ogTitle": "FAQ BIShare",
+    "description": "Des réponses sur les premiers pas, les transferts, la confidentialité et le dépannage : tailles de fichiers, règle du même réseau, liens de partage de 24 heures, chiffrement de bout en bout et salons."
+  },
+  "hero": {
+    "eyebrow": "FAQ",
+    "title": "Vos questions, nos réponses",
+    "sub": "Tout ce que l'on demande avant un premier transfert, avec les détails honnêtes entre les lignes. Sautez à un thème ou faites défiler.",
+    "topicsAria": "Thèmes de la FAQ"
+  },
+  "cta": {
+    "title": "Encore une question ?",
+    "sub": "Si votre question n'est pas ici, une vraie personne y répondra. Pas de bots, pas de dédale de tickets.",
+    "contact": "Nous contacter",
+    "securityLink": "Comment nous protégeons vos transferts"
+  },
+  "groups": {
+    "getting-started": {
+      "label": "Premiers pas",
+      "blurb": "Les plateformes et ce dont l'autre personne a besoin.",
+      "items": [
+        {
+          "q": "Ai-je besoin d'un compte pour utiliser BIShare ?",
+          "a": "Non — BIShare n'a aucun compte. Installez l'application ou ouvrez bishare.app, puis envoyez et recevez immédiatement. Rien à créer, pas d'e-mail, pas de profil."
+        },
+        {
+          "q": "Sur quelles plateformes BIShare fonctionne-t-il ?",
+          "a": "Cinq plateformes : iOS, Android, macOS, Windows et Linux. L'application est disponible en 13 langues, et n'importe quel navigateur web moderne peut envoyer et recevoir des fichiers sans rien installer.",
+          "linkLabel": "Obtenir l'application pour votre plateforme"
+        },
+        {
+          "q": "L'autre personne a-t-elle besoin de l'application ?",
+          "a": "Pas forcément. Chacun peut ouvrir un lien de partage ou saisir un code de partage dans son navigateur pour télécharger des fichiers, et le transfert par navigateur permet à n'importe quel ordinateur de votre réseau d'échanger des fichiers directement avec votre appareil. L'application accélère tout et débloque toutes les fonctions, mais elle n'est jamais obligatoire des deux côtés."
+        },
+        {
+          "q": "Combien coûte BIShare ?",
+          "a": "C'est gratuit. Les transferts sur votre propre réseau n'ont ni limite de taille ni compte, et les liens de partage à distance ainsi que les salons sont eux aussi gratuits. Pas d'abonnement, pas de fonction payante."
+        }
+      ]
+    },
+    "transfers": {
+      "label": "Transferts",
+      "blurb": "Limites de taille, vitesse, règle du même réseau et groupes.",
+      "items": [
+        {
+          "q": "Quelle taille peuvent atteindre les fichiers que j'envoie ?",
+          "a": "Entre appareils sur le même réseau, il n'y a aucune limite de taille : un dossier de projet de 40 Go se déplace aussi facilement qu'une photo. Les partages à distance qui passent par un lien sont gratuits jusqu'à 1 Go par fichier et s'effacent d'eux-mêmes au bout de 24 heures."
+        },
+        {
+          "q": "Les deux appareils doivent-ils être sur le même Wi-Fi ?",
+          "a": "Pour les transferts à proximité, oui : les deux appareils doivent être sur le même réseau. Un partage de connexion de téléphone compte, donc cela fonctionne sans aucune connexion internet. Sur des réseaux différents, utilisez plutôt un partage à distance : le fichier devient un lien, un code QR et un code de six caractères qui fonctionnent partout."
+        },
+        {
+          "q": "Que se passe-t-il si un transfert est interrompu ?",
+          "a": "Les transferts reprennent. Si la connexion tombe en cours de route, le transfert repart là où il s'était arrêté au lieu de tout recommencer : les morceaux déjà arrivés sont conservés et seule la partie manquante est renvoyée. Les envois par navigateur reprennent de la même manière."
+        },
+        {
+          "q": "À quelle vitesse vont les transferts ?",
+          "a": "Aussi vite que votre réseau le permet. Les transferts à proximité vont directement d'un appareil à l'autre, sans détour par un serveur : la seule limite est votre Wi-Fi lui-même."
+        },
+        {
+          "q": "Puis-je partager avec tout un groupe à la fois ?",
+          "a": "Oui : créez un salon. Partagez son code de quatre caractères et jusqu'à 20 personnes peuvent rejoindre, chacune pouvant déposer et récupérer des fichiers. Les salons sur le même réseau fonctionnent sans internet ; les salons à distance fonctionnent de n'importe où."
+        }
+      ]
+    },
+    "privacy-security": {
+      "label": "Confidentialité et sécurité",
+      "blurb": "Le chiffrement, ce que nous pouvons voir et ce qu'il advient des partages.",
+      "items": [
+        {
+          "q": "BIShare est-il vraiment chiffré de bout en bout ?",
+          "a": "Oui. Vos appareils conviennent d'un secret par échange de clés X25519, et chaque fichier est scellé en AES-256-GCM avec sa propre clé neuve. Les clés ne quittent jamais vos appareils, si bien que seuls l'expéditeur et le destinataire peuvent lire ce qui est transféré.",
+          "linkLabel": "Découvrir le fonctionnement du chiffrement"
+        },
+        {
+          "q": "BIShare peut-il voir les fichiers que j'envoie ?",
+          "a": "Non. Les transferts à proximité ne touchent jamais un serveur : ils circulent directement entre vos appareils. Les partages à distance sont chiffrés en transit et au repos, ne sont jamais analysés ni ouverts, et sont définitivement supprimés au bout de 24 heures."
+        },
+        {
+          "q": "Qu'advient-il d'un partage à distance après 24 heures ?",
+          "a": "Le fichier est définitivement supprimé du stockage cloud, et le lien, le code QR et le code de partage cessent tous de fonctionner. Les liens à usage unique vont plus loin : ils s'effacent d'eux-mêmes juste après le premier téléchargement."
+        },
+        {
+          "q": "BIShare me suit-il ou affiche-t-il des publicités ?",
+          "a": "Aucun suivi, aucune publicité, aucune revente de données. BIShare ne crée pas de profils publicitaires et ne vous suit pas sur internet.",
+          "linkLabel": "Lire la politique de confidentialité"
+        }
+      ]
+    },
+    "troubleshooting": {
+      "label": "Dépannage",
+      "blurb": "Quand les appareils disparaissent, que les transferts se figent ou que les liens cessent de marcher.",
+      "items": [
+        {
+          "q": "Mes appareils ne se voient pas. Que dois-je vérifier ?",
+          "a": "D'abord, confirmez que les deux appareils sont sur le même réseau : c'est la cause la plus fréquente. Les réseaux Wi-Fi invités et publics isolent souvent les appareils les uns des autres, et un VPN actif peut lui aussi masquer un appareil. Vérifiez également votre réglage de visibilité : si la découverte est réglée sur favoris uniquement ou désactivée, les nouveaux appareils ne vous trouveront pas. En cas de doute, un partage de connexion personnel fonctionne toujours."
+        },
+        {
+          "q": "Pourquoi un transfert se met-il en pause quand je change d'app sur iPhone ?",
+          "a": "iOS limite strictement ce que les applications peuvent faire en arrière-plan, si bien qu'un gros transfert peut se figer si BIShare quitte le premier plan. Gardez l'application ouverte — et l'écran allumé — pendant les gros transferts. Si une pause survient malgré tout, le transfert reprend là où il s'était arrêté à votre retour."
+        },
+        {
+          "q": "Un lien ou un code ne fonctionne pas. Pourquoi ?",
+          "a": "Les partages à distance expirent au bout de 24 heures, et les liens à usage unique cessent de fonctionner après leur premier téléchargement — un partage expiré ne peut pas être réactivé, alors demandez à l'expéditeur de le repartager. Pour les codes de six caractères, vérifiez bien les caractères. Pour les transferts à proximité, l'appareil expéditeur doit être en ligne et sur votre réseau."
+        }
+      ]
+    }
+  }
+}

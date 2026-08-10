@@ -1,0 +1,47 @@
+{
+  // BIShare web — Next.js marketing site + /transfer + /stats, deployed to
+  // Cloudflare Workers via @opennextjs/cloudflare. The API (file transfer,
+  // rooms, telemetry) is a SEPARATE service — see NEXT_PUBLIC_API_BASE below.
+  //
+  // Self-hosting: replace the placeholders, then `npm run deploy`.
+  "name": "bishare-web",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-06-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+
+  // Your own custom domain(s) — uncomment and set once DNS is on Cloudflare:
+  // "routes": [
+  //   { "pattern": "example.com", "custom_domain": true },
+  //   { "pattern": "www.example.com", "custom_domain": true }
+  // ],
+
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+
+  // D1 powers the public /stats page (read-only aggregate counters) and the
+  // StatsLiveDO fingerprint poll. Create one with `wrangler d1 create` and
+  // paste its id here.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "bishare-web",
+      "database_id": "<YOUR_D1_DATABASE_ID>"
+    }
+  ],
+
+  // R2 bucket (optional for the site itself; present for parity with the API).
+  "r2_buckets": [{ "binding": "BUCKET", "bucket_name": "<YOUR_R2_BUCKET>" }],
+
+  // Realtime stats push — single global Durable Object behind /stats-live.
+  "durable_objects": {
+    "bindings": [{ "name": "STATS_LIVE_DO", "class_name": "StatsLiveDO" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["StatsLiveDO"] }],
+
+  "vars": {
+    "BASE_URL": "https://example.com",
+    "R2_BUCKET_NAME": "<YOUR_R2_BUCKET>",
+    "R2_PUBLIC_URL": "https://cdn.example.com"
+  },
+  "observability": { "enabled": true }
+}

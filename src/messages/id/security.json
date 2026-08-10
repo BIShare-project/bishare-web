@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "Keamanan",
+    "description": "Cara BIShare menjaga privasi file Anda: enkripsi end-to-end dengan kunci yang tidak pernah meninggalkan perangkat Anda, transfer lokal yang tidak pernah menyentuh server, dan berbagi jarak jauh yang terhapus sendiri setelah 24 jam."
+  },
+  "hero": {
+    "eyebrow": "Keamanan",
+    "title": "Privat sejak dirancang",
+    "sub": "File Anda berpindah dalam keadaan tersegel, menempuh jalur sesingkat mungkin, dan tidak meninggalkan jejak. Bukan karena pengaturan yang Anda temukan — melainkan karena begitulah BIShare dibangun.",
+    "badge": "Kunci tidak pernah meninggalkan perangkat Anda"
+  },
+  "flowHeading": "Cara kerja transfer terenkripsi end-to-end",
+  "encryption": {
+    "eyebrow": "Enkripsi end-to-end",
+    "title": "Terkunci sebelum berangkat. Terbuka saat tiba.",
+    "sub": "Hanya dua perangkat dalam sebuah transfer yang bisa membaca file yang berpindah di antaranya. Inilah yang terjadi di balik layar — dijelaskan sederhana, dengan teknologi yang disebut sekali saja.",
+    "cards": {
+      "handshake": {
+        "tag": "X25519",
+        "title": "Rahasia yang disepakati dalam diam",
+        "desc": "Sebelum apa pun berpindah, kedua perangkat menyepakati rahasia bersama tanpa pernah mengirimkannya melalui jaringan. Siapa pun yang merekam setiap paket handshake itu tetap tak memperoleh apa pun yang berguna."
+      },
+      "perFile": {
+        "tag": "KUNCI PER-FILE",
+        "title": "Setiap file punya kunci sendiri",
+        "desc": "Setiap transfer disegel dengan kuncinya sendiri yang baru. Bahkan dalam skenario terburuk sekalipun, satu kunci hanya bisa membuka satu file — tidak pernah riwayat Anda, tidak pernah transfer berikutnya."
+      },
+      "cipher": {
+        "tag": "AES-256-GCM",
+        "title": "Tersegel dan tahan-manipulasi",
+        "desc": "File diacak dengan kelas cipher yang sama yang melindungi lalu lintas perbankan dan pemerintahan — lengkap dengan segel bawaan. Jika satu byte saja diubah saat transit, transfer akan ditolak."
+      }
+    }
+  },
+  "local": {
+    "label": "Lokal dulu",
+    "title": "Jaringan Anda adalah seluruh perjalanannya.",
+    "body": "Ketika dua perangkat berada di Wi-Fi atau hotspot yang sama, file berpindah langsung di antara keduanya. Tidak ada langkah unggah, tidak ada perantara, dan tidak ada salinan di tempat lain — karena memang tidak ada server di jalurnya sama sekali.",
+    "points": [
+      "Transfer terdekat tidak pernah menyentuh server — bukan milik kami, bukan milik siapa pun",
+      "Berfungsi sepenuhnya offline: cukup Wi-Fi atau hotspot ponsel",
+      "Tidak ada yang tersimpan di cloud berarti tidak ada yang bisa bocor darinya",
+      "File hanya ada di dua tempat: pengirim dan penerima"
+    ],
+    "visual": {
+      "tagDirect": "LANGSUNG",
+      "sameNetwork": "Jaringan sama",
+      "phone": "Ponsel Anda",
+      "laptop": "Laptop Anda",
+      "srBeam": "Sebuah file berpindah langsung dari ponsel ke laptop Anda melalui jaringan Anda sendiri.",
+      "noServer": "Tidak ada server yang dihubungi. Transfer dimulai dan berakhir di jaringan Anda sendiri."
+    }
+  },
+  "remote": {
+    "label": "Berbagi jarak jauh",
+    "title": "Terlindungi saat transit. Hilang dalam 24 jam.",
+    "body": "Ketika lawan bicara berada di jaringan berbeda, file Anda menempuh jalur singkat yang terjaga melalui penyimpanan cloud yang aman. File dienkripsi dalam perjalanan ke sana, terenkripsi selama menunggu, dan terhapus sesuai jadwal — setiap kali.",
+    "points": [
+      "Terenkripsi saat transit dan terenkripsi saat disimpan",
+      "Terhapus otomatis setelah 24 jam — tanpa perlu tindakan",
+      "Tautan sekali pakai musnah sendiri setelah unduhan pertama",
+      "Kami tidak pernah memindai, mengindeks, atau melihat apa yang Anda bagikan"
+    ],
+    "visual": {
+      "tagRemote": "JARAK JAUH",
+      "tagEncrypted": "TERENKRIPSI",
+      "linkActive": "Tautan aktif",
+      "assurance": {
+        "transit": {
+          "title": "Terenkripsi saat transit",
+          "desc": "Tersegel saat naik maupun saat turun."
+        },
+        "rest": {
+          "title": "Terenkripsi saat disimpan",
+          "desc": "Disimpan dalam keadaan teracak selama menunggu diambil."
+        },
+        "deleted": {
+          "title": "Terhapus setelah 24 jam",
+          "desc": "Otomatis, terunduh atau tidak."
+        }
+      },
+      "timeRemaining": "Sisa waktu"
+    }
+  },
+  "dont": {
+    "eyebrow": "Sama pentingnya",
+    "title": "Yang tidak kami lakukan",
+    "sub": "Privasi sebagian besar soal menahan diri. Ini bukan pengaturan yang harus Anda cari — inilah cara BIShare bekerja, secara bawaan dan selamanya.",
+    "never": "Tidak Pernah",
+    "items": {
+      "tracking": {
+        "title": "Tanpa pelacakan",
+        "desc": "Tidak ada profil perilaku, tidak ada pengenal iklan, tidak ada yang membuntuti Anda di internet."
+      },
+      "ads": {
+        "title": "Tanpa iklan",
+        "desc": "BIShare adalah alat, bukan jaringan iklan. Perhatian Anda bukan barang dagangan."
+      },
+      "selling": {
+        "title": "Tanpa menjual data",
+        "desc": "Kami tidak menjual, menyewakan, atau memperdagangkan data Anda. Tidak ada calo data di ujung sana."
+      },
+      "scanning": {
+        "title": "Tanpa pemindaian file",
+        "desc": "Kami tidak pernah membuka, memindai, atau menganalisis apa yang Anda transfer. File Anda adalah urusan Anda."
+      }
+    }
+  },
+  "disclosure": {
+    "eyebrow": "Pengungkapan yang bertanggung jawab",
+    "title": "Menemukan celah? Beri tahu kami dulu.",
+    "body": "Klaim keamanan hanya sebaik pengujian yang bisa dilaluinya. Jika Anda menemukan kerentanan di BIShare, kirim email berisi langkah-langkah untuk mereproduksinya. Kami membaca setiap laporan, dan riset dengan iktikad baik selalu kami sambut.",
+    "privacyLink": "Baca Kebijakan Privasi"
+  },
+  "flow": {
+    "keysNeverLeave": "Kunci tidak pernah meninggalkan perangkat Anda",
+    "srDescription": "Perangkat A mengenkripsi file, data terenkripsi berpindah melintasi jaringan, dan hanya Perangkat B yang bisa mendekripsinya. Kunci enkripsi tidak pernah meninggalkan kedua perangkat.",
+    "deviceA": {
+      "name": "Perangkat A",
+      "role": "Pengirim — mengenkripsi"
+    },
+    "deviceB": {
+      "name": "Perangkat B",
+      "role": "Penerima — mendekripsi"
+    },
+    "keyStaysHere": "Kunci tetap di sini",
+    "whatNetworkSees": "Yang dilihat jaringan",
+    "plaintext": "Teks biasa",
+    "ciphertext": "Teks tersandi",
+    "unreadable": "Tak terbaca",
+    "steps": {
+      "sealed": {
+        "title": "Tersegel di perangkat Anda",
+        "desc": "File dienkripsi sebelum satu byte pun berangkat."
+      },
+      "transit": {
+        "title": "Ciphertext saat transit",
+        "desc": "Jaringan hanya membawa derau yang teracak."
+      },
+      "unlocked": {
+        "title": "Terbuka saat tiba",
+        "desc": "Hanya perangkat penerima yang memegang kunci yang cocok."
+      }
+    }
+  }
+}

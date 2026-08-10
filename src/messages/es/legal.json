@@ -1,0 +1,253 @@
+{
+  "shared": {
+    "badge": "Legal",
+    "onThisPage": "En esta página",
+    "contact": {
+      "email": "Correo electrónico",
+      "form": "Formulario de contacto",
+      "website": "Sitio web"
+    },
+    "footer": {
+      "readNextTerms": "Sigue leyendo: Términos del Servicio",
+      "readNextPrivacy": "Sigue leyendo: Política de Privacidad",
+      "contact": "¿Tienes preguntas? Contáctanos"
+    }
+  },
+  "privacy": {
+    "metadata": {
+      "title": "Política de Privacidad",
+      "ogTitle": "Política de Privacidad — BIShare",
+      "description": "Cómo BIShare recopila, usa y protege tus datos en las transferencias locales y remotas."
+    },
+    "hero": {
+      "title": "Política de Privacidad",
+      "effective": "Fecha de entrada en vigor: 8 de abril de 2026",
+      "updated": "Última actualización: 8 de abril de 2026"
+    },
+    "sections": {
+      "overview": "Resumen",
+      "collect": "1. Información que Recopilamos",
+      "use": "2. Cómo Usamos tu Información",
+      "storage": "3. Almacenamiento y Seguridad de Datos",
+      "retention": "4. Conservación de Datos",
+      "sharing": "5. Divulgación y Cesión de Datos",
+      "rights": "6. Tus Derechos y Opciones",
+      "children": "7. Privacidad de los Menores",
+      "international": "8. Transferencias Internacionales de Datos",
+      "changes": "9. Cambios en esta Política",
+      "contact": "10. Contáctanos"
+    },
+    "overview": {
+      "p1": "BIShare (“nosotros”) opera las aplicaciones móviles de BIShare (iOS y Android), la aplicación de escritorio (Windows y macOS) y el sitio web ubicado en <link>bishare.app</link> (en conjunto, el “Servicio”). Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos tu información cuando usas nuestro Servicio.",
+      "p2": "Lee esta Política de Privacidad con atención. Al usar el Servicio, aceptas la recopilación y el uso de la información conforme a esta política. Si no estás de acuerdo con los términos de esta Política de Privacidad, no accedas ni uses el Servicio."
+    },
+    "collect": {
+      "sub1": "1.1 Información que Proporcionas",
+      "filesTerm": "Archivos que Compartes de Forma Remota.",
+      "filesDesc": "Cuando usas nuestras funciones de transferencia remota (un enlace para compartir, un código QR, un código de 6 caracteres o una sala), tus archivos se almacenan temporalmente en nuestro relé y se eliminan automáticamente tras 24 horas. No accedemos, vemos, analizamos ni examinamos el contenido de tus archivos.",
+      "sub2": "1.2 Información Recopilada Automáticamente",
+      "deviceTerm": "Información del Dispositivo.",
+      "deviceDesc": "Recopilamos el tipo de dispositivo, la versión del sistema operativo, la versión de la aplicación y la preferencia de idioma con fines de análisis y compatibilidad.",
+      "usageTerm": "Datos de Uso.",
+      "usageDesc": "Recopilamos estadísticas anónimas y agregadas sobre la distribución de plataformas, el país (mediante geolocalización por IP) y el tipo de conexión. Estos datos no pueden identificar a usuarios individuales.",
+      "ipTerm": "Dirección IP.",
+      "ipDesc": "Registramos temporalmente las direcciones IP para limitar el ritmo de solicitudes y prevenir abusos. Las direcciones IP no se almacenan de forma permanente ni se asocian con tu identidad.",
+      "sub3": "1.3 Información que NO Recopilamos",
+      "localTerm": "Transferencias Locales.",
+      "localDesc": "Los archivos transferidos entre dispositivos en la misma red local (LAN) se envían directamente de igual a igual. Estas transferencias nunca pasan por nuestros servidores y no tenemos acceso ni conocimiento de ellas.",
+      "clipTerm": "Contenido del Portapapeles.",
+      "clipDesc": "La sincronización del portapapeles funciona por completo en tu red local mediante difusión UDP. Los datos del portapapeles nunca llegan a nuestros servidores.",
+      "contentTerm": "Contenido de los Archivos.",
+      "contentDesc": "No analizamos, examinamos, indexamos ni vemos el contenido de ningún archivo que compartas a través de nuestro Servicio."
+    },
+    "use": {
+      "intro": "Usamos la información que recopilamos para los siguientes fines:",
+      "provideTerm": "Prestar el Servicio.",
+      "provideDesc": "Facilitar las transferencias de archivos, generar enlaces para compartir y códigos de transferencia, y habilitar salas para transferencias grupales.",
+      "improveTerm": "Mejorar el Servicio.",
+      "improveDesc": "Analizar patrones de uso anónimos para mejorar el rendimiento, corregir errores y desarrollar nuevas funciones.",
+      "securityTerm": "Garantizar la Seguridad.",
+      "securityDesc": "Detectar y prevenir abusos, aplicar límites de ritmo y proteger frente a accesos no autorizados.",
+      "communicateTerm": "Comunicarnos.",
+      "communicateDesc": "Enviar notificaciones esenciales del servicio cuando sea necesario. No enviamos correos de marketing."
+    },
+    "storage": {
+      "sub1": "3.1 Cifrado",
+      "encryption": "Todas las transferencias de archivos admiten cifrado de extremo a extremo con cifrado estándar del sector AES-256-GCM e intercambio de claves Curve25519. Cuando el cifrado está activado, solo el remitente y el destinatario pueden acceder al contenido del archivo: nuestros servidores no pueden descifrarlo. Todas las conexiones a nuestros servidores usan cifrado TLS (HTTPS) en tránsito.",
+      "sub2": "3.2 Infraestructura",
+      "infrastructure": "Nuestros servidores están alojados en centros de datos seguros que cumplen con SOC 2. El almacenamiento de archivos usa una infraestructura en la nube cifrada en reposo con redundancia automática. El acceso a los sistemas de producción está restringido a personal autorizado con autenticación multifactor."
+    },
+    "retention": {
+      "colData": "Tipo de Dato",
+      "colPeriod": "Período de Conservación",
+      "row1a": "Archivos de transferencia remota",
+      "row1b": "Se eliminan automáticamente tras 24 horas",
+      "row2a": "Archivos de transferencia de un solo uso",
+      "row2b": "Se eliminan de inmediato tras la primera descarga",
+      "row3a": "Registros de límite de ritmo por IP",
+      "row3b": "1 hora (ventana móvil)"
+    },
+    "sharing": {
+      "intro": "No vendemos, alquilamos ni comercializamos tu información personal. Solo podemos compartir datos en las siguientes circunstancias limitadas:",
+      "providersTerm": "Proveedores de Servicios.",
+      "providersDesc": "Usamos proveedores de infraestructura de terceros de confianza para el alojamiento, el almacenamiento de archivos y la distribución de contenido. Estos proveedores procesan datos en nuestro nombre y están obligados por contrato a protegerlos.",
+      "legalTerm": "Requisitos Legales.",
+      "legalDesc": "Podemos divulgar información si así lo exige la ley, una citación o una orden judicial, o si es necesario para proteger los derechos, la propiedad o la seguridad de BIShare, de nuestros usuarios o del público."
+    },
+    "rights": {
+      "intro": "BIShare no tiene cuentas de usuario, por lo que no hay ningún perfil, contraseña ni dato personal almacenado vinculado a ti. Conservas el siguiente control sobre tus datos:",
+      "items": [
+        {
+          "title": "Sin Cuenta",
+          "desc": "BIShare no requiere una cuenta. No hay perfil ni datos personales almacenados que consultar, corregir o eliminar."
+        },
+        {
+          "title": "Las Transferencias Locales no Recopilan Nada",
+          "desc": "Los archivos enviados por tu red local van directamente entre dispositivos y nunca llegan a nuestros servidores, así que no se recopila nada."
+        },
+        {
+          "title": "Revocación",
+          "desc": "Revoca en cualquier momento cualquier enlace para compartir o código de transferencia activo."
+        },
+        {
+          "title": "Eliminación Automática",
+          "desc": "Los archivos de transferencia remota se eliminan automáticamente tras 24 horas, o de inmediato tras la primera descarga en los enlaces de un solo uso."
+        }
+      ]
+    },
+    "children": {
+      "text": "Nuestro Servicio no está dirigido a menores de 13 años. No recopilamos conscientemente información personal de menores de 13 años. Si tienes conocimiento de que un menor nos ha proporcionado información personal, contáctanos y tomaremos medidas para eliminar dicha información."
+    },
+    "international": {
+      "text": "Nuestros servidores están ubicados en la región de Asia-Pacífico. Si accedes al Servicio desde fuera de esta región, ten en cuenta que tus datos pueden transferirse, almacenarse y procesarse en una jurisdicción diferente. Al usar el Servicio, aceptas la transferencia de información a países que pueden tener leyes de protección de datos distintas a las de tu país de residencia."
+    },
+    "changes": {
+      "text": "Podemos actualizar esta Política de Privacidad de vez en cuando para reflejar cambios en nuestras prácticas o por motivos legales, operativos o normativos. Te notificaremos los cambios importantes publicando la política actualizada en esta página y actualizando la fecha de “Última actualización”. El uso continuado del Servicio tras cualquier cambio constituye tu aceptación de la política revisada."
+    },
+    "contact": {
+      "intro": "Si tienes preguntas, dudas o solicitudes sobre esta Política de Privacidad o nuestras prácticas de datos, contáctanos:"
+    }
+  },
+  "terms": {
+    "metadata": {
+      "title": "Términos del Servicio",
+      "ogTitle": "Términos del Servicio — BIShare",
+      "description": "Los términos y condiciones que rigen tu uso de las aplicaciones, el sitio web y los servicios de intercambio de archivos de BIShare."
+    },
+    "hero": {
+      "title": "Términos del Servicio",
+      "effective": "Fecha de entrada en vigor: 8 de abril de 2026",
+      "updated": "Última actualización: 8 de abril de 2026"
+    },
+    "sections": {
+      "overview": "Resumen",
+      "eligibility": "1. Elegibilidad",
+      "description": "2. Descripción del Servicio",
+      "acceptableUse": "3. Uso Aceptable",
+      "limits": "4. Límites del Servicio",
+      "ip": "5. Propiedad Intelectual",
+      "privacy": "6. Privacidad",
+      "disclaimer": "7. Renuncia de Garantías",
+      "liability": "8. Limitación de Responsabilidad",
+      "indemnification": "9. Indemnización",
+      "termination": "10. Terminación",
+      "law": "11. Ley Aplicable",
+      "changes": "12. Cambios en estos Términos",
+      "contact": "13. Contacto"
+    },
+    "overview": {
+      "p1": "Estos Términos del Servicio (“Términos”) rigen tu acceso y uso de las aplicaciones móviles, las aplicaciones de escritorio, el sitio web y los servicios relacionados de BIShare (en conjunto, el “Servicio”), operados por BIShare (“nosotros”).",
+      "p2": "Al acceder o usar el Servicio, aceptas quedar vinculado por estos Términos. Si no estás de acuerdo con estos Términos, no puedes acceder ni usar el Servicio."
+    },
+    "eligibility": {
+      "text": "Debes tener al menos 13 años para usar el Servicio. Si eres menor de 18 años, declaras que cuentas con el permiso de tu padre, madre o tutor para usar el Servicio. Al usar el Servicio, declaras y garantizas que cumples con estos requisitos de elegibilidad."
+    },
+    "description": {
+      "intro": "BIShare ofrece los siguientes servicios:",
+      "localTerm": "Transferencia Local de Archivos.",
+      "localDesc": "Intercambio de archivos directo, de igual a igual, entre dispositivos en la misma red local, sin intermediación de servidores.",
+      "remoteTerm": "Transferencia Remota de Archivos.",
+      "remoteDesc": "Transferencia de archivos por relé en la nube para dispositivos en redes distintas, con almacenamiento temporal en el servidor (caducidad de 24 horas).",
+      "webTerm": "Compartir por Web.",
+      "webDesc": "Carga y descarga de archivos desde el navegador a través de <link>bishare.app</link>, accesible sin instalar ninguna aplicación.",
+      "requestTerm": "Solicitudes de Archivos.",
+      "requestDesc": "La posibilidad de crear enlaces que permiten a otras personas enviarte archivos directamente, con almacenamiento temporal en el servidor.",
+      "roomsTerm": "Salas Colaborativas.",
+      "roomsDesc": "Espacios compartidos temporales donde varios usuarios pueden compartir archivos de forma simultánea.",
+      "closing": "El Servicio se presta “tal cual” y “según disponibilidad”. Nos reservamos el derecho de modificar, suspender o discontinuar cualquier parte del Servicio en cualquier momento."
+    },
+    "acceptableUse": {
+      "intro": "Aceptas NO usar el Servicio para:",
+      "colCategory": "Categoría",
+      "colActivity": "Actividad Prohibida",
+      "illegalCat": "Contenido Ilegal",
+      "illegalAct": "Compartir, distribuir o almacenar contenido que infrinja cualquier ley o normativa aplicable",
+      "malwareCat": "Malware",
+      "malwareAct": "Subir o distribuir virus, malware, ransomware u otro software malicioso",
+      "ipCat": "Infracción de PI",
+      "ipAct": "Compartir material protegido por derechos de autor sin autorización del titular de los derechos",
+      "harassCat": "Acoso",
+      "harassAct": "Usar el Servicio para acosar, amenazar, difamar o intimidar a cualquier persona",
+      "abuseCat": "Abuso",
+      "abuseAct": "Intentar eludir las medidas de seguridad, los límites de ritmo o los controles de acceso",
+      "autoCat": "Automatización",
+      "autoAct": "Usar bots, scrapers o herramientas automatizadas para subir o descargar archivos de forma masiva",
+      "spamCat": "Spam",
+      "spamAct": "Usar enlaces de solicitud o enlaces para compartir con fines de distribución no solicitada o phishing",
+      "closing": "Nos reservamos el derecho de rechazar o eliminar una transferencia y de bloquear el acceso al Servicio cuando se infrinjan estas políticas, sin previo aviso."
+    },
+    "limits": {
+      "colFeature": "Función",
+      "colLimit": "Límite",
+      "sizeA": "Tamaño de archivo de transferencia remota",
+      "sizeB": "10 GB por archivo",
+      "expiryA": "Caducidad de transferencia remota",
+      "expiryB": "24 horas (eliminación automática)",
+      "linksA": "Enlaces para compartir activos",
+      "linksB": "10 enlaces simultáneos",
+      "rateA": "Límite de ritmo de carga",
+      "rateB": "Por dirección IP, por hora",
+      "membersA": "Miembros por sala",
+      "membersB": "20 por sala",
+      "filesA": "Archivos por sala",
+      "filesB": "100 por sala",
+      "closing": "Nos reservamos el derecho de modificar estos límites en cualquier momento. Superar estos límites puede dar lugar a restricciones temporales o al bloqueo del acceso al Servicio."
+    },
+    "ip": {
+      "sub1": "5.1 Tu Contenido",
+      "yourContent": "Conservas la plena propiedad de todos los archivos y el contenido que compartes a través de BIShare. Al subir contenido, nos concedes una licencia limitada y no exclusiva para almacenar, transmitir y entregar tu contenido con el único fin de prestar el Servicio. Esta licencia finaliza cuando tu contenido se elimina de nuestros servidores.",
+      "sub2": "5.2 Nuestra Propiedad Intelectual",
+      "ourIp": "El nombre BIShare, el logotipo, el diseño del sitio web, el código de la aplicación y la propiedad intelectual relacionada son propiedad de BIShare. No puedes copiar, modificar, distribuir ni crear obras derivadas de nuestra propiedad intelectual sin permiso por escrito."
+    },
+    "privacy": {
+      "text": "Tu uso del Servicio también se rige por nuestra <link>Política de Privacidad</link>, que describe cómo recopilamos, usamos y protegemos tu información. Al usar el Servicio, aceptas las prácticas descritas en la Política de Privacidad."
+    },
+    "disclaimer": {
+      "notice": "EL SERVICIO SE PRESTA “TAL CUAL” Y “SEGÚN DISPONIBILIDAD”, SIN GARANTÍAS DE NINGÚN TIPO, YA SEAN EXPRESAS O IMPLÍCITAS, INCLUIDAS, ENTRE OTRAS, LAS GARANTÍAS DE COMERCIABILIDAD, IDONEIDAD PARA UN FIN DETERMINADO, NO INFRACCIÓN O DE QUE EL SERVICIO SERÁ ININTERRUMPIDO, SEGURO O LIBRE DE ERRORES. NO GARANTIZAMOS QUE LOS ARCHIVOS SE ENTREGUEN CORRECTAMENTE NI QUE NO SE PIERDAN DATOS.",
+      "text": "Recomendamos mantener copias de seguridad de los archivos importantes. BIShare no está pensado como solución de copia de seguridad principal."
+    },
+    "liability": {
+      "notice": "EN LA MÁXIMA MEDIDA PERMITIDA POR LA LEY, BISHARE NO SERÁ RESPONSABLE DE NINGÚN DAÑO INDIRECTO, INCIDENTAL, ESPECIAL, CONSECUENTE O PUNITIVO, INCLUIDOS, ENTRE OTROS, LA PÉRDIDA DE DATOS, LA PÉRDIDA DE BENEFICIOS, LA INTERRUPCIÓN DEL NEGOCIO O EL ACCESO NO AUTORIZADO A TUS ARCHIVOS, QUE SURJAN DE O EN RELACIÓN CON TU USO DEL SERVICIO, YA SEA CON BASE EN GARANTÍA, CONTRATO, RESPONSABILIDAD EXTRACONTRACTUAL O CUALQUIER OTRA TEORÍA LEGAL."
+    },
+    "indemnification": {
+      "text": "Aceptas indemnizar, defender y eximir de responsabilidad a BIShare y a sus directivos, administradores, empleados y agentes frente a cualquier reclamación, daño, pérdida o gasto (incluidos los honorarios razonables de abogados) que surjan de tu uso del Servicio, de tu incumplimiento de estos Términos o de tu infracción de los derechos de cualquier tercero."
+    },
+    "termination": {
+      "byYouTerm": "Por Tu Parte.",
+      "byYouDesc": "Puedes dejar de usar el Servicio en cualquier momento. Solo tienes que desinstalar la aplicación o dejar de usarla: no se requiere ningún paso de cancelación.",
+      "byUsTerm": "Por Nuestra Parte.",
+      "byUsDesc": "Podemos bloquear tu acceso al Servicio en cualquier momento, con o sin causa, incluso por infracciones de estos Términos.",
+      "effectTerm": "Efecto de la Terminación.",
+      "effectDesc": "Tras la terminación, tu derecho a usar el Servicio cesa de inmediato. Cualquier archivo almacenado temporalmente en el servidor se elimina conforme a nuestras políticas de conservación de datos."
+    },
+    "law": {
+      "text": "Estos Términos se rigen e interpretan conforme a las leyes de la jurisdicción en la que opera BIShare, sin tener en cuenta sus disposiciones sobre conflictos de leyes. Cualquier disputa que surja en virtud de estos Términos se resolverá mediante arbitraje vinculante o ante los tribunales competentes."
+    },
+    "changes": {
+      "text": "Nos reservamos el derecho de actualizar estos Términos en cualquier momento. Los cambios importantes se comunicarán publicando los Términos revisados en esta página y actualizando la fecha de “Última actualización”. El uso continuado del Servicio tras cualquier cambio constituye tu aceptación de los Términos revisados. Si no estás de acuerdo con los Términos revisados, debes dejar de usar el Servicio."
+    },
+    "contact": {
+      "intro": "Si tienes preguntas sobre estos Términos, contáctanos:"
+    }
+  }
+}
