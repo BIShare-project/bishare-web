@@ -52,6 +52,7 @@ export async function reportBundle(): Promise<ReportBundle> {
     ? Math.max(1, Math.floor((Date.now() - Date.parse(launchDate)) / 86_400_000) + 1)
     : 0;
 
+  const nowIso = new Date().toISOString();
   const [
     uniqueUsers,
     liveTransfers,
@@ -71,7 +72,14 @@ export async function reportBundle(): Promise<ReportBundle> {
     nearbyRooms,
   ] = await Promise.all([
     scalar("SELECT COUNT(DISTINCT sender_ip) AS n FROM transfers WHERE sender_ip IS NOT NULL"),
-    scalar("SELECT COUNT(*) AS n FROM transfers"),
+    // "Live transfers" = cloud transfers ACTUALLY still available (not expired,
+    // not a consumed one-time). Counting raw rows would keep dead transfers in
+    // the number for up to an hour (until the purge cron), so filter here — the
+    // count then drops as soon as a transfer expires, matching the fingerprint.
+    scalar(
+      "SELECT COUNT(*) AS n FROM transfers WHERE expires_at > ? AND NOT (one_time = 1 AND is_downloaded = 1)",
+      nowIso
+    ),
     counterTotal("files_uploaded"),
     counterTotal("transfers_created"),
     counterTotal("transfer_downloads"),

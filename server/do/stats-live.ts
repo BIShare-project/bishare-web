@@ -68,7 +68,9 @@ export class StatsLiveDO {
     try {
       const row = await this.env.DB.prepare(
         `SELECT
-             (SELECT COUNT(*) FROM transfers)
+             (SELECT COUNT(*) FROM transfers
+                WHERE expires_at > strftime('%Y-%m-%dT%H:%M:%fZ','now')
+                  AND NOT (one_time = 1 AND is_downloaded = 1))
              || '-' || (SELECT COALESCE(SUM(download_count), 0) FROM transfers)
              || '-' || (SELECT COUNT(DISTINCT sender_ip) FROM transfers WHERE sender_ip IS NOT NULL)
              || '-' || (SELECT COUNT(*) FROM rooms_registry)
