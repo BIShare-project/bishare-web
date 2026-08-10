@@ -1,34 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { MotionProvider } from "@/components/site/motion";
 import { PWARegister } from "@/components/site/pwa-register";
 import { CookieNotice } from "@/components/site/cookie-notice";
 import { sharedOpenGraph } from "@/lib/og";
 import { buildAlternates } from "@/i18n/metadata";
+import { plexSans, plexMono } from "../fonts";
 import "./site.css";
 
-// Nightglass marketing shell. This is a NESTED layout: the minimal root layout
-// (src/app/layout.tsx) owns <html>/<body>, so the IBM Plex font variables are
-// applied to a wrapper element here (every visible node is inside it) and the
-// theme-boot script runs at the top of this subtree instead of <head>. site.css
-// is imported here and nowhere else, so it never reaches the admin routes.
-
-const plexSans = IBM_Plex_Sans({
-  // "cyrillic" so the Russian locale renders in the brand type, not a system
-  // fallback. CJK/Arabic/Devanagari have no Plex glyphs and stay on the system
-  // stack deliberately (a webfont for them would be megabytes).
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-  variable: "--font-mono-plex",
-  display: "swap",
-});
+// Nightglass marketing shell. The IBM Plex fonts are declared once in
+// ../fonts.ts and applied to <body> by the [locale] layout (so next/font can
+// preload them into <head>); the SAME instances are reused here on the wrapper.
+// site.css is imported here and nowhere else, so it never reaches admin routes.
 
 const DESCRIPTION =
   "Send any file to any device — iPhone, Android, Windows, Mac, Linux. Nearby it’s instant and end-to-end encrypted, device to device. Far away, send a link they open in any browser — no app needed on their end. No sign-up; links auto-expire.";

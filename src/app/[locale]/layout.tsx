@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { routing, dirForLocale } from "@/i18n/routing";
+import { plexSans, plexMono } from "./fonts";
 
 /**
  * Root layout for the MARKETING surface (bishare.app). This is where the
@@ -42,7 +43,10 @@ export default async function LocaleLayout({
       className="dark"
       suppressHydrationWarning
     >
-      <body>
+      <body className={`${plexSans.variable} ${plexMono.variable}`}>
+        {/* Warm the TLS connection to the API (config, room signaling, transfers)
+            before the client widgets need it. */}
+        <link rel="preconnect" href="https://api.bishare.app" />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
