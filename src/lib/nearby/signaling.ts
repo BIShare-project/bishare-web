@@ -41,11 +41,12 @@ export class NearbySignaling {
   }
 
   connect(): void {
-    // Same-origin: the worker routes any /api/v1/* path to the Hono API (see
-    // isApiRequest), so bishare.app/api/v1/nearby/ws reaches the DO without a
-    // cross-origin WebSocket. Falls back to the configured API host off-browser.
-    const origin = typeof window !== "undefined" ? window.location.origin : API_URL;
-    const base = origin.replace(/^http/, "ws");
+    // The API is a SEPARATE worker/origin (api.bishare.app) since the api/web
+    // split — bishare.app no longer routes /api/v1/*, so signaling must go
+    // cross-origin to the API host. A browser cross-origin WebSocket is fine
+    // here (no CORS preflight for the WS handshake; NearbyDO accepts it). Using
+    // window.location.origin would hit the web worker, which 404s the upgrade.
+    const base = API_URL.replace(/^http/, "ws");
     const url = `${base}/api/v1/nearby/ws${
       this.code ? `?code=${encodeURIComponent(this.code)}` : ""
     }`;
