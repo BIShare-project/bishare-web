@@ -61,6 +61,7 @@ const NAMESPACES = [
   "related",
   "cookies",
   "stats",
+  "rooms",
 ] as const;
 
 async function loadNamespace(

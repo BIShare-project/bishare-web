@@ -19,6 +19,7 @@ import { LanguageSwitcher } from "./language-switcher";
  */
 const NAV_LINKS = [
   { href: "/transfer", key: "transfer" },
+  { href: "/rooms", key: "rooms" },
   { href: "/features", key: "features" },
   { href: "/how-it-works", key: "howItWorks" },
   { href: "/security", key: "security" },
