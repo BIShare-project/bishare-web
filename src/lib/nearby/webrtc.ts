@@ -8,7 +8,12 @@
 // sender is always the offerer and the receiver always the answerer.
 import type { NearbySignaling, IncomingSignal } from "./signaling";
 
-const ICE_SERVERS: RTCIceServer[] = [{ urls: "stun:stun.l.google.com:19302" }];
+const ICE_SERVERS: RTCIceServer[] = [
+  { urls: "stun:stun.l.google.com:19302" },
+  { urls: "turn:openrelay.metered.ca:80", username: "openrelayproject", credential: "openrelayproject" },
+  { urls: "turn:openrelay.metered.ca:443", username: "openrelayproject", credential: "openrelayproject" },
+  { urls: "turn:openrelay.metered.ca:443?transport=tcp", username: "openrelayproject", credential: "openrelayproject" },
+];
 const CHUNK_SIZE = 256 * 1024;
 const BUFFER_HIGH = 8 * 1024 * 1024; // pause sending above 8 MB buffered
 const BUFFER_LOW = 1 * 1024 * 1024;

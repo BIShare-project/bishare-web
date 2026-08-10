@@ -10,7 +10,15 @@
 // single peer-keyed signaling channel.
 import type { NearbySignaling, IncomingSignal } from "@/lib/nearby/signaling";
 
-const ICE_SERVERS: RTCIceServer[] = [{ urls: "stun:stun.l.google.com:19302" }];
+// STUN for direct/same-network paths; TURN as a relay fallback so transfers
+// still connect when the network blocks peer-to-peer (client isolation, strict
+// NAT). Direct paths are always preferred — TURN is only used as a last resort.
+const ICE_SERVERS: RTCIceServer[] = [
+  { urls: "stun:stun.l.google.com:19302" },
+  { urls: "turn:openrelay.metered.ca:80", username: "openrelayproject", credential: "openrelayproject" },
+  { urls: "turn:openrelay.metered.ca:443", username: "openrelayproject", credential: "openrelayproject" },
+  { urls: "turn:openrelay.metered.ca:443?transport=tcp", username: "openrelayproject", credential: "openrelayproject" },
+];
 const CHUNK_SIZE = 256 * 1024;
 const BUFFER_HIGH = 8 * 1024 * 1024;
 const BUFFER_LOW = 1 * 1024 * 1024;
