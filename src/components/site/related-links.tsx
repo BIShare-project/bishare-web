@@ -14,9 +14,9 @@ import { ArrowUpRight } from "lucide-react";
 const CLUSTER: Record<string, string[]> = {
   "airdrop-for-windows": ["airdrop-alternative", "airdrop-for-android", "share-files-mac-to-windows", "send-large-files"],
   "airdrop-for-android": ["airdrop-alternative", "airdrop-for-windows", "send-files-iphone-to-android", "nearby-share-alternative"],
-  "airdrop-alternative": ["airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android", "wetransfer-alternative"],
+  "airdrop-alternative": ["airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android", "best-file-sharing-app", "localsend-alternative", "wetransfer-alternative"],
   "wetransfer-alternative": ["send-large-files", "firefox-send-alternative", "smash-alternative", "share-files-without-account"],
-  "snapdrop-alternative": ["sharedrop-alternative", "nearby-share-alternative", "wormhole-alternative", "shareit-alternative"],
+  "snapdrop-alternative": ["sharedrop-alternative", "localsend-alternative", "nearby-share-alternative", "best-file-sharing-app", "wormhole-alternative", "shareit-alternative"],
   "sharedrop-alternative": ["snapdrop-alternative", "nearby-share-alternative", "shareit-alternative", "wetransfer-alternative"],
   "nearby-share-alternative": ["shareit-alternative", "snapdrop-alternative", "send-anywhere-alternative", "airdrop-alternative"],
   "shareit-alternative": ["nearby-share-alternative", "send-anywhere-alternative", "sharedrop-alternative", "send-large-files"],
@@ -34,6 +34,9 @@ const CLUSTER: Record<string, string[]> = {
   "smash-alternative": ["wetransfer-alternative", "send-large-files", "wormhole-alternative", "firefox-send-alternative"],
   "wormhole-alternative": ["firefox-send-alternative", "encrypted-file-transfer", "snapdrop-alternative", "wetransfer-alternative"],
   "send-files-without-internet": ["encrypted-file-transfer", "share-files-without-account", "send-large-files", "nearby-share-alternative"],
+  // Best-of guide + LocalSend cluster.
+  "best-file-sharing-app": ["localsend-alternative", "airdrop-alternative", "snapdrop-alternative", "wetransfer-alternative"],
+  "localsend-alternative": ["snapdrop-alternative", "nearby-share-alternative", "best-file-sharing-app", "send-files-without-internet"],
 };
 
 export async function RelatedLinks({ current }: { current: string }) {

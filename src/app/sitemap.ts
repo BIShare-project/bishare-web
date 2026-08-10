@@ -10,7 +10,9 @@ const ROUTES: Array<{
 }> = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/download", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/best-file-sharing-app", priority: 0.95, changeFrequency: "weekly" },
   { path: "/features", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/localsend-alternative", priority: 0.9, changeFrequency: "monthly" },
   { path: "/airdrop-for-android", priority: 0.9, changeFrequency: "monthly" },
   { path: "/airdrop-for-windows", priority: 0.9, changeFrequency: "monthly" },
   { path: "/airdrop-alternative", priority: 0.9, changeFrequency: "monthly" },
