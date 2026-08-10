@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
 import {
   createRoom,
   closeRoom,
@@ -314,24 +315,28 @@ function Landing({
 }) {
   return (
     <div className="space-y-6 p-6">
-      {/* mode: cloud (relay, cross-network) vs local (P2P, same-network) */}
+      {/* mode switch: Cloud (relay) ⇄ Local (P2P) — a single toggle, not tabs */}
       <div>
-        <div className="grid grid-cols-2 gap-1 rounded-xl border border-border bg-muted/40 p-1">
-          {(["cloud", "local"] as const).map((m) => (
-            <button
-              key={m}
-              onClick={() => setMode(m)}
-              className={
-                "rounded-lg px-3 py-2 text-sm font-medium transition " +
-                (mode === m ? "bg-background shadow-sm" : "text-muted-foreground hover:text-foreground")
-              }
-              aria-pressed={mode === m}
-            >
-              {t(`mode.${m}`)}
-            </button>
-          ))}
+        <div className="flex items-center justify-center gap-3 text-sm">
+          <button
+            onClick={() => setMode("cloud")}
+            className={mode === "cloud" ? "font-medium" : "text-muted-foreground hover:text-foreground"}
+          >
+            {t("mode.cloud")}
+          </button>
+          <Switch
+            checked={mode === "local"}
+            onCheckedChange={(v) => setMode(v ? "local" : "cloud")}
+            aria-label={t("mode.local")}
+          />
+          <button
+            onClick={() => setMode("local")}
+            className={mode === "local" ? "font-medium" : "text-muted-foreground hover:text-foreground"}
+          >
+            {t("mode.local")}
+          </button>
         </div>
-        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+        <p className="mt-2 text-center text-xs leading-relaxed text-muted-foreground">
           {t(`mode.${mode}Desc`)}
         </p>
       </div>
