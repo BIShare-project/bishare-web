@@ -4,15 +4,19 @@ import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import {
   Check,
+  Cloud,
   Copy,
   DoorOpen,
   Download,
   FileIcon,
   Globe,
+  KeyRound,
   LogOut,
   Monitor,
+  Radio,
   Smartphone,
   Upload,
+  User,
   Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -313,15 +317,20 @@ function Landing({
   onCreate: () => void;
   onJoin: () => void;
 }) {
+  const cloud = mode === "cloud";
   return (
-    <div className="space-y-6 p-6">
-      {/* mode switch: Cloud (relay) ⇄ Local (P2P) — a single toggle, not tabs */}
-      <div>
-        <div className="flex items-center justify-center gap-3 text-sm">
+    <div className="space-y-6 p-6 sm:p-7">
+      {/* mode switch: Cloud (relay) ⇄ Local (P2P) — one pill toggle, not tabs */}
+      <div className="space-y-2">
+        <div className="mx-auto flex w-fit items-center gap-3 rounded-full border border-border bg-muted/40 py-1.5 pl-4 pr-4 text-sm">
           <button
             onClick={() => setMode("cloud")}
-            className={mode === "cloud" ? "font-medium" : "text-muted-foreground hover:text-foreground"}
+            className={
+              "flex items-center gap-1.5 transition " +
+              (cloud ? "font-medium text-foreground" : "text-muted-foreground hover:text-foreground")
+            }
           >
+            <Cloud className="h-3.5 w-3.5" />
             {t("mode.cloud")}
           </button>
           <Switch
@@ -331,64 +340,90 @@ function Landing({
           />
           <button
             onClick={() => setMode("local")}
-            className={mode === "local" ? "font-medium" : "text-muted-foreground hover:text-foreground"}
+            className={
+              "flex items-center gap-1.5 transition " +
+              (!cloud ? "font-medium text-foreground" : "text-muted-foreground hover:text-foreground")
+            }
           >
+            <Radio className="h-3.5 w-3.5" />
             {t("mode.local")}
           </button>
         </div>
-        <p className="mt-2 text-center text-xs leading-relaxed text-muted-foreground">
+        <p className="text-center text-xs leading-relaxed text-muted-foreground">
           {t(`mode.${mode}Desc`)}
         </p>
       </div>
 
-      <div className="space-y-2">
-        <label className="text-sm font-medium" htmlFor="room-alias">
+      {/* name */}
+      <div className="space-y-1.5">
+        <label className="text-xs font-medium text-muted-foreground" htmlFor="room-alias">
           {t("landing.aliasLabel")}
         </label>
-        <Input
-          id="room-alias"
-          value={alias}
-          onChange={(e) => setAlias(e.target.value)}
-          placeholder={t("landing.aliasPlaceholder")}
-          maxLength={40}
-          autoComplete="off"
-        />
+        <div className="relative">
+          <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            id="room-alias"
+            value={alias}
+            onChange={(e) => setAlias(e.target.value)}
+            placeholder={t("landing.aliasPlaceholder")}
+            maxLength={40}
+            autoComplete="off"
+            className="h-11 rounded-xl pl-9"
+          />
+        </div>
       </div>
 
-      <Button onClick={onCreate} disabled={busy !== null} className="w-full" size="lg">
-        <DoorOpen className="mr-2 h-4 w-4" />
+      {/* create — primary CTA */}
+      <Button
+        onClick={onCreate}
+        disabled={busy !== null}
+        size="lg"
+        className="h-12 w-full rounded-xl text-[15px] font-semibold shadow-sm"
+      >
+        <DoorOpen className="mr-2 h-[18px] w-[18px]" />
         {busy === "create" ? t("landing.creating") : t("landing.create")}
       </Button>
 
-      <div className="flex items-center gap-3 text-xs uppercase tracking-wider text-muted-foreground">
+      {/* divider */}
+      <div className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
         <span className="h-px flex-1 bg-border" />
         {t("landing.or")}
         <span className="h-px flex-1 bg-border" />
       </div>
 
-      <div className="space-y-2">
-        <label className="text-sm font-medium" htmlFor="room-code">
+      {/* join by code */}
+      <div className="space-y-1.5">
+        <label className="text-xs font-medium text-muted-foreground" htmlFor="room-code">
           {t("landing.joinLabel")}
         </label>
         <div className="flex gap-2">
-          <Input
-            id="room-code"
-            value={code}
-            onChange={(e) => setCode(e.target.value.toUpperCase())}
-            placeholder={t("landing.codePlaceholder")}
-            className="font-mono uppercase tracking-widest"
-            maxLength={8}
-            autoComplete="off"
-            onKeyDown={(e) => e.key === "Enter" && onJoin()}
-          />
-          <Button onClick={onJoin} disabled={busy !== null} variant="secondary">
+          <div className="relative flex-1">
+            <KeyRound className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Input
+              id="room-code"
+              value={code}
+              onChange={(e) => setCode(e.target.value.toUpperCase())}
+              placeholder={t("landing.codePlaceholder")}
+              className="h-11 rounded-xl pl-9 font-mono text-base uppercase tracking-[0.35em] placeholder:tracking-normal"
+              maxLength={8}
+              autoComplete="off"
+              inputMode="text"
+              onKeyDown={(e) => e.key === "Enter" && onJoin()}
+            />
+          </div>
+          <Button
+            onClick={onJoin}
+            disabled={busy !== null}
+            variant="secondary"
+            className="h-11 rounded-xl px-5"
+          >
             {busy === "join" ? t("landing.joining") : t("landing.join")}
           </Button>
         </div>
       </div>
 
       {error && (
-        <p className="rounded-lg bg-destructive/10 px-3 py-2 text-sm text-destructive" role="alert">
+        <p className="rounded-xl bg-destructive/10 px-3.5 py-2.5 text-sm text-destructive" role="alert">
           {error}
         </p>
       )}
