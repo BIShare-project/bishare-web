@@ -84,9 +84,17 @@ export function LocalRoomView({
       return;
     }
 
+    let stopped = false;
+    let reconnectTimer: ReturnType<typeof setTimeout> | undefined;
     const sig = new NearbySignaling(self, code)
       .on("open", () => setStatus("open"))
-      .on("close", () => setStatus("connecting"))
+      .on("close", () => {
+        // Mobile networks drop WebSockets often; don't strand the room — flip to
+        // "connecting" and reconnect (same signaling instance, handlers intact)
+        // unless we're intentionally leaving.
+        setStatus("connecting");
+        if (!stopped) reconnectTimer = setTimeout(() => sig.connect(), 2000);
+      })
       .on("peers", (list) => setPeers(list.filter((p) => p.peerId !== self.peerId)))
       .on("peerJoined", (p) =>
         setPeers((cur) => (p.peerId === self.peerId ? cur : [...cur.filter((x) => x.peerId !== p.peerId), p])),
@@ -123,12 +131,17 @@ export function LocalRoomView({
     sig.connect();
 
     return () => {
+      stopped = true;
+      if (reconnectTimer) clearTimeout(reconnectTimer);
       rtc.closeAll();
       sig.close();
       sigRef.current = null;
       rtcRef.current = null;
     };
-  }, [code, aliasOf, t]);
+    // Run once per code — alias/t/callbacks are captured intentionally (aliasOf
+    // reads the live peers ref), so re-subscribing on every render is avoided.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [code]);
 
   const copyCode = async () => {
     try {
