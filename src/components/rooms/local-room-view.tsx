@@ -162,6 +162,21 @@ export function LocalRoomView({
       return;
     }
     for (const file of Array.from(files)) {
+      // Show my own shared file in the list right away — the sharer should see
+      // what they shared (a File is a Blob, so it downloads back the original).
+      const ownId = `own-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+      setReceived((cur) => [
+        {
+          id: ownId,
+          name: file.name,
+          size: file.size,
+          mime: file.type || "application/octet-stream",
+          from: "me",
+          fromAlias: t("room.you"),
+          blob: file,
+        },
+        ...cur,
+      ]);
       sendTracker.current = { name: file.name, total: targets.length, frac: new Map(), done: 0 };
       setSending({ name: file.name, pct: 0 });
       try {

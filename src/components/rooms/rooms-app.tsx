@@ -111,10 +111,16 @@ type Session =
   | { phase: "landing" }
   | { phase: "room"; code: string; hostToken: string | null; mode: RoomMode };
 
-export function RoomsApp({ initialCode }: { initialCode?: string }) {
+export function RoomsApp({
+  initialCode,
+  initialMode = "cloud",
+}: {
+  initialCode?: string;
+  initialMode?: RoomMode;
+}) {
   const t = useTranslations("rooms");
   const [session, setSession] = useState<Session>({ phase: "landing" });
-  const [mode, setMode] = useState<RoomMode>("cloud");
+  const [mode, setMode] = useState<RoomMode>(initialMode);
   const [alias, setAliasState] = useState("");
   const [code, setCode] = useState(initialCode?.toUpperCase() ?? "");
   const [busy, setBusy] = useState<"create" | "join" | null>(null);

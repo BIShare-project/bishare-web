@@ -36,12 +36,14 @@ export default async function RoomsPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ code?: string }>;
+  searchParams: Promise<{ code?: string; mode?: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("rooms");
-  const initialCode = (await searchParams).code;
+  const sp = await searchParams;
+  const initialCode = sp.code;
+  const initialMode = sp.mode === "local" ? "local" : "cloud";
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -60,7 +62,7 @@ export default async function RoomsPage({
         </div>
 
         <div className="mt-9 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-          <RoomsApp initialCode={initialCode} />
+          <RoomsApp initialCode={initialCode} initialMode={initialMode} />
         </div>
       </main>
       <SiteFooter />
