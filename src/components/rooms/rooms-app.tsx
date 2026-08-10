@@ -10,7 +10,6 @@ import {
   Download,
   FileIcon,
   Globe,
-  KeyRound,
   LogOut,
   Monitor,
   Radio,
@@ -33,6 +32,7 @@ import {
 import { getAlias, getFingerprint, setAlias as persistAlias } from "@/lib/rooms/identity";
 import type { RoomEvent, RoomFile, RoomInfo, RoomMember } from "@/lib/rooms/types";
 import { LocalRoomView } from "./local-room-view";
+import { CodeInput } from "./code-input";
 
 const CODE_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // no ambiguous chars
 function makeLocalCode(): string {
@@ -391,35 +391,20 @@ function Landing({
         <span className="h-px flex-1 bg-border" />
       </div>
 
-      {/* join by code */}
-      <div className="space-y-1.5">
-        <label className="text-xs font-medium text-muted-foreground" htmlFor="room-code">
+      {/* join by code — OTP-style boxes */}
+      <div className="space-y-2.5">
+        <label className="text-xs font-medium text-muted-foreground">
           {t("landing.joinLabel")}
         </label>
-        <div className="flex gap-2">
-          <div className="relative flex-1">
-            <KeyRound className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              id="room-code"
-              value={code}
-              onChange={(e) => setCode(e.target.value.toUpperCase())}
-              placeholder={t("landing.codePlaceholder")}
-              className="h-11 rounded-xl pl-9 font-mono text-base uppercase tracking-[0.35em] placeholder:tracking-normal"
-              maxLength={8}
-              autoComplete="off"
-              inputMode="text"
-              onKeyDown={(e) => e.key === "Enter" && onJoin()}
-            />
-          </div>
-          <Button
-            onClick={onJoin}
-            disabled={busy !== null}
-            variant="secondary"
-            className="h-11 rounded-xl px-5"
-          >
-            {busy === "join" ? t("landing.joining") : t("landing.join")}
-          </Button>
-        </div>
+        <CodeInput value={code} onChange={setCode} onEnter={onJoin} length={4} />
+        <Button
+          onClick={onJoin}
+          disabled={busy !== null}
+          variant="secondary"
+          className="h-11 w-full rounded-xl"
+        >
+          {busy === "join" ? t("landing.joining") : t("landing.join")}
+        </Button>
       </div>
 
       {error && (
