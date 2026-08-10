@@ -58,6 +58,9 @@ interface Session {
   chunks: ArrayBuffer[];
   remoteReady: boolean;
   pendingIce: RTCIceCandidateInit[];
+  /** Sender: all bytes handed to the channel — a later channel close/error is
+   * the peer's normal teardown, NOT a failure, so it must not surface. */
+  done?: boolean;
 }
 
 let sidCounter = 0;
@@ -103,7 +106,11 @@ export class RoomRTC {
       };
       this.sessions.set(sid, s);
       dc.onopen = () => void this.pump(sid);
-      dc.onerror = () => this.cb.onError?.(peerId, "channel error");
+      // A channel error AFTER the send finished is the peer's normal teardown
+      // (it closes its side once it has the file) — don't report it as a failure.
+      dc.onerror = () => {
+        if (!s.done) this.cb.onError?.(peerId, "channel error");
+      };
       dc.onclose = () => this.teardown(sid);
       const offer = await pc.createOffer();
       await pc.setLocalDescription(offer);
@@ -208,6 +215,7 @@ export class RoomRTC {
       offset += buf.byteLength;
       this.cb.onSendProgress?.(sid, s.peerId, offset, file.size);
     }
+    s.done = true; // all bytes sent — suppress benign teardown errors
     this.cb.onSendDone?.(sid, s.peerId);
     // Give the buffer a moment to flush, then close (receiver already has size).
     setTimeout(() => this.teardown(sid), 2000);

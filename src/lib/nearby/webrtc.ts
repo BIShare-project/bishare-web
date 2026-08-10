@@ -97,7 +97,11 @@ export class NearbyRTC {
       this.sessions.set(peerId, session);
 
       dc.onopen = () => void this.pump(peerId);
-      dc.onerror = () => this.cb.onError?.(peerId, "channel error");
+      // A channel error after all bytes were sent is the receiver's normal
+      // teardown, not a failure — don't surface it.
+      dc.onerror = () => {
+        if (!this.sessions.get(peerId)?.sentComplete) this.cb.onError?.(peerId, "channel error");
+      };
       // Delivery confirmation: the receiver acks once the file is saved. Fall
       // back to "channel closed after all bytes were sent" so a receiver that
       // closes without acking still resolves as delivered (never before).
