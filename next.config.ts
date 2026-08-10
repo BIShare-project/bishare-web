@@ -4,7 +4,13 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 // Makes getCloudflareContext() (bindings D1/R2/DO) work during `next dev` —
 // dipakai admin panel (server components) tanpa harus lewat wrangler dev.
-initOpenNextCloudflareForDev();
+// DEV ONLY: it reads the wrangler config on load, so running it during the
+// production build would fail against the placeholder public wrangler.jsonc.
+// The prod build/deploy selects the real config via `-c wrangler.web.jsonc`;
+// getCloudflareContext() still works at runtime in the deployed worker.
+if (process.env.NODE_ENV === "development") {
+  initOpenNextCloudflareForDev();
+}
 
 // next-intl request config (marketing surface message loading + locale).
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
