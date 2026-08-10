@@ -11,15 +11,17 @@ export type ReportBundle = {
   totalUploads: number; // all-time, from durable daily counters
   uploadsFiles: number; // drive-file uploads (all-time)
   uploadsTransfers: number; // no-account transfers created (all-time)
-  totalDownloads: number; // all-time, from durable daily counters (newly instrumented)
-  downloadBytes: number; // all-time bytes served to downloaders
+  totalDownloads: number; // cloud transfer/share downloads + LAN receives (telemetry)
+  downloadBytes: number; // all-time bytes served to downloaders (cloud + LAN)
   liveTransfers: number;
   liveStorageBytes: number;
-  totalRooms: number;
+  totalRooms: number; // cloud rooms (rooms_registry) + local/LAN rooms (telemetry)
   receiveViews: number; // recipients who opened a transfer link (loop impressions)
   loopSends: number; // recipients who then clicked "Send a file" (loop conversion)
   nearbyTransfers: number; // LAN/nearby transfers (anonymous telemetry — serverless)
   nearbyBytes: number; // bytes moved over LAN/nearby (anonymous telemetry)
+  nearbyDownloads: number; // LAN files received (anonymous telemetry — serverless)
+  nearbyRooms: number; // local/LAN rooms hosted (anonymous telemetry — serverless)
   dailyUploads: { date: string; value: number }[];
 };
 
@@ -53,22 +55,23 @@ export async function reportBundle(): Promise<ReportBundle> {
   const [
     uniqueUsers,
     liveTransfers,
-    liveStorageBytes,
     upFiles,
     upTransfers,
     dlTransfer,
     dlShare,
-    downloadBytes,
-    totalRooms,
+    downloadBytesCloud,
+    totalRoomsCloud,
     roomFiles,
     receiveViews,
     loopSends,
     nearbyTransfers,
     nearbyBytes,
+    nearbyDownloads,
+    nearbyDownloadBytes,
+    nearbyRooms,
   ] = await Promise.all([
     scalar("SELECT COUNT(DISTINCT sender_ip) AS n FROM transfers WHERE sender_ip IS NOT NULL"),
     scalar("SELECT COUNT(*) AS n FROM transfers"),
-    scalar("SELECT COALESCE(SUM(size), 0) AS n FROM files WHERE is_deleted = 0"),
     counterTotal("files_uploaded"),
     counterTotal("transfers_created"),
     counterTotal("transfer_downloads"),
@@ -82,10 +85,23 @@ export async function reportBundle(): Promise<ReportBundle> {
     // Receive-loop: link opens (impressions) → "Send a file" clicks (conversion).
     counterTotal("receive_views"),
     counterTotal("loop_sends"),
-    // LAN/nearby transfers (anonymous telemetry — never touch the relay).
+    // LAN/nearby activity (anonymous telemetry — never touches the relay):
+    // sends, bytes, receives (downloads), receive-bytes, and local (LAN) rooms.
     counterTotal("nearby_transfers"),
     counterTotal("nearby_bytes"),
+    counterTotal("nearby_downloads"),
+    counterTotal("nearby_download_bytes"),
+    counterTotal("nearby_rooms"),
   ]);
+
+  // The accounts/drive teardown dropped the `files` table; server-side stored
+  // files no longer exist, so live storage is always 0.
+  const liveStorageBytes = 0;
+  // Downloads = cloud transfer/share downloads + LAN receives (telemetry).
+  const totalDownloads = dlTransfer + dlShare + nearbyDownloads;
+  const downloadBytes = downloadBytesCloud + nearbyDownloadBytes;
+  // Rooms = cloud rooms (rooms_registry) + local/LAN rooms (telemetry).
+  const totalRooms = totalRoomsCloud + nearbyRooms;
 
   const daily = await db
     .prepare(
@@ -105,7 +121,7 @@ export async function reportBundle(): Promise<ReportBundle> {
     totalUploads: upFiles + upTransfers + roomFiles,
     uploadsFiles: upFiles,
     uploadsTransfers: upTransfers,
-    totalDownloads: dlTransfer + dlShare,
+    totalDownloads,
     downloadBytes,
     liveTransfers,
     liveStorageBytes,
@@ -114,6 +130,8 @@ export async function reportBundle(): Promise<ReportBundle> {
     loopSends,
     nearbyTransfers,
     nearbyBytes,
+    nearbyDownloads,
+    nearbyRooms,
     dailyUploads: (daily.results ?? []).map((r) => ({ date: r.date, value: Number(r.v) })),
   };
 }

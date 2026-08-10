@@ -76,7 +76,8 @@ export class StatsLiveDO {
              || '-' || (SELECT COALESCE(SUM(value), 0) FROM stats_daily
                           WHERE metric IN ('files_uploaded','transfers_created',
                                            'transfer_downloads','share_downloads','download_bytes',
-                                           'nearby_transfers','nearby_bytes'))
+                                           'nearby_transfers','nearby_bytes',
+                                           'nearby_downloads','nearby_download_bytes','nearby_rooms'))
            AS fp`
       ).first<{ fp: string }>();
       return row?.fp ?? "";
