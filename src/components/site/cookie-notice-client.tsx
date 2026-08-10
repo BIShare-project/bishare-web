@@ -23,11 +23,30 @@ export function CookieNoticeClient({
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    try {
-      if (!localStorage.getItem(KEY)) setShow(true);
-    } catch {
-      /* private mode / storage blocked — just don't show */
+    let cancelled = false;
+    const reveal = () => {
+      if (cancelled) return;
+      try {
+        if (!localStorage.getItem(KEY)) setShow(true);
+      } catch {
+        /* private mode / storage blocked — just don't show */
+      }
+    };
+    // Reveal only once the browser is idle, i.e. AFTER the main content has
+    // painted — otherwise this prominent bottom banner renders at hydration and
+    // gets counted as the page's Largest Contentful Paint (hurting LCP).
+    if (typeof window.requestIdleCallback === "function") {
+      const id = window.requestIdleCallback(reveal, { timeout: 2500 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback?.(id);
+      };
     }
+    const id = window.setTimeout(reveal, 1800);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(id);
+    };
   }, []);
 
   if (!show) return null;
