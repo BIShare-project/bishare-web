@@ -27,6 +27,13 @@ import {
 } from "@/lib/rooms/client";
 import { getAlias, getFingerprint, setAlias as persistAlias } from "@/lib/rooms/identity";
 import type { RoomEvent, RoomFile, RoomInfo, RoomMember } from "@/lib/rooms/types";
+import { LocalRoomView } from "./local-room-view";
+
+const CODE_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // no ambiguous chars
+function makeLocalCode(): string {
+  const bytes = crypto.getRandomValues(new Uint8Array(4));
+  return Array.from(bytes, (b) => CODE_ALPHABET[b % CODE_ALPHABET.length]).join("");
+}
 
 // ── room state, driven by the WS event stream ───────────────────────────────
 interface RoomState {
@@ -99,13 +106,15 @@ function DeviceIcon({ type }: { type: string }) {
   return <Globe className={cls} aria-hidden />;
 }
 
+type RoomMode = "cloud" | "local";
 type Session =
   | { phase: "landing" }
-  | { phase: "room"; code: string; hostToken: string | null };
+  | { phase: "room"; code: string; hostToken: string | null; mode: RoomMode };
 
 export function RoomsApp({ initialCode }: { initialCode?: string }) {
   const t = useTranslations("rooms");
   const [session, setSession] = useState<Session>({ phase: "landing" });
+  const [mode, setMode] = useState<RoomMode>("cloud");
   const [alias, setAliasState] = useState("");
   const [code, setCode] = useState(initialCode?.toUpperCase() ?? "");
   const [busy, setBusy] = useState<"create" | "join" | null>(null);
@@ -176,10 +185,16 @@ export function RoomsApp({ initialCode }: { initialCode?: string }) {
     const name = alias.trim();
     if (!name) return setError(t("landing.nameRequired"));
     persistAlias(name);
+    if (mode === "local") {
+      // Local rooms have no server room — the code is just a P2P signaling
+      // channel. LocalRoomView opens the WebRTC mesh itself.
+      setSession({ phase: "room", code: makeLocalCode(), hostToken: null, mode: "local" });
+      return;
+    }
     setBusy("create");
     try {
       const room = await createRoom(fpRef.current, name);
-      setSession({ phase: "room", code: room.code, hostToken: room.hostToken });
+      setSession({ phase: "room", code: room.code, hostToken: room.hostToken, mode: "cloud" });
       openConnection(room.code);
     } catch (err) {
       setError(err instanceof Error ? err.message : t("errors.create"));
@@ -195,8 +210,12 @@ export function RoomsApp({ initialCode }: { initialCode?: string }) {
     if (!name) return setError(t("landing.nameRequired"));
     if (!c) return setError(t("landing.codeRequired"));
     persistAlias(name);
+    if (mode === "local") {
+      setSession({ phase: "room", code: c, hostToken: null, mode: "local" });
+      return;
+    }
     setBusy("join");
-    setSession({ phase: "room", code: c, hostToken: null });
+    setSession({ phase: "room", code: c, hostToken: null, mode: "cloud" });
     openConnection(c);
     setBusy(null);
   };
@@ -222,6 +241,8 @@ export function RoomsApp({ initialCode }: { initialCode?: string }) {
     return (
       <Landing
         t={t}
+        mode={mode}
+        setMode={setMode}
         alias={alias}
         setAlias={setAliasState}
         code={code}
@@ -230,6 +251,16 @@ export function RoomsApp({ initialCode }: { initialCode?: string }) {
         error={error}
         onCreate={handleCreate}
         onJoin={handleJoin}
+      />
+    );
+  }
+
+  if (session.mode === "local") {
+    return (
+      <LocalRoomView
+        code={session.code}
+        alias={alias.trim() || t("landing.anon")}
+        onLeave={handleLeave}
       />
     );
   }
@@ -252,6 +283,8 @@ export function RoomsApp({ initialCode }: { initialCode?: string }) {
 // ── landing: create or join ─────────────────────────────────────────────────
 function Landing({
   t,
+  mode,
+  setMode,
   alias,
   setAlias,
   code,
@@ -262,6 +295,8 @@ function Landing({
   onJoin,
 }: {
   t: ReturnType<typeof useTranslations>;
+  mode: RoomMode;
+  setMode: (m: RoomMode) => void;
   alias: string;
   setAlias: (v: string) => void;
   code: string;
@@ -273,6 +308,28 @@ function Landing({
 }) {
   return (
     <div className="space-y-6 p-6">
+      {/* mode: cloud (relay, cross-network) vs local (P2P, same-network) */}
+      <div>
+        <div className="grid grid-cols-2 gap-1 rounded-xl border border-border bg-muted/40 p-1">
+          {(["cloud", "local"] as const).map((m) => (
+            <button
+              key={m}
+              onClick={() => setMode(m)}
+              className={
+                "rounded-lg px-3 py-2 text-sm font-medium transition " +
+                (mode === m ? "bg-background shadow-sm" : "text-muted-foreground hover:text-foreground")
+              }
+              aria-pressed={mode === m}
+            >
+              {t(`mode.${m}`)}
+            </button>
+          ))}
+        </div>
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+          {t(`mode.${mode}Desc`)}
+        </p>
+      </div>
+
       <div className="space-y-2">
         <label className="text-sm font-medium" htmlFor="room-alias">
           {t("landing.aliasLabel")}
