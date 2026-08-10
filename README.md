@@ -11,6 +11,7 @@ nothing stored in the clear. The web app + marketing site behind
 [**bishare.app**](https://bishare.app), built with **Next.js** and running on
 **Cloudflare Workers**.
 
+[![CI](https://github.com/BIShare-project/bishare-web/actions/workflows/ci.yml/badge.svg)](https://github.com/BIShare-project/bishare-web/actions/workflows/ci.yml)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)
 ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)
@@ -26,6 +27,7 @@ nothing stored in the clear. The web app + marketing site behind
 
 ## Table of contents
 
+- [Screenshots](#screenshots)
 - [Why BIShare?](#why-bishare)
 - [What's inside](#-whats-inside)
 - [How the encryption works](#-how-the-encryption-works)
@@ -38,6 +40,27 @@ nothing stored in the clear. The web app + marketing site behind
 - [Contributing](#-contributing)
 - [FAQ](#-faq)
 - [License](#license)
+
+## Screenshots
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/home.png" alt="BIShare home page"></td>
+    <td width="50%"><img src="docs/transfer.png" alt="In-browser transfer tool"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub><b>Home</b> — bishare.app</sub></td>
+    <td align="center"><sub><b>/transfer</b> — zero-knowledge browser transfer</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/rooms.png" alt="Rooms — group sharing"></td>
+    <td width="50%"><img src="docs/best.png" alt="Best file sharing apps comparison"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub><b>/rooms</b> — live group sharing</sub></td>
+    <td align="center"><sub><b>/best-file-sharing-app</b> — comparison guide</sub></td>
+  </tr>
+</table>
 
 ## Why BIShare?
 
@@ -129,6 +152,8 @@ The site talks to the transfer API over HTTPS at `NEXT_PUBLIC_API_URL`
 backend out of the box — no local server needed to develop the UI.
 
 ## ☁️ Deploy your own (Cloudflare Workers)
+
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/BIShare-project/bishare-web)
 
 1. Fill in your own resource IDs in `wrangler.jsonc` (D1 database, R2 bucket,
    custom domain). The committed file uses `<PLACEHOLDER>` values so no infra
