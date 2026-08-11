@@ -167,8 +167,22 @@ backend out of the box — no local server needed to develop the UI.
    npm run deploy        # opennextjs build + wrangler deploy
    ```
 
-The web Worker needs **no secrets** — it only reads D1 and serves pages. Point
+The web Worker needs **no runtime secrets** — it only reads D1 and serves pages. Point
 `NEXT_PUBLIC_API_URL` at your own backend if you self-host the API.
+
+### Automatic deployment from GitHub
+
+Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
+which builds the OpenNext Worker and deploys it to `bishare.app`. Add these
+repository secrets under **Settings → Secrets and variables → Actions**:
+
+- `CLOUDFLARE_API_TOKEN` — a token allowed to deploy Workers and access the
+  configured D1/R2 resources.
+- `CLOUDFLARE_ACCOUNT_ID` — the Cloudflare account ID that owns the Worker.
+- `CLOUDFLARE_D1_DATABASE_ID` — the production `bishare-cloud` D1 database ID.
+
+The workflow generates the private production Wrangler config during the run;
+the real infrastructure config remains gitignored.
 
 ## 📁 Project structure
 
