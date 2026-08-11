@@ -137,7 +137,7 @@ telemetry) is a separate service; this site talks to it over HTTPS at
 
 ## 🚀 Run it locally
 
-**Prerequisites:** Node.js 20+ and npm.
+**Prerequisites:** Node.js 22+ and npm.
 
 ```bash
 git clone https://github.com/BIShare-project/bishare-web.git

@@ -13,7 +13,7 @@ sizes are welcome — from fixing a typo to adding a language to shipping a feat
 
 ## Getting started
 
-**Prerequisites:** Node.js 20+ and npm.
+**Prerequisites:** Node.js 22+ and npm.
 
 ```bash
 git clone https://github.com/BIShare-project/bishare-web.git
