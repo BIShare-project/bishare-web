@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { APP_STORE_URL, PLAY_STORE_URL } from "./store-buttons";
 
 const SUPPORT_EMAIL = "support@billiongroup.net";
+const GITHUB_URL = "https://github.com/BIShare-project/bishare-web";
 
 /**
  * Footer nav data. Labels are resolved from the "chrome" namespace at render
@@ -19,49 +20,50 @@ const COLUMNS: Array<{
     external?: boolean;
   }>;
 }> = [
-  {
-    headingKey: "product",
-    links: [
-      { labelKey: "transfer", href: "/transfer" },
-      { labelKey: "download", href: "/download" },
-      { labelKey: "features", href: "/features" },
-      { labelKey: "howItWorks", href: "/how-it-works" },
-      { labelKey: "security", href: "/security" },
-      { labelKey: "faq", href: "/faq" },
-      { labelKey: "appStore", href: APP_STORE_URL, external: true },
-      { labelKey: "googlePlay", href: PLAY_STORE_URL, external: true },
-    ],
-  },
-  {
-    headingKey: "useCases",
-    links: [
-      { labelKey: "ucWindows", href: "/airdrop-for-windows" },
-      { labelKey: "ucAlternative", href: "/airdrop-alternative" },
-      { labelKey: "ucIphoneAndroid", href: "/send-files-iphone-to-android" },
-      { labelKey: "ucAndroidIphone", href: "/send-files-android-to-iphone" },
-      { labelKey: "ucPcToPhone", href: "/transfer-files-pc-to-phone" },
-      { labelKey: "ucMacWindows", href: "/share-files-mac-to-windows" },
-      { labelKey: "ucLargeFiles", href: "/send-large-files" },
-      { labelKey: "ucWetransfer", href: "/wetransfer-alternative" },
-    ],
-  },
-  {
-    headingKey: "company",
-    links: [
-      { labelKey: "about", href: "/about" },
-      { labelKey: "philosophy", href: "/philosophy" },
-      { labelKey: "contact", href: "/contact" },
-    ],
-  },
-  {
-    headingKey: "support",
-    links: [
-      { label: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}` },
-      { labelKey: "privacyPolicy", href: "/privacy" },
-      { labelKey: "termsOfService", href: "/terms" },
-    ],
-  },
-];
+    {
+      headingKey: "product",
+      links: [
+        { labelKey: "transfer", href: "/transfer" },
+        { labelKey: "download", href: "/download" },
+        { labelKey: "features", href: "/features" },
+        { labelKey: "howItWorks", href: "/how-it-works" },
+        { labelKey: "security", href: "/security" },
+        { labelKey: "faq", href: "/faq" },
+        { labelKey: "appStore", href: APP_STORE_URL, external: true },
+        { labelKey: "googlePlay", href: PLAY_STORE_URL, external: true },
+      ],
+    },
+    {
+      headingKey: "useCases",
+      links: [
+        { labelKey: "ucWindows", href: "/airdrop-for-windows" },
+        { labelKey: "ucAlternative", href: "/airdrop-alternative" },
+        { labelKey: "ucIphoneAndroid", href: "/send-files-iphone-to-android" },
+        { labelKey: "ucAndroidIphone", href: "/send-files-android-to-iphone" },
+        { labelKey: "ucPcToPhone", href: "/transfer-files-pc-to-phone" },
+        { labelKey: "ucMacWindows", href: "/share-files-mac-to-windows" },
+        { labelKey: "ucLargeFiles", href: "/send-large-files" },
+        { labelKey: "ucWetransfer", href: "/wetransfer-alternative" },
+      ],
+    },
+    {
+      headingKey: "company",
+      links: [
+        { labelKey: "about", href: "/about" },
+        { labelKey: "philosophy", href: "/philosophy" },
+        { labelKey: "contact", href: "/contact" },
+        { label: "GitHub (Open Source)", href: GITHUB_URL, external: true },
+      ],
+    },
+    {
+      headingKey: "support",
+      links: [
+        { label: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}` },
+        { labelKey: "privacyPolicy", href: "/privacy" },
+        { labelKey: "termsOfService", href: "/terms" },
+      ],
+    },
+  ];
 
 function FooterLink({
   label,
