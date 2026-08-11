@@ -9,16 +9,7 @@
 // `sid` so concurrent transfers to/from the same peer never collide on the
 // single peer-keyed signaling channel.
 import type { NearbySignaling, IncomingSignal } from "@/lib/nearby/signaling";
-
-// STUN for direct/same-network paths; TURN as a relay fallback so transfers
-// still connect when the network blocks peer-to-peer (client isolation, strict
-// NAT). Direct paths are always preferred — TURN is only used as a last resort.
-const ICE_SERVERS: RTCIceServer[] = [
-  { urls: "stun:stun.l.google.com:19302" },
-  { urls: "turn:openrelay.metered.ca:80", username: "openrelayproject", credential: "openrelayproject" },
-  { urls: "turn:openrelay.metered.ca:443", username: "openrelayproject", credential: "openrelayproject" },
-  { urls: "turn:openrelay.metered.ca:443?transport=tcp", username: "openrelayproject", credential: "openrelayproject" },
-];
+import { getIceServers, STUN_FALLBACK } from "@/lib/webrtc/ice";
 const CHUNK_SIZE = 256 * 1024;
 const BUFFER_HIGH = 8 * 1024 * 1024;
 const BUFFER_LOW = 1 * 1024 * 1024;
@@ -71,6 +62,9 @@ function newSid(): string {
 
 export class RoomRTC {
   private sessions = new Map<string, Session>(); // sid → session
+  // STUN until the TURN mint resolves (prefetched below) — peers created after
+  // that get the relay fallback for networks that block direct paths.
+  private ice: RTCIceServer[] = STUN_FALLBACK;
 
   constructor(
     private readonly sig: NearbySignaling,
@@ -78,6 +72,7 @@ export class RoomRTC {
     private readonly aliasOf: (peerId: string) => string,
   ) {
     sig.on("signal", (m) => void this.onSignal(m));
+    void getIceServers().then((s) => (this.ice = s));
   }
 
   /** Broadcast a file to every peer currently in the room. */
@@ -126,7 +121,7 @@ export class RoomRTC {
   }
 
   private newPc(sid: string, peerId: string): RTCPeerConnection {
-    const pc = new RTCPeerConnection({ iceServers: ICE_SERVERS });
+    const pc = new RTCPeerConnection({ iceServers: this.ice });
     pc.onicecandidate = (e) => {
       if (e.candidate) this.sig.signal(peerId, "rice", { sid, candidate: e.candidate.toJSON() });
     };
