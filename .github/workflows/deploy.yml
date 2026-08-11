@@ -35,11 +35,6 @@ jobs:
           test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "Missing CLOUDFLARE_ACCOUNT_ID"; exit 1; }
           test -n "$CLOUDFLARE_D1_DATABASE_ID" || { echo "Missing CLOUDFLARE_D1_DATABASE_ID"; exit 1; }
 
-      - name: Build Cloudflare Worker
-        env:
-          NEXT_PUBLIC_API_URL: https://api.bishare.app
-        run: npm run build:cloudflare
-
       - name: Create production Wrangler config
         env:
           CLOUDFLARE_D1_DATABASE_ID: ${{ secrets.CLOUDFLARE_D1_DATABASE_ID }}
@@ -80,6 +75,11 @@ jobs:
 
           writeFileSync("wrangler.web.jsonc", `${JSON.stringify(config, null, 2)}\n`);
           NODE
+
+      - name: Build Cloudflare Worker
+        env:
+          NEXT_PUBLIC_API_URL: https://api.bishare.app
+        run: npm run build:cloudflare
 
       - name: Deploy Worker
         env:
