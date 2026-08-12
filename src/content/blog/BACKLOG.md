@@ -30,8 +30,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
 
 ## Security & Privacy
 
-11. ☐ How to Securely Send Confidential Business Documents Wirelessly
-    — planned slug: securely-send-confidential-documents
+11. ✅ How to Securely Send Confidential Business Documents Wirelessly
+    — slug: securely-send-confidential-documents (scheduled 2026-09-11)
 12. ☐ What is End-to-End Encrypted File Sharing and Why Do You Need It?
     — planned slug: what-is-end-to-end-encrypted-file-sharing
 13. ☐ How to Transfer Private Data Locally Without Using the Internet

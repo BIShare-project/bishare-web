@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="A sealed business document crossing wirelessly between a laptop and a phone while outside observers see only ciphertext">
+  <defs>
+    <linearGradient id="bg11" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b14"/>
+      <stop offset="1" stop-color="#0d1322"/>
+    </linearGradient>
+    <radialGradient id="glow11" cx="0.5" cy="0.52" r="0.62">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tun11" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3b82f6" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#60a5fa" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#3b82f6" stop-opacity="0.55"/>
+    </linearGradient>
+    <linearGradient id="lb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3AA0FF"/><stop offset=".5" stop-color="#0A84FF"/><stop offset="1" stop-color="#0B3AD1"/>
+    </linearGradient>
+    <radialGradient id="lb-glow" cx=".5" cy=".36" r=".72">
+      <stop offset="0" stop-color="#8FD0FF" stop-opacity=".5"/><stop offset="1" stop-color="#8FD0FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-mk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6E9FF"/>
+    </linearGradient>
+    <radialGradient id="lb-nd" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#F0FCFF"/><stop offset=".45" stop-color="#22D3EE"/><stop offset="1" stop-color="#0AACD0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg11)"/>
+  <rect width="1200" height="630" fill="url(#glow11)"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200"/>
+    <path d="M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630"/>
+  </g>
+
+  <!-- three observers above: each sightline stops at the capsule and reads only hex -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5">
+    <g transform="translate(388,142)">
+      <ellipse rx="26" ry="15" fill="none" stroke="#64748b" stroke-width="2"/>
+      <circle r="6.5" fill="#64748b"/>
+      <text y="-26" text-anchor="middle" fill="#64748b" font-size="13">the network</text>
+      <path d="M6 20 L52 158" stroke="#475569" stroke-width="1.8" stroke-dasharray="5 6"/>
+      <text x="-64" y="108" fill="#475569">9f 3a c1 07…</text>
+    </g>
+    <g transform="translate(600,120)">
+      <ellipse rx="26" ry="15" fill="none" stroke="#64748b" stroke-width="2"/>
+      <circle r="6.5" fill="#64748b"/>
+      <text y="-26" text-anchor="middle" fill="#64748b" font-size="13">the server</text>
+      <path d="M0 20 L0 172" stroke="#475569" stroke-width="1.8" stroke-dasharray="5 6"/>
+      <text x="10" y="112" fill="#475569">22 b8 4e d9…</text>
+    </g>
+    <g transform="translate(812,142)">
+      <ellipse rx="26" ry="15" fill="none" stroke="#64748b" stroke-width="2"/>
+      <circle r="6.5" fill="#64748b"/>
+      <text y="-26" text-anchor="middle" fill="#64748b" font-size="13">the logs</text>
+      <path d="M-6 20 L-52 158" stroke="#475569" stroke-width="1.8" stroke-dasharray="5 6"/>
+      <text x="-24" y="108" fill="#475569">e0 5d 71 8c…</text>
+    </g>
+  </g>
+
+  <!-- laptop left -->
+  <g transform="translate(128,308)">
+    <rect x="8" y="0" width="196" height="118" rx="10" fill="#0e1a2e" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="2.5"/>
+    <rect x="20" y="11" width="172" height="96" rx="6" fill="#12253f"/>
+    <path d="M0 120h212l-11 13a10 10 0 0 1-8 3H19a10 10 0 0 1-8-3z" fill="#0b1424" stroke="#3b82f6" stroke-opacity="0.35"/>
+    <text x="106" y="55" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#93c5fd" font-size="13.5">contract_2026.pdf</text>
+    <text x="106" y="82" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#64748b" font-size="12">sealing on device…</text>
+  </g>
+
+  <!-- phone right with accept prompt -->
+  <g transform="translate(918,272)">
+    <rect width="116" height="212" rx="20" fill="#0e1c30" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="2.5"/>
+    <rect x="13" y="32" width="90" height="124" rx="9" fill="#12253f"/>
+    <text x="58" y="66" text-anchor="middle" font-family="Segoe UI, -apple-system, system-ui, sans-serif" fill="#c7d6f2" font-size="12">Accept from</text>
+    <text x="58" y="84" text-anchor="middle" font-family="Segoe UI, -apple-system, system-ui, sans-serif" fill="#c7d6f2" font-size="12">Maya's Mac?</text>
+    <rect x="28" y="100" width="60" height="24" rx="12" fill="#22c55e" fill-opacity="0.16" stroke="#22c55e" stroke-opacity="0.6" stroke-width="1.8"/>
+    <path d="M50 112 l5 5 10 -11" stroke="#22c55e" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="186" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#7fd6a0" font-size="11.5">only reader</text>
+  </g>
+
+  <!-- sealed capsule between them -->
+  <g>
+    <rect x="352" y="336" width="540" height="76" rx="38" fill="#0c1830" fill-opacity="0.85" stroke="url(#tun11)" stroke-width="3"/>
+    <!-- document with seal inside -->
+    <g transform="translate(560,352)">
+      <rect width="54" height="46" rx="6" fill="#eaf2ff"/>
+      <path d="M10 12h34M10 21h34M10 30h22" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="54" cy="42" r="15" fill="#0e1a2e" stroke="#60a5fa" stroke-width="2.5"/>
+      <rect x="48.5" y="38.5" width="11" height="9" rx="2" fill="none" stroke="#60a5fa" stroke-width="2.2"/>
+      <path d="M51 38.5v-3a3 3 0 0 1 6 0v3" fill="none" stroke="#60a5fa" stroke-width="2.2"/>
+    </g>
+    <text x="470" y="381" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#93c5fd" font-size="13">AES-256-GCM</text>
+    <text x="774" y="381" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#93c5fd" font-size="13">key never logged</text>
+    <path d="M900 374 l-14 -9 v18 z" fill="#93c5fd"/>
+  </g>
+
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif" text-anchor="middle">
+    <text x="600" y="535" fill="#ffffff" font-size="38" font-weight="650" letter-spacing="-0.5">Sealed before it leaves the desk</text>
+    <text x="600" y="572" fill="#93a4c8" font-size="20">Confidential business documents — wireless, and unreadable in between</text>
+  </g>
+
+  <!-- BIShare logo (inlined from public/logo.svg; ids prefixed) + wordmark -->
+  <g transform="translate(70,44)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <g transform="scale(0.0664)">
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-bg)"/>
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-glow)"/>
+      <rect x="16" y="16" width="480" height="220" rx="112" fill="#FFFFFF" opacity=".07"/>
+      <g fill="none" stroke="url(#lb-mk)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1"/><path d="M316.1 223.3 L351.5 217.1 L345.3 252.6"/>
+        <path d="M294.9 160.5 L160.5 294.9"/><path d="M195.9 288.7 L160.5 294.9 L166.7 259.5"/>
+      </g>
+      <circle cx="256" cy="256" r="18" fill="url(#lb-nd)"/>
+    </g>
+    <text x="44" y="25" fill="#dbe4f6" font-size="21" font-weight="600">BIShare</text>
+  </g>
+</svg>

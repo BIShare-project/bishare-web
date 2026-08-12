@@ -558,6 +558,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "securely-send-confidential-documents",
+    title: "How to Securely Send Confidential Business Documents Wirelessly",
+    metaTitle: "Securely Send Confidential Business Documents Wirelessly",
+    description:
+      "Six adversaries can read a document you send — network, server, link, lost device, wrong recipient, habit. A threat-model guide to secure wireless transfer.",
+    category: "security",
+    tags: ["Encryption", "Business documents", "End-to-end", "Threat model"],
+    keywords: [
+      "securely send confidential documents",
+      "send confidential documents wirelessly",
+      "secure business file transfer",
+      "end-to-end encrypted document sharing",
+      "send sensitive documents securely",
+      "confidential file sharing for business",
+    ],
+    datePublished: "2026-09-11",
+    dateModified: "2026-09-11",
+    readMinutes: 14,
+    hero: {
+      src: "/blog/hero-confidential.svg",
+      alt: "A sealed business document crossing wirelessly between a laptop and a phone while three outside observers see only ciphertext",
+    },
+    related: [
+      "transfer-large-files-without-cloud-limits",
+      "send-massive-video-files-to-clients",
+      "send-10gb-files-online-free",
+    ],
+    faq: [
+      {
+        q: "Is it safe to send confidential documents over Wi-Fi?",
+        a: "Yes — provided the encryption travels with the file rather than being borrowed from the network. With end-to-end encryption the document is sealed on the sending device and opened only on the receiving one, so even a hostile hotspot carries nothing but ciphertext. Treat every network as untrusted and it stops mattering which one you're on.",
+      },
+      {
+        q: "Isn't the HTTPS padlock enough protection for business files?",
+        a: "TLS protects each hop, but it terminates at every server in the path — your provider holds a readable copy, and so does the recipient's. For confidential material you want end-to-end encryption (no server can read the file) or a direct device-to-device transfer (no server exists at all).",
+      },
+      {
+        q: "How do I send a confidential document to someone who can't install anything?",
+        a: "Use a browser handoff. BIShare's web tool exchanges files with the app using the same sealed-container encryption, and the decryption key travels in the link's #fragment — a part of the URL that browsers never transmit to servers, so the key stays out of server logs entirely.",
+      },
+      {
+        q: "Does direct transfer help with GDPR or client-confidentiality duties?",
+        a: "It shrinks the surface. Every server that can read a document is a processor to assess, contract with, and disclose. A device-to-device transfer leaves no third party in custody, and an end-to-end encrypted relay holds only ciphertext it cannot open. Fewer readable copies means less to audit — the final compliance call stays with your counsel.",
+      },
+      {
+        q: "What should I do if I sent a confidential file to the wrong person?",
+        a: "Move fast: revoke or expire the transfer link if your tool allows it, and confirm deletion with the unintended recipient. Then fix the pattern — same-room sends with a visible accept prompt, short-lived transfer rooms instead of durable threads, and a deliberate reread of the recipient line before anything sensitive leaves.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -629,4 +680,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./send-massive-video-files-to-clients.mdx"),
   "transfer-large-files-without-cloud-limits": () =>
     import("./transfer-large-files-without-cloud-limits.mdx"),
+  "securely-send-confidential-documents": () =>
+    import("./securely-send-confidential-documents.mdx"),
 };
