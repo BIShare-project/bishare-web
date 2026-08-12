@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Copy, Loader2, RadioTower, Send, WifiOff, X } from "lucide-react";
+import { Copy, Loader2, RadioTower, Send, WifiOff, X, Download } from "lucide-react";
 import { NearbySignaling, type NearbyPeer } from "@/lib/nearby/signaling";
 import { getNearbySelf } from "@/lib/nearby/identity";
 import { NearbyRTC, type IncomingFile } from "@/lib/nearby/webrtc";
@@ -346,28 +346,52 @@ export function NearbyPanel() {
       )}
 
       {/* Incoming file prompt */}
+      {/* Incoming transfer dialog — a real modal so an offer (from another
+          browser OR a phone via the app bridge) can't be missed inside a
+          scrolled panel. Explicit buttons only: the backdrop deliberately
+          doesn't dismiss, since a stray tap would decline someone's send. */}
       {incoming && incoming.status !== "canceled" && (
-        <div className="mt-5 rounded-xl border border-accent-blue/40 bg-accent-blue/[0.06] p-4">
-          <p className="text-sm font-medium">{t("incoming", { name: incoming.name })}</p>
-          <p className="mt-0.5 text-xs text-muted-foreground">
-            {formatFileSize(incoming.size, locale)}
-          </p>
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={t("incoming", { name: incoming.name })}
+          className="fixed inset-0 z-[70] flex items-end justify-center bg-black/50 p-4 backdrop-blur-sm sm:items-center"
+        >
+        <div className="w-full max-w-sm rounded-2xl border border-accent-blue/40 bg-card p-5 shadow-xl">
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-blue/10 text-accent-blue">
+              <Download className="h-4 w-4" />
+            </span>
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold">
+                {t("incoming", { name: incoming.name })}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {(() => {
+                  const peer = peers.find((pp) => pp.peerId === incoming.from);
+                  const from = peer ? `${peer.emoji} ${peer.alias} · ` : "";
+                  return `${from}${formatFileSize(incoming.size, locale)}`;
+                })()}
+              </p>
+            </div>
+          </div>
           {showMemoryWarn && (
             <p className="mt-2 text-xs text-amber-500 dark:text-amber-400">{t("memoryWarn")}</p>
           )}
           {incoming.status === "prompt" && (
-            <div className="mt-3 flex gap-2">
-              <button
-                onClick={acceptIncoming}
-                className="flex-1 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                {t("accept")}
-              </button>
+            <div className="mt-4 flex gap-2.5">
               <button
                 onClick={declineIncoming}
-                className="rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary"
+                className="flex-1 rounded-lg border border-border px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
               >
                 {t("decline")}
+              </button>
+              <button
+                onClick={acceptIncoming}
+                autoFocus
+                className="flex-1 rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                {t("accept")}
               </button>
             </div>
           )}
@@ -395,6 +419,7 @@ export function NearbyPanel() {
           {incoming.status === "done" && (
             <p className="mt-3 text-sm font-medium text-success">{t("saved")}</p>
           )}
+        </div>
         </div>
       )}
 
