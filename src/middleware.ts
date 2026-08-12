@@ -17,5 +17,5 @@ export const config = {
   // routes runs through next-intl. Real static assets are served by the ASSETS
   // binding before the worker, so they never reach here; unknown dotted paths
   // still rewrite into [locale] → [...rest] → a clean 404.
-  matcher: ["/", "/((?!api|_next|sitemap\\.xml|robots\\.txt).*)"],
+  matcher: ["/", "/((?!api|_next|sitemap\\.xml|robots\\.txt|feed\\.xml).*)"],
 };
