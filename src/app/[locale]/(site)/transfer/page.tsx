@@ -4,7 +4,7 @@ import { bumpStat } from "@/lib/stats-bump";
 import { buildAlternates } from "@/i18n/metadata";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
-import { TransferWidget } from "@/components/site/transfer-widget";
+import { TransferStudio } from "@/components/site/transfer-studio";
 import { AppPromo } from "@/components/app-promo";
 import { YourUploads } from "./your-uploads";
 
@@ -52,7 +52,7 @@ export default async function TransferToolPage({
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
-      <main className="mx-auto w-full max-w-xl flex-1 px-6 py-12 md:py-16">
+      <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12 md:py-16">
         <div className="text-center">
           <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
             {t("page.eyebrow")}
@@ -65,12 +65,14 @@ export default async function TransferToolPage({
           </p>
         </div>
 
-        <div className="mt-9 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-          <TransferWidget />
+        <div className="mt-9">
+          <TransferStudio />
         </div>
 
-        <YourUploads />
-        <AppPromo />
+        <div className="mx-auto w-full max-w-xl">
+          <YourUploads />
+          <AppPromo />
+        </div>
       </main>
       <SiteFooter />
     </div>
