@@ -15,6 +15,7 @@ import {
   POSTS,
 } from "@/content/blog/registry";
 import { ArrowRight } from "lucide-react";
+import { ArticleToc } from "@/components/site/article-toc";
 
 /**
  * Article template. The body is an .mdx component; everything SEO-bearing
@@ -117,7 +118,9 @@ export default async function BlogArticlePage({
         />
       ))}
       <SiteHeader />
-      <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12 md:py-16">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12 md:py-16">
+        <div className="mx-auto max-w-3xl lg:mx-0 lg:max-w-none lg:grid lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
+        <div className="min-w-0 lg:max-w-3xl">
         <nav aria-label="Breadcrumb" className="text-[13px] text-muted-foreground">
           <Link href="/blog" className="hover:text-foreground">
             Blog
@@ -231,6 +234,15 @@ export default async function BlogArticlePage({
             </ul>
           </section>
         )}
+        </div>
+
+        {/* Sticky TOC — desktop only; discovers server-rendered heading ids. */}
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <ArticleToc />
+          </div>
+        </aside>
+        </div>
       </main>
       <SiteFooter />
     </div>
