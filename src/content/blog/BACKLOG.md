@@ -10,8 +10,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
    — slug: send-large-videos-from-android-to-mac (scheduled 2026-08-15)
 3. ✅ How to Share Files Between iOS and Android Instantly
    — slug: share-files-between-ios-and-android (scheduled 2026-08-18)
-4. ☐ The Ultimate Guide to Wireless File Transfer Between PC and Mobile
-   — planned slug: wireless-file-transfer-pc-mobile-guide
+4. ✅ The Ultimate Guide to Wireless File Transfer Between PC and Mobile
+   — slug: wireless-file-transfer-pc-mobile-guide (scheduled 2026-08-21)
 5. ☐ How to Set Up a WebDAV Server to Connect Android with Mac
    — planned slug: webdav-server-android-mac
 
