@@ -252,6 +252,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "webdav-server-android-mac",
+    title: "How to Set Up a WebDAV Server to Connect Android with Mac",
+    metaTitle: "Set Up a WebDAV Server: Connect Android to Mac (2026)",
+    description:
+      "A hands-on lab: serve a Mac folder over WebDAV in one command, mount it from Android, secure it properly — and an honest take on when WebDAV is overkill.",
+    category: "transfer",
+    tags: ["WebDAV", "Android", "Mac", "Self-hosted"],
+    keywords: [
+      "webdav server mac",
+      "connect android to mac wirelessly",
+      "android webdav client",
+      "access mac files from android",
+      "webdav vs smb",
+      "rclone serve webdav",
+    ],
+    datePublished: "2026-08-24",
+    dateModified: "2026-08-24",
+    readMinutes: 14,
+    hero: {
+      src: "/blog/hero-webdav.svg",
+      alt: "A Mac terminal serving a folder over WebDAV, mounted on an Android phone",
+    },
+    related: [
+      "send-large-videos-from-android-to-mac",
+      "wireless-file-transfer-pc-mobile-guide",
+      "transfer-files-from-iphone-to-windows-without-cable",
+    ],
+    faq: [
+      {
+        q: "What is WebDAV, in plain terms?",
+        a: "An extension of ordinary HTTP that adds folder semantics — list, upload, rename, delete — so a remote directory behaves like a mounted drive. Your Android file manager or Mac Finder connects to a WebDAV URL and browses it like a local folder.",
+      },
+      {
+        q: "Does Android support WebDAV out of the box?",
+        a: "Not in the stock Files app. You mount WebDAV through a third-party file manager — Solid Explorer, X-plore, and FolderSync are well-known clients — by adding a network location with the server's URL, username, and password.",
+      },
+      {
+        q: "WebDAV vs SMB for Android to Mac — which is better?",
+        a: "SMB is the Mac's native sharing protocol (System Settings → General → Sharing) and is usually faster on a LAN; WebDAV is plain HTTP, which makes it friendlier across networks, proxies, and the internet. On a home network, try SMB first; choose WebDAV when HTTP's reach matters.",
+      },
+      {
+        q: "Is a WebDAV server safe to expose to the internet?",
+        a: "Not as plain HTTP with Basic auth — credentials and files travel readable. If you need remote access, put it behind HTTPS, or better, reach it over a private overlay like Tailscale so the server never faces the open internet at all.",
+      },
+      {
+        q: "Do I need all this just to move files between Android and a Mac?",
+        a: "No — and that's the honest heart of it. WebDAV shines when you want a persistent mounted folder. If the goal is simply sending files back and forth, a direct transfer app connects the two devices in about two minutes with zero server administration.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -289,4 +340,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./share-files-between-ios-and-android.mdx"),
   "wireless-file-transfer-pc-mobile-guide": () =>
     import("./wireless-file-transfer-pc-mobile-guide.mdx"),
+  "webdav-server-android-mac": () =>
+    import("./webdav-server-android-mac.mdx"),
 };
