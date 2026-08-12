@@ -1,0 +1,118 @@
+Somewhere in your company today, a document is about to move: an offer letter with a salary in it, a payroll export, a signed contract with commercial terms a competitor would pay to see, a scan of somebody's passport for onboarding. These files share one property that ordinary files don't — the damage happens the moment the wrong person reads them, and no apology, retraction, or deletion un-reads a document.
+
+And yet the way most confidential documents travel is indistinguishable from the way lunch orders travel. Attached to an email. Dropped into a group chat. Uploaded to whichever link tool was closest to hand. The label says *confidential*; the route says *whatever was convenient*.
+
+This guide is organized the way security engineers actually reason about the problem — not as a list of apps, but as a cast of adversaries. There are six of them, and every document you send makes an implicit bet against each one. For each adversary we'll look at what they can genuinely see, which common habits hand them the document, and what removes them from the story entirely. By the end, you'll have a wireless workflow where the honest answer to *"who could have read this in transit?"* is a very short list: you, and the person you sent it to.
+
+## The bet you place every time you press send
+
+Start with what the default path actually is, because almost nobody pictures it. When you email a contract to a client, the attachment is copied to your mail provider's servers, delivered to their provider's servers, and retained — durably, searchably — in your Sent folder and their inbox. Add the automatic backups on both sides and one attachment is at minimum four long-lived copies on infrastructure neither of you controls, before anyone has even opened it.
+
+The padlock in the address bar changes less than people assume. TLS encrypts each *hop* — your laptop to your provider, provider to provider — and it does that job well. But it terminates at every server along the way. Each middleman decrypts, processes, stores, and re-encrypts. In-transit encryption is a promise about the pipe, not about who's standing at either end of it.
+
+A wireless direct transfer rewrites the cast list. When two devices exchange a file across a room — or across the internet through a channel that's [encrypted end-to-end](/encrypted-file-transfer) — the number of parties holding a readable copy stays at two. Everything below is about defending that number.
+
+## Adversary one: the network between you
+
+The first adversary is the one people fear most and understand least: whoever shares, operates, or impersonates the network you're on. The café Wi-Fi. The airport hotspot — and note that anyone with a phone can broadcast a hotspot named after the airport. The hotel network run by a contractor you've never heard of. Even the office LAN, where a compromised printer is a listening post.
+
+What can this adversary actually see? If a tool sends anything unencrypted, everything — though genuinely unencrypted transfer is mercifully rare now. Against ordinary TLS traffic, the network still reads the envelope even when it can't read the letter: which services you contacted, when, and how many bytes moved. And in one common business case the padlock is opened deliberately — corporate middleboxes that inspect TLS by design, which means your "encrypted" upload is plaintext in a box the IT department bought.
+
+The countermeasure is to stop trusting the network at all and encrypt at the application layer, device to device. When the file itself is sealed before it leaves the sender — as [BIShare](/download) does even for transfers that never leave the room — the network's eavesdropping ceiling drops to traffic shape: something moved, of some size. On a local transfer there's a bonus most people miss: the file crosses one router and never touches the internet, so the set of networks that could observe it shrinks to one you can see from your chair. That's the same property that makes [transfers with no internet at all](/send-files-without-internet) possible — a phone's hotspot is a private network with a guest list of two.
+
+The habit shift is small but total: choose tools that assume every network is hostile, and then stop auditing networks. A workflow that's only confidential on trusted Wi-Fi isn't a confidential workflow; it's a weather forecast.
+
+## Adversary two: the server in the middle
+
+The second adversary doesn't lurk. It's the service you willingly hand the document to — the mail provider, the chat platform, the file-sharing site. Not because these companies are villains, but because *custody* is exposure, and exposure compounds in three directions.
+
+First, routine processing. Anything a server can decrypt, it decrypts: for spam filtering, malware scanning, thumbnailing, search indexing. Legitimate purposes — and each one is software reading your contract.
+
+Second, breach radius. A cloud service is a single address where thousands of businesses' documents live behind one perimeter. When that perimeter fails — and the industry's track record says *when* — your file is part of somebody else's incident. Your own security posture never got a vote.
+
+Third, legal and insider access. A provider can be compelled to produce what it holds, and an employee with the wrong permissions can browse it. Both are governed by policy — which is to say, by something other than mathematics.
+
+You have two clean exits. The first is to remove the middle entirely: a [direct device-to-device transfer](/blog/transfer-large-files-without-cloud-limits) has no server in custody, which means no processing, no breach radius, and nothing to produce. The second, for when distance forces a relay into the path, is to blind the middle: end-to-end encryption where the key never reaches the server, so what the server stores is ciphertext it cannot read for anyone — not for an attacker, not for an insider, not under order. A middleman can be honest or dishonest; a blinded middleman doesn't have to be either.
+
+## Adversary three: the link that leaks
+
+Somewhere between "email it" and "hand-deliver it" sits the sharing link — and links have a social life nobody designs for. They get forwarded to a colleague "so you have it too." They get quoted in reply chains that later add new recipients. They get pasted into ticketing systems, saved in browser histories, expanded into previews by chat apps. A link marked *anyone with the link can view* is a bearer instrument, and bearer instruments circulate.
+
+This is a place where I can show you the machinery, because we had to build it. When a BIShare transfer is picked up in a browser, the decryption key travels in the URL *fragment* — the part after the `#`. Fragments are a browser-only zone: they are never included in the HTTP request, so the key never crosses the wire to us and never appears in our server logs. What our server actually stores is a sealed container: a 24-byte header followed by the document cut into records, each encrypted with AES-256-GCM — the mode of operation specified in [NIST SP 800-38D](https://csrc.nist.gov/pubs/sp/800/38/d/final) — with the record's position bound into its authentication tag. That last detail matters more than it sounds: a download that has been truncated, reordered, or tampered with doesn't "mostly open." It refuses loudly, at the exact record where the math stopped agreeing.
+
+We chose this design against a specific test: *if our own database were stolen tomorrow, what would the thief have?* The answer is headers and noise. The thing that turns noise back into a contract exists only inside links we never saw.
+
+Honesty requires the countercaveat: the fragment is still part of the link, so whoever holds the complete link holds the key. The design defeats the server and the logs, not careless forwarding. So treat sensitive links like the keys they are — send them over your normal channel but let them expire quickly, and prefer transfers that can be revoked. A link that dies in 24 hours has a much smaller social life than one that lives forever.
+
+## Adversary four: the device that walks away
+
+Every transfer ends on hardware, and hardware travels badly. Laptops sleep in taxis and conference rooms; phones stay in gym lockers with four-digit hopes. An entire genre of corporate breach notification exists titled, in effect, *a laptop was left somewhere*.
+
+The at-rest problem has two halves. The first is the device itself, and the fix is boring and non-negotiable: full-disk encryption on every machine that receives business documents — FileVault, BitLocker, and the defaults on modern iPhones and Android. A stolen encrypted laptop is a hardware loss; a stolen unencrypted one is a disclosure event with a legal department attached.
+
+The second half is subtler: the copies you forget you have. The Downloads folder that still contains March's due-diligence bundle in August. The transfer app whose received-files list quietly became an archive of everything anyone ever sent you. Confidential handling means the working copy has a *destination* — the document-management system, the encrypted vault, the case folder — and the transfer path gets cleaned behind it. Tools help when they treat received files as passing through rather than settling in, and when server-side copies expire on their own instead of waiting for a cleanup that never comes. The question to ask of any tool is the retention question: *a year from now, where will this file still exist?* If the answer includes locations you'd forgotten by then, the tool is quietly building your next incident.
+
+## Adversary five: the wrong recipient
+
+Ask the people who compile breach statistics what actually goes wrong, and the humbling answer near the top of every report is not cryptography. It's misdelivery — the document sent, competently and securely, to the wrong human. Autocomplete offers the wrong David. A reply-all carries the salary file to the whole distribution list. An old thread gets a new attachment and nobody rereads the recipient line from three months ago.
+
+Encryption is no defense here; the transfer to the wrong person is encrypted too. The defenses are about *addressing* and *confirmation*, and this is where wireless proximity turns out to be a security feature disguised as a convenience. When you send to a device in the same room, you are not selecting a string from an address book — you're selecting a machine you can point at, and you watch the accept prompt light up on the right screen, held by the right hands. The recipient's explicit accept closes the loop: no transfer lands anywhere silently. Address-book roulette is replaced by line of sight.
+
+At distance you can't have line of sight, so borrow its structure. Use short-lived, single-purpose channels — a [transfer room](/rooms) that exists for one exchange and then doesn't — rather than durable destinations that accumulate stale members. Confirm out-of-band on first contact: thirty seconds of "reading the code to each other on a call" beats years of hoping the address book is right. And slow down precisely where the stakes are high — the two-second reread of the recipient line is still the highest-ROI security control ever invented.
+
+## Adversary six: your own habits
+
+The last adversary doesn't attack; it accretes. It's the WhatsApp-yourself culture — the personal number that becomes a bridge between company documents and a consumer backup you don't control. It's the personal Gmail used "just this once" for a contract, creating a copy outside every retention policy your company has. It's the Sent folder as accidental archive: years of attachments, one password reset away from being somebody's research project.
+
+None of these are malicious. All of them are what happens when the sanctioned path is slower than the unsanctioned one — because under deadline, *fast* beats *proper* every single time, in every company, forever. Which leads to the least intuitive security principle in this piece: **speed is a security control.** The way to beat shadow IT isn't policy; it's a sanctioned path so fast that the shortcut isn't shorter. A [direct wireless transfer](/transfer) that finishes before the email compose window would have finished loading removes the temptation it can't lecture away. This, more than any feature checklist, is why we obsess over [transfer speed](/blog/transfer-files-from-iphone-to-windows-without-cable) at BIShare: an encrypted path nobody uses protects nobody.
+
+Audit yourself with one question: *where did the last five sensitive documents you sent actually travel?* Not where policy says. Where they went. The gap between those answers is your real security posture.
+
+## The dropped-key incident, and what it taught us
+
+A story from our own logbook, because vendors who only tell you their design decisions are showing you the brochure.
+
+This summer, a user reported that files sent from our web app to their phone "arrived but wouldn't open." The download had succeeded; the bytes were there; the phone said so. What had actually happened: in one handoff path, our mobile app dropped the `#` fragment from the scanned link — the fragment that carries the decryption key — and then did something worse than failing. It saved the still-encrypted container to disk and reported success.
+
+Note what didn't happen: nothing was exposed. The failure fell on the safe side — an unreadable file, not a readable leak; the seal held even against our own bug. But the app had *lied*, and the lie pointed users at the wrong suspect (a "corrupted" file) instead of the real one (a missing key). The fix went in two layers. The app now carries the full decryption pipeline and treats a missing key as a hard stop: fail loudly, immediately, and save nothing. And the container format is now pinned by golden test vectors generated from an independent implementation, so the code that seals in the browser and the code that unseals on the phone must agree byte-for-byte, forever, or the test suite screams.
+
+The reason to tell you this isn't confession; it's that the incident hands you a sharper question for evaluating *any* secure transfer tool. Don't just ask "is it encrypted?" — everyone says yes. Ask: **"what does it do when decryption can't happen?"** A tool that fails closed, loudly, at the exact moment something's wrong was built by people who imagined their own bugs. A tool that shrugs and shows a success message was built by people who imagined only the demo.
+
+## Putting it together: three confidential lanes
+
+Theory into practice. A business needs three lanes, matched to where the recipient is.
+
+**Same room — the shortest biography a document can have.** Both devices on the office Wi-Fi, or on one phone's hotspot if you want a network with a guest list of two. [Install BIShare](/download) on both, let them find each other, send, and watch the recipient accept on a screen you can see. The file moves encrypted, device to device, through one router you own — no internet required, no server in custody, nothing to expire later because nothing was retained anywhere. For contracts, HR files, and anything with a passport number in it, this lane is the default, not the upgrade — and the [wireless setup guide](/blog/wireless-file-transfer-pc-mobile-guide) walks through pairing every phone-and-PC combination. It's also the fast lane — at [local Wi-Fi speeds](/blog/send-10gb-files-online-free), the secure path finishes while the email path is still uploading, which is exactly the property that keeps people on it.
+
+**Remote — a blinded middle.** When the recipient is in another city, distance forces a relay into the path, so choose one that's structurally blind: the document sealed on your device, the key riding in the link fragment, the server holding ciphertext with an expiry date. Send the link through your normal channel; for documents that justify it, send a heads-up through a second channel so an intercepted link meets an alert recipient. Large bundles ride the same rails — [multi-gigabyte deliveries](/blog/send-massive-video-files-to-clients) with resumable uploads, sealed end to end, and the [large-file lane](/send-large-files) covers a due-diligence folder many times over.
+
+**The counterpart who can't install anything.** Client-side IT lockdowns are real. The browser is the universal fallback: your app on your device, [the web tool](/transfer) on theirs, same encryption architecture, zero installation on their side. When they're in the room with you, a QR code bridges app and browser in one scan.
+
+Whichever lane: when the document lands, walk it to its governed home and let the transfer path forget. The lane is a corridor, not a filing cabinet.
+
+## The five questions that decide it
+
+Strip away branding and confidential transfer is five questions. The [FTC's guidance for businesses](https://www.ftc.gov/business-guidance/resources/protecting-personal-information-guide-business) circles the same territory from the regulator's side; here it is from the engineer's:
+
+<table>
+  <thead>
+    <tr><th>Exposure</th><th>The question</th><th>What good looks like</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>The network</td><td>If this Wi-Fi were hostile, what would it capture?</td><td>Ciphertext and traffic shape — nothing else</td></tr>
+    <tr><td>The middle</td><td>Can any server read the document?</td><td>No server involved, or a server holding only sealed records</td></tr>
+    <tr><td>The link</td><td>What does the link alone grant, and for how long?</td><td>Key never logged server-side; access dies on a timer</td></tr>
+    <tr><td>The endpoints</td><td>Where does the file rest, and is that disk encrypted?</td><td>Full-disk encryption; transfer inbox empties itself</td></tr>
+    <tr><td>The human</td><td>How do I know the right person received it?</td><td>Visible accept in the room; out-of-band confirmation at distance</td></tr>
+  </tbody>
+</table>
+
+Run any tool you're evaluating — including [ours](/security) — through those five rows. A "no" you can live with is a decision; a "no" you didn't know about is an incident with a start date.
+
+## Confidential is a route, not a stamp
+
+Here's the reframe this whole guide has been circling. Businesses treat confidentiality as a *label* — a footer in the email, a watermark on the PDF, a classification in the DMS. But a label describes intent. What decides outcomes is the route: how many machines held a readable copy, how long each one kept it, and how many humans could have looked.
+
+The stamped-confidential contract that traveled by email has a biography with four durable copies and several corporate custodians. The same contract sent across the desk, device to device, sealed the whole way, has a biography two sentences long. Nothing about the second path is exotic anymore — the [tools are free](/download), the setup is minutes, and the fast lane and the safe lane turn out to be the same lane.
+
+A secret's safety is decided by its itinerary, not its label. Shorten the itinerary.
