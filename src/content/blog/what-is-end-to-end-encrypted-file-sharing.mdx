@@ -1,0 +1,129 @@
+"End-to-end encrypted" has become the seatbelt sticker of software — printed on messaging apps, cloud drives, and every file tool with a landing page, worn smooth by repetition until it communicates roughly nothing. Ask ten people what it means and you'll get ten variations of "it's encrypted, but more." Ask the marketing pages and you'll get adjectives.
+
+The phrase deserves better, because underneath it sits one of the few genuinely beautiful ideas in computing — and one of the few privacy guarantees that doesn't depend on anyone's good behavior. The trouble is that explanations usually follow the *file*: it leaves here, it arrives there, encryption happens somewhere in between. That framing hides everything interesting.
+
+So this guide follows the *key* instead. A key is born, agrees to a secret partnership, does its work, proves its identity, and — if the system is well designed — dies on schedule. Walk through that biography and you'll understand end-to-end encryption more precisely than most people who build software for a living. You'll also walk away with something practical: the questions that expose whether a product's "end-to-end encrypted" sticker is real, and the honest list of what it can't do for you.
+
+## The forty-word answer
+
+End-to-end encrypted file sharing means the file is encrypted on the sender's device and can be decrypted only on the recipient's device. The keys exist solely at those two endpoints, so no service, server, or network in between can ever read the file.
+
+That's the definition; the rest of this article is what it actually takes to make those forty words true. Note what the definition pointedly does *not* say: it doesn't say "encrypted in transit." Transport encryption — the HTTPS padlock — protects each hop of a journey but hands a readable copy to every server along the way, a distinction we dissected in our guide to [sending confidential business documents](/blog/securely-send-confidential-documents). End-to-end is a different species of promise: it's not about protecting the road, it's about there being nothing worth stealing on the road in the first place.
+
+## Meet the protagonist
+
+Strip away the mythology and an encryption key is embarrassingly small: for the symmetric ciphers that do the heavy lifting, thirty-two bytes. Two hundred and fifty-six coin flips. You could write one on a business card and still have room for a phone number.
+
+Its power comes from two properties. The first is that those coin flips must be genuinely unpredictable — modern devices harvest hardware randomness for exactly this reason, because a key an attacker can guess at is theater. The second is more counterintuitive: *only* the key is secret. The algorithm that uses it — AES, ChaCha20 — is published, standardized, and studied by every cryptographer on Earth. This is a load-bearing principle with a nineteenth-century pedigree (Kerckhoffs wrote it down in 1883): a system should stay secure even when the enemy knows everything about it except the key. Products that brag about "proprietary encryption" have this exactly backwards — secrecy of design is what you resort to when your design can't survive being read.
+
+Hold onto the size, though. Thirty-two bytes guarding thirty-two gigabytes. That asymmetry — a secret ten billion times smaller than the thing it protects — is what makes everything else in this story possible, including the elegant trick waiting at the end.
+
+## Chapter one: birth
+
+Where a key is born decides who can betray it. This is the single most clarifying question you can ask about any "encrypted" product: *which machine generated the key?*
+
+In real end-to-end systems, the answer is: yours. The key is generated on the sending device, by the device, at the moment it's needed. Nobody typed it, nobody chose it, nobody emailed it to anyone, and — critically — no server participated in its creation. A key that a provider generates for you, or stores for you, or can regenerate on request, is a key the provider *has*. Whatever the privacy policy says, the architecture says shared custody.
+
+There's a consumer-visible tell for this, and it's worth engraving: **the password reset test.** If you can reset a forgotten password and still open all your old encrypted files, the provider necessarily holds enough key material to unlock your data without you — meaning it could do so for other reasons too. Genuine end-to-end systems fail this test *on purpose*: lose your key, lose your data, because the alternative is a service that can be compelled, breached, or tempted into using the master copy. The [EFF's encryption guides](https://ssd.eff.org/module/what-should-i-know-about-encryption) make the same point from the user's side: convenience of recovery and strength of custody are in direct, unavoidable tension.
+
+## Chapter two: the agreement
+
+Here's the puzzle that stalled cryptography for most of its history. Two devices want to share a secret key — but the only way to talk is over a channel someone might be watching. Whisper the key across the network and the eavesdropper has it; now the encryption guards against everyone except the one person listening.
+
+The solution, published by Diffie and Hellman in 1976, still reads like a magic trick. Each device invents a private number it never sends anywhere. Each transforms its number through a one-way mathematical operation — easy to compute forward, computationally hopeless to reverse — and sends only the transformed result. Then each combines the other's public result with its own private number. The mathematics guarantees both arrive at the *same* final value, while the eavesdropper — who saw both public halves — cannot reconstruct it without reversing the one-way step. Two parties now share a secret that was never transmitted. Modern implementations run this on elliptic curves ([X25519](https://datatracker.ietf.org/doc/html/rfc7748) is the workhorse), where the exchange fits in a handful of bytes and completes in microseconds.
+
+In practice you never see any of this. When two devices running the same app discover each other on a network, the handshake rides inside the first packets of the connection — private numbers invented, public halves exchanged, shared secret derived — before the first byte of your file moves. It works identically on a [phone hotspot with no internet whatsoever](/send-files-without-internet), because nothing in the mathematics needs a third party: two devices and a radio link are the complete cast. The [pairing flows you do see](/how-it-works) — tapping a device on a radar screen, entering a short code — are the human-facing skin over this exchange, deciding *which* two devices run it.
+
+Key agreement doesn't always need the network at all, and this is where file sharing gets options that messaging doesn't have. When [BIShare](/download) hands a transfer to a browser, the key rides in a QR code scanned across the room — the camera is the channel, and it's one the network never sees. Physical proximity is an underrated cryptographic asset: an attacker who wants to sit in the middle of a same-room key exchange has to *physically stand between you*, which is a threat model most offices can handle without mathematics.
+
+## Chapter three: the work
+
+With a shared key established, the actual encryption begins — and modern systems do something subtler than "scrambling." The workhorse mode, AES-256-GCM, is *authenticated* encryption: every chunk of the file is simultaneously made unreadable and made tamper-evident. Each encrypted block carries an authentication tag — a cryptographic seal that verifies on decryption. Flip a single bit anywhere in the ciphertext, and decryption doesn't produce a slightly wrong file; it produces a refusal, at the exact block where the mathematics stopped agreeing.
+
+This welding of secrecy and integrity into one operation isn't a nice-to-have; it's the defining upgrade of the last two decades of applied crypto. And it has practical consequences we've felt in our own codebase. While profiling BIShare's transfer pipeline on a mid-range Samsung Galaxy A24, we found our Flutter layer dutifully computing an *extra* SHA-256 checksum over data that was already flowing through per-chunk authenticated encryption. Belt and braces, surely? No — belt and second belt. The AEAD tags already prove, chunk by chunk, that nothing was altered; a checksum over the same bytes proves it again, slower. We deleted the redundant hash, verified the received files were byte-identical with and without it, and watched transfer throughput climb on the same hardware. The lesson generalizes: in a properly built end-to-end system, integrity isn't a separate feature you add — it comes welded to the confidentiality, and duplicating it just burns battery.
+
+One more mechanism deserves daylight, because it's where sloppy implementations actually die: the *nonce*. Each chunk is encrypted with the shared key plus a number used once — typically a counter — so that two identical chunks of plaintext produce completely different ciphertext. Reusing a nonce under the same key is one of the most studied failure modes in applied cryptography; with GCM it doesn't just weaken the encryption, it can unravel it, which is why well-built systems derive the nonce structurally (a per-transfer salt plus the chunk's position) instead of trusting code to remember. The counter doing double duty is a quiet elegance: the same number that guarantees uniqueness also nails each chunk to its position, so ciphertext can't be silently reordered by anyone in between.
+
+That's also the honest answer to "does encryption slow transfers down?" With hardware AES instructions in every modern phone and laptop — and we learned [the hard way](/blog/transfer-files-from-iphone-to-windows-without-cable) what happens when they're accidentally disabled — encryption runs faster than Wi-Fi can deliver bytes. When an encrypted transfer is slow, the cipher is almost never the suspect.
+
+## Chapter four: the proof
+
+Now the uncomfortable chapter, the one the stickers skip. End-to-end encryption guarantees that *only the endpoints* can read the file. It does not, by itself, guarantee that the far endpoint is *who you think it is*. If an attacker can insert themselves at the moment of key agreement — running the handshake once with you and once with your intended recipient — each of you shares a perfect, mathematically flawless secret… with the attacker. Every promise in chapters one through three holds, and the file is read in the middle anyway.
+
+Every serious end-to-end system therefore adds an identity layer on top of the mathematics, and they all reduce to the same move: compare something out-of-band. Messaging apps render key fingerprints as safety numbers or QR codes you verify in person. File-sharing tools lean on channels the network can't touch: the in-person QR scan from chapter two doubles as identity proof, because the code came from a screen you're looking at. Same-room transfers add a human checkpoint — the recipient's device shows an explicit accept prompt, so a transfer lands only where someone consciously said yes, on hardware you can point to. And [transfer rooms](/rooms) scope the introduction: a short-lived code shared by voice means the only parties who can join are the ones who heard you say it.
+
+The principle to carry: encryption answers *"can anyone else read this?"* — verification answers *"am I talking to the right endpoint?"* A product that's loud about the first question and silent about the second has told you where its thinking stopped.
+
+## Chapter five: the death
+
+Good keys die young, and the best systems arrange it deliberately.
+
+The reasoning starts with an adversary the industry calls "record now, decrypt later": someone captures your encrypted traffic today — cheap, silent, undetectable — and waits. For a breakthrough, a breach, a subpoena that produces a long-term key. If every transfer you ever made was locked with the same durable key, one future compromise unseals your entire past.
+
+The defense is *ephemerality*. Well-designed systems derive a fresh session key for each conversation or transfer — born for the occasion, used, and destroyed. Yesterday's key no longer exists anywhere, so yesterday's captured ciphertext is permanently orphaned. Cryptographers call the property forward secrecy, and it inverts a deep assumption: the system protects your past precisely by *forgetting*.
+
+Not every key dies, and the division of labor is worth knowing. Systems typically keep one *long-lived* key pair per device — its identity, the thing fingerprints verify in chapter four — while everything that touches actual file data uses short-lived session keys derived fresh each time. Identity persists so you don't re-verify a colleague every morning; secrets rotate so no single capture ages into a skeleton key. When a product documents its crypto, this is the shape you're looking for: durable identity, disposable sessions, and never the reverse.
+
+Key death has a second, stranger gift. Because the key is ten billion times smaller than the data it guards, destroying thirty-two bytes effectively destroys gigabytes — wherever copies of the ciphertext might live, on whatever backup, in whoever's capture. Erasing a five-gigabyte file from every disk that might hold it is impossible; erasing the only thirty-two bytes that make it meaningful is a single overwrite. Cryptographic erasure, it's called, and it's the closest thing digital data has to a biodegradable mode: the ciphertext remains, inert, compost.
+
+## What end-to-end encryption does not do
+
+An honest biography includes the limits, and there are four that matter.
+
+**It doesn't hide that a transfer happened.** Sizes, timing, and who-talked-to-whom — the metadata — remain visible to whoever carries the traffic, and patterns are talkative: a 4 GB burst to the same peer every Friday afternoon sketches a workflow without decrypting a byte. A [transfer that never leaves your own network](/blog/transfer-large-files-without-cloud-limits) shrinks even that exposure to a single router; an internet relay can't help but see shapes move.
+
+**It doesn't protect a compromised endpoint.** Encryption guards the file *between* devices. Malware on either device reads the plaintext exactly where you do. End-to-end encryption moves the battleground to the endpoints — which is a victory, but a relocation, not an abolition.
+
+**It doesn't govern what happens after decryption.** The recipient holds a perfect readable copy and can forward it anywhere. Trust in mathematics ends where trust in humans begins.
+
+**It doesn't automatically satisfy your obligations.** Fewer readable copies genuinely helps — we walked the full [threat-by-threat argument](/blog/securely-send-confidential-documents) separately — but compliance is a property of your whole process, not of one very good cipher.
+
+None of these are reasons to skip end-to-end encryption, any more than seatbelts are pointless because they don't prevent engine fires. They're the map of where your remaining attention should go.
+
+## Why you actually need it
+
+The case comes in three sizes.
+
+**For individuals**, it's breach immunity by construction. Your tax documents, medical scans, and passport photos routinely cross networks and services. With end-to-end encryption, every breach of every intermediary — the headline kind, the quiet kind — yields attackers nothing of yours but noise. You didn't have to evaluate the provider's security team; you made their competence irrelevant.
+
+**For professionals**, it's confidentiality that survives your vendors. Client contracts and payroll files are only as private as the least careful service in their path. End-to-end handling takes every one of those services out of the "can read it" column — which is also, not coincidentally, the shortest honest answer a professional can give when a client asks *who else could see this*.
+
+**Structurally**, it's the difference between privacy by promise and privacy by construction. A promise — "we don't look at your files" — is a policy: revocable, renegotiable, one acquisition or one court order away from meaning something else. A construction — "we *cannot* look at your files" — is arithmetic, and arithmetic doesn't take meetings. The entire history of cloud-service privacy is the history of promises aging badly; end-to-end encryption is the only architecture that doesn't ask you to bet on a company staying the same company.
+
+## Reading the sticker: six questions that expose the truth
+
+You now have the whole biography, which means you can interrogate any product that wears the phrase. Six questions do the work — run them against anything, including [our own security page](/security):
+
+<table>
+  <thead>
+    <tr><th>Question</th><th>The end-to-end answer</th><th>The sticker answer</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Where are keys generated?</td><td>On your devices, never server-side</td><td>"Managed securely in our cloud"</td></tr>
+    <tr><td>Does data survive a password reset?</td><td>No — lost key means lost data</td><td>Yes (the provider holds keys)</td></tr>
+    <tr><td>Is the design documented?</td><td>Protocols, formats, or audits published</td><td>"Proprietary military-grade encryption"</td></tr>
+    <tr><td>Is integrity authenticated?</td><td>Tampering makes decryption refuse</td><td>Silence, or a vague "checksums"</td></tr>
+    <tr><td>How do I verify the other endpoint?</td><td>Fingerprints, codes, or in-person scan</td><td>No mechanism offered</td></tr>
+    <tr><td>What happens when the key is missing?</td><td>Hard stop, loud failure, nothing saved</td><td>"Success" anyway — a red flag we've <a href="/blog/securely-send-confidential-documents">written about from experience</a></td></tr>
+  </tbody>
+</table>
+
+No product fails one of these by accident. Each row is an architectural decision somebody made, and the pattern of answers tells you whether "end-to-end encrypted" describes the system or decorates it. It's the same lens worth applying when comparing [file-sharing tools](/best-file-sharing-app) generally — features are what a product does; key custody is what it *is*.
+
+## The landscape, honestly drawn
+
+Run those six questions across the market and it sorts itself into three shelves.
+
+The mainstream clouds — Drive, Dropbox, OneDrive — mostly fail the password-reset test *on purpose*. That's not villainy; it's a product decision. Server-side keys are what make collaborative editing, previews, search inside documents, and painless account recovery possible. If those features are why you're there, you've made a reasonable trade with open eyes. Just don't let the word "encrypted" on their pages — true, but referring to transport and at-rest encryption under *their* keys — blur into the end-to-end promise this article defined.
+
+The messengers — Signal above all — solved end-to-end for conversation, and attaching a file to a chat inherits that protection. The friction is that chat pipelines were never built for payloads: size caps, recompressed media, and no answer at all for the [50 GB folder problem](/blog/send-massive-video-files-to-clients).
+
+And there's a cautionary shelf. Firefox Send did end-to-end file sharing well — keys in the link fragment, honest design, Mozilla's name behind it — and was [shut down in 2020](/firefox-send-alternative) anyway, taking its workflow with it. The lesson isn't that E2E services fail; it's that *any* service can, and an architecture that works device-to-device on your own network is the only kind that can't be discontinued out from under you. It's a point we keep returning to across [the tools we compare](/wormhole-alternative): custody of keys matters, and so does custody of the path.
+
+## The short version
+
+A key is born on your device, from randomness nobody can predict. It agrees on a shared secret with exactly one other device, through mathematics an eavesdropper can watch without learning anything — or through a QR code the network never saw. It seals every chunk of your file so that reading and tampering are both impossible, does the job faster than your Wi-Fi can move the result, and then it dies, taking with it the ability of any future adversary to reach into the past. At no point did a server, a company, or a promise participate in the parts that mattered.
+
+That's end-to-end encrypted file sharing: not an adjective on a landing page, but a specific biography with a beginning, a purpose, and a scheduled end. Everything else is a sticker.
+
+A promise can be renegotiated. Thirty-two random bytes cannot.
