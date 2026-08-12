@@ -8,8 +8,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
    — slug: transfer-files-from-iphone-to-windows-without-cable
 2. ✅ 5 Easy Ways to Send Large Videos from Android to Mac
    — slug: send-large-videos-from-android-to-mac (scheduled 2026-08-15)
-3. ☐ How to Share Files Between iOS and Android Instantly
-   — planned slug: share-files-between-ios-and-android
+3. ✅ How to Share Files Between iOS and Android Instantly
+   — slug: share-files-between-ios-and-android (scheduled 2026-08-18)
 4. ☐ The Ultimate Guide to Wireless File Transfer Between PC and Mobile
    — planned slug: wireless-file-transfer-pc-mobile-guide
 5. ☐ How to Set Up a WebDAV Server to Connect Android with Mac

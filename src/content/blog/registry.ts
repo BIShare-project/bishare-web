@@ -150,6 +150,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "share-files-between-ios-and-android",
+    title: "How to Share Files Between iOS and Android Instantly",
+    metaTitle: "Share Files Between iPhone and Android Instantly (2026)",
+    description:
+      "AirDrop can't reach Android and Quick Share can't reach iPhone. Four real situations, solved: same room, no installs, far apart, and no internet at all.",
+    category: "transfer",
+    tags: ["iPhone", "Android", "AirDrop", "Quick Share"],
+    keywords: [
+      "share files between iphone and android",
+      "airdrop from iphone to android",
+      "does quick share work on iphone",
+      "send photos from iphone to android without losing quality",
+      "transfer files ios to android without internet",
+      "iphone android file sharing app",
+    ],
+    datePublished: "2026-08-18",
+    dateModified: "2026-08-18",
+    readMinutes: 13,
+    hero: {
+      src: "/blog/hero-ios-android.svg",
+      alt: "An iPhone and an Android phone sharing files directly in both directions",
+    },
+    related: [
+      "transfer-files-from-iphone-to-windows-without-cable",
+      "send-large-videos-from-android-to-mac",
+      "wireless-file-transfer-pc-mobile-guide",
+    ],
+    faq: [
+      {
+        q: "Can an iPhone AirDrop to an Android phone?",
+        a: "No. AirDrop only works between Apple devices — it runs on Apple's private AWDL protocol, which Android cannot join. To send between an iPhone and an Android phone you need a cross-platform path: a transfer app installed on both, or a link/QR the other phone opens in its browser.",
+      },
+      {
+        q: "Does Quick Share work on iPhone?",
+        a: "No. Google's Quick Share connects Android phones, Chromebooks, and Windows PCs; there is no Quick Share app for iOS. The practical bridge between the two phone worlds is a third-party cross-platform app or a browser-based transfer link.",
+      },
+      {
+        q: "How do I send photos from iPhone to Android without losing quality?",
+        a: "Avoid messaging apps — WhatsApp and friends recompress images hard. Use a direct transfer app (originals arrive bit-for-bit, HEIC included) or a transfer link, and on arrival check the file size roughly matches the original. Note that Apple's own iCloud Shared Albums also downscale photos, so they aren't a full-quality path either.",
+      },
+      {
+        q: "Can I share files between iPhone and Android with no internet?",
+        a: "Yes, two ways. Turn one phone into a hotspot, join the other to it, and run a local transfer app over that private link — no data plan needed, full speed. For small files there's also screen-to-camera transfer (BIShare's QR Beam): the sender's screen plays animated QR codes and the receiver scans them, with no network of any kind.",
+      },
+      {
+        q: "What's the best app to transfer files between iPhone and Android?",
+        a: "Any app that runs natively on both platforms and sends device-to-device will beat cloud round-trips. BIShare is free with no account and covers the same-room case (direct Wi-Fi), the far-apart case (encrypted links), and the no-network case (hotspot + QR Beam); LocalSend is a good open-source pick for the same-network case only.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -183,4 +234,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./transfer-files-from-iphone-to-windows-without-cable.mdx"),
   "send-large-videos-from-android-to-mac": () =>
     import("./send-large-videos-from-android-to-mac.mdx"),
+  "share-files-between-ios-and-android": () =>
+    import("./share-files-between-ios-and-android.mdx"),
 };
