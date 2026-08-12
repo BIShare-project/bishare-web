@@ -1016,7 +1016,7 @@ export function FileUpload() {
           }
         }}
         className={cn(
-          "group/zone relative block w-full cursor-pointer overflow-hidden rounded-2xl border border-dashed p-9 text-center outline-none",
+          "group/zone relative block w-full cursor-pointer overflow-hidden rounded-2xl border border-dashed p-5 sm:p-9 text-center outline-none",
           "transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ring/40",
           isDragActive
             ? "border-foreground/40 bg-secondary"

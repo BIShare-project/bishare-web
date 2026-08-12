@@ -188,7 +188,7 @@ async function Hero() {
       {/* Hero uses the CSS `.hero-rise` entrance (SSR-visible, no JS) instead of
           a framer-motion reveal: the LCP <h1> must paint immediately, not wait
           for the bundle to hydrate + an IntersectionObserver to fire. */}
-      <div className="spotlight-radial relative mx-auto max-w-5xl px-6 pt-20 pb-16 text-center md:pt-28">
+      <div className="spotlight-radial relative mx-auto max-w-5xl px-5 pt-12 pb-12 text-center sm:px-6 sm:pt-20 sm:pb-16 md:pt-28">
         <div className="hero-rise flex justify-center" style={rise(0)}>
           <Eyebrow>{t("hero.eyebrow")}</Eyebrow>
         </div>
@@ -239,7 +239,7 @@ async function Live() {
   const t = await getTranslations("home");
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-2xl px-6 py-20 md:py-28">
+      <div className="mx-auto max-w-2xl px-5 py-12 sm:px-6 sm:py-20 md:py-28">
         <div className="text-center">
           <FadeUp>
             <span className="inline-flex items-center gap-2 rounded-full border border-accent-blue/40 bg-accent-blue/[0.06] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-accent-blue">
@@ -273,7 +273,7 @@ async function Differentiators() {
   const t = await getTranslations("home");
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-20 md:py-28">
         <SectionHead
           eyebrow={t("differentiators.eyebrow")}
           title={t("differentiators.title")}
@@ -346,7 +346,7 @@ async function Features() {
   const t = await getTranslations("home");
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-20 md:py-28">
         <SectionHead
           eyebrow={t("features.eyebrow")}
           title={t("features.title")}
@@ -383,7 +383,7 @@ async function HowItWorks() {
   const t = await getTranslations("home");
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-20 md:py-28">
         <SectionHead eyebrow={t("steps.eyebrow")} title={t("steps.title")} />
         <div className="mt-12 grid grid-cols-1 border-l border-t border-border md:grid-cols-3">
           {STEPS.map((s) => (
@@ -413,7 +413,7 @@ async function DownloadCTA() {
   return (
     <section className="relative overflow-hidden">
       <div className="geist-grid pointer-events-none absolute inset-0 -z-10" />
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[1.1fr_0.9fr] md:py-32">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-14 sm:px-6 sm:py-24 md:grid-cols-[1.1fr_0.9fr] md:py-32">
         <FadeUp>
           <div>
             <h2 className="text-[clamp(2.25rem,4.4vw,3.75rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-balance">

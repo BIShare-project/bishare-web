@@ -54,14 +54,14 @@ export function TransferStudio() {
       {/* Send — the drop zone owns the whole left half */}
       <section
         aria-label={t("send")}
-        className="flex flex-col justify-center p-5 md:p-7 lg:min-h-[480px] lg:p-8"
+        className="flex flex-col justify-center p-3 sm:p-5 md:p-7 lg:min-h-[480px] lg:p-8"
       >
         <FileUpload />
       </section>
 
       {/* Right rail — receive + secondary modes on one shared surface */}
       <div className="flex flex-col border-t border-border bg-background-raised/40 lg:border-l lg:border-t-0">
-        <section aria-label={t("receive")} className="p-5 md:p-6">
+        <section aria-label={t("receive")} className="p-4 sm:p-5 md:p-6">
           <div className="flex items-center gap-2.5">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-blue/10 text-accent-blue">
               <Download className="h-4 w-4" />
@@ -122,7 +122,7 @@ function ModeRow({
         type="button"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center gap-2.5 px-5 py-4 text-left transition-colors hover:bg-secondary/60 md:px-6"
+        className="flex w-full items-center gap-2.5 px-4 py-4 text-left transition-colors hover:bg-secondary/60 sm:px-5 md:px-6"
       >
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-blue/10 text-accent-blue">
           {icon}
@@ -142,7 +142,7 @@ function ModeRow({
         />
       </button>
       {open && (
-        <div className="border-t border-border bg-card p-5 md:p-6">{children}</div>
+        <div className="border-t border-border bg-card p-4 sm:p-5 md:p-6">{children}</div>
       )}
     </div>
   );

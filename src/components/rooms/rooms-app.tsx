@@ -319,7 +319,7 @@ function Landing({
 }) {
   const cloud = mode === "cloud";
   return (
-    <div className="space-y-6 p-6 sm:p-7">
+    <div className="space-y-6 p-4 sm:p-7">
       {/* mode switch: Cloud (relay) ⇄ Local (P2P) — one pill toggle, not tabs */}
       <div className="space-y-2">
         <div className="mx-auto flex w-fit items-center gap-3 rounded-full border border-border bg-muted/40 py-1.5 pl-4 pr-4 text-sm">
@@ -491,7 +491,7 @@ function RoomView({
   return (
     <div className="divide-y divide-border">
       {/* header: code + actions */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3 p-4 sm:p-5">
         <div>
           <p className="text-[11px] font-mono uppercase tracking-[0.16em] text-muted-foreground">
             {t("room.codeLabel")}
@@ -516,7 +516,7 @@ function RoomView({
       </div>
 
       {/* members */}
-      <div className="p-5">
+      <div className="p-4 sm:p-5">
         <p className="mb-3 flex items-center gap-2 text-sm font-medium">
           <Users className="h-4 w-4" /> {t("room.members")} · {state.members.length}
         </p>
@@ -551,7 +551,7 @@ function RoomView({
       </div>
 
       {/* files */}
-      <div className="p-5">
+      <div className="p-4 sm:p-5">
         <div className="mb-3 flex items-center justify-between">
           <p className="flex items-center gap-2 text-sm font-medium">
             <FileIcon className="h-4 w-4" /> {t("room.files")} · {state.files.length}

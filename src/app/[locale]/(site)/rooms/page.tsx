@@ -91,7 +91,7 @@ export default async function RoomsPage({
 
       <main className="flex-1">
         {/* Hero + interactive room client */}
-        <section className="mx-auto w-full max-w-xl px-6 pt-12 md:pt-16">
+        <section className="mx-auto w-full max-w-xl px-4 pt-8 sm:px-6 md:pt-16">
           <div className="text-center">
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
               {t("page.eyebrow")}

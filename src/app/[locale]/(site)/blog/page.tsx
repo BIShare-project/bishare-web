@@ -72,7 +72,7 @@ export default async function BlogIndexPage({
         }}
       />
       <SiteHeader />
-      <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-12 md:py-16">
+      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-8 sm:px-6 md:py-16">
         <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
           Blog
         </p>
