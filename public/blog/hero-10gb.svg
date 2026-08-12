@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Sending a 10 GB file for free past the size limits of other services">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080c17"/>
+      <stop offset="1" stop-color="#0e1526"/>
+    </linearGradient>
+    <radialGradient id="glow6" cx="0.5" cy="0.4" r="0.65">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="big" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#93c5fd"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="lb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3AA0FF"/><stop offset=".5" stop-color="#0A84FF"/><stop offset="1" stop-color="#0B3AD1"/>
+    </linearGradient>
+    <radialGradient id="lb-glow" cx=".5" cy=".36" r=".72">
+      <stop offset="0" stop-color="#8FD0FF" stop-opacity=".5"/><stop offset="1" stop-color="#8FD0FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-mk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6E9FF"/>
+    </linearGradient>
+    <radialGradient id="lb-nd" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#F0FCFF"/><stop offset=".45" stop-color="#22D3EE"/><stop offset="1" stop-color="#0AACD0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg6)"/>
+  <rect width="1200" height="630" fill="url(#glow6)"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200"/>
+    <path d="M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630"/>
+  </g>
+
+  <!-- broken cap walls -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">
+    <g transform="translate(240,300) rotate(-8)" opacity="0.75">
+      <rect x="-85" y="-34" width="170" height="68" rx="12" fill="#1f1220" stroke="#f87171" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="6 5"/>
+      <text y="-2" fill="#fca5a5" font-size="17">25 MB</text>
+      <text y="20" fill="#9f6b6b" font-size="12.5">email cap</text>
+    </g>
+    <g transform="translate(340,470) rotate(5)" opacity="0.75">
+      <rect x="-85" y="-34" width="170" height="68" rx="12" fill="#1f1220" stroke="#f87171" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="6 5"/>
+      <text y="-2" fill="#fca5a5" font-size="17">2 GB</text>
+      <text y="20" fill="#9f6b6b" font-size="12.5">free-tier wall</text>
+    </g>
+    <g transform="translate(950,300) rotate(7)" opacity="0.75">
+      <rect x="-95" y="-34" width="190" height="68" rx="12" fill="#1f1220" stroke="#f87171" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="6 5"/>
+      <text y="-2" fill="#fca5a5" font-size="16">"upgrade to send"</text>
+      <text y="20" fill="#9f6b6b" font-size="12.5">the paywall</text>
+    </g>
+    <g transform="translate(872,470) rotate(-5)" opacity="0.75">
+      <rect x="-95" y="-34" width="190" height="68" rx="12" fill="#1f1220" stroke="#f87171" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="6 5"/>
+      <text y="-2" fill="#fca5a5" font-size="16">compressed 1080p</text>
+      <text y="20" fill="#9f6b6b" font-size="12.5">the quality tax</text>
+    </g>
+  </g>
+
+  <!-- the 10 GB payload sailing through -->
+  <g transform="translate(600,300)" text-anchor="middle">
+    <rect x="-170" y="-92" width="340" height="184" rx="26" fill="#0f1e3a" stroke="#3b82f6" stroke-opacity="0.75" stroke-width="3"/>
+    <text y="8" fill="url(#big)" font-family="Segoe UI, -apple-system, system-ui, sans-serif" font-size="86" font-weight="700" letter-spacing="-2">10 GB</text>
+    <text y="52" fill="#93a4c8" font-family="Segoe UI, -apple-system, system-ui, sans-serif" font-size="18">free · encrypted · original quality</text>
+    <g stroke="#3b82f6" stroke-opacity="0.5" stroke-width="3.5" stroke-dasharray="12 10" stroke-linecap="round">
+      <path d="M-260 0 L-180 0"/>
+      <path d="M180 0 L260 0"/>
+    </g>
+    <path d="M252 0 l-14 -8 v16 z" fill="#60a5fa"/>
+  </g>
+
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif" text-anchor="middle">
+    <text x="600" y="540" fill="#ffffff" font-size="38" font-weight="650" letter-spacing="-0.5">Ten gigabytes. Zero dollars. No shrinking.</text>
+    <text x="600" y="577" fill="#93a4c8" font-size="20">We ran one huge file through every wall the internet builds</text>
+  </g>
+
+  <!-- BIShare logo (inlined from public/logo.svg; ids prefixed) + wordmark -->
+  <g transform="translate(548,52)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <g transform="scale(0.0664)">
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-bg)"/>
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-glow)"/>
+      <rect x="16" y="16" width="480" height="220" rx="112" fill="#FFFFFF" opacity=".07"/>
+      <g fill="none" stroke="url(#lb-mk)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1"/><path d="M316.1 223.3 L351.5 217.1 L345.3 252.6"/>
+        <path d="M294.9 160.5 L160.5 294.9"/><path d="M195.9 288.7 L160.5 294.9 L166.7 259.5"/>
+      </g>
+      <circle cx="256" cy="256" r="18" fill="url(#lb-nd)"/>
+    </g>
+    <text x="44" y="25" fill="#dbe4f6" font-size="21" font-weight="600">BIShare</text>
+  </g>
+</svg>

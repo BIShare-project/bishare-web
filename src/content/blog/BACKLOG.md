@@ -17,8 +17,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
 
 ## Large File Sharing & Productivity
 
-6. ☐ How to Send 10GB Files Online for Free Without Compression
-   — planned slug: send-10gb-files-online-free
+6. ✅ How to Send 10GB Files Online for Free Without Compression
+   — slug: send-10gb-files-online-free (scheduled 2026-08-27)
 7. ☐ Fast Alternatives to WeTransfer for Sending Large Folders
    — planned slug: wetransfer-alternatives-large-folders
 8. ☐ How to Share High-Res Photos Locally Without Losing Quality

@@ -303,6 +303,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "send-10gb-files-online-free",
+    title: "How to Send 10GB Files Online for Free Without Compression",
+    metaTitle: "Send 10GB Files Online Free — No Compression (2026)",
+    description:
+      "We ran one 10 GB file through email, chat apps, cloud drives, and transfer sites. Most walls it hit, the paths that survived, and the free way that keeps full quality.",
+    category: "large-files",
+    tags: ["Large files", "10GB", "No compression", "Free transfer"],
+    keywords: [
+      "send 10gb files online free",
+      "send large files without compression",
+      "how to send 10gb video",
+      "file size limit email",
+      "wetransfer alternative 10gb free",
+      "send large files free no account",
+    ],
+    datePublished: "2026-08-27",
+    dateModified: "2026-08-27",
+    readMinutes: 13,
+    hero: {
+      src: "/blog/hero-10gb.svg",
+      alt: "A 10 GB file passing intact through the size limits of email, chat, and free transfer tiers",
+    },
+    related: [
+      "send-large-videos-from-android-to-mac",
+      "wireless-file-transfer-pc-mobile-guide",
+      "wetransfer-alternatives-large-folders",
+    ],
+    faq: [
+      {
+        q: "What is the largest file I can send online for free?",
+        a: "It varies wildly by service: email stops around 25 MB, chat apps at 2 GB or so, and most transfer sites gate a couple of gigabytes behind their free tier. BIShare's free tier carries 10 GB per file with end-to-end encryption and resumable uploads; a few services go higher on size but without the encryption or resume.",
+      },
+      {
+        q: "Does zipping a large video make it smaller?",
+        a: "Barely. Video, photos, and music are already compressed formats, so a ZIP typically shaves only a percent or two off — while adding an extra unpacking step for the recipient. Zipping earns its keep for bundling many files into one, not for shrinking media.",
+      },
+      {
+        q: "Why do transfer sites limit file sizes on free plans?",
+        a: "Pricing, not physics. Storing and serving big files costs the provider bandwidth and disk, so the size cap is where they place the paywall. Architectures that stream uploads straight to storage keep those costs small — which is how a 10 GB free tier can exist at all.",
+      },
+      {
+        q: "What is the fastest way to send a 10 GB file to someone?",
+        a: "If you're on the same network, skip the internet entirely: a direct device-to-device transfer moves 10 GB in a few minutes at router speed. Across the internet, upload time is set by your uplink — roughly 70 minutes at 20 Mbit/s, 14 minutes at 100 Mbit/s — so plug into Ethernet or sit near the router before you start.",
+      },
+      {
+        q: "Is it safe to send big files through a transfer site?",
+        a: "Depends on the site's encryption model. With end-to-end encryption the relay only ever stores ciphertext it cannot read — BIShare encrypts in your browser and the key never reaches the server. With plain TLS-only services, the operator can technically access your file, so match the tool to the file's sensitivity.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -342,4 +393,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./wireless-file-transfer-pc-mobile-guide.mdx"),
   "webdav-server-android-mac": () =>
     import("./webdav-server-android-mac.mdx"),
+  "send-10gb-files-online-free": () =>
+    import("./send-10gb-files-online-free.mdx"),
 };
