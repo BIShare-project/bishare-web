@@ -456,6 +456,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "send-massive-video-files-to-clients",
+    title: "The Best Ways to Send Massive Video Files to Your Clients",
+    metaTitle: "Send Massive Video Files to Clients: The Playbook (2026)",
+    description:
+      "A delivery lifecycle for working editors and filmmakers: agree the pipeline early, export day, the handoff, the revision loop, and the final archive — massive files, zero drama.",
+    category: "large-files",
+    tags: ["Video delivery", "Clients", "Freelancers", "Large files"],
+    keywords: [
+      "send large video files to clients",
+      "how to send video files to clients",
+      "deliver video to client online",
+      "best way to send 50gb video",
+      "send raw footage to editor",
+      "video delivery workflow freelance",
+    ],
+    datePublished: "2026-09-05",
+    dateModified: "2026-09-05",
+    readMinutes: 14,
+    hero: {
+      src: "/blog/hero-client-video.svg",
+      alt: "A 48 GB 4K master file traveling from an editor to a client's approval screen",
+    },
+    related: [
+      "send-10gb-files-online-free",
+      "wetransfer-alternatives-large-folders",
+      "share-high-res-photos-without-losing-quality",
+    ],
+    faq: [
+      {
+        q: "What is the best way to send a large video file to a client?",
+        a: "An encrypted, resumable transfer link with a short manifest message: file name, exact size, expiry date, and one line on what to do. The client clicks, downloads in the browser with no account, and confirms the byte count matches. For anything under 10 GB, BIShare does this free; bigger masters split by reel or deliverable.",
+      },
+      {
+        q: "How do professionals deliver video to clients?",
+        a: "With a pipeline agreed before export day: a delivery channel the client has already used once, review happening on a review platform (or a low-res preview), and the full-quality master traveling exactly once — as a verified, expiring link or a same-network direct transfer, not as a chat attachment.",
+      },
+      {
+        q: "How do I send 100 GB of raw footage?",
+        a: "Split by the project's natural seams — camera, day, or reel — into batches your tool handles comfortably, upload on a wired connection, and verify each batch's size on arrival. If the recipient is in the same building, skip the internet: a direct local transfer moves 100 GB over a router in well under an hour.",
+      },
+      {
+        q: "What if the client can't download the file?",
+        a: "Nine times out of ten it's disk space, an expired link, or a corporate network blocking downloads. Ask for the exact error, check the link hasn't expired, confirm they have free space beyond the file's size, and re-issue a fresh link if needed — which is painless when links are free and take seconds to mint.",
+      },
+      {
+        q: "How long should a client download link stay live?",
+        a: "Long enough to be humane, short enough not to become a standing exposure — 24 hours to a few days suits most deliveries, with an explicit expiry stated in the handoff message. For sensitive material, use a one-time download so the file disappears behind the first fetch, and re-send if a second copy is ever needed.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -501,4 +552,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./wetransfer-alternatives-large-folders.mdx"),
   "share-high-res-photos-without-losing-quality": () =>
     import("./share-high-res-photos-without-losing-quality.mdx"),
+  "send-massive-video-files-to-clients": () =>
+    import("./send-massive-video-files-to-clients.mdx"),
 };
