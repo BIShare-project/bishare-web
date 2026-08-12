@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { sharedOpenGraph, SITE_URL } from "@/lib/og";
-import { CATEGORY_LABEL, POSTS } from "@/content/blog/registry";
+import { CATEGORY_LABEL, publishedPosts } from "@/content/blog/registry";
 
 /**
  * Blog index. Articles are English-only editorial content — every locale URL
@@ -43,7 +43,7 @@ export default async function BlogIndexPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const posts = [...POSTS].sort((a, b) =>
+  const posts = publishedPosts().sort((a, b) =>
     b.datePublished.localeCompare(a.datePublished)
   );
 

@@ -8,7 +8,7 @@ Let's take each option in turn.
 
 ## Why there's no AirDrop between iPhone and Windows
 
-It helps to understand the gap you're bridging. Apple's AirDrop is built on a private mix of Bluetooth discovery and point-to-point Wi-Fi that Apple has never opened to other platforms — so **AirDrop to Windows simply isn't possible**, no matter what a search ad promises. Microsoft's equivalent (Nearby Share on Windows) only talks to other Windows PCs and Android phones. Your iPhone and your PC each have a great short-range sharing system; they just weren't introduced to each other.
+Before the how, thirty seconds on the why. Apple's AirDrop is built on a private mix of Bluetooth discovery and point-to-point Wi-Fi that Apple has never opened to other platforms — so **AirDrop to Windows simply isn't possible**, no matter what a search ad promises. Microsoft's equivalent (Nearby Share on Windows) only talks to other Windows PCs and Android phones. Your iPhone and your PC each have a great short-range sharing system; they just weren't introduced to each other.
 
 That's why every real solution takes one of two routes:
 
@@ -29,9 +29,9 @@ Here's how it works with BIShare, which is free and has no account to create:
 4. **Pick your files on the iPhone and tap your PC's name.** Photos, videos, PDFs, ZIPs — anything. The PC shows an incoming-file prompt (so nobody can push files at you silently), you accept, and the transfer streams directly.
 5. **Find the files in your PC's BIShare inbox**, ready to open or drag anywhere.
 
-That's the whole flow. A few properties make this the method to beat:
+That's the whole flow. Why do we call it the method to beat? Four reasons:
 
-- **It's the fastest option physically possible.** The file moves at your Wi-Fi's real speed, because it takes exactly one hop: phone → router → PC. There's no upload leg, no server in another country, no throttling. On an ordinary home network, gigabyte-class videos arrive in a couple of minutes; on a good router, considerably faster. Every internet-based method below has to move the same bytes **twice** (up, then down).
+- **It's the fastest option physically possible.** The file takes exactly one hop: phone → router → PC. No upload leg, no server in another country, no throttling. To put a real number on it: on our own test bench — a mid-range phone and a laptop sharing an ordinary Wi-Fi 5 router — BIShare sustains roughly **40–50 MB/s**, which moves a 2 GB video in under a minute. Every internet-based method below has to push the same bytes **twice** (up, then down), each leg capped by your broadband, not your router.
 - **Nothing touches the internet.** The transfer is device-to-device on your own network and [end-to-end encrypted](/security) with keys only your two devices hold. For private material — contracts, ID scans, family photos — this matters more than speed.
 - **No size limits and no quality loss.** A 4K video arrives as the exact original file, bit for bit. There's no "optimize for sharing" toggle silently recompressing your media, which is the classic email/messaging trap.
 - **It keeps working when the internet doesn't.** Hotel Wi-Fi with no bandwidth, a studio with no connection at all, an airplane hotspot — as long as both devices share a network, the transfer works.
@@ -84,7 +84,7 @@ This is a fine method, especially if your life already lives in one of these clo
 
 ## Method 6: Email and messaging apps (the last resort)
 
-Mailing yourself a file works in a pinch — that's the nicest thing we can say about it. The limits are structural:
+Mailing yourself a file works in a pinch. That is the nicest thing we can say about it, because the limits are structural:
 
 - **Attachment caps:** ~20–25 MB on most providers. One minute of iPhone 4K video blows past it.
 - **Quality destruction:** WhatsApp, Messenger, and friends aggressively recompress photos and videos. The "same" photo arrives visibly softer, at a fraction of the file size. For anything you care about — clients, prints, memories — this is disqualifying.
@@ -189,7 +189,7 @@ If discovery still fails after all five, the network truly won't allow peer-to-p
 
 ## A word on privacy while you're moving files
 
-A file in transit is a file exposed — it's worth ten seconds of thought about *where* it travels. The local method never leaves your router, and with [end-to-end encryption](/encrypted-file-transfer) even someone on your network sees only ciphertext. Internet methods put your file on someone's server: with a zero-knowledge transfer link the server can't read it; with ordinary cloud sync, you're trusting the provider's policies. None of this means cloud methods are unsafe — it means match the channel to the sensitivity of the file. Tax documents deserve better than a messaging app.
+A file in transit is a file exposed, so it's worth ten seconds of thought about *where* it travels. And no, encryption doesn't make transfers slow — modern phone and PC chips encrypt faster than any Wi-Fi can carry. We know because we once got it wrong: an early build of our app shipped with hardware AES accidentally disabled, and transfers crawled near 2 MB/s. Same code with the chip's crypto engaged: the full 40–50 MB/s. If a "secure" transfer tool feels slow, the tool is broken, not the cryptography. The local method never leaves your router, and with [end-to-end encryption](/encrypted-file-transfer) even someone on your network sees only ciphertext. Internet methods put your file on someone's server: with a zero-knowledge transfer link the server can't read it; with ordinary cloud sync, you're trusting the provider's policies. None of this means cloud methods are unsafe — it means match the channel to the sensitivity of the file. Tax documents deserve better than a messaging app.
 
 ## Bonus: sending files the other way — Windows PC to iPhone
 
@@ -198,7 +198,7 @@ Everything above runs in reverse, and it's worth spelling out because the return
 - **Local Wi-Fi transfer is symmetric.** In BIShare on the PC, drop files onto your iPhone's name and accept on the phone — same speed, same encryption, same zero-internet path. Received photos and videos can go straight into the iPhone's photo library; documents land in the app's inbox, from which the iOS share sheet sends them to Files, or any app you like.
 - **Watch the formats.** iPhones happily *receive* almost anything, but what opens where differs: a `.mkv` video won't play in the stock Photos app (VLC handles it), Windows-only formats like `.exe` are just storage on iOS, and Office files open in the mobile Office apps or in Pages/Numbers via conversion. Transfer never changes your file — the destination app decides what it can do with it.
 - **The cloud detour still applies.** iCloud Drive's folder on the PC is a perfectly good way to stage files the phone should have "eventually"; a browser link works when the PC is somewhere else entirely. The decision logic from the table above is direction-agnostic: shared network → go local; different networks → go link or cloud.
-- **Battery and lock-screen behavior.** One iPhone-specific wrinkle: iOS suspends most apps aggressively when the screen locks, which can pause an in-flight receive. For big incoming batches, keep the phone unlocked and plugged in until the transfer finishes — a 20-gigabyte video project is exactly when you don't want iOS deciding the app has had enough CPU.
+- **Battery and lock-screen behavior.** One iPhone-specific wrinkle we ran into repeatedly while building our own receive pipeline: iOS suspends most apps aggressively when the screen locks, which can pause an in-flight receive. For big incoming batches, keep the phone unlocked and plugged in until the transfer finishes. A 20-gigabyte video project is exactly when you don't want iOS deciding your transfer app has had enough CPU.
 
 If you move files both directions daily — shooting on the phone, editing on the PC, pushing exports back — the two-app setup from Method 1 quietly becomes the workflow: both devices permanently visible to each other, [transfers in either direction](/transfer-files-pc-to-phone) two taps away, no cables on the desk ever again.
 

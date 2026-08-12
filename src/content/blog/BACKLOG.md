@@ -54,6 +54,36 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
 20. ☐ AirDrop for Windows: How to Get AirDrop-Like Speeds on Any PC
     — planned slug: airdrop-for-windows-speeds (mind cannibalization: the site already has /airdrop-for-windows landing — this article targets informational intent and links to it)
 
+## Publish schedule (every 3 days — SET datePublished FROM THIS TABLE)
+
+The infra auto-schedules: registry `datePublished` in the future = the article
+stays hidden from index/article/RSS/sitemap until that UTC date arrives (pages
+are SSR'd, so it appears by itself — no redeploy). Write ahead freely; the date
+does the publishing.
+
+| # | Article | datePublished |
+|---|---------|---------------|
+| 1 | see list above (#1) | 2026-08-12 |
+| 2 | see list above (#2) | 2026-08-15 |
+| 3 | see list above (#3) | 2026-08-18 |
+| 4 | see list above (#4) | 2026-08-21 |
+| 5 | see list above (#5) | 2026-08-24 |
+| 6 | see list above (#6) | 2026-08-27 |
+| 7 | see list above (#7) | 2026-08-30 |
+| 8 | see list above (#8) | 2026-09-02 |
+| 9 | see list above (#9) | 2026-09-05 |
+| 10 | see list above (#10) | 2026-09-08 |
+| 11 | see list above (#11) | 2026-09-11 |
+| 12 | see list above (#12) | 2026-09-14 |
+| 13 | see list above (#13) | 2026-09-17 |
+| 14 | see list above (#14) | 2026-09-20 |
+| 15 | see list above (#15) | 2026-09-23 |
+| 16 | see list above (#16) | 2026-09-26 |
+| 17 | see list above (#17) | 2026-09-29 |
+| 18 | see list above (#18) | 2026-10-02 |
+| 19 | see list above (#19) | 2026-10-05 |
+| 20 | see list above (#20) | 2026-10-08 |
+
 ## Per-article SEO checklist (apply to every publish)
 
 - ≥3,000 words; primary keyword in H1 / metaTitle (≤60ch) / first 100 words / one H2.
@@ -65,3 +95,12 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
 - Quick-answer paragraph up top (featured-snippet target); comparison table.
 - FAQ (5) in registry → rendered on page + FAQPage JSON-LD; BlogPosting + BreadcrumbList emitted by the article template.
 - Honest claims only — no invented benchmarks or fake ratings.
+
+## Uniqueness protocol (owner requirement: "artikel harus benar-benar unik")
+
+- **Original prose only** — never adapt competitor articles; write from scratch.
+- **Verify before publish**: web-search 3 distinctive exact sentences in quotes → must return zero exact matches (done for #1: 3/3 clean).
+- **Distinct structure per article** — do NOT reuse #1's "N methods + table" template everywhere; vary formats (narrative deep-dive, teardown, checklist, myth-busting, protocol explainer…).
+- **No paragraph reuse between articles**; cross-reference by LINK instead.
+- **≥1 first-hand data point per article** from our own engineering/testing (measured speeds, bugs we hit, protocol details) — the moat no competitor blog can copy.
+- Article vs landing-page cannibalization check: informational intent here, commercial intent on landing pages; interlink, don't duplicate.

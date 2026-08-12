@@ -1,4 +1,4 @@
-import { POSTS } from "@/content/blog/registry";
+import { publishedPosts } from "@/content/blog/registry";
 import { SITE_URL } from "@/lib/og";
 
 /** Blog RSS feed — built from the article registry, English-only. */
@@ -11,7 +11,7 @@ const esc = (s: string) =>
     .replaceAll('"', "&quot;");
 
 export function GET(): Response {
-  const items = [...POSTS]
+  const items = publishedPosts()
     .sort((a, b) => b.datePublished.localeCompare(a.datePublished))
     .map(
       (p) => `    <item>

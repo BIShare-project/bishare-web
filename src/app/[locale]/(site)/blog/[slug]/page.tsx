@@ -101,8 +101,9 @@ export default async function BlogArticlePage({
     })),
   };
 
+  const live = publishedSlugs();
   const related = post.related
-    .filter((s) => publishedSlugs.has(s))
+    .filter((s) => live.has(s))
     .map((s) => POSTS.find((p) => p.slug === s)!)
     .slice(0, 3);
 

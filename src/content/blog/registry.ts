@@ -64,8 +64,8 @@ export const POSTS: BlogPost[] = [
       "move photos from iphone to windows 11",
       "iphone to pc without cable",
     ],
-    datePublished: "2026-08-13",
-    dateModified: "2026-08-13",
+    datePublished: "2026-08-12",
+    dateModified: "2026-08-12",
     readMinutes: 14,
     hero: {
       src: "/blog/hero-iphone-windows.svg",
@@ -101,10 +101,26 @@ export const POSTS: BlogPost[] = [
   },
 ];
 
-export const publishedSlugs = new Set(POSTS.map((p) => p.slug));
+/**
+ * Scheduling: articles carry a future `datePublished` and every surface
+ * (index, article page, RSS, sitemap) filters through these helpers — pages
+ * are SSR'd on Workers, so a post appears BY ITSELF the day its date arrives,
+ * no redeploy needed. Cadence per owner: one new article every 3 days.
+ */
+const todayUtc = () => new Date().toISOString().slice(0, 10);
 
+export function publishedPosts(): BlogPost[] {
+  const now = todayUtc();
+  return POSTS.filter((p) => p.datePublished <= now);
+}
+
+export const publishedSlugs = (): Set<string> =>
+  new Set(publishedPosts().map((p) => p.slug));
+
+/** Only returns a post whose publish date has arrived. */
 export function getPost(slug: string): BlogPost | undefined {
-  return POSTS.find((p) => p.slug === slug);
+  const now = todayUtc();
+  return POSTS.find((p) => p.slug === slug && p.datePublished <= now);
 }
 
 /** slug → lazy MDX component. Every entry in POSTS must have one. */

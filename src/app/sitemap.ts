@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/og";
 import { routing } from "@/i18n/routing";
 import { localizedPath } from "@/i18n/metadata";
-import { POSTS } from "@/content/blog/registry";
+import { publishedPosts } from "@/content/blog/registry";
 
 const ROUTES: Array<{
   path: string;
@@ -63,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     },
-    ...POSTS.map((p) => ({
+    ...publishedPosts().map((p) => ({
       url: `${SITE_URL}/blog/${p.slug}`,
       lastModified: new Date(p.dateModified),
       changeFrequency: "monthly" as const,
