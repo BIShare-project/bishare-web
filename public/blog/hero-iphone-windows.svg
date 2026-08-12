@@ -13,6 +13,18 @@
       <stop offset="0" stop-color="#2563eb" stop-opacity="0.28"/>
       <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="lb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3AA0FF"/><stop offset=".5" stop-color="#0A84FF"/><stop offset="1" stop-color="#0B3AD1"/>
+    </linearGradient>
+    <radialGradient id="lb-glow" cx=".5" cy=".36" r=".72">
+      <stop offset="0" stop-color="#8FD0FF" stop-opacity=".5"/><stop offset="1" stop-color="#8FD0FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-mk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6E9FF"/>
+    </linearGradient>
+    <radialGradient id="lb-nd" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#F0FCFF"/><stop offset=".45" stop-color="#22D3EE"/><stop offset="1" stop-color="#0AACD0"/>
+    </radialGradient>
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
@@ -63,10 +75,18 @@
     <text x="600" y="560" fill="#93a4c8" font-size="21">Wireless transfer over your own Wi-Fi · end-to-end encrypted</text>
   </g>
 
-  <!-- BIShare mark -->
-  <g transform="translate(555,70)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
-    <rect x="0" y="0" width="34" height="34" rx="9" fill="#2563eb"/>
-    <path d="M10 17h14m-5-5 5 5-5 5" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <text x="44" y="24" fill="#dbe4f6" font-size="21" font-weight="600">BIShare</text>
+  <!-- BIShare logo (inlined from public/logo.svg; ids prefixed) + wordmark -->
+  <g transform="translate(548,62)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <g transform="scale(0.0664)">
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-bg)"/>
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-glow)"/>
+      <rect x="16" y="16" width="480" height="220" rx="112" fill="#FFFFFF" opacity=".07"/>
+      <g fill="none" stroke="url(#lb-mk)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1"/><path d="M316.1 223.3 L351.5 217.1 L345.3 252.6"/>
+        <path d="M294.9 160.5 L160.5 294.9"/><path d="M195.9 288.7 L160.5 294.9 L166.7 259.5"/>
+      </g>
+      <circle cx="256" cy="256" r="18" fill="url(#lb-nd)"/>
+    </g>
+    <text x="44" y="25" fill="#dbe4f6" font-size="21" font-weight="600">BIShare</text>
   </g>
 </svg>

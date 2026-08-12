@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Sending large videos from an Android phone to a Mac wirelessly">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#04101c"/>
+      <stop offset="1" stop-color="#0a1b2e"/>
+    </linearGradient>
+    <linearGradient id="beam2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22c55e" stop-opacity="0.1"/>
+      <stop offset="0.5" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#3b82f6" stop-opacity="0.12"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3AA0FF"/><stop offset=".5" stop-color="#0A84FF"/><stop offset="1" stop-color="#0B3AD1"/>
+    </linearGradient>
+    <radialGradient id="lb-glow" cx=".5" cy=".36" r=".72">
+      <stop offset="0" stop-color="#8FD0FF" stop-opacity=".5"/><stop offset="1" stop-color="#8FD0FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-mk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6E9FF"/>
+    </linearGradient>
+    <radialGradient id="lb-nd" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#F0FCFF"/><stop offset=".45" stop-color="#22D3EE"/><stop offset="1" stop-color="#0AACD0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg2)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200"/>
+    <path d="M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630"/>
+  </g>
+
+  <!-- Android phone with play badge -->
+  <g transform="translate(205,170)">
+    <rect x="0" y="0" width="150" height="280" rx="22" fill="#0e1c30" stroke="#22c55e" stroke-opacity="0.55" stroke-width="2.5"/>
+    <circle cx="75" cy="20" r="4" fill="#14532d" stroke="#22c55e" stroke-opacity="0.4"/>
+    <rect x="16" y="40" width="118" height="150" rx="10" fill="#12283f"/>
+    <circle cx="75" cy="115" r="30" fill="#22c55e" fill-opacity="0.16" stroke="#22c55e" stroke-opacity="0.6" stroke-width="2"/>
+    <path d="M66 100l26 15-26 15z" fill="#22c55e"/>
+    <rect x="16" y="202" width="88" height="9" rx="4.5" fill="#1d3a5c"/>
+    <rect x="16" y="219" width="118" height="9" rx="4.5" fill="#1d3a5c"/>
+    <text x="75" y="262" text-anchor="middle" font-family="Segoe UI, -apple-system, system-ui, sans-serif" fill="#7fd6a0" font-size="14" font-weight="600">4K · 3.2 GB</text>
+  </g>
+
+  <!-- MacBook -->
+  <g transform="translate(760,205)">
+    <rect x="10" y="0" width="270" height="165" rx="12" fill="#0e1c30" stroke="#3b82f6" stroke-opacity="0.55" stroke-width="2.5"/>
+    <rect x="24" y="13" width="242" height="139" rx="7" fill="#12283f"/>
+    <circle cx="145" cy="70" r="26" fill="#3b82f6" fill-opacity="0.16" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="2"/>
+    <path d="M137 57l22 13-22 13z" fill="#3b82f6"/>
+    <rect x="60" y="112" width="170" height="8" rx="4" fill="#1d3a5c"/>
+    <path d="M0 168h290l-14 16a12 12 0 0 1-9 4H23a12 12 0 0 1-9-4z" fill="#0b1728" stroke="#3b82f6" stroke-opacity="0.35"/>
+  </g>
+
+  <!-- beam -->
+  <g>
+    <path d="M372 295 C 505 225, 645 225, 748 275" stroke="url(#beam2)" stroke-width="4" fill="none" stroke-dasharray="14 12" stroke-linecap="round"/>
+    <circle cx="475" cy="256" r="7" fill="#22c55e"/>
+    <circle cx="572" cy="243" r="5.5" fill="#60a5fa"/>
+    <circle cx="668" cy="250" r="7" fill="#3b82f6"/>
+  </g>
+
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif" text-anchor="middle">
+    <text x="600" y="520" fill="#ffffff" font-size="40" font-weight="650" letter-spacing="-0.5">Big videos, Android → Mac</text>
+    <text x="600" y="560" fill="#93a4c8" font-size="21">Full quality, no cable, no compression tricks</text>
+  </g>
+
+  <!-- BIShare logo (inlined from public/logo.svg; ids prefixed) + wordmark -->
+  <g transform="translate(548,62)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <g transform="scale(0.0664)">
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-bg)"/>
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-glow)"/>
+      <rect x="16" y="16" width="480" height="220" rx="112" fill="#FFFFFF" opacity=".07"/>
+      <g fill="none" stroke="url(#lb-mk)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1"/><path d="M316.1 223.3 L351.5 217.1 L345.3 252.6"/>
+        <path d="M294.9 160.5 L160.5 294.9"/><path d="M195.9 288.7 L160.5 294.9 L166.7 259.5"/>
+      </g>
+      <circle cx="256" cy="256" r="18" fill="url(#lb-nd)"/>
+    </g>
+    <text x="44" y="25" fill="#dbe4f6" font-size="21" font-weight="600">BIShare</text>
+  </g>
+</svg>
