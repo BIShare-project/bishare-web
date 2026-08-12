@@ -609,6 +609,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "what-is-end-to-end-encrypted-file-sharing",
+    title: "What is End-to-End Encrypted File Sharing and Why Do You Need It?",
+    metaTitle: "What Is End-to-End Encrypted File Sharing? (2026 Guide)",
+    description:
+      "Follow the key, not the file: how E2E encryption is born, agreed, put to work, verified, and destroyed — plus six questions that expose fake E2E claims.",
+    category: "security",
+    tags: ["Encryption", "E2EE", "Privacy", "Explained"],
+    keywords: [
+      "end-to-end encrypted file sharing",
+      "what is end-to-end encryption",
+      "e2ee file transfer",
+      "encrypted file sharing explained",
+      "zero knowledge file sharing",
+      "end-to-end encryption vs tls",
+    ],
+    datePublished: "2026-09-14",
+    dateModified: "2026-09-14",
+    readMinutes: 14,
+    hero: {
+      src: "/blog/hero-e2e-key.svg",
+      alt: "The five-stage life of an encryption key — born, agreed, at work, proven, gone — drawn as a timeline between two devices",
+    },
+    related: [
+      "securely-send-confidential-documents",
+      "transfer-large-files-without-cloud-limits",
+      "send-10gb-files-online-free",
+    ],
+    faq: [
+      {
+        q: "What does end-to-end encrypted file sharing mean?",
+        a: "It means the file is encrypted on the sender's device and can only be decrypted on the recipient's device. The keys exist solely at those two endpoints, so no server, service, or network in between can read the file — even if it stores or relays the data.",
+      },
+      {
+        q: "Is end-to-end encryption the same as the HTTPS padlock?",
+        a: "No. The padlock (TLS) encrypts each hop of a journey but terminates at every server along the way, leaving readable copies with each provider. End-to-end encryption keeps decryption ability at the two endpoints only — intermediaries carry ciphertext they cannot open.",
+      },
+      {
+        q: "Does end-to-end encryption slow down file transfers?",
+        a: "Not when it's built properly. Modern phones and laptops have hardware AES instructions that encrypt faster than Wi-Fi can move the bytes, so the cipher is almost never the bottleneck. In our own pipeline, removing a redundant extra checksum actually sped transfers up — the authenticated encryption was already doing that job.",
+      },
+      {
+        q: "Can end-to-end encrypted files be recovered if I lose the key?",
+        a: "No — and that's the point. A provider that can restore your data after you lose everything necessarily holds key material of its own, which means it isn't truly end-to-end. Genuine E2E systems put backup responsibility on you: keep the original files, and treat key custody seriously.",
+      },
+      {
+        q: "How do I know an app really uses end-to-end encryption?",
+        a: "Apply four tests: keys must be generated on your devices (never server-side); a password reset must not magically preserve access to old encrypted data; the design should be documented or audited rather than 'proprietary'; and a wrong or missing key must produce a loud failure, never a fake success.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -682,4 +733,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./transfer-large-files-without-cloud-limits.mdx"),
   "securely-send-confidential-documents": () =>
     import("./securely-send-confidential-documents.mdx"),
+  "what-is-end-to-end-encrypted-file-sharing": () =>
+    import("./what-is-end-to-end-encrypted-file-sharing.mdx"),
 };

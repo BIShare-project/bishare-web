@@ -32,8 +32,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
 
 11. ✅ How to Securely Send Confidential Business Documents Wirelessly
     — slug: securely-send-confidential-documents (scheduled 2026-09-11)
-12. ☐ What is End-to-End Encrypted File Sharing and Why Do You Need It?
-    — planned slug: what-is-end-to-end-encrypted-file-sharing
+12. ✅ What is End-to-End Encrypted File Sharing and Why Do You Need It?
+    — slug: what-is-end-to-end-encrypted-file-sharing (scheduled 2026-09-14)
 13. ☐ How to Transfer Private Data Locally Without Using the Internet
     — planned slug: transfer-files-locally-without-internet
 14. ☐ Safe File Sharing: How to Prevent Data Leaks During Transfer
