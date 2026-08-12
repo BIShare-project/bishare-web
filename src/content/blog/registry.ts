@@ -405,6 +405,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "share-high-res-photos-without-losing-quality",
+    title: "How to Share High-Res Photos Locally Without Losing Quality",
+    metaTitle: "Share High-Res Photos Without Losing Quality (2026)",
+    description:
+      "Chat apps shrink your 48 MP photos to mush. A forensic look at where quality dies — plus a 60-second audit and the local-first workflow that keeps every pixel.",
+    category: "large-files",
+    tags: ["Photos", "Full quality", "HEIC", "No compression"],
+    keywords: [
+      "share high res photos without losing quality",
+      "send photos without compression",
+      "does whatsapp compress photos",
+      "share photos full quality",
+      "send raw photos to client",
+      "heic vs jpeg quality",
+    ],
+    datePublished: "2026-09-02",
+    dateModified: "2026-09-02",
+    readMinutes: 13,
+    hero: {
+      src: "/blog/hero-photos.svg",
+      alt: "The same 48 MP photo taking two journeys — mangled by a chat app, delivered bit-for-bit by local transfer",
+    },
+    related: [
+      "wetransfer-alternatives-large-folders",
+      "share-files-between-ios-and-android",
+      "send-large-videos-from-android-to-mac",
+    ],
+    faq: [
+      {
+        q: "Does WhatsApp reduce photo quality?",
+        a: "Yes — anything sent through the photo lane is downscaled to roughly two thousand pixels on the long edge, re-encoded as a heavier-compressed JPEG, and stripped of metadata; the HD option raises the resolution but still re-encodes. The escape hatch is sending the photo as a document (attach → Document), which delivers the original file untouched.",
+      },
+      {
+        q: "How do I send photos in full quality without an app compressing them?",
+        a: "Use a channel that moves photos as files rather than as pictures: a direct local Wi-Fi transfer between the two devices, a cloud drive (not a photo service on a saver setting), an email attachment at Actual Size, or an encrypted transfer link. A quick self-test tells you if a channel qualifies — send a photo to yourself and compare pixel dimensions and file size against the original.",
+      },
+      {
+        q: "Do iCloud Shared Albums keep full resolution?",
+        a: "No. Apple documents that Shared Album photos are reduced to at most 2048 pixels on the long edge — fine for browsing on a phone, far below what printing or cropping needs. Treat shared albums as a viewing window and keep the full-resolution originals delivered through a file-faithful channel.",
+      },
+      {
+        q: "What is the best way to share RAW photos with a client?",
+        a: "RAW files only survive file-faithful channels: a direct local transfer if you share a network, otherwise a cloud drive folder or an encrypted transfer link. Never a chat app's photo lane, which flattens RAW to a JPEG preview. If your edits live in sidecar files, send the whole folder so every RAW travels with its .xmp.",
+      },
+      {
+        q: "How can I tell if a photo lost quality when it was sent?",
+        a: "Compare three numbers between the original and the received copy: pixel dimensions (a drop means downscaling), file size (an order-of-magnitude drop at the same dimensions means re-encoding), and the capture date in the photo's info panel (missing means metadata was stripped). For certainty, matching SHA-256 checksums prove the copies are bit-for-bit identical.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -448,4 +499,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./send-10gb-files-online-free.mdx"),
   "wetransfer-alternatives-large-folders": () =>
     import("./wetransfer-alternatives-large-folders.mdx"),
+  "share-high-res-photos-without-losing-quality": () =>
+    import("./share-high-res-photos-without-losing-quality.mdx"),
 };
