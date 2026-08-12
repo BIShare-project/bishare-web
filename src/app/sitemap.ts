@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/og";
 import { routing } from "@/i18n/routing";
 import { localizedPath } from "@/i18n/metadata";
+import { POSTS } from "@/content/blog/registry";
 
 const ROUTES: Array<{
   path: string;
@@ -53,7 +54,24 @@ function absolute(locale: string, path: string): string {
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return ROUTES.flatMap(({ path, priority, changeFrequency }) => {
+  // Blog: English-only editorial content — one URL per entry, no locale
+  // alternates (every locale URL canonicalizes to the unprefixed path).
+  const blogEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/blog`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    ...POSTS.map((p) => ({
+      url: `${SITE_URL}/blog/${p.slug}`,
+      lastModified: new Date(p.dateModified),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  return blogEntries.concat(ROUTES.flatMap(({ path, priority, changeFrequency }) => {
     // hreflang alternates: every locale variant of this route.
     const languages: Record<string, string> = {};
     for (const locale of routing.locales) {
@@ -70,5 +88,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority,
       alternates: { languages },
     }));
-  });
+  }));
 }

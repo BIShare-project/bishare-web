@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 import createNextIntlPlugin from "next-intl/plugin";
+import createMDX from "@next/mdx";
 
 // Makes getCloudflareContext() (bindings D1/R2/DO) work during `next dev` —
 // dipakai admin panel (server components) tanpa harus lewat wrangler dev.
@@ -23,7 +24,13 @@ const nextConfig: NextConfig = {
     // Barrel-optimize the icon set so a page bundles only the icons it imports
     // (lucide-react re-exports hundreds), not the whole module.
     optimizePackageImports: ["lucide-react"],
+    // Blog articles are .mdx imported as components; the Rust MDX compiler is
+    // the one that works under Turbopack (no JS loader chain).
+    mdxRs: true,
   },
 };
 
-export default withNextIntl(nextConfig);
+// Blog content (src/content/blog/*.mdx) imports as React components.
+const withMDX = createMDX({});
+
+export default withMDX(withNextIntl(nextConfig));

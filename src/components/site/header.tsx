@@ -24,6 +24,7 @@ const NAV_LINKS = [
   { href: "/how-it-works", key: "howItWorks" },
   { href: "/security", key: "security" },
   { href: "/faq", key: "faq" },
+  { href: "/blog", key: "blog" },
   { href: "/stats", key: "stats" },
 ] as const;
 
