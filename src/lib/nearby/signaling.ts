@@ -9,6 +9,10 @@ export interface NearbyPeer {
   peerId: string;
   alias: string;
   emoji: string;
+  /** "app" (native BIShare app bridged into the room) or "browser"; may be
+   *  absent on peers that predate the field. Apps use it to hide fellow apps
+   *  from their roster — browsers show every peer. */
+  kind?: string;
 }
 
 export interface IncomingSignal {
@@ -76,6 +80,7 @@ export class NearbySignaling {
             peerId: str(m.peerId),
             alias: str(m.alias),
             emoji: str(m.emoji),
+            kind: str(m.kind),
           });
           break;
         case "peer_left":

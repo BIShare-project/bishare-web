@@ -39,13 +39,14 @@ export function getNearbySelf(): NearbyPeer | null {
       peerId = Math.random().toString(36).slice(2, 8);
       sessionStorage.setItem(PEER_KEY, peerId);
     }
-    return { peerId, alias, emoji };
+    return { peerId, alias, emoji, kind: "browser" };
   } catch {
     // Storage blocked (private mode) — fall back to a per-mount identity.
     return {
       peerId: Math.random().toString(36).slice(2, 8),
       alias: `${pick(ADJ)} ${pick(NOUN)}`,
       emoji: pick(EMOJIS),
+      kind: "browser",
     };
   }
 }
