@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { sharedOpenGraph, SITE_URL } from "@/lib/og";
-import { CATEGORY_LABEL, publishedPosts } from "@/content/blog/registry";
+import { CATEGORY_LABEL, isScheduled, publishedPosts } from "@/content/blog/registry";
 
 /**
  * Blog index. Articles are English-only editorial content — every locale URL
@@ -111,6 +111,11 @@ export default async function BlogIndexPage({
                   <p className="mt-3 text-[12px] text-muted-foreground">
                     {DATE_FMT.format(new Date(p.datePublished))} ·{" "}
                     {p.readMinutes} min read
+                    {isScheduled(p) && (
+                      <span className="ml-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 font-medium text-amber-600 dark:text-amber-400">
+                        Scheduled
+                      </span>
+                    )}
                   </p>
                 </div>
               </article>

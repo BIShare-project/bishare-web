@@ -517,7 +517,23 @@ export const POSTS: BlogPost[] = [
  */
 const todayUtc = () => new Date().toISOString().slice(0, 10);
 
+/** In `next dev`, scheduled articles are always visible for editing/preview. */
+const DEV = process.env.NODE_ENV === "development";
+
+/**
+ * Production preview: /blog/<slug>?preview=KEY renders a scheduled article
+ * early (with a banner + noindex). The key lives in this public repo, so it
+ * gates *accidental* discovery and search indexing — not secrecy; scheduled
+ * posts are cadence, not confidences.
+ */
+export const PREVIEW_KEY = "editorial";
+
+export function isScheduled(post: BlogPost): boolean {
+  return post.datePublished > todayUtc();
+}
+
 export function publishedPosts(): BlogPost[] {
+  if (DEV) return [...POSTS];
   const now = todayUtc();
   return POSTS.filter((p) => p.datePublished <= now);
 }
@@ -525,10 +541,16 @@ export function publishedPosts(): BlogPost[] {
 export const publishedSlugs = (): Set<string> =>
   new Set(publishedPosts().map((p) => p.slug));
 
-/** Only returns a post whose publish date has arrived. */
-export function getPost(slug: string): BlogPost | undefined {
-  const now = todayUtc();
-  return POSTS.find((p) => p.slug === slug && p.datePublished <= now);
+/** Returns the post when its date has arrived — or regardless of date in dev
+ *  / when the caller holds the preview key. */
+export function getPost(
+  slug: string,
+  opts?: { allowScheduled?: boolean }
+): BlogPost | undefined {
+  const post = POSTS.find((p) => p.slug === slug);
+  if (!post) return undefined;
+  if (DEV || opts?.allowScheduled) return post;
+  return post.datePublished <= todayUtc() ? post : undefined;
 }
 
 /** slug → lazy MDX component. Every entry in POSTS must have one. */
