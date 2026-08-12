@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Delivering massive video files to a client">
+  <defs>
+    <linearGradient id="bg9" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080b15"/>
+      <stop offset="1" stop-color="#0e1322"/>
+    </linearGradient>
+    <radialGradient id="glow9" cx="0.45" cy="0.42" r="0.66">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.27"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3AA0FF"/><stop offset=".5" stop-color="#0A84FF"/><stop offset="1" stop-color="#0B3AD1"/>
+    </linearGradient>
+    <radialGradient id="lb-glow" cx=".5" cy=".36" r=".72">
+      <stop offset="0" stop-color="#8FD0FF" stop-opacity=".5"/><stop offset="1" stop-color="#8FD0FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-mk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6E9FF"/>
+    </linearGradient>
+    <radialGradient id="lb-nd" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#F0FCFF"/><stop offset=".45" stop-color="#22D3EE"/><stop offset="1" stop-color="#0AACD0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg9)"/>
+  <rect width="1200" height="630" fill="url(#glow9)"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200"/>
+    <path d="M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630"/>
+  </g>
+
+  <!-- clapperboard + master file -->
+  <g transform="translate(185,175)">
+    <g transform="rotate(-4)">
+      <rect x="0" y="34" width="230" height="150" rx="12" fill="#0e1a2e" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="2.5"/>
+      <path d="M0 46 q0 -12 12 -12 h206 q12 0 12 12 v18 H0 z" fill="#132849"/>
+      <g transform="translate(0,-2)">
+        <path d="M2 30 L228 8 l6 26 -226 22 z" fill="#0b1424" stroke="#3b82f6" stroke-opacity="0.5" stroke-width="2"/>
+        <g fill="#93c5fd" opacity="0.9">
+          <path d="M18 28 l24 -2 12 22 -24 2 z"/>
+          <path d="M66 24 l24 -2 12 22 -24 2 z"/>
+          <path d="M114 19 l24 -2 12 22 -24 2 z"/>
+          <path d="M162 15 l24 -2 12 22 -24 2 z"/>
+        </g>
+      </g>
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+        <text x="18" y="92" fill="#eaf2ff" font-size="15">final_master_4K.mov</text>
+        <text x="18" y="118" fill="#7fb0e8" font-size="13">48.2 GB · ProRes</text>
+        <rect x="18" y="134" width="194" height="10" rx="5" fill="#1d3a5c"/>
+        <rect x="18" y="134" width="132" height="10" rx="5" fill="#3b82f6"/>
+        <text x="18" y="166" fill="#64748b" font-size="12">uploading · resumable · encrypted</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- delivery beam -->
+  <g>
+    <path d="M470 300 C 580 250, 700 250, 800 288" stroke="#3b82f6" stroke-opacity="0.5" stroke-width="4" fill="none" stroke-dasharray="13 11" stroke-linecap="round"/>
+    <circle cx="560" cy="268" r="6.5" fill="#60a5fa"/>
+    <circle cx="648" cy="256" r="5.5" fill="#93c5fd"/>
+    <circle cx="736" cy="262" r="6.5" fill="#3b82f6"/>
+  </g>
+
+  <!-- client side: monitor with play + approved stamp -->
+  <g transform="translate(810,190)">
+    <rect x="8" y="0" width="235" height="150" rx="12" fill="#0e1a2e" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="2.5"/>
+    <rect x="21" y="12" width="209" height="126" rx="7" fill="#12253f"/>
+    <circle cx="125" cy="66" r="28" fill="#3b82f6" fill-opacity="0.16" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="2"/>
+    <path d="M116 52 l25 14 -25 14 z" fill="#60a5fa"/>
+    <rect x="95" y="150" width="60" height="12" fill="#0b1424"/>
+    <rect x="63" y="162" width="126" height="9" rx="4.5" fill="#0b1424" stroke="#3b82f6" stroke-opacity="0.3"/>
+    <g transform="translate(176,104) rotate(-8)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+      <rect x="-52" y="-16" width="104" height="32" rx="8" fill="none" stroke="#22c55e" stroke-width="2.5"/>
+      <text y="6" text-anchor="middle" fill="#22c55e" font-size="15" font-weight="700">APPROVED</text>
+    </g>
+  </g>
+
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif" text-anchor="middle">
+    <text x="600" y="528" fill="#ffffff" font-size="38" font-weight="650" letter-spacing="-0.5">Deliver like it's your signature</text>
+    <text x="600" y="565" fill="#93a4c8" font-size="20">Massive video to clients — the whole lifecycle, done properly</text>
+  </g>
+
+  <!-- BIShare logo (inlined from public/logo.svg; ids prefixed) + wordmark -->
+  <g transform="translate(548,52)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <g transform="scale(0.0664)">
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-bg)"/>
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-glow)"/>
+      <rect x="16" y="16" width="480" height="220" rx="112" fill="#FFFFFF" opacity=".07"/>
+      <g fill="none" stroke="url(#lb-mk)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1"/><path d="M316.1 223.3 L351.5 217.1 L345.3 252.6"/>
+        <path d="M294.9 160.5 L160.5 294.9"/><path d="M195.9 288.7 L160.5 294.9 L166.7 259.5"/>
+      </g>
+      <circle cx="256" cy="256" r="18" fill="url(#lb-nd)"/>
+    </g>
+    <text x="44" y="25" fill="#dbe4f6" font-size="21" font-weight="600">BIShare</text>
+  </g>
+</svg>
