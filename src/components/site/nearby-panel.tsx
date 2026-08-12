@@ -4,12 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Copy, Loader2, RadioTower, Send, WifiOff, X } from "lucide-react";
 import { NearbySignaling, type NearbyPeer } from "@/lib/nearby/signaling";
+import { getNearbySelf } from "@/lib/nearby/identity";
 import { NearbyRTC, type IncomingFile } from "@/lib/nearby/webrtc";
 import { formatFileSize } from "@/lib/format";
 
-const EMOJIS = ["🦊", "🐼", "🐧", "🦉", "🐙", "🦜", "🐳", "🦄", "🐝", "🦩"];
-const ADJ = ["Swift", "Calm", "Bright", "Bold", "Cosmic", "Quiet", "Lucky", "Solar"];
-const NOUN = ["Fox", "Panda", "Owl", "Whale", "Falcon", "Comet", "Otter", "Lark"];
 // Code alphabet omits ambiguous chars (0/O, 1/I) so shared codes are easy to read.
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 const CODE_LEN = 6;
@@ -86,16 +84,11 @@ export function NearbyPanel() {
   const fileInput = useRef<HTMLInputElement>(null);
   const supported = nearbySupported();
 
-  // Stable identity for the whole session (kept across reconnects/mode changes).
+  // Persisted identity (lib/nearby/identity): alias+emoji stick to this
+  // browser across visits, peerId sticks to this tab — so collapsing/expanding
+  // Nearby no longer reappears as a brand-new device on everyone else.
   if (!selfRef.current && supported) {
-    const rand = Math.random().toString(36).slice(2, 8);
-    selfRef.current = {
-      peerId: rand,
-      alias: `${ADJ[Math.floor(Math.random() * ADJ.length)]} ${
-        NOUN[Math.floor(Math.random() * NOUN.length)]
-      }`,
-      emoji: EMOJIS[Math.floor(Math.random() * EMOJIS.length)] ?? "🦊",
-    };
+    selfRef.current = getNearbySelf();
   }
   const self = selfRef.current;
   const selfName = self ? `${self.emoji} ${self.alias}` : "";
