@@ -9,6 +9,8 @@ import { VButton } from "@/components/site/vbutton";
 import { sharedOpenGraph, SITE_URL } from "@/lib/og";
 import {
   ARTICLE_COMPONENTS,
+  isScheduled,
+  PREVIEW_KEY,
   CATEGORY_LABEL,
   getPost,
   publishedSlugs,
@@ -27,16 +29,21 @@ import { ArticleToc } from "@/components/site/article-toc";
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPost(slug);
+  const preview = (await searchParams).preview === PREVIEW_KEY;
+  const post = getPost(slug, { allowScheduled: preview });
   if (!post) return {};
   const path = `/blog/${post.slug}`;
   return {
     title: { absolute: post.metaTitle },
     description: post.description,
+    // A previewed scheduled article must never enter the index early.
+    ...(isScheduled(post) ? { robots: { index: false, follow: false } } : {}),
     alternates: {
       canonical: path,
       languages: { en: path, "x-default": path },
@@ -53,15 +60,19 @@ const DATE_FMT = new Intl.DateTimeFormat("en", {
 
 export default async function BlogArticlePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const post = getPost(slug);
+  const preview = (await searchParams).preview === PREVIEW_KEY;
+  const post = getPost(slug, { allowScheduled: preview });
   const load = ARTICLE_COMPONENTS[slug];
   if (!post || !load) notFound();
+  const scheduled = isScheduled(post);
 
   const { default: Article } = await load();
   const url = `${SITE_URL}/blog/${post.slug}`;
@@ -122,6 +133,12 @@ export default async function BlogArticlePage({
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 md:py-16">
         <div className="mx-auto max-w-3xl lg:mx-0 lg:max-w-none lg:grid lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
         <div className="min-w-0 lg:max-w-3xl">
+        {scheduled && (
+          <p className="mb-6 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-[13.5px] font-medium text-amber-600 dark:text-amber-400">
+            Scheduled preview — publishes {post.datePublished}. Not indexed, not
+            listed; only this direct preview link renders it.
+          </p>
+        )}
         <nav aria-label="Breadcrumb" className="text-[13px] text-muted-foreground">
           <Link href="/blog" className="hover:text-foreground">
             Blog
