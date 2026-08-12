@@ -49,8 +49,24 @@ export default async function TransferToolPage({
   // CTA — a recipient becoming a sender. Count it (best-effort).
   if ((await searchParams).ref === "recv") bumpStat("loop_sends");
 
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: (["0", "1", "2", "3", "4"] as const).map((i) => ({
+      "@type": "Question",
+      name: t(`seo.faq.items.${i}.q`),
+      acceptedAnswer: { "@type": "Answer", text: t(`seo.faq.items.${i}.a`) },
+    })),
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <SiteHeader />
       <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12 md:py-16">
         <div className="text-center">
@@ -71,6 +87,69 @@ export default async function TransferToolPage({
 
         <div className="mx-auto w-full max-w-xl">
           <YourUploads />
+        </div>
+
+        {/* SEO body: what this tool is, how it works, and the questions
+            searchers actually ask — with matching FAQPage structured data. */}
+        <p className="mx-auto mt-16 max-w-2xl text-center text-[15px] leading-relaxed text-muted-foreground">
+          {t("seo.lead")}
+        </p>
+
+        <section aria-labelledby="how-title" className="mt-14">
+          <h2
+            id="how-title"
+            className="text-center text-2xl font-semibold tracking-[-0.02em]"
+          >
+            {t("seo.how.title")}
+          </h2>
+          <ol className="mt-6 grid gap-4 md:grid-cols-3">
+            {(["0", "1", "2"] as const).map((i) => (
+              <li
+                key={i}
+                className="rounded-xl border border-border bg-card p-5"
+              >
+                <span className="font-mono text-[12px] font-semibold text-accent-blue">
+                  {Number(i) + 1}
+                </span>
+                <h3 className="mt-2 font-semibold">
+                  {t(`seo.how.items.${i}.h`)}
+                </h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  {t(`seo.how.items.${i}.b`)}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section
+          aria-labelledby="faq-title"
+          className="mx-auto mt-14 w-full max-w-2xl"
+        >
+          <h2
+            id="faq-title"
+            className="text-center text-2xl font-semibold tracking-[-0.02em]"
+          >
+            {t("seo.faq.title")}
+          </h2>
+          <div className="mt-5 space-y-3">
+            {(["0", "1", "2", "3", "4"] as const).map((i) => (
+              <details
+                key={i}
+                className="group rounded-xl border border-border bg-card p-5"
+              >
+                <summary className="cursor-pointer list-none font-medium marker:content-['']">
+                  {t(`seo.faq.items.${i}.q`)}
+                </summary>
+                <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                  {t(`seo.faq.items.${i}.a`)}
+                </p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <div className="mx-auto w-full max-w-xl">
           <AppPromo />
         </div>
       </main>
