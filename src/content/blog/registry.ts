@@ -507,6 +507,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "transfer-large-files-without-cloud-limits",
+    title: "How to Transfer Large Files Instantly Without Cloud Storage Limits",
+    metaTitle: "Transfer Large Files Instantly — No Cloud Limits (2026)",
+    description:
+      "Why your file crosses a continent to cross a room — and how direct device-to-device transfer removes quotas, queues, and custody from large file sharing.",
+    category: "large-files",
+    tags: ["No cloud", "Direct transfer", "Large files", "Peer-to-peer"],
+    keywords: [
+      "transfer large files without cloud",
+      "send large files no storage limit",
+      "transfer files directly between devices",
+      "no size limit file transfer",
+      "peer to peer file transfer",
+      "transfer files without uploading",
+    ],
+    datePublished: "2026-09-08",
+    dateModified: "2026-09-08",
+    readMinutes: 13,
+    hero: {
+      src: "/blog/hero-no-cloud.svg",
+      alt: "An 86 GB file crossing nine meters directly between a laptop and a phone while the cloud detour hangs unused overhead",
+    },
+    related: [
+      "send-10gb-files-online-free",
+      "wireless-file-transfer-pc-mobile-guide",
+      "send-massive-video-files-to-clients",
+    ],
+    faq: [
+      {
+        q: "Can I transfer large files without uploading them to the cloud?",
+        a: "Yes — when both devices share a network (your Wi-Fi, an office LAN, or one phone's hotspot), a direct transfer app moves the file device-to-device through the router. Nothing is uploaded anywhere, there is no storage quota, and the speed is your Wi-Fi's, not your broadband's.",
+      },
+      {
+        q: "Is there a file transfer method with truly no size limit?",
+        a: "Direct device-to-device transfer is bounded only by the receiver's disk space — 50 GB or 500 GB makes no difference to the method. Internet transfer links carry per-transfer ceilings (10 GB free on BIShare), so at archive scale the local route or a physical drive takes over.",
+      },
+      {
+        q: "Is peer-to-peer file transfer safe?",
+        a: "A well-built one is among the safest options available: with end-to-end encryption the file is readable only by the two devices, and on the local route it never leaves your own network at all — there is no server to breach, no copy left behind, and no account to compromise.",
+      },
+      {
+        q: "Do both devices need the app for direct transfer?",
+        a: "For the fastest device-to-device path, yes — the app is what lets the devices find each other and encrypt end-to-end. When one side can't install anything, the halfway option is a browser: BIShare's web tool can send and receive against the app on the same network.",
+      },
+      {
+        q: "Why is direct transfer faster than the cloud?",
+        a: "Distance and doubling. A cloud transfer travels to a data center and back — two journeys, each capped by broadband, plus any free-tier queueing. A direct transfer makes one short hop through your router at local network speed, which is typically many times faster than a home connection's upload.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -576,4 +627,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./share-high-res-photos-without-losing-quality.mdx"),
   "send-massive-video-files-to-clients": () =>
     import("./send-massive-video-files-to-clients.mdx"),
+  "transfer-large-files-without-cloud-limits": () =>
+    import("./transfer-large-files-without-cloud-limits.mdx"),
 };
