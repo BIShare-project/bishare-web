@@ -23,10 +23,10 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
    — slug: wetransfer-alternatives-large-folders (scheduled 2026-08-30)
 8. ✅ How to Share High-Res Photos Locally Without Losing Quality
    — slug: share-high-res-photos-without-losing-quality (scheduled 2026-09-02)
-9. ☐ The Best Ways to Send Massive Video Files to Your Clients
-   — planned slug: send-massive-video-files-to-clients
-10. ☐ How to Transfer Large Files Instantly Without Cloud Storage Limits
-    — planned slug: transfer-large-files-without-cloud-limits
+9. ✅ The Best Ways to Send Massive Video Files to Your Clients
+   — slug: send-massive-video-files-to-clients (scheduled 2026-09-05)
+10. ✅ How to Transfer Large Files Instantly Without Cloud Storage Limits
+    — slug: transfer-large-files-without-cloud-limits (scheduled 2026-09-08) — **kategori Large Files KOMPLIT 5/5**
 
 ## Security & Privacy
 
