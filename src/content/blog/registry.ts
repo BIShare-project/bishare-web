@@ -354,6 +354,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "wetransfer-alternatives-large-folders",
+    title: "Fast Alternatives to WeTransfer for Sending Large Folders",
+    metaTitle: "WeTransfer Alternatives for Large Folders: Judged (2026)",
+    description:
+      "Folders break transfer tools differently than files do. Five judging criteria — folder fidelity, ceilings, speed, privacy, receiver experience — applied to every real alternative.",
+    category: "large-files",
+    tags: ["WeTransfer alternative", "Folders", "Large files", "Comparison"],
+    keywords: [
+      "wetransfer alternatives",
+      "send large folders online",
+      "transfer folder online free",
+      "send folder without zipping",
+      "wetransfer free limit",
+      "share project folder with client",
+    ],
+    datePublished: "2026-08-30",
+    dateModified: "2026-08-30",
+    readMinutes: 13,
+    hero: {
+      src: "/blog/hero-folders.svg",
+      alt: "A project folder tree of 495 files arriving intact as 18.6 GB on the other side",
+    },
+    related: [
+      "send-10gb-files-online-free",
+      "wireless-file-transfer-pc-mobile-guide",
+      "share-high-res-photos-without-losing-quality",
+    ],
+    faq: [
+      {
+        q: "Can I send a folder online without zipping it myself?",
+        a: "Mostly yes — good transfer tools accept a folder and bundle it for you (usually into a zip the recipient unpacks), and cloud drives share folders natively with the structure browsable. What varies is whether subfolder structure survives and whether the recipient gets one clean download or hundreds of separate ones.",
+      },
+      {
+        q: "What is WeTransfer's free limit?",
+        a: "The free tier caps total transfer size at a couple of gigabytes — enough for documents and a short video, far short of a real project folder. Larger sends are the paid tier's pitch, which is exactly why the alternatives in this guide exist.",
+      },
+      {
+        q: "What's the best free way to send a 20 GB folder?",
+        a: "Split it into logical batches under your tool's per-transfer ceiling and send each as one bundle — with BIShare that's 10 GB per transfer, free, encrypted, and resumable. If both machines share a network, skip the internet entirely: a direct local transfer moves 20 GB in minutes at router speed.",
+      },
+      {
+        q: "How do I keep the folder structure when sending?",
+        a: "Send the folder as one archive (the tool's automatic zip or your own) so subfolders unpack exactly as organized, or use a cloud drive's folder share where the tree stays browsable. Sending files loose flattens the structure — fine for five photos, chaos for a project.",
+      },
+      {
+        q: "What's the fastest way to send a project folder to a client?",
+        a: "Across the internet: bundle the folder, use a resumable encrypted transfer link, and send the link with a one-line manifest (file count, total size, expiry). Same office or network: a direct device-to-device transfer beats any upload — the folder lands before the email explaining it would have.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -395,4 +446,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./webdav-server-android-mac.mdx"),
   "send-10gb-files-online-free": () =>
     import("./send-10gb-files-online-free.mdx"),
+  "wetransfer-alternatives-large-folders": () =>
+    import("./wetransfer-alternatives-large-folders.mdx"),
 };

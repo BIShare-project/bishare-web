@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Sending a large folder tree online — alternatives to WeTransfer">
+  <defs>
+    <linearGradient id="bg7" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b16"/>
+      <stop offset="1" stop-color="#0d1424"/>
+    </linearGradient>
+    <radialGradient id="glow7" cx="0.46" cy="0.42" r="0.66">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.27"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="folder" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="lb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3AA0FF"/><stop offset=".5" stop-color="#0A84FF"/><stop offset="1" stop-color="#0B3AD1"/>
+    </linearGradient>
+    <radialGradient id="lb-glow" cx=".5" cy=".36" r=".72">
+      <stop offset="0" stop-color="#8FD0FF" stop-opacity=".5"/><stop offset="1" stop-color="#8FD0FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-mk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6E9FF"/>
+    </linearGradient>
+    <radialGradient id="lb-nd" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#F0FCFF"/><stop offset=".45" stop-color="#22D3EE"/><stop offset="1" stop-color="#0AACD0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg7)"/>
+  <rect width="1200" height="630" fill="url(#glow7)"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200"/>
+    <path d="M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630"/>
+  </g>
+
+  <!-- big folder with tree -->
+  <g transform="translate(215,190)">
+    <path d="M0 22 q0 -12 12 -12 h78 l22 22 h150 q12 0 12 12 v148 q0 12 -12 12 H12 q-12 0 -12 -12 z" fill="url(#folder)" opacity="0.92"/>
+    <path d="M0 34 q0 -12 12 -12 h250 q12 0 12 12 v6 H0 z" fill="#93c5fd" opacity="0.35"/>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13.5" fill="#eaf2ff">
+      <text x="24" y="70">project/</text>
+      <text x="40" y="94">├─ footage/  128 files</text>
+      <text x="40" y="118">├─ audio/     46 files</text>
+      <text x="40" y="142">├─ stills/   312 files</text>
+      <text x="40" y="166">└─ exports/    9 files</text>
+    </g>
+  </g>
+
+  <!-- packets flying right -->
+  <g>
+    <path d="M520 290 C 640 240, 760 240, 872 282" stroke="#3b82f6" stroke-opacity="0.5" stroke-width="4" fill="none" stroke-dasharray="13 11" stroke-linecap="round"/>
+    <g fill="#60a5fa">
+      <rect x="590" y="256" width="26" height="20" rx="5"/>
+      <rect x="668" y="243" width="26" height="20" rx="5" opacity="0.85"/>
+      <rect x="748" y="248" width="26" height="20" rx="5" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- receiver card -->
+  <g transform="translate(880,205)">
+    <rect width="180" height="170" rx="16" fill="#0e1a2e" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="2.5"/>
+    <g font-family="Segoe UI, -apple-system, system-ui, sans-serif" text-anchor="middle">
+      <text x="90" y="52" fill="#93c5fd" font-size="15" font-weight="600">495 files</text>
+      <text x="90" y="78" fill="#eaf2ff" font-size="26" font-weight="700">18.6 GB</text>
+      <text x="90" y="104" fill="#64748b" font-size="12.5">structure intact</text>
+      <circle cx="90" cy="132" r="14" fill="none" stroke="#22c55e" stroke-width="2.5"/>
+      <path d="M83 132 l5 5 9 -10" stroke="#22c55e" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif" text-anchor="middle">
+    <text x="600" y="530" fill="#ffffff" font-size="38" font-weight="650" letter-spacing="-0.5">Whole folders, judged properly</text>
+    <text x="600" y="567" fill="#93a4c8" font-size="20">Five criteria, every WeTransfer alternative measured against them</text>
+  </g>
+
+  <!-- BIShare logo (inlined from public/logo.svg; ids prefixed) + wordmark -->
+  <g transform="translate(548,52)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <g transform="scale(0.0664)">
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-bg)"/>
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-glow)"/>
+      <rect x="16" y="16" width="480" height="220" rx="112" fill="#FFFFFF" opacity=".07"/>
+      <g fill="none" stroke="url(#lb-mk)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1"/><path d="M316.1 223.3 L351.5 217.1 L345.3 252.6"/>
+        <path d="M294.9 160.5 L160.5 294.9"/><path d="M195.9 288.7 L160.5 294.9 L166.7 259.5"/>
+      </g>
+      <circle cx="256" cy="256" r="18" fill="url(#lb-nd)"/>
+    </g>
+    <text x="44" y="25" fill="#dbe4f6" font-size="21" font-weight="600">BIShare</text>
+  </g>
+</svg>
