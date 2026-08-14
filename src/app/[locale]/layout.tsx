@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { routing, dirForLocale } from "@/i18n/routing";
 import { plexSans, plexMono } from "./fonts";
+import { NavigationProgress } from "@/components/site/navigation-progress";
 
 /**
  * Root layout for the MARKETING surface (bishare.app). This is where the
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
         {/* Warm the TLS connection to the API (config, room signaling, transfers)
             before the client widgets need it. */}
         <link rel="preconnect" href="https://api.bishare.app" />
+        <NavigationProgress />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
