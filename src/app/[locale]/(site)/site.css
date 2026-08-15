@@ -1856,6 +1856,9 @@
   border-radius: 12px;
   border: 1px solid var(--color-border);
   margin-block: 0.4em;
+  /* Diagrams are authored at 1200px — tapping opens them full-screen
+     (components/site/image-lightbox.tsx) so labels stay readable on phones. */
+  cursor: zoom-in;
 }
 .blog-prose blockquote {
   border-inline-start: 3px solid var(--color-border-strong);
