@@ -22,6 +22,8 @@ The practical consequence is that speed stops being about your broadband. Home u
 
 What you've stopped leaking at this rung: everything a third party would have had. What you haven't: your router still sees that two devices exchanged a certain volume of data — a log almost nobody reads and you control anyway.
 
+![Devices announce over mDNS multicast first, and when that is blocked the app falls back after three seconds to a rate-limited unicast sweep of the local subnet](/blog/diagram-discovery-fallback.svg)
+
 ## Rung 2 — A network you're on but don't trust
 
 Now the café, the hotel, the coworking floor, the conference hall. You're connected, but the network belongs to someone else and so do the other machines on it. This rung is where local transfer gets genuinely interesting, because two very different problems hide behind the same symptom of "it isn't working."

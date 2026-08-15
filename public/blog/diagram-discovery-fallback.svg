@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-label="How devices find each other with no internet: an mDNS multicast announcement first, then a bounded unicast subnet sweep when multicast is blocked">
+  <rect width="1200" height="400" fill="#0a1020"/>
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <text x="60" y="56" fill="#e8eefc" font-size="26" font-weight="650">Finding each other with no internet</text>
+    <g font-size="15">
+      <rect x="60" y="110" width="270" height="70" rx="10" fill="#0e1a2e" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="2"/>
+      <text x="195" y="140" text-anchor="middle" fill="#e8eefc" font-weight="600">mDNS announce</text>
+      <text x="195" y="164" text-anchor="middle" fill="#93a4c8" font-size="13.5">multicast · no server, no DNS</text>
+      <path d="M336 145 h70" stroke="#475569" stroke-width="2"/>
+      <text x="371" y="132" text-anchor="middle" fill="#7fd6a0" font-size="13">seen</text>
+      <rect x="412" y="110" width="250" height="70" rx="10" fill="#0e1a2e" stroke="#22c55e" stroke-opacity="0.5" stroke-width="2"/>
+      <text x="537" y="152" text-anchor="middle" fill="#7fd6a0" font-weight="600">peer appears</text>
+
+      <path d="M195 190 v58" stroke="#475569" stroke-width="2" stroke-dasharray="5 6"/>
+      <text x="222" y="226" fill="#fbbf24" font-size="13.5">blocked by AP, VPN, or a pending permission</text>
+      <rect x="60" y="258" width="270" height="70" rx="10" fill="#1a1410" stroke="#f59e0b" stroke-opacity="0.55" stroke-width="2"/>
+      <text x="195" y="288" text-anchor="middle" fill="#fbbf24" font-weight="600">nothing after 3 s</text>
+      <text x="195" y="312" text-anchor="middle" fill="#93a4c8" font-size="13.5">stop waiting for multicast</text>
+      <path d="M336 293 h70" stroke="#475569" stroke-width="2"/>
+      <rect x="412" y="258" width="330" height="70" rx="10" fill="#0e1a2e" stroke="#3b82f6" stroke-opacity="0.6" stroke-width="2"/>
+      <text x="577" y="288" text-anchor="middle" fill="#e8eefc" font-weight="600">unicast sweep of the local /24</text>
+      <text x="577" y="312" text-anchor="middle" fill="#93a4c8" font-size="13.5">bounded parallel · rate-limited</text>
+      <path d="M748 293 h70" stroke="#475569" stroke-width="2"/>
+      <rect x="824" y="258" width="250" height="70" rx="10" fill="#0e1a2e" stroke="#22c55e" stroke-opacity="0.5" stroke-width="2"/>
+      <text x="949" y="300" text-anchor="middle" fill="#7fd6a0" font-weight="600">peer appears anyway</text>
+    </g>
+    <text x="60" y="372" fill="#64748b" font-size="14">Neither path touches the internet — both are conversations between two machines on the same wire.</text>
+  </g>
+</svg>

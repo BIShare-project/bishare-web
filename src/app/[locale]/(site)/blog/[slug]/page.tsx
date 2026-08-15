@@ -48,8 +48,24 @@ export async function generateMetadata({
       canonical: path,
       languages: { en: path, "x-default": path },
     },
-    ...sharedOpenGraph(post.metaTitle, post.description, path),
+    ...(() => {
+      const og = sharedOpenGraph(post.metaTitle, post.description, path);
+      // Per-article social card + a raster image for crawlers: SVG is not a
+      // supported format for Article structured data or for the social
+      // platforms' preview scrapers, so every hero ships a .jpg twin.
+      const image = { url: `${SITE_URL}${rasterHero(post)}`, alt: post.hero.alt };
+      return {
+        ...og,
+        openGraph: { ...og.openGraph, images: [image] },
+        twitter: { ...og.twitter, images: [image] },
+      };
+    })(),
   };
+}
+
+/** The .jpg twin of a hero SVG — see the OG note above. */
+function rasterHero(post: { hero: { src: string } }) {
+  return post.hero.src.replace(/\.svg$/, ".jpg");
 }
 
 const DATE_FMT = new Intl.DateTimeFormat("en", {
@@ -83,7 +99,7 @@ export default async function BlogArticlePage({
     "@id": `${url}#article`,
     headline: post.title,
     description: post.description,
-    image: `${SITE_URL}${post.hero.src}`,
+    image: `${SITE_URL}${rasterHero(post)}`,
     datePublished: post.datePublished,
     dateModified: post.dateModified,
     inLanguage: "en",
