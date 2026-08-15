@@ -89,7 +89,9 @@ does the publishing.
 - ≥3,000 words; primary keyword in H1 / metaTitle (≤60ch) / first 100 words / one H2.
 - Derived keywords each get an H2/H3; natural density, no stuffing.
 - metaTitle + description (~155ch) unique; slug short + keyword.
-- ≥2 images with descriptive alt (product screenshots / branded hero).
+- ≥2 images with descriptive alt: branded hero SVG + one explanatory diagram in the body.
+- **Run `node tool/hero-raster.mjs` after adding the hero** — og:image and
+  BlogPosting.image point at `<hero>.jpg`; SVG is not a valid format for either.
 - Internal links: ≥5 to landing pages (+ related posts) with descriptive anchors.
 - 2–3 authoritative external links (vendor docs), open in new tab.
 - Quick-answer paragraph up top (featured-snippet target); comparison table.
