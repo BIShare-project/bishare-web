@@ -15,6 +15,7 @@ import { IconTile, MetricBar, MockSurface } from "@/components/site/mock-surface
 import { StatusPill, TagBadge } from "@/components/site/status-pill";
 import { Beam } from "@/components/site/beam";
 import { VButton } from "@/components/site/vbutton";
+import { WebQuickCta } from "@/components/site/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { staggerDelay } from "@/lib/motion";
 import { E2EFlowDiagram } from "./e2e-flow";
@@ -481,6 +482,7 @@ export default async function SecurityPage({
         </Section>
       </main>
 
+      <WebQuickCta />
       <SiteFooter />
     </div>
   );

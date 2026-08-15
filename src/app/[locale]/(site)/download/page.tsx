@@ -17,6 +17,7 @@ import {
   AppleGlyph,
   PlayGlyph,
 } from "@/components/site/store-buttons";
+import { WebQuickCta } from "@/components/site/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { staggerDelay } from "@/lib/motion";
 import { DownloadHero } from "./download-hero";
@@ -337,6 +338,7 @@ export default async function DownloadPage({
         </Section>
       </main>
 
+      <WebQuickCta />
       <SiteFooter />
     </div>
   );

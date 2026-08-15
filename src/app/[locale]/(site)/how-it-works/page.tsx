@@ -12,6 +12,7 @@ import { SpotlightCard } from "@/components/site/spotlight-card";
 import { TagBadge } from "@/components/site/status-pill";
 import { Beam } from "@/components/site/beam";
 import { VButton } from "@/components/site/vbutton";
+import { WebQuickCta } from "@/components/site/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { staggerDelay } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -292,6 +293,7 @@ export default async function HowItWorksPage({
         </Section>
       </main>
 
+      <WebQuickCta />
       <SiteFooter />
     </div>
   );
