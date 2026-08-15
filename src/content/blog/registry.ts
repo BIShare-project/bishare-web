@@ -661,6 +661,57 @@ export const POSTS: BlogPost[] = [
     ],
   },
   {
+    slug: "prevent-data-leaks-file-sharing",
+    title: "Safe File Sharing: How to Prevent Data Leaks During Transfer",
+    metaTitle: "Prevent Data Leaks During File Transfer — 6 Real Causes",
+    description:
+      "Six reconstructions of how files really leak — wrong recipient, eternal links, Exif, tracked changes, lock-screen previews, sync copies — and the fix for each.",
+    category: "security",
+    tags: ["Data leaks", "Metadata", "Operational security", "Incidents"],
+    keywords: [
+      "prevent data leaks file sharing",
+      "safe file sharing practices",
+      "how do data leaks happen",
+      "remove metadata before sharing",
+      "accidental data disclosure",
+      "secure file transfer checklist",
+    ],
+    datePublished: "2026-09-20",
+    dateModified: "2026-09-20",
+    readMinutes: 14,
+    hero: {
+      src: "/blog/hero-data-leaks.svg",
+      alt: "An intact encrypted transfer pipe with six small leaks escaping around it, labelled by cause",
+    },
+    related: [
+      "securely-send-confidential-documents",
+      "transfer-files-locally-without-internet",
+      "what-is-end-to-end-encrypted-file-sharing",
+    ],
+    faq: [
+      {
+        q: "What causes most data leaks during file sharing?",
+        a: "Misdelivery — sending to the wrong person, usually via autocomplete — is consistently among the top causes in breach reporting, well ahead of interception. Encryption cannot help, because the file is encrypted correctly to the wrong recipient.",
+      },
+      {
+        q: "Does encryption stop data leaks?",
+        a: "It stops interception and tampering, which is a real and important category. It does nothing about the wrong recipient, metadata hidden inside the file, filenames shown in notifications, or copies that keep replicating after arrival — all of which are disclosures that occur with the encryption working perfectly.",
+      },
+      {
+        q: "How do I remove hidden data from a document before sending?",
+        a: "Use the format's own inspector: Word, Excel, and PowerPoint include a Document Inspector that strips comments, tracked changes, author properties, and hidden rows in one pass. For PDFs, verify redaction by trying to select the text underneath — if it highlights, it was covered, not removed.",
+      },
+      {
+        q: "Do photos reveal my location when I share them?",
+        a: "They can. Cameras write Exif metadata including GPS coordinates and timestamps into image files, and any tool that sends originals faithfully sends that metadata too. Turn off location in the iPhone share sheet's Options, or use Android's remove-location toggle, before sharing anything public.",
+      },
+      {
+        q: "What should I do immediately after sending a file to the wrong person?",
+        a: "Cut access first: revoke or expire the link before drafting any explanation, and request deletion in writing the same day. Then confirm exactly what went out by opening the sent file itself, and write down the timeline while it is fresh — memory degrades within hours.",
+      },
+    ],
+  },
+  {
     slug: "transfer-files-locally-without-internet",
     title: "How to Transfer Private Data Locally Without Using the Internet",
     metaTitle: "Transfer Private Data Locally — No Internet Needed (2026)",
@@ -788,4 +839,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./what-is-end-to-end-encrypted-file-sharing.mdx"),
   "transfer-files-locally-without-internet": () =>
     import("./transfer-files-locally-without-internet.mdx"),
+  "prevent-data-leaks-file-sharing": () =>
+    import("./prevent-data-leaks-file-sharing.mdx"),
 };
