@@ -6,10 +6,14 @@ import { Link } from "@/i18n/navigation";
 const KEY = "bishare-cookie-notice";
 
 /**
- * Lightweight cookie NOTICE (not a consent gate): BIShare sets only a functional
- * language cookie and uses cookieless analytics, so there is nothing to gate —
- * an honest, dismissible notice is the right pattern. Dismissal is remembered in
- * localStorage; it renders only after mount so SSR/markup stays stable.
+ * Cookie NOTICE (not a consent gate): a functional language cookie plus
+ * Google Analytics cookies, disclosed and dismissible. Dismissal is remembered
+ * in localStorage; it renders only after mount so SSR/markup stays stable.
+ *
+ * NOTE: since GA4 arrived this is a disclosure, not consent. EU/UK ePrivacy
+ * expects prior opt-in for analytics cookies — turning this into a real gate
+ * means Google Consent Mode v2 (analytics_storage denied by default, granted
+ * on Accept) plus a Reject button here.
  */
 export function CookieNoticeClient({
   body,
