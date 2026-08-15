@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="A sealed file transfer whose envelope holds, while six small leaks escape from the file itself, its address, and its aftermath">
+  <defs>
+    <linearGradient id="bg14" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b14"/>
+      <stop offset="1" stop-color="#0d1322"/>
+    </linearGradient>
+    <radialGradient id="glow14" cx="0.5" cy="0.48" r="0.62">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pipe14" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3b82f6" stop-opacity="0.5"/>
+      <stop offset="0.5" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#3b82f6" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="lb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3AA0FF"/><stop offset=".5" stop-color="#0A84FF"/><stop offset="1" stop-color="#0B3AD1"/>
+    </linearGradient>
+    <radialGradient id="lb-glow" cx=".5" cy=".36" r=".72">
+      <stop offset="0" stop-color="#8FD0FF" stop-opacity=".5"/><stop offset="1" stop-color="#8FD0FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-mk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6E9FF"/>
+    </linearGradient>
+    <radialGradient id="lb-nd" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#F0FCFF"/><stop offset=".45" stop-color="#22D3EE"/><stop offset="1" stop-color="#0AACD0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg14)"/>
+  <rect width="1200" height="630" fill="url(#glow14)"/>
+
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200"/>
+    <path d="M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630"/>
+  </g>
+
+  <!-- the intact encrypted pipe: the channel is fine -->
+  <g>
+    <rect x="210" y="300" width="780" height="72" rx="36" fill="#0c1830" fill-opacity="0.85" stroke="url(#pipe14)" stroke-width="3"/>
+    <text x="600" y="343" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#93c5fd" font-size="14">encrypted channel · intact · nothing intercepted</text>
+    <path d="M978 336 l-15 -10 v20 z" fill="#93c5fd"/>
+  </g>
+
+  <!-- endpoints -->
+  <g transform="translate(96,306)">
+    <rect x="6" y="0" width="96" height="60" rx="8" fill="#0e1a2e" stroke="#3b82f6" stroke-opacity="0.55" stroke-width="2"/>
+    <path d="M0 62h108l-8 9a8 8 0 0 1-6 3H14a8 8 0 0 1-6-3z" fill="#0b1424" stroke="#3b82f6" stroke-opacity="0.3"/>
+  </g>
+  <g transform="translate(1020,296)">
+    <rect width="52" height="92" rx="11" fill="#0e1c30" stroke="#3b82f6" stroke-opacity="0.55" stroke-width="2"/>
+    <rect x="8" y="13" width="36" height="58" rx="5" fill="#12253f"/>
+  </g>
+
+  <!-- the six leaks escaping the sealed pipe -->
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif" font-size="13.5">
+    <!-- upward leaks -->
+    <g fill="#f59e0b">
+      <circle cx="300" cy="286" r="4"/><circle cx="288" cy="262" r="3"/><circle cx="279" cy="240" r="2.2"/>
+      <circle cx="470" cy="286" r="4"/><circle cx="461" cy="262" r="3"/><circle cx="454" cy="240" r="2.2"/>
+      <circle cx="650" cy="286" r="4"/><circle cx="641" cy="262" r="3"/><circle cx="634" cy="240" r="2.2"/>
+    </g>
+    <text x="272" y="222" text-anchor="middle" fill="#fbbf24">wrong recipient</text>
+    <text x="450" y="222" text-anchor="middle" fill="#fbbf24">link never expires</text>
+    <text x="630" y="222" text-anchor="middle" fill="#fbbf24">Exif coordinates</text>
+
+    <!-- downward leaks -->
+    <g fill="#f59e0b">
+      <circle cx="360" cy="386" r="4"/><circle cx="351" cy="410" r="3"/><circle cx="344" cy="432" r="2.2"/>
+      <circle cx="560" cy="386" r="4"/><circle cx="551" cy="410" r="3"/><circle cx="544" cy="432" r="2.2"/>
+      <circle cx="760" cy="386" r="4"/><circle cx="751" cy="410" r="3"/><circle cx="744" cy="432" r="2.2"/>
+    </g>
+    <text x="340" y="456" text-anchor="middle" fill="#fbbf24">tracked changes</text>
+    <text x="540" y="456" text-anchor="middle" fill="#fbbf24">lock-screen preview</text>
+    <text x="742" y="456" text-anchor="middle" fill="#fbbf24">sync folder copies</text>
+  </g>
+
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif" text-anchor="middle">
+    <text x="600" y="534" fill="#ffffff" font-size="37" font-weight="650" letter-spacing="-0.5">The channel held. The file leaked anyway.</text>
+    <text x="600" y="571" fill="#93a4c8" font-size="19">Six ways data escapes a perfectly encrypted transfer</text>
+  </g>
+
+  <!-- BIShare logo (inlined from public/logo.svg; ids prefixed) + wordmark -->
+  <g transform="translate(70,44)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <g transform="scale(0.0664)">
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-bg)"/>
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-glow)"/>
+      <rect x="16" y="16" width="480" height="220" rx="112" fill="#FFFFFF" opacity=".07"/>
+      <g fill="none" stroke="url(#lb-mk)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1"/><path d="M316.1 223.3 L351.5 217.1 L345.3 252.6"/>
+        <path d="M294.9 160.5 L160.5 294.9"/><path d="M195.9 288.7 L160.5 294.9 L166.7 259.5"/>
+      </g>
+      <circle cx="256" cy="256" r="18" fill="url(#lb-nd)"/>
+    </g>
+    <text x="44" y="25" fill="#dbe4f6" font-size="21" font-weight="600">BIShare</text>
+  </g>
+</svg>

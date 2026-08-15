@@ -36,8 +36,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
     — slug: what-is-end-to-end-encrypted-file-sharing (scheduled 2026-09-14)
 13. ✅ How to Transfer Private Data Locally Without Using the Internet
     — slug: transfer-files-locally-without-internet (scheduled 2026-09-17)
-14. ☐ Safe File Sharing: How to Prevent Data Leaks During Transfer
-    — planned slug: prevent-data-leaks-file-sharing
+14. ✅ Safe File Sharing: How to Prevent Data Leaks During Transfer
+    — slug: prevent-data-leaks-file-sharing (scheduled 2026-09-20) — **kategori Security KOMPLIT 4/4**
 
 ## Competitor Alternatives & App Features
 
