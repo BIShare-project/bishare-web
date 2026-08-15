@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-label="Time breakdown for moving one gigabyte: the cloud route spends most of it uploading, while the direct route makes a single local hop">
+  <rect width="1200" height="400" fill="#0a1020"/>
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <text x="60" y="56" fill="#e8eefc" font-size="26" font-weight="650">Where the time actually goes: 1 GB</text>
+    <text x="60" y="86" fill="#93a4c8" font-size="15">Typical home connection, 30 Mbps up / 200 Mbps down, versus one hop across your own Wi-Fi.</text>
+    <text x="60" y="150" fill="#e8eefc" font-size="16" font-weight="600">Cloud route</text>
+    <g>
+      <rect x="60" y="168" width="820" height="38" rx="6" fill="#64748b" fill-opacity="0.5"/>
+      <text x="470" y="193" text-anchor="middle" fill="#e8eefc" font-size="15">upload — about 4 min 30 s</text>
+      <rect x="884" y="168" width="128" height="38" rx="6" fill="#94a3b8" fill-opacity="0.5"/>
+      <text x="948" y="193" text-anchor="middle" fill="#e8eefc" font-size="14">download</text>
+      <text x="1024" y="193" fill="#fbbf24" font-size="15" font-family="ui-monospace, Menlo, monospace">≈ 5 min</text>
+    </g>
+    <text x="60" y="268" fill="#e8eefc" font-size="16" font-weight="600">Direct route</text>
+    <g>
+      <rect x="60" y="286" width="86" height="38" rx="6" fill="#3b82f6"/>
+      <text x="166" y="311" fill="#93c5fd" font-size="15" font-family="ui-monospace, Menlo, monospace">≈ 25 s — one hop through your router</text>
+    </g>
+    <text x="60" y="372" fill="#64748b" font-size="14">The cloud route isn't slower because servers are slow. It's slower because the file travels twice, and the first leg is your upload.</text>
+  </g>
+</svg>
