@@ -5,7 +5,6 @@ import { hasLocale } from "next-intl";
 import { routing, dirForLocale } from "@/i18n/routing";
 import { plexSans, plexMono } from "./fonts";
 import { NavigationProgress } from "@/components/site/navigation-progress";
-import { Analytics } from "@/components/site/analytics";
 
 /**
  * Root layout for the MARKETING surface (bishare.app). This is where the
@@ -51,7 +50,6 @@ export default async function LocaleLayout({
         <link rel="preconnect" href="https://api.bishare.app" />
         <NavigationProgress />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        <Analytics />
       </body>
     </html>
   );
