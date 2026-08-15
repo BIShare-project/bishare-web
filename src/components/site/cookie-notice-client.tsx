@@ -6,10 +6,14 @@ import { Link } from "@/i18n/navigation";
 const KEY = "bishare-cookie-notice";
 
 /**
- * Lightweight cookie NOTICE (not a consent gate): BIShare sets only a functional
- * language cookie and uses cookieless analytics, so there is nothing to gate —
- * an honest, dismissible notice is the right pattern. Dismissal is remembered in
- * localStorage; it renders only after mount so SSR/markup stays stable.
+ * Lightweight cookie NOTICE (not a consent gate): the only cookie BIShare sets
+ * is the functional language one, and there is no visitor analytics at all —
+ * so there is nothing to gate, and an honest dismissible notice is the right
+ * pattern. Dismissal is remembered in localStorage; it renders only after
+ * mount so SSR/markup stays stable.
+ *
+ * If cookieless analytics (e.g. Cloudflare Web Analytics) is added later this
+ * stays correct. Anything that sets a cookie would need a real consent gate.
  */
 export function CookieNoticeClient({
   body,
