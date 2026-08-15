@@ -12,9 +12,9 @@ import { ArrowUpRight } from "lucide-react";
 
 // slug (without leading slash) → curated related siblings.
 const CLUSTER: Record<string, string[]> = {
-  "airdrop-for-windows": ["airdrop-alternative", "airdrop-for-android", "share-files-mac-to-windows", "send-large-files"],
+  "airdrop-for-windows": ["airdrop-not-working", "airdrop-alternative", "share-files-mac-to-windows", "transfer-photos-from-iphone-to-pc"],
   "airdrop-for-android": ["airdrop-alternative", "airdrop-for-windows", "send-files-iphone-to-android", "nearby-share-alternative"],
-  "airdrop-alternative": ["airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android", "best-file-sharing-app", "localsend-alternative", "wetransfer-alternative"],
+  "airdrop-alternative": ["airdrop-not-working", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android", "best-file-sharing-app", "localsend-alternative"],
   "wetransfer-alternative": ["send-large-files", "firefox-send-alternative", "smash-alternative", "share-files-without-account"],
   "snapdrop-alternative": ["sharedrop-alternative", "localsend-alternative", "nearby-share-alternative", "best-file-sharing-app", "wormhole-alternative", "shareit-alternative"],
   "sharedrop-alternative": ["snapdrop-alternative", "nearby-share-alternative", "shareit-alternative", "wetransfer-alternative"],
@@ -23,8 +23,8 @@ const CLUSTER: Record<string, string[]> = {
   "send-files-iphone-to-android": ["send-files-android-to-iphone", "airdrop-alternative", "airdrop-for-android", "transfer-files-pc-to-phone"],
   "send-files-android-to-iphone": ["send-files-iphone-to-android", "nearby-share-alternative", "airdrop-alternative", "transfer-files-phone-to-pc"],
   "transfer-files-pc-to-phone": ["transfer-files-phone-to-pc", "share-files-mac-to-windows", "send-large-files", "airdrop-for-windows"],
-  "transfer-files-phone-to-pc": ["transfer-files-pc-to-phone", "share-files-mac-to-windows", "send-large-files", "send-files-android-to-iphone"],
-  "share-files-mac-to-windows": ["airdrop-for-windows", "transfer-files-pc-to-phone", "send-large-files", "wetransfer-alternative"],
+  "transfer-files-phone-to-pc": ["transfer-photos-from-iphone-to-pc", "transfer-files-pc-to-phone", "share-files-mac-to-windows", "send-large-files"],
+  "share-files-mac-to-windows": ["transfer-files-between-computers", "airdrop-for-windows", "transfer-files-pc-to-phone", "send-large-files"],
   "send-large-files": ["wetransfer-alternative", "send-files-without-internet", "encrypted-file-transfer", "share-files-without-account"],
   // New: encrypted / competitor pages.
   "firefox-send-alternative": ["encrypted-file-transfer", "send-anywhere-alternative", "wormhole-alternative", "wetransfer-alternative"],
@@ -35,6 +35,10 @@ const CLUSTER: Record<string, string[]> = {
   "wormhole-alternative": ["firefox-send-alternative", "encrypted-file-transfer", "snapdrop-alternative", "wetransfer-alternative"],
   "send-files-without-internet": ["encrypted-file-transfer", "share-files-without-account", "send-large-files", "nearby-share-alternative"],
   // Best-of guide + LocalSend cluster.
+  // Photo, troubleshooting, and desktop↔desktop pages.
+  "transfer-photos-from-iphone-to-pc": ["transfer-files-phone-to-pc", "airdrop-for-windows", "send-files-iphone-to-android", "send-large-files"],
+  "airdrop-not-working": ["airdrop-alternative", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android"],
+  "transfer-files-between-computers": ["share-files-mac-to-windows", "transfer-files-pc-to-phone", "send-large-files", "send-files-without-internet"],
   "best-file-sharing-app": ["localsend-alternative", "airdrop-alternative", "snapdrop-alternative", "wetransfer-alternative"],
   "localsend-alternative": ["snapdrop-alternative", "nearby-share-alternative", "best-file-sharing-app", "send-files-without-internet"],
 };

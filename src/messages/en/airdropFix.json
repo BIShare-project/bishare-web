@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "AirDrop Not Working? 7 Fixes That Actually Help | BIShare",
+    "description": "AirDrop stuck on waiting, not showing up, or failing? Work through 7 real fixes in order — and when the other device is Android or Windows, use the bridge that always works."
+  },
+  "hero": {
+    "eyebrow": "Troubleshooting",
+    "title": "AirDrop not working? Start here",
+    "body": "When AirDrop fails, it's almost always one of the same seven causes — and they take two minutes to rule out in order. Below: the fixes that <strong>actually</strong> solve it, in the order worth trying. And if the other device is an <strong>Android phone or a Windows PC</strong>, no fix exists by design — <highlight>skip to the bridge that always works</highlight>.",
+    "ctaPrimary": "Get the plan B",
+    "ctaSecondary": "How it works"
+  },
+  "fixes": {
+    "title": "The 7 fixes, in the order worth trying",
+    "items": {
+      "0": {
+        "h": "1. Turn Wi-Fi and Bluetooth fully on — in Settings",
+        "b": "AirDrop needs both radios. The Control Center toggles can leave them half-off (disconnected but not disabled), so flip them in the Settings app on both devices, not just the panel."
+      },
+      "1": {
+        "h": "2. Set receiving to \"Everyone for 10 Minutes\"",
+        "b": "The single most common cause since iOS 16.2: \"Everyone\" now auto-reverts after 10 minutes. On the receiving device, open AirDrop settings and select Everyone for 10 Minutes — Contacts Only silently fails whenever the sender's card doesn't match perfectly."
+      },
+      "2": {
+        "h": "3. Wake both screens, stay close",
+        "b": "AirDrop advertises only while the device is awake and unlocked, and its range is roughly nine meters with no walls in between. Unlock both devices, keep them near each other, and retry."
+      },
+      "3": {
+        "h": "4. Turn off Personal Hotspot",
+        "b": "An active hotspot occupies the radio AirDrop wants. Settings → Personal Hotspot → off, on both devices — this one is invisible and catches a lot of people."
+      },
+      "4": {
+        "h": "5. Check Focus and Do Not Disturb",
+        "b": "A Focus mode can suppress the incoming AirDrop prompt, so the transfer looks stuck while the request sits unseen. Swipe into Control Center and pause Focus while sharing."
+      },
+      "5": {
+        "h": "6. On a Mac: firewall and Finder",
+        "b": "System Settings → Network → Firewall: \"Block all incoming connections\" also blocks AirDrop. Then keep a Finder window open at Go → AirDrop while receiving — visibility is strongest with that window in front."
+      },
+      "6": {
+        "h": "7. The reset that fixes the unexplainable",
+        "b": "Airplane mode on for five seconds, then off — on both devices. Still nothing? Restart both. This clears the radio state behind most \"it just says waiting\" cases that survive fixes 1–6."
+      }
+    }
+  },
+  "why": {
+    "title": "When it's not you: the AirDrop wall",
+    "body": "If the other device is an <strong>Android phone or a Windows PC</strong>, stop troubleshooting — nothing is broken, and nothing will fix it. AirDrop only speaks to Apple devices, by design, and no setting on either side changes that. The seven fixes above are for Apple-to-Apple transfers; for everything else you need a tool that treats every platform as a first-class citizen."
+  },
+  "how": {
+    "title": "The plan B that always works",
+    "items": {
+      "0": {
+        "h": "One app, every platform",
+        "b": "BIShare runs on iPhone, Android, Mac, Windows, and Linux — and a device with nothing installed can receive in a plain browser tab. The \"wrong device\" case stops existing."
+      },
+      "1": {
+        "h": "Same speed, same privacy",
+        "b": "On the same Wi-Fi, files travel directly between devices, end-to-end encrypted, with nothing stored on a server — the qualities you liked about AirDrop, minus the guest list."
+      },
+      "2": {
+        "h": "And it doesn't have moods",
+        "b": "No visibility windows, no Contacts-Only mismatch, no hotspot conflict. Devices on the same network see each other, you tap, the other side accepts. That's the whole ritual."
+      }
+    }
+  },
+  "faq": {
+    "title": "AirDrop problems, answered",
+    "items": {
+      "0": {
+        "q": "Why does AirDrop just say \"Waiting…\" forever?",
+        "a": "Usually receiving visibility (set Everyone for 10 Minutes), an active Personal Hotspot, or distance/sleep — work fixes 1–4 in order. If it survives all seven, the radios are confused: airplane-mode cycle and restart both devices."
+      },
+      "1": {
+        "q": "Why can't I AirDrop to my Windows PC?",
+        "a": "Because AirDrop has never existed for Windows and never will — it's Apple-only by design. To move files iPhone → PC over Wi-Fi, use a cross-platform tool like BIShare: the PC can even receive in a browser with nothing installed."
+      },
+      "2": {
+        "q": "Can I AirDrop from iPhone to Android?",
+        "a": "No — and Android's Quick Share can't reach an iPhone either; the two systems simply don't interoperate. A neutral app bridges the gap and sends full-quality files in either direction over local Wi-Fi."
+      },
+      "3": {
+        "q": "Does AirDrop need a Wi-Fi network?",
+        "a": "AirDrop makes its own device-to-device link, so no router is required — but both radios must be on. BIShare works over any shared network instead, including one phone's hotspot, which also makes it work across platforms."
+      },
+      "4": {
+        "q": "Why is AirDrop so slow with big videos?",
+        "a": "Peer-to-peer radio is sensitive to distance, walls, and interference, so multi-gigabyte videos can crawl. Keep devices close, or transfer over your Wi-Fi router with a tool built for large files — a router hop at full Wi-Fi speed usually beats a struggling direct link."
+      }
+    }
+  },
+  "cta": {
+    "title": "Stop fighting the guest list",
+    "body": "BIShare sends to every device you own — free, encrypted, no account.",
+    "download": "Download BIShare"
+  },
+  "a11y": {
+    "yes": "Yes",
+    "no": "No"
+  }
+}

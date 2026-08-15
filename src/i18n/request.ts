@@ -64,6 +64,9 @@ const NAMESPACES = [
   "rooms",
   "bestApps",
   "localsendAlt",
+  "photosIphonePc",
+  "airdropFix",
+  "pcToPc",
 ] as const;
 
 async function loadNamespace(
@@ -79,16 +82,38 @@ async function loadNamespace(
   }
 }
 
+/** Deep-merge `over` on top of `base` (objects only — strings replace). */
+function deepMerge(
+  base: Record<string, unknown>,
+  over: Record<string, unknown>
+): Record<string, unknown> {
+  const out: Record<string, unknown> = { ...base };
+  for (const [k, v] of Object.entries(over)) {
+    const b = out[k];
+    out[k] =
+      v && b && typeof v === "object" && typeof b === "object" &&
+      !Array.isArray(v) && !Array.isArray(b)
+        ? deepMerge(b as Record<string, unknown>, v as Record<string, unknown>)
+        : v;
+  }
+  return out;
+}
+
 export default getRequestConfig(async ({ requestLocale }) => {
   const requested = await requestLocale;
   const locale = hasLocale(routing.locales, requested)
     ? requested
     : routing.defaultLocale;
 
+  // English is the fallback: a key missing from a locale file renders the
+  // English string instead of a raw message key. Locale files win per-key.
   const entries = await Promise.all(
-    NAMESPACES.map(
-      async (ns) => [ns, await loadNamespace(locale, ns)] as const
-    )
+    NAMESPACES.map(async (ns) => {
+      const localized = await loadNamespace(locale, ns);
+      if (locale === routing.defaultLocale) return [ns, localized] as const;
+      const base = await loadNamespace(routing.defaultLocale, ns);
+      return [ns, deepMerge(base, localized)] as const;
+    })
   );
 
   return {
