@@ -2,26 +2,27 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "@/i18n/navigation";
-
-const KEY = "bishare-cookie-notice";
+import { readConsent, setConsent } from "@/lib/consent";
 
 /**
- * Cookie NOTICE (not a consent gate): a functional language cookie plus
- * Google Analytics cookies, disclosed and dismissible. Dismissal is remembered
- * in localStorage; it renders only after mount so SSR/markup stays stable.
+ * Analytics consent gate. Google Consent Mode v2 starts with
+ * `analytics_storage: 'denied'` (see components/site/analytics.tsx), so no
+ * analytics cookie exists until someone accepts here — which is what EU/UK
+ * ePrivacy expects. Declining is a real, remembered choice, not a dismissal.
  *
- * NOTE: since GA4 arrived this is a disclosure, not consent. EU/UK ePrivacy
- * expects prior opt-in for analytics cookies — turning this into a real gate
- * means Google Consent Mode v2 (analytics_storage denied by default, granted
- * on Accept) plus a Reject button here.
+ * Renders only after mount so SSR/markup stays stable, and only once the
+ * browser is idle so this bottom banner is never the page's Largest
+ * Contentful Paint.
  */
 export function CookieNoticeClient({
   body,
   accept,
+  decline,
   learnMore,
 }: {
   body: string;
   accept: string;
+  decline: string;
   learnMore: string;
 }) {
   const [show, setShow] = useState(false);
@@ -30,15 +31,8 @@ export function CookieNoticeClient({
     let cancelled = false;
     const reveal = () => {
       if (cancelled) return;
-      try {
-        if (!localStorage.getItem(KEY)) setShow(true);
-      } catch {
-        /* private mode / storage blocked — just don't show */
-      }
+      if (readConsent() === null) setShow(true);
     };
-    // Reveal only once the browser is idle, i.e. AFTER the main content has
-    // painted — otherwise this prominent bottom banner renders at hydration and
-    // gets counted as the page's Largest Contentful Paint (hurting LCP).
     if (typeof window.requestIdleCallback === "function") {
       const id = window.requestIdleCallback(reveal, { timeout: 2500 });
       return () => {
@@ -55,12 +49,8 @@ export function CookieNoticeClient({
 
   if (!show) return null;
 
-  const dismiss = () => {
-    try {
-      localStorage.setItem(KEY, "1");
-    } catch {
-      /* ignore */
-    }
+  const choose = (choice: "granted" | "denied") => {
+    setConsent(choice);
     setShow(false);
   };
 
@@ -72,17 +62,29 @@ export function CookieNoticeClient({
     >
       <p className="text-[13px] leading-relaxed text-muted-foreground">
         {body}{" "}
-        <Link href="/privacy" className="font-medium text-foreground underline underline-offset-2">
+        <Link
+          href="/privacy"
+          className="font-medium text-foreground underline underline-offset-2"
+        >
           {learnMore}
         </Link>
       </p>
-      <button
-        type="button"
-        onClick={dismiss}
-        className="shrink-0 rounded-full bg-foreground px-4 py-2 text-[13px] font-semibold text-background transition-opacity hover:opacity-90"
-      >
-        {accept}
-      </button>
+      <div className="flex shrink-0 items-center gap-2">
+        <button
+          type="button"
+          onClick={() => choose("denied")}
+          className="rounded-full border border-border px-4 py-2 text-[13px] font-semibold text-foreground transition-colors hover:bg-secondary"
+        >
+          {decline}
+        </button>
+        <button
+          type="button"
+          onClick={() => choose("granted")}
+          className="rounded-full bg-foreground px-4 py-2 text-[13px] font-semibold text-background transition-opacity hover:opacity-90"
+        >
+          {accept}
+        </button>
+      </div>
     </div>
   );
 }

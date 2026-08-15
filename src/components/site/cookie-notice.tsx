@@ -8,6 +8,7 @@ export async function CookieNotice() {
     <CookieNoticeClient
       body={t("body")}
       accept={t("accept")}
+      decline={t("decline")}
       learnMore={t("learnMore")}
     />
   );
