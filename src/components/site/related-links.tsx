@@ -50,7 +50,29 @@ export async function RelatedLinks({ current }: { current: string }) {
 
   return (
     <section className="mt-16 border-t border-border pt-10">
+      {/* The instant path: every landing page offers the web app before
+          asking for a download — send in the browser, or open a room. */}
       <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        {t("tryHeading")}
+      </h2>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <Link
+          href="/transfer"
+          className="group flex items-center justify-between gap-3 rounded-xl border border-accent-blue/40 bg-card px-4 py-3.5 transition-colors hover:border-accent-blue hover:bg-background-raised"
+        >
+          <span className="text-sm font-semibold">{t("tryTransfer")}</span>
+          <ArrowUpRight className="h-4 w-4 shrink-0 text-accent-blue" />
+        </Link>
+        <Link
+          href="/rooms"
+          className="group flex items-center justify-between gap-3 rounded-xl border border-accent-blue/40 bg-card px-4 py-3.5 transition-colors hover:border-accent-blue hover:bg-background-raised"
+        >
+          <span className="text-sm font-semibold">{t("tryRooms")}</span>
+          <ArrowUpRight className="h-4 w-4 shrink-0 text-accent-blue" />
+        </Link>
+      </div>
+
+      <h2 className="mt-10 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {t("heading")}
       </h2>
       <ul className="mt-5 grid gap-3 sm:grid-cols-2">
