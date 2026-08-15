@@ -660,6 +660,57 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "transfer-files-locally-without-internet",
+    title: "How to Transfer Private Data Locally Without Using the Internet",
+    metaTitle: "Transfer Private Data Locally — No Internet Needed (2026)",
+    description:
+      "Five rungs of disconnection, from ordinary Wi-Fi down to a screen-to-camera air gap — what still works at each, and what you actually stop leaking.",
+    category: "security",
+    tags: ["Offline", "Local network", "Privacy", "Air gap"],
+    keywords: [
+      "transfer files locally without internet",
+      "share files offline",
+      "send private data without internet",
+      "local network file transfer",
+      "air gapped file transfer",
+      "transfer files without wifi",
+    ],
+    datePublished: "2026-09-17",
+    dateModified: "2026-09-17",
+    readMinutes: 14,
+    hero: {
+      src: "/blog/hero-local-offline.svg",
+      alt: "A ladder of disconnection with five rungs, from ordinary Wi-Fi down to a fully air-gapped screen-to-camera transfer",
+    },
+    related: [
+      "securely-send-confidential-documents",
+      "what-is-end-to-end-encrypted-file-sharing",
+      "transfer-large-files-without-cloud-limits",
+    ],
+    faq: [
+      {
+        q: "Can I transfer files between devices with no internet at all?",
+        a: "Yes. Any shared Wi-Fi works without an internet connection, and if there is no network at all you can turn on a phone's hotspot and join the other device to it — that is a complete private network of two. Nothing in a local transfer needs DNS, clock sync, or a server handshake.",
+      },
+      {
+        q: "Why can't my devices see each other on café or hotel Wi-Fi?",
+        a: "Most public networks enable client isolation, which blocks devices on the same access point from addressing each other. Nothing is broken and no setting on your side fixes it — switch to a phone hotspot instead, which puts both devices on a network you control.",
+      },
+      {
+        q: "Is offline transfer actually more private than cloud sharing?",
+        a: "Structurally, yes. A local transfer leaves no copy with any third party, so there is nothing to breach, subpoena, scan, or retain. Cloud sharing always leaves at least one readable or stored copy plus a metadata trail of who sent what to whom and when.",
+      },
+      {
+        q: "How do I send a file with no Wi-Fi, hotspot, or Bluetooth?",
+        a: "Use an animated QR stream: the sending screen loops QR codes and the receiving camera reads them, so the only thing crossing the gap is light. It is a true air gap, but bandwidth is tiny — it suits keys, passwords, text, and small documents rather than photos or video.",
+      },
+      {
+        q: "Does the recipient need the same app installed?",
+        a: "For the fastest device-to-device path, yes. When they can't install anything, a browser on the same network can send and receive instead — useful on locked-down work laptops or a machine you don't own.",
+      },
+    ],
+  },
 ];
 
 /**
@@ -735,4 +786,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./securely-send-confidential-documents.mdx"),
   "what-is-end-to-end-encrypted-file-sharing": () =>
     import("./what-is-end-to-end-encrypted-file-sharing.mdx"),
+  "transfer-files-locally-without-internet": () =>
+    import("./transfer-files-locally-without-internet.mdx"),
 };
