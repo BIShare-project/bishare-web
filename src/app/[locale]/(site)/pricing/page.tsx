@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/site/footer";
 import { Section } from "@/components/site/section";
 import { FadeUp } from "@/components/site/motion";
 import { VButton } from "@/components/site/vbutton";
+import { WebQuickCta } from "@/components/site/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { Check } from "lucide-react";
 
@@ -109,6 +110,7 @@ export default async function PricingPage({
           </div>
         </Section>
       </main>
+      <WebQuickCta />
       <SiteFooter />
     </>
   );

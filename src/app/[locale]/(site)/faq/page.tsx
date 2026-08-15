@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site/footer";
 import { Section } from "@/components/site/section";
 import { FadeUp, RevealBlur } from "@/components/site/motion";
 import { VButton } from "@/components/site/vbutton";
+import { WebQuickCta } from "@/components/site/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { FAQ_GROUPS } from "./faq-data";
 import { ArrowRight, ChevronDown } from "lucide-react";
@@ -235,6 +236,7 @@ export default async function FaqPage({
         </Section>
       </main>
 
+      <WebQuickCta />
       <SiteFooter />
     </div>
   );
