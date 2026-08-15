@@ -41,8 +41,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
 
 ## Competitor Alternatives & App Features
 
-15. ☐ Best SHAREit Alternatives in 2026: Fast, Lightweight, and Ad-Free
-    — planned slug: best-shareit-alternatives
+15. ✅ Best SHAREit Alternatives in 2026: Fast, Lightweight, and Ad-Free
+    — slug: best-shareit-alternatives (scheduled 2026-09-23)
 16. ☐ BIShare Review: The Fastest Cross-Platform File Sharing App
     — planned slug: bishare-review (frame honestly as a hands-on tour, not a fake third-party review)
 17. ☐ What is QUIC Protocol? The Technology Behind Ultra-Fast File Transfer
