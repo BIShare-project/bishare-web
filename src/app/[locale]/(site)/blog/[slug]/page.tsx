@@ -18,6 +18,7 @@ import {
 } from "@/content/blog/registry";
 import { ArrowRight } from "lucide-react";
 import { ArticleToc } from "@/components/site/article-toc";
+import { ImageLightbox } from "@/components/site/image-lightbox";
 
 /**
  * Article template. The body is an .mdx component; everything SEO-bearing
@@ -183,6 +184,7 @@ export default async function BlogArticlePage({
           className="mt-7 w-full rounded-2xl border border-border"
         />
 
+        <ImageLightbox />
         <article className="blog-prose mt-9">
           <Article />
         </article>
