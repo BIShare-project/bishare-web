@@ -661,6 +661,57 @@ export const POSTS: BlogPost[] = [
     ],
   },
   {
+    slug: "bishare-review",
+    title: "BIShare Review: An Honest Tour From the Team That Built It",
+    metaTitle: "BIShare Review (2026) — An Honest Tour by Its Makers",
+    description:
+      "A vendor self-review that opens with five reasons not to use it — unsigned Windows builds, no Mac DMG, no audit — plus claims you can falsify in ten minutes.",
+    category: "apps",
+    tags: ["BIShare", "Review", "Transparency", "Hands-on"],
+    keywords: [
+      "bishare review",
+      "is bishare safe",
+      "bishare vs localsend",
+      "bishare file transfer app",
+      "cross-platform file sharing app review",
+      "bishare app features",
+    ],
+    datePublished: "2026-09-26",
+    dateModified: "2026-09-26",
+    readMinutes: 14,
+    hero: {
+      src: "/blog/hero-bishare-review.svg",
+      alt: "A self-review that opens with its own weaknesses, listing reasons not to use the app beside the claims a reader can verify",
+    },
+    related: [
+      "best-shareit-alternatives",
+      "transfer-files-locally-without-internet",
+      "what-is-end-to-end-encrypted-file-sharing",
+    ],
+    faq: [
+      {
+        q: "Is this an independent review of BIShare?",
+        a: "No — it is written by the people who build BIShare, published on their own blog. It is structured to be checkable rather than objective: it opens with reasons not to use the app, and every capability claim is one you can verify on your own hardware in minutes.",
+      },
+      {
+        q: "Is BIShare safe to use?",
+        a: "Transfers are end-to-end encrypted with X25519 and AES-256-GCM, implemented once in a public Rust crate shared by every platform, and local transfers never touch a server. The honest caveat: there has been no formal third-party security audit, so 'auditable' is the accurate word rather than 'audited'.",
+      },
+      {
+        q: "Is BIShare really free, and how does it make money?",
+        a: "Transfers are free with no ads and no account. Local transfers cost nothing to operate because nothing touches the company's servers. The paid direction is optional cloud storage and relay capacity for people who want files to persist rather than expire — not advertising.",
+      },
+      {
+        q: "What are BIShare's biggest weaknesses?",
+        a: "The Windows build is an unsigned ZIP, so SmartScreen warns and locked-down organizations will block it; there is no notarized Mac app outside the App Store; the F-Droid build has camera QR scanning removed because the scanner library is proprietary; and the installed base is small compared with SHAREit or LocalSend.",
+      },
+      {
+        q: "How does BIShare compare to LocalSend?",
+        a: "LocalSend is an excellent open-source choice if your needs are cross-platform transfer and nothing more. BIShare adds a browser path so the other person needs no install, transfer rooms for groups, scoped app sharing on Android, and an inbox with history — at the cost of being newer and less widely installed.",
+      },
+    ],
+  },
+  {
     slug: "best-shareit-alternatives",
     title: "Best SHAREit Alternatives in 2026: Fast, Lightweight, and Ad-Free",
     metaTitle: "Best SHAREit Alternatives in 2026 — Ad-Free & Fast",
@@ -894,4 +945,5 @@ export const ARTICLE_COMPONENTS: Record<
     import("./prevent-data-leaks-file-sharing.mdx"),
   "best-shareit-alternatives": () =>
     import("./best-shareit-alternatives.mdx"),
+  "bishare-review": () => import("./bishare-review.mdx"),
 };
