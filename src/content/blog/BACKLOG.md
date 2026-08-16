@@ -51,8 +51,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
     — slug: local-sharing-without-cellular-data (scheduled 2026-10-02)
 19. ✅ Top 5 Ad-Free File Transfer Apps for Android and iOS
     — slug: ad-free-file-transfer-apps (scheduled 2026-10-05)
-20. ☐ AirDrop for Windows: How to Get AirDrop-Like Speeds on Any PC
-    — planned slug: airdrop-for-windows-speeds (mind cannibalization: the site already has /airdrop-for-windows landing — this article targets informational intent and links to it)
+20. ✅ AirDrop for Windows: How to Get AirDrop-Like Speeds on Any PC
+    — slug: airdrop-for-windows-speeds (scheduled 2026-10-08) — informational (diagnosa kecepatan), menaut ke landing komersial /airdrop-for-windows. **ANTREAN 20/20 SELESAI.**
 
 ## Publish schedule (every 3 days — SET datePublished FROM THIS TABLE)
 

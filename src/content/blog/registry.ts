@@ -661,6 +661,57 @@ export const POSTS: BlogPost[] = [
     ],
   },
   {
+    slug: "airdrop-for-windows-speeds",
+    title: "AirDrop for Windows: How to Get AirDrop-Like Speeds on Any PC",
+    metaTitle: "AirDrop-Like Speeds on Windows: Fix a Slow Transfer",
+    description:
+      "A healthy phone-to-PC transfer moves 1 GB in about 25 seconds. Five causes of slow transfers, ordered by how often each is the real one — with the fix for each.",
+    category: "apps",
+    tags: ["Windows", "Transfer speed", "Wi-Fi", "Troubleshooting"],
+    keywords: [
+      "airdrop for windows speed",
+      "slow file transfer windows",
+      "wifi transfer speed phone to pc",
+      "why is my file transfer so slow",
+      "fastest way to transfer files to pc",
+      "airdrop alternative speed",
+    ],
+    datePublished: "2026-10-08",
+    dateModified: "2026-10-08",
+    readMinutes: 14,
+    hero: {
+      src: "/blog/hero-speeds.svg",
+      alt: "A diagnostic for slow phone-to-PC transfers: five causes ordered by how often each turns out to be the real one",
+    },
+    related: [
+      "transfer-files-from-iphone-to-windows-without-cable",
+      "what-is-quic-protocol",
+      "local-sharing-without-cellular-data",
+    ],
+    faq: [
+      {
+        q: "How fast should a phone-to-PC transfer be?",
+        a: "On ordinary Wi-Fi 5 hardware, about 40–50 MB/s — a gigabyte in roughly 20 to 30 seconds. On Wi-Fi 6 at close range it can reach 70–110 MB/s. If you are getting minutes rather than seconds, the most likely cause is that one device is on the 2.4 GHz band.",
+      },
+      {
+        q: "Why is my file transfer so slow over Wi-Fi?",
+        a: "In order of likelihood: one device is on 2.4 GHz instead of 5 GHz; distance or walls are degrading the signal; the receiving PC's disk or antivirus scanner is the bottleneck; or the transfer is not local at all and has fallen back to an internet relay, which runs at your upload speed instead of your Wi-Fi speed.",
+      },
+      {
+        q: "Does antivirus slow down file transfers on Windows?",
+        a: "Yes, sometimes dramatically. Real-time scanning inspects each file as it is written, and the cost is per file — so a batch of thousands of small photos suffers far more than one large video. Excluding a single download folder from Defender helps; excluding a whole drive is not a reasonable trade.",
+      },
+      {
+        q: "Why are thousands of small files slower than one big file?",
+        a: "Every file carries fixed costs — a metadata exchange, a file handle, a directory entry, an antivirus check — measured in milliseconds. That is nothing for a 2 GB video and everything for a 400 KB photo. Zipping a large batch first pays those costs once instead of thousands of times.",
+      },
+      {
+        q: "Does turning off encryption make transfers faster?",
+        a: "No. Modern processors have dedicated AES instructions, so encryption runs far faster than any Wi-Fi link can supply data — it spends most of its time waiting. The only case where the cipher becomes the bottleneck is an app built without those instructions enabled, which is a bug to fix rather than a feature to disable.",
+      },
+    ],
+  },
+  {
     slug: "ad-free-file-transfer-apps",
     title: "Top 5 Ad-Free File Transfer Apps for Android and iOS",
     metaTitle: "5 Ad-Free File Transfer Apps for Android & iOS (2026)",
@@ -1104,4 +1155,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./local-sharing-without-cellular-data.mdx"),
   "ad-free-file-transfer-apps": () =>
     import("./ad-free-file-transfer-apps.mdx"),
+  "airdrop-for-windows-speeds": () =>
+    import("./airdrop-for-windows-speeds.mdx"),
 };
