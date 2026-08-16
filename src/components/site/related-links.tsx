@@ -18,12 +18,12 @@ const CLUSTER: Record<string, string[]> = {
   "wetransfer-alternative": ["send-large-files", "firefox-send-alternative", "smash-alternative", "share-files-without-account"],
   "snapdrop-alternative": ["sharedrop-alternative", "localsend-alternative", "nearby-share-alternative", "best-file-sharing-app", "wormhole-alternative", "shareit-alternative"],
   "sharedrop-alternative": ["snapdrop-alternative", "nearby-share-alternative", "shareit-alternative", "wetransfer-alternative"],
-  "nearby-share-alternative": ["shareit-alternative", "snapdrop-alternative", "send-anywhere-alternative", "airdrop-alternative"],
-  "shareit-alternative": ["nearby-share-alternative", "send-anywhere-alternative", "sharedrop-alternative", "send-large-files"],
+  "nearby-share-alternative": ["airdrop-for-android", "shareit-alternative", "snapdrop-alternative", "airdrop-alternative"],
+  "shareit-alternative": ["nearby-share-alternative", "airdrop-for-android", "send-anywhere-alternative", "sharedrop-alternative"],
   "send-files-iphone-to-android": ["send-files-android-to-iphone", "airdrop-alternative", "airdrop-for-android", "transfer-files-pc-to-phone"],
-  "send-files-android-to-iphone": ["send-files-iphone-to-android", "nearby-share-alternative", "airdrop-alternative", "transfer-files-phone-to-pc"],
+  "send-files-android-to-iphone": ["send-files-iphone-to-android", "airdrop-for-android", "nearby-share-alternative", "airdrop-alternative"],
   "transfer-files-pc-to-phone": ["transfer-files-phone-to-pc", "share-files-mac-to-windows", "send-large-files", "airdrop-for-windows"],
-  "transfer-files-phone-to-pc": ["transfer-photos-from-iphone-to-pc", "transfer-files-pc-to-phone", "share-files-mac-to-windows", "send-large-files"],
+  "transfer-files-phone-to-pc": ["transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-pc-to-phone", "share-files-mac-to-windows"],
   "share-files-mac-to-windows": ["transfer-files-between-computers", "airdrop-for-windows", "transfer-files-pc-to-phone", "send-large-files"],
   "send-large-files": ["wetransfer-alternative", "send-files-without-internet", "encrypted-file-transfer", "share-files-without-account"],
   // New: encrypted / competitor pages.
@@ -33,14 +33,14 @@ const CLUSTER: Record<string, string[]> = {
   "share-files-without-account": ["encrypted-file-transfer", "wetransfer-alternative", "send-large-files", "firefox-send-alternative"],
   "smash-alternative": ["wetransfer-alternative", "send-large-files", "wormhole-alternative", "firefox-send-alternative"],
   "wormhole-alternative": ["firefox-send-alternative", "encrypted-file-transfer", "snapdrop-alternative", "wetransfer-alternative"],
-  "send-files-without-internet": ["encrypted-file-transfer", "share-files-without-account", "send-large-files", "nearby-share-alternative"],
+  "send-files-without-internet": ["encrypted-file-transfer", "airdrop-for-android", "share-files-without-account", "send-large-files"],
   // Best-of guide + LocalSend cluster.
   // Photo, troubleshooting, and desktop↔desktop pages.
   "transfer-photos-from-iphone-to-pc": ["transfer-files-phone-to-pc", "airdrop-for-windows", "send-files-iphone-to-android", "send-large-files"],
   "airdrop-not-working": ["airdrop-alternative", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android"],
   "transfer-files-between-computers": ["share-files-mac-to-windows", "transfer-files-pc-to-phone", "send-large-files", "send-files-without-internet"],
-  "best-file-sharing-app": ["localsend-alternative", "airdrop-alternative", "snapdrop-alternative", "wetransfer-alternative"],
-  "localsend-alternative": ["snapdrop-alternative", "nearby-share-alternative", "best-file-sharing-app", "send-files-without-internet"],
+  "best-file-sharing-app": ["localsend-alternative", "airdrop-for-windows", "airdrop-alternative", "snapdrop-alternative", "wetransfer-alternative"],
+  "localsend-alternative": ["snapdrop-alternative", "airdrop-for-windows", "nearby-share-alternative", "best-file-sharing-app", "send-files-without-internet"],
 };
 
 export async function RelatedLinks({ current }: { current: string }) {
