@@ -181,7 +181,9 @@ export class EncryptedSource {
     return ct;
   }
 
-  async slice(start: number, end: number): Promise<Uint8Array> {
+  // Returns a view over its own ArrayBuffer (not SharedArrayBuffer), so the
+  // uploader can hand it straight to XHR without wrapping it in a Blob.
+  async slice(start: number, end: number): Promise<Uint8Array<ArrayBuffer>> {
     const out = new Uint8Array(end - start);
     let cursor = start;
 
