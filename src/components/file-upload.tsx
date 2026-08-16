@@ -23,6 +23,7 @@ import {
 } from "@/app/[locale]/(site)/transfer/recent-transfers";
 import { EncryptedSource, generateKey, encodeKey, maxPlaintextFor } from "@/lib/e2e/crypto";
 import { FilePreviewDialog } from "@/components/file-preview-dialog";
+import { buildStoreZip } from "@/lib/zip";
 import type { TransferUploadResponse } from "@/lib/types";
 import { Button } from "@/components/site/ui/button";
 import { GlowProgress, SuccessCheck } from "@/components/flow-shell";
@@ -39,6 +40,7 @@ import {
   Lock,
   QrCode,
   Share2,
+  Package,
   Trash2,
   Upload,
   X,
@@ -557,6 +559,15 @@ function validateFile(
   return null;
 }
 
+/** Name for a bundle the user never named — dated so two sends don't collide. */
+function zipArchiveName(files: File[]): string {
+  const d = new Date();
+  const stamp = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(
+    d.getDate(),
+  ).padStart(2, "0")}`;
+  return `bishare-${files.length}-files-${stamp}.zip`;
+}
+
 /** Big segmented code display (ABC-DEF) for the success view. */
 function CodeBoxes({ code }: { code: string }) {
   return (
@@ -591,6 +602,10 @@ export function FileUpload() {
   const [expandedQR, setExpandedQR] = useState<string | null>(null);
   // The file whose preview dialog is open — tapping a card inside the drop box.
   const [previewFile, setPreviewFile] = useState<File | null>(null);
+  // Several files, one link. On by default because the alternative — handing
+  // someone five links for one send — is the thing people complain about.
+  const [combine, setCombine] = useState(true);
+  const [zipping, setZipping] = useState(0); // 0–100 while hashing for the archive
   const fileInputRef = useRef<HTMLInputElement>(null);
   const copyTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
   /** Aborts the in-flight upload batch (Cancel button + page-leave guard). */
@@ -665,7 +680,53 @@ export function FileUpload() {
     setIsUploading(true);
     const sendOneTime = oneTime;
     const sendEncrypt = encrypt;
-    const snapshot = [...files];
+    let snapshot = [...files];
+
+    // Bundle first, so what follows is an ordinary single-file upload. The
+    // archive stores (never deflates), so it references the picked files
+    // instead of copying them — the CRC pass is the only time the bytes are
+    // read, and even that is chunked.
+    const toBundle = snapshot.filter((f) => f.status === "pending");
+    if (combine && toBundle.length > 1) {
+      try {
+        setZipping(1);
+        const blob = await buildStoreZip(
+          toBundle.map((f) => f.file),
+          ({ hashed, total }) =>
+            setZipping(total ? Math.max(1, Math.round((hashed / total) * 100)) : 100),
+        );
+        const zipFile = new File([blob], zipArchiveName(toBundle.map((f) => f.file)), {
+          type: "application/zip",
+          lastModified: Date.now(),
+        });
+        const error = validateFile(zipFile, maxFileSize, t, encrypt);
+        if (error) {
+          setZipping(0);
+          setIsUploading(false);
+          updateEntry(toBundle[0]!.id, { status: "error", errorMsg: error });
+          return;
+        }
+        const zipEntry: UploadEntry = {
+          id: `upload-${++entryCounter}`,
+          file: zipFile,
+          progress: 0,
+          status: "pending",
+        };
+        // The picked files collapse into the one thing actually being sent.
+        snapshot = [zipEntry];
+        setFiles([zipEntry]);
+      } catch {
+        setZipping(0);
+        setIsUploading(false);
+        updateEntry(toBundle[0]!.id, {
+          status: "error",
+          errorMsg: t("upload.errors.zipFailed"),
+        });
+        return;
+      } finally {
+        setZipping(0);
+      }
+    }
 
     try {
     for (const entry of snapshot) {
@@ -1143,9 +1204,55 @@ export function FileUpload() {
         </div>
       </div>
 
-      {/* One-time toggle + upload button */}
+      {zipping > 0 && (
+        <div className="rounded-2xl border border-border bg-card px-4 py-3">
+          <p className="text-sm font-medium">{t("upload.zipping")}</p>
+          <GlowProgress value={zipping} className="mt-2" />
+        </div>
+      )}
+
+      {/* Bundle + one-time toggles + upload button */}
       {pendingFiles.length > 0 && !isUploading && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
+          {pendingFiles.length > 1 && (
+            <button
+              type="button"
+              role="switch"
+              aria-checked={combine}
+              onClick={() => setCombine((v) => !v)}
+              className={cn(
+                "flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left transition-colors duration-200",
+                combine
+                  ? "border-accent-blue/40 bg-accent-blue/[0.06]"
+                  : "border-border bg-card hover:bg-secondary/50"
+              )}
+            >
+              <Package
+                className={cn("h-4 w-4 shrink-0", combine ? "text-accent-blue" : "text-muted-foreground")}
+              />
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-medium">
+                  {t("upload.combineTitle", { count: pendingFiles.length })}
+                </span>
+                <span className="block text-xs text-muted-foreground">
+                  {combine ? t("upload.combineOn") : t("upload.combineOff", { count: pendingFiles.length })}
+                </span>
+              </span>
+              <span
+                className={cn(
+                  "relative h-5 w-9 shrink-0 rounded-full transition-colors",
+                  combine ? "bg-accent-blue" : "bg-muted"
+                )}
+              >
+                <span
+                  className={cn(
+                    "absolute top-0.5 h-4 w-4 rounded-full bg-white transition-transform",
+                    combine ? "translate-x-[1.15rem]" : "translate-x-0.5"
+                  )}
+                />
+              </span>
+            </button>
+          )}
           <button
             type="button"
             role="switch"
