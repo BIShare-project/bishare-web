@@ -12,7 +12,7 @@ If any of these describe you, save yourself the download.
 
 **3. You want a Mac app from outside the App Store.** We ship the Mac app through the App Store only. There is no notarized DMG at the moment: an unsigned one would trip Gatekeeper in ways that produce a worse first impression than not shipping it, so the release pipeline deliberately skips it. If you avoid the App Store on principle, that's a real dead end right now.
 
-**4. You need the app on F-Droid with full features.** We've prepared a fully free-software build for F-Droid — but making it free software meant removing the camera QR scanner, because the scanning library bundles Google's proprietary MLKit. That build can still *show* QR codes; it cannot scan them. If camera scanning is central to how you'd use it, the store versions have it and the F-Droid one won't.
+**4. You want continuous folder sync, not transfers.** BIShare moves files when you tell it to; it does not watch a folder and mirror it across your devices the way Syncthing or a cloud drive does. Those are different products solving a different problem, and if what you actually want is "this folder, always identical everywhere," you want one of them instead. Sending is deliberate here, which is a feature for some people and a dealbreaker for others.
 
 **5. The person you send files to most has never heard of it.** This is the honest one. A transfer app is only as useful as its adoption in your specific circle, and BIShare is new: [the repository](https://github.com/BIShare-project/bishare-flutter) has a handful of stars, not thousands. SHAREit and LocalSend have installed bases we don't. The browser fallback exists precisely to soften this, but "your friend already has it" is a genuine advantage that we simply do not have yet.
 
@@ -121,7 +121,7 @@ Roadmaps in vendor posts are usually a way of answering criticism with a promise
 
 **A notarized Mac DMG** needs a Developer ID certificate and a notarization step in the release pipeline. It's mechanical work rather than hard work; it simply hasn't been done.
 
-**F-Droid** has the harder half finished: the free-software build exists, proven to contain none of the proprietary components, with the packaging metadata written. What remains is submitting the recipe to their repository and surviving review, which takes weeks and is somebody's volunteer time, not ours to schedule.
+**Linux packaging beyond the tarball** now covers a `.deb` and an AppImage, which is enough for most people; a distro-repository presence is a bigger commitment and isn't planned.
 
 **A third-party security audit** is the honest gap in the claims above. Open code is a precondition for review, not a substitute for it, and until someone qualified has actually looked, "auditable" is the accurate word rather than "audited."
 
