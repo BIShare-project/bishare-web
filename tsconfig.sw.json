@@ -1,0 +1,13 @@
+{
+  // The streaming service worker runs in a WebWorker global, whose types
+  // conflict with the DOM lib the app uses — so it gets its own program
+  // instead of polluting the app's. It still imports lib/e2e/crypto, which is
+  // the point: the record format has exactly one definition.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "WebWorker"],
+    "types": [],
+    "noEmit": true
+  },
+  "include": ["src/sw/**/*.ts", "src/lib/e2e/**/*.ts"]
+}

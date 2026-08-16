@@ -3,18 +3,19 @@
   "private": true,
   "version": "3.0.0-dev",
   "type": "module",
-  "description": "BIShare v3 — unified Next.js app: backend API (Hono) + admin + web on Cloudflare Workers",
+  "description": "BIShare v3 \u2014 unified Next.js app: backend API (Hono) + admin + web on Cloudflare Workers",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "build:cloudflare": "npx @opennextjs/cloudflare build",
+    "build": "npm run build:sw && next build",
+    "build:cloudflare": "npm run build:sw && npx @opennextjs/cloudflare build",
     "preview": "npm run build:cloudflare && npx wrangler dev --port 8788",
     "deploy": "npm run build:cloudflare && npx wrangler deploy",
-    "typecheck": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && tsc -p tsconfig.sw.json --noEmit",
     "migrate:local": "wrangler d1 migrations apply bishare-cloud --local",
     "migrate:remote": "wrangler d1 migrations apply bishare-cloud --remote",
     "record:golden": "node tools/contract/record.mjs",
-    "record:ws": "node tools/contract/ws-record.mjs"
+    "record:ws": "node tools/contract/ws-record.mjs",
+    "build:sw": "esbuild src/sw/stream-sw.ts --bundle --format=iife --target=es2022 --outfile=public/stream-sw.js --alias:@=./src"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
