@@ -49,8 +49,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
     — slug: what-is-quic-protocol (scheduled 2026-09-29)
 18. ✅ How to Use Local Sharing to Transfer Files Without Using Cellular Data
     — slug: local-sharing-without-cellular-data (scheduled 2026-10-02)
-19. ☐ Top 5 Ad-Free File Transfer Apps for Android and iOS
-    — planned slug: ad-free-file-transfer-apps
+19. ✅ Top 5 Ad-Free File Transfer Apps for Android and iOS
+    — slug: ad-free-file-transfer-apps (scheduled 2026-10-05)
 20. ☐ AirDrop for Windows: How to Get AirDrop-Like Speeds on Any PC
     — planned slug: airdrop-for-windows-speeds (mind cannibalization: the site already has /airdrop-for-windows landing — this article targets informational intent and links to it)
 
