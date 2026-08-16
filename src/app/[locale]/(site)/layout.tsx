@@ -48,6 +48,11 @@ export async function generateMetadata({
       apple: "/apple-touch-icon.png",
     },
     ...sharedOpenGraph("BIShare — Send Files to Any Device, Instantly", DESCRIPTION, "/"),
+    // Site ownership proof for Bing Webmaster Tools. Site-wide (not just "/")
+    // so the check passes on whichever URL Bing happens to fetch.
+    verification: {
+      other: { "msvalidate.01": "DB0F388D10A48BC6932FF71D88A9AB59" },
+    },
     other: {
       "apple-itunes-app": "app-id=6760924092",
     },
