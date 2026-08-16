@@ -19,11 +19,24 @@ import { keyFromHash } from "@/lib/e2e/crypto";
  * renders nothing and the existing Download button remains the whole story.
  */
 
-/** Types a browser can plausibly play from a byte stream. */
-function streamableKind(mime: string): "video" | "audio" | null {
+/**
+ * What the browser can open directly from decrypted bytes.
+ *
+ * Images and PDFs matter more than the headline video case: they need
+ * decryption but no Range machinery at all (the worker answers an un-ranged
+ * request with the whole plaintext), and far more real transfers are a photo
+ * or a document than a web-playable video container.
+ */
+type Kind = "video" | "audio" | "image" | "pdf";
+
+function previewKind(mime: string): Kind | null {
   const m = mime.toLowerCase();
   if (m.startsWith("video/")) return "video";
   if (m.startsWith("audio/")) return "audio";
+  // HEIC/HEIF are common straight off an iPhone and are NOT decodable by most
+  // browsers — offering a preview that renders broken is worse than none.
+  if (m.startsWith("image/") && !/hei[cf]/.test(m)) return "image";
+  if (m === "application/pdf") return "pdf";
   return null;
 }
 
@@ -43,7 +56,7 @@ export function StreamPlayer({
   const [src, setSrc] = useState<string | null>(null);
   const [encKey, setEncKey] = useState<Uint8Array | null>(null);
   const sessionId = useRef<string>("");
-  const kind = streamableKind(mimeType);
+  const kind = previewKind(mimeType);
 
   useEffect(() => {
     setEncKey(keyFromHash(window.location.hash));
@@ -113,17 +126,45 @@ export function StreamPlayer({
   if (!kind || !encKey || oneTime || phase === "unsupported") return null;
 
   if (phase === "playing" && src) {
-    const Media = kind === "video" ? "video" : "audio";
     return (
       <div className="mt-4">
-        <Media
-          src={src}
-          controls
-          autoPlay
-          playsInline
-          className="w-full rounded-xl border border-border bg-black"
-          onError={() => setPhase("unsupported")}
-        />
+        {kind === "video" && (
+          <video
+            src={src}
+            controls
+            autoPlay
+            playsInline
+            className="w-full rounded-xl border border-border bg-black"
+            onError={() => setPhase("unsupported")}
+          />
+        )}
+        {kind === "audio" && (
+          <audio
+            src={src}
+            controls
+            autoPlay
+            className="w-full"
+            onError={() => setPhase("unsupported")}
+          />
+        )}
+        {kind === "image" && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={src}
+            alt={t("transfer.previewAlt")}
+            className="mx-auto max-h-[70vh] w-auto rounded-xl border border-border"
+            onError={() => setPhase("unsupported")}
+          />
+        )}
+        {kind === "pdf" && (
+          <object
+            data={src}
+            type="application/pdf"
+            className="h-[70vh] w-full rounded-xl border border-border"
+          >
+            <p className="p-4 text-sm text-muted-foreground">{t("transfer.streamNote")}</p>
+          </object>
+        )}
         <p className="mt-2 text-center text-xs text-muted-foreground">
           {t("transfer.streamNote")}
         </p>
@@ -143,7 +184,9 @@ export function StreamPlayer({
       ) : (
         <Play className="h-4 w-4" />
       )}
-      {t("transfer.playNow")}
+      {kind === "video" || kind === "audio"
+        ? t("transfer.playNow")
+        : t("transfer.previewNow")}
     </button>
   );
 }
