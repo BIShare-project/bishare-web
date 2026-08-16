@@ -1,83 +1,149 @@
 {
-  "meta": {
-    "title": "Windows版AirDrop — iPhone・Mac・PC間でファイルを送る | BIShare",
-    "description": "AirDropはWindowsで使えません。BIShareはそのクロスプラットフォームな代替手段。iPhoneやMacとWindows PCの間で（さらにAndroidやLinuxも）Wi-Fi経由で瞬時に、または相手がどのブラウザでも開けるリンクでファイルを送れます。無料・アカウント不要。"
-  },
-  "hero": {
-    "eyebrow": "クロスプラットフォーム転送",
-    "title": "Windows版AirDrop",
-    "body": "AirDropはApple製品同士なら快適。でもWindows PCには届きません。<strong>BIShare</strong>はそのクロスプラットフォームな代替手段です。<strong>iPhoneやMacとWindows PC</strong>の間で（さらにAndroidやLinuxも）、ローカルのWi-Fi経由で瞬時に、または相手がどのブラウザでも開けるリンクでファイルを移せます。<highlight>相手側にアプリは不要です。</highlight>",
-    "ctaPrimary": "BIShareを無料で入手",
-    "ctaSecondary": "使い方"
-  },
-  "why": {
-    "title": "AirDropがWindowsに届かない理由",
-    "body": "AirDropはApple独自のプロトコルで動くため、iPhone・iPad・Mac同士でしか使えず、Windows PCには決して届きません。MicrosoftのPhone LinkやGoogleのQuick Shareは<strong>Android ↔ Windows</strong>をカバーしますが、iPhoneはまるごと対象外。つまり「iPhoneの写真や書類をWindowsノートに取り込む」という日常的な用途に、すっきりした標準の手段がないのです。BIShareはまさにそこを橋渡しするために作られました。"
-  },
-  "how": {
-    "title": "BIShareがiPhone / Mac ↔ Windowsを送る仕組み",
-    "items": {
-      "0": {
-        "h": "同じWi-Fi上で",
-        "b": "ファイルは端末から端末へ直接、エンドツーエンドで暗号化されて送られ、サーバーには何も保存されません。高速で、インターネットがなくてもスマホのテザリング経由で動きます。"
-      },
-      "1": {
-        "h": "離れているとき",
-        "b": "リンク、QRコード、6文字のコードが発行されます。Windows PC側はリンクをどのブラウザでも開いてダウンロードするだけ — アプリも登録も不要。リンクは24時間で自動的に失効します。"
-      },
-      "2": {
-        "h": "あらゆるプラットフォーム",
-        "b": "iPhone、Mac、Windows、Android、Linux — 1つのアプリで、どの方向にも。スマホからPCへ、PCから誰にでも送れます。"
-      }
-    }
-  },
-  "comparison": {
-    "title": "Windowsでの AirDrop・Nearby Share・BIShare 比較",
-    "cols": {
-      "airdrop": "AirDrop",
-      "quick": "Nearby Share",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "iphoneWindows": "iPhone → Windows",
-      "macWindows": "Mac → Windows",
-      "crossPlatform": "iPhone + Android で使える",
-      "noApp": "受け取る側にアプリ不要",
-      "free": "無料・アカウント不要"
-    }
-  },
-  "faq": {
-    "title": "iPhone・MacからWindowsへ：よくある質問",
-    "items": {
-      "0": {
-        "q": "AirDropはWindowsで使えますか？",
-        "a": "いいえ。AirDropはApple専用の機能で、Windows版AirDropアプリは存在しません。iPhoneやMacとWindows PCの間で送るには、あらゆる方向に対応するBIShareのようなクロスプラットフォームのツールが必要です。"
-      },
-      "1": {
-        "q": "iPhoneからWindows PCへAirDropするには？",
-        "a": "AirDrop自体は使えませんが、BIShareが同じ役割を果たします。同じWi-Fiなら端末から端末へ直接送信。離れているときはリンクを発行し、Windows PCがどのブラウザでも開いてファイルをダウンロードできます — PC側にアプリは不要です。"
-      },
-      "2": {
-        "q": "Windowsに最適なAirDropの代替は？",
-        "a": "BIShareです。AirDrop（Apple専用）やNearby Share（iPhone非対応）と違い、iPhone・Mac・Windows・Android・Linuxすべてをカバー。だからどの標準機能でもできない「iPhone/MacからWindowsへ」に対応できます。"
-      },
-      "3": {
-        "q": "MacからWindows PCへファイルを送るには？",
-        "a": "MacにBIShareをインストールします。同じネットワークでWindows PCを選んで送信 — エンドツーエンド暗号化で直接届きます。近くにいない？ リンク・QR・6文字コードを共有し、PCのブラウザでダウンロードすればOKです。"
-      },
-      "4": {
-        "q": "BIShareは無料ですか？",
-        "a": "はい — 無料でアカウントも不要です。自分のネットワーク経由の近距離転送にはサイズ上限がなく、共有リンクは誰でも、どのプラットフォームでも使えます。"
-      }
-    }
-  },
-  "cta": {
-    "title": "スマホとPCの間で、数秒でファイルを移動",
-    "body": "無料・アカウント不要。iPhone、Mac、PCにインストールして送り始めるだけ — 相手はアプリすら要りません。",
-    "download": "BIShareをダウンロード"
-  },
-  "a11y": {
-    "yes": "対応",
-    "no": "非対応"
+ "meta": {
+  "title": "Windows版AirDrop — iPhone・Mac・PC間でファイルを送る | BIShare",
+  "description": "AirDropはWindowsで使えません。BIShareはそのクロスプラットフォームな代替手段。iPhoneやMacとWindows PCの間で（さらにAndroidやLinuxも）Wi-Fi経由で瞬時に、または相手がどのブラウザでも開けるリンクでファイルを送れます。無料・アカウント不要。"
+ },
+ "hero": {
+  "eyebrow": "クロスプラットフォーム転送",
+  "title": "Windows版AirDrop",
+  "body": "AirDropはApple製品同士なら快適。でもWindows PCには届きません。<strong>BIShare</strong>はそのクロスプラットフォームな代替手段です。<strong>iPhoneやMacとWindows PC</strong>の間で（さらにAndroidやLinuxも）、ローカルのWi-Fi経由で瞬時に、または相手がどのブラウザでも開けるリンクでファイルを移せます。<highlight>相手側にアプリは不要です。</highlight>",
+  "ctaPrimary": "BIShareを無料で入手",
+  "ctaSecondary": "使い方"
+ },
+ "why": {
+  "title": "AirDropがWindowsに届かない理由",
+  "body": "AirDropはApple独自のプロトコルで動くため、iPhone・iPad・Mac同士でしか使えず、Windows PCには決して届きません。MicrosoftのPhone LinkやGoogleのQuick Shareは<strong>Android ↔ Windows</strong>をカバーしますが、iPhoneはまるごと対象外。つまり「iPhoneの写真や書類をWindowsノートに取り込む」という日常的な用途に、すっきりした標準の手段がないのです。BIShareはまさにそこを橋渡しするために作られました。"
+ },
+ "how": {
+  "title": "BIShareがiPhone / Mac ↔ Windowsを送る仕組み",
+  "items": {
+   "0": {
+    "h": "同じWi-Fi上で",
+    "b": "ファイルは端末から端末へ直接、エンドツーエンドで暗号化されて送られ、サーバーには何も保存されません。高速で、インターネットがなくてもスマホのテザリング経由で動きます。"
+   },
+   "1": {
+    "h": "離れているとき",
+    "b": "リンク、QRコード、6文字のコードが発行されます。Windows PC側はリンクをどのブラウザでも開いてダウンロードするだけ — アプリも登録も不要。リンクは24時間で自動的に失効します。"
+   },
+   "2": {
+    "h": "あらゆるプラットフォーム",
+    "b": "iPhone、Mac、Windows、Android、Linux — 1つのアプリで、どの方向にも。スマホからPCへ、PCから誰にでも送れます。"
+   }
   }
+ },
+ "comparison": {
+  "title": "Windowsでの AirDrop・Nearby Share・BIShare 比較",
+  "cols": {
+   "airdrop": "AirDrop",
+   "quick": "Nearby Share",
+   "bishare": "BIShare"
+  },
+  "rows": {
+   "iphoneWindows": "iPhone → Windows",
+   "macWindows": "Mac → Windows",
+   "crossPlatform": "iPhone + Android で使える",
+   "noApp": "受け取る側にアプリ不要",
+   "free": "無料・アカウント不要"
+  }
+ },
+ "faq": {
+  "title": "iPhone・MacからWindowsへ：よくある質問",
+  "items": {
+   "0": {
+    "q": "AirDropはWindowsで使えますか？",
+    "a": "いいえ。AirDropはApple専用の機能で、Windows版AirDropアプリは存在しません。iPhoneやMacとWindows PCの間で送るには、あらゆる方向に対応するBIShareのようなクロスプラットフォームのツールが必要です。"
+   },
+   "1": {
+    "q": "iPhoneからWindows PCへAirDropするには？",
+    "a": "AirDrop自体は使えませんが、BIShareが同じ役割を果たします。同じWi-Fiなら端末から端末へ直接送信。離れているときはリンクを発行し、Windows PCがどのブラウザでも開いてファイルをダウンロードできます — PC側にアプリは不要です。"
+   },
+   "2": {
+    "q": "Windowsに最適なAirDropの代替は？",
+    "a": "BIShareです。AirDrop（Apple専用）やNearby Share（iPhone非対応）と違い、iPhone・Mac・Windows・Android・Linuxすべてをカバー。だからどの標準機能でもできない「iPhone/MacからWindowsへ」に対応できます。"
+   },
+   "3": {
+    "q": "MacからWindows PCへファイルを送るには？",
+    "a": "MacにBIShareをインストールします。同じネットワークでWindows PCを選んで送信 — エンドツーエンド暗号化で直接届きます。近くにいない？ リンク・QR・6文字コードを共有し、PCのブラウザでダウンロードすればOKです。"
+   },
+   "4": {
+    "q": "BIShareは無料ですか？",
+    "a": "はい — 無料でアカウントも不要です。自分のネットワーク経由の近距離転送にはサイズ上限がなく、共有リンクは誰でも、どのプラットフォームでも使えます。"
+   },
+   "5": {
+    "q": "Windows 11で標準のAirDropは使えますか？",
+    "a": "使えません。AirDropはApple独自のプロトコルの上に作られており、どのバージョンのWindows向けにも公開されたことがありません。Windows 11の「ニアバイ共有」はWindows PC同士のみ、MicrosoftのPhone LinkはAndroid前提で、どちらもiPhoneとのファイル転送には届きません。その隙間を埋めるのがクロスプラットフォームのアプリです。"
+   },
+   "6": {
+    "q": "インターネット接続がなくても動きますか？",
+    "a": "はい。転送はローカルネットワーク上を通るので、ルーターだけで十分です。ルーターがなければ、モバイルデータを切ったままのテザリングでも動きます。ローカル経路にはDNSもサーバーも時刻同期も必要ありません。"
+   },
+   "7": {
+    "q": "iPhoneからPCへ送る際にサイズ制限はありますか？",
+    "a": "ローカル経路にはありません。上限は受信側PCの空き容量なので、数GBの動画やフォルダーごとでも通常どおり転送できます。制限があるのはインターネットのリンク経由のみで、無料プランでは1回あたり10GBです。"
+   }
+  }
+ },
+ "cta": {
+  "title": "スマホとPCの間で、数秒でファイルを移動",
+  "body": "無料・アカウント不要。iPhone、Mac、PCにインストールして送り始めるだけ — 相手はアプリすら要りません。",
+  "download": "BIShareをダウンロード"
+ },
+ "a11y": {
+  "yes": "対応",
+  "no": "非対応"
+ },
+ "steps": {
+  "title": "Windowsで“AirDrop風”の転送を設定する手順",
+  "intro": "最初の5分だけ。あとはiPhoneやMacからPCへ2タップで送れます。AirDropと同じテンポを、本来想定されていなかったプラットフォーム間で。",
+  "items": {
+   "0": {
+    "h": "PCにBIShareを入れる",
+    "b": "Windows版をダウンロードして起動します。アカウント作成も設定も不要で、開いた瞬間からデバイス一覧が表示され、受信待ち受けが始まります。"
+   },
+   "1": {
+    "h": "スマホやMacにも入れる",
+    "b": "App StoreまたはGoogle Playから。直接転送には両方に必要です。相手が何もインストールできない場合は、下のブラウザ方式へ——相手側には何も要りません。"
+   },
+   "2": {
+    "h": "両方を同じWi-Fiにつなぐ",
+    "b": "ゲストネットワークでも構いませんが、必ず同じネットワークに。インターネット接続は不要で、モバイルデータを切ったテザリングでも立派なネットワークとして機能します。"
+   },
+   "3": {
+    "h": "ローカルネットワークの許可を出す",
+    "b": "初回起動時、iOSはローカルネットワークへのアクセスを、Windowsはファイアウォールの通過を尋ねます。どちらも許可してください。ここで拒否することが、後で「端末同士が見つからない」最大の原因です。"
+   },
+   "4": {
+    "h": "ファイルを選び、端末をタップ",
+    "b": "1〜2秒でスマホの一覧にPCが現れます。送るものを選んでPCをタップし、Windows側で承認するだけ。元の画質のまま、サイズ制限なしで届きます。"
+   }
+  }
+ },
+ "directions": {
+  "title": "片道ではなく、双方向で",
+  "toPc": {
+   "h": "iPhone / Mac → Windows PC",
+   "b": "よくある場面：写真・動画・書類をスマホからPCへ、ローカルWi-Fiの速度で、元ファイルのまま。再圧縮なし、メールの25MBの壁なし、途中でサーバーに置かれることもありません。"
+  },
+  "toPhone": {
+   "h": "Windows PC → iPhone / Mac",
+   "b": "同じ経路の逆方向——AirDropが一度も提供しなかった方向です。PCアプリにファイルをドラッグしてスマホへ。大きな動画やフォルダーも小さなファイルと同じ扱いで、上限はアップロード枠ではなくディスクの空き容量です。"
+  }
+ },
+ "fixes": {
+  "title": "PCとスマホがお互いを見つけられないとき",
+  "items": {
+   "0": {
+    "h": "同じ部屋ではなく、同じネットワークかを確認",
+    "b": "ゲストネットワークは別のネットワークです。ルーターによっては2.4GHzと5GHzが互いに隔離されています。両方の端末で同じネットワーク名が表示されているか確かめてから、もう一度試してください。"
+   },
+   "1": {
+    "h": "Windowsファイアウォールでアプリを許可する",
+    "b": "最初の確認を閉じてしまった場合は、Windowsセキュリティ → ファイアウォールとネットワーク保護 → アプリの許可 から、BIShareのプライベートネットワークにチェックを入れます。"
+   },
+   "2": {
+    "h": "公共Wi-Fiは端末同士の通信を遮ることが多い",
+    "b": "カフェやホテルではクライアント分離が有効になっていることが多く、同じアクセスポイントの端末同士が到達できません。利用者側の設定では直せないので、自分のスマホのテザリングに切り替えてください。"
+   }
+  }
+ }
 }

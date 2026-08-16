@@ -49,7 +49,9 @@ const COMPARISON: Array<{
 ];
 
 const HOW_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4"] as const;
+const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7"] as const;
+const STEP_ITEMS = ["0", "1", "2", "3", "4"] as const;
+const FIX_ITEMS = ["0", "1", "2"] as const;
 
 function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) {
   return ok ? (
@@ -160,6 +162,74 @@ export default async function AirdropForWindowsPage({
         </section>
 
         {/* Comparison */}
+        {/* Commercial intent: the searcher wants to DO it, so the page carries
+            the actual walkthrough rather than deferring to a blog post. */}
+        <section className="mt-14">
+          <h2 className="text-2xl font-semibold tracking-[-0.02em]">
+            {t("steps.title")}
+          </h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            {t("steps.intro")}
+          </p>
+          <ol className="mt-5 space-y-4">
+            {STEP_ITEMS.map((i, n) => (
+              <li
+                key={i}
+                className="flex gap-4 rounded-xl border border-border bg-card p-5"
+              >
+                <span className="font-mono text-sm font-semibold text-accent-blue">
+                  {String(n + 1).padStart(2, "0")}
+                </span>
+                <span>
+                  <h3 className="font-semibold">{t(`steps.items.${i}.h`)}</h3>
+                  <p className="mt-1.5 text-[15px] leading-relaxed text-muted-foreground">
+                    {t(`steps.items.${i}.b`)}
+                  </p>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="mt-14">
+          <h2 className="text-2xl font-semibold tracking-[-0.02em]">
+            {t("directions.title")}
+          </h2>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-border bg-card p-5">
+              <h3 className="font-semibold">{t("directions.toPc.h")}</h3>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-muted-foreground">
+                {t("directions.toPc.b")}
+              </p>
+            </div>
+            <div className="rounded-xl border border-border bg-card p-5">
+              <h3 className="font-semibold">{t("directions.toPhone.h")}</h3>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-muted-foreground">
+                {t("directions.toPhone.b")}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-14">
+          <h2 className="text-2xl font-semibold tracking-[-0.02em]">
+            {t("fixes.title")}
+          </h2>
+          <ul className="mt-5 space-y-3">
+            {FIX_ITEMS.map((i) => (
+              <li
+                key={i}
+                className="rounded-xl border border-border bg-card p-5"
+              >
+                <h3 className="font-semibold">{t(`fixes.items.${i}.h`)}</h3>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-muted-foreground">
+                  {t(`fixes.items.${i}.b`)}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section className="mt-14">
           <h2 className="text-2xl font-semibold tracking-[-0.02em]">
             {t("comparison.title")}
