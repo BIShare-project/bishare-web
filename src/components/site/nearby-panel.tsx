@@ -165,6 +165,24 @@ export function NearbyPanel() {
     };
   }, [supported, self, mode, code]);
 
+  // A finished receive is terminal: without this the "Saved ✓" modal has no
+  // exit at all (the backdrop deliberately doesn't dismiss, so it trapped the
+  // page). Auto-clear shortly after saving — matching the sender's own
+  // "Sent ✓" fade — and only if this exact transfer is still on screen, so a
+  // new offer arriving meanwhile is never dismissed out from under the user.
+  useEffect(() => {
+    if (incoming?.status !== "done") return;
+    const { from } = incoming;
+    const timer = window.setTimeout(
+      () =>
+        setIncoming((cur) =>
+          cur && cur.from === from && cur.status === "done" ? null : cur,
+        ),
+      2500,
+    );
+    return () => window.clearTimeout(timer);
+  }, [incoming?.status, incoming?.from]);
+
   const pickFileFor = useCallback((peerId: string) => {
     targetPeer.current = peerId;
     fileInput.current?.click();
@@ -417,7 +435,16 @@ export function NearbyPanel() {
             </div>
           )}
           {incoming.status === "done" && (
-            <p className="mt-3 text-sm font-medium text-success">{t("saved")}</p>
+            <div className="mt-3 flex items-center justify-between gap-3">
+              <p className="text-sm font-medium text-success">{t("saved")}</p>
+              <button
+                onClick={() => setIncoming(null)}
+                autoFocus
+                className="rounded-lg border border-border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-secondary"
+              >
+                {t("close")}
+              </button>
+            </div>
           )}
         </div>
         </div>
