@@ -21,7 +21,7 @@ import {
   forgetTransfer,
   rememberTransfer,
 } from "@/app/[locale]/(site)/transfer/recent-transfers";
-import { EncryptedSource, generateKey, encodeKey } from "@/lib/e2e/crypto";
+import { EncryptedSource, generateKey, encodeKey, maxPlaintextFor } from "@/lib/e2e/crypto";
 import type { TransferUploadResponse } from "@/lib/types";
 import { Button } from "@/components/site/ui/button";
 import { GlowProgress, SuccessCheck } from "@/components/flow-shell";
@@ -526,15 +526,21 @@ async function uploadEntry(
 function validateFile(
   file: File,
   maxFileSize: number,
-  t: Translator
+  t: Translator,
+  encrypted = false
 ): string | null {
   if (isBlockedFileType(file.name)) {
     const dot = file.name.lastIndexOf(".");
     const ext = dot >= 0 ? file.name.slice(dot) : "";
     return t("upload.errors.blockedType", { ext });
   }
-  if (file.size > maxFileSize) {
-    return t("upload.errors.tooLarge", { size: formatFileSize(maxFileSize) });
+  // Encrypted uploads reserve the transfer by CIPHERTEXT size (header + a tag
+  // per record), so the real plaintext ceiling sits just under the plan limit.
+  // Checking the raw size here let a file within ~160 KiB of 10 GiB start and
+  // then die on a bare 413 from the relay.
+  const effectiveMax = encrypted ? maxPlaintextFor(maxFileSize) : maxFileSize;
+  if (file.size > effectiveMax) {
+    return t("upload.errors.tooLarge", { size: formatFileSize(effectiveMax) });
   }
   if (file.size <= 0) {
     return t("upload.errors.empty");
@@ -611,7 +617,7 @@ export function FileUpload() {
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       const newFiles: UploadEntry[] = acceptedFiles.map((file) => {
-        const error = validateFile(file, maxFileSize, t);
+        const error = validateFile(file, maxFileSize, t, encrypt);
         return {
           id: `upload-${++entryCounter}`,
           file,
@@ -622,7 +628,7 @@ export function FileUpload() {
       });
       setFiles((prev) => [...prev, ...newFiles]);
     },
-    [maxFileSize, t]
+    [maxFileSize, t, encrypt]
   );
 
   const { getRootProps, isDragActive } = useDropzone({

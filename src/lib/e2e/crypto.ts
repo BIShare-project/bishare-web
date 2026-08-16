@@ -91,6 +91,21 @@ export function ciphertextSize(plaintextSize: number): number {
   return HEADER_SIZE + plaintextSize + recordCount(plaintextSize) * TAG_SIZE;
 }
 
+/**
+ * Inverse of [ciphertextSize]: the largest plaintext whose ciphertext still
+ * fits in `maxCiphertext`. The uploader reserves the transfer by CIPHERTEXT
+ * size, so validating a picked file against the raw plan limit lets a file
+ * within one header+tags of the ceiling through, only to be rejected mid-flight
+ * with a bare 413. Estimate, then walk down the boundary — record count is a
+ * step function, so a closed form can overshoot by one record's tag.
+ */
+export function maxPlaintextFor(maxCiphertext: number): number {
+  let p = Math.floor(((maxCiphertext - HEADER_SIZE) * RECORD_SIZE) / (RECORD_SIZE + TAG_SIZE));
+  if (p <= 0) return 0;
+  while (p > 0 && ciphertextSize(p) > maxCiphertext) p--;
+  return p;
+}
+
 // ── Encrypt (sender) ─────────────────────────────────────────────────────
 
 function buildHeader(salt: Uint8Array, plaintextSize: number): Uint8Array {
