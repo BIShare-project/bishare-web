@@ -93,7 +93,7 @@ export function FileThumb({ file }: { file: File }) {
 
   return (
     <span className="flex h-full w-full items-center justify-center text-muted-foreground">
-      <Icon className="h-7 w-7" strokeWidth={1.6} />
+      <Icon className="h-5 w-5" strokeWidth={1.6} />
     </span>
   );
 }

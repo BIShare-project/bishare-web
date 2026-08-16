@@ -1133,7 +1133,7 @@ export function FileUpload() {
               of filenames makes you read to find a file; a grid lets you spot
               it. Each tile opens the preview dialog on tap. */}
           {files.length > 0 && (
-            <div className="mt-5 grid w-full grid-cols-2 gap-2.5 text-left sm:grid-cols-3">
+            <div className="mt-5 grid w-full grid-cols-3 gap-2 text-left sm:grid-cols-4 lg:grid-cols-5">
               <AnimatePresence>
                 {files.map((f) => (
                   <motion.div
@@ -1169,12 +1169,12 @@ export function FileUpload() {
 
                       {f.status === "done" && (
                         <span className="absolute right-1.5 top-1.5 rounded-full bg-background/90 p-0.5">
-                          <CheckCircle2 className="h-4 w-4 text-success" />
+                          <CheckCircle2 className="h-3.5 w-3.5 text-success" />
                         </span>
                       )}
 
                       {f.status === "uploading" && (
-                        <span className="absolute inset-0 flex items-center justify-center bg-background/70 font-mono text-sm font-semibold text-primary tabular-nums">
+                        <span className="absolute inset-0 flex items-center justify-center bg-background/70 font-mono text-xs font-semibold text-primary tabular-nums">
                           {f.progress}%
                         </span>
                       )}
@@ -1190,18 +1190,20 @@ export function FileUpload() {
                             }}
                             className="absolute right-1.5 top-1.5 rounded-full bg-background/85 p-1 text-muted-foreground opacity-0 transition-opacity hover:text-destructive focus-visible:opacity-100 group-hover/tile:opacity-100"
                           >
-                            <X className="h-3.5 w-3.5" />
+                            <X className="h-3 w-3" />
                           </button>
                         )}
                     </div>
 
-                    <div className="px-2 py-1.5">
-                      <p className="truncate text-xs font-medium text-foreground">{f.file.name}</p>
-                      <p className="text-[11px] text-muted-foreground">
+                    <div className="px-1.5 py-1">
+                      <p className="truncate text-[11px] font-medium leading-tight text-foreground">
+                        {f.file.name}
+                      </p>
+                      <p className="text-[10px] leading-tight text-muted-foreground">
                         {formatFileSize(f.file.size, locale)}
                       </p>
                       {(f.status === "error" || f.status === "blocked") && (
-                        <p className="mt-0.5 line-clamp-2 text-[11px] text-destructive">
+                        <p className="mt-0.5 line-clamp-2 text-[10px] leading-tight text-destructive">
                           {f.errorMsg}
                         </p>
                       )}
