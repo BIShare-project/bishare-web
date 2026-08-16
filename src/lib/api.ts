@@ -140,6 +140,33 @@ export async function getWebNearbyEnabled(): Promise<boolean> {
 }
 
 /**
+ * Feature flag `web_stream_enabled` from GET /api/v1/config — gates play/preview
+ * of an encrypted transfer straight from its link (streaming service worker).
+ * Cached module-level; defaults false when unreachable/unset, so a bad deploy or
+ * an unreachable config leaves recipients with the plain download they always
+ * had rather than a half-working player.
+ */
+let webStreamFlagPromise: Promise<boolean> | null = null;
+
+export async function getWebStreamEnabled(): Promise<boolean> {
+  if (!webStreamFlagPromise) {
+    webStreamFlagPromise = (async () => {
+      try {
+        const res = await doFetch(`${API_URL}/api/v1/config`, { cache: "no-store" });
+        if (!res.ok) return false;
+        const body = (await res.json()) as {
+          data?: { flags?: { web_stream_enabled?: unknown } };
+        };
+        return body?.data?.flags?.web_stream_enabled === true;
+      } catch {
+        return false;
+      }
+    })();
+  }
+  return webStreamFlagPromise;
+}
+
+/**
  * Feature flag `web_qr_beam_enabled` from GET /api/v1/config — gates the QR Beam
  * tab (offline QR-stream transfer) on the web transfer tool. Cached module-level;
  * defaults false when unreachable/unset so it stays hidden until an admin flips it.
