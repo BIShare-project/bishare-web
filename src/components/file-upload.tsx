@@ -158,7 +158,9 @@ function sendXhr(opts: {
   method: string;
   url: string;
   headers: Record<string, string>;
-  body: Blob;
+  // File-backed Blobs stay on disk; synthesized ciphertext is passed as a raw
+  // view instead, which the GC reclaims per part (see uploadEncrypted).
+  body: Blob | ArrayBufferView<ArrayBuffer>;
   onProgress: (pct: number) => void;
   t: Translator;
   signal?: AbortSignal;
@@ -389,7 +391,13 @@ async function uploadEncrypted(
     const start = (p - 1) * partSize;
     const end = Math.min(start + partSize, ctSize);
     const bytes = await source.slice(start, end); // deterministic → safe to retry
-    const blob = new Blob([bytes.buffer as ArrayBuffer]);
+    // Send the view itself — never `new Blob([bytes])`. Every synthesized Blob
+    // is registered in Chromium's blob store and only released on GC, so a
+    // 205-part loop piled up faster than it could collect and died with
+    // ERR_BLOB_OUT_OF_MEMORY around 2 GiB. A plain view is ordinary heap the
+    // collector reclaims between parts. (The unencrypted path slices the File,
+    // which stays disk-backed, so it was never affected.)
+    const partBytes = bytes.byteLength;
     for (let attempt = 0; ; attempt++) {
       if (signal?.aborted) throw new Error(t("upload.errors.canceled"));
       try {
@@ -398,8 +406,8 @@ async function uploadEncrypted(
           method: "PUT",
           url,
           headers: {},
-          body: blob,
-          onProgress: (pct) => report((pct / 100) * blob.size),
+          body: bytes,
+          onProgress: (pct) => report((pct / 100) * partBytes),
           t,
           signal,
         });
@@ -410,7 +418,7 @@ async function uploadEncrypted(
         partUrls.delete(p); // force a fresh presign in case the URL expired
       }
     }
-    doneBytes += blob.size;
+    doneBytes += partBytes;
     report(0);
   }
 
