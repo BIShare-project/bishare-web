@@ -1,0 +1,154 @@
+Every article about QUIC tells you it's faster than TCP. We built a QUIC file-transfer engine, measured it against our own TCP path, and got a number that disagreed: **129 MB/s for QUIC against roughly 200 for TCP**, on the same machine, moving the same bytes.
+
+That result is not a scandal and it isn't a reason to avoid QUIC. It's a reason to understand what the protocol actually optimizes, because "faster" turns out to be the least useful word in the discussion. QUIC trades one kind of speed for several kinds of resilience, and whether that trade pays depends entirely on the network you're standing on.
+
+So this is an explainer written from the inside of an implementation. Each section takes one piece of the protocol, says what it does in plain terms, and then reports what happened when we actually shipped it.
+
+## QUIC in one paragraph
+
+QUIC is a transport protocol that does the job of TCP, but runs on top of UDP and has encryption built in rather than layered on. It was developed at Google, standardized by the IETF as [RFC 9000](https://datatracker.ietf.org/doc/html/rfc9000) in 2021, and it is the foundation of HTTP/3. Its headline properties: connections establish in a single round trip (sometimes zero), multiple independent streams share one connection without blocking each other, and a connection survives your device changing networks.
+
+If you've loaded a web page in the last few years, you've almost certainly used it without noticing.
+
+## The problem it was built to solve
+
+To see why QUIC exists, look at what a secure TCP connection costs before it moves a single byte of your data.
+
+First, TCP's own handshake: one round trip to agree the connection exists. Then TLS on top of that: at least one more round trip to agree on keys. On a connection to a server 100 milliseconds away, that's 200–300 milliseconds of pure ceremony — noticeable on a web page, and repeated for every new connection.
+
+Then there's the deeper structural problem: **head-of-line blocking**. TCP delivers a single ordered byte stream. If one packet is lost, everything behind it waits, even data that arrived intact and belongs to something completely unrelated. HTTP/2 tried to fix this by multiplexing many requests over one TCP connection — and inherited the problem wholesale, because from TCP's point of view there is still only one stream, and one lost packet stalls all of them.
+
+The third motivation is subtler and more political: **ossification**. TCP lives in the operating system kernel and is inspected by every middlebox on the internet, so changing it requires the entire world to upgrade. Putting a transport in userspace, on top of UDP, encrypted so middleboxes can't inspect or "helpfully" rewrite it, makes it possible to evolve the protocol at software speed.
+
+## Feature one: streams that don't block each other
+
+This is QUIC's genuinely elegant idea. A connection carries many independent streams, and loss on one does not stall the others. Lose a packet belonging to stream 7 and streams 1 through 6 keep delivering, because the protocol tracks them separately rather than pretending they're one ordered river.
+
+![Head-of-line blocking compared: with TCP a single lost packet stalls everything behind it, while QUIC's independent streams keep flowing](/blog/diagram-quic-hol.svg)
+
+For file transfer this maps onto a real problem. Sending 500 photos over one ordered stream means a single retransmission holds up everything behind it — the same batching problem that shows up when [sending very large sets of files](/blog/send-10gb-files-online-free). With independent streams you can have several files genuinely in flight, and a hiccup on one is invisible to the rest.
+
+It also changes what you can do with integrity checking, which is where it got interesting for us. If files arrive strictly in order, you can hash them as a running stream. If chunks land out of order across many streams — which is exactly what QUIC's parallelism gives you — you can't. Our solution was to hash each chunk on arrival as a leaf, then combine the leaves into a Merkle root: order-independent, computed as data lands, and crucially not requiring us to re-read 100 GB from disk at the end to verify what we just wrote. The parallelism the protocol offers only pays off if everything downstream of it can also work out of order.
+
+## Feature two: the handshake, and when it doesn't matter
+
+QUIC folds the transport and cryptographic handshakes together. A new connection is established in one round trip; a resumed connection to a server you've spoken to before can be **0-RTT**, meaning application data rides along with the very first packet.
+
+On the internet this is a genuine win. Cut 100–200 milliseconds off every new connection and page loads feel different, which is most of why HTTP/3 exists.
+
+On a local network it is close to meaningless, and this is the kind of thing an honest explainer should say. Round-trip time between two devices on the same Wi-Fi is a fraction of a millisecond. Saving one round trip saves you something you could not perceive with a stopwatch. If someone tells you QUIC will make transfers between your phone and your laptop faster *because of the handshake*, they are quoting a benchmark from a different problem domain.
+
+There's a security footnote worth knowing: 0-RTT data is replayable by design, so it's only safe for operations that don't change state. That constraint is why 0-RTT is used carefully rather than everywhere.
+
+## Feature three: connection migration
+
+TCP identifies a connection by four things: source address, source port, destination address, destination port. Change any of them — walk out of Wi-Fi range and switch to cellular — and by definition it is a different connection. Yours is dead. Everything restarts.
+
+QUIC identifies connections by a **connection ID** that travels inside the encrypted packet, independent of the IP address carrying it. Change networks and the connection continues, because the identity was never the address.
+
+For a mobile file transfer this is the feature with the highest real-world value. A large transfer that survives leaving the house is qualitatively different from one that doesn't. It's also the feature that made us build [resume](/blog/send-massive-video-files-to-clients) separately anyway: migration handles the network changing under a live connection, but it can't help when the app is killed, the device sleeps, or you deliberately stop and continue tomorrow. Those need a durable record of what's already on disk, which is a different mechanism at a different layer.
+
+## The measurement that surprised us
+
+Now the number from the opening. On a Mac, loopback, our QUIC path sustained about **129 MB/s** while the TCP path did roughly **200 MB/s**. Same file, same machine, same encryption. QUIC lost by a wide margin.
+
+The cause is not the protocol design; it's where the protocol runs. TCP lives in the kernel, and the kernel has spent decades acquiring optimizations for it — most importantly segmentation offload, where you hand it one large buffer and the network stack (or the network card) slices it into packets for you. One system call, many packets.
+
+QUIC lives in userspace on top of UDP, so by default your application makes a system call **per datagram**. At line rate that's an enormous number of transitions into the kernel and back, and the CPU spends its time on ceremony rather than data. Linux offers `UDP_SEGMENT` (generic segmentation offload) to claw this back, and QUIC implementations that use it get much closer to TCP. macOS does not offer the equivalent — so on a Mac, the syscall wall is simply there, and you measure it.
+
+We track this directly rather than guessing: our metrics record datagrams sent, bytes sent, and — the telling one — the number of send *I/O operations*. The ratio between datagrams and I/O calls tells you immediately whether offload is doing anything on the platform you're running on.
+
+The lesson generalizes past our code: **a protocol's theoretical properties and its throughput on your hardware are different questions.** QUIC's advantages are about behavior under loss, latency, and network change. On a clean, fast, zero-loss local link — the best case for TCP and the least interesting case for QUIC — the older protocol wins on raw bytes per second, and it wins because of thirty years of kernel engineering rather than because of anything about congestion control.
+
+## The 7% packet loss that shouldn't have existed
+
+The other measurement worth publishing is stranger. Early in tuning, we recorded roughly **7% packet loss on loopback** — that is, packets being dropped while travelling from a machine to itself, across no network at all.
+
+The culprit was buffer sizing. QUIC at high throughput generates on the order of a hundred thousand datagrams per second, and the operating system's default UDP receive buffer on macOS is around 64 KB. That buffer fills in a fraction of a millisecond during a burst; anything arriving while it's full is discarded by the kernel before your program ever sees it. To QUIC's congestion controller this is indistinguishable from a congested network, so it dutifully slows down — throttling a transfer because of a queue inside the same computer.
+
+The fix is unglamorous: request 4 MB receive and send buffers on the socket before handing it to the QUIC implementation, best-effort because the kernel may clamp you. Loss went to zero and throughput stabilized.
+
+I include this because it's the most transferable lesson here. If you're implementing anything on UDP at high rates, buffer sizing is not a micro-optimization — it is the difference between working and mysteriously not working, and the symptom (packet loss) points confidently at the wrong culprit (the network).
+
+## What we watch, and what it tells us
+
+If you take one practical idea from an implementer, take this: QUIC exposes information TCP mostly hides, and it's worth surfacing rather than treating the transport as a black box. Our engine reports, per connection: round-trip time, congestion window, congestion events, datagrams and bytes in each direction, I/O call counts, and the **actual negotiated path MTU**.
+
+That last one deserves a mention because it's a genuinely modern piece of the protocol. Rather than assuming a packet size and hoping, QUIC implementations can use [Datagram Packetization Layer Path MTU Discovery](https://datatracker.ietf.org/doc/html/rfc8899) to probe upward and find the largest packet that survives the path, then adapt if the path changes. When someone's transfers are slow, knowing whether their negotiated MTU collapsed to a minimum tells you more in one number than an hour of guessing.
+
+## Encryption isn't a layer here — it's the floor
+
+With TCP, encryption is something you add on top: the transport runs in the clear and TLS wraps the payload. Anyone on the path still sees the TCP headers — sequence numbers, flags, window sizes, the whole control plane — which is how middleboxes learned to inspect, throttle, and "optimize" connections in ways that made the protocol impossible to change.
+
+QUIC inverts that. Nearly the entire packet, including most of the transport header, is encrypted and authenticated. What an observer on the network gets is a UDP datagram, a connection ID, and a length — not stream structure, not sequence numbers, not the shape of what's inside. There is no unencrypted QUIC.
+
+Two consequences follow. The first is privacy: the traffic analysis that works against TCP gets considerably harder, though not impossible — sizes and timing still leak, which is a limit we've been careful to state in our [guide to end-to-end encryption](/blog/what-is-end-to-end-encrypted-file-sharing). The second is evolvability, and it's the strategic one: middleboxes cannot ossify what they cannot parse, so the protocol can keep changing after deployment.
+
+For file transfer specifically, this changes the division of labor in a way that surprised us. Because QUIC's AEAD already guarantees that what arrives is what was sent, a checksum over the wire is redundant — the transport has proven it. What a checksum *is* still good for is catching bugs on your own side of the boundary: a pipeline error, a bad write, a buffer reused when it shouldn't have been. That's why our engine keeps a fast per-chunk CRC as a **storage assertion** rather than a wire check, and states so in a comment next to the dependency, so nobody later mistakes it for security machinery it isn't.
+
+## Why not just fix TCP?
+
+The obvious question, and people did try. TCP Fast Open lets data ride along with the handshake, cutting a round trip. Multipath TCP lets one connection use several network paths at once. Both are genuinely clever, and neither displaced anything.
+
+The reason is deployment, not design. TCP lives in the operating system kernel, so a change requires every OS on both ends to ship it — and then it has to survive the journey. Middleboxes on the path (firewalls, NAT gateways, carrier-grade proxies, corporate inspection appliances) inspect TCP headers and frequently drop or rewrite anything they don't recognize. A new TCP option can be perfectly implemented on both ends and still fail on a meaningful percentage of real networks because a device in the middle decided it looked wrong. That is ossification in one sentence: the protocol cannot evolve because the network hardened around its current shape.
+
+QUIC's answer is structural. Ride on UDP, which middleboxes already pass because DNS and video depend on it. Encrypt the transport header so nothing in the middle can parse it, and therefore nothing in the middle can object to it. Put the implementation in userspace, so shipping an improvement means shipping an app update rather than an operating-system upgrade cycle.
+
+That last point is the one people underrate. It's why QUIC could iterate quickly enough to be worth standardizing at all — and it's also, honestly, why it gave up segmentation offload and the rest of the kernel's accumulated tuning. The freedom to change is bought with the performance the kernel had already banked.
+
+## TCP and QUIC, side by side
+
+<table>
+  <thead>
+    <tr><th></th><th>TCP + TLS</th><th>QUIC</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Runs in</td><td>Kernel</td><td>Userspace, over UDP</td></tr>
+    <tr><td>Handshake to first byte</td><td>2–3 round trips</td><td>1 round trip, or 0 when resuming</td></tr>
+    <tr><td>Loss on one stream</td><td>Blocks everything behind it</td><td>Other streams keep flowing</td></tr>
+    <tr><td>Changing networks</td><td>Connection dies</td><td>Survives via connection ID</td></tr>
+    <tr><td>Encryption</td><td>Layered on; headers in the clear</td><td>Built in; headers encrypted too</td></tr>
+    <tr><td>Kernel offload</td><td>Mature everywhere</td><td>Linux yes, macOS no</td></tr>
+    <tr><td>Throughput on a clean LAN</td><td>Higher</td><td>Lower — the syscall wall</td></tr>
+  </tbody>
+</table>
+
+The bottom two rows are the ones missing from most comparisons, and they are the reason our measurement came out the way it did.
+
+## So when should file transfer use QUIC?
+
+Reduced to a decision rather than a vibe:
+
+**Use QUIC when the path is imperfect.** Over the internet, through cellular, across links with real loss and real latency, or where a device may change networks mid-transfer. Every one of QUIC's advantages is about coping with adversity, and adversity is exactly what a remote transfer has.
+
+**TCP is fine — often better — on a clean local link.** Same Wi-Fi, low loss, sub-millisecond latency: TCP's kernel-side optimizations are hard to beat, and the machinery QUIC brings solves problems you don't currently have.
+
+**Multi-stream matters when you're sending many things.** One large file over one stream barely exercises the feature. Five hundred photos is where independent streams stop being a bullet point.
+
+**Measure on your actual platforms.** Our own result is platform-specific: the same code on Linux with segmentation offload closes much of the gap. Anyone quoting a single universal number for "QUIC versus TCP" is quoting a benchmark, not a fact.
+
+That's why our transport is a choice rather than a religion — [local transfers](/blog/transfer-files-locally-without-internet) take the path that's fastest on a clean network, and the QUIC engine exists for the conditions where its resilience is worth its overhead.
+
+## What this means if you're just choosing an app
+
+You are almost certainly not implementing a transport, so here is the practical translation.
+
+**"Uses QUIC" is not a feature you should pay for.** It's an engineering choice whose benefits appear under conditions you may never encounter. An app that transfers your files reliably over a plain TCP connection on your home Wi-Fi is not worse than one that advertises QUIC; on that specific link it is probably faster.
+
+**Where it does show up in daily use** is the awkward middle: transfers over cellular, transfers that continue when you walk out of the house, and sending many files at once where one stall shouldn't freeze the rest. If those describe you, an app built on QUIC has genuine structural advantages — not because of marketing, but because those are precisely the cases the protocol was designed around.
+
+**What to be skeptical of** is any single throughput number quoted without a network. "40% faster" is meaningless unless you know the loss rate, the latency, the operating system and whether segmentation offload was available. Our own headline figure would look completely different measured on Linux, which is exactly why we published the platform alongside it.
+
+## Where you're already using it
+
+QUIC's adoption happened quietly. It's the transport under **HTTP/3**, which every major browser supports and a large share of the top websites serve. Chrome, Edge, Firefox and Safari all speak it; Cloudflare, Google and Meta all serve it. If you've used a Google service on a mobile connection recently, a meaningful fraction of that traffic never touched TCP.
+
+It's also increasingly the substrate for things that aren't the web at all: DNS over QUIC, real-time media, VPN protocols. The pattern is consistent — wherever connections are long-lived, networks are unreliable, or devices move, the case for QUIC gets stronger.
+
+## The honest summary
+
+QUIC is not a magic speed upgrade, and any explainer that leads with "faster" has skipped the interesting part. It's a transport that made three specific trades: it moved to userspace to escape ossification, it made encryption mandatory rather than optional, and it replaced one ordered stream with many independent ones.
+
+Those trades buy you resilience — under loss, under latency, and when the network beneath you changes. They cost you the decades of kernel optimization that TCP inherited, which you feel most acutely in the one environment where you need resilience least: a fast, clean, local link.
+
+Knowing which of those situations you're in is the entire skill. And the way you find out isn't by reading an article — including this one. It's by measuring on the hardware you actually ship to, which is how we ended up with a number that contradicted the consensus and a much better understanding of why.
