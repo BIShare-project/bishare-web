@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { RelatedLinks } from "@/components/site/related-links";
 import { VButton } from "@/components/site/vbutton";
+import { HeroCta } from "@/components/site/hero-cta";
 import { StoreButtons } from "@/components/site/store-buttons";
 import { ArrowRight, Check, X } from "lucide-react";
 
@@ -112,14 +113,8 @@ export default async function TransferFilesPhoneToPcPage({
             ),
           })}
         </p>
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <VButton href="/download" size="lg">
-            {t("hero.ctaPrimary")}
-            <ArrowRight className="h-4 w-4" />
-          </VButton>
-          <VButton href="/how-it-works" size="lg" variant="secondary">
-            {t("hero.ctaSecondary")}
-          </VButton>
+        <div className="mt-8">
+          <HeroCta downloadLabel={t("hero.ctaPrimary")} />
         </div>
         <div className="mt-6">
           <StoreButtons />
