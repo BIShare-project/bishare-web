@@ -22,7 +22,7 @@ import {
   rememberTransfer,
 } from "@/app/[locale]/(site)/transfer/recent-transfers";
 import { EncryptedSource, generateKey, encodeKey, maxPlaintextFor } from "@/lib/e2e/crypto";
-import { SenderPreview } from "@/components/sender-preview";
+import { FilePreviewDialog } from "@/components/file-preview-dialog";
 import type { TransferUploadResponse } from "@/lib/types";
 import { Button } from "@/components/site/ui/button";
 import { GlowProgress, SuccessCheck } from "@/components/flow-shell";
@@ -589,6 +589,8 @@ export function FileUpload() {
   // fragment (#k=), so the relay is zero-knowledge. Users can still toggle off.
   const [encrypt, setEncrypt] = useState(true);
   const [expandedQR, setExpandedQR] = useState<string | null>(null);
+  // The file whose preview dialog is open — tapping a card inside the drop box.
+  const [previewFile, setPreviewFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const copyTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
   /** Aborts the in-flight upload batch (Cancel button + page-leave guard). */
@@ -854,10 +856,6 @@ export function FileUpload() {
                     {f.oneTime && <TagBadge>{t("upload.oneTimeBadge")}</TagBadge>}
                   </div>
 
-                  {/* Lets the sender confirm the recipient will actually be
-                      able to open this — rendered from the local File, so it
-                      costs no bandwidth. */}
-                  <SenderPreview file={f.file} />
 
                   <div className="flex items-center gap-2">
                     <input
@@ -1010,6 +1008,9 @@ export function FileUpload() {
   // ── Upload view ──
   return (
     <div className="w-full space-y-4" {...getRootProps()}>
+      {previewFile && (
+        <FilePreviewDialog file={previewFile} onClose={() => setPreviewFile(null)} />
+      )}
       <input
         ref={fileInputRef}
         type="file"
@@ -1066,60 +1067,81 @@ export function FileUpload() {
           <p className="mt-3 font-mono text-[11px] tracking-[0.08em] text-muted-foreground/80 uppercase">
             {t("upload.limits", { size: formatFileSize(maxFileSize, locale) })}
           </p>
+          {/* Picked files live INSIDE the box — the drop target and its
+              contents are one object, and each card opens a preview on tap
+              instead of trailing off as a separate list below. */}
+          {files.length > 0 && (
+            <div className="mt-5 w-full space-y-2 text-left">
+              <AnimatePresence>
+                {files.map((f) => (
+                  <motion.div
+                    key={f.id}
+                    layout
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={t("upload.previewAlt", { name: f.file.name })}
+                    // The box behind these cards opens the file picker, so a tap
+                    // meant for a preview must never reach it.
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setPreviewFile(f.file);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setPreviewFile(f.file);
+                      }
+                    }}
+                    className={cn(
+                      "relative cursor-pointer rounded-xl border bg-background/60 p-3 text-left transition-colors hover:bg-secondary/70",
+                      f.status === "uploading" ? "border-accent-blue/40" : "border-border",
+                      f.status === "blocked" && "border-destructive/40"
+                    )}
+                  >
+                    <div className="flex w-full items-center justify-between gap-3">
+                      <p className="min-w-0 flex-1 truncate text-sm font-medium text-foreground">
+                        {f.file.name}
+                      </p>
+                      <div className="flex shrink-0 items-center gap-2">
+                        <span className="rounded-lg bg-muted px-2 py-0.5 text-[11px] text-muted-foreground">
+                          {formatFileSize(f.file.size, locale)}
+                        </span>
+                        {f.status === "done" && <CheckCircle2 className="h-4 w-4 text-success" />}
+                        {f.status === "uploading" && (
+                          <span className="font-mono text-xs font-semibold text-primary tabular-nums">
+                            {f.progress}%
+                          </span>
+                        )}
+                        {(f.status === "pending" || f.status === "error" || f.status === "blocked") &&
+                          !isUploading && (
+                            <button
+                              type="button"
+                              aria-label={t("upload.removeAria", { name: f.file.name })}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                removeFile(f.id);
+                              }}
+                            >
+                              <X className="h-4 w-4 text-muted-foreground transition-colors hover:text-destructive" />
+                            </button>
+                          )}
+                      </div>
+                    </div>
+                    {f.status === "uploading" && <GlowProgress value={f.progress} className="mt-2.5" />}
+                    {(f.status === "error" || f.status === "blocked") && (
+                      <p className="mt-1.5 text-xs text-destructive">{f.errorMsg}</p>
+                    )}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          )}
         </div>
       </div>
-
-      {/* Queued / uploading file cards */}
-      <AnimatePresence>
-        {files.map((f) => (
-          <motion.div
-            key={f.id}
-            layout
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-            className={cn(
-              "relative rounded-2xl border border-border bg-card p-4 transition-shadow",
-              f.status === "uploading" && "ring-1 ring-accent-blue/30",
-              f.status === "blocked" && "border-destructive/40"
-            )}
-          >
-            <div className="flex w-full items-center justify-between gap-4">
-              <p className="min-w-0 flex-1 truncate text-sm font-medium text-foreground">
-                {f.file.name}
-              </p>
-              <div className="flex shrink-0 items-center gap-2">
-                <span className="rounded-lg bg-muted px-2 py-1 text-xs text-muted-foreground">
-                  {formatFileSize(f.file.size, locale)}
-                </span>
-                {f.status === "done" && <CheckCircle2 className="h-4 w-4 text-success" />}
-                {f.status === "uploading" && (
-                  <span className="font-mono text-xs font-semibold text-primary tabular-nums">
-                    {f.progress}%
-                  </span>
-                )}
-                {(f.status === "pending" || f.status === "error" || f.status === "blocked") &&
-                  !isUploading && (
-                    <button
-                      type="button"
-                      aria-label={t("upload.removeAria", { name: f.file.name })}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        removeFile(f.id);
-                      }}
-                    >
-                      <X className="h-4 w-4 text-muted-foreground transition-colors hover:text-destructive" />
-                    </button>
-                  )}
-              </div>
-            </div>
-            {f.status === "uploading" && <GlowProgress value={f.progress} className="mt-3" />}
-            {(f.status === "error" || f.status === "blocked") && (
-              <p className="mt-1.5 text-xs text-destructive">{f.errorMsg}</p>
-            )}
-          </motion.div>
-        ))}
-      </AnimatePresence>
 
       {/* One-time toggle + upload button */}
       {pendingFiles.length > 0 && !isUploading && (
