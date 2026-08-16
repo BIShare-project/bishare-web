@@ -77,7 +77,13 @@ export function NearbyPanel() {
   const [peers, setPeers] = useState<NearbyPeer[]>([]);
   const [sending, setSending] = useState<Record<string, number>>({}); // peerId → pct
   const [incoming, setIncoming] = useState<Incoming | null>(null);
+  // Per-peer send queue. The transport allows ONE transfer per peer pair at a
+  // time (starting a second tears the first down), so a multi-file pick has to
+  // be drained one at a time rather than fired in parallel.
+  const queues = useRef<Map<string, File[]>>(new Map());
+  const [queued, setQueued] = useState<Record<string, { done: number; total: number }>>({});
   const [copied, setCopied] = useState(false);
+  const [dropPeer, setDropPeer] = useState<string | null>(null);
   const rtcRef = useRef<NearbyRTC | null>(null);
   const selfRef = useRef<NearbyPeer | null>(null);
   const targetPeer = useRef<string | null>(null);
@@ -129,6 +135,8 @@ export function NearbyPanel() {
         setSending((s) => ({ ...s, [peerId]: Math.min(99, Math.round((sent / total) * 100)) })),
       onSendDone: (peerId) => {
         setSending((s) => ({ ...s, [peerId]: 100 }));
+        // Next file for this peer, if the pick had more than one.
+        if (pumpRef.current(peerId)) return;
         window.setTimeout(
           () =>
             setSending((s) => {
@@ -140,6 +148,14 @@ export function NearbyPanel() {
         );
       },
       onError: (peerId) => {
+        // A failure drops the REST of that peer's queue: silently carrying on
+        // would leave the sender thinking everything arrived.
+        queues.current.delete(peerId);
+        setQueued((q) => {
+          const next = { ...q };
+          delete next[peerId];
+          return next;
+        });
         setSending((s) => {
           const next = { ...s };
           delete next[peerId];
@@ -188,11 +204,62 @@ export function NearbyPanel() {
     fileInput.current?.click();
   }, []);
 
+  /** Send the next queued file for a peer. Returns false when the queue is dry. */
+  const pump = useCallback((peerId: string): boolean => {
+    const q = queues.current.get(peerId);
+    const file = q?.shift();
+    if (!file) {
+      queues.current.delete(peerId);
+      setQueued((cur) => {
+        const next = { ...cur };
+        delete next[peerId];
+        return next;
+      });
+      return false;
+    }
+    setQueued((cur) => {
+      const prev = cur[peerId];
+      return prev ? { ...cur, [peerId]: { ...prev, done: prev.done + 1 } } : cur;
+    });
+    void rtcRef.current?.sendFile(peerId, file);
+    return true;
+  }, []);
+
+  // The transport callbacks are created once, before `pump` exists — go through
+  // a ref so they always reach the current one.
+  const pumpRef = useRef(pump);
+  useEffect(() => {
+    pumpRef.current = pump;
+  }, [pump]);
+
+  const enqueue = useCallback(
+    (peerId: string, list: FileList | File[]) => {
+      const files = Array.from(list);
+      if (!files.length) return;
+      const q = queues.current.get(peerId) ?? [];
+      const busy = q.length > 0 || sending[peerId] !== undefined;
+      q.push(...files);
+      queues.current.set(peerId, q);
+      setQueued((cur) => {
+        const prev = cur[peerId];
+        return {
+          ...cur,
+          [peerId]: prev
+            ? { ...prev, total: prev.total + files.length }
+            : { done: 0, total: files.length },
+        };
+      });
+      // Only kick the pump when nothing is in flight; otherwise onSendDone does.
+      if (!busy) pump(peerId);
+    },
+    [pump, sending],
+  );
+
   function onFileChosen(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
     const peerId = targetPeer.current;
+    const list = e.target.files;
+    if (peerId && list) enqueue(peerId, list);
     e.target.value = "";
-    if (file && peerId) void rtcRef.current?.sendFile(peerId, file);
   }
 
   function acceptIncoming() {
@@ -273,7 +340,7 @@ export function NearbyPanel() {
 
   return (
     <div className="py-2">
-      <input ref={fileInput} type="file" hidden onChange={onFileChosen} />
+      <input ref={fileInput} type="file" multiple hidden onChange={onFileChosen} />
 
       {/* Mode switch: same-network auto vs private shared code */}
       <div className="mx-auto mb-5 flex max-w-xs gap-1 rounded-lg border border-border bg-secondary p-1 text-sm">
@@ -478,10 +545,28 @@ export function NearbyPanel() {
               {peers.map((p) => {
                 const pct = sending[p.peerId];
                 const busy = pct !== undefined;
+                const q = queued[p.peerId];
+                const isDropTarget = dropPeer === p.peerId;
                 return (
                   <li
                     key={p.peerId}
-                    className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3"
+                    // Drop straight onto a device — the same gesture the cloud
+                    // side has had all along, aimed at a specific recipient.
+                    onDragOver={(e) => {
+                      e.preventDefault();
+                      setDropPeer(p.peerId);
+                    }}
+                    onDragLeave={() => setDropPeer((cur) => (cur === p.peerId ? null : cur))}
+                    onDrop={(e) => {
+                      e.preventDefault();
+                      setDropPeer(null);
+                      if (e.dataTransfer.files.length) enqueue(p.peerId, e.dataTransfer.files);
+                    }}
+                    className={`flex items-center justify-between gap-3 rounded-xl border bg-card px-4 py-3 transition-colors ${
+                      isDropTarget
+                        ? "border-accent-blue bg-accent-blue/5"
+                        : "border-border"
+                    }`}
                   >
                     <span className="flex min-w-0 items-center gap-2.5">
                       <span className="text-lg leading-none">{p.emoji}</span>
@@ -490,6 +575,7 @@ export function NearbyPanel() {
                         {busy && (
                           <span className="block text-xs text-accent-blue">
                             {pct >= 100 ? t("sent") : `${t("sending")} ${pct}%`}
+                            {q && q.total > 1 && ` · ${t("queue", { done: q.done, total: q.total })}`}
                           </span>
                         )}
                       </span>
