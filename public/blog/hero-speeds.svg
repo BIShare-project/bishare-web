@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="A diagnostic for slow transfers between a phone and a Windows PC: five causes ordered by how often each is the real one">
+  <defs>
+    <linearGradient id="bg20" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b14"/><stop offset="1" stop-color="#0d1322"/>
+    </linearGradient>
+    <radialGradient id="glow20" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.22"/><stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3AA0FF"/><stop offset=".5" stop-color="#0A84FF"/><stop offset="1" stop-color="#0B3AD1"/>
+    </linearGradient>
+    <radialGradient id="lb-glow" cx=".5" cy=".36" r=".72">
+      <stop offset="0" stop-color="#8FD0FF" stop-opacity=".5"/><stop offset="1" stop-color="#8FD0FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-mk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6E9FF"/>
+    </linearGradient>
+    <radialGradient id="lb-nd" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#F0FCFF"/><stop offset=".45" stop-color="#22D3EE"/><stop offset="1" stop-color="#0AACD0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg20)"/>
+  <rect width="1200" height="630" fill="url(#glow20)"/>
+  <g stroke="#ffffff" stroke-opacity="0.04">
+    <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200"/>
+    <path d="M150 0V630M300 0V630M450 0V630M600 0V630M750 0V630M900 0V630M1050 0V630"/>
+  </g>
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <text x="600" y="140" text-anchor="middle" fill="#93a4c8" font-size="17">The target on ordinary Wi-Fi 5 hardware</text>
+    <text x="600" y="212" text-anchor="middle" fill="#22d3ee" font-size="58" font-weight="700" letter-spacing="-1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1 GB in ~25 s</text>
+    <text x="600" y="248" text-anchor="middle" fill="#64748b" font-size="15">If you are far from this, the cause is one of five — in this order</text>
+
+    <g transform="translate(250,300)" font-size="16">
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#60a5fa" font-size="14">
+        <text x="0" y="0">01</text><text x="0" y="40">02</text><text x="0" y="80">03</text><text x="0" y="120">04</text><text x="0" y="160">05</text>
+      </g>
+      <text x="46" y="0" fill="#e8eefc" font-weight="600">Wrong band — or not the same network</text>
+      <text x="46" y="40" fill="#e8eefc">Distance, walls, neighbours, the router</text>
+      <text x="46" y="80" fill="#e8eefc">The receiving disk — and the antivirus</text>
+      <text x="46" y="120" fill="#e8eefc">Software doing something quadratic</text>
+      <text x="46" y="160" fill="#e8eefc">A timeout pretending to be slowness</text>
+    </g>
+
+    <text x="600" y="548" text-anchor="middle" fill="#ffffff" font-size="37" font-weight="650" letter-spacing="-0.5">Find the bottleneck, not a workaround</text>
+    <text x="600" y="584" text-anchor="middle" fill="#93a4c8" font-size="19">AirDrop-like speeds between a phone and any PC</text>
+  </g>
+  <g transform="translate(70,44)" font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <g transform="scale(0.0664)">
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-bg)"/>
+      <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lb-glow)"/>
+      <rect x="16" y="16" width="480" height="220" rx="112" fill="#FFFFFF" opacity=".07"/>
+      <g fill="none" stroke="url(#lb-mk)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1"/><path d="M316.1 223.3 L351.5 217.1 L345.3 252.6"/>
+        <path d="M294.9 160.5 L160.5 294.9"/><path d="M195.9 288.7 L160.5 294.9 L166.7 259.5"/>
+      </g>
+      <circle cx="256" cy="256" r="18" fill="url(#lb-nd)"/>
+    </g>
+    <text x="44" y="25" fill="#dbe4f6" font-size="21" font-weight="600">BIShare</text>
+  </g>
+</svg>
