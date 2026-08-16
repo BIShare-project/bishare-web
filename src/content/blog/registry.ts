@@ -661,6 +661,57 @@ export const POSTS: BlogPost[] = [
     ],
   },
   {
+    slug: "what-is-quic-protocol",
+    title: "What is QUIC Protocol? The Technology Behind Ultra-Fast File Transfer",
+    metaTitle: "What Is QUIC Protocol? Explained by an Implementer (2026)",
+    description:
+      "We built a QUIC engine and measured it at 129 MB/s against TCP's 200. What the protocol really buys you, what it costs, and when it beats TCP for file transfer.",
+    category: "apps",
+    tags: ["QUIC", "Protocols", "Performance", "Networking"],
+    keywords: [
+      "what is quic protocol",
+      "quic vs tcp",
+      "quic file transfer",
+      "http/3 quic explained",
+      "is quic faster than tcp",
+      "quic head of line blocking",
+    ],
+    datePublished: "2026-09-29",
+    dateModified: "2026-09-29",
+    readMinutes: 15,
+    hero: {
+      src: "/blog/hero-quic.svg",
+      alt: "A measured comparison of QUIC at 129 MB/s against TCP at about 200 MB/s on the same machine",
+    },
+    related: [
+      "transfer-files-locally-without-internet",
+      "send-massive-video-files-to-clients",
+      "bishare-review",
+    ],
+    faq: [
+      {
+        q: "What is the QUIC protocol in simple terms?",
+        a: "QUIC is a transport protocol that does TCP's job but runs on UDP with encryption built in rather than layered on top. Standardized as RFC 9000 in 2021, it establishes connections in one round trip, carries many independent streams that don't block each other, and survives a device changing networks. It is the foundation of HTTP/3.",
+      },
+      {
+        q: "Is QUIC actually faster than TCP?",
+        a: "It depends entirely on the network. On lossy, high-latency links QUIC wins clearly. On a clean local link it can be slower: we measured our own QUIC path at 129 MB/s against roughly 200 MB/s for TCP on the same machine, because TCP benefits from kernel segmentation offload that userspace UDP does not get on every platform.",
+      },
+      {
+        q: "What is head-of-line blocking, and how does QUIC fix it?",
+        a: "In TCP, one lost packet stalls every byte queued behind it, even data belonging to unrelated requests. QUIC carries independent streams within one connection, so loss on one stream leaves the others flowing — which matters most when you are sending many files at once rather than one large one.",
+      },
+      {
+        q: "Does QUIC keep working when I switch from Wi-Fi to mobile data?",
+        a: "Yes. TCP identifies a connection by IP addresses and ports, so changing network kills it. QUIC uses a connection ID carried inside the encrypted packet, so the connection survives the address change. It does not survive the app being killed — that needs a separate resume mechanism.",
+      },
+      {
+        q: "Should I choose a file transfer app because it uses QUIC?",
+        a: "Not on its own. QUIC's advantages appear over cellular, on lossy links, and when many files move at once. On a home Wi-Fi network a well-built TCP transfer is often faster. Treat any throughput claim without a stated network, operating system and loss rate as marketing.",
+      },
+    ],
+  },
+  {
     slug: "bishare-review",
     title: "BIShare Review: An Honest Tour From the Team That Built It",
     metaTitle: "BIShare Review (2026) — An Honest Tour by Its Makers",
@@ -946,4 +997,5 @@ export const ARTICLE_COMPONENTS: Record<
   "best-shareit-alternatives": () =>
     import("./best-shareit-alternatives.mdx"),
   "bishare-review": () => import("./bishare-review.mdx"),
+  "what-is-quic-protocol": () => import("./what-is-quic-protocol.mdx"),
 };

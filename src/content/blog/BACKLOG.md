@@ -45,8 +45,8 @@ Owner's 20-title plan (2026-08-13). ✅ = published (in registry.ts).
     — slug: best-shareit-alternatives (scheduled 2026-09-23)
 16. ✅ BIShare Review: An Honest Tour From the Team That Built It
     — slug: bishare-review (scheduled 2026-09-26) — judul asli ("The Fastest…") DIUBAH: superlatif tak terverifikasi + menyamar sebagai review pihak ketiga. Artikel membuka dengan 5 alasan JANGAN pakai.
-17. ☐ What is QUIC Protocol? The Technology Behind Ultra-Fast File Transfer
-    — planned slug: what-is-quic-protocol
+17. ✅ What is QUIC Protocol? The Technology Behind Ultra-Fast File Transfer
+    — slug: what-is-quic-protocol (scheduled 2026-09-29)
 18. ☐ How to Use Local Sharing to Transfer Files Without Using Cellular Data
     — planned slug: local-sharing-without-cellular-data
 19. ☐ Top 5 Ad-Free File Transfer Apps for Android and iOS

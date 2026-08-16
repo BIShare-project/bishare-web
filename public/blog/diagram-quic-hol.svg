@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" role="img" aria-label="Head-of-line blocking compared: with TCP a single lost packet stalls everything behind it, while QUIC's independent streams keep flowing">
+  <rect width="1200" height="450" fill="#0a1020"/>
+  <g font-family="Segoe UI, -apple-system, system-ui, sans-serif">
+    <text x="60" y="54" fill="#e8eefc" font-size="26" font-weight="650">One lost packet, two outcomes</text>
+    <text x="60" y="84" fill="#93a4c8" font-size="15">Sending five files at once. The red packet is lost and has to be retransmitted.</text>
+
+    <text x="60" y="140" fill="#fbbf24" font-size="16" font-weight="600">TCP — one ordered stream</text>
+    <g>
+      <rect x="60" y="158" width="150" height="34" rx="5" fill="#3b82f6" fill-opacity="0.65"/>
+      <rect x="216" y="158" width="150" height="34" rx="5" fill="#3b82f6" fill-opacity="0.65"/>
+      <rect x="372" y="158" width="150" height="34" rx="5" fill="#ef4444" fill-opacity="0.75"/>
+      <rect x="528" y="158" width="150" height="34" rx="5" fill="#334155" fill-opacity="0.6"/>
+      <rect x="684" y="158" width="150" height="34" rx="5" fill="#334155" fill-opacity="0.6"/>
+      <text x="447" y="181" text-anchor="middle" fill="#fff" font-size="13" font-family="ui-monospace, Menlo, monospace">lost</text>
+      <text x="606" y="181" text-anchor="middle" fill="#94a3b8" font-size="13" font-family="ui-monospace, Menlo, monospace">waiting</text>
+      <text x="762" y="181" text-anchor="middle" fill="#94a3b8" font-size="13" font-family="ui-monospace, Menlo, monospace">waiting</text>
+      <text x="860" y="181" fill="#f87171" font-size="14">everything behind it stalls</text>
+    </g>
+
+    <text x="60" y="266" fill="#7fd6a0" font-size="16" font-weight="600">QUIC — independent streams</text>
+    <g>
+      <rect x="60" y="284" width="150" height="26" rx="5" fill="#3b82f6" fill-opacity="0.65"/>
+      <rect x="216" y="284" width="150" height="26" rx="5" fill="#3b82f6" fill-opacity="0.65"/>
+      <text x="380" y="303" fill="#7fd6a0" font-size="13" font-family="ui-monospace, Menlo, monospace">stream 1 · flowing</text>
+
+      <rect x="60" y="320" width="150" height="26" rx="5" fill="#ef4444" fill-opacity="0.75"/>
+      <rect x="216" y="320" width="150" height="26" rx="5" fill="#334155" fill-opacity="0.6"/>
+      <text x="380" y="339" fill="#fbbf24" font-size="13" font-family="ui-monospace, Menlo, monospace">stream 2 · only this one waits</text>
+
+      <rect x="60" y="356" width="150" height="26" rx="5" fill="#3b82f6" fill-opacity="0.65"/>
+      <rect x="216" y="356" width="150" height="26" rx="5" fill="#3b82f6" fill-opacity="0.65"/>
+      <text x="380" y="375" fill="#7fd6a0" font-size="13" font-family="ui-monospace, Menlo, monospace">stream 3 · flowing</text>
+    </g>
+    <text x="700" y="339" fill="#93c5fd" font-size="14">the other files never notice</text>
+    <text x="60" y="420" fill="#64748b" font-size="14">Worth it when the network drops packets. On a clean local link, there is nothing to rescue — which is why TCP still wins there.</text>
+  </g>
+</svg>
