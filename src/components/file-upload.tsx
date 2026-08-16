@@ -24,6 +24,7 @@ import {
 import { EncryptedSource, generateKey, encodeKey, maxPlaintextFor } from "@/lib/e2e/crypto";
 import { FilePreviewDialog } from "@/components/file-preview-dialog";
 import { buildStoreZip } from "@/lib/zip";
+import { FileThumb } from "@/components/file-thumb";
 import type { TransferUploadResponse } from "@/lib/types";
 import { Button } from "@/components/site/ui/button";
 import { GlowProgress, SuccessCheck } from "@/components/flow-shell";
@@ -1128,23 +1129,23 @@ export function FileUpload() {
           <p className="mt-3 font-mono text-[11px] tracking-[0.08em] text-muted-foreground/80 uppercase">
             {t("upload.limits", { size: formatFileSize(maxFileSize, locale) })}
           </p>
-          {/* Picked files live INSIDE the box — the drop target and its
-              contents are one object, and each card opens a preview on tap
-              instead of trailing off as a separate list below. */}
+          {/* Picked files live INSIDE the box as a thumbnail grid — a column
+              of filenames makes you read to find a file; a grid lets you spot
+              it. Each tile opens the preview dialog on tap. */}
           {files.length > 0 && (
-            <div className="mt-5 w-full space-y-2 text-left">
+            <div className="mt-5 grid w-full grid-cols-2 gap-2.5 text-left sm:grid-cols-3">
               <AnimatePresence>
                 {files.map((f) => (
                   <motion.div
                     key={f.id}
                     layout
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
                     role="button"
                     tabIndex={0}
                     aria-label={t("upload.previewAlt", { name: f.file.name })}
-                    // The box behind these cards opens the file picker, so a tap
+                    // The box behind these tiles opens the file picker, so a tap
                     // meant for a preview must never reach it.
                     onClick={(e) => {
                       e.stopPropagation();
@@ -1158,43 +1159,55 @@ export function FileUpload() {
                       }
                     }}
                     className={cn(
-                      "relative cursor-pointer rounded-xl border bg-background/60 p-3 text-left transition-colors hover:bg-secondary/70",
+                      "group/tile relative cursor-pointer overflow-hidden rounded-xl border bg-background/60 transition-colors hover:border-accent-blue/50",
                       f.status === "uploading" ? "border-accent-blue/40" : "border-border",
-                      f.status === "blocked" && "border-destructive/40"
+                      f.status === "blocked" && "border-destructive/50"
                     )}
                   >
-                    <div className="flex w-full items-center justify-between gap-3">
-                      <p className="min-w-0 flex-1 truncate text-sm font-medium text-foreground">
-                        {f.file.name}
-                      </p>
-                      <div className="flex shrink-0 items-center gap-2">
-                        <span className="rounded-lg bg-muted px-2 py-0.5 text-[11px] text-muted-foreground">
-                          {formatFileSize(f.file.size, locale)}
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary/60">
+                      <FileThumb file={f.file} />
+
+                      {f.status === "done" && (
+                        <span className="absolute right-1.5 top-1.5 rounded-full bg-background/90 p-0.5">
+                          <CheckCircle2 className="h-4 w-4 text-success" />
                         </span>
-                        {f.status === "done" && <CheckCircle2 className="h-4 w-4 text-success" />}
-                        {f.status === "uploading" && (
-                          <span className="font-mono text-xs font-semibold text-primary tabular-nums">
-                            {f.progress}%
-                          </span>
+                      )}
+
+                      {f.status === "uploading" && (
+                        <span className="absolute inset-0 flex items-center justify-center bg-background/70 font-mono text-sm font-semibold text-primary tabular-nums">
+                          {f.progress}%
+                        </span>
+                      )}
+
+                      {(f.status === "pending" || f.status === "error" || f.status === "blocked") &&
+                        !isUploading && (
+                          <button
+                            type="button"
+                            aria-label={t("upload.removeAria", { name: f.file.name })}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              removeFile(f.id);
+                            }}
+                            className="absolute right-1.5 top-1.5 rounded-full bg-background/85 p-1 text-muted-foreground opacity-0 transition-opacity hover:text-destructive focus-visible:opacity-100 group-hover/tile:opacity-100"
+                          >
+                            <X className="h-3.5 w-3.5" />
+                          </button>
                         )}
-                        {(f.status === "pending" || f.status === "error" || f.status === "blocked") &&
-                          !isUploading && (
-                            <button
-                              type="button"
-                              aria-label={t("upload.removeAria", { name: f.file.name })}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                removeFile(f.id);
-                              }}
-                            >
-                              <X className="h-4 w-4 text-muted-foreground transition-colors hover:text-destructive" />
-                            </button>
-                          )}
-                      </div>
                     </div>
-                    {f.status === "uploading" && <GlowProgress value={f.progress} className="mt-2.5" />}
-                    {(f.status === "error" || f.status === "blocked") && (
-                      <p className="mt-1.5 text-xs text-destructive">{f.errorMsg}</p>
+
+                    <div className="px-2 py-1.5">
+                      <p className="truncate text-xs font-medium text-foreground">{f.file.name}</p>
+                      <p className="text-[11px] text-muted-foreground">
+                        {formatFileSize(f.file.size, locale)}
+                      </p>
+                      {(f.status === "error" || f.status === "blocked") && (
+                        <p className="mt-0.5 line-clamp-2 text-[11px] text-destructive">
+                          {f.errorMsg}
+                        </p>
+                      )}
+                    </div>
+                    {f.status === "uploading" && (
+                      <GlowProgress value={f.progress} className="absolute inset-x-0 bottom-0" />
                     )}
                   </motion.div>
                 ))}
