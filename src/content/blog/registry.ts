@@ -661,6 +661,57 @@ export const POSTS: BlogPost[] = [
     ],
   },
   {
+    slug: "local-sharing-without-cellular-data",
+    title: "How to Use Local Sharing to Transfer Files Without Using Cellular Data",
+    metaTitle: "Transfer Files Without Using Mobile Data (2026 Guide)",
+    description:
+      "An itemized bill of where mobile data really goes when you share files — the double charge, silent backups, tethering, roaming — and the route that costs zero.",
+    category: "apps",
+    tags: ["Mobile data", "Data saving", "Local network", "Roaming"],
+    keywords: [
+      "transfer files without using data",
+      "share files without mobile data",
+      "save mobile data file sharing",
+      "send files without internet data",
+      "avoid data charges sharing photos",
+      "transfer files wifi direct no data",
+    ],
+    datePublished: "2026-10-02",
+    dateModified: "2026-10-02",
+    readMinutes: 14,
+    hero: {
+      src: "/blog/hero-cellular-data.svg",
+      alt: "An itemized mobile data bill for file sharing, with every line reduced to zero by transferring locally",
+    },
+    related: [
+      "transfer-files-locally-without-internet",
+      "transfer-large-files-without-cloud-limits",
+      "share-high-res-photos-without-losing-quality",
+    ],
+    faq: [
+      {
+        q: "Does sharing files over Wi-Fi use mobile data?",
+        a: "No, provided both devices are on the same network. The file goes to your router and back down to the other device without crossing the boundary between your network and the internet — and the meter exists only at that boundary. Your plan never sees it.",
+      },
+      {
+        q: "How much data does sending a 2 GB video actually cost?",
+        a: "Through a cloud service, up to 4 GB of combined allowance: 2 GB of your upload plus 2 GB of the recipient's download. Most people only ever see their own half, which is why the true cost of cloud sharing is routinely underestimated.",
+      },
+      {
+        q: "Can I transfer files using a hotspot without spending data?",
+        a: "Yes. A phone hotspot is a functioning network even with no internet — you can be in airplane mode with Wi-Fi on, or have no SIM at all. Local transfers need no DNS, clock sync or server handshake, so the two devices simply talk to each other and nothing is billed.",
+      },
+      {
+        q: "Why did my data disappear while tethering a laptop?",
+        a: "Because the laptop doesn't know the connection is metered, so it resumes cloud sync, system updates and backups. Mark the network as metered (Windows: Wi-Fi settings → Metered connection; macOS: low data mode) and those background tasks wait for real Wi-Fi.",
+      },
+      {
+        q: "How do I check which apps are using my mobile data?",
+        a: "On iPhone: Settings → Mobile Data, then scroll for a per-app breakdown — and reset the counter on your billing date so the numbers mean something. On Android: Settings → Network & internet → Mobile network → App data usage, which lets you match the date range to your billing cycle.",
+      },
+    ],
+  },
+  {
     slug: "what-is-quic-protocol",
     title: "What is QUIC Protocol? The Technology Behind Ultra-Fast File Transfer",
     metaTitle: "What Is QUIC Protocol? Explained by an Implementer (2026)",
@@ -998,4 +1049,6 @@ export const ARTICLE_COMPONENTS: Record<
     import("./best-shareit-alternatives.mdx"),
   "bishare-review": () => import("./bishare-review.mdx"),
   "what-is-quic-protocol": () => import("./what-is-quic-protocol.mdx"),
+  "local-sharing-without-cellular-data": () =>
+    import("./local-sharing-without-cellular-data.mdx"),
 };
