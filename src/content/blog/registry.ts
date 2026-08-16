@@ -805,7 +805,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "What are BIShare's biggest weaknesses?",
-        a: "The Windows build is an unsigned ZIP, so SmartScreen warns and locked-down organizations will block it; there is no notarized Mac app outside the App Store; the F-Droid build has camera QR scanning removed because the scanner library is proprietary; and the installed base is small compared with SHAREit or LocalSend.",
+        a: "The Windows build is an unsigned ZIP, so SmartScreen warns and locked-down organizations will block it; there is no notarized Mac app outside the App Store; it transfers files rather than continuously syncing folders; and the installed base is small compared with SHAREit or LocalSend.",
       },
       {
         q: "How does BIShare compare to LocalSend?",
