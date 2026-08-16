@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Play, Loader2 } from "lucide-react";
 import { getTransferDownloadURL, getWebStreamEnabled } from "@/lib/api";
 import { keyFromHash } from "@/lib/e2e/crypto";
+import { previewKind } from "@/lib/preview-kind";
 
 /**
  * Play an end-to-end encrypted transfer without downloading it first.
@@ -18,27 +19,6 @@ import { keyFromHash } from "@/lib/e2e/crypto";
  * an unplayable type, a one-time link, a failed handshake) the component simply
  * renders nothing and the existing Download button remains the whole story.
  */
-
-/**
- * What the browser can open directly from decrypted bytes.
- *
- * Images and PDFs matter more than the headline video case: they need
- * decryption but no Range machinery at all (the worker answers an un-ranged
- * request with the whole plaintext), and far more real transfers are a photo
- * or a document than a web-playable video container.
- */
-type Kind = "video" | "audio" | "image" | "pdf";
-
-function previewKind(mime: string): Kind | null {
-  const m = mime.toLowerCase();
-  if (m.startsWith("video/")) return "video";
-  if (m.startsWith("audio/")) return "audio";
-  // HEIC/HEIF are common straight off an iPhone and are NOT decodable by most
-  // browsers — offering a preview that renders broken is worse than none.
-  if (m.startsWith("image/") && !/hei[cf]/.test(m)) return "image";
-  if (m === "application/pdf") return "pdf";
-  return null;
-}
 
 type Phase = "idle" | "starting" | "playing" | "unsupported" | "gone";
 

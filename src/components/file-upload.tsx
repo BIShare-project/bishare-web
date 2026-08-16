@@ -22,6 +22,7 @@ import {
   rememberTransfer,
 } from "@/app/[locale]/(site)/transfer/recent-transfers";
 import { EncryptedSource, generateKey, encodeKey, maxPlaintextFor } from "@/lib/e2e/crypto";
+import { SenderPreview } from "@/components/sender-preview";
 import type { TransferUploadResponse } from "@/lib/types";
 import { Button } from "@/components/site/ui/button";
 import { GlowProgress, SuccessCheck } from "@/components/flow-shell";
@@ -852,6 +853,11 @@ export function FileUpload() {
                     </span>
                     {f.oneTime && <TagBadge>{t("upload.oneTimeBadge")}</TagBadge>}
                   </div>
+
+                  {/* Lets the sender confirm the recipient will actually be
+                      able to open this — rendered from the local File, so it
+                      costs no bandwidth. */}
+                  <SenderPreview file={f.file} />
 
                   <div className="flex items-center gap-2">
                     <input
