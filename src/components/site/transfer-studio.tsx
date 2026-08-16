@@ -104,11 +104,19 @@ export function TransferStudio() {
   const active = modes.find((m) => m.key === mode) ?? modes[0];
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-      <div className="border-b border-border p-4 sm:p-5 md:p-6">
+    <div className="studio-shell overflow-hidden">
+      {/* Decorative layers: aurora bloom behind the glass, technical grid in
+          the header. Both are pointer-events:none and reduced-motion aware. */}
+      <div className="studio-aurora" aria-hidden />
+
+      <div className="relative lg:grid lg:grid-cols-[minmax(0,1.55fr)_minmax(300px,1fr)]">
+      <div className="flex min-w-0 flex-col">
+      <div className="relative border-b border-border/60 p-3.5 sm:p-5">
+        <div className="studio-grid" aria-hidden />
+
         {/* The teaching line, kept next to the control rather than up in the
             hero — this is where the choice is actually made. */}
-        <p className="mb-3.5 text-[13px] leading-relaxed text-muted-foreground sm:text-sm">
+        <p className="relative mb-3 text-[13px] leading-relaxed text-muted-foreground sm:text-sm">
           {t("studio.intro")}
         </p>
 
@@ -117,7 +125,7 @@ export function TransferStudio() {
         <div
           role="group"
           aria-label={t("modeAria")}
-          className="flex gap-1 rounded-xl border border-border bg-secondary p-1"
+          className="studio-track relative flex gap-1 rounded-2xl p-1.5"
         >
           {modes.map((m) => (
             <button
@@ -125,20 +133,24 @@ export function TransferStudio() {
               type="button"
               aria-pressed={mode === m.key}
               onClick={() => setMode(m.key)}
-              className={`relative flex flex-1 items-center justify-center gap-2 rounded-lg py-2.5 text-sm font-semibold tracking-[-0.01em] transition-colors duration-[180ms] ease-out ${
+              className={`relative flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-sm sm:py-3 font-semibold tracking-[-0.01em] transition-colors duration-200 ease-out ${
                 mode === m.key
                   ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground/70"
+                  : "text-muted-foreground hover:text-foreground/80"
               }`}
             >
               {mode === m.key && (
                 <motion.span
                   layoutId="transfer-studio-mode"
-                  className="absolute inset-0 rounded-lg border border-border bg-background shadow-sm"
+                  className="studio-pill absolute inset-0 rounded-xl"
                   transition={{ type: "spring", stiffness: 400, damping: 32 }}
                 />
               )}
-              <m.icon className="relative h-4 w-4 shrink-0" />
+              <m.icon
+                className={`relative h-4 w-4 shrink-0 transition-colors ${
+                  mode === m.key ? "text-accent-blue" : ""
+                }`}
+              />
               <span className="relative">{m.label}</span>
             </button>
           ))}
@@ -151,8 +163,9 @@ export function TransferStudio() {
         {active && (
           <p
             aria-live="polite"
-            className="mt-3 text-[12.5px] leading-snug text-muted-foreground"
+            className="relative mt-2.5 flex items-center gap-2 text-[12.5px] leading-snug text-muted-foreground"
           >
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue shadow-[0_0_8px_2px_rgba(10,132,255,0.55)]" />
             {active.hint}
           </p>
         )}
@@ -160,17 +173,18 @@ export function TransferStudio() {
 
       <section
         aria-label={active?.label ?? t("send")}
-        className="p-3 sm:p-5 md:p-7 lg:min-h-[420px] lg:p-8"
+        className="relative flex-1 p-2.5 sm:p-5 lg:p-6"
       >
         {mode === "link" && <FileUpload />}
         {mode === "nearby" && nearbyEnabled && <NearbyPanel />}
         {mode === "beam" && beamEnabled && <QrBeamPanel />}
       </section>
+      </div>
 
       {/* Receiving is always reachable, whichever send route is showing. */}
       <section
         aria-label={t("receive")}
-        className="border-t border-border bg-background-raised/40 p-4 sm:p-5 md:p-6"
+        className="relative border-t border-border/60 bg-background-raised/30 p-3.5 backdrop-blur-sm sm:p-5 lg:border-l lg:border-t-0 lg:p-6"
       >
         <div className="flex items-center gap-2.5">
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-blue/10 text-accent-blue">
@@ -183,10 +197,11 @@ export function TransferStudio() {
             <p className="text-[12.5px] text-muted-foreground">{t("codeSub")}</p>
           </div>
         </div>
-        <div className="mt-5 sm:max-w-md">
+        <div className="mt-4 sm:mt-5 sm:max-w-md lg:max-w-none">
           <CodeInput />
         </div>
       </section>
+      </div>
     </div>
   );
 }

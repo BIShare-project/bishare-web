@@ -1895,3 +1895,267 @@
 .blog-prose td { color: var(--color-muted-foreground); }
 .blog-prose hr { border: 0; border-top: 1px solid var(--color-border); margin-block: 2.2em; }
 .blog-prose h2, .blog-prose h3 { scroll-margin-top: 96px; }
+
+/* ── Transfer studio: the page's showpiece surface ────────────────────────
+   The site runs a calm hairline style, but /transfer's studio is the one
+   object the whole page exists for, so it gets the full treatment: a
+   rotating conic ring, glass fill, an aurora bloom behind it, and a faint
+   grid. Scoped to `.studio-*` on purpose — no other surface is touched. */
+
+@property --studio-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.studio-shell {
+  position: relative;
+  isolation: isolate;
+  border-radius: 24px;
+  /* Glass: translucent fill over the aurora, with an inner top highlight. */
+  background: color-mix(in oklab, var(--color-card) 90%, transparent);
+  backdrop-filter: blur(20px) saturate(1.15);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow:
+    var(--glass-inner-glow),
+    0 30px 80px -46px rgba(10, 132, 255, 0.3),
+    0 2px 8px rgba(11, 20, 36, 0.08);
+}
+
+.dark .studio-shell {
+  background: color-mix(in oklab, var(--color-card) 62%, transparent);
+  backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow:
+    var(--glass-inner-glow),
+    0 30px 80px -40px rgba(10, 132, 255, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* 1px conic ring, drawn as a masked pseudo-element so it never affects
+   layout and stays compositor-cheap. */
+.studio-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--studio-angle),
+    transparent 0deg,
+    rgba(10, 132, 255, 0.9) 40deg,
+    rgba(34, 211, 238, 0.85) 90deg,
+    transparent 150deg,
+    transparent 230deg,
+    rgba(139, 92, 246, 0.7) 290deg,
+    transparent 350deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .studio-shell::before {
+    animation: studio-spin 9s linear infinite;
+  }
+}
+
+@keyframes studio-spin {
+  to {
+    --studio-angle: 360deg;
+  }
+}
+
+/* Aurora bloom behind the card — negative z-index needs the host isolated
+   (site gotcha: without `isolate` it paints behind an opaque ancestor). */
+.studio-aurora {
+  position: absolute;
+  inset: -35% -10%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 46% at 20% 26%, rgba(10, 132, 255, 0.62), transparent 70%),
+    radial-gradient(34% 40% at 84% 20%, rgba(34, 211, 238, 0.5), transparent 72%),
+    radial-gradient(42% 46% at 64% 92%, rgba(139, 92, 246, 0.44), transparent 74%);
+  filter: blur(52px);
+  /* Light theme takes a whisper — at full strength the card washed out
+     saturated blue and text contrast suffered. Dark gets the real bloom. */
+  opacity: 0.28;
+}
+
+.dark .studio-aurora {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .studio-aurora {
+    animation: studio-drift 18s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes studio-drift {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(3%, 2%, 0) scale(1.06);
+  }
+}
+
+/* Faint technical grid inside the header — the "instrument panel" cue. */
+.studio-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-foreground) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-foreground) 7%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(80% 120% at 50% 0%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(80% 120% at 50% 0%, #000 20%, transparent 75%);
+  opacity: 0.5;
+}
+
+.dark .studio-grid {
+  opacity: 0.9;
+}
+
+/* The active pill in the mode selector: gradient fill + brand glow. */
+.studio-pill {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--color-background) 88%, rgba(10, 132, 255, 0.35)),
+    color-mix(in oklab, var(--color-background) 92%, rgba(139, 92, 246, 0.22))
+  );
+  border: 1px solid color-mix(in oklab, rgba(10, 132, 255, 0.55) 70%, transparent);
+  box-shadow:
+    0 0 0 1px rgba(10, 132, 255, 0.08),
+    0 6px 22px -10px rgba(10, 132, 255, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+/* Selector track — recessed glass so the lit pill reads as raised. */
+.studio-track {
+  background: color-mix(in oklab, var(--color-secondary) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-border) 85%, transparent);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Route label above the selector — small caps, wide track, brand tint. */
+.studio-eyebrow {
+  letter-spacing: 0.16em;
+  background: linear-gradient(90deg, var(--color-accent-blue, #0a84ff), #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Drop zone inside the studio — the card's largest surface, so it carries the
+   most weight. Scoped as a descendant so the same component stays plain
+   wherever else it's used (homepage widget, flow pages). */
+.studio-shell .group\/zone {
+  border-color: color-mix(in oklab, var(--color-accent-blue, #0a84ff) 34%, transparent);
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(10, 132, 255, 0.07), transparent 62%),
+    color-mix(in oklab, var(--color-card) 82%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 18px 50px -34px rgba(10, 132, 255, 0.45);
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.studio-shell .group\/zone:hover {
+  border-color: color-mix(in oklab, var(--color-accent-blue, #0a84ff) 62%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 26px 60px -30px rgba(10, 132, 255, 0.85);
+}
+
+/* A light sweep that crosses the zone — the "scanning" cue that reads as
+   futuristic without animating anything expensive (transform only). */
+.studio-shell .group\/zone::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 42%;
+  left: -50%;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(120, 190, 255, 0.05) 45%,
+    rgba(160, 215, 255, 0.08) 55%,
+    transparent
+  );
+  transform: skewX(-14deg);
+}
+
+.dark .studio-shell .group\/zone::after {
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(120, 190, 255, 0.1) 45%,
+    rgba(160, 215, 255, 0.16) 55%,
+    transparent
+  );
+}
+
+.dark .studio-shell .group\/zone {
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(10, 132, 255, 0.13), transparent 62%),
+    color-mix(in oklab, var(--color-card) 55%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 18px 50px -32px rgba(10, 132, 255, 0.7);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .studio-shell .group\/zone::after {
+    animation: studio-sweep 5.5s ease-in-out infinite;
+  }
+}
+
+@keyframes studio-sweep {
+  0%,
+  62% {
+    left: -50%;
+  }
+  100% {
+    left: 108%;
+  }
+}
+
+/* The upload glyph gets a real halo instead of a flat tint chip. */
+.studio-shell .group\/zone .bg-accent-blue\/10 {
+  background: linear-gradient(
+    145deg,
+    rgba(10, 132, 255, 0.28),
+    rgba(139, 92, 246, 0.18)
+  );
+  box-shadow:
+    0 0 0 1px rgba(10, 132, 255, 0.28),
+    0 10px 30px -12px rgba(10, 132, 255, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* Phones: trim the drop zone's generous desktop padding so the whole studio —
+   route selector, send panel and the receive rail — lands in one screen. */
+@media (max-width: 640px) {
+  .studio-shell .group\/zone {
+    padding-top: 1.15rem;
+    padding-bottom: 1.15rem;
+  }
+}

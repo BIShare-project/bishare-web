@@ -68,20 +68,20 @@ export default async function TransferToolPage({
         }}
       />
       <SiteHeader />
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:px-6 md:py-16">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-4 sm:px-6 sm:py-7 md:py-10">
         <div className="text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+          <p className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground sm:block">
             {t("page.eyebrow")}
           </p>
-          <h1 className="mt-4 text-[clamp(2rem,4.5vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
+          <h1 className="mt-2 text-[clamp(1.75rem,4.5vw,2.75rem)] sm:mt-4 font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
             {t("page.title")}
           </h1>
-          <p className="mx-auto mt-3 max-w-md leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-2 max-w-md text-[15px] leading-relaxed text-muted-foreground sm:mt-3 sm:text-base">
             {t("page.subtitle")}
           </p>
         </div>
 
-        <div className="mt-9">
+        <div className="mt-7">
           <TransferStudio />
         </div>
 
