@@ -13,7 +13,20 @@
 // skipWaiting + clients.claim take control immediately; safe here because no
 // HTML is cached. Bump VERSION to drop old asset caches.
 
-const VERSION = "v1";
+const VERSION = "v2";
+
+// Encrypted-media streaming lives in a generated script (built from
+// src/sw/stream-sw.ts, so the record format has one definition). It is pulled
+// INTO this worker rather than registered separately, because interception is
+// decided by which worker controls the PAGE — a second registration under a
+// narrower scope would never see the media requests at all, and a second one
+// at "/" would evict this worker and the offline page with it.
+try {
+  importScripts("/stream-sw.js");
+} catch (e) {
+  // Streaming is strictly additive; a missing/broken script must never take
+  // the PWA worker down with it.
+}
 const CACHE = `bishare-static-${VERSION}`;
 // Canonical clean URL — OpenNext serves public/offline.html at /offline (200)
 // and 307-redirects /offline.html to it, which cache.addAll can't precache.
@@ -44,6 +57,8 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return; // leave API + fonts alone
+  // Virtual decrypted-media URLs belong to the streaming handler above.
+  if (url.pathname.startsWith("/stream/")) return;
 
   // Navigations: always try the network so deploys are picked up; offline page
   // is the only fallback. HTML is never written to the cache.

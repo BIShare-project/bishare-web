@@ -330,6 +330,116 @@ export async function decryptStream(
   }
 }
 
+// ── Random access (receiver) ──────────────────────────────────────────────
+//
+// Because a record's nonce and AAD come from its INDEX rather than from a
+// running stream state, any record decrypts on its own. That is what lets the
+// streaming worker answer a Range request by touching only the records that
+// actually cover it, instead of decrypting from byte zero every time.
+
+/** The header fields random access needs. */
+export interface EncHeader {
+  salt: Uint8Array;
+  recordSize: number;
+  plaintextSize: number;
+}
+
+/** Parse (and validate) the 24-byte header. Throws DecryptError if it isn't ours. */
+export function parseEncHeader(h: Uint8Array): EncHeader {
+  if (h.length < HEADER_SIZE) throw new DecryptError("truncated header");
+  for (let i = 0; i < MAGIC.length; i++) {
+    if (h[i] !== MAGIC[i]) throw new DecryptError("not an encrypted file");
+  }
+  if (h[4] !== VERSION) throw new DecryptError(`unsupported version ${h[4]}`);
+  const dv = new DataView(h.buffer, h.byteOffset, HEADER_SIZE);
+  const recordSize = dv.getUint32(12, false);
+  if (recordSize <= 0) throw new DecryptError("bad record size");
+  return {
+    salt: h.subarray(8, 12),
+    recordSize,
+    plaintextSize: Number(dv.getBigUint64(16, false)),
+  };
+}
+
+/** Ciphertext offset where record `i` starts. */
+export function recordOffsetOf(i: number, recordSize: number): number {
+  return HEADER_SIZE + i * (recordSize + TAG_SIZE);
+}
+
+/**
+ * The ciphertext span that must be fetched to serve plaintext `[a, b)`, plus
+ * the index of the first record in it. Over-reads by at most one record at each
+ * edge, which is nothing next to a media seek.
+ */
+export function ciphertextRangeFor(
+  a: number,
+  b: number,
+  hdr: EncHeader,
+): { ctStart: number; ctEnd: number; firstRecord: number } {
+  const { recordSize, plaintextSize } = hdr;
+  const firstRecord = Math.floor(a / recordSize);
+  const lastRecord = Math.floor((b - 1) / recordSize);
+  const plainLenOfLast = Math.min(recordSize, plaintextSize - lastRecord * recordSize);
+  return {
+    firstRecord,
+    ctStart: recordOffsetOf(firstRecord, recordSize),
+    ctEnd: recordOffsetOf(lastRecord, recordSize) + plainLenOfLast + TAG_SIZE, // exclusive
+  };
+}
+
+/**
+ * Decrypt the records inside `ct` (which begins at ciphertext offset `ctStart`,
+ * holding records from `firstRecord` onward) and return exactly plaintext
+ * `[a, b)`. Every record is still checked against its own GCM tag, so tampering
+ * fails here exactly as it does in the sequential path.
+ */
+export async function decryptRange(
+  ct: Uint8Array,
+  rawKey: Uint8Array,
+  hdr: EncHeader,
+  a: number,
+  b: number,
+  firstRecord: number,
+  ctStart: number,
+): Promise<Uint8Array> {
+  const key = await importKey(rawKey);
+  const { salt, recordSize, plaintextSize } = hdr;
+  const out = new Uint8Array(b - a);
+  let written = 0;
+  const lastRecord = Math.floor((b - 1) / recordSize);
+
+  for (let i = firstRecord; i <= lastRecord; i++) {
+    const plainLen = Math.min(recordSize, plaintextSize - i * recordSize);
+    const off = recordOffsetOf(i, recordSize) - ctStart;
+    const rec = ct.subarray(off, off + plainLen + TAG_SIZE);
+    if (rec.length !== plainLen + TAG_SIZE) throw new DecryptError("short ciphertext range");
+    let dec: Uint8Array;
+    try {
+      dec = new Uint8Array(
+        await crypto.subtle.decrypt(
+          {
+            name: "AES-GCM",
+            iv: toArrayBuffer(nonceFor(salt, i)),
+            additionalData: toArrayBuffer(aadFor(i)),
+          },
+          key,
+          toArrayBuffer(rec),
+        ),
+      );
+    } catch {
+      throw new DecryptError("wrong key or corrupted data");
+    }
+    // Trim the edge records down to the requested span.
+    const recStart = i * recordSize;
+    const from = Math.max(0, a - recStart);
+    const to = Math.min(dec.length, b - recStart);
+    out.set(dec.subarray(from, to), written);
+    written += to - from;
+  }
+  if (written !== out.length) throw new DecryptError("range assembly mismatch");
+  return out;
+}
+
 // ── util ──────────────────────────────────────────────────────────────────
 
 /** WebCrypto wants an ArrayBuffer, not a Uint8Array view over a larger buffer. */

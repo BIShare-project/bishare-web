@@ -11,6 +11,7 @@ import { TagBadge } from "@/components/site/status-pill";
 import { VButton } from "@/components/site/vbutton";
 import { CheckCircle2, CloudOff, FileX, Flame, Hourglass } from "lucide-react";
 import { DownloadTransferButton, ExpiryCountdown } from "./transfer-actions";
+import { StreamPlayer } from "./stream-player";
 
 interface Props {
   params: Promise<{ locale: string; code: string }>;
@@ -152,6 +153,9 @@ export default async function TransferPage({ params }: Props) {
               fileName={t.fileName}
               fileSize={t.fileSize}
             />
+            {/* Play-without-downloading, for encrypted media links. Renders
+                nothing when it can't apply, so the download path is untouched. */}
+            <StreamPlayer code={t.code} mimeType={t.mimeType} oneTime={t.oneTime} />
           </div>
 
           {t.oneTime && (
