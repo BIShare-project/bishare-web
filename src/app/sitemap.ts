@@ -41,6 +41,7 @@ const ROUTES: Array<{
   { path: "/how-it-works", priority: 0.9, changeFrequency: "monthly" },
   { path: "/security", priority: 0.8, changeFrequency: "monthly" },
   { path: "/transfer", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/rooms", priority: 0.8, changeFrequency: "monthly" },
   { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
   { path: "/about", priority: 0.6, changeFrequency: "monthly" },
   { path: "/philosophy", priority: 0.5, changeFrequency: "monthly" },
