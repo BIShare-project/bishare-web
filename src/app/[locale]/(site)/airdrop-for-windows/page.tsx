@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
+import { breadcrumbLd } from "@/lib/breadcrumb-ld";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { RelatedLinks } from "@/components/site/related-links";
@@ -93,6 +94,12 @@ export default async function AirdropForWindowsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbLd("/airdrop-for-windows", "AirDrop for Windows")).replace(/</g, "\\u003c"),
         }}
       />
       <SiteHeader />
