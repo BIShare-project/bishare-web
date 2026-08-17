@@ -101,6 +101,17 @@
         ]
       },
       {
+        "eyebrow": "Instant Preview",
+        "title": "Watch it before you download it.",
+        "desc": "A video behind an encrypted link starts playing from the link itself — scrub to any minute without waiting for the whole file. And the relay still can't read a byte: decryption happens in the recipient's browser.",
+        "points": [
+          "Video, audio, images and PDFs open straight from the link",
+          "Seek anywhere in a multi-gigabyte file — only the parts you watch are fetched",
+          "Still zero-knowledge: the relay only ever holds ciphertext",
+          "Falls back to a normal download when a format isn't web-playable"
+        ]
+      },
+      {
         "eyebrow": "Browser Access",
         "title": "No app? No problem.",
         "desc": "Open your device from any browser on the network — the other side never has to install anything. Send, receive, and browse from any OS.",
@@ -160,6 +171,10 @@
       {
         "title": "Auto-Cleanup",
         "desc": "Received files can tidy themselves up after 7, 14, or 30 days. Storage stays yours."
+      },
+      {
+        "title": "QR Beam",
+        "desc": "No Wi-Fi, no Bluetooth, no network at all: the sender's screen plays animated QR codes and the receiver's camera reads them back. Small files, zero radios."
       }
     ]
   },
@@ -214,6 +229,11 @@
       "identical": "Identical on every device",
       "iMacNote": "Same network · direct",
       "pixelNote": "Away · via encrypted link"
+    },
+    "preview": {
+      "playing": "Playing from the link",
+      "encrypted": "End-to-end encrypted",
+      "note": "Only the parts you watch are fetched and decrypted — in your browser."
     }
   }
 }
