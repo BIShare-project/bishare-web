@@ -3,11 +3,16 @@
 import dynamic from "next/dynamic";
 
 // Client island: `dynamic(..., { ssr: false })` isn't allowed in a Server
-// Component, so the lazy TransferWidget lives here. It pulls the whole upload
-// stack (dropzone, QR, config fetch) and sits below the fold, so deferring it
-// keeps the (now server-rendered) homepage's initial paint/hydration light.
-const TransferWidget = dynamic(
-  () => import("@/components/site/transfer-widget").then((m) => m.TransferWidget),
+// Component, so the lazy studio lives here. It pulls the whole upload stack
+// (dropzone, QR, config fetch) and sits below the fold, so deferring it keeps
+// the (server-rendered) homepage's initial paint and hydration light.
+//
+// This is the SAME component /transfer uses, deliberately: the homepage
+// promises "send a real file, right here", and landing on the real thing —
+// route selector, thumbnail grid, preview — beats a simplified stand-in that
+// behaves differently from the page it is advertising.
+const TransferStudio = dynamic(
+  () => import("@/components/site/transfer-studio").then((m) => m.TransferStudio),
   {
     ssr: false,
     loading: () => (
@@ -19,5 +24,5 @@ const TransferWidget = dynamic(
 );
 
 export function LiveWidget() {
-  return <TransferWidget />;
+  return <TransferStudio />;
 }

@@ -239,7 +239,7 @@ async function Live() {
   const t = await getTranslations("home");
   return (
     <section className="border-b border-border">
-      <div className="mx-auto max-w-2xl px-5 py-12 sm:px-6 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-5xl px-5 py-12 sm:px-6 sm:py-20 md:py-28">
         <div className="text-center">
           <FadeUp>
             <span className="inline-flex items-center gap-2 rounded-full border border-accent-blue/40 bg-accent-blue/[0.06] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-accent-blue">
@@ -259,7 +259,9 @@ async function Live() {
           </FadeUp>
         </div>
         <FadeUp delay={0.1}>
-          <div className="mt-9 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+          {/* No card wrapper: the studio brings its own shell (ring, glass,
+              bloom), and nesting it in a plain card double-bordered it. */}
+          <div className="mt-9">
             <LiveWidget />
           </div>
         </FadeUp>
