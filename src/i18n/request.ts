@@ -25,7 +25,6 @@ const NAMESPACES = [
   "features",
   "flows",
   "security",
-  "pricing",
   "philosophy",
   "faq",
   "download",
