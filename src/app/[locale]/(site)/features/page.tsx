@@ -22,6 +22,9 @@ import { GridBackdrop } from "@/components/site/grid-backdrop";
 import { sharedOpenGraph } from "@/lib/og";
 import {
   Wifi,
+  PlayCircle,
+  Play,
+  Lock,
   LayoutGrid,
   ClipboardCopy,
   Users,
@@ -317,6 +320,35 @@ async function RemoteVisual() {
   );
 }
 
+/** The preview flagship: a video scrubbing from an encrypted link, with the
+ *  point made explicit — the relay holds ciphertext while this plays. */
+async function PreviewVisual() {
+  const t = await getTranslations("features");
+  return (
+    <MockSurface accent className="mx-auto w-full max-w-md p-5">
+      <div className="overflow-hidden rounded-xl border border-border bg-black">
+        <div className="relative flex aspect-video items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-slate-900">
+            <Play className="ml-0.5 h-5 w-5 fill-current" />
+          </span>
+          <span className="absolute bottom-0 left-0 right-0 h-1 bg-white/15">
+            <span className="block h-full w-2/3 bg-accent-blue" />
+          </span>
+        </div>
+      </div>
+      <div className="mt-3 flex items-center justify-between text-xs">
+        <span className="font-medium">{t("visuals.preview.playing")}</span>
+        <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+          <Lock className="h-3.5 w-3.5" /> {t("visuals.preview.encrypted")}
+        </span>
+      </div>
+      <p className="mt-1.5 text-[11px] text-muted-foreground">
+        {t("visuals.preview.note")}
+      </p>
+    </MockSurface>
+  );
+}
+
 async function BrowserVisual() {
   const t = await getTranslations("features");
   return (
@@ -438,6 +470,7 @@ const FLAGSHIP_META: {
   { icon: ClipboardCopy, visual: <ClipboardVisual /> },
   { icon: Users, visual: <RoomsVisual /> },
   { icon: Link2, visual: <RemoteVisual /> },
+  { icon: PlayCircle, visual: <PreviewVisual /> },
   { icon: Globe, visual: <BrowserVisual /> },
   { icon: FolderSync, visual: <FolderSyncVisual />, comingSoon: true },
 ];

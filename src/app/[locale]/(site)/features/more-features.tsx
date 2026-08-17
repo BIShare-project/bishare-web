@@ -11,6 +11,7 @@ import {
   EyeOff,
   ShieldCheck,
   Trash2,
+  ScanLine,
 } from "lucide-react";
 
 /**
@@ -31,6 +32,7 @@ const MORE_ICONS = [
   EyeOff,
   ShieldCheck,
   Trash2,
+  ScanLine, // QR Beam — screen-to-camera, no network
 ];
 
 interface MoreFeatureText {
