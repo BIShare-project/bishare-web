@@ -20,7 +20,7 @@ export const TRANSFER_EXPIRY_HOURS = 24;
  * unreachable or malformed. The server now rejects >1 GiB for anonymous
  * uploads (tier work), so the web — an anonymous client — mirrors 1 GiB.
  */
-export const TRANSFER_MAX_FILE_SIZE_FREE_FALLBACK = 10_737_418_240; // 10 GiB (mirrors the transfer_max_file_size_free flag)
+export const TRANSFER_MAX_FILE_SIZE_FREE_FALLBACK = 107_374_182_400; // 100 GiB (mirrors the transfer_max_file_size_free flag)
 
 /** File extensions the backend refuses on upload. */
 export const BLOCKED_EXTENSIONS = [

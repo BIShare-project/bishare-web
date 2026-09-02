@@ -42,7 +42,7 @@ Fair's fair — we go first, and we'll be as blunt about the trade as we are abo
 
 **Fidelity:** a folder shared from the app travels as **one zip, streamed as it's built** — no temp copy staged on disk, subfolders intact on unpacking. We chose streaming-zip when we built folder sharing for a reason that echoes criterion 3: in our early testing, trees with thousands of small files spent more time on per-file ceremony than on actual bytes, and bundling amortizes all of it into one continuous stream. On the [web tool](/transfer), you send batches of files; the folder-as-one-object experience is the app's.
 
-**Ceiling:** **10 GB per transfer, free** — no account, links self-expire, optional one-time download. Bigger trees split into logical batches (by subfolder, usually) — the craft section below makes that painless.
+**Ceiling:** **100 GB per transfer, free** — no account, links self-expire, optional one-time download. Bigger trees split into logical batches (by subfolder, usually) — the craft section below makes that painless.
 
 **Speed:** uploads are **chunked and resumable** — a blip resumes at the failed part, a page reload continues where it left off. No free-tier throttle, no queue; the [same app also does the local route](/download), which for a same-network handoff makes the whole internet question moot: a 20 GB tree crosses a router in minutes.
 
@@ -54,7 +54,7 @@ Fair's fair — we go first, and we'll be as blunt about the trade as we are abo
 
 [SwissTransfer](https://www.swisstransfer.com) (from Swiss host Infomaniak) is the contender we respect enough to recommend when the shoe fits. **Ceiling:** its headline — up to 50 GB per transfer, free, no account, which for single monster trees is genuinely unmatched in the no-cost tier. **Fidelity:** folders arrive zipped; structure survives the trip. **Receiver's minute:** clean, account-free, humane expiry options — a genuinely courteous landing page by the genre's standards.
 
-The honest asterisks live in criteria 3 and 4: uploads aren't resumable in the way chunk-level resume means it — a long upload that dies is a long upload again — and the privacy model is server-side rather than end-to-end, so you're trusting the operator (a reputable one, with Swiss framing, but trust-the-operator all the same). Verdict: **the pick when one transfer must exceed 10 GB and the material isn't sensitive**; pair it with a stable connection and our checklist habits.
+The honest asterisks live in criteria 3 and 4: uploads aren't resumable in the way chunk-level resume means it — a long upload that dies is a long upload again — and the privacy model is server-side rather than end-to-end, so you're trusting the operator (a reputable one, with Swiss framing, but trust-the-operator all the same). Verdict: **the pick when one transfer must exceed 100 GB and the material isn't sensitive**; pair it with a stable connection and our checklist habits.
 
 ## Smash: unlimited, with a meter running
 
@@ -118,8 +118,8 @@ The heaviest folder traffic we see is photography — shoots, archives, deliveri
 
 Compressed to a sentence each, rubric order:
 
-- **Need encryption, resume, and a clean receiver minute, ≤10 GB per send:** [BIShare's transfer](/transfer) — free, end-to-end, chunk-resumable, batch by subfolder above the line. This is the default we'd hand a working creative, and the criteria say why rather than us saying trust us.
-- **One transfer that must exceed 10 GB, material not sensitive:** SwissTransfer, on a stable connection.
+- **Need encryption, resume, and a clean receiver minute, ≤100 GB per send:** [BIShare's transfer](/transfer) — free, end-to-end, chunk-resumable, batch by subfolder above the line. This is the default we'd hand a working creative, and the criteria say why rather than us saying trust us.
+- **One transfer that must exceed 100 GB, material not sensitive:** SwissTransfer, on a stable connection.
 - **Enormous tree, soft deadline:** Smash's unlimited lane, queue accepted.
 - **Ongoing collaboration on a living tree:** a cloud-drive folder share — a workspace, not a courier — with the deletion-mirroring caveat taped to the lid.
 - **Same network, any size:** the [local route](/download); the internet was never required, and the 20 GB tree lands before the upload progress bar would have drawn itself.
