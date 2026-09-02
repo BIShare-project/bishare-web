@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { getTransferStatus, getTransferDownloadURL } from "@/lib/api";
 import { triggerBrowserDownload } from "@/components/download-button";
-import { decryptStream, DecryptError, keyFromHash } from "@/lib/e2e/crypto";
+import { decryptStream, DecryptError, keyFromHash, maxPlaintextFor } from "@/lib/e2e/crypto";
 import { CheckCircle2, Clock, Download, Loader2, Lock } from "lucide-react";
 
 type Translate = ReturnType<typeof useTranslations>;
@@ -23,6 +23,76 @@ type ShowSaveFilePicker = (opts?: { suggestedName?: string }) => Promise<FsFileH
 
 function saveToDiskSupported(): boolean {
   return typeof window !== "undefined" && "showSaveFilePicker" in window;
+}
+
+/**
+ * Second-best after the save picker: hand the decryption to the site's
+ * service worker and let the browser's own downloader stream the plaintext to
+ * disk. This is what keeps Firefox, Safari and every mobile browser from
+ * having to hold the whole file in memory. Returns null when the worker is
+ * not in control of this page (first visit before activation, private mode),
+ * in which case the caller falls back to the in-memory path.
+ */
+async function openStreamedDownload(input: {
+  code: string;
+  key: Uint8Array;
+  name: string;
+  size: number;
+  onProgress: (bytes: number) => void;
+  onDone: () => void;
+  onError: () => void;
+}): Promise<string | null> {
+  if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) return null;
+  try {
+    const reg = await navigator.serviceWorker.ready;
+    if (!navigator.serviceWorker.controller) {
+      // Freshly activated on a first visit: give clients.claim a moment.
+      await new Promise<void>((resolve) => {
+        const timer = setTimeout(resolve, 2000);
+        navigator.serviceWorker.addEventListener(
+          "controllerchange",
+          () => {
+            clearTimeout(timer);
+            resolve();
+          },
+          { once: true },
+        );
+      });
+    }
+    const worker = navigator.serviceWorker.controller ?? reg.active;
+    if (!worker || !navigator.serviceWorker.controller) return null;
+
+    const id = crypto.randomUUID();
+    const ch = new MessageChannel();
+    const ready = new Promise<boolean>((resolve) => {
+      const timer = setTimeout(() => resolve(false), 10000);
+      ch.port1.onmessage = (e: MessageEvent) => {
+        const d = e.data as { type?: string; bytes?: number };
+        if (d?.type === "ready") {
+          clearTimeout(timer);
+          resolve(true);
+        } else if (d?.type === "progress" && typeof d.bytes === "number") input.onProgress(d.bytes);
+        else if (d?.type === "done") input.onDone();
+        else if (d?.type === "error") input.onError();
+      };
+    });
+    worker.postMessage(
+      { type: "download", id, url: getTransferDownloadURL(input.code), key: Array.from(input.key), name: input.name, size: input.size },
+      [ch.port2],
+    );
+    if (!(await ready)) return null;
+
+    // Prove the worker actually intercepts the URL before committing to it —
+    // a HEAD costs nothing and a miss would otherwise navigate to a 404.
+    const probe = await fetch(`/stream/${id}?download=1`, { method: "HEAD" }).catch(() => null);
+    if (!probe || !probe.ok || probe.headers.get("Content-Disposition")?.startsWith("attachment") !== true) {
+      worker.postMessage({ type: "end", id });
+      return null;
+    }
+    return `/stream/${id}?download=1`;
+  } catch {
+    return null;
+  }
 }
 
 /** Live "Expires in …" pill, refreshed every 30 seconds. */
@@ -140,6 +210,40 @@ export function DownloadTransferButton({
 
   async function handleEncryptedDownload(key: Uint8Array) {
     setError("");
+    // No save picker (Firefox, Safari, every mobile browser): stream through
+    // the service worker so the browser writes to disk as bytes arrive. Only
+    // if that is unavailable do we fall back to decrypting in memory.
+    if (!saveToDiskSupported()) {
+      setState("checking");
+      setPct(0);
+      if (!(await recheckStatus())) return;
+      const plainSize = maxPlaintextFor(fileSize);
+      const url = await openStreamedDownload({
+        code,
+        key,
+        name: fileName,
+        size: plainSize,
+        onProgress: (bytes) => {
+          setState("decrypting");
+          setPct(Math.min(100, Math.round((bytes / Math.max(1, plainSize)) * 100)));
+        },
+        onDone: () => {
+          setPct(100);
+          setState("started");
+        },
+        onError: () => {
+          setError(t("download.errors.network"));
+          setState("idle");
+        },
+      });
+      if (url) {
+        setState("decrypting");
+        triggerBrowserDownload(url);
+        return;
+      }
+      setState("idle");
+    }
+
     // Open the save dialog FIRST, inside the click's user gesture (a later
     // await would drop the transient activation showSaveFilePicker needs).
     let writable: FsWritable | undefined;
