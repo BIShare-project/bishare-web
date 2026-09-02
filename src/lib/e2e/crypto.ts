@@ -330,6 +330,108 @@ export async function decryptStream(
   }
 }
 
+// ── Sequential streaming (receiver, downloads) ────────────────────────────
+//
+// A TransformStream that turns a ciphertext byte stream into plaintext with
+// real backpressure: it holds at most one record plus the chunk in flight, so
+// a multi-gigabyte download piped through it never grows memory. Unlike
+// [decryptStream], which pushes into a callback, this composes with
+// `pipeThrough`, which is what a service worker needs to answer a download
+// request with a body the browser writes straight to disk.
+//
+// Semantics are identical to [decryptStream]: header validated, every record
+// authenticated against its index-bound nonce/AAD, and the stream errors on a
+// short tail or trailing bytes rather than closing as if it succeeded.
+
+export interface DecryptTransformHooks {
+  /** Called once the 24-byte header has been read. */
+  onHeader?: (hdr: EncHeader) => void;
+  /** Plaintext bytes produced so far. */
+  onProgress?: (plainBytes: number) => void;
+}
+
+export function decryptTransform(
+  rawKey: Uint8Array,
+  hooks: DecryptTransformHooks = {},
+): TransformStream<Uint8Array, Uint8Array> {
+  let key: CryptoKey | null = null;
+  let hdr: EncHeader | null = null;
+  let records = 0;
+  let index = 0;
+  let produced = 0;
+  // Pending input, as a list of views so a large chunk is never re-copied
+  // just to append a small one.
+  let pending: Uint8Array[] = [];
+  let pendingLen = 0;
+
+  function take(n: number): Uint8Array {
+    const out = new Uint8Array(n);
+    let filled = 0;
+    while (filled < n) {
+      const head = pending[0]!;
+      const want = Math.min(head.length, n - filled);
+      out.set(head.subarray(0, want), filled);
+      filled += want;
+      if (want === head.length) pending.shift();
+      else pending[0] = head.subarray(want);
+    }
+    pendingLen -= n;
+    return out;
+  }
+
+  function recordLen(i: number): number {
+    const plainLen = Math.min(hdr!.recordSize, hdr!.plaintextSize - i * hdr!.recordSize);
+    return plainLen + TAG_SIZE;
+  }
+
+  return new TransformStream<Uint8Array, Uint8Array>({
+    async transform(chunk, controller) {
+      if (chunk.length === 0) return;
+      pending.push(chunk);
+      pendingLen += chunk.length;
+      if (!key) key = await importKey(rawKey);
+
+      if (!hdr) {
+        if (pendingLen < HEADER_SIZE) return;
+        hdr = parseEncHeader(take(HEADER_SIZE));
+        records = Math.max(1, Math.ceil(hdr.plaintextSize / hdr.recordSize));
+        hooks.onHeader?.(hdr);
+      }
+
+      while (index < records && pendingLen >= recordLen(index)) {
+        const ct = take(recordLen(index));
+        let plain: ArrayBuffer;
+        try {
+          plain = await crypto.subtle.decrypt(
+            {
+              name: "AES-GCM",
+              iv: toArrayBuffer(nonceFor(hdr.salt, index)),
+              additionalData: toArrayBuffer(aadFor(index)),
+            },
+            key,
+            toArrayBuffer(ct),
+          );
+        } catch {
+          throw new DecryptError("decryption failed — wrong key or corrupted file");
+        }
+        index++;
+        produced += plain.byteLength;
+        controller.enqueue(new Uint8Array(plain));
+        hooks.onProgress?.(produced);
+      }
+
+      // Bytes past the final record can only be junk; fail early.
+      if (index >= records && pendingLen > 0) throw new DecryptError("unexpected trailing data");
+    },
+    flush() {
+      if (!hdr) throw new DecryptError("truncated header");
+      if (index < records) throw new DecryptError("truncated stream");
+      if (pendingLen > 0) throw new DecryptError("unexpected trailing data");
+      pending = [];
+    },
+  });
+}
+
 // ── Random access (receiver) ──────────────────────────────────────────────
 //
 // Because a record's nonce and AAD come from its INDEX rather than from a

@@ -13,7 +13,7 @@
 // skipWaiting + clients.claim take control immediately; safe here because no
 // HTML is cached. Bump VERSION to drop old asset caches.
 
-const VERSION = "v2";
+const VERSION = "v3";
 
 // Encrypted-media streaming lives in a generated script (built from
 // src/sw/stream-sw.ts, so the record format has one definition). It is pulled
@@ -41,7 +41,7 @@ self.addEventListener("install", (event) => {
       .then(() => self.skipWaiting())
   );
 });
-
+ 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
@@ -90,3 +90,4 @@ self.addEventListener("fetch", (event) => {
   }
   // Everything else falls through to the default network handling.
 });
+ 

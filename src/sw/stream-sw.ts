@@ -19,6 +19,7 @@
 import {
   ciphertextRangeFor,
   decryptRange,
+  decryptTransform,
   parseEncHeader,
   HEADER_SIZE,
   type EncHeader,
@@ -35,7 +36,26 @@ interface Session {
   mime: string;
 }
 
+/**
+ * A download session is deliberately different from a media session: it
+ * never touches the relay until the browser asks for the body, and then it
+ * makes ONE sequential GET. That is what makes it safe for one-time links
+ * (the relay ignores Range on those and the first GET consumes them) and
+ * what keeps memory flat — the ciphertext is decrypted record by record as
+ * it streams through, and the browser writes the plaintext to disk itself.
+ * `size` is what the page believes the plaintext is; the header inside the
+ * stream is still authoritative and a mismatch fails the download.
+ */
+interface DownloadSession {
+  url: string;
+  key: Uint8Array;
+  name: string;
+  size: number;
+  port?: MessagePort; // progress/done/error back to the page
+}
+
 const sessions = new Map<string, Session>();
+const downloads = new Map<string, DownloadSession>();
 const PREFIX = "/stream/";
 
 self.addEventListener("install", () => void self.skipWaiting());
@@ -48,6 +68,7 @@ self.addEventListener("activate", (e: ExtendableEvent) => e.waitUntil(self.clien
 self.addEventListener("message", (event: ExtendableMessageEvent) => {
   const data = event.data as
     | { type: "session"; id: string; url: string; key: number[]; mime: string }
+    | { type: "download"; id: string; url: string; key: number[]; name: string; size: number }
     | { type: "end"; id: string }
     | undefined;
   if (!data) return;
@@ -55,6 +76,18 @@ self.addEventListener("message", (event: ExtendableMessageEvent) => {
 
   if (data.type === "end") {
     sessions.delete(data.id);
+    downloads.delete(data.id);
+    return;
+  }
+  if (data.type === "download") {
+    downloads.set(data.id, {
+      url: data.url,
+      key: Uint8Array.from(data.key),
+      name: data.name,
+      size: data.size,
+      port,
+    });
+    port?.postMessage({ type: "ready", id: data.id });
     return;
   }
   if (data.type !== "session") return;
@@ -150,10 +183,76 @@ async function serve(session: Session, req: Request): Promise<Response> {
   });
 }
 
+/** RFC 6266 attachment header that survives non-ASCII names. */
+function attachment(name: string): string {
+  const ascii = name.replace(/[^\x20-\x7e]/g, "_").replace(/"/g, "'");
+  return `attachment; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(name)}`;
+}
+
+/**
+ * Answer a download: one GET to the relay, decrypted as it streams, handed to
+ * the browser as an attachment so its own downloader writes it to disk. A
+ * HEAD is a probe from the page checking that this worker really intercepts
+ * the URL (a page that is not yet controlled would otherwise navigate to a
+ * 404) and costs the relay nothing.
+ */
+async function serveDownload(id: string, dl: DownloadSession, req: Request): Promise<Response> {
+  const headers: Record<string, string> = {
+    "Content-Type": "application/octet-stream",
+    "Content-Disposition": attachment(dl.name),
+    "Cache-Control": "no-store",
+    "X-Content-Type-Options": "nosniff",
+  };
+  if (dl.size >= 0) headers["Content-Length"] = String(dl.size);
+  if (req.method === "HEAD") return new Response(null, { status: 200, headers });
+
+  const res = await fetch(dl.url);
+  if (!res.ok || !res.body) {
+    dl.port?.postMessage({ type: "error", id, status: res.status });
+    return new Response(null, { status: 502 });
+  }
+  const body = res.body.pipeThrough(
+    decryptTransform(dl.key, {
+      onHeader: (hdr) => {
+        if (dl.size >= 0 && hdr.plaintextSize !== dl.size) {
+          throw new Error(`size mismatch: header ${hdr.plaintextSize}, expected ${dl.size}`);
+        }
+      },
+      onProgress: (bytes) => dl.port?.postMessage({ type: "progress", id, bytes }),
+    }),
+  );
+  // Report completion/failure from the plaintext side, where truncation and
+  // bad tags surface, so the page never shows "done" for a broken file. A
+  // pipeTo (not tee) keeps backpressure intact: the browser's disk writer
+  // paces the relay fetch, and nothing accumulates in this worker.
+  const relay = new TransformStream<Uint8Array, Uint8Array>();
+  body.pipeTo(relay.writable).then(
+    () => dl.port?.postMessage({ type: "done", id }),
+    (err: unknown) => dl.port?.postMessage({ type: "error", id, error: String(err) }),
+  );
+  return new Response(relay.readable, { status: 200, headers });
+}
+
 self.addEventListener("fetch", (event: FetchEvent) => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin || !url.pathname.startsWith(PREFIX)) return;
   const id = url.pathname.slice(PREFIX.length);
+
+  if (url.searchParams.has("download")) {
+    const dl = downloads.get(id);
+    if (!dl) {
+      event.respondWith(new Response("no session", { status: 503 }));
+      return;
+    }
+    event.respondWith(
+      serveDownload(id, dl, event.request).catch((err) => {
+        dl.port?.postMessage({ type: "error", id, error: String(err) });
+        return new Response("decrypt failed", { status: 500 });
+      }),
+    );
+    return;
+  }
+
   const session = sessions.get(id);
   // An unknown id means the worker was restarted and lost its keys; the page
   // re-handshakes on controllerchange, so a plain 503 is the right signal.
