@@ -51,7 +51,7 @@ const COMPARISON: Array<{
 ];
 
 const HOW_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7"] as const;
+const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8"] as const;
 const STEP_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const FIX_ITEMS = ["0", "1", "2"] as const;
 
