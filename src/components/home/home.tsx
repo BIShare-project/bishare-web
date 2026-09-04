@@ -410,6 +410,50 @@ async function HowItWorks() {
 /* ── CTA ─────────────────────────────────────────────────────────────────── */
 const CTA_POINTS = ["free", "platforms", "anyone"] as const;
 
+/* The landing pages the homepage should hand its authority to. Inbound links
+   from posts, directories and press land on "/", so without a body-link path
+   the 28 guide pages depend on the footer alone. Order follows what Search
+   Console says already earns impressions. Labels reuse the "related"
+   namespace — already translated in all 13 locales. */
+const GUIDES = [
+  "airdrop-for-windows",
+  "send-large-files",
+  "best-file-sharing-app",
+  "airdrop-alternative",
+  "snapdrop-alternative",
+  "wetransfer-alternative",
+  "transfer-files-phone-to-pc",
+  "localsend-alternative",
+] as const;
+
+async function Guides() {
+  const t = await getTranslations("related");
+  return (
+    <section className="relative">
+      <div className="mx-auto max-w-6xl px-5 pb-4 sm:px-6">
+        <FadeUp>
+          <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            {t("heading")}
+          </h2>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {GUIDES.map((slug) => (
+              <li key={slug}>
+                <Link
+                  href={`/${slug}`}
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3.5 transition-colors hover:border-border-strong hover:bg-background-raised"
+                >
+                  <span className="text-sm font-medium">{t(`links.${slug}`)}</span>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-accent-blue" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
 async function DownloadCTA() {
   const t = await getTranslations("home");
   return (
@@ -477,6 +521,7 @@ export function Home() {
       <Differentiators />
       <Features />
       <HowItWorks />
+      <Guides />
       <DownloadCTA />
     </main>
   );
