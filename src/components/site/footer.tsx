@@ -26,6 +26,7 @@ const COLUMNS: Array<{
         { labelKey: "transfer", href: "/transfer" },
         { labelKey: "download", href: "/download" },
         { labelKey: "features", href: "/features" },
+        { labelKey: "pricing", href: "/pricing" },
         { labelKey: "howItWorks", href: "/how-it-works" },
         { labelKey: "security", href: "/security" },
         { labelKey: "faq", href: "/faq" },

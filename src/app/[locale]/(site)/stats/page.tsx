@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { buildAlternates } from "@/i18n/metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   ArrowLeftRight,
@@ -31,7 +32,9 @@ export async function generateMetadata({
   return {
     title: t("meta.title"),
     description: t("meta.description"),
-    robots: { index: false, follow: true },
+    // Indexable: the live numbers are a real page, and a public stats page is
+    // exactly the kind of thing an open-source project is asked to show.
+    alternates: buildAlternates(locale, "/stats"),
   };
 }
 

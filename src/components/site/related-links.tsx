@@ -39,6 +39,7 @@ const CLUSTER: Record<string, string[]> = {
   "transfer-photos-from-iphone-to-pc": ["transfer-files-phone-to-pc", "airdrop-for-windows", "send-files-iphone-to-android", "send-large-files"],
   "airdrop-not-working": ["airdrop-alternative", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android"],
   "transfer-files-between-computers": ["share-files-mac-to-windows", "transfer-files-pc-to-phone", "send-large-files", "send-files-without-internet"],
+  pricing: ["send-large-files", "wetransfer-alternative", "smash-alternative", "best-file-sharing-app"],
   "best-file-sharing-app": ["localsend-alternative", "airdrop-for-windows", "airdrop-alternative", "snapdrop-alternative", "wetransfer-alternative"],
   "localsend-alternative": ["snapdrop-alternative", "airdrop-for-windows", "nearby-share-alternative", "best-file-sharing-app", "send-files-without-internet"],
 };
