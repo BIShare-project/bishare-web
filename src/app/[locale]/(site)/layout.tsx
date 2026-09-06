@@ -98,7 +98,14 @@ const JSON_LD = {
       url: "https://bishare.app",
       logo: "https://bishare.app/logo.png",
       description: DESCRIPTION,
-      sameAs: ["https://apps.apple.com/app/id6760924092"],
+      // sameAs is how an entity gets stitched together across the web. One
+      // App Store link left the GitHub org — the thing that proves the
+      // open-source claim — unconnected to this name.
+      sameAs: [
+        "https://github.com/BIShare-project",
+        "https://apps.apple.com/app/id6760924092",
+        "https://play.google.com/store/apps/details?id=com.bishare.app",
+      ],
     },
     {
       "@type": "WebSite",
@@ -120,6 +127,14 @@ const JSON_LD = {
       downloadUrl: "https://bishare.app/download",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       publisher: { "@id": "https://bishare.app/#org" },
+      // The prose says "open source" a dozen times and links the repos, but a
+      // machine reading this page had nothing structured to go on — and search
+      // summaries were concluding the opposite. These four properties are the
+      // ones that answer it without inference.
+      license: "https://opensource.org/licenses/MIT",
+      codeRepository: "https://github.com/BIShare-project",
+      isAccessibleForFree: true,
+      applicationSuite: "BIShare",
     },
   ],
 };
