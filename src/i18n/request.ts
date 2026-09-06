@@ -20,6 +20,7 @@ import { routing } from "./routing";
  * an empty object) at request time.
  */
 const NAMESPACES = [
+  "pricing",
   "common",
   "home",
   "features",

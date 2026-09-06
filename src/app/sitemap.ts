@@ -13,6 +13,7 @@ const ROUTES: Array<{
   { path: "/download", priority: 0.9, changeFrequency: "weekly" },
   { path: "/best-file-sharing-app", priority: 0.95, changeFrequency: "weekly" },
   { path: "/features", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/pricing", priority: 0.9, changeFrequency: "monthly" },
   { path: "/localsend-alternative", priority: 0.9, changeFrequency: "monthly" },
   { path: "/airdrop-for-android", priority: 0.9, changeFrequency: "monthly" },
   { path: "/airdrop-for-windows", priority: 0.9, changeFrequency: "monthly" },
@@ -42,6 +43,7 @@ const ROUTES: Array<{
   { path: "/security", priority: 0.8, changeFrequency: "monthly" },
   { path: "/transfer", priority: 0.8, changeFrequency: "monthly" },
   { path: "/rooms", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/stats", priority: 0.6, changeFrequency: "daily" },
   { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
   { path: "/about", priority: 0.6, changeFrequency: "monthly" },
   { path: "/philosophy", priority: 0.5, changeFrequency: "monthly" },
@@ -55,8 +57,16 @@ function absolute(locale: string, path: string): string {
   return `${SITE_URL}${p === "/" ? "" : p}`;
 }
 
+// Static routes change when the site is rebuilt, not every time a crawler
+// asks. Stamping `new Date()` on all 500+ URLs told Google everything changed
+// today, every day — a lastmod that is always "now" is one Google learns to
+// ignore, and it spends crawl budget re-fetching pages that never moved.
+// BUILD_TIME is fixed when the bundle is built, so the date only advances on
+// an actual deploy.
+const BUILD_TIME = new Date();
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = BUILD_TIME;
 
   // Blog: English-only editorial content — one URL per entry, no locale
   // alternates (every locale URL canonicalizes to the unprefixed path).
