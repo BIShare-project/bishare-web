@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Copy, Loader2, RadioTower, Send, WifiOff, X, Download } from "lucide-react";
+import { Copy, Loader2, RadioTower, Send, Upload, WifiOff, X, Download } from "lucide-react";
 import { NearbySignaling, type NearbyPeer } from "@/lib/nearby/signaling";
 import { getNearbySelf } from "@/lib/nearby/identity";
 import { NearbyRTC, type IncomingFile } from "@/lib/nearby/webrtc";
@@ -67,7 +67,13 @@ function normalizeCode(raw: string): string {
  * straight peer-to-peer over a DTLS DataChannel and never touch our servers.
  * Flag-gated (web_nearby_enabled) by the parent widget.
  */
-export function NearbyPanel() {
+export function NearbyPanel({
+  onPeerCount,
+}: {
+  /** Roster size, reported up so the studio can open on this tab when
+   *  someone is actually there to receive. */
+  onPeerCount?: (n: number) => void;
+} = {}) {
   const t = useTranslations("nearby");
   const locale = useLocale();
   const [mode, setMode] = useState<Mode>("local");
@@ -84,6 +90,12 @@ export function NearbyPanel() {
   const [queued, setQueued] = useState<Record<string, { done: number; total: number }>>({});
   const [copied, setCopied] = useState(false);
   const [dropPeer, setDropPeer] = useState<string | null>(null);
+  // Files chosen BEFORE a recipient. The cloud tab has always worked this way
+  // — drop, then decide — while Nearby forced you to pick a device first,
+  // which is backwards from how people think about sending.
+  const [staged, setStaged] = useState<File[]>([]);
+  const [zoneActive, setZoneActive] = useState(false);
+  const stageInput = useRef<HTMLInputElement>(null);
   const rtcRef = useRef<NearbyRTC | null>(null);
   const selfRef = useRef<NearbyPeer | null>(null);
   const targetPeer = useRef<string | null>(null);
@@ -98,6 +110,10 @@ export function NearbyPanel() {
   }
   const self = selfRef.current;
   const selfName = self ? `${self.emoji} ${self.alias}` : "";
+
+  useEffect(() => {
+    onPeerCount?.(peers.length);
+  }, [peers.length, onPeerCount]);
 
   useEffect(() => {
     if (!supported || !self) return;
@@ -203,6 +219,11 @@ export function NearbyPanel() {
     targetPeer.current = peerId;
     fileInput.current?.click();
   }, []);
+
+  function stageFiles(list: FileList | File[]) {
+    const files = Array.from(list);
+    if (files.length) setStaged((cur) => [...cur, ...files]);
+  }
 
   /** Send the next queued file for a peer. Returns false when the queue is dry. */
   const pump = useCallback((peerId: string): boolean => {
@@ -541,7 +562,68 @@ export function NearbyPanel() {
             </div>
           )}
           {conn === "online" && peers.length > 0 && (
-            <ul className="space-y-2">
+            <>
+              <input
+                ref={stageInput}
+                type="file"
+                multiple
+                hidden
+                onChange={(e) => {
+                  if (e.target.files) stageFiles(e.target.files);
+                  e.target.value = "";
+                }}
+              />
+              {/* Drop first, choose the device after — the cloud tab's gesture,
+                  brought to Nearby. Dropping straight onto a device still works
+                  below, for anyone who already knows where it's going. */}
+              <div
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  setZoneActive(true);
+                }}
+                onDragLeave={() => setZoneActive(false)}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setZoneActive(false);
+                  if (e.dataTransfer.files.length) stageFiles(e.dataTransfer.files);
+                }}
+                onClick={() => stageInput.current?.click()}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") stageInput.current?.click();
+                }}
+                className={`mb-3 cursor-pointer rounded-xl border border-dashed px-4 py-5 text-center transition-colors ${
+                  zoneActive
+                    ? "border-accent-blue bg-accent-blue/[0.06]"
+                    : "border-border hover:border-border-strong hover:bg-background-raised/60"
+                }`}
+              >
+                <Upload
+                  className={`mx-auto h-5 w-5 transition-colors ${
+                    zoneActive ? "text-accent-blue" : "text-muted-foreground"
+                  }`}
+                />
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {zoneActive ? t("dropActive") : t("dropIdle")}
+                </p>
+              </div>
+
+              {staged.length > 0 && (
+                <div className="mb-3 flex items-center justify-between gap-3 rounded-xl border border-accent-blue/40 bg-accent-blue/[0.06] px-4 py-2.5">
+                  <p className="min-w-0 truncate text-sm font-semibold">
+                    {t("staged", { count: staged.length })}
+                  </p>
+                  <button
+                    onClick={() => setStaged([])}
+                    className="shrink-0 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-secondary"
+                  >
+                    {t("clearStaged")}
+                  </button>
+                </div>
+              )}
+
+              <ul className="space-y-2">
               {peers.map((p) => {
                 const pct = sending[p.peerId];
                 const busy = pct !== undefined;
@@ -581,17 +663,25 @@ export function NearbyPanel() {
                       </span>
                     </span>
                     <button
-                      onClick={() => pickFileFor(p.peerId)}
+                      onClick={() => {
+                        if (staged.length) {
+                          enqueue(p.peerId, staged);
+                          setStaged([]);
+                        } else {
+                          pickFileFor(p.peerId);
+                        }
+                      }}
                       disabled={busy && pct < 100}
                       className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
                     >
                       <Send className="h-3.5 w-3.5" />
-                      {t("send")}
+                      {staged.length ? t("sendCount", { count: staged.length }) : t("send")}
                     </button>
                   </li>
                 );
               })}
-            </ul>
+              </ul>
+            </>
           )}
         </div>
       )}

@@ -43,6 +43,13 @@ type Mode = "link" | "nearby" | "beam";
  */
 export function TransferStudio() {
   const [mode, setMode] = useState<Mode>("link");
+  // Nearby is mounted from the start (hidden until selected) so presence is
+  // live on arrival: that is the whole trick Snapdrop-style tools rely on —
+  // you open the page and the other device is simply there. Without it, the
+  // best feature stays behind a tab nobody clicks. `touched` keeps the
+  // auto-switch from ever overriding a deliberate choice.
+  const [peerCount, setPeerCount] = useState(0);
+  const [touched, setTouched] = useState(false);
   const [nearbyEnabled, setNearbyEnabled] = useState(false);
   const [beamEnabled, setBeamEnabled] = useState(false);
   const t = useTranslations("tool");
@@ -67,6 +74,13 @@ export function TransferStudio() {
     if (mode === "nearby" && !nearbyEnabled) setMode("link");
     if (mode === "beam" && !beamEnabled) setMode("link");
   }, [mode, nearbyEnabled, beamEnabled]);
+
+  // Someone is actually on this Wi-Fi — show them, once, unless the visitor
+  // has already picked a tab for themselves. Alone, the link flow stays put:
+  // an empty device list would be a worse first screen than a working one.
+  useEffect(() => {
+    if (!touched && nearbyEnabled && peerCount > 0 && mode === "link") setMode("nearby");
+  }, [touched, nearbyEnabled, peerCount, mode]);
 
   const modes: {
     key: Mode;
@@ -132,7 +146,10 @@ export function TransferStudio() {
               key={m.key}
               type="button"
               aria-pressed={mode === m.key}
-              onClick={() => setMode(m.key)}
+              onClick={() => {
+                setTouched(true);
+                setMode(m.key);
+              }}
               className={`relative flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-sm sm:py-3 font-semibold tracking-[-0.01em] transition-colors duration-200 ease-out ${
                 mode === m.key
                   ? "text-foreground"
@@ -176,7 +193,14 @@ export function TransferStudio() {
         className="relative flex-1 p-2.5 sm:p-5 lg:p-6"
       >
         {mode === "link" && <FileUpload />}
-        {mode === "nearby" && nearbyEnabled && <NearbyPanel />}
+        {/* Mounted whenever the flag allows, hidden until selected: presence
+            has to be live BEFORE the tab is opened, or nobody ever sees a
+            device waiting for them. */}
+        {nearbyEnabled && (
+          <div className={mode === "nearby" ? undefined : "hidden"}>
+            <NearbyPanel onPeerCount={setPeerCount} />
+          </div>
+        )}
         {mode === "beam" && beamEnabled && <QrBeamPanel />}
       </section>
       </div>
