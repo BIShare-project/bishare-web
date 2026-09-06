@@ -23,6 +23,10 @@ const QrBeamPanel = dynamic(
 
 type Mode = "link" | "nearby" | "beam";
 
+/** Above this many peers the roster is a carrier NAT, not a home or office
+ *  network — so we stop opening on it automatically. */
+const NEARBY_AUTO_MAX = 8;
+
 /**
  * The /transfer page's studio panel.
  *
@@ -78,8 +82,16 @@ export function TransferStudio() {
   // Someone is actually on this Wi-Fi — show them, once, unless the visitor
   // has already picked a tab for themselves. Alone, the link flow stays put:
   // an empty device list would be a worse first screen than a working one.
+  //
+  // The ceiling is the carrier-NAT guard. Peers are grouped by public IP, and
+  // mobile networks put thousands of unrelated subscribers behind one — so a
+  // big roster means "same carrier", not "same room". Opening on a list of
+  // strangers would be both a worse screen and a privacy surprise; the tab is
+  // still there for anyone who wants it.
   useEffect(() => {
-    if (!touched && nearbyEnabled && peerCount > 0 && mode === "link") setMode("nearby");
+    if (!touched && nearbyEnabled && peerCount > 0 && peerCount <= NEARBY_AUTO_MAX && mode === "link") {
+      setMode("nearby");
+    }
   }, [touched, nearbyEnabled, peerCount, mode]);
 
   const modes: {
@@ -98,7 +110,7 @@ export function TransferStudio() {
       ? [
           {
             key: "nearby" as const,
-            label: tn("tab"),
+            label: peerCount > 0 ? `${tn("tab")} · ${peerCount}` : tn("tab"),
             hint: t("studio.localSub"),
             icon: RadioTower,
           },
@@ -127,12 +139,6 @@ export function TransferStudio() {
       <div className="flex min-w-0 flex-col">
       <div className="relative border-b border-border/60 p-3.5 sm:p-5">
         <div className="studio-grid" aria-hidden />
-
-        {/* The teaching line, kept next to the control rather than up in the
-            hero — this is where the choice is actually made. */}
-        <p className="relative mb-3 text-[13px] leading-relaxed text-muted-foreground sm:text-sm">
-          {t("studio.intro")}
-        </p>
 
         {/* Plain toggle buttons with aria-pressed, matching TransferWidget —
             role=tab without full keyboard semantics is worse than no role. */}
