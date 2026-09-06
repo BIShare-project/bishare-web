@@ -383,7 +383,7 @@ export function NearbyPanel({
       </div>
 
       {/* Header */}
-      <div className="text-center">
+      <div className={peers.length > 0 ? "sr-only" : "text-center"}>
         <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background text-foreground">
           <RadioTower className="h-5 w-5" />
         </div>
