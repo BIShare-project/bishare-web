@@ -240,8 +240,14 @@ export class NearbyRTC {
     const s = this.sessions.get(peerId);
     if (!s || s.notified) return;
     s.notified = true;
-    this.cb.onSendDone?.(peerId, s.file?.size ?? 0);
+    const bytes = s.file?.size ?? 0;
+    // Tear down BEFORE the callback, not after. Sessions are keyed by peer,
+    // and the callback drains the send queue — it starts the next file to the
+    // SAME peer, which registers a new session under this very key. Tearing
+    // down afterwards closed the connection that call had just opened, so a
+    // multi-file send always died on file two.
     this.teardown(peerId);
+    this.cb.onSendDone?.(peerId, bytes);
   }
 
   // ── Receiver: binary chunks (metadata already arrived with the offer) ──
@@ -284,7 +290,14 @@ export class NearbyRTC {
     } catch {
       /* channel already gone — sender falls back to close-after-complete */
     }
-    setTimeout(() => this.teardown(peerId), 1500);
+    // Tear down after a beat so the ack has time to flush — but only if this
+    // is still the SAME session. The sender starts the next queued file the
+    // moment it sees the ack, which registers a new session under this peer's
+    // key well inside the delay; a blind teardown would kill it and every
+    // multi-file send would stall on file two.
+    setTimeout(() => {
+      if (this.sessions.get(peerId) === s) this.teardown(peerId);
+    }, 1500);
   }
 
   private teardown(peerId: string): void {
