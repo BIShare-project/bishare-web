@@ -46,7 +46,9 @@ interface Callbacks {
   onIncoming: (file: IncomingFile) => void;
   /** Sender-side progress for a transfer we started. */
   onSendProgress?: (peerId: string, sent: number, total: number) => void;
-  onSendDone?: (peerId: string) => void;
+  /** `bytes` is the delivered file's size — the caller reports it as
+   *  anonymous aggregate telemetry, so it has to travel with the event. */
+  onSendDone?: (peerId: string, bytes: number) => void;
   onError?: (peerId: string, err: string) => void;
 }
 
@@ -238,7 +240,7 @@ export class NearbyRTC {
     const s = this.sessions.get(peerId);
     if (!s || s.notified) return;
     s.notified = true;
-    this.cb.onSendDone?.(peerId);
+    this.cb.onSendDone?.(peerId, s.file?.size ?? 0);
     this.teardown(peerId);
   }
 

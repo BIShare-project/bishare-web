@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Copy, Loader2, RadioTower, Send, Upload, WifiOff, X, Download } from "lucide-react";
 import { NearbySignaling, type NearbyPeer } from "@/lib/nearby/signaling";
 import { getNearbySelf } from "@/lib/nearby/identity";
+import { reportNearbyTelemetry } from "@/lib/api";
 import { NearbyRTC, type IncomingFile } from "@/lib/nearby/webrtc";
 import { formatFileSize } from "@/lib/format";
 
@@ -149,8 +150,9 @@ export function NearbyPanel({
         // Cap at 99% while sending — 100% ("Sent ✓") is reserved for onSendDone,
         // which fires only once the receiver acks that the file is saved.
         setSending((s) => ({ ...s, [peerId]: Math.min(99, Math.round((sent / total) * 100)) })),
-      onSendDone: (peerId) => {
+      onSendDone: (peerId, bytes) => {
         setSending((s) => ({ ...s, [peerId]: 100 }));
+        reportNearbyTelemetry("send", bytes ?? 0);
         // Next file for this peer, if the pick had more than one.
         if (pumpRef.current(peerId)) return;
         window.setTimeout(
@@ -292,6 +294,7 @@ export function NearbyPanel({
       ),
     );
     inc.handle.onDone((blob) => {
+      reportNearbyTelemetry("receive", inc.size);
       if (blob) {
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");

@@ -380,3 +380,40 @@ export async function getRequestInfo(code: string): Promise<APIResponse<FileRequ
 export function getRequestUploadURL(code: string): string {
   return `${API_URL}/api/v1/requests/${code}/upload`;
 }
+
+/**
+ * Anonymous, aggregate-only nearby telemetry — the same endpoint the Flutter
+ * app already reports to, which is why the public stats page has a "Nearby
+ * transfers" figure at all. The browser side never called it, so every WebRTC
+ * transfer made from this site was invisible in those numbers. That mattered
+ * more once the studio started opening on the Nearby tab by itself.
+ *
+ * Sends a count and a byte total and nothing else: no IP is stored, no file
+ * name, no content. Fire-and-forget — a failure here must never affect a
+ * transfer that has already succeeded.
+ */
+export function reportNearbyTelemetry(kind: "send" | "receive", bytes: number): void {
+  try {
+    const body = JSON.stringify({
+      kind,
+      bytes: Number.isFinite(bytes) && bytes > 0 ? Math.floor(bytes) : 0,
+      platform: "web",
+      transport: "nearby",
+    });
+    const url = `${API_URL}/api/v1/telemetry/transfer`;
+    // sendBeacon survives the page being closed right after a transfer, which
+    // is exactly when people close the tab.
+    if (typeof navigator !== "undefined" && navigator.sendBeacon) {
+      navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
+      return;
+    }
+    void fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+      keepalive: true,
+    }).catch(() => {});
+  } catch {
+    /* telemetry must never break a transfer */
+  }
+}
