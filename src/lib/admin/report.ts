@@ -11,6 +11,7 @@ export type ReportBundle = {
   totalUploads: number; // all-time, from durable daily counters
   uploadsFiles: number; // drive-file uploads (all-time)
   uploadsTransfers: number; // no-account transfers created (all-time)
+  uploadsRoomFiles: number; // files dropped into rooms (rooms_registry.file_count)
   totalDownloads: number; // cloud transfer/share downloads + LAN receives (telemetry)
   downloadBytes: number; // all-time bytes served to downloaders (cloud + LAN)
   liveTransfers: number;
@@ -124,11 +125,16 @@ export async function reportBundle(): Promise<ReportBundle> {
     launchDate,
     daysLive,
     uniqueUsers,
-    // Cloud-touching shares (files + transfer links + room files). LAN/nearby
-    // transfers are shown separately (nearbyTransfers) — they never hit a server.
-    totalUploads: upFiles + upTransfers + roomFiles,
+    // Everything shared, by any route. Nearby used to be excluded here on the
+    // grounds that it "never hits a server" — but that rule was only applied to
+    // uploads, never to downloads, so one WebRTC transfer moved Downloads and
+    // left Files shared untouched. Worse, leaving it out understates the very
+    // thing that makes the product worth using. The breakdown below splits it
+    // back out, and now the segments actually sum to this number.
+    totalUploads: upFiles + upTransfers + roomFiles + nearbyTransfers,
     uploadsFiles: upFiles,
     uploadsTransfers: upTransfers,
+    uploadsRoomFiles: roomFiles,
     totalDownloads,
     downloadBytes,
     liveTransfers,

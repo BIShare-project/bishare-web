@@ -165,7 +165,10 @@ export default async function StatsPage({
   const slices = [
     { label: t("breakdown.files"), value: r.uploadsFiles, color: "var(--accent-blue)" },
     { label: t("breakdown.transfers"), value: r.uploadsTransfers, color: "color-mix(in srgb, var(--foreground) 45%, transparent)" },
-    { label: t("breakdown.rooms"), value: r.totalRooms, color: "color-mix(in srgb, var(--foreground) 22%, transparent)" },
+    // Room FILES, not room count — the segments have to add up to the total
+    // shown beside them, and totalRooms counted rooms opened, not files in them.
+    { label: t("breakdown.rooms"), value: r.uploadsRoomFiles, color: "color-mix(in srgb, var(--foreground) 22%, transparent)" },
+    { label: t("breakdown.nearby"), value: r.nearbyTransfers, color: "color-mix(in srgb, var(--accent-blue) 55%, transparent)" },
   ];
 
   return (
