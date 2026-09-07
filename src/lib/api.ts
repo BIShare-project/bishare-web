@@ -403,9 +403,16 @@ export function reportNearbyTelemetry(kind: "send" | "receive", bytes: number): 
     const url = `${API_URL}/api/v1/telemetry/transfer`;
     // sendBeacon survives the page being closed right after a transfer, which
     // is exactly when people close the tab.
+    //
+    // The body MUST go as text/plain. sendBeacon cannot perform a CORS
+    // preflight, and application/json is not a "simple" content type — so a
+    // JSON blob is silently dropped cross-origin: the call still returns true
+    // while the request dies with ERR_FAILED. text/plain is simple, needs no
+    // preflight, and the endpoint parses the body as JSON regardless.
     if (typeof navigator !== "undefined" && navigator.sendBeacon) {
-      navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
-      return;
+      const queued = navigator.sendBeacon(url, new Blob([body], { type: "text/plain" }));
+      if (queued) return;
+      // Fall through to fetch when the beacon queue is full.
     }
     void fetch(url, {
       method: "POST",
