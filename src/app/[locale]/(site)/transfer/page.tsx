@@ -68,7 +68,7 @@ export default async function TransferToolPage({
         }}
       />
       <SiteHeader />
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-4 sm:px-6 sm:py-7 md:py-10">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-4 sm:px-6 sm:py-7 md:py-10 xl:max-w-7xl">
         <div className="text-center">
           <p className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground sm:block">
             {t("page.eyebrow")}

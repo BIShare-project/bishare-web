@@ -91,7 +91,7 @@ export default async function RoomsPage({
 
       <main className="flex-1">
         {/* Hero + interactive room client */}
-        <section className="mx-auto w-full max-w-xl px-4 pt-8 sm:px-6 md:pt-16">
+        <section className="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-6 md:pt-16 xl:max-w-7xl">
           <div className="text-center">
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
               {t("page.eyebrow")}
@@ -104,7 +104,10 @@ export default async function RoomsPage({
             </p>
           </div>
 
-          <div className="mt-9 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+          {/* Same glass shell the transfer studio uses — one visual language
+              for the two tools the site is actually built around. */}
+          <div className="studio-shell mt-9 overflow-hidden">
+            <div className="studio-aurora" aria-hidden />
             <RoomsApp initialCode={initialCode} initialMode={initialMode} />
           </div>
 
