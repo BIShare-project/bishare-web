@@ -9,7 +9,6 @@ export type ReportBundle = {
   daysLive: number;
   uniqueUsers: number; // distinct sender_ip across live transfers (no-account)
   totalUploads: number; // all-time, from durable daily counters
-  uploadsFiles: number; // drive-file uploads (all-time)
   uploadsTransfers: number; // no-account transfers created (all-time)
   uploadsRoomFiles: number; // files dropped into rooms (rooms_registry.file_count)
   totalDownloads: number; // cloud transfer/share downloads + LAN receives (telemetry)
@@ -57,7 +56,6 @@ export async function reportBundle(): Promise<ReportBundle> {
   const [
     uniqueUsers,
     liveTransfers,
-    upFiles,
     upTransfers,
     dlTransfer,
     dlShare,
@@ -81,7 +79,6 @@ export async function reportBundle(): Promise<ReportBundle> {
       "SELECT COUNT(*) AS n FROM transfers WHERE expires_at > ? AND NOT (one_time = 1 AND is_downloaded = 1)",
       nowIso
     ),
-    counterTotal("files_uploaded"),
     counterTotal("transfers_created"),
     counterTotal("transfer_downloads"),
     counterTotal("share_downloads"),
@@ -116,7 +113,7 @@ export async function reportBundle(): Promise<ReportBundle> {
     .prepare(
       `SELECT date, SUM(value) AS v
          FROM stats_daily
-        WHERE metric IN ('files_uploaded', 'transfers_created')
+        WHERE metric IN ('transfers_created', 'nearby_transfers')
         GROUP BY date ORDER BY date`
     )
     .all<{ date: string; v: number }>();
@@ -131,8 +128,7 @@ export async function reportBundle(): Promise<ReportBundle> {
     // left Files shared untouched. Worse, leaving it out understates the very
     // thing that makes the product worth using. The breakdown below splits it
     // back out, and now the segments actually sum to this number.
-    totalUploads: upFiles + upTransfers + roomFiles + nearbyTransfers,
-    uploadsFiles: upFiles,
+    totalUploads: upTransfers + roomFiles + nearbyTransfers,
     uploadsTransfers: upTransfers,
     uploadsRoomFiles: roomFiles,
     totalDownloads,

@@ -18,6 +18,7 @@ import { formatBytes } from "@/lib/admin/format";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { StatsLiveSocket } from "@/components/site/stats-live-socket";
+import { AreaChart, Donut } from "@/components/site/stats-charts";
 import { Link } from "@/i18n/navigation";
 
 export const dynamic = "force-dynamic";
@@ -71,74 +72,6 @@ function Stat({
   );
 }
 
-// Cumulative-uploads area chart (server-rendered SVG, no client JS).
-function AreaChart({ points }: { points: number[] }) {
-  if (points.length < 2) return <div className="h-40" />;
-  const w = 640;
-  const h = 160;
-  const max = Math.max(1, ...points);
-  const step = w / (points.length - 1);
-  const xy = points.map((v, i) => [i * step, h - 8 - (v / max) * (h - 22)] as const);
-  const line = xy.map((p, i) => `${i ? "L" : "M"}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
-  const last = xy[xy.length - 1];
-  return (
-    <svg viewBox={`0 0 ${w} ${h}`} className="h-40 w-full" preserveAspectRatio="none" aria-hidden>
-      <defs>
-        <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="var(--accent-blue)" stopOpacity="0.32" />
-          <stop offset="100%" stopColor="var(--accent-blue)" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <path d={`${line} L${w},${h} L0,${h} Z`} fill="url(#ag)" />
-      <path d={line} fill="none" stroke="var(--accent-blue)" strokeWidth="2.5" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
-      <circle cx={last[0]} cy={last[1]} r="3.5" fill="var(--accent-blue)" vectorEffect="non-scaling-stroke" />
-    </svg>
-  );
-}
-
-// Donut breakdown.
-function Donut({ slices }: { slices: { label: string; value: number; color: string }[] }) {
-  const total = slices.reduce((s, x) => s + x.value, 0) || 1;
-  const r = 40;
-  const C = 2 * Math.PI * r;
-  let acc = 0;
-  return (
-    <div className="flex items-center gap-6">
-      <svg viewBox="0 0 100 100" className="h-28 w-28 shrink-0 -rotate-90">
-        <circle cx="50" cy="50" r={r} fill="none" stroke="var(--border-strong)" strokeWidth="13" opacity="0.4" />
-        {slices.map((s) => {
-          const len = (s.value / total) * C;
-          const seg = (
-            <circle
-              key={s.label}
-              cx="50"
-              cy="50"
-              r={r}
-              fill="none"
-              stroke={s.color}
-              strokeWidth="13"
-              strokeDasharray={`${len} ${C - len}`}
-              strokeDashoffset={-acc}
-              strokeLinecap="butt"
-            />
-          );
-          acc += len;
-          return seg;
-        })}
-      </svg>
-      <ul className="space-y-2.5">
-        {slices.map((s) => (
-          <li key={s.label} className="flex items-center gap-2.5 text-sm">
-            <span className="h-2.5 w-2.5 shrink-0 rounded-sm" style={{ background: s.color }} />
-            <span className="text-muted-foreground">{s.label}</span>
-            <span className="ml-auto font-mono font-semibold tabular-nums text-foreground">{nf(s.value)}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 export default async function StatsPage({
   params,
 }: {
@@ -160,11 +93,10 @@ export default async function StatsPage({
 
   // Cumulative upload curve.
   let acc = 0;
-  const cumulative = r.dailyUploads.map((d) => (acc += d.value));
+  const cumulative = r.dailyUploads.map((d) => ({ date: d.date, value: (acc += d.value) }));
 
   const slices = [
-    { label: t("breakdown.files"), value: r.uploadsFiles, color: "var(--accent-blue)" },
-    { label: t("breakdown.transfers"), value: r.uploadsTransfers, color: "color-mix(in srgb, var(--foreground) 45%, transparent)" },
+    { label: t("breakdown.transfers"), value: r.uploadsTransfers, color: "var(--accent-blue)" },
     // Room FILES, not room count — the segments have to add up to the total
     // shown beside them, and totalRooms counted rooms opened, not files in them.
     { label: t("breakdown.rooms"), value: r.uploadsRoomFiles, color: "color-mix(in srgb, var(--foreground) 22%, transparent)" },
@@ -226,13 +158,19 @@ export default async function StatsPage({
             <div className="rounded-xl border border-border bg-card/60 p-5 lg:col-span-3">
               <div className="mb-2 flex items-baseline justify-between">
                 <h2 className="text-sm font-semibold text-foreground">{t("charts.growth")}</h2>
-                <span className="font-mono text-xs text-muted-foreground">{nf(r.totalUploads)}</span>
+                {/* The curve's own end value, not the all-time total: room
+                    files have no per-day counter, so they cannot be plotted.
+                    Showing the total here would label a curve with a number it
+                    never reaches. */}
+                <span className="font-mono text-xs text-muted-foreground">
+                  {nf(cumulative.at(-1)?.value ?? 0)}
+                </span>
               </div>
               <AreaChart points={cumulative} />
             </div>
             <div className="rounded-xl border border-border bg-card/60 p-5 lg:col-span-2">
               <h2 className="mb-4 text-sm font-semibold text-foreground">{t("charts.composition")}</h2>
-              <Donut slices={slices} />
+              <Donut slices={slices} totalLabel={t("cards.filesShared")} />
             </div>
           </section>
 
