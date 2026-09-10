@@ -14,8 +14,10 @@ import { VButton } from "@/components/site/vbutton";
 import {
   APP_STORE_URL,
   PLAY_STORE_URL,
+  MICROSOFT_STORE_URL,
   AppleGlyph,
   PlayGlyph,
+  MicrosoftGlyph,
 } from "@/components/site/store-buttons";
 import { WebQuickCta } from "@/components/site/web-quick-cta";
 import { InstallApp } from "@/components/site/install-app";
@@ -37,7 +39,7 @@ import {
 type T = Awaited<ReturnType<typeof getTranslations>>;
 
 /** Current app version, surfaced in the changelog badge. */
-const VERSION = "v2.4.0";
+const VERSION = "v2.5.0";
 
 export async function generateMetadata({
   params,
@@ -60,42 +62,46 @@ export async function generateMetadata({
 
 interface LivePlatform {
   name: string;
-  key: "ios" | "macos";
+  key: "ios" | "macos" | "windows";
   icon: LucideIcon;
   href: string;
-  apple: boolean;
+  /** Which storefront the button sends people to. */
+  store: "apple" | "microsoft";
 }
 
-/** Live on the App Store (id6760924092) alongside Android on Google Play. */
+/** Live on the App Store (id6760924092), the Microsoft Store (9pgx5fsbqzmx),
+ *  and Google Play. */
 const LIVE_PLATFORMS: LivePlatform[] = [
   {
     name: "iOS",
     key: "ios",
     icon: TabletSmartphone,
     href: APP_STORE_URL,
-    apple: true,
+    store: "apple",
   },
   {
     name: "macOS",
     key: "macos",
     icon: Laptop,
     href: APP_STORE_URL,
-    apple: true,
+    store: "apple",
+  },
+  {
+    name: "Windows",
+    key: "windows",
+    icon: Monitor,
+    href: MICROSOFT_STORE_URL,
+    store: "microsoft",
   },
 ];
 
 interface ComingPlatform {
   name: string;
-  key: "windows" | "linux";
+  key: "linux";
   icon: LucideIcon;
 }
 
 const COMING_PLATFORMS: ComingPlatform[] = [
-  {
-    name: "Windows",
-    key: "windows",
-    icon: Monitor,
-  },
   {
     name: "Linux",
     key: "linux",
@@ -169,8 +175,8 @@ function AvailableCard({ platform, t }: { platform: LivePlatform; t: T }) {
             size="md"
             className="w-full"
           >
-            {platform.apple ? <AppleGlyph /> : <PlayGlyph />}
-            {t("cards.appStore")}
+            {platform.store === "apple" ? <AppleGlyph /> : <MicrosoftGlyph />}
+            {platform.store === "apple" ? t("cards.appStore") : t("cards.microsoftStore")}
           </VButton>
           <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
             {t("cards.free")}

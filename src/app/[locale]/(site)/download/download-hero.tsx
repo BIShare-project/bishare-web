@@ -8,8 +8,10 @@ import { VButton } from "@/components/site/vbutton";
 import {
   APP_STORE_URL,
   PLAY_STORE_URL,
+  MICROSOFT_STORE_URL,
   AppleGlyph,
   PlayGlyph,
+  MicrosoftGlyph,
 } from "@/components/site/store-buttons";
 import { ComingSoonPill, notifyHref } from "./availability";
 
@@ -18,7 +20,7 @@ const SECONDARY_ANCHOR =
   "inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-strong bg-transparent px-5 text-[15px] font-medium tracking-[-0.01em] text-foreground outline-none transition-colors hover:border-foreground/25 hover:bg-secondary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 /** Current app version, surfaced in the CTA captions. */
-const VERSION = "v2.4.0";
+const VERSION = "v2.5.0";
 
 type DetectedOS = "android" | "ios" | "macos" | "windows" | "linux" | "unknown";
 
@@ -41,7 +43,7 @@ function detectOS(): DetectedOS {
  * OS-aware hero CTA. SSR renders the neutral state; detection only upgrades
  * after mount, so the first client render always matches the server and
  * hydration stays clean. Live today: Android (Google Play), iOS & macOS
- * (App Store, id6760924092). Windows/Linux direct downloads are still baking.
+ * (App Store, id6760924092), Windows (Microsoft Store). Linux is still baking.
  */
 export function DownloadHero({ className }: { className?: string }) {
   const t = useTranslations("download");
@@ -52,7 +54,9 @@ export function DownloadHero({ className }: { className?: string }) {
   }, []);
 
   const osLabel = t(`detected.os.${os}`);
-  const desktop = os === "macos" || os === "windows" || os === "linux";
+  // Only Linux is still without a store; macOS goes to the App Store branch and
+  // Windows to the Microsoft Store one.
+  const awaitingBuild = os === "linux";
 
   const notify = (
     <a
@@ -81,7 +85,21 @@ export function DownloadHero({ className }: { className?: string }) {
       </>
     );
     caption = t("detected.caption", { version: VERSION });
-  } else if (desktop) {
+  } else if (os === "windows") {
+    ctas = (
+      <>
+        <VButton href={MICROSOFT_STORE_URL} variant="primary" size="lg">
+          <MicrosoftGlyph />
+          {t("detected.microsoftStoreCta")}
+        </VButton>
+        <a href="#platforms" className={SECONDARY_ANCHOR}>
+          {t("detected.allPlatforms")}
+          <ArrowDown className="h-4 w-4" />
+        </a>
+      </>
+    );
+    caption = t("detected.caption", { version: VERSION });
+  } else if (awaitingBuild) {
     ctas = (
       <>
         <ComingSoonPill className="h-[52px] px-7 text-[15px]">
