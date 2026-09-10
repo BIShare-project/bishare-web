@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
-import { ArrowDown, BellRing, HardDriveDownload } from "lucide-react";
+import { ArrowDown, HardDriveDownload } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { VButton } from "@/components/site/vbutton";
 import {
@@ -13,7 +13,7 @@ import {
   PlayGlyph,
   MicrosoftGlyph,
 } from "@/components/site/store-buttons";
-import { ComingSoonPill, notifyHref } from "./availability";
+import { RELEASES_URL } from "./availability";
 
 /** Secondary VButton classes for plain anchors (mailto/hash) VButton can't route. */
 const SECONDARY_ANCHOR =
@@ -43,7 +43,8 @@ function detectOS(): DetectedOS {
  * OS-aware hero CTA. SSR renders the neutral state; detection only upgrades
  * after mount, so the first client render always matches the server and
  * hydration stays clean. Live today: Android (Google Play), iOS & macOS
- * (App Store, id6760924092), Windows (Microsoft Store). Linux is still baking.
+ * (App Store, id6760924092), Windows (Microsoft Store), and Linux (the .deb,
+ * AppImage and tarball attached to every release).
  */
 export function DownloadHero({ className }: { className?: string }) {
   const t = useTranslations("download");
@@ -54,19 +55,6 @@ export function DownloadHero({ className }: { className?: string }) {
   }, []);
 
   const osLabel = t(`detected.os.${os}`);
-  // Only Linux is still without a store; macOS goes to the App Store branch and
-  // Windows to the Microsoft Store one.
-  const awaitingBuild = os === "linux";
-
-  const notify = (
-    <a
-      href={notifyHref(t("notify.emailSubject", { platform: osLabel }))}
-      className={SECONDARY_ANCHOR}
-    >
-      <BellRing className="h-4 w-4" />
-      {t("detected.getNotified")}
-    </a>
-  );
 
   let ctas: ReactNode;
   let caption: string;
@@ -99,17 +87,20 @@ export function DownloadHero({ className }: { className?: string }) {
       </>
     );
     caption = t("detected.caption", { version: VERSION });
-  } else if (awaitingBuild) {
+  } else if (os === "linux") {
     ctas = (
       <>
-        <ComingSoonPill className="h-[52px] px-7 text-[15px]">
+        <VButton href={RELEASES_URL} variant="primary" size="lg">
           <HardDriveDownload className="h-4 w-4" />
-          {t("detected.comingSoon")}
-        </ComingSoonPill>
-        {notify}
+          {t("detected.linuxCta")}
+        </VButton>
+        <a href="#platforms" className={SECONDARY_ANCHOR}>
+          {t("detected.allPlatforms")}
+          <ArrowDown className="h-4 w-4" />
+        </a>
       </>
     );
-    caption = t("detected.desktopCaption", { os: osLabel });
+    caption = t("detected.caption", { version: VERSION });
   } else {
     ctas = (
       <>

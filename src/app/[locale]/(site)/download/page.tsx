@@ -24,9 +24,8 @@ import { InstallApp } from "@/components/site/install-app";
 import { sharedOpenGraph } from "@/lib/og";
 import { staggerDelay } from "@/lib/motion";
 import { DownloadHero } from "./download-hero";
-import { ComingSoonPill, notifyHref, SUPPORT_EMAIL } from "./availability";
+import { RELEASES_URL } from "./availability";
 import {
-  BellRing,
   HardDriveDownload,
   Laptop,
   Monitor,
@@ -62,11 +61,11 @@ export async function generateMetadata({
 
 interface LivePlatform {
   name: string;
-  key: "ios" | "macos" | "windows";
+  key: "ios" | "macos" | "windows" | "linux";
   icon: LucideIcon;
   href: string;
-  /** Which storefront the button sends people to. */
-  store: "apple" | "microsoft";
+  /** Where the button sends people: a storefront, or the release assets. */
+  store: "apple" | "microsoft" | "direct";
 }
 
 /** Live on the App Store (id6760924092), the Microsoft Store (9pgx5fsbqzmx),
@@ -93,19 +92,13 @@ const LIVE_PLATFORMS: LivePlatform[] = [
     href: MICROSOFT_STORE_URL,
     store: "microsoft",
   },
-];
-
-interface ComingPlatform {
-  name: string;
-  key: "linux";
-  icon: LucideIcon;
-}
-
-const COMING_PLATFORMS: ComingPlatform[] = [
+  // No Linux store: every release carries a .deb, an AppImage and a tarball.
   {
     name: "Linux",
     key: "linux",
     icon: Terminal,
+    href: RELEASES_URL,
+    store: "direct",
   },
 ];
 
@@ -175,46 +168,22 @@ function AvailableCard({ platform, t }: { platform: LivePlatform; t: T }) {
             size="md"
             className="w-full"
           >
-            {platform.store === "apple" ? <AppleGlyph /> : <MicrosoftGlyph />}
-            {platform.store === "apple" ? t("cards.appStore") : t("cards.microsoftStore")}
+            {platform.store === "apple" ? (
+              <AppleGlyph />
+            ) : platform.store === "microsoft" ? (
+              <MicrosoftGlyph />
+            ) : (
+              <HardDriveDownload className="h-4 w-4" />
+            )}
+            {platform.store === "apple"
+              ? t("cards.appStore")
+              : platform.store === "microsoft"
+                ? t("cards.microsoftStore")
+                : t("cards.directDownload")}
           </VButton>
           <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
             {t("cards.free")}
           </p>
-        </div>
-      </div>
-    </GradientBorderCard>
-  );
-}
-
-function ComingSoonCard({ platform, t }: { platform: ComingPlatform; t: T }) {
-  const Icon = platform.icon;
-  return (
-    <GradientBorderCard radius="lg" className="h-full">
-      <div className="flex h-full flex-col p-6">
-        <div className="flex items-center gap-3.5">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground">
-            <Icon className="h-5 w-5" aria-hidden />
-          </div>
-          <div className="min-w-0">
-            <h3 className="font-semibold">{platform.name}</h3>
-            <p className="mt-0.5 truncate font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-              {t(`platforms.${platform.key}.requirement`)}
-            </p>
-          </div>
-        </div>
-        <div className="mt-7 flex flex-1 flex-col justify-end gap-3">
-          <ComingSoonPill className="h-10 w-full px-3 text-[12.5px]">
-            <HardDriveDownload className="h-3.5 w-3.5" aria-hidden />
-            {t("cards.comingSoon")}
-          </ComingSoonPill>
-          <a
-            href={notifyHref(t("notify.emailSubject", { platform: platform.name }))}
-            className="inline-flex items-center justify-center gap-1.5 rounded-md text-xs font-medium text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-            <BellRing className="h-3.5 w-3.5" aria-hidden />
-            {t("cards.getNotified")}
-          </a>
         </div>
       </div>
     </GradientBorderCard>
@@ -312,40 +281,12 @@ export default async function DownloadPage({
                 <AvailableCard platform={platform} t={t} />
               </FadeUp>
             ))}
-            {COMING_PLATFORMS.map((platform, i) => (
-              <FadeUp
-                key={platform.name}
-                delay={staggerDelay(i + 1 + LIVE_PLATFORMS.length, 0.07)}
-                className="h-full"
-              >
-                <ComingSoonCard platform={platform} t={t} />
-              </FadeUp>
-            ))}
           </div>
 
           {/* Installable web app — only renders when the browser says so, so
               Safari/Firefox (and the installed app itself) see no gap here. */}
           <InstallApp variant="card" className="mt-5" />
 
-          <FadeUp delay={0.2}>
-            <p className="mt-10 text-center text-sm leading-relaxed text-muted-foreground">
-              {t.rich("notify.text", {
-                email: SUPPORT_EMAIL,
-                link: (chunks) => (
-                  <a
-                    href={notifyHref(
-                      t("notify.emailSubject", {
-                        platform: t("notify.myPlatform"),
-                      })
-                    )}
-                    className="rounded font-medium text-accent-blue outline-none transition-opacity hover:opacity-80"
-                  >
-                    {chunks}
-                  </a>
-                ),
-              })}
-            </p>
-          </FadeUp>
         </Section>
       </main>
 
