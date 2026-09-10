@@ -15,6 +15,7 @@ import {
   initTransferMultipart,
   refreshTransferPartUrls,
   completeTransferMultipart,
+  abortTransferMultipart,
   TRANSFER_MAX_FILE_SIZE_FREE_FALLBACK,
 } from "@/lib/api";
 import {
@@ -150,6 +151,21 @@ function clearMpState(file: File): void {
   } catch {
     // ignore
   }
+}
+
+/**
+ * Multipart uploads in flight on this page that nothing can resume later —
+ * the encrypted path, whose key lives only in memory. When the page goes away
+ * mid-upload, `pagehide` (see the effect in FileUpload) aborts these so R2
+ * drops their parts now instead of at the server's 24 h sweep. The unencrypted
+ * path is deliberately absent: its state is in localStorage and re-selecting
+ * the same file resumes it, which is the whole point of that path.
+ */
+const unresumableUploads = new Map<string, { uploadId: string; storageKey: string }>();
+
+function abortUnresumableUploads(): void {
+  for (const upload of unresumableUploads.values()) abortTransferMultipart(upload);
+  unresumableUploads.clear();
 }
 
 type UploadResult = Pick<
@@ -289,39 +305,54 @@ async function uploadMultipart(
     return url;
   }
 
-  for (let p = 1; p <= totalParts; p++) {
-    if (completed.has(p)) continue;
-    const start = (p - 1) * partSize;
-    const blob = file.slice(start, Math.min(start + partSize, file.size));
+  // Free the parts on R2 and forget the fingerprint: this upload is over for
+  // good, so the next attempt with the same file must start clean.
+  const discard = () => {
+    abortTransferMultipart({ uploadId, storageKey });
+    clearMpState(file);
+  };
 
-    for (let attempt = 0; ; attempt++) {
-      if (signal?.aborted) throw new Error(t("upload.errors.canceled"));
-      try {
-        const url = await partUrl(p);
-        // No Content-Type: the UploadPart URL isn't signed for one (blob type is
-        // empty), so the browser sends none and the signature still matches.
-        await sendXhr({
-          method: "PUT",
-          url,
-          headers: {},
-          body: blob,
-          onProgress: (pct) => report((pct / 100) * blob.size),
-          t,
-          signal,
-        });
-        break;
-      } catch (e) {
-        // A user cancel must not be retried — surface it immediately.
-        if (signal?.aborted) throw e;
-        if (attempt >= MULTIPART_PART_RETRIES) throw e;
-        partUrls.delete(p); // force a fresh presign in case the URL expired
+  try {
+    for (let p = 1; p <= totalParts; p++) {
+      if (completed.has(p)) continue;
+      const start = (p - 1) * partSize;
+      const blob = file.slice(start, Math.min(start + partSize, file.size));
+
+      for (let attempt = 0; ; attempt++) {
+        if (signal?.aborted) throw new Error(t("upload.errors.canceled"));
+        try {
+          const url = await partUrl(p);
+          // No Content-Type: the UploadPart URL isn't signed for one (blob type is
+          // empty), so the browser sends none and the signature still matches.
+          await sendXhr({
+            method: "PUT",
+            url,
+            headers: {},
+            body: blob,
+            onProgress: (pct) => report((pct / 100) * blob.size),
+            t,
+            signal,
+          });
+          break;
+        } catch (e) {
+          // A user cancel must not be retried — surface it immediately.
+          if (signal?.aborted) throw e;
+          if (attempt >= MULTIPART_PART_RETRIES) throw e;
+          partUrls.delete(p); // force a fresh presign in case the URL expired
+        }
       }
-    }
 
-    completed.add(p);
-    state.completed = [...completed];
-    saveMpState(file, state);
-    report(0);
+      completed.add(p);
+      state.completed = [...completed];
+      saveMpState(file, state);
+      report(0);
+    }
+  } catch (e) {
+    // A cancel is the user discarding the upload. Any other failure here is a
+    // dropped connection or an exhausted retry budget — the parts stay, and
+    // re-selecting the file resumes from the last saved one.
+    if (signal?.aborted) discard();
+    throw e;
   }
 
   const done = await completeTransferMultipart({
@@ -334,6 +365,11 @@ async function uploadMultipart(
     one_time: oneTime,
   });
   if (!done.success || !done.rawCode || !done.code || !done.expiresAt || !done.deleteToken) {
+    // The server answered and refused (expired upload, size mismatch, limit
+    // changed underneath us): nothing about this upload can be salvaged, so
+    // don't leave the parts — or a fingerprint that would resume into the same
+    // refusal. A network failure keeps both; the user can try again.
+    if (done.error?.code !== "NETWORK_ERROR") discard();
     throw new Error(done.error?.message || t("upload.errors.uploadFailed"));
   }
   clearMpState(file);
@@ -391,60 +427,73 @@ async function uploadEncrypted(
     onProgress(Math.min(100, Math.round(((doneBytes + loaded) / ctSize) * 100)));
   report(0);
 
-  for (let p = 1; p <= totalParts; p++) {
-    const start = (p - 1) * partSize;
-    const end = Math.min(start + partSize, ctSize);
-    const bytes = await source.slice(start, end); // deterministic → safe to retry
-    // Send the view itself — never `new Blob([bytes])`. Every synthesized Blob
-    // is registered in Chromium's blob store and only released on GC, so a
-    // 205-part loop piled up faster than it could collect and died with
-    // ERR_BLOB_OUT_OF_MEMORY around 2 GiB. A plain view is ordinary heap the
-    // collector reclaims between parts. (The unencrypted path slices the File,
-    // which stays disk-backed, so it was never affected.)
-    const partBytes = bytes.byteLength;
-    for (let attempt = 0; ; attempt++) {
-      if (signal?.aborted) throw new Error(t("upload.errors.canceled"));
-      try {
-        const url = await partUrl(p);
-        await sendXhr({
-          method: "PUT",
-          url,
-          headers: {},
-          body: bytes,
-          onProgress: (pct) => report((pct / 100) * partBytes),
-          t,
-          signal,
-        });
-        break;
-      } catch (e) {
-        if (signal?.aborted) throw e;
-        if (attempt >= MULTIPART_PART_RETRIES) throw e;
-        partUrls.delete(p); // force a fresh presign in case the URL expired
+  // From here on the upload exists on R2 and only this page can finish it.
+  const upload = { uploadId, storageKey };
+  unresumableUploads.set(uploadId, upload);
+  try {
+    for (let p = 1; p <= totalParts; p++) {
+      const start = (p - 1) * partSize;
+      const end = Math.min(start + partSize, ctSize);
+      const bytes = await source.slice(start, end); // deterministic → safe to retry
+      // Send the view itself — never `new Blob([bytes])`. Every synthesized Blob
+      // is registered in Chromium's blob store and only released on GC, so a
+      // 205-part loop piled up faster than it could collect and died with
+      // ERR_BLOB_OUT_OF_MEMORY around 2 GiB. A plain view is ordinary heap the
+      // collector reclaims between parts. (The unencrypted path slices the File,
+      // which stays disk-backed, so it was never affected.)
+      const partBytes = bytes.byteLength;
+      for (let attempt = 0; ; attempt++) {
+        if (signal?.aborted) throw new Error(t("upload.errors.canceled"));
+        try {
+          const url = await partUrl(p);
+          await sendXhr({
+            method: "PUT",
+            url,
+            headers: {},
+            body: bytes,
+            onProgress: (pct) => report((pct / 100) * partBytes),
+            t,
+            signal,
+          });
+          break;
+        } catch (e) {
+          if (signal?.aborted) throw e;
+          if (attempt >= MULTIPART_PART_RETRIES) throw e;
+          partUrls.delete(p); // force a fresh presign in case the URL expired
+        }
       }
+      doneBytes += partBytes;
+      report(0);
     }
-    doneBytes += partBytes;
-    report(0);
-  }
 
-  const done = await completeTransferMultipart({
-    uploadId,
-    storageKey,
-    name: file.name,
-    size: ctSize,
-    mime_type: mimeType,
-    sender_alias: "Web Upload",
-    one_time: oneTime,
-  });
-  if (!done.success || !done.rawCode || !done.code || !done.expiresAt || !done.deleteToken) {
-    throw new Error(done.error?.message || t("upload.errors.uploadFailed"));
+    const done = await completeTransferMultipart({
+      uploadId,
+      storageKey,
+      name: file.name,
+      size: ctSize,
+      mime_type: mimeType,
+      sender_alias: "Web Upload",
+      one_time: oneTime,
+    });
+    if (!done.success || !done.rawCode || !done.code || !done.expiresAt || !done.deleteToken) {
+      throw new Error(done.error?.message || t("upload.errors.uploadFailed"));
+    }
+    return {
+      code: done.code,
+      rawCode: done.rawCode,
+      expiresAt: done.expiresAt,
+      deleteToken: done.deleteToken,
+      keyEnc: encodeKey(raw),
+    };
+  } catch (e) {
+    // Cancelled or failed: nothing can resume this (the key is only in
+    // memory), so free the parts now rather than at the 24 h sweep. Harmless
+    // when /complete already assembled or aborted it server-side.
+    abortTransferMultipart(upload);
+    throw e;
+  } finally {
+    unresumableUploads.delete(uploadId);
   }
-  return {
-    code: done.code,
-    rawCode: done.rawCode,
-    expiresAt: done.expiresAt,
-    deleteToken: done.deleteToken,
-    keyEnc: encodeKey(raw),
-  };
 }
 
 /** Upload one file, picking the presigned-R2 path for large files. */
@@ -613,7 +662,9 @@ export function FileUpload() {
   const abortRef = useRef<AbortController | null>(null);
 
   // Warn before a refresh/navigation drops an in-progress upload (browsers show
-  // a generic "leave site?" prompt when beforeunload is cancelled).
+  // a generic "leave site?" prompt when beforeunload is cancelled). When the
+  // user leaves anyway, `pagehide` frees the parts of the uploads nothing can
+  // resume — otherwise they sit in R2 until the server's 24 h sweep.
   useEffect(() => {
     if (!isUploading) return;
     const onBeforeUnload = (e: BeforeUnloadEvent) => {
@@ -621,7 +672,11 @@ export function FileUpload() {
       e.returnValue = "";
     };
     window.addEventListener("beforeunload", onBeforeUnload);
-    return () => window.removeEventListener("beforeunload", onBeforeUnload);
+    window.addEventListener("pagehide", abortUnresumableUploads);
+    return () => {
+      window.removeEventListener("beforeunload", onBeforeUnload);
+      window.removeEventListener("pagehide", abortUnresumableUploads);
+    };
   }, [isUploading]);
 
   // Anonymous/free size ceiling from GET /api/v1/config (1 GiB fallback until

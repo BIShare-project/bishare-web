@@ -353,6 +353,34 @@ export async function completeTransferMultipart(input: {
 }
 
 /**
+ * Give up on a multipart upload — user cancel, an unrecoverable failure, or
+ * the page going away mid-upload. R2 drops the parts at once instead of
+ * holding them until the server's 24 h sweep; on a busy day those abandoned
+ * parts were tens of GB. Fire-and-forget, shaped like reportNearbyTelemetry:
+ * a text/plain beacon needs no CORS preflight, which a page inside `pagehide`
+ * could not complete, and the endpoint is idempotent, so telling it about an
+ * upload that already finished is harmless.
+ */
+export function abortTransferMultipart(input: { uploadId: string; storageKey: string }): void {
+  try {
+    const body = JSON.stringify(input);
+    const url = `${API_URL}/api/v1/transfer/multipart/abort`;
+    if (typeof navigator !== "undefined" && navigator.sendBeacon) {
+      if (navigator.sendBeacon(url, new Blob([body], { type: "text/plain" }))) return;
+      // Fall through to fetch when the beacon queue is full.
+    }
+    void fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body,
+      keepalive: true,
+    }).catch(() => {});
+  } catch {
+    /* best-effort — the server's 24 h sweep is the backstop */
+  }
+}
+
+/**
  * Sender-side delete: DELETE /api/v1/transfer/delete/:code with the
  * X-Delete-Token returned by the upload. Flat `{success,message}` response.
  */
