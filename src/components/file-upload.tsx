@@ -23,6 +23,7 @@ import {
   rememberTransfer,
 } from "@/app/[locale]/(site)/transfer/recent-transfers";
 import { EncryptedSource, generateKey, encodeKey, maxPlaintextFor } from "@/lib/e2e/crypto";
+import { takeSharedFiles, SHARED_PARAM } from "@/lib/share-target";
 import { FilePreviewDialog } from "@/components/file-preview-dialog";
 import { buildStoreZip } from "@/lib/zip";
 import { FileThumb } from "@/components/file-thumb";
@@ -712,6 +713,31 @@ export function FileUpload() {
     },
     [maxFileSize, t, encrypt]
   );
+
+  // Arrived from the OS share sheet ("Share → BIShare"): the service worker
+  // parked the files and sent us here. Pick them up exactly once — the URL is
+  // cleaned first, so a reload can't try to import a share already consumed.
+  const sharePickedUp = useRef(false);
+  useEffect(() => {
+    if (sharePickedUp.current || typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has(SHARED_PARAM)) return;
+    sharePickedUp.current = true;
+    params.delete(SHARED_PARAM);
+    const query = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      window.location.pathname + (query ? `?${query}` : "") + window.location.hash
+    );
+    takeSharedFiles()
+      .then((shared) => {
+        if (shared.length > 0) onDrop(shared);
+      })
+      .catch(() => {
+        /* nothing waiting, or unreadable — the picker still works */
+      });
+  }, [onDrop]);
 
   const { getRootProps, isDragActive } = useDropzone({
     multiple: true,

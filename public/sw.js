@@ -28,6 +28,13 @@ try {
   // the PWA worker down with it.
 }
 const CACHE = `bishare-static-${VERSION}`;
+// Files handed over by the OS share sheet, waiting for the transfer page to
+// collect them. Kept OUT of the versioned static cache (and out of the sweep
+// in `activate`) so a deploy landing between the share and the pickup can't
+// throw the user's file away.
+const SHARE_CACHE = "bishare-share-inbox";
+const SHARE_ACTION = "/api/share-target";
+const SHARE_INDEX = "/__shared/index";
 // Canonical clean URL — OpenNext serves public/offline.html at /offline (200)
 // and 307-redirects /offline.html to it, which cache.addAll can't precache.
 const OFFLINE_URL = "/offline";
@@ -38,21 +45,93 @@ self.addEventListener("install", (event) => {
     caches
       .open(CACHE)
       .then((c) => c.addAll(PRECACHE))
-      .then(() => self.skipWaiting())
+      .then(() => self.skipWaiting()),
   );
 });
- 
+
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
-      .then(() => self.clients.claim())
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((k) => k !== CACHE && k !== SHARE_CACHE)
+            .map((k) => caches.delete(k)),
+        ),
+      )
+      .then(() => self.clients.claim()),
   );
 });
 
+/**
+ * Web Share Target. Android and ChromeOS POST the shared files straight at us,
+ * as a navigation — so answering with the transfer page directly would leave
+ * the user on a page that cannot be reloaded or bookmarked. Instead the files
+ * are parked in a cache and the browser is sent to an ordinary GET, where the
+ * page collects them.
+ *
+ * Every failure still redirects: landing on the transfer studio with nothing
+ * selected is a small annoyance, an error page is a broken feature. The
+ * fallback route at the same path does the same thing for the rare share that
+ * arrives before this worker is in control.
+ */
+async function receiveShare(request) {
+  let target = "/transfer";
+  try {
+    const form = await request.formData();
+    const files = form
+      .getAll("files")
+      .filter((f) => f && typeof f === "object" && "size" in f);
+    if (files.length > 0) {
+      const cache = await caches.open(SHARE_CACHE);
+      // Anything left from an earlier share was never collected; it must not
+      // resurface behind the files being shared now.
+      for (const key of await cache.keys()) await cache.delete(key);
+      const meta = [];
+      for (let i = 0; i < files.length; i++) {
+        const f = files[i];
+        const url = `/__shared/${i}`;
+        const type = f.type || "application/octet-stream";
+        await cache.put(
+          url,
+          new Response(f, { headers: { "Content-Type": type } }),
+        );
+        meta.push({
+          url,
+          name: f.name || `shared-${i + 1}`,
+          type,
+          size: f.size,
+          lastModified: f.lastModified || Date.now(),
+        });
+      }
+      await cache.put(
+        SHARE_INDEX,
+        new Response(JSON.stringify({ ts: Date.now(), files: meta }), {
+          headers: { "Content-Type": "application/json" },
+        }),
+      );
+      target = "/transfer?shared=1";
+    }
+  } catch (e) {
+    // Out of quota, an unreadable file, a terminated worker: the page still
+    // opens and the user can pick the file the ordinary way.
+  }
+  return Response.redirect(target, 303);
+}
+
 self.addEventListener("fetch", (event) => {
   const req = event.request;
+  const shareUrl = new URL(req.url);
+  if (
+    req.method === "POST" &&
+    shareUrl.origin === self.location.origin &&
+    shareUrl.pathname === SHARE_ACTION
+  ) {
+    event.respondWith(receiveShare(req));
+    return;
+  }
+
   if (req.method !== "GET") return;
 
   const url = new URL(req.url);
@@ -84,10 +163,9 @@ self.addEventListener("fetch", (event) => {
               }
               return res;
             })
-            .catch(() => hit)
-      )
+            .catch(() => hit),
+      ),
     );
   }
   // Everything else falls through to the default network handling.
 });
- 

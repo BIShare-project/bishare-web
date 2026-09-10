@@ -53,7 +53,15 @@ export function TransferStudio() {
   // best feature stays behind a tab nobody clicks. `touched` keeps the
   // auto-switch from ever overriding a deliberate choice.
   const [peerCount, setPeerCount] = useState(0);
-  const [touched, setTouched] = useState(false);
+  // A share from the OS counts as a deliberate choice of the link flow: the
+  // files are already on their way into it, so the Nearby auto-switch below
+  // must not pull the panel out from under them. Read during render rather
+  // than in an effect, because FileUpload strips the flag from the URL as soon
+  // as it mounts — which is before any effect of this parent runs. `touched`
+  // never reaches the markup, so starting from a client-only value is safe.
+  const [touched, setTouched] = useState(
+    () => typeof window !== "undefined" && new URLSearchParams(window.location.search).has("shared")
+  );
   const [nearbyEnabled, setNearbyEnabled] = useState(false);
   const [beamEnabled, setBeamEnabled] = useState(false);
   const t = useTranslations("tool");
