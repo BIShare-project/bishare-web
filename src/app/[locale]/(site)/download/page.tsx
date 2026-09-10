@@ -18,6 +18,7 @@ import {
   PlayGlyph,
 } from "@/components/site/store-buttons";
 import { WebQuickCta } from "@/components/site/web-quick-cta";
+import { InstallApp } from "@/components/site/install-app";
 import { sharedOpenGraph } from "@/lib/og";
 import { staggerDelay } from "@/lib/motion";
 import { DownloadHero } from "./download-hero";
@@ -315,6 +316,10 @@ export default async function DownloadPage({
               </FadeUp>
             ))}
           </div>
+
+          {/* Installable web app — only renders when the browser says so, so
+              Safari/Firefox (and the installed app itself) see no gap here. */}
+          <InstallApp variant="card" className="mt-5" />
 
           <FadeUp delay={0.2}>
             <p className="mt-10 text-center text-sm leading-relaxed text-muted-foreground">

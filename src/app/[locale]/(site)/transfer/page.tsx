@@ -5,6 +5,7 @@ import { buildAlternates } from "@/i18n/metadata";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { TransferStudio } from "@/components/site/transfer-studio";
+import { InstallApp } from "@/components/site/install-app";
 import { AppPromo } from "@/components/app-promo";
 import { YourUploads } from "./your-uploads";
 
@@ -84,6 +85,7 @@ export default async function TransferToolPage({
         <div className="mt-7">
           <TransferStudio />
         </div>
+        <InstallApp variant="inline" className="mt-4" />
 
         <div className="mx-auto w-full max-w-xl">
           <YourUploads />

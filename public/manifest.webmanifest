@@ -6,15 +6,97 @@
   "start_url": "/transfer",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "theme_color": "#030711",
   "background_color": "#030711",
   "lang": "en",
   "dir": "ltr",
-  "categories": ["utilities", "productivity"],
+  "categories": [
+    "utilities",
+    "productivity"
+  ],
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/pwa-wide-transfer.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Send a file: an encrypted link, a device nearby, or QR Beam"
+    },
+    {
+      "src": "/screenshots/pwa-wide-rooms.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Rooms: share files with a group, no accounts"
+    },
+    {
+      "src": "/screenshots/pwa-narrow-transfer.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Send a file: an encrypted link, a device nearby, or QR Beam"
+    },
+    {
+      "src": "/screenshots/pwa-narrow-rooms.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Rooms: share files with a group, no accounts"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Send a file",
+      "short_name": "Send",
+      "description": "Encrypted link, nearby device, or QR Beam",
+      "url": "/transfer",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Rooms",
+      "short_name": "Rooms",
+      "description": "Share files with a group in a temporary room",
+      "url": "/rooms",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
   ]
 }
