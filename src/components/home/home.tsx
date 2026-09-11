@@ -74,107 +74,6 @@ function SectionHead({
 }
 
 /* ── Hero product mock — a clean, monochrome BIShare window ───────────────── */
-async function AppFrame() {
-  const t = await getTranslations("home");
-  return (
-    <div className="sheen-border frame-top-line overflow-hidden rounded-xl bg-card shadow-2xl shadow-black/20">
-      {/* Title bar */}
-      <div className="flex items-center gap-2 border-b border-border px-4 py-3">
-        <span className="h-2.5 w-2.5 rounded-full border border-border" />
-        <span className="h-2.5 w-2.5 rounded-full border border-border" />
-        <span className="h-2.5 w-2.5 rounded-full border border-border" />
-        <span className="ml-3 font-mono text-[11px] text-muted-foreground">
-          BIShare
-        </span>
-        <span className="ml-auto inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
-          <span className="h-1.5 w-1.5 rounded-full bg-success" />
-          {t("appFrame.ready")}
-        </span>
-      </div>
-
-      <div className="grid gap-4 p-5 sm:grid-cols-[1fr_1.1fr] sm:p-6">
-        {/* Nearby devices */}
-        <div>
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-            {t("appFrame.nearby")}
-          </p>
-          <div className="space-y-2">
-            {[
-              { name: "iPhone 15", meta: "iOS" },
-              { name: "MacBook Pro", meta: "macOS" },
-              { name: "Desktop-PC", meta: "Windows" },
-            ].map((d, i) => (
-              <div
-                key={d.name}
-                className={cn(
-                  "flex items-center gap-3 rounded-lg border px-3 py-2.5",
-                  i === 0
-                    ? "border-foreground/25 bg-secondary"
-                    : "border-border"
-                )}
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background text-foreground">
-                  <MonitorSmartphone className="h-4 w-4" />
-                </span>
-                <span className="min-w-0">
-                  <span className="block truncate text-sm font-medium">
-                    {d.name}
-                  </span>
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
-                    {d.meta}
-                  </span>
-                </span>
-                {i === 0 && (
-                  <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.12em] text-accent-blue">
-                    {t("appFrame.selected")}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Active transfer */}
-        <div className="rounded-lg border border-border bg-background-raised p-4">
-          <div className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background">
-              <Zap className="h-4 w-4 text-foreground" />
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block truncate text-sm font-medium">
-                design-final.zip
-              </span>
-              <span className="block font-mono text-[10px] text-muted-foreground">
-                248 MB
-              </span>
-            </span>
-            <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
-              <Lock className="h-3 w-3" /> E2E
-            </span>
-          </div>
-
-          <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-border">
-            <div
-              className="h-full rounded-full bg-accent-blue"
-              style={{ width: "72%" }}
-            />
-          </div>
-          <div className="mt-2 flex items-center justify-between font-mono text-[10px] text-muted-foreground">
-            <span>{t("appFrame.sending")} · 72%</span>
-            <span className="text-foreground">48 MB/s</span>
-          </div>
-
-          <div className="mt-4 flex items-center gap-2 rounded-md border border-border bg-background px-3 py-2">
-            <Check className="h-3.5 w-3.5 text-success" />
-            <span className="font-mono text-[11px] text-muted-foreground">
-              {t("appFrame.caption")}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
 /** Above-the-fold stagger delay for the SSR-visible `.hero-rise` CSS entrance. */
@@ -225,46 +124,17 @@ async function Hero() {
           {t("hero.footnote")}
         </p>
 
-        {/* Framed product */}
-        <div className="hero-rise mx-auto mt-14 max-w-3xl text-left" style={rise(0.2)}>
-          <AppFrame />
+        {/* The real tool, at the fold. It used to be a drawing of the app here
+            and the working one 1,455px further down, which meant landing on
+            bishare.app and scrolling nearly two screens before the device on
+            your own Wi-Fi could show itself — even though discovery finds it in
+            about a second. Tools people call effortless (PairDrop, ShareDrop)
+            land you *in* the thing. The headline above stays server-rendered so
+            it remains the LCP element; the studio hydrates underneath it into a
+            fixed-height placeholder, so nothing shifts. */}
+        <div className="hero-rise mx-auto mt-12 max-w-4xl text-left" style={rise(0.2)}>
+          <LiveWidget />
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── Live transfer — a real, working send right on the homepage ───────────── */
-async function Live() {
-  const t = await getTranslations("home");
-  return (
-    <section className="border-b border-border">
-      <div className="mx-auto max-w-5xl px-5 py-12 sm:px-6 sm:py-20 md:py-28">
-        <div className="text-center">
-          <FadeUp>
-            <span className="inline-flex items-center gap-2 rounded-full border border-accent-blue/40 bg-accent-blue/[0.06] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-accent-blue">
-              <span className="pulse-dot relative h-1.5 w-1.5 rounded-full bg-accent-blue" />
-              {t("live.badge")}
-            </span>
-          </FadeUp>
-          <FadeUp delay={0.05}>
-            <h2 className="mt-5 text-[clamp(1.85rem,3.6vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-              {t("live.title")}
-            </h2>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <p className="mx-auto mt-4 max-w-lg text-[17px] leading-relaxed text-muted-foreground text-balance">
-              {t("live.sub")}
-            </p>
-          </FadeUp>
-        </div>
-        <FadeUp delay={0.1}>
-          {/* No card wrapper: the studio brings its own shell (ring, glass,
-              bloom), and nesting it in a plain card double-bordered it. */}
-          <div className="mt-9">
-            <LiveWidget />
-          </div>
-        </FadeUp>
       </div>
     </section>
   );
@@ -517,7 +387,6 @@ export function Home() {
   return (
     <main>
       <Hero />
-      <Live />
       <Differentiators />
       <Features />
       <HowItWorks />
