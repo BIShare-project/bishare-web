@@ -3,21 +3,18 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import {
-  Check,
   Cloud,
-  Copy,
   DoorOpen,
-  Download,
-  FileIcon,
   Globe,
+  KeyRound,
+  Lock,
+  LockOpen,
   LogIn,
   LogOut,
   Monitor,
   Radio,
   Smartphone,
-  Upload,
   User,
-  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,8 +29,32 @@ import {
 } from "@/lib/rooms/client";
 import { getAlias, getFingerprint, setAlias as persistAlias } from "@/lib/rooms/identity";
 import type { RoomEvent, RoomFile, RoomInfo, RoomMember } from "@/lib/rooms/types";
+import {
+  acceptGrant,
+  b64u,
+  forgetKey,
+  grant,
+  keyId,
+  newKeyPair,
+  newRoomKey,
+  openFile,
+  recallKey,
+  rememberKey,
+  sealFile,
+  E2E_VERSION,
+  type FileMeta,
+  type KeyPair,
+} from "@/lib/rooms/e2e";
 import { LocalRoomView } from "./local-room-view";
+import { RoomLayout } from "./room-layout";
 import { CodeInput } from "./code-input";
+
+// Uploads in an encrypted room carry this placeholder name on the wire.
+const SEALED_NAME = "encrypted.bse2";
+// How often a member still without the room key asks again — someone who has
+// it may connect later, or a grant may have been dropped with a socket.
+const KEY_RETRY_MS = 8000;
+const DAY_MS = 24 * 3600 * 1000;
 
 const CODE_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // no ambiguous chars
 function makeLocalCode(): string {
@@ -92,18 +113,6 @@ function reducer(state: RoomState, a: Action): RoomState {
   }
 }
 
-function formatBytes(n: number): string {
-  if (n < 1024) return `${n} B`;
-  const units = ["KB", "MB", "GB", "TB"];
-  let v = n / 1024;
-  let i = 0;
-  while (v >= 1024 && i < units.length - 1) {
-    v /= 1024;
-    i++;
-  }
-  return `${v.toFixed(v < 10 ? 1 : 0)} ${units[i]}`;
-}
-
 function DeviceIcon({ type }: { type: string }) {
   const cls = "h-3.5 w-3.5";
   if (type === "web") return <Globe className={cls} aria-hidden />;
@@ -134,6 +143,48 @@ export function RoomsApp({
   const [state, dispatch] = useReducer(reducer, initialState);
   const connRef = useRef<RoomConnection | null>(null);
   const fpRef = useRef("");
+  // End-to-end encryption (cloud rooms): the room key K, this connection's
+  // X25519 pair for the hand-off, and the room's key id once the sync says it
+  // is an encrypted room. Refs because the WS handler reads them; `roomKey`
+  // mirrors K as state so the view re-renders once it arrives.
+  const keyRef = useRef<Uint8Array | null>(null);
+  const pairRef = useRef<KeyPair | null>(null);
+  const kidRef = useRef<string | null>(null);
+  const codeRef = useRef("");
+  const [roomKey, setRoomKey] = useState<Uint8Array | null>(null);
+
+  const adoptKey = useCallback((k: Uint8Array, kid: string, expiresAt?: string) => {
+    keyRef.current = k;
+    setRoomKey(k);
+    rememberKey(codeRef.current, k, kid, expiresAt ?? new Date(Date.now() + DAY_MS).toISOString());
+  }, []);
+
+  const dropKey = useCallback(() => {
+    keyRef.current = null;
+    kidRef.current = null;
+    setRoomKey(null);
+  }, []);
+
+  // After a sync: is this an encrypted room, and do we hold its key? A key we
+  // already hold or stored for this code counts only if its kid matches.
+  const settleKey = useCallback(
+    async (info: RoomInfo) => {
+      const kid = info.e2e?.v === E2E_VERSION ? info.e2e.kid : null;
+      kidRef.current = kid;
+      if (!kid) return;
+      if (keyRef.current && (await keyId(keyRef.current)) === kid) return;
+      const stored = recallKey(codeRef.current, kid);
+      if (stored) {
+        keyRef.current = stored;
+        setRoomKey(stored);
+        return;
+      }
+      keyRef.current = null;
+      setRoomKey(null);
+      connRef.current?.send("key_request");
+    },
+    [],
+  );
 
   useEffect(() => {
     fpRef.current = getFingerprint();
@@ -145,6 +196,7 @@ export function RoomsApp({
       switch (e.type) {
         case "sync":
           dispatch({ type: "sync", info: e.data.info, members: e.data.members, files: e.data.files });
+          void settleKey(e.data.info);
           break;
         case "member_joined":
           dispatch({ type: "member_joined", member: e.data });
@@ -156,7 +208,11 @@ export function RoomsApp({
           dispatch({ type: "file_added", file: e.data.file });
           break;
         case "upload_start":
-          dispatch({ type: "upload_start", label: `${e.data.alias} · ${e.data.fileName}` });
+          // In an encrypted room the name on the wire is a placeholder.
+          dispatch({
+            type: "upload_start",
+            label: e.data.fileName === SEALED_NAME ? e.data.alias : `${e.data.alias} · ${e.data.fileName}`,
+          });
           break;
         case "upload_done":
           dispatch({ type: "upload_done" });
@@ -164,27 +220,64 @@ export function RoomsApp({
         case "room_closed":
           dispatch({ type: "closed" });
           connRef.current?.close();
+          forgetKey(codeRef.current);
           break;
+        case "key_request": {
+          // Someone without the key asked; anyone who holds it answers. A short
+          // random delay spreads the answers — the asker keeps the first good one.
+          const k = keyRef.current;
+          const pair = pairRef.current;
+          const { fingerprint, pub } = e.data;
+          if (!k || !pair || !kidRef.current || fingerprint === fpRef.current) break;
+          setTimeout(() => {
+            grant(k, codeRef.current, pair, pub)
+              .then((box) => connRef.current?.send("key_grant", { to: fingerprint, box }))
+              .catch(() => {});
+          }, Math.random() * 400);
+          break;
+        }
+        case "key_grant": {
+          const kid = kidRef.current;
+          const pair = pairRef.current;
+          if (keyRef.current || !kid || !pair) break;
+          acceptGrant(codeRef.current, pair, e.data.pub, e.data.box, kid)
+            .then((k) => {
+              if (!keyRef.current && kidRef.current === kid) adoptKey(k, kid);
+            })
+            .catch(() => {
+              /* a grant that doesn't open or doesn't match the kid is ignored */
+            });
+          break;
+        }
         case "error":
-          setError(e.data.message === "ROOM_FULL" ? t("errors.full") : t("errors.notFound"));
+          setError(
+            e.data.message === "ROOM_FULL"
+              ? t("errors.full")
+              : e.data.message === "ROOM_UPDATE_REQUIRED"
+                ? t("errors.updateRequired")
+                : t("errors.notFound"),
+          );
           connRef.current?.close();
           setSession({ phase: "landing" });
           break;
       }
     },
-    [t],
+    [t, settleKey, adoptKey],
   );
 
   const openConnection = useCallback(
     (roomCode: string) => {
       connRef.current?.close();
       dispatch({ type: "reset" });
+      codeRef.current = roomCode;
+      pairRef.current = newKeyPair();
       const conn = new RoomConnection(
         roomCode,
         fpRef.current,
         alias.trim() || t("landing.anon"),
         onEvent,
         () => {},
+        b64u(pairRef.current.pub),
       );
       connRef.current = conn;
       conn.connect();
@@ -205,7 +298,18 @@ export function RoomsApp({
     }
     setBusy("create");
     try {
-      const room = await createRoom(fpRef.current, name);
+      // The room key is made here and never leaves members' devices in the
+      // clear; the server only learns its key id.
+      dropKey();
+      const k = newRoomKey();
+      const kid = await keyId(k);
+      const room = await createRoom(fpRef.current, name, { v: E2E_VERSION, kid });
+      codeRef.current = room.code;
+      // Only a server that echoes the kid made an encrypted room.
+      if (room.e2e?.kid === kid) {
+        kidRef.current = kid;
+        adoptKey(k, kid, room.expiresAt);
+      }
       setSession({ phase: "room", code: room.code, hostToken: room.hostToken, mode: "cloud" });
       openConnection(room.code);
     } catch (err) {
@@ -227,6 +331,7 @@ export function RoomsApp({
       return;
     }
     setBusy("join");
+    dropKey();
     setSession({ phase: "room", code: c, hostToken: null, mode: "cloud" });
     openConnection(c);
     setBusy(null);
@@ -242,12 +347,23 @@ export function RoomsApp({
     }
     connRef.current?.leave();
     connRef.current = null;
+    if (session.phase === "room") forgetKey(session.code);
+    dropKey();
     dispatch({ type: "reset" });
     setSession({ phase: "landing" });
     setCode("");
-  }, [session]);
+  }, [session, dropKey]);
 
   useEffect(() => () => connRef.current?.close(), []);
+
+  // Still without the key in an encrypted room: keep asking until a member
+  // who has it answers.
+  const waitingForKey = Boolean(state.info?.e2e) && !roomKey && session.phase === "room";
+  useEffect(() => {
+    if (!waitingForKey) return;
+    const timer = setInterval(() => connRef.current?.send("key_request"), KEY_RETRY_MS);
+    return () => clearInterval(timer);
+  }, [waitingForKey]);
 
   if (session.phase === "landing") {
     return (
@@ -285,6 +401,7 @@ export function RoomsApp({
       fingerprint={fpRef.current}
       alias={alias.trim() || t("landing.anon")}
       state={state}
+      roomKey={roomKey}
       onLeave={handleLeave}
       onError={setError}
       error={error}
@@ -432,6 +549,7 @@ function RoomView({
   fingerprint,
   alias,
   state,
+  roomKey,
   onLeave,
   onError,
   error,
@@ -442,39 +560,60 @@ function RoomView({
   fingerprint: string;
   alias: string;
   state: RoomState;
+  roomKey: Uint8Array | null;
   onLeave: () => void;
   onError: (msg: string | null) => void;
   error: string | null;
 }) {
-  const [copied, setCopied] = useState(false);
   const [uploadPct, setUploadPct] = useState<number | null>(null);
-  const [dragging, setDragging] = useState(false);
-  const fileInput = useRef<HTMLInputElement>(null);
   const hostFp = state.info?.hostFingerprint;
+  const e2e = Boolean(state.info?.e2e);
 
-  const copyCode = async () => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    } catch {
-      /* clipboard may be blocked */
+  // Sealed metadata, opened once per file as the key and the list allow.
+  // null = could not be opened (shown as an unnamed encrypted file).
+  const [metas, setMetas] = useState<Record<string, FileMeta | null>>({});
+  const opened = useRef(new Set<string>());
+  useEffect(() => {
+    if (!roomKey) return;
+    for (const f of state.files) {
+      if (!f.enc || opened.current.has(f.id)) continue;
+      opened.current.add(f.id);
+      openFile(roomKey, f.enc.salt, f.enc.meta)
+        .then(({ meta }) => setMetas((m) => ({ ...m, [f.id]: meta })))
+        .catch(() => setMetas((m) => ({ ...m, [f.id]: null })));
     }
-  };
+  }, [roomKey, state.files]);
 
-  const handleFiles = async (files: FileList | null) => {
-    if (!files || files.length === 0) return;
+  // Picked before the key arrived (it takes a moment after joining): held
+  // here and sent as soon as it does, rather than refused and lost.
+  const queued = useRef<File[]>([]);
+
+  const handleFiles = async (files: File[]) => {
     onError(null);
-    for (const file of Array.from(files)) {
+    if (e2e && !roomKey) {
+      queued.current.push(...files);
+      setUploadPct(0);
+      return;
+    }
+    for (const file of files) {
       setUploadPct(0);
       try {
         const thumbnail = await makeThumbnail(file);
+        const sealed = roomKey && e2e
+          ? await sealFile(roomKey, {
+              name: file.name,
+              type: file.type || "application/octet-stream",
+              size: file.size,
+              thumbnail,
+            })
+          : undefined;
         await uploadRoomFile({
           code,
           file,
           fingerprint,
           alias,
           thumbnail,
+          sealed,
           onProgress: (f) => setUploadPct(Math.round(f * 100)),
         });
       } catch (err) {
@@ -482,8 +621,16 @@ function RoomView({
       }
     }
     setUploadPct(null);
-    if (fileInput.current) fileInput.current.value = "";
   };
+
+  useEffect(() => {
+    if (!roomKey || queued.current.length === 0) return;
+    const files = queued.current;
+    queued.current = [];
+    void handleFiles(files);
+    // handleFiles from this render already sees the new key.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [roomKey]);
 
   if (state.closed) {
     return (
@@ -498,203 +645,59 @@ function RoomView({
   }
 
   return (
-    <div className="relative flex flex-col lg:grid lg:grid-cols-[minmax(0,1.55fr)_minmax(300px,1fr)]">
-      {/* ── left: the files themselves, the reason the room exists ──────── */}
-      <section
-        onDragOver={(e) => {
-          e.preventDefault();
-          setDragging(true);
-        }}
-        onDragLeave={() => setDragging(false)}
-        onDrop={(e) => {
-          e.preventDefault();
-          setDragging(false);
-          void handleFiles(e.dataTransfer.files);
-        }}
-        className={
-          "relative order-2 flex min-h-[20rem] min-w-0 flex-col p-5 transition sm:p-6 lg:order-1 lg:p-7 " +
-          (dragging ? "bg-primary/[0.06]" : "")
-        }
-      >
-        {dragging && (
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-3 rounded-2xl border-2 border-dashed border-primary/60"
-          />
-        )}
-
-        <div className="mb-4 flex items-center justify-between gap-3">
-          <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground">
-            <FileIcon className="h-3.5 w-3.5" />
-            {t("room.files")}
-            <span className="tabular-nums">{state.files.length}</span>
-          </p>
-          <input
-            ref={fileInput}
-            type="file"
-            multiple
-            className="hidden"
-            onChange={(e) => handleFiles(e.target.files)}
-          />
-          <Button
-            onClick={() => fileInput.current?.click()}
-            size="sm"
-            disabled={uploadPct !== null}
-            className="rounded-lg"
-          >
-            <Upload className="mr-1.5 h-4 w-4" />
-            {uploadPct !== null ? `${t("room.uploading")} ${uploadPct}%` : t("room.upload")}
-          </Button>
-        </div>
-
-        {uploadPct !== null && (
-          <div className="mb-3 h-1 w-full overflow-hidden rounded-full bg-muted">
-            <div
-              className="h-full rounded-full bg-primary transition-[width] duration-200"
-              style={{ width: `${uploadPct}%` }}
-            />
-          </div>
-        )}
-        {state.uploadingBy && (
-          <p className="mb-3 text-xs text-muted-foreground">
-            {t("room.uploadingBy", { who: state.uploadingBy })}
-          </p>
-        )}
-
-        {state.files.length === 0 ? (
-          <button
-            onClick={() => fileInput.current?.click()}
-            className="flex flex-1 flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-border px-6 py-12 text-center transition hover:border-foreground/25 hover:bg-muted/30"
-          >
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-muted">
-              <Upload className="h-5 w-5 text-muted-foreground" />
-            </span>
-            <span className="text-sm text-muted-foreground">{t("room.noFiles")}</span>
-          </button>
-        ) : (
-          <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 xl:grid-cols-4">
-            {state.files.map((f) => (
-              <li
-                key={f.id}
-                className="group relative overflow-hidden rounded-xl border border-border bg-card transition duration-200 hover:border-foreground/20 hover:shadow-lg hover:shadow-black/20"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-                  {f.thumbnail ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={`data:image/jpeg;base64,${f.thumbnail}`}
-                      alt=""
-                      className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.04]"
-                    />
-                  ) : (
-                    <span className="flex h-full w-full items-center justify-center">
-                      <FileIcon className="h-6 w-6 text-muted-foreground/70" />
-                    </span>
-                  )}
-                  <Button
-                    onClick={() =>
-                      downloadRoomFile(code, f).catch((e) => onError(String(e.message ?? e)))
-                    }
-                    size="icon"
-                    aria-label={t("room.download")}
-                    className="absolute right-1.5 top-1.5 h-7 w-7 rounded-lg opacity-0 shadow-md transition group-hover:opacity-100 focus-visible:opacity-100 [@media(hover:none)]:opacity-100"
-                  >
-                    <Download className="h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="p-2.5">
-                  <p className="truncate text-[13px] font-medium leading-tight" title={f.fileName}>
-                    {f.fileName}
-                  </p>
-                  <p className="mt-0.5 truncate text-xs text-muted-foreground">
-                    {formatBytes(f.size)} · {t("room.by", { who: f.ownerAlias || t("landing.anon") })}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {error && (
-          <p
-            className="mt-4 rounded-xl bg-destructive/10 px-3.5 py-2.5 text-sm text-destructive"
-            role="alert"
-          >
-            {error}
-          </p>
-        )}
-      </section>
-
-      {/* ── right: who and where — the room's identity, always in view ──── */}
-      <aside className="relative order-1 flex flex-col gap-6 border-b border-border/60 bg-background-raised/30 p-5 backdrop-blur-sm sm:p-6 lg:order-2 lg:border-b-0 lg:border-l lg:p-7">
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-            {t("room.codeLabel")}
-          </p>
-          <button
-            onClick={copyCode}
-            title={t("room.copy")}
-            className="group mt-1.5 flex w-full items-center justify-between gap-2 rounded-xl border border-border bg-muted/40 px-3.5 py-2.5 transition hover:border-foreground/25 hover:bg-muted/70"
-          >
-            <span className="font-mono text-[26px] font-semibold leading-none tracking-[0.18em]">
-              {code}
-            </span>
-            {copied ? (
-              <Check className="h-4 w-4 shrink-0 text-primary" />
-            ) : (
-              <Copy className="h-4 w-4 shrink-0 text-muted-foreground transition group-hover:text-foreground" />
-            )}
-          </button>
-        </div>
-
-        <div className="min-w-0">
-          <p className="mb-2.5 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground">
-            <Users className="h-3.5 w-3.5" />
-            {t("room.members")}
-            <span className="ml-auto tabular-nums">{state.members.length}</span>
-          </p>
-          <ul className="space-y-0.5">
-            {state.members.map((m) => {
-              const you = m.fingerprint === fingerprint;
-              const host = m.fingerprint === hostFp;
-              return (
-                <li
-                  key={m.fingerprint}
-                  className="flex items-center gap-2.5 rounded-lg px-1.5 py-1.5 text-sm"
-                >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground">
-                    <DeviceIcon type={m.deviceType} />
-                  </span>
-                  <span className="min-w-0 flex-1 truncate">{m.alias || t("landing.anon")}</span>
-                  {host && (
-                    <span className="shrink-0 rounded bg-primary/15 px-1.5 py-0.5 text-[10px] font-medium uppercase text-primary">
-                      {t("room.host")}
-                    </span>
-                  )}
-                  {you && !host && (
-                    <span className="shrink-0 rounded bg-foreground/10 px-1.5 py-0.5 text-[10px] font-medium uppercase text-muted-foreground">
-                      {t("room.you")}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
-            {state.members.length === 0 && (
-              <li className="px-1.5 text-sm text-muted-foreground">{t("room.connecting")}</li>
-            )}
-          </ul>
-        </div>
-
-        <Button
-          onClick={onLeave}
-          variant="ghost"
-          size="sm"
-          className="mt-auto justify-start text-destructive hover:text-destructive"
-        >
-          {isHost ? <DoorOpen className="mr-1.5 h-4 w-4" /> : <LogOut className="mr-1.5 h-4 w-4" />}
-          {isHost ? t("room.close") : t("room.leave")}
-        </Button>
-      </aside>
-    </div>
+    <RoomLayout
+      mode="cloud"
+      code={code}
+      members={state.members.map((m) => {
+        const host = m.fingerprint === hostFp;
+        return {
+          id: m.fingerprint,
+          alias: m.alias || t("landing.anon"),
+          icon: <DeviceIcon type={m.deviceType} />,
+          badge: host ? "host" : m.fingerprint === fingerprint ? "you" : undefined,
+        };
+      })}
+      membersPlaceholder={state.members.length === 0 ? t("room.connecting") : undefined}
+      files={state.files.map((f) => {
+        const meta = f.enc ? metas[f.id] : undefined;
+        const thumb = f.enc ? meta?.thumbnail : f.thumbnail;
+        return {
+          id: f.id,
+          name: f.enc ? (meta?.name ?? t("room.encryptedFile")) : f.fileName,
+          size: f.enc ? (meta?.size ?? f.size) : f.size,
+          byAlias: f.ownerAlias || t("landing.anon"),
+          thumbnailSrc: thumb ? `data:image/jpeg;base64,${thumb}` : undefined,
+          onDownload: () => {
+            const run = async () => {
+              if (!f.enc) return downloadRoomFile(code, f);
+              if (!roomKey || !meta) throw new Error(t("room.e2eWaiting"));
+              const { fileKey } = await openFile(roomKey, f.enc.salt, f.enc.meta);
+              return downloadRoomFile(code, f, { fileKey, name: meta.name, type: meta.type });
+            };
+            run().catch((e) => onError(String(e?.message ?? e)));
+          },
+        };
+      })}
+      filesPlaceholder={t("room.noFiles")}
+      uploadPct={uploadPct}
+      uploadingBy={state.uploadingBy}
+      uploadLabel={t("room.upload")}
+      onFiles={(files) => void handleFiles(files)}
+      status={
+        !state.info
+          ? undefined
+          : !e2e
+            ? { icon: <LockOpen className="h-3.5 w-3.5" aria-hidden />, text: t("room.e2eOff"), tone: "warn" }
+            : roomKey
+              ? { icon: <Lock className="h-3.5 w-3.5" aria-hidden />, text: t("room.e2eOn"), tone: "ok" }
+              : { icon: <KeyRound className="h-3.5 w-3.5 animate-pulse" aria-hidden />, text: t("room.e2eWaiting"), tone: "muted" }
+      }
+      leave={{
+        label: isHost ? t("room.close") : t("room.leave"),
+        icon: isHost ? <DoorOpen className="mr-1.5 h-4 w-4" /> : <LogOut className="mr-1.5 h-4 w-4" />,
+        onClick: onLeave,
+      }}
+      error={error}
+    />
   );
 }

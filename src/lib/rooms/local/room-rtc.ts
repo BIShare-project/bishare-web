@@ -34,6 +34,9 @@ interface Callbacks {
   onSendProgress?: (sid: string, peerId: string, sent: number, total: number) => void;
   onSendDone?: (sid: string, peerId: string) => void;
   onError?: (peerId: string, err: string) => void;
+  /** A send to one peer ended without delivering (fires once per send), so a
+   * progress tracker waiting for onSendDone can count that peer out. */
+  onSendFailed?: (sid: string, peerId: string) => void;
 }
 
 interface Session {
@@ -62,6 +65,7 @@ function newSid(): string {
 
 export class RoomRTC {
   private sessions = new Map<string, Session>(); // sid → session
+  private failedSends = new Set<string>(); // sids already reported via onSendFailed
   // STUN until the TURN mint resolves (prefetched below) — peers created after
   // that get the relay fallback for networks that block direct paths.
   private ice: RTCIceServer[] = STUN_FALLBACK;
@@ -104,7 +108,9 @@ export class RoomRTC {
       // A channel error AFTER the send finished is the peer's normal teardown
       // (it closes its side once it has the file) — don't report it as a failure.
       dc.onerror = () => {
-        if (!s.done) this.cb.onError?.(peerId, "channel error");
+        if (s.done) return;
+        this.cb.onError?.(peerId, "channel error");
+        this.failSend(sid, peerId);
       };
       dc.onclose = () => this.teardown(sid);
       const offer = await pc.createOffer();
@@ -117,7 +123,16 @@ export class RoomRTC {
     } catch (e) {
       this.teardown(sid);
       this.cb.onError?.(peerId, e instanceof Error ? e.message : "send failed");
+      this.failSend(sid, peerId);
     }
+  }
+
+  // Channel error, connection failure and a throw can all end the same send;
+  // report it once.
+  private failSend(sid: string, peerId: string): void {
+    if (this.failedSends.has(sid)) return;
+    this.failedSends.add(sid);
+    this.cb.onSendFailed?.(sid, peerId);
   }
 
   private newPc(sid: string, peerId: string): RTCPeerConnection {
@@ -127,7 +142,9 @@ export class RoomRTC {
     };
     pc.onconnectionstatechange = () => {
       if (pc.connectionState === "failed") {
+        const s = this.sessions.get(sid);
         this.cb.onError?.(peerId, "connection failed");
+        if (s?.role === "send" && !s.done) this.failSend(sid, peerId);
         this.teardown(sid);
       }
     };

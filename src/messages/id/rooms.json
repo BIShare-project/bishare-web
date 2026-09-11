@@ -37,13 +37,18 @@
     "you": "Kamu",
     "connecting": "Menghubungkan…",
     "roomClosed": "Ruang telah ditutup.",
-    "backToStart": "Kembali ke awal"
+    "backToStart": "Kembali ke awal",
+    "e2eOn": "Terenkripsi end-to-end",
+    "e2eWaiting": "Menunggu anggota membagikan kunci room…",
+    "e2eOff": "Tidak terenkripsi end-to-end (dibuat dengan app versi lama)",
+    "encryptedFile": "File terenkripsi"
   },
   "errors": {
     "create": "Gagal membuat ruang. Coba lagi.",
     "upload": "Gagal mengunggah. Coba lagi.",
     "full": "Ruang ini penuh.",
-    "notFound": "Ruang tidak ditemukan atau sudah ditutup."
+    "notFound": "Ruang tidak ditemukan atau sudah ditutup.",
+    "updateRequired": "Room ini terenkripsi end-to-end. Muat ulang halaman untuk bergabung."
   },
   "mode": {
     "cloud": "Cloud",
@@ -90,7 +95,7 @@
         "title": "Cloud room",
         "points": [
           "Jalan di jaringan mana pun",
-          "File lewat penyimpanan terenkripsi",
+          "File dienkripsi end-to-end di perangkat",
           "Semua bisa ambil kapan saja",
           "Cocok untuk beda tempat"
         ]
@@ -120,11 +125,11 @@
         },
         {
           "q": "Apa beda Cloud dan Local room?",
-          "a": "Cloud room mengirim file lewat penyimpanan terenkripsi sehingga jalan di jaringan mana pun. Local room mengirim file langsung antar-browser (P2P) — tercepat di Wi-Fi yang sama, tak menyentuh server."
+          "a": "Cloud room mengirim file terenkripsi end-to-end lewat server kami sehingga jalan di jaringan mana pun. Local room mengirim file langsung antar-browser (P2P) — tercepat di Wi-Fi yang sama, tak menyentuh server."
         },
         {
           "q": "Apakah aman?",
-          "a": "Local room mengirim file peer-to-peer lewat kanal WebRTC terenkripsi, jadi datanya tak sampai ke server kami. Cloud room menyimpan file sebentar di penyimpanan terenkripsi lalu menghapusnya otomatis."
+          "a": "Ya. Local room mengirim file peer-to-peer lewat kanal WebRTC terenkripsi, jadi datanya tak sampai ke server kami. Di cloud room, setiap file dienkripsi di perangkat sebelum diunggah dan kunci room hanya berpindah antar-perangkat anggota, jadi server kami hanya menyimpan data terenkripsi sampai room ditutup — room menampilkan ikon gembok saat fitur ini aktif. Siapa pun yang tahu kodenya bisa bergabung, jadi bagikan hanya ke orang yang Anda percaya."
         },
         {
           "q": "Bisa kirim file besar?",

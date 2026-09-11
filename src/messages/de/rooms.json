@@ -37,13 +37,18 @@
     "you": "Du",
     "connecting": "Verbinde…",
     "roomClosed": "Der Raum wurde geschlossen.",
-    "backToStart": "Zurück zum Start"
+    "backToStart": "Zurück zum Start",
+    "e2eOn": "Ende-zu-Ende verschlüsselt",
+    "e2eWaiting": "Warte darauf, dass ein Mitglied den Raumschlüssel teilt…",
+    "e2eOff": "Nicht Ende-zu-Ende verschlüsselt (mit einer älteren App erstellt)",
+    "encryptedFile": "Verschlüsselte Datei"
   },
   "errors": {
     "create": "Raum konnte nicht erstellt werden. Bitte erneut versuchen.",
     "upload": "Upload fehlgeschlagen. Bitte erneut versuchen.",
     "full": "Dieser Raum ist voll.",
-    "notFound": "Raum nicht gefunden oder geschlossen."
+    "notFound": "Raum nicht gefunden oder geschlossen.",
+    "updateRequired": "Dieser Raum ist Ende-zu-Ende verschlüsselt. Lade die Seite neu, um beizutreten."
   },
   "mode": {
     "cloud": "Cloud",
@@ -90,7 +95,7 @@
         "title": "Cloud-Raum",
         "points": [
           "Funktioniert in jedem Netzwerk",
-          "Dateien über verschlüsselten Speicher",
+          "Dateien Ende-zu-Ende verschlüsselt auf deinem Gerät",
           "Jeder kann jederzeit abrufen",
           "Ideal für verschiedene Orte"
         ]
@@ -120,11 +125,11 @@
         },
         {
           "q": "Was ist der Unterschied zwischen Cloud und Lokal?",
-          "a": "Cloud-Räume leiten Dateien über verschlüsselten Speicher, damit sie überall funktionieren. Lokale Räume senden Dateien direkt von Browser zu Browser (P2P) — am schnellsten im selben WLAN, ohne Server."
+          "a": "Cloud-Räume leiten Ende-zu-Ende verschlüsselte Dateien über unsere Server, damit sie überall funktionieren. Lokale Räume senden Dateien direkt von Browser zu Browser (P2P) — am schnellsten im selben WLAN, ohne Server."
         },
         {
           "q": "Ist es sicher?",
-          "a": "Lokale Räume senden Dateien peer-to-peer über verschlüsselte WebRTC-Kanäle; die Daten erreichen nie unsere Server. Cloud-Räume speichern Dateien kurz verschlüsselt und löschen sie automatisch."
+          "a": "Ja. Lokale Räume senden Dateien peer-to-peer über verschlüsselte WebRTC-Kanäle; die Daten erreichen nie unsere Server. In Cloud-Räumen wird jede Datei vor dem Upload auf deinem Gerät verschlüsselt, und der Raumschlüssel wandert nur zwischen den Geräten der Mitglieder – unsere Server halten bis zum Schließen des Raums nur Chiffretext; der Raum zeigt dann ein Schloss. Jeder mit dem Code kann beitreten, also teile ihn nur mit Leuten, denen du vertraust."
         },
         {
           "q": "Kann ich große Dateien teilen?",

@@ -9,8 +9,10 @@
 // alias,deviceType}}, then the server replies "sync" (full state) and streams
 // member_joined / member_left / file_added / upload_start / upload_done /
 // room_closed / error. See server/do/room.ts for the wire contract.
-import type { RoomCreated, RoomEvent, RoomFile } from "./types";
+import type { RoomCreated, RoomE2E, RoomEvent, RoomFile } from "./types";
 import { DEVICE_TYPE } from "./identity";
+import { EncryptedSource, decryptTransform, importKey } from "@/lib/e2e/crypto";
+import type { SealedFile } from "./e2e";
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || "https://api.bishare.app";
@@ -25,12 +27,13 @@ async function readError(res: Response): Promise<string> {
   }
 }
 
-/** Create a room. Returns its code + host token (needed to close it). */
-export async function createRoom(fingerprint: string, alias: string): Promise<RoomCreated> {
+/** Create a room. Returns its code + host token (needed to close it). `e2e`
+ *  registers the key id of a room key this device just made (see ./e2e.ts). */
+export async function createRoom(fingerprint: string, alias: string, e2e?: RoomE2E): Promise<RoomCreated> {
   const res = await fetch(`${API_URL}/api/v1/rooms`, {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ fingerprint, alias }),
+    body: JSON.stringify({ fingerprint, alias, ...(e2e ? { e2e } : {}) }),
   });
   if (!res.ok) throw new Error(await readError(res));
   const body = (await res.json()) as { data: RoomCreated };
@@ -46,39 +49,74 @@ export async function closeRoom(code: string, hostToken: string): Promise<void> 
   if (!res.ok) throw new Error(await readError(res));
 }
 
-/** Download a shared file (server-proxied stream) and save it via the browser. */
-export async function downloadRoomFile(code: string, file: RoomFile): Promise<void> {
+/** Download a shared file (server-proxied stream) and save it via the browser.
+ *  An end-to-end encrypted file is opened on the way in with its BSE2 key and
+ *  saved under the name from its sealed metadata. */
+export async function downloadRoomFile(
+  code: string,
+  file: RoomFile,
+  sealed?: { fileKey: Uint8Array; name: string; type: string },
+): Promise<void> {
   const res = await fetch(`${API_URL}/api/v1/rooms/${code}/files/${file.id}`);
   if (!res.ok) throw new Error(await readError(res));
-  const blob = await res.blob();
-  const url = URL.createObjectURL(blob);
+  const blob =
+    sealed && res.body
+      ? await new Response(res.body.pipeThrough(decryptTransform(sealed.fileKey))).blob()
+      : await res.blob();
+  const url = URL.createObjectURL(sealed ? new Blob([blob], { type: sealed.type }) : blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = file.fileName;
+  a.download = sealed ? sealed.name : file.fileName;
   document.body.appendChild(a);
   a.click();
   a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-/** Upload a file into the room (XHR for progress). Broadcasts file_added to all. */
-export function uploadRoomFile(opts: {
+// What an encrypted upload calls itself on the wire; the real name is sealed.
+const SEALED_NAME = "encrypted.bse2";
+const SEAL_CHUNK = 8 * 1024 * 1024;
+
+/** The whole BSE2 container for `file`, as a Blob the browser can page to disk. */
+async function sealedBody(file: File, fileKey: Uint8Array): Promise<Blob> {
+  const salt = crypto.getRandomValues(new Uint8Array(4));
+  const src = new EncryptedSource(file, await importKey(fileKey), salt);
+  const parts: Blob[] = [];
+  for (let off = 0; off < src.size; off += SEAL_CHUNK) {
+    parts.push(new Blob([await src.slice(off, Math.min(off + SEAL_CHUNK, src.size))]));
+  }
+  return new Blob(parts, { type: "application/octet-stream" });
+}
+
+/** Upload a file into the room (XHR for progress). Broadcasts file_added to all.
+ *  With `sealed` (an end-to-end encrypted room) only the BSE2 container and
+ *  the sealed metadata leave the browser — no name, type or preview. */
+export async function uploadRoomFile(opts: {
   code: string;
   file: File;
   fingerprint: string;
   alias: string;
   thumbnail?: string;
+  sealed?: SealedFile;
   onProgress?: (fraction: number) => void;
 }): Promise<void> {
-  const { code, file, fingerprint, alias, thumbnail, onProgress } = opts;
+  const { code, file, fingerprint, alias, thumbnail, sealed, onProgress } = opts;
+  const body: Blob = sealed ? await sealedBody(file, sealed.fileKey) : file;
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", `${API_URL}/api/v1/rooms/${code}/files`);
-    xhr.setRequestHeader("X-File-Name", encodeURIComponent(file.name));
-    xhr.setRequestHeader("X-File-Type", file.type || "application/octet-stream");
     xhr.setRequestHeader("X-Owner-Fingerprint", fingerprint);
     xhr.setRequestHeader("X-Owner-Alias", encodeURIComponent(alias));
-    if (thumbnail) xhr.setRequestHeader("X-Thumbnail", thumbnail);
+    if (sealed) {
+      xhr.setRequestHeader("X-File-Name", SEALED_NAME);
+      xhr.setRequestHeader("X-File-Type", "application/octet-stream");
+      xhr.setRequestHeader("X-Enc-Salt", sealed.salt);
+      xhr.setRequestHeader("X-Enc-Meta", sealed.meta);
+    } else {
+      xhr.setRequestHeader("X-File-Name", encodeURIComponent(file.name));
+      xhr.setRequestHeader("X-File-Type", file.type || "application/octet-stream");
+      if (thumbnail) xhr.setRequestHeader("X-Thumbnail", thumbnail);
+    }
     xhr.upload.onprogress = (e) => {
       if (e.lengthComputable && onProgress) onProgress(e.loaded / e.total);
     };
@@ -95,7 +133,7 @@ export function uploadRoomFile(opts: {
       }
     };
     xhr.onerror = () => reject(new Error("Network error during upload"));
-    xhr.send(file);
+    xhr.send(body);
   });
 }
 
@@ -115,6 +153,9 @@ export class RoomConnection {
     private readonly alias: string,
     private readonly onEvent: (e: RoomEvent) => void,
     private readonly onStatus: (s: "connecting" | "open" | "closed") => void,
+    /** X25519 public key (base64url) for the key hand-off; sent on every join
+     *  so an encrypted room lets this client in (a plain room ignores it). */
+    private readonly e2ePub?: string,
   ) {}
 
   connect(): void {
@@ -127,7 +168,14 @@ export class RoomConnection {
       ws.send(
         JSON.stringify({
           type: "join",
-          data: { fingerprint: this.fingerprint, alias: this.alias, deviceType: DEVICE_TYPE },
+          data: {
+            fingerprint: this.fingerprint,
+            alias: this.alias,
+            deviceType: DEVICE_TYPE,
+            // need:false — whether a key is needed is decided after the sync,
+            // once this client knows the room's kid, with an explicit key_request.
+            ...(this.e2ePub ? { e2e: { v: 1, pub: this.e2ePub, need: false } } : {}),
+          },
         }),
       );
       this.onStatus("open");
@@ -150,6 +198,17 @@ export class RoomConnection {
       this.reconnectTimer = setTimeout(() => this.connect(), 2500);
     };
     ws.onerror = () => ws.close();
+  }
+
+  /** Send a client → room message (key_request / key_grant). Dropped while
+   *  the socket is down; the caller's retry covers it. */
+  send(type: string, data?: Record<string, unknown>): void {
+    if (this.ws?.readyState !== WebSocket.OPEN) return;
+    try {
+      this.ws.send(JSON.stringify({ type, data: data ?? {} }));
+    } catch {
+      /* closing */
+    }
   }
 
   /** Politely leave, then tear down (no reconnect). */

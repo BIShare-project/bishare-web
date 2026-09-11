@@ -37,13 +37,18 @@
     "you": "You",
     "connecting": "Connecting…",
     "roomClosed": "The room was closed.",
-    "backToStart": "Back to start"
+    "backToStart": "Back to start",
+    "e2eOn": "End-to-end encrypted",
+    "e2eWaiting": "Waiting for a member to share the room key…",
+    "e2eOff": "Not end-to-end encrypted (made with an older app)",
+    "encryptedFile": "Encrypted file"
   },
   "errors": {
     "create": "Couldn't create the room. Please try again.",
     "upload": "Upload failed. Please try again.",
     "full": "This room is full.",
-    "notFound": "Room not found or it has closed."
+    "notFound": "Room not found or it has closed.",
+    "updateRequired": "This room is end-to-end encrypted. Reload the page to join."
   },
   "mode": {
     "cloud": "Cloud",
@@ -90,7 +95,7 @@
         "title": "Cloud room",
         "points": [
           "Works across any network",
-          "Files relayed through encrypted storage",
+          "Files end-to-end encrypted on your device",
           "Everyone can grab files anytime",
           "Best for people in different places"
         ]
@@ -120,11 +125,11 @@
         },
         {
           "q": "What's the difference between Cloud and Local rooms?",
-          "a": "Cloud rooms relay files through encrypted storage so they work across any network. Local rooms send files directly browser-to-browser (P2P) — fastest on the same Wi-Fi, and nothing touches a server."
+          "a": "Cloud rooms relay end-to-end encrypted files through our servers, so they work across any network. Local rooms send files directly browser-to-browser (P2P) — fastest on the same Wi-Fi, and nothing touches a server."
         },
         {
           "q": "Is it secure?",
-          "a": "Local rooms send files peer-to-peer over encrypted WebRTC channels, so the bytes never reach our servers. Cloud rooms store files briefly in encrypted storage and delete them automatically."
+          "a": "Yes. Local rooms send files peer-to-peer over encrypted WebRTC channels, so the bytes never reach our servers. In Cloud rooms each file is encrypted on your device before upload, and the room key passes only between members' devices, so our servers hold only ciphertext until the room closes — the room shows a lock when this is on. Anyone with the code can join, so share it only with people you trust."
         },
         {
           "q": "Can I share large files?",

@@ -37,13 +37,18 @@
     "you": "Você",
     "connecting": "Conectando…",
     "roomClosed": "A sala foi fechada.",
-    "backToStart": "Voltar ao início"
+    "backToStart": "Voltar ao início",
+    "e2eOn": "Criptografia de ponta a ponta",
+    "e2eWaiting": "Aguardando um membro compartilhar a chave da sala…",
+    "e2eOff": "Sem criptografia de ponta a ponta (criada com um app antigo)",
+    "encryptedFile": "Arquivo criptografado"
   },
   "errors": {
     "create": "Não foi possível criar a sala. Tente novamente.",
     "upload": "Falha no envio. Tente novamente.",
     "full": "Esta sala está cheia.",
-    "notFound": "Sala não encontrada ou fechada."
+    "notFound": "Sala não encontrada ou fechada.",
+    "updateRequired": "Esta sala tem criptografia de ponta a ponta. Recarregue a página para entrar."
   },
   "mode": {
     "cloud": "Nuvem",
@@ -90,7 +95,7 @@
         "title": "Sala na nuvem",
         "points": [
           "Funciona em qualquer rede",
-          "Arquivos via armazenamento criptografado",
+          "Arquivos criptografados de ponta a ponta no seu dispositivo",
           "Todos baixam quando quiserem",
           "Ideal para lugares diferentes"
         ]
@@ -120,11 +125,11 @@
         },
         {
           "q": "Diferença entre Nuvem e Local?",
-          "a": "Salas na nuvem transmitem arquivos por armazenamento criptografado, funcionando em qualquer rede. Salas locais enviam direto entre navegadores (P2P) — mais rápido no mesmo Wi-Fi, sem servidor."
+          "a": "Salas na nuvem transmitem arquivos criptografados de ponta a ponta pelos nossos servidores, funcionando em qualquer rede. Salas locais enviam direto entre navegadores (P2P) — mais rápido no mesmo Wi-Fi, sem servidor."
         },
         {
           "q": "É seguro?",
-          "a": "Salas locais enviam arquivos ponto a ponto por canais WebRTC criptografados; os dados nunca chegam aos nossos servidores. Salas na nuvem os guardam brevemente criptografados e apagam sozinhas."
+          "a": "Sim. Salas locais enviam arquivos ponto a ponto por canais WebRTC criptografados; os dados nunca chegam aos nossos servidores. Nas salas na nuvem, cada arquivo é criptografado no seu dispositivo antes do envio e a chave da sala só passa entre os dispositivos dos membros, então nossos servidores guardam apenas dados criptografados até a sala fechar — a sala mostra um cadeado quando isso está ativo. Qualquer pessoa com o código pode entrar, então compartilhe só com quem você confia."
         },
         {
           "q": "Posso compartilhar arquivos grandes?",

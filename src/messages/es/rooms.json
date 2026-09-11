@@ -37,13 +37,18 @@
     "you": "Tú",
     "connecting": "Conectando…",
     "roomClosed": "La sala se cerró.",
-    "backToStart": "Volver al inicio"
+    "backToStart": "Volver al inicio",
+    "e2eOn": "Cifrado de extremo a extremo",
+    "e2eWaiting": "Esperando a que un miembro comparta la clave de la sala…",
+    "e2eOff": "Sin cifrado de extremo a extremo (creada con una app anterior)",
+    "encryptedFile": "Archivo cifrado"
   },
   "errors": {
     "create": "No se pudo crear la sala. Inténtalo de nuevo.",
     "upload": "Error al subir. Inténtalo de nuevo.",
     "full": "Esta sala está llena.",
-    "notFound": "Sala no encontrada o cerrada."
+    "notFound": "Sala no encontrada o cerrada.",
+    "updateRequired": "Esta sala tiene cifrado de extremo a extremo. Recarga la página para unirte."
   },
   "mode": {
     "cloud": "Nube",
@@ -90,7 +95,7 @@
         "title": "Sala en la nube",
         "points": [
           "Funciona en cualquier red",
-          "Archivos por almacenamiento cifrado",
+          "Archivos cifrados de extremo a extremo en tu dispositivo",
           "Todos pueden descargar cuando quieran",
           "Ideal para lugares distintos"
         ]
@@ -120,11 +125,11 @@
         },
         {
           "q": "¿Diferencia entre Nube y Local?",
-          "a": "Las salas en la nube envían archivos por almacenamiento cifrado, así funcionan en cualquier red. Las locales van directas entre navegadores (P2P) — más rápidas en la misma Wi-Fi, sin servidor."
+          "a": "Las salas en la nube envían archivos cifrados de extremo a extremo a través de nuestros servidores, así funcionan en cualquier red. Las locales van directas entre navegadores (P2P) — más rápidas en la misma Wi-Fi, sin servidor."
         },
         {
           "q": "¿Es seguro?",
-          "a": "Las salas locales envían archivos entre pares por canales WebRTC cifrados; los datos nunca llegan a nuestros servidores. Las de nube los guardan brevemente cifrados y los borran solas."
+          "a": "Sí. Las salas locales envían archivos entre pares por canales WebRTC cifrados; los datos nunca llegan a nuestros servidores. En las salas en la nube cada archivo se cifra en tu dispositivo antes de subirse y la clave de la sala solo pasa entre los dispositivos de los miembros, así que nuestros servidores solo guardan datos cifrados hasta que la sala se cierra; la sala muestra un candado cuando está activo. Cualquiera con el código puede unirse, así que compártelo solo con personas de confianza."
         },
         {
           "q": "¿Puedo compartir archivos grandes?",

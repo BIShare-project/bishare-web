@@ -37,13 +37,18 @@
     "you": "Vous",
     "connecting": "Connexion…",
     "roomClosed": "Le salon a été fermé.",
-    "backToStart": "Retour au début"
+    "backToStart": "Retour au début",
+    "e2eOn": "Chiffré de bout en bout",
+    "e2eWaiting": "En attente qu'un membre partage la clé du salon…",
+    "e2eOff": "Non chiffré de bout en bout (créé avec une ancienne app)",
+    "encryptedFile": "Fichier chiffré"
   },
   "errors": {
     "create": "Impossible de créer le salon. Réessayez.",
     "upload": "Échec de l'envoi. Réessayez.",
     "full": "Ce salon est complet.",
-    "notFound": "Salon introuvable ou fermé."
+    "notFound": "Salon introuvable ou fermé.",
+    "updateRequired": "Ce salon est chiffré de bout en bout. Rechargez la page pour le rejoindre."
   },
   "mode": {
     "cloud": "Cloud",
@@ -90,7 +95,7 @@
         "title": "Salon cloud",
         "points": [
           "Fonctionne sur tout réseau",
-          "Fichiers via stockage chiffré",
+          "Fichiers chiffrés de bout en bout sur votre appareil",
           "Chacun télécharge quand il veut",
           "Idéal à distance"
         ]
@@ -120,11 +125,11 @@
         },
         {
           "q": "Différence entre Cloud et Local ?",
-          "a": "Les salons cloud relaient les fichiers via un stockage chiffré, donc partout. Les salons locaux les envoient directement entre navigateurs (P2P) — plus rapide sur le même Wi-Fi, sans serveur."
+          "a": "Les salons cloud relaient des fichiers chiffrés de bout en bout via nos serveurs, donc partout. Les salons locaux les envoient directement entre navigateurs (P2P) — plus rapide sur le même Wi-Fi, sans serveur."
         },
         {
           "q": "Est-ce sécurisé ?",
-          "a": "Les salons locaux envoient les fichiers en pair-à-pair via des canaux WebRTC chiffrés ; les données n'atteignent jamais nos serveurs. Les salons cloud les stockent brièvement chiffrés puis les suppriment."
+          "a": "Oui. Les salons locaux envoient les fichiers en pair-à-pair via des canaux WebRTC chiffrés ; les données n'atteignent jamais nos serveurs. Dans les salons cloud, chaque fichier est chiffré sur votre appareil avant l'envoi et la clé du salon ne circule qu'entre les appareils des membres : nos serveurs ne détiennent que des données chiffrées jusqu'à la fermeture du salon, qui affiche alors un cadenas. Toute personne ayant le code peut rejoindre, alors ne le partagez qu'avec des personnes de confiance."
         },
         {
           "q": "Puis-je partager de gros fichiers ?",

@@ -2,24 +2,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Check, Copy, Download, FileIcon, LogOut, Radio, Upload, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { LogOut } from "lucide-react";
 import { NearbySignaling, type NearbyPeer } from "@/lib/nearby/signaling";
 import { RoomRTC, type ReceivedRoomFile } from "@/lib/rooms/local/room-rtc";
+import { RoomLayout } from "./room-layout";
 
 const EMOJIS = ["🦊", "🐼", "🐧", "🦉", "🐙", "🦜", "🐳", "🦄", "🐝", "🦩"];
-
-function formatBytes(n: number): string {
-  if (n < 1024) return `${n} B`;
-  const u = ["KB", "MB", "GB", "TB"];
-  let v = n / 1024;
-  let i = 0;
-  while (v >= 1024 && i < u.length - 1) {
-    v /= 1024;
-    i++;
-  }
-  return `${v.toFixed(v < 10 ? 1 : 0)} ${u[i]}`;
-}
 
 function saveBlob(blob: Blob, name: string) {
   const url = URL.createObjectURL(blob);
@@ -48,12 +36,14 @@ export function LocalRoomView({
   const [received, setReceived] = useState<ReceivedRoomFile[]>([]);
   const [sending, setSending] = useState<{ name: string; pct: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
+  // "<alias> · <name>" per incoming transfer, like the Cloud room's upload_start
+  const [incoming, setIncoming] = useState<Map<string, { from: string; label: string }>>(new Map());
+  // One blob: URL per image file for its preview, revoked when the room closes.
+  const thumbs = useRef(new Map<string, string>());
 
   const sigRef = useRef<NearbySignaling | null>(null);
   const rtcRef = useRef<RoomRTC | null>(null);
   const peersRef = useRef<NearbyPeer[]>([]);
-  const fileInput = useRef<HTMLInputElement>(null);
   const selfRef = useRef<NearbyPeer | null>(null);
   const sendTracker = useRef<{ name: string; total: number; frac: Map<string, number>; done: number } | null>(null);
 
@@ -99,12 +89,34 @@ export function LocalRoomView({
       .on("peerJoined", (p) =>
         setPeers((cur) => (p.peerId === self.peerId ? cur : [...cur.filter((x) => x.peerId !== p.peerId), p])),
       )
-      .on("peerLeft", (id) => setPeers((cur) => cur.filter((p) => p.peerId !== id)));
+      .on("peerLeft", (id) => {
+        setPeers((cur) => cur.filter((p) => p.peerId !== id));
+        setIncoming((cur) => new Map([...cur].filter(([, v]) => v.from !== id)));
+      });
+
+    const finishOne = () => {
+      const tr = sendTracker.current;
+      if (!tr) return;
+      tr.done += 1;
+      if (tr.done >= tr.total) {
+        sendTracker.current = null;
+        setSending(null);
+      }
+    };
 
     const rtc = new RoomRTC(
       sig,
       {
-        onReceived: (f) => setReceived((cur) => [f, ...cur]),
+        onReceiveStart: (sid, from, meta) =>
+          setIncoming((cur) => new Map(cur).set(sid, { from, label: `${aliasOf(from)} · ${meta.name}` })),
+        onReceived: (f) => {
+          setReceived((cur) => [f, ...cur]);
+          setIncoming((cur) => {
+            const next = new Map(cur);
+            next.delete(f.id);
+            return next;
+          });
+        },
         onSendProgress: (sid, _peer, sent, total) => {
           const tr = sendTracker.current;
           if (!tr || total === 0) return;
@@ -112,16 +124,14 @@ export function LocalRoomView({
           const avg = [...tr.frac.values()].reduce((a, b) => a + b, 0) / tr.total;
           setSending({ name: tr.name, pct: Math.min(100, Math.round(avg * 100)) });
         },
-        onSendDone: (_sid) => {
-          const tr = sendTracker.current;
-          if (!tr) return;
-          tr.done += 1;
-          if (tr.done >= tr.total) {
-            sendTracker.current = null;
-            setSending(null);
-          }
+        onSendDone: () => finishOne(),
+        // A peer that never got the file still counts as finished, or the
+        // share button would stay stuck at its last percentage.
+        onSendFailed: () => finishOne(),
+        onError: (_peer, err) => {
+          setError(err);
+          setIncoming(new Map()); // a receive that died has no callback of its own
         },
-        onError: (_peer, err) => setError(err),
       },
       aliasOf,
     );
@@ -130,7 +140,10 @@ export function LocalRoomView({
     rtcRef.current = rtc;
     sig.connect();
 
+    const previews = thumbs.current;
     return () => {
+      for (const url of previews.values()) URL.revokeObjectURL(url);
+      previews.clear();
       stopped = true;
       if (reconnectTimer) clearTimeout(reconnectTimer);
       rtc.closeAll();
@@ -143,25 +156,15 @@ export function LocalRoomView({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [code]);
 
-  const copyCode = async () => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    } catch {
-      /* clipboard blocked */
-    }
-  };
 
-  const handleFiles = async (files: FileList | null) => {
-    if (!files || files.length === 0) return;
+  const handleFiles = async (files: File[]) => {
     setError(null);
     const targets = peersRef.current.map((p) => p.peerId);
     if (targets.length === 0) {
       setError(t("local.nobody"));
       return;
     }
-    for (const file of Array.from(files)) {
+    for (const file of files) {
       // Show my own shared file in the list right away — the sharer should see
       // what they shared (a File is a Blob, so it downloads back the original).
       const ownId = `own-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -187,130 +190,52 @@ export function LocalRoomView({
       // broadcast() resolves when all pumps finish handing bytes to the channel;
       // onSendDone clears `sending` once every peer's stream completes.
     }
-    if (fileInput.current) fileInput.current.value = "";
   };
 
+  const previewOf = (f: ReceivedRoomFile): string | undefined => {
+    if (!f.mime.startsWith("image/")) return undefined;
+    let url = thumbs.current.get(f.id);
+    if (!url) {
+      url = URL.createObjectURL(f.blob);
+      thumbs.current.set(f.id, url);
+    }
+    return url;
+  };
+
+  const incomingLabel = [...incoming.values()].at(-1)?.label ?? null;
+
   return (
-    <div className="divide-y divide-border">
-      {/* header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-5">
-        <div>
-          <p className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.16em] text-muted-foreground">
-            <Radio className="h-3 w-3" /> {t("local.tag")}
-          </p>
-          <button
-            onClick={copyCode}
-            className="mt-1 flex items-center gap-2 font-mono text-2xl font-semibold tracking-[0.2em] hover:text-primary"
-            title={t("room.copy")}
-          >
-            {code}
-            {copied ? (
-              <Check className="h-4 w-4 text-primary" />
-            ) : (
-              <Copy className="h-4 w-4 text-muted-foreground" />
-            )}
-          </button>
-        </div>
-        <Button onClick={onLeave} variant="ghost" size="sm" className="text-destructive">
-          <LogOut className="mr-1.5 h-4 w-4" />
-          {t("room.leave")}
-        </Button>
-      </div>
-
-      {/* peers */}
-      <div className="p-5">
-        <p className="mb-3 flex items-center gap-2 text-sm font-medium">
-          <Users className="h-4 w-4" /> {t("room.members")} · {peers.length + 1}
-        </p>
-        <ul className="flex flex-wrap gap-2">
-          <li className="flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-3 py-1.5 text-sm">
-            <span>{selfRef.current?.emoji}</span>
-            <span className="max-w-[10rem] truncate">{alias}</span>
-            <span className="rounded bg-foreground/10 px-1.5 py-0.5 text-[10px] font-medium uppercase text-muted-foreground">
-              {t("room.you")}
-            </span>
-          </li>
-          {peers.map((p) => (
-            <li
-              key={p.peerId}
-              className="flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-3 py-1.5 text-sm"
-            >
-              <span>{p.emoji}</span>
-              <span className="max-w-[10rem] truncate">{p.alias || t("landing.anon")}</span>
-            </li>
-          ))}
-        </ul>
-        {peers.length === 0 && (
-          <p className="mt-3 text-sm text-muted-foreground">
-            {status === "open" ? t("local.waiting") : t("room.connecting")}
-          </p>
-        )}
-      </div>
-
-      {/* share + received */}
-      <div className="p-5">
-        <div className="mb-3 flex items-center justify-between">
-          <p className="flex items-center gap-2 text-sm font-medium">
-            <FileIcon className="h-4 w-4" /> {t("local.received")} · {received.length}
-          </p>
-          <input
-            ref={fileInput}
-            type="file"
-            multiple
-            className="hidden"
-            onChange={(e) => handleFiles(e.target.files)}
-          />
-          <Button
-            onClick={() => fileInput.current?.click()}
-            size="sm"
-            disabled={sending !== null || peers.length === 0}
-          >
-            <Upload className="mr-1.5 h-4 w-4" />
-            {sending ? `${t("room.uploading")} ${sending.pct}%` : t("local.share")}
-          </Button>
-        </div>
-
-        <p className="mb-3 text-xs text-muted-foreground">{t("local.p2pNote")}</p>
-
-        {received.length === 0 ? (
-          <p className="rounded-lg border border-dashed border-border px-4 py-8 text-center text-sm text-muted-foreground">
-            {t("local.noFiles")}
-          </p>
-        ) : (
-          <ul className="space-y-2">
-            {received.map((f) => (
-              <li
-                key={f.id}
-                className="flex items-center gap-3 rounded-xl border border-border bg-card px-3 py-2.5"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-muted">
-                  <FileIcon className="h-5 w-5 text-muted-foreground" />
-                </span>
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium">{f.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {formatBytes(f.size)} · {t("room.by", { who: f.fromAlias })}
-                  </p>
-                </div>
-                <Button
-                  onClick={() => saveBlob(f.blob, f.name)}
-                  size="icon"
-                  variant="ghost"
-                  aria-label={t("room.download")}
-                >
-                  <Download className="h-4 w-4" />
-                </Button>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      {error && (
-        <p className="bg-destructive/10 px-5 py-3 text-sm text-destructive" role="alert">
-          {error}
-        </p>
-      )}
-    </div>
+    <RoomLayout
+      mode="local"
+      code={code}
+      members={[
+        { id: "me", alias, icon: <span aria-hidden>{selfRef.current?.emoji}</span>, badge: "you" as const },
+        ...peers.map((p) => ({
+          id: p.peerId,
+          alias: p.alias || t("landing.anon"),
+          icon: <span aria-hidden>{p.emoji}</span>,
+        })),
+      ]}
+      membersPlaceholder={
+        peers.length === 0 ? (status === "open" ? t("local.waiting") : t("room.connecting")) : undefined
+      }
+      files={received.map((f) => ({
+        id: f.id,
+        name: f.name,
+        size: f.size,
+        byAlias: f.fromAlias,
+        thumbnailSrc: previewOf(f),
+        onDownload: () => saveBlob(f.blob, f.name),
+      }))}
+      filesPlaceholder={t("local.noFiles")}
+      note={t("local.p2pNote")}
+      uploadPct={sending ? sending.pct : null}
+      uploadingBy={incomingLabel}
+      uploadLabel={t("local.share")}
+      uploadDisabled={peers.length === 0}
+      onFiles={(files) => void handleFiles(files)}
+      leave={{ label: t("room.leave"), icon: <LogOut className="mr-1.5 h-4 w-4" />, onClick: onLeave }}
+      error={error}
+    />
   );
 }
