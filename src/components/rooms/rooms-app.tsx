@@ -567,7 +567,12 @@ function RoomView({
 }) {
   const [uploadPct, setUploadPct] = useState<number | null>(null);
   const hostFp = state.info?.hostFingerprint;
-  const e2e = Boolean(state.info?.e2e);
+  // Holding the room key already means the room is encrypted: a host has it
+  // from the moment the room is created, before the server's sync says so.
+  const e2e = Boolean(state.info?.e2e) || roomKey !== null;
+  // Until the sync arrives a joiner can't know whether to encrypt, and a
+  // plaintext upload must never leave the browser for an encrypted room.
+  const canSend = e2e ? roomKey !== null : state.info !== null;
 
   // Sealed metadata, opened once per file as the key and the list allow.
   // null = could not be opened (shown as an unnamed encrypted file).
@@ -590,7 +595,7 @@ function RoomView({
 
   const handleFiles = async (files: File[]) => {
     onError(null);
-    if (e2e && !roomKey) {
+    if (!canSend) {
       queued.current.push(...files);
       setUploadPct(0);
       return;
@@ -599,7 +604,7 @@ function RoomView({
       setUploadPct(0);
       try {
         const thumbnail = await makeThumbnail(file);
-        const sealed = roomKey && e2e
+        const sealed = e2e && roomKey
           ? await sealFile(roomKey, {
               name: file.name,
               type: file.type || "application/octet-stream",
@@ -624,13 +629,13 @@ function RoomView({
   };
 
   useEffect(() => {
-    if (!roomKey || queued.current.length === 0) return;
+    if (!canSend || queued.current.length === 0) return;
     const files = queued.current;
     queued.current = [];
     void handleFiles(files);
     // handleFiles from this render already sees the new key.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [roomKey]);
+  }, [canSend, roomKey]);
 
   if (state.closed) {
     return (
