@@ -5,6 +5,7 @@ import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
+import { ArticleToc } from "@/components/site/article-toc";
 import { RelatedLinks } from "@/components/site/related-links";
 import { VButton } from "@/components/site/vbutton";
 import { HeroCta } from "@/components/site/hero-cta";
@@ -86,8 +87,12 @@ function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) {
   );
 }
 
-function H2({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-2xl font-semibold tracking-[-0.02em]">{children}</h2>;
+function H2({ id, children }: { id: string; children: React.ReactNode }) {
+  return (
+    <h2 id={id} className="scroll-mt-28 text-2xl font-semibold tracking-[-0.02em]">
+      {children}
+    </h2>
+  );
 }
 
 const strong = (chunks: React.ReactNode) => (
@@ -102,6 +107,8 @@ export default async function AirdropForWindowsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("airdropWindows");
+  const chrome = await getTranslations("chrome");
+  const tocLabel = chrome("toc.onThisPage");
   const yes = t("a11y.yes");
   const no = t("a11y.no");
 
@@ -148,7 +155,9 @@ export default async function AirdropForWindowsPage({
         />
       ))}
       <SiteHeader />
-      <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 md:py-24">
+      <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
+        <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
+        <article className="min-w-0 lg:max-w-3xl">
         {/* Hero */}
         <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
           {t("hero.eyebrow")}
@@ -191,7 +200,7 @@ export default async function AirdropForWindowsPage({
 
         {/* Why AirDrop can't reach Windows */}
         <section className="mt-14">
-          <H2>{t("why.title")}</H2>
+          <H2 id="why">{t("why.title")}</H2>
           <p className="mt-4 leading-relaxed text-muted-foreground">
             {t.rich("why.body", { strong })}
           </p>
@@ -199,7 +208,7 @@ export default async function AirdropForWindowsPage({
 
         {/* Phone Link — what the news results are about, stated plainly */}
         <section className="mt-14">
-          <H2>{t("phoneLink.title")}</H2>
+          <H2 id="phone-link">{t("phoneLink.title")}</H2>
           <p className="mt-4 leading-relaxed text-muted-foreground">{t("phoneLink.body")}</p>
           <ul className="mt-5 space-y-3">
             {PHONE_LINK_ITEMS.map((i) => (
@@ -214,7 +223,7 @@ export default async function AirdropForWindowsPage({
 
         {/* The download — the intent behind most of these searches */}
         <section className="mt-14">
-          <H2>{t("download.title")}</H2>
+          <H2 id="download">{t("download.title")}</H2>
           <p className="mt-4 leading-relaxed text-muted-foreground">{t("download.body")}</p>
           <div className="mt-6 rounded-xl border border-border bg-card p-5 sm:p-6">
             <div className="flex flex-wrap items-center gap-4">
@@ -263,7 +272,7 @@ export default async function AirdropForWindowsPage({
 
         {/* How BIShare bridges it */}
         <section className="mt-14">
-          <H2>{t("how.title")}</H2>
+          <H2 id="how">{t("how.title")}</H2>
           <ul className="mt-5 space-y-4">
             {HOW_ITEMS.map((i) => (
               <li key={i} className="rounded-xl border border-border bg-card p-5">
@@ -278,7 +287,7 @@ export default async function AirdropForWindowsPage({
 
         {/* Which route for which job */}
         <section className="mt-14">
-          <H2>{t("scenarios.title")}</H2>
+          <H2 id="scenarios">{t("scenarios.title")}</H2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             {SCENARIO_ITEMS.map((i) => (
               <div key={i} className="rounded-xl border border-border bg-card p-5">
@@ -293,7 +302,7 @@ export default async function AirdropForWindowsPage({
 
         {/* Walkthrough — the searcher wants to DO it, so the steps live here. */}
         <section className="mt-14">
-          <H2>{t("steps.title")}</H2>
+          <H2 id="steps">{t("steps.title")}</H2>
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("steps.intro")}</p>
           <ol className="mt-5 space-y-4">
             {STEP_ITEMS.map((i, n) => (
@@ -313,7 +322,7 @@ export default async function AirdropForWindowsPage({
         </section>
 
         <section className="mt-14">
-          <H2>{t("directions.title")}</H2>
+          <H2 id="directions">{t("directions.title")}</H2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             {(["toPc", "toPhone"] as const).map((d) => (
               <div key={d} className="rounded-xl border border-border bg-card p-5">
@@ -327,7 +336,7 @@ export default async function AirdropForWindowsPage({
         </section>
 
         <section className="mt-14">
-          <H2>{t("fixes.title")}</H2>
+          <H2 id="fixes">{t("fixes.title")}</H2>
           <ul className="mt-5 space-y-3">
             {FIX_ITEMS.map((i) => (
               <li key={i} className="rounded-xl border border-border bg-card p-5">
@@ -342,7 +351,7 @@ export default async function AirdropForWindowsPage({
 
         {/* The other ways people try — each one named, each one's limit stated */}
         <section className="mt-14">
-          <H2>{t("alternatives.title")}</H2>
+          <H2 id="alternatives">{t("alternatives.title")}</H2>
           <ul className="mt-5 divide-y divide-border rounded-xl border border-border bg-card">
             {ALT_ITEMS.map((i) => (
               <li key={i} className="p-5">
@@ -357,7 +366,7 @@ export default async function AirdropForWindowsPage({
 
         {/* Speed — measured, with the caveats */}
         <section className="mt-14">
-          <H2>{t("speed.title")}</H2>
+          <H2 id="speed">{t("speed.title")}</H2>
           <p className="mt-4 leading-relaxed text-muted-foreground">{t("speed.body")}</p>
           <div className="mt-5 overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[520px] text-sm">
@@ -392,7 +401,7 @@ export default async function AirdropForWindowsPage({
 
         {/* Security — what leaves the device */}
         <section className="mt-14">
-          <H2>{t("security.title")}</H2>
+          <H2 id="security">{t("security.title")}</H2>
           <ul className="mt-5 space-y-3">
             {SECURITY_ITEMS.map((i) => (
               <li key={i} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -407,7 +416,7 @@ export default async function AirdropForWindowsPage({
 
         {/* Comparison — five ways people actually try, checked and dated */}
         <section className="mt-14">
-          <H2>{t("comparison.title")}</H2>
+          <H2 id="comparison">{t("comparison.title")}</H2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("comparison.intro")}</p>
           <div className="mt-5 overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[640px] text-sm">
@@ -448,7 +457,7 @@ export default async function AirdropForWindowsPage({
 
         {/* FAQ */}
         <section className="mt-14">
-          <H2>{t("faq.title")}</H2>
+          <H2 id="faq">{t("faq.title")}</H2>
           <div className="mt-5 space-y-3">
             {FAQ_ITEMS.map((i) => (
               <details key={i} className="group rounded-xl border border-border bg-card p-5">
@@ -465,7 +474,7 @@ export default async function AirdropForWindowsPage({
 
         {/* CTA */}
         <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
-          <H2>{t("cta.title")}</H2>
+          <h2 className="text-2xl font-semibold tracking-[-0.02em]">{t("cta.title")}</h2>
           <p className="mx-auto mt-2 max-w-md text-muted-foreground">{t("cta.body")}</p>
           <div className="mt-6 flex justify-center">
             <VButton href="/download" size="lg">
@@ -479,6 +488,14 @@ export default async function AirdropForWindowsPage({
         </section>
 
         <RelatedLinks current="/airdrop-for-windows" />
+        </article>
+        {/* Sticky table of contents — desktop only; lists the H2 ids above. */}
+        <aside className="hidden lg:block">
+          <div className="sticky top-24">
+            <ArticleToc selector="main article h2[id]" label={tocLabel} />
+          </div>
+        </aside>
+        </div>
       </main>
       <SiteFooter />
     </div>

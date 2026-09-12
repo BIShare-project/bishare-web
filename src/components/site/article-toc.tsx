@@ -8,14 +8,22 @@ import { useEffect, useState } from "react";
  * server-rendered DOM (`.blog-prose h2[id]`, emitted by mdx-components), so
  * the TOC can never drift from the article. Scroll-spy via IntersectionObserver.
  */
-export function ArticleToc() {
+export function ArticleToc({
+  selector = "article.blog-prose h2[id]",
+  label = "On this page",
+}: {
+  /** Headings to list; landing pages pass their own container. */
+  selector?: string;
+  /** Localized "On this page". */
+  label?: string;
+} = {}) {
   const [items, setItems] = useState<{ id: string; label: string }[]>([]);
   const [active, setActive] = useState<string>("");
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const heads = Array.from(
-      document.querySelectorAll<HTMLHeadingElement>("article.blog-prose h2[id]")
+      document.querySelectorAll<HTMLHeadingElement>(selector)
     );
     setItems(heads.map((h) => ({ id: h.id, label: h.textContent ?? "" })));
 
@@ -42,7 +50,7 @@ export function ArticleToc() {
       io.disconnect();
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [selector]);
 
   if (items.length === 0) return null;
 
@@ -61,7 +69,7 @@ export function ArticleToc() {
 
       <nav aria-label="Table of contents" className="text-[13px] leading-snug">
         <p className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-          On this page
+          {label}
         </p>
         <ul className="mt-3 space-y-1 border-l border-border">
           {items.map((it) => (
