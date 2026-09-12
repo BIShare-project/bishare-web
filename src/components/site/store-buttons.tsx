@@ -41,7 +41,7 @@ export function PlayGlyph({ className }: { className?: string }) {
 }
 
 /**
- * App Store (primary) + Google Play (outline) buttons, plus the no-install
+ * App Store (primary) + Google Play + Microsoft Store (outline) buttons, plus the no-install
  * path: a "use in browser" link straight into the web app at /transfer —
  * every landing page that shows the stores also offers the instant route.
  * For an OS-aware version use <DownloadCTA /> instead.
@@ -67,6 +67,15 @@ export function StoreButtons({ className }: { className?: string }) {
       >
         <PlayGlyph />
         <span className="text-sm font-semibold">{t("store.googlePlay")}</span>
+      </a>
+      <a
+        href={MICROSOFT_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={brandButton("outline", "md", "px-5")}
+      >
+        <MicrosoftGlyph className="h-4 w-4" />
+        <span className="text-sm font-semibold">{t("store.microsoftStore")}</span>
       </a>
       <Link href="/transfer" className={brandButton("outline", "md", "px-5")}>
         <Globe className="h-4 w-4" />
