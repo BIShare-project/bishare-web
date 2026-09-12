@@ -246,13 +246,13 @@ export default async function SendLargeFilesPage({
         <section className="mt-14">
           <H2 id="steps">{t("steps.title")}</H2>
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("steps.intro")}</p>
-          <ol className="mt-5 space-y-4">
+          <ol className="mt-6 space-y-7">
             {STEP_ITEMS.map((i, n) => (
-              <li key={i} className="flex gap-4 rounded-xl border border-border bg-card p-5">
+              <li key={i} className="flex gap-4">
                 <span className="font-mono text-sm font-semibold text-accent-blue">{String(n + 1).padStart(2, "0")}</span>
                 <span>
                   <h3 className="font-semibold">{t(`steps.items.${i}.h`)}</h3>
-                  <p className="mt-1.5 text-[15px] leading-relaxed text-muted-foreground">{t(`steps.items.${i}.b`)}</p>
+                  <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t(`steps.items.${i}.b`)}</p>
                 </span>
               </li>
             ))}
@@ -294,11 +294,11 @@ export default async function SendLargeFilesPage({
         {/* Every way, and when each fits */}
         <section className="mt-14">
           <H2 id="ways">{t("ways.title")}</H2>
-          <ul className="mt-5 divide-y divide-border rounded-xl border border-border bg-card">
+          <ul className="mt-6 space-y-7">
             {WAY_ITEMS.map((i) => (
-              <li key={i} className="p-5">
+              <li key={i} >
                 <h3 className="font-semibold">{t(`ways.items.${i}.h`)}</h3>
-                <p className="mt-1.5 text-[15px] leading-relaxed text-muted-foreground">{t(`ways.items.${i}.b`)}</p>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t(`ways.items.${i}.b`)}</p>
               </li>
             ))}
           </ul>
@@ -331,9 +331,9 @@ export default async function SendLargeFilesPage({
         {/* Security */}
         <section className="mt-14">
           <H2 id="security">{t("security.title")}</H2>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-6 space-y-6">
             {SECURITY_ITEMS.map((i) => (
-              <li key={i} className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-[15px] leading-relaxed text-muted-foreground">
+              <li key={i} className="flex items-start gap-3 text-[15px] leading-relaxed text-muted-foreground">
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-border bg-background-raised text-foreground">
                   <Check className="h-3 w-3" />
                 </span>
@@ -346,11 +346,11 @@ export default async function SendLargeFilesPage({
         {/* Tips */}
         <section className="mt-14">
           <H2 id="tips">{t("tips.title")}</H2>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-6 space-y-6">
             {TIP_ITEMS.map((i) => (
-              <li key={i} className="rounded-xl border border-border bg-card p-5">
+              <li key={i} >
                 <h3 className="font-semibold">{t(`tips.items.${i}.h`)}</h3>
-                <p className="mt-1.5 text-[15px] leading-relaxed text-muted-foreground">{t(`tips.items.${i}.b`)}</p>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t(`tips.items.${i}.b`)}</p>
               </li>
             ))}
           </ul>
@@ -386,7 +386,7 @@ export default async function SendLargeFilesPage({
         {/* FAQ */}
         <section className="mt-14">
           <H2 id="faq">{t("faq.title")}</H2>
-          <div className="mt-5 space-y-3">
+          <div className="mt-6 space-y-6">
             {FAQ_ITEMS.map((i) => (
               <details key={i} className="group rounded-xl border border-border bg-card p-5">
                 <summary className="cursor-pointer list-none font-medium marker:content-['']">{t(`faq.items.${i}.q`)}</summary>
