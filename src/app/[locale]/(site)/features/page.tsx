@@ -44,8 +44,6 @@ import {
   Download,
   FileUp,
   KeyRound,
-  FolderSync,
-  CloudUpload,
 } from "lucide-react";
 
 export async function generateMetadata({
@@ -399,47 +397,6 @@ async function BrowserVisual() {
   );
 }
 
-async function FolderSyncVisual() {
-  const t = await getTranslations("features");
-  return (
-    <MockSurface className="mx-auto w-full max-w-md p-6">
-      <div className="mb-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <TagBadge>SYNC</TagBadge>
-          <TagBadge>LAN-FIRST</TagBadge>
-        </div>
-        <StatusPill variant="muted">
-          {t("visuals.folderSync.comingSoon")}
-        </StatusPill>
-      </div>
-      <div className="flex items-center gap-3.5">
-        <IconTile icon={FolderSync} accent />
-        <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-semibold">Design/</p>
-          <p className="text-xs text-muted-foreground">
-            {t("visuals.folderSync.identical")}
-          </p>
-        </div>
-        <CloudUpload className="h-4 w-4 shrink-0 text-muted-foreground" />
-      </div>
-      <div className="mt-4 space-y-1">
-        <DeviceRow
-          icon={Laptop}
-          name="Editing iMac"
-          note={t("visuals.folderSync.iMacNote")}
-          right={<Check className="h-4 w-4 shrink-0 text-success" />}
-        />
-        <DeviceRow
-          icon={Smartphone}
-          name="Pixel 9 Pro"
-          note={t("visuals.folderSync.pixelNote")}
-          right={<Check className="h-4 w-4 shrink-0 text-success" />}
-        />
-      </div>
-    </MockSurface>
-  );
-}
-
 /* ── Overview grid data ──────────────────────────────────────────────── */
 
 /** Icons stay in code; titles/descriptions come from the "features" namespace. */
@@ -463,7 +420,6 @@ interface OverviewText {
 const FLAGSHIP_META: {
   icon: LucideIcon;
   visual: ReactNode;
-  comingSoon?: boolean;
 }[] = [
   { icon: Wifi, visual: <LanVisual /> },
   { icon: LayoutGrid, visual: <DashboardVisual /> },
@@ -472,7 +428,6 @@ const FLAGSHIP_META: {
   { icon: Link2, visual: <RemoteVisual /> },
   { icon: PlayCircle, visual: <PreviewVisual /> },
   { icon: Globe, visual: <BrowserVisual /> },
-  { icon: FolderSync, visual: <FolderSyncVisual />, comingSoon: true },
 ];
 
 interface FlagshipText {
@@ -590,9 +545,6 @@ export default async function FeaturesPage({
                       <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                         {feature.eyebrow}
                       </span>
-                      {meta.comingSoon && (
-                        <TagBadge>{t("flagships.comingSoonBadge")}</TagBadge>
-                      )}
                     </div>
                     <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-balance">
                       {feature.title}
