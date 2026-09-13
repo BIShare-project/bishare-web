@@ -1,83 +1,163 @@
 {
   "meta": {
-    "title": "电脑传文件到手机：无线免费",
-    "description": "从 Windows、Mac 或 Linux 无线传文件到 iPhone 或安卓：同一 Wi-Fi 直连，或手机浏览器打开链接。免费，无需账号。"
+    "title": "电脑传文件到手机：8种不用数据线的方法（2026）",
+    "description": "把Windows、Mac或Linux电脑上的文件传到iPhone或安卓手机：Quick Share、手机连接、AirDrop、iCloud云盘、USB，以及一款适用于任何组合的免费应用。"
   },
   "hero": {
-    "eyebrow": "电脑到手机，无线传输",
-    "title": "从电脑传文件到手机",
-    "body": "不用数据线，也不用给自己发邮件。<strong>BIShare</strong> 能把文件从<strong>任意 Windows、Mac 或 Linux 电脑</strong>直接传到你的 iPhone 或 Android——通过本地 Wi-Fi，或用一个手机在任意浏览器都能打开的链接。<highlight>无需上传云端，无需账号。</highlight>",
-    "ctaPrimary": "免费获取 BIShare",
-    "ctaSecondary": "了解工作原理"
+    "eyebrow": "电脑 → 手机",
+    "title": "把文件从电脑传到手机",
+    "body": "哪种方法最省事，取决于两样东西：电脑和手机。Windows电脑配安卓手机，有两个免费工具可用，一个来自微软，一个来自Google。Mac配iPhone有AirDrop。其余组合，比如Windows电脑配iPhone、Mac配大多数安卓手机、任何涉及Linux的情况，都落在一个缺口里：系统自带的办法要么是数据线，要么是上传到云端，要么干脆没有。本指南先理清这六种组合，再给八种方法排序，讲清在Windows上USB数据线对iPhone能做什么、不能做什么，说明文件落到手机哪里，并汇总大小限制。<strong>BIShare</strong>是这八种之一，也是其中唯一能<strong>从Windows、Mac和Linux传到iPhone和安卓</strong>的方法。<highlight>免费、开源、无需账号。</highlight>",
+    "ctaPrimary": "免费获取BIShare",
+    "ctaSecondary": "工作原理"
   },
-  "why": {
-    "title": "数据线与收件箱的麻烦",
-    "body": "把文件从电脑弄到手机上，通常意味着翻找合适的数据线、指望驱动能正常工作——或者发邮件给自己，再和<strong>附件大小限制</strong>较劲。两种办法都不快，而且跨品牌都不好使。BIShare 把这两条路都跳过：你的文件<strong>直接从电脑传到手机</strong>，全程无线，服务器上不留任何东西。"
+  "updated": "2026年9月更新 · 手机连接的限制来自微软支持，Quick Share的要求来自Google安卓帮助，Apple设备和iCloud的细节来自Apple支持",
+  "disclosure": "BIShare是我们的产品。本页有几种方法免费且电脑上已经自带；如果其中某种更适合你的设备组合，页面会直接说明。",
+  "quick": {
+    "title": "简短回答",
+    "items": [
+      "<strong>Windows电脑传安卓手机：</strong>安装Google的Windows版Quick Share，右键点击文件，选择“使用Quick Share发送”。手机连接也行，但拖放时每个文件上限512 MB。",
+      "<strong>Windows电脑传iPhone：</strong>没有系统自带的无线方法。用Windows版iCloud把文件放进iCloud云盘，或者用两边都能运行的应用发送，比如BIShare。",
+      "<strong>Mac传iPhone：</strong>AirDrop。Mac传Pixel 9及更新机型或近期的Galaxy现在也能用AirDrop，只要手机设为接收所有人的文件。",
+      "<strong>Linux传安卓：</strong>KDE Connect或GSConnect。Linux传iPhone是最难的组合，现实的办法是跨平台应用或浏览器链接。",
+      "<strong>任何电脑、任何手机，同一Wi-Fi：</strong>两边都装BIShare，原始文件加密后直接传输，大小不限。",
+      "<strong>手机在别处：</strong>在电脑上生成BIShare链接。最多100 GB，手机用平常的浏览器就能下载。"
+    ]
   },
-  "how": {
-    "title": "把文件送上手机的两种方式",
+  "matrix": {
+    "title": "先看你的电脑和手机",
+    "body": "三种电脑和两种手机组成六种组合，系统自带的选项差别极大。先找到你那一行；页面后面会逐一细讲每种方法。",
     "items": {
-      "0": {
-        "h": "在同一个 Wi-Fi 下",
-        "b": "电脑和手机在本地网络里互相发现，端到端加密直接传输——不经过任何服务器。速度快，即使完全没有网络，用手机热点也照样能传。"
-      },
-      "1": {
-        "h": "当你们不在一起时",
-        "b": "你会得到一个链接、一个二维码和一个 6 位字符的代码。在手机的任意浏览器里打开链接即可下载——无需应用，无需注册。链接会在 24 小时后自动失效。"
-      },
-      "2": {
-        "h": "任意电脑，任意手机",
-        "b": "从 Windows、Mac 和 Linux 传到 iPhone 或 Android——一个应用，双向互传。既能把文件推到手机，也能拉回电脑。"
-      }
+      "0": { "h": "从Windows出发", "b": "安卓手机照顾得很好：Windows版Quick Share和手机连接都出自开发手机软件的公司。iPhone就不是这样了。Windows可以用数据线从iPhone导入照片，却不能往iPhone里写入文件，所以剩下的选择是iCloud云盘、把文件放进特定应用的Apple设备应用，或者第三方应用。" },
+      "1": { "h": "从Mac出发", "b": "AirDrop覆盖iPhone；自从Google让Quick Share能和AirDrop互通，还覆盖了Pixel 9及更新机型，以及越来越多的Galaxy、小米、一加等机型。较旧或不受支持的安卓手机从Mac出发完全没有无线途径，而Google已在2024年停止提供macOS版Android File Transfer。" },
+      "2": { "h": "从Linux出发", "b": "KDE Connect（GNOME上用GSConnect）可以与安卓手机配对，在局域网内双向传文件。KDE Connect也有iPhone应用，但能做的比安卓版少得多，所以面对iPhone，靠得住的是跨平台应用或在Safari中打开的链接。" }
     }
   },
-  "comparison": {
-    "title": "电子邮件 vs USB 数据线 vs BIShare",
-    "cols": {
-      "airdrop": "电子邮件",
-      "quick": "USB 数据线",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "r0": "端到端加密",
-      "r1": "大文件，无需数据线，也无大小限制",
-      "r2": "手机无需应用或驱动",
-      "r3": "不在身边也能传",
-      "r4": "免费，无需账号"
+  "methods": {
+    "title": "把文件传到手机的八种方法，按推荐排序",
+    "consLabel": "注意：",
+    "items": {
+      "0": { "name": "BIShare", "tag": "综合最佳：唯一覆盖全部六种组合的方法", "facts": "Windows、macOS、Linux、iPhone、Android · 开源（MIT） · 同一网络不限大小 · 链接最大100 GB · 端到端加密 · 无需注册", "body": "在电脑和手机上安装，把两者连到同一个Wi-Fi或手机热点，手机就会出现在电脑的设备列表里。选文件、选手机、在手机上接受，文件就以原始大小直接经局域网传过去。无论电脑是Windows笔记本、旧款iMac还是Linux台式机，手机是iPhone还是任意安卓，用法都一样。手机不在身边时，改用链接：电脑会显示地址、二维码和一个6位的短代码。手机上的Safari或Chrome无需安装应用即可取回最多100 GB；文件在上传前已在电脑上加密，一天后链接失效。", "cons": "直接发送意味着手机上也要安装。链接会在24小时后按设计过期，把它当作交付手段，而不是存放文件的地方。" },
+      "1": { "name": "Windows版Quick Share", "tag": "从Windows电脑到安卓手机最好的自带方法", "facts": "64位Windows 10或更新版本（Arm需Windows 11） · Android 6.0或更新 · 约5米以内 · 蓝牙加Wi-Fi或以太网 · Google免费提供", "body": "Google的Windows应用与所有新款安卓手机的分享菜单使用同一协议。把文件拖进它的窗口，或在文件资源管理器中右键点击文件，选择“使用Quick Share发送”，再选手机。手机需要在附近且可见，对所有人可见，或者两台设备登录同一Google账号时对自己的设备可见。Google没有公布文件大小上限，传输也不经过服务器。三星电脑可以在Microsoft Store获取三星版，功能相同。", "cons": "只支持安卓，两台设备必须靠近。阻止设备间通信的网络，比如很多办公室和酒店网络，会让它失效；Google建议改用手机热点。" },
+      "2": { "name": "手机连接", "tag": "已经用它收消息和通知时很合适", "facts": "Windows 10或11 · 装有“连接至Windows”的Android 10或更新 · 微软账户 · 同一Wi-Fi · 拖放：每个文件512 MB，100个文件，不支持文件夹", "body": "手机连接是微软用来处理短信、通话和照片的桥梁，也能传文件。在文件资源管理器中右键点击本地文件，选择“共享”，再选“手机连接”，文件就会进入手机的Download文件夹。预装“连接至Windows”的三星、OPPO、荣耀、华硕、vivo和小米手机，还可以把文件拖到镜像出来的手机屏幕上。Windows 11配合Android 11或更新版本，还能在文件资源管理器中把手机显示成一个驱动器，浏览文件夹并复制文件。", "cons": "拖放每个文件512 MB的上限挡住了大多数视频，只在云端的文件无法共享，iPhone版主要处理消息和通话；面向iPhone的文件共享只通过Windows预览体验计划推出过。" },
+      "3": { "name": "AirDrop", "tag": "从Mac到iPhone最好的自带方法，现在也能到部分安卓手机", "facts": "Mac与iPhone、iPad · 通过Quick Share支持Pixel 9及更新机型，以及部分Galaxy、小米、一加、OPPO、vivo、荣耀等 · 仅限近距离 · 未公布大小上限", "body": "在Mac上按住Control点按文件，选择“共享”，再选“隔空投送”，然后选择手机。登录同一Apple账户的iPhone会自动接收；别人的iPhone会先询问。受支持的安卓手机也可以是接收方：在手机上打开Quick Share并设为对所有人可见，把Mac的隔空投送设为“所有人（10分钟）”，手机就会出现在Mac的隔空投送窗口里。连接在两台设备之间直接建立，不经过服务器。", "cons": "电脑端只能是Mac。在用的大多数安卓手机还不在Google的AirDrop名单上，而“所有人”设置开启期间，附近的陌生人也能看到你的设备。" },
+      "4": { "name": "USB数据线", "tag": "往安卓手机传一大批文件最合适，对iPhone最弱", "facts": "安卓：“文件传输”模式，在Windows文件资源管理器中显示 · iPhone：Windows上用Apple设备应用或Mac上用访达，文件进入支持文件共享的应用 · Mac传安卓需第三方应用", "body": "把安卓手机连到Windows电脑，下拉提示正在充电的通知，选择“文件传输”，手机就会出现在“此电脑”里。像U盘一样把文件夹复制进去。iPhone则不同：Windows只显示它的相机胶卷，用于从手机导入照片。要用数据线把文件放进iPhone，得在Windows上用Apple设备或在Mac上用访达，选一个支持文件共享的应用，比如VLC或Documents，再把文件添加到这个应用里。只要关闭iCloud照片，还可以把电脑上的文件夹同步到iPhone的照片应用。", "cons": "很多手机数据线只有USB 2.0速度，成千上万的小文件走MTP慢得像爬，自Android File Transfer下架后Mac上也没有Google出品的安卓工具；常见的免费替代是OpenMTP。" },
+      "5": { "name": "云盘：iCloud云盘、Google云端硬盘或OneDrive", "tag": "文件需要在两边都一直可用时最合适，也是Windows传iPhone的默认选择", "facts": "Windows版iCloud：单个文件最大50 GB，免费5 GB · Google云端硬盘：免费15 GB，与Gmail和相册共用 · OneDrive：免费5 GB · 两端都需要账号和网络", "body": "把文件存到Windows版iCloud在文件资源管理器中添加的iCloud云盘文件夹，过一会儿它就会出现在iPhone“文件”应用的iCloud云盘里。Google云端硬盘和OneDrive通过各自的应用，对任何手机都能做到同样的事。这是最不讨巧、却往往最实用的方法：什么都不用靠近，编辑后文件保持同步，而从Windows电脑到iPhone，它是唯一的系统自带无线选项。", "cons": "所有文件都要先上传再下载，大视频花多久取决于你的上传速度，免费空间很快用完，副本会一直留在云端直到你删除。" },
+      "6": { "name": "在Telegram或WhatsApp里发给自己", "tag": "适合马上要在手机上用的文档", "facts": "Telegram收藏夹：每个文件2 GB，Premium为4 GB · WhatsApp给自己发消息：每个文档2 GB · 电脑上用桌面应用或网页版 · 需要账号", "body": "两款聊天应用都有和自己的对话：Telegram的收藏夹，WhatsApp的给自己发消息。从桌面应用把文件拖进去，片刻后就会出现在手机上。以文件或文档形式而非照片发送，图片会保持原始大小。登机牌、PDF或需要在手机上签署的合同，用这个很快。", "cons": "文件经过聊天服务并留在记录里，按普通方式发送的照片会被压缩，而且对大多数人来说2 GB就是上限。" },
+      "7": { "name": "LocalSend", "tag": "同一网络场景下的免费开源应用", "facts": "Windows、macOS、Linux、Android、iOS · 开源 · 仅限局域网 · 加密 · 免费", "body": "LocalSend是个扎实、诚实的工具：在电脑和手机上安装，同一网络下两者会互相发现，不经任何服务器传文件。如果你的传输总发生在同一张桌子上，它完全够用。", "cons": "够不到其他网络上的手机。它的通过链接分享功能可以在浏览器中打开，但手机仍然必须和电脑在同一个网络里。" }
+    }
+  },
+  "table": {
+    "title": "一览对比",
+    "cols": { "feature": "功能", "bishare": "BIShare", "quickshare": "Windows版Quick Share", "phonelink": "手机连接", "airdrop": "AirDrop", "usb": "USB数据线", "cloud": "云盘" },
+    "rows": { "r0": "可从Windows、Mac和Linux发送", "r1": "能到iPhone和安卓", "r2": "无需数据线", "r3": "手机在别处也能用", "r4": "单个文件不限大小", "r5": "免费且没有存储配额" },
+    "note": "2026年9月核实。BIShare的大小一栏指同一网络内的直连；链接最大100 GB。Windows版Quick Share只能发给安卓手机，需要64位Windows 10或更新版本。手机连接的文件功能面向安卓；拖放每个文件上限512 MB，需要同一Wi-Fi，并且需要微软账户。AirDrop从Mac发出，只有Google列入AirDrop分享名单的手机才能接收。USB数据线能把文件直接放进安卓存储，但在iPhone上只能放进支持文件共享的应用，Mac传安卓需要第三方应用。云盘会占用免费空间（iCloud 5 GB、Google 15 GB、OneDrive 5 GB），Windows版iCloud支持最大50 GB的文件。"
+  },
+  "windows": {
+    "title": "Windows传安卓：Quick Share还是手机连接？",
+    "body": "两者都免费，也都出自手机软件背后的公司，所以选择取决于文件大小，以及你还想从这条连接得到什么。",
+    "items": {
+      "0": { "h": "传文件选Quick Share", "b": "它就是为这件事做的。没有公布大小上限，Android 6.0以上的任何手机都能用，手机也不需要提前配对，只要靠近且可见即可。收到的文件进入手机的Download文件夹，Galaxy手机则放在其中的Quick Share文件夹。" },
+      "1": { "h": "本来就在用，就选手机连接", "b": "如果你已经在电脑上看短信、接电话，通过同一连接分享文件就省得再装一个应用。记住限制：拖放一次最多100个文件，每个512 MB，不支持文件夹，而且只限预装“连接至Windows”的六个品牌。通过“共享”菜单发送的方式在其他手机上也能用，文件进入Download文件夹。" },
+      "2": { "h": "文件资源管理器里的手机", "b": "Windows 11可以把已连接的Android 11或更新手机显示在文件资源管理器的导航窗格里，它的文件夹像驱动器一样打开。一次只显示一部手机，在那里删除的文件会在手机的回收站保留30天。这是Windows不用数据线、把手机当存储用的最接近方式。" }
+    }
+  },
+  "iphone": {
+    "title": "Windows传iPhone：真正可行的办法",
+    "body": "大多数指南在这个组合上出错。把iPhone接到Windows电脑上，并不能用文件资源管理器往里面复制文件，不管某些文章的截图看起来怎样。",
+    "items": {
+      "0": { "h": "文件资源管理器只读相机胶卷", "b": "iPhone解锁并信任这台电脑后，会在文件资源管理器中显示一个Internal Storage文件夹，里面是DCIM，也就是手机拍的照片和视频。这个视图是用来从iPhone导入照片的，里面没有任何地方可以粘贴PDF或电影给手机用。" },
+      "1": { "h": "Apple设备把文件放进应用里", "b": "Microsoft Store上面向Windows 10及更新版本的Apple设备应用有“文件”部分，列出支持文件共享的iPhone应用。选一个，点“添加文件”，文件就会复制到该应用的文稿中，由该应用、通常也可以由“文件”应用打开。“照片”部分会把电脑上的文件夹同步到iPhone的照片图库，但仅在关闭iCloud照片时可用。" },
+      "2": { "h": "iCloud云盘是默认的无线办法", "b": "Windows版iCloud会在文件资源管理器中添加iCloud云盘文件夹。存进去的内容，单个文件最大50 GB且在你的iCloud空间内，都会出现在iPhone的“文件”应用里。免费账户只有5 GB，两段视频就可能占满，所以对于大文件或偶尔的传输，直连应用或链接能让你不必为只用一个下午的空间付费。" }
+    }
+  },
+  "maclinux": {
+    "title": "从Mac或Linux电脑出发",
+    "body": "Apple电脑和Linux电脑各有一种合得来的手机，也各有一种几乎不理睬的手机。",
+    "items": {
+      "0": { "h": "Mac传iPhone：AirDrop或访达", "b": "日常用AirDrop。大批量时，用数据线连接iPhone，在访达边栏中选中它，打开“文件”标签，把文件拖到支持文件共享的应用上。和Windows一样，文件会进入这个应用，而不是一个随意的文件夹。" },
+      "1": { "h": "Mac传安卓：一座新桥和一道旧缺口", "b": "如果手机在Google的AirDrop名单上，把手机的Quick Share设为接收所有人的文件，再像平常一样从Mac用AirDrop发送。其他安卓手机从macOS出发没有无线途径，而Android File Transfer下架后，连数据线都需要OpenMTP这类第三方工具。跨平台应用可以同时避开这两个问题。" },
+      "2": { "h": "Linux：安卓用KDE Connect", "b": "Plasma上的KDE Connect，或GNOME上的GSConnect，会与安卓手机上的KDE Connect应用配对，从文件管理器的右键菜单发送文件，还能共享剪贴板和通知。至于iPhone，它的iOS应用能做的少得多，建议准备跨平台应用或链接。" }
+    }
+  },
+  "landing": {
+    "title": "文件落到手机的哪里",
+    "body": "传输明明成功了，传完打开错的应用也会以为失败。下面按方法说明文件到达的位置。",
+    "items": {
+      "0": { "h": "安卓：几乎都在Download", "b": "Quick Share、手机连接的“共享”方式以及浏览器下载都保存到Download文件夹，在Google的Files应用或手机厂商的文件管理器里都能看到。Galaxy手机把Quick Share文件放在其中的Quick Share文件夹，照片被媒体扫描发现后会出现在图库。蓝牙传输因品牌而异，请留意确认文件已收到的通知。" },
+      "1": { "h": "iPhone从浏览器或iCloud收到：“文件”应用", "b": "Safari默认保存到iCloud云盘的“下载”文件夹；把“设置”“App”“Safari”“下载”改为“我的iPhone”，大文件就不会进iCloud。iCloud云盘里的文件在“文件”的iCloud云盘中。这样下载的照片或视频，要在“文件”中打开并点“共享”，再选“存储图像”或“存储视频”，才会进入照片。" },
+      "2": { "h": "iPhone通过AirDrop、数据线或应用收到", "b": "AirDrop把照片和视频直接放进照片，其他文件则交给合适的应用打开。通过Apple设备或访达添加的文件留在你选的应用里。BIShare把收到的文件保存在自己的收件箱，直到你移走：媒体进照片图库，其余进“文件”或其他应用。" }
+    }
+  },
+  "limits": {
+    "title": "各方法的大小限制",
+    "body": "往手机发大文件时的大部分烦恼，都来自一个没人提过的限制。放在一起看是这样的。",
+    "items": {
+      "0": { "h": "单个文件的硬上限", "b": "邮件附件大约在20到25 MB封顶。手机连接的拖放在512 MB封顶。Telegram和WhatsApp在2 GB封顶，Telegram Premium为4 GB。Windows版iCloud支持最大50 GB的文件，BIShare链接最多可传100 GB。" },
+      "1": { "h": "先用完的是空间", "b": "云端方式会先碰到免费额度，而不是单文件上限：iCloud 5 GB，Google 15 GB由Gmail、云端硬盘和相册共用，OneDrive 5 GB。一段4K视频就可能占掉免费iCloud账户的大半。" },
+      "2": { "h": "完全不限", "b": "直连方式只受手机剩余空间限制：同一网络内的BIShare、Windows版Quick Share、AirDrop、LocalSend和USB数据线。能放多少由手机存储决定，而不是工具。" }
+    }
+  },
+  "steps": {
+    "title": "用BIShare从电脑传到手机",
+    "items": {
+      "0": { "h": "在电脑和手机上安装", "b": "Windows版从Microsoft Store获取，Mac版从App Store获取，Linux版直接下载，手机则从App Store或Google Play安装。把两者连到同一个Wi-Fi，或让电脑连上手机热点。第一次在iPhone上打开时，iOS会询问能否查找附近的设备，请允许。" },
+      "1": { "h": "从电脑发送", "b": "把文件拖进应用，从设备列表中选择手机，在手机上接受。途中不会二次压缩。文件在手机应用的收件箱里等着，照片和视频点一下就能进入照片图库。" },
+      "2": { "h": "或者生成链接", "b": "如果手机在别处，在应用里选“链接”，或在电脑上的任意浏览器打开bishare.app/transfer并添加文件。发送地址、展示二维码或念出6位代码都行；手机上的Safari或Chrome在接下来的24小时内可取回最多100 GB。" }
+    }
+  },
+  "speed": {
+    "title": "需要多长时间",
+    "body": "无线方式的瓶颈是手机的Wi-Fi，而不是电脑。凡是经过服务器的方式，节奏由你网络的上传速度决定。",
+    "items": {
+      "0": { "h": "同一Wi-Fi", "b": "靠近路由器的新款手机在Wi-Fi 5下约40–50 MB/s，Wi-Fi 6下约70–110 MB/s；1 GB的文件在你拿起手机之前就传完了。电脑接网线帮助不大，因为手机的无线才是慢的那一半。手机热点通常是10到30 MB/s。" },
+      "1": { "h": "USB数据线", "b": "很多手机附带的数据线是USB 2.0，上限480 Mbit/s，大的单个文件通常在30到40 MB/s左右。装着几千张小照片的文件夹会慢得多，因为MTP是逐个处理文件的。" },
+      "2": { "h": "云盘和链接", "b": "上传带宽50 Mbit/s时，每GB要花大约三分钟离开电脑，手机在此之前一个字节也收不到，10 GB的文件夹就要半个多小时。直连传输完全不用等这一段。" }
+    }
+  },
+  "fixes": {
+    "title": "手机不出现时",
+    "items": {
+      "0": { "h": "Windows版Quick Share看不到手机", "b": "两边都打开蓝牙和Wi-Fi，把手机拿到几米以内，并暂时把它的Quick Share可见性设为“所有人”。如果电脑在阻止设备间通信的办公室或访客网络上，改为连接手机热点。" },
+      "1": { "h": "安卓手机在充电，但文件资源管理器里没有", "b": "解锁手机，打开USB通知，从“仅充电”切换到“文件传输”。如果始终没有这个选项，换一根数据线试试；很多便宜的线只能充电不能传数据。" },
+      "2": { "h": "iPhone只显示DCIM文件夹", "b": "这是正常的。Windows能读取相机胶卷，但不能向iPhone写入文件。请用Apple设备把文件添加到应用、用iCloud云盘，或用直连传输应用。" },
+      "3": { "h": "都在同一Wi-Fi，但应用里什么都没有", "b": "在iPhone上检查“设置”“隐私与安全性”“本地网络”并允许该应用。在Windows上确认网络设为“专用”，因为“公用”配置文件会阻止发现设备。任何一端开着VPN也可能导致看不到对方。" },
+      "4": { "h": "手机连接拒收文件", "b": "拖放会拒绝文件夹、超过512 MB的文件，以及只存在于OneDrive的文件。把文件夹压缩成zip，先把文件设为“始终保留在此设备上”，或者大文件改用Quick Share。" }
+    }
+  },
+  "security": {
+    "title": "让传输保持私密",
+    "body": "传到手机上的文件往往比较敏感：护照扫描件、工资单、带条码的票。各方法的区别在于，最终还有谁手里留着副本。",
+    "items": {
+      "0": { "h": "不出这个房间", "b": "USB数据线、Windows版Quick Share、AirDrop、LocalSend以及同一网络内的BIShare，都在两台设备之间直接传文件，无线方式还会加密连接。" },
+      "1": { "h": "经过服务器，已密封", "b": "BIShare链接在上传前就在电脑上加密文件，服务器保存的是它读不了的数据。WhatsApp也对文件做端到端加密，但文件会留在两台设备的聊天记录里。" },
+      "2": { "h": "经过服务器，服务商可读取", "b": "标准数据保护下的iCloud云盘、Google云端硬盘、OneDrive、包括收藏夹在内的Telegram云端聊天，以及电子邮件，都会在传输途中保护文件，但运营服务的公司保留打开所存内容的能力。开启Apple的高级数据保护后，iCloud云盘的情况会改变。" }
     }
   },
   "faq": {
-    "title": "从电脑到手机：常见问题",
+    "title": "电脑传手机：常见问题",
     "items": {
-      "0": {
-        "q": "如何不用数据线把文件从电脑传到手机？",
-        "a": "在电脑和手机上都装好 BIShare。在同一个 Wi-Fi 下选中手机发送即可——文件端到端加密直接传输，中间没有服务器。不在同一网络？分享链接或二维码，在手机浏览器里打开下载即可。"
-      },
-      "1": {
-        "q": "怎么把文件从电脑弄到我的 iPhone 上？",
-        "a": "用 BIShare，iPhone 不需要 Lightning 数据线，也不用 iTunes 或访达。从电脑通过 Wi-Fi 发送、在 iPhone 上接收，或在 Safari 里打开链接点击下载。照片、视频、PDF——任何类型的文件都行。"
-      },
-      "2": {
-        "q": "能从电脑往手机传大文件吗？",
-        "a": "能。通过自家 Wi-Fi 的附近传输完全没有大小限制。分享链接可免费传输最大 100 GB 的文件——远超任何邮件附件上限。"
-      },
-      "3": {
-        "q": "手机上需要装应用吗？",
-        "a": "接收浏览器链接不需要——打开下载即可，无需应用也无需账号。在手机上安装 BIShare 会让附近传输更快，还能把文件传回电脑，但接收时从来不是必需的。"
-      },
-      "4": {
-        "q": "这样传文件安全吗？",
-        "a": "安全。附近传输采用端到端加密，绝不离开你的本地网络。分享链接在传输过程中加密，并在 24 小时后自动失效，因此网上不会留下任何东西。"
-      }
+      "0": { "q": "不用USB数据线，怎么把文件从电脑传到手机？", "a": "Windows传安卓，用Windows版Quick Share或手机连接。Mac上，用AirDrop传iPhone或受支持的安卓手机。任何电脑和手机，都可以两边装BIShare通过Wi-Fi发送，或者在手机浏览器里打开电脑生成的链接。" },
+      "1": { "q": "怎么把文件从Windows电脑传到iPhone？", "a": "无线方式是用Windows版iCloud把文件存进iCloud云盘，或者用BIShare这类跨平台应用。用数据线则通过Apple设备应用，把文件添加到支持文件共享的应用里。文件资源管理器无法把文件复制到iPhone。" },
+      "2": { "q": "能用Quick Share把文件从电脑发到iPhone吗？", "a": "不能。Windows版Quick Share只能发给安卓手机。Google给Quick Share加入的AirDrop兼容，是在受支持的安卓手机和Apple设备之间工作的，不适用于Windows电脑。" },
+      "3": { "q": "手机连接能和iPhone互传文件吗？", "a": "iPhone版手机连接通过蓝牙处理消息、通话和通知。面向iPhone的文件共享微软一直在通过Windows预览体验计划推出，所以大多数电脑上还没有。" },
+      "4": { "q": "手机连接的文件大小上限是多少？", "a": "拖放到手机屏幕时，每个文件上限512 MB，一次最多100个文件，而且不接受文件夹或只在云端的文件。" },
+      "5": { "q": "把大视频从电脑传到手机，最好的办法是什么？", "a": "用不限大小的直连方式：同一Wi-Fi下的BIShare、传安卓的Windows版Quick Share、从Mac发出的AirDrop，或连安卓的USB数据线。手机在别处时，BIShare链接可以传最大100 GB的文件。" },
+      "6": { "q": "为什么安卓手机用USB连电脑后不显示？", "a": "手机很可能处于充电模式。解锁手机，点USB通知，选择“文件传输”。如果没有这个选项，可能是只能充电的数据线。" },
+      "7": { "q": "怎么把文件从Mac传到安卓手机？", "a": "如果手机支持Quick Share的AirDrop兼容，比如Pixel 9或更新机型，把它设为对所有人可见，再从Mac用AirDrop发送。否则就用BIShare或LocalSend这类跨平台应用，或者USB数据线配合OpenMTP。" },
+      "8": { "q": "从电脑传来的文件在手机的什么地方？", "a": "安卓上一般在Download文件夹。iPhone上，Safari下载和iCloud云盘文件在“文件”应用里，AirDrop的照片进入照片，通过Apple设备添加的文件留在所选应用内。" },
+      "9": { "q": "从电脑传文件到手机免费吗？", "a": "免费。BIShare、Windows版Quick Share、手机连接、AirDrop、LocalSend和USB数据线都不花钱。云盘在不超出免费空间时也免费。" }
     }
   },
   "cta": {
-    "title": "几秒钟就把文件送上手机",
-    "body": "免费，无需账号。在你的 PC、Mac 或 Linux 上安装 BIShare，就能发往任意手机——有了浏览器链接，手机连应用都不用装。",
-    "download": "下载 BIShare"
+    "title": "任何电脑，任何手机",
+    "body": "开源免费，两台设备都不需要账号。在同一个房间就用Wi-Fi传，手机在别人口袋里就发一个链接。",
+    "download": "下载BIShare"
   },
-  "a11y": {
-    "yes": "是",
-    "no": "否"
+  "a11y": { "yes": "是", "no": "否" },
+  "art": {
+    "hero": { "alt": "一台笔记本电脑向手机发送文件，标题为：把文件从电脑传到手机，2026年8种不用数据线的方法。", "title": "把文件从电脑传到手机", "sub": "8种不用数据线的方法，2026", "left": "电脑", "right": "手机" },
+    "matrix": { "alt": "各组合的自带方法：Windows传安卓用Quick Share或手机连接；Windows传iPhone用iCloud云盘或Apple设备应用；Mac传iPhone用AirDrop；Mac传安卓仅受支持的手机可用AirDrop；Linux传安卓用KDE Connect；Linux传iPhone没有自带方法。BIShare覆盖全部六种。", "title": "按电脑和手机划分的自带方法", "sub": "不装第三方应用时每种组合能用什么", "android": "Android", "iphone": "iPhone", "windows": "Windows", "mac": "Mac", "linux": "Linux", "wa": "Quick Share · 手机连接", "wi": "iCloud云盘 · Apple设备（数据线）", "ma": "受支持的手机可用AirDrop", "mi": "AirDrop", "la": "KDE Connect · GSConnect", "li": "没有自带方法", "good": "好", "partial": "部分", "none": "无", "foot": "BIShare在六个格子里都能用：同一Wi-Fi，或在手机浏览器中打开链接" },
+    "caps": { "alt": "各方法可接受的最大单个文件（对数刻度）：邮件约25 MB，手机连接拖放512 MB，Telegram和WhatsApp 2 GB，Windows版iCloud 50 GB，BIShare链接100 GB；同一网络内的BIShare、Quick Share、AirDrop和USB数据线除手机剩余空间外不设上限。", "title": "每种方法能传的最大单个文件", "sub": "单文件上限，2026年9月（对数刻度）", "email": "邮件附件", "phonelink": "手机连接拖放", "chat": "Telegram · WhatsApp", "icloud": "Windows版iCloud", "link": "BIShare链接", "direct": "附近的BIShare · Quick Share · AirDrop · USB", "noCap": "手机存储", "foot": "免费云空间会先用完：iCloud 5 GB、OneDrive 5 GB、Google 15 GB" },
+    "landing": { "alt": "电脑传来的文件在手机上的位置：安卓上，Quick Share、手机连接和浏览器下载进入Download文件夹，USB复制的文件在你选的文件夹；iPhone上，Safari下载和iCloud云盘文件在“文件”应用，AirDrop照片进入照片，通过Apple设备添加的文件留在所选应用内，BIShare把文件放在收件箱。", "title": "文件落到手机的哪里", "sub": "传完后打开这个应用", "androidTitle": "Android", "iphoneTitle": "iPhone", "a0": "Quick Share · 手机连接 · 浏览器", "a0p": "Download文件夹", "a1": "Galaxy上的Quick Share", "a1p": "Download › Quick Share", "a2": "BIShare", "a2p": "收件箱，再存储到照片", "a3": "“文件传输”模式的USB数据线", "a3p": "你复制进去的文件夹", "i0": "Safari链接 · iCloud云盘", "i0p": "“文件”应用", "i1": "AirDrop", "i1p": "照片，文档交给相应应用", "i2": "Apple设备 · 访达数据线", "i2p": "所选应用内", "i3": "BIShare", "i3p": "收件箱，再存储到照片" }
   }
 }

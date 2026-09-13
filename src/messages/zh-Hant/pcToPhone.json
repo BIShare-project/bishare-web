@@ -1,83 +1,163 @@
 {
   "meta": {
-    "title": "電腦傳檔案到手機：無線免費",
-    "description": "從 Windows、Mac 或 Linux 無線傳檔案到 iPhone 或 Android：同一 Wi-Fi 直連，或手機瀏覽器開啟連結。免費，免帳號。"
+    "title": "電腦傳檔案到手機：8種不用傳輸線的方法（2026）",
+    "description": "把Windows、Mac或Linux電腦的檔案傳到iPhone或Android手機：Quick Share、手機連結、AirDrop、iCloud雲碟、USB，以及適用任何組合的免費App。"
   },
   "hero": {
-    "eyebrow": "電腦到手機，無線傳輸",
-    "title": "從電腦傳檔案到手機",
-    "body": "不用傳輸線，也不必寄信給自己。<strong>BIShare</strong> 能把檔案從<strong>任何 Windows、Mac 或 Linux 電腦</strong>直接傳到你的 iPhone 或 Android——透過本地 Wi-Fi，或用一個手機在任何瀏覽器都能開啟的連結。<highlight>免上傳雲端，免帳號。</highlight>",
-    "ctaPrimary": "免費取得 BIShare",
-    "ctaSecondary": "了解運作方式"
+    "eyebrow": "電腦 → 手機",
+    "title": "把檔案從電腦傳到手機",
+    "body": "哪種方法最省事，取決於兩樣東西：電腦和手機。Windows電腦配Android手機，有兩個免費工具可用，一個來自Microsoft，一個來自Google。Mac配iPhone有AirDrop。其他組合，像是Windows電腦配iPhone、Mac配大多數Android手機、任何牽涉Linux的情況，都落在一個缺口裡：內建的辦法不是傳輸線、上傳到雲端，就是根本沒有。本指南先釐清這六種組合，再替八種方法排名，說明在Windows上USB傳輸線對iPhone能做什麼、不能做什麼，告訴你檔案落在手機哪裡，並整理大小限制。<strong>BIShare</strong>是這八種之一，也是其中唯一能<strong>從Windows、Mac和Linux傳到iPhone與Android</strong>的方法。<highlight>免費、開源、不需帳號。</highlight>",
+    "ctaPrimary": "免費取得BIShare",
+    "ctaSecondary": "運作方式"
   },
-  "why": {
-    "title": "傳輸線與收件匣的麻煩",
-    "body": "要把檔案從電腦弄到手機上，通常得翻找合適的傳輸線、祈禱驅動程式正常運作——或者寄信給自己，再跟<strong>附件大小限制</strong>糾纏。兩種方法都不快，跨品牌也都不順。BIShare 把這兩條路都跳過：你的檔案<strong>直接從電腦傳到手機</strong>，全程無線，伺服器上不留任何東西。"
+  "updated": "2026年9月更新 · 手機連結的限制取自Microsoft支援，Quick Share的需求取自Google Android說明，Apple裝置與iCloud的細節取自Apple支援",
+  "disclosure": "BIShare是我們的產品。本頁有幾種方法免費且電腦已經內建；如果其中某種更適合你的裝置組合，頁面會直接說明。",
+  "quick": {
+    "title": "簡短回答",
+    "items": [
+      "<strong>Windows電腦傳Android手機：</strong>安裝Google的Windows版Quick Share，在檔案上按右鍵，選「使用Quick Share傳送」。手機連結也可以，但拖放時每個檔案上限512 MB。",
+      "<strong>Windows電腦傳iPhone：</strong>沒有內建的無線方法。用Windows版iCloud把檔案放進iCloud雲碟，或用兩邊都能執行的App傳送，例如BIShare。",
+      "<strong>Mac傳iPhone：</strong>AirDrop。Mac傳Pixel 9以後的機型或近期的Galaxy現在也能用AirDrop，只要手機設為接收所有人的檔案。",
+      "<strong>Linux傳Android：</strong>KDE Connect或GSConnect。Linux傳iPhone是最難的組合，實際可行的是跨平台App或瀏覽器連結。",
+      "<strong>任何電腦、任何手機，同一個Wi-Fi：</strong>兩邊都裝BIShare，原始檔加密後直接傳輸，大小不限。",
+      "<strong>手機在別處：</strong>在電腦上建立BIShare連結。最多可放100 GB，手機用平常的瀏覽器就能下載。"
+    ]
   },
-  "how": {
-    "title": "把檔案送上手機的兩種方式",
+  "matrix": {
+    "title": "先看你的電腦和手機",
+    "body": "三種電腦和兩種手機組成六種組合，內建選項差異極大。先找到你那一列；頁面後面會逐一詳細說明每種方法。",
     "items": {
-      "0": {
-        "h": "在同一個 Wi-Fi 下",
-        "b": "電腦和手機在本地網路上互相發現，以端對端加密直接傳輸——不經過任何伺服器。速度快，就算完全沒有網路，用手機熱點也照樣能傳。"
-      },
-      "1": {
-        "h": "當你們不在一起時",
-        "b": "你會拿到一個連結、一個 QR 碼和一組 6 位字元的代碼。在手機的任何瀏覽器開啟連結即可下載——免應用程式，免註冊。連結會在 24 小時後自動失效。"
-      },
-      "2": {
-        "h": "任何電腦，任何手機",
-        "b": "從 Windows、Mac 和 Linux 傳到 iPhone 或 Android——一個應用程式，雙向互傳。既能把檔案推到手機，也能拉回電腦。"
-      }
+      "0": { "h": "從Windows出發", "b": "Android手機照顧得很好：Windows版Quick Share和手機連結都出自開發手機軟體的公司。iPhone就不是這樣。Windows可以用傳輸線從iPhone匯入照片，卻不能把檔案寫進iPhone，所以剩下的選擇是iCloud雲碟、把檔案放進特定App的Apple裝置App，或第三方App。" },
+      "1": { "h": "從Mac出發", "b": "AirDrop涵蓋iPhone；自從Google讓Quick Share能與AirDrop互通，也涵蓋了Pixel 9以後的機型，以及越來越多的Galaxy、小米、OnePlus等機型。較舊或不支援的Android手機從Mac出發完全沒有無線途徑，而Google已在2024年停止提供macOS版Android File Transfer。" },
+      "2": { "h": "從Linux出發", "b": "KDE Connect（GNOME上用GSConnect）可以與Android手機配對，在區域網路內雙向傳檔案。KDE Connect也有iPhone App，但能做的比Android版少得多，所以面對iPhone，可靠的是跨平台App或在Safari開啟的連結。" }
     }
   },
-  "comparison": {
-    "title": "電子郵件 vs USB 連接線 vs BIShare",
-    "cols": {
-      "airdrop": "電子郵件",
-      "quick": "USB 連接線",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "r0": "端對端加密",
-      "r1": "大檔案，免連接線，也無大小限制",
-      "r2": "手機免應用程式與驅動程式",
-      "r3": "不在身邊也能傳",
-      "r4": "免費，免帳號"
+  "methods": {
+    "title": "把檔案傳到手機的八種方法，依推薦排序",
+    "consLabel": "注意：",
+    "items": {
+      "0": { "name": "BIShare", "tag": "綜合最佳：唯一涵蓋全部六種組合的方法", "facts": "Windows、macOS、Linux、iPhone、Android · 開源（MIT） · 同一網路不限大小 · 連結最大100 GB · 端對端加密 · 不需註冊", "body": "在電腦和手機上安裝，把兩者連到同一個Wi-Fi或手機熱點，手機就會出現在電腦的裝置清單。選檔案、選手機、在手機上接受，檔案就以原始大小直接透過區域網路傳過去。不管電腦是Windows筆電、舊款iMac還是Linux桌機，手機是iPhone還是任何Android，用法都一樣。手機不在身邊時，改用連結：電腦會顯示網址、QR碼和一組6位的短代碼。手機上的Safari或Chrome不必安裝App就能取回最多100 GB；檔案在上傳前已在電腦上加密，一天後連結失效。", "cons": "直接傳送代表手機也要安裝。連結會在24小時後依設計過期，請把它當成交付方式，而不是存放檔案的地方。" },
+      "1": { "name": "Windows版Quick Share", "tag": "從Windows電腦到Android手機最好的內建方法", "facts": "64位元Windows 10或更新版本（Arm需Windows 11） · Android 6.0或更新 · 約5公尺內 · 藍牙加Wi-Fi或乙太網路 · Google免費提供", "body": "Google的Windows App與所有新款Android手機的分享選單使用同一協定。把檔案拖進它的視窗，或在檔案總管中對檔案按右鍵，選「使用Quick Share傳送」，再選手機。手機必須在附近且可見，對所有人可見，或兩台裝置登入同一個Google帳戶時對自己的裝置可見。Google沒有公布檔案大小上限，傳輸也不經過伺服器。Samsung電腦可以在Microsoft Store取得Samsung版，功能相同。", "cons": "只支援Android，兩台裝置必須靠近。封鎖裝置間通訊的網路，例如許多辦公室和飯店網路，會讓它失效；Google建議改用手機熱點。" },
+      "2": { "name": "手機連結", "tag": "已經用它收訊息和通知時很合適", "facts": "Windows 10或11 · 裝有「連結至Windows」的Android 10或更新 · Microsoft帳戶 · 同一個Wi-Fi · 拖放：每個檔案512 MB、100個檔案、不支援資料夾", "body": "手機連結是Microsoft處理簡訊、通話和照片的橋梁，也能傳檔案。在檔案總管中對本機檔案按右鍵，選「分享」，再選「手機連結」，檔案就會進入手機的Download資料夾。預載「連結至Windows」的Samsung、OPPO、HONOR、ASUS、vivo和小米手機，還能把檔案拖到鏡像出來的手機畫面上。Windows 11搭配Android 11或更新版本，也能在檔案總管中把手機顯示成磁碟機，瀏覽資料夾並複製檔案。", "cons": "拖放每個檔案512 MB的上限擋掉了大多數影片，只在雲端的檔案無法分享，iPhone版主要處理訊息和通話；給iPhone的檔案分享只透過Windows測試人員計劃推出過。" },
+      "3": { "name": "AirDrop", "tag": "從Mac到iPhone最好的內建方法，現在也能到部分Android手機", "facts": "Mac與iPhone、iPad · 透過Quick Share支援Pixel 9以後機型，以及部分Galaxy、小米、OnePlus、OPPO、vivo、榮耀等 · 僅限近距離 · 未公布大小上限", "body": "在Mac上按住Control點按檔案，選「分享」，再選「AirDrop」，然後選手機。登入同一個Apple帳號的iPhone會自動接收；別人的iPhone會先詢問。支援的Android手機也可以是接收端：在手機上開啟Quick Share並設為對所有人可見，把Mac的AirDrop設為「所有人（10分鐘）」，手機就會出現在Mac的AirDrop視窗。連線在兩台裝置之間直接建立，不經過伺服器。", "cons": "電腦端只能是Mac。使用中的大多數Android手機還不在Google的AirDrop名單上，而「所有人」設定開啟期間，附近的陌生人也看得到你的裝置。" },
+      "4": { "name": "USB傳輸線", "tag": "往Android手機傳一大批檔案最合適，對iPhone最弱", "facts": "Android：「檔案傳輸」模式，顯示在Windows檔案總管 · iPhone：Windows上用Apple裝置App或Mac上用Finder，檔案進入支援檔案共享的App · Mac傳Android需第三方App", "body": "把Android手機接上Windows電腦，下拉顯示正在充電的通知，選「檔案傳輸」，手機就會出現在「本機」裡。像隨身碟一樣把資料夾複製進去。iPhone則不同：Windows只顯示它的相機膠卷，用來從手機匯入照片。要用傳輸線把檔案放進iPhone，得在Windows上用Apple裝置、在Mac上用Finder，選一個支援檔案共享的App，例如VLC或Documents，再把檔案加入這個App。只要關閉iCloud照片，也能把電腦上的資料夾同步到iPhone的照片App。", "cons": "許多手機傳輸線只有USB 2.0速度，成千上萬的小檔案走MTP慢得像爬，Android File Transfer下架後Mac上也沒有Google出品的Android工具；常見的免費替代是OpenMTP。" },
+      "5": { "name": "雲端硬碟：iCloud雲碟、Google雲端硬碟或OneDrive", "tag": "檔案需要兩邊都一直可用時最合適，也是Windows傳iPhone的預設選擇", "facts": "Windows版iCloud：單一檔案最大50 GB，免費5 GB · Google雲端硬碟：免費15 GB，與Gmail和相簿共用 · OneDrive：免費5 GB · 兩端都需要帳號和網路", "body": "把檔案存進Windows版iCloud在檔案總管中加入的iCloud雲碟資料夾，過一會兒就會出現在iPhone「檔案」App的iCloud雲碟裡。Google雲端硬碟和OneDrive透過各自的App，對任何手機都能做到一樣的事。這是最不花俏、卻往往最實用的方法：什麼都不必靠近，編輯後檔案保持同步，而從Windows電腦到iPhone，它是唯一的內建無線選項。", "cons": "所有檔案都要先上傳再下載，大影片花多久取決於你的上傳速度，免費空間很快用完，副本會一直留在雲端直到你刪除。" },
+      "6": { "name": "在Telegram或WhatsApp傳給自己", "tag": "適合馬上要在手機上用的文件", "facts": "Telegram儲存的訊息：每個檔案2 GB，Premium為4 GB · WhatsApp傳訊息給自己：每份文件2 GB · 電腦上用桌面App或網頁版 · 需要帳號", "body": "兩款聊天App都有和自己的對話：Telegram的儲存的訊息，WhatsApp的傳訊息給自己。從桌面App把檔案拖進去，片刻後就會出現在手機上。以檔案或文件而不是照片的方式傳送，圖片會保持原始大小。登機證、PDF或需要在手機上簽署的合約，用這個很快。", "cons": "檔案經過聊天服務並留在紀錄裡，照一般方式傳的照片會被壓縮，而且對大多數人來說2 GB就是上限。" },
+      "7": { "name": "LocalSend", "tag": "同一網路情境下的免費開源App", "facts": "Windows、macOS、Linux、Android、iOS · 開源 · 僅限區域網路 · 加密 · 免費", "body": "LocalSend是個扎實、誠實的工具：在電腦和手機上安裝，同一網路下兩者會互相找到，不經任何伺服器傳檔案。如果你的傳輸總是發生在同一張桌子上，它完全夠用。", "cons": "搆不到其他網路上的手機。它的透過連結分享功能可以在瀏覽器開啟，但手機仍然必須和電腦在同一個網路。" }
+    }
+  },
+  "table": {
+    "title": "一覽比較",
+    "cols": { "feature": "功能", "bishare": "BIShare", "quickshare": "Windows版Quick Share", "phonelink": "手機連結", "airdrop": "AirDrop", "usb": "USB傳輸線", "cloud": "雲端硬碟" },
+    "rows": { "r0": "可從Windows、Mac和Linux傳送", "r1": "能到iPhone和Android", "r2": "不需傳輸線", "r3": "手機在別處也能用", "r4": "單一檔案不限大小", "r5": "免費且沒有儲存配額" },
+    "note": "2026年9月確認。BIShare的大小一欄指同一網路內的直連；連結最大100 GB。Windows版Quick Share只能傳給Android手機，需要64位元Windows 10或更新版本。手機連結的檔案功能針對Android；拖放每個檔案上限512 MB，需要同一個Wi-Fi，並需要Microsoft帳戶。AirDrop從Mac發出，只有Google列入AirDrop分享名單的手機才能接收。USB傳輸線能把檔案直接放進Android儲存空間，但在iPhone上只能放進支援檔案共享的App，Mac傳Android需要第三方App。雲端硬碟會占用免費空間（iCloud 5 GB、Google 15 GB、OneDrive 5 GB），Windows版iCloud支援最大50 GB的檔案。"
+  },
+  "windows": {
+    "title": "Windows傳Android：Quick Share還是手機連結？",
+    "body": "兩者都免費，也都出自手機軟體背後的公司，所以選擇取決於檔案大小，以及你還想從這條連線得到什麼。",
+    "items": {
+      "0": { "h": "傳檔案選Quick Share", "b": "它就是為這件事而做的。沒有公布大小上限，Android 6.0以上的任何手機都能用，手機也不必事先配對，只要靠近且可見即可。收到的檔案會進入手機的Download資料夾，Galaxy手機則放在其中的Quick Share資料夾。" },
+      "1": { "h": "本來就在用，就選手機連結", "b": "如果你已經在電腦上看簡訊、接電話，透過同一條連線分享檔案就省得再裝一個App。記住限制：拖放一次最多100個檔案，每個512 MB，不支援資料夾，而且只限預載「連結至Windows」的六個品牌。透過「分享」選單傳送的方式在其他手機上也能用，檔案會進入Download資料夾。" },
+      "2": { "h": "檔案總管裡的手機", "b": "Windows 11可以把已連結的Android 11或更新手機顯示在檔案總管的瀏覽窗格，資料夾像磁碟機一樣開啟。一次只顯示一支手機，在那裡刪除的檔案會在手機的資源回收筒保留30天。這是Windows不用傳輸線、把手機當儲存空間的最接近方式。" }
+    }
+  },
+  "iphone": {
+    "title": "Windows傳iPhone：真正可行的辦法",
+    "body": "大多數指南在這個組合上出錯。把iPhone接上Windows電腦，並不能用檔案總管把檔案複製進去，不管某些文章的截圖看起來如何。",
+    "items": {
+      "0": { "h": "檔案總管只讀取相機膠卷", "b": "iPhone解鎖並信任這台電腦後，會在檔案總管顯示一個Internal Storage資料夾，裡面是DCIM，也就是手機拍的照片和影片。這個畫面是用來從iPhone匯入照片的，裡面沒有任何地方可以貼上PDF或電影給手機用。" },
+      "1": { "h": "Apple裝置把檔案放進App裡", "b": "Microsoft Store上適用於Windows 10及更新版本的Apple裝置App有「檔案」區域，列出支援檔案共享的iPhone App。選一個，按「加入檔案」，檔案就會複製到該App的文件中，可由該App、通常也可由「檔案」App開啟。「照片」區域會把電腦上的資料夾同步到iPhone的照片圖庫，但只在關閉iCloud照片時可用。" },
+      "2": { "h": "iCloud雲碟是預設的無線辦法", "b": "Windows版iCloud會在檔案總管加入iCloud雲碟資料夾。存進去的內容，單一檔案最大50 GB且在你的iCloud空間內，都會出現在iPhone的「檔案」App。免費帳號只有5 GB，兩段影片就可能塞滿，所以對於大檔案或偶爾的傳輸，直連App或連結能讓你不必為只用一個下午的空間付費。" }
+    }
+  },
+  "maclinux": {
+    "title": "從Mac或Linux電腦出發",
+    "body": "Apple電腦和Linux電腦各有一種合得來的手機，也各有一種幾乎不理會的手機。",
+    "items": {
+      "0": { "h": "Mac傳iPhone：AirDrop或Finder", "b": "日常用AirDrop。大批檔案時，用傳輸線連接iPhone，在Finder側邊欄選取它，打開「檔案」標籤，把檔案拖到支援檔案共享的App上。和Windows一樣，檔案會進入這個App，而不是一個隨意的資料夾。" },
+      "1": { "h": "Mac傳Android：一座新橋和一道舊缺口", "b": "如果手機在Google的AirDrop名單上，把手機的Quick Share設為接收所有人的檔案，再像平常一樣從Mac用AirDrop傳送。其他Android手機從macOS出發沒有無線途徑，而Android File Transfer下架後，連傳輸線都需要OpenMTP這類第三方工具。跨平台App可以同時避開這兩個問題。" },
+      "2": { "h": "Linux：Android用KDE Connect", "b": "Plasma上的KDE Connect，或GNOME上的GSConnect，會與Android手機上的KDE Connect App配對，從檔案管理員的右鍵選單傳送檔案，還能分享剪貼簿和通知。至於iPhone，它的iOS App能做的少得多，建議準備跨平台App或連結。" }
+    }
+  },
+  "landing": {
+    "title": "檔案落在手機的哪裡",
+    "body": "傳輸明明成功了，傳完開錯App也會以為失敗。以下依方法說明檔案到達的位置。",
+    "items": {
+      "0": { "h": "Android：幾乎都在Download", "b": "Quick Share、手機連結的「分享」方式和瀏覽器下載都會存到Download資料夾，在Google的Files App或手機廠商的檔案管理員裡都看得到。Galaxy手機把Quick Share檔案放在其中的Quick Share資料夾，照片被媒體掃描找到後會出現在圖庫。藍牙傳輸依品牌而不同，請留意確認檔案已收到的通知。" },
+      "1": { "h": "iPhone從瀏覽器或iCloud收到：「檔案」App", "b": "Safari預設存到iCloud雲碟的「下載項目」資料夾；把「設定」「App」「Safari」「下載項目」改為「我的iPhone」，大檔案就不會進iCloud。iCloud雲碟裡的檔案在「檔案」的iCloud雲碟中。這樣下載的照片或影片，要在「檔案」中開啟並點「分享」，再選「儲存影像」或「儲存影片」，才會進入照片。" },
+      "2": { "h": "iPhone透過AirDrop、傳輸線或App收到", "b": "AirDrop把照片和影片直接放進照片，其他檔案則交給合適的App開啟。透過Apple裝置或Finder加入的檔案會留在你選的App裡。BIShare把收到的檔案存在自己的收件匣，直到你移走：媒體進照片圖庫，其餘進「檔案」或其他App。" }
+    }
+  },
+  "limits": {
+    "title": "各方法的大小限制",
+    "body": "往手機傳大檔案時的大部分困擾，都來自沒人提過的限制。放在一起看是這樣。",
+    "items": {
+      "0": { "h": "單一檔案的硬上限", "b": "電子郵件附件大約在20到25 MB封頂。手機連結的拖放在512 MB封頂。Telegram和WhatsApp在2 GB封頂，Telegram Premium為4 GB。Windows版iCloud支援最大50 GB的檔案，BIShare連結最多可傳100 GB。" },
+      "1": { "h": "先用完的是空間", "b": "雲端方式會先碰到免費額度，而不是單檔上限：iCloud 5 GB，Google 15 GB由Gmail、雲端硬碟和相簿共用，OneDrive 5 GB。一段4K影片就可能占掉免費iCloud帳號的大半。" },
+      "2": { "h": "完全不限", "b": "直連方式只受手機剩餘空間限制：同一網路內的BIShare、Windows版Quick Share、AirDrop、LocalSend和USB傳輸線。能放多少由手機儲存空間決定，而不是工具。" }
+    }
+  },
+  "steps": {
+    "title": "用BIShare從電腦傳到手機",
+    "items": {
+      "0": { "h": "在電腦和手機上安裝", "b": "Windows版從Microsoft Store取得，Mac版從App Store取得，Linux版直接下載，手機則從App Store或Google Play安裝。把兩者連到同一個Wi-Fi，或讓電腦連上手機熱點。第一次在iPhone上開啟時，iOS會詢問能否尋找附近的裝置，請允許。" },
+      "1": { "h": "從電腦傳送", "b": "把檔案拖進App，從裝置清單選擇手機，在手機上接受。途中不會重新壓縮。檔案在手機App的收件匣等著，照片和影片點一下就能進入照片圖庫。" },
+      "2": { "h": "或建立連結", "b": "如果手機在別處，在App裡選「連結」，或在電腦上的任何瀏覽器開啟bishare.app/transfer並加入檔案。傳送網址、出示QR碼或念出6位代碼都行；手機上的Safari或Chrome在接下來24小時內可取回最多100 GB。" }
+    }
+  },
+  "speed": {
+    "title": "需要多久",
+    "body": "無線方式的瓶頸是手機的Wi-Fi，而不是電腦。凡是經過伺服器的方式，節奏由你網路的上傳速度決定。",
+    "items": {
+      "0": { "h": "同一個Wi-Fi", "b": "靠近路由器的新款手機在Wi-Fi 5下約40–50 MB/s，Wi-Fi 6下約70–110 MB/s；1 GB的檔案在你拿起手機前就傳完了。電腦接網路線幫助不大，因為手機的無線才是慢的那一半。手機熱點通常是10到30 MB/s。" },
+      "1": { "h": "USB傳輸線", "b": "許多手機附的傳輸線是USB 2.0，上限480 Mbit/s，大的單一檔案通常在30到40 MB/s左右。裝著幾千張小照片的資料夾會慢得多，因為MTP是逐一處理檔案的。" },
+      "2": { "h": "雲端硬碟和連結", "b": "上傳頻寬50 Mbit/s時，每GB要花大約三分鐘離開電腦，手機在此之前一個位元組也收不到，10 GB的資料夾就要半小時以上。直連傳輸完全不用等這一段。" }
+    }
+  },
+  "fixes": {
+    "title": "手機沒出現時",
+    "items": {
+      "0": { "h": "Windows版Quick Share看不到手機", "b": "兩邊都開啟藍牙和Wi-Fi，把手機拿到幾公尺內，並暫時把它的Quick Share可見性設為「所有人」。如果電腦在封鎖裝置間通訊的辦公室或訪客網路上，改為連接手機熱點。" },
+      "1": { "h": "Android手機在充電，但檔案總管裡沒有", "b": "解鎖手機，打開USB通知，從「僅充電」切換到「檔案傳輸」。如果一直沒有這個選項，換一條傳輸線試試；很多便宜的線只能充電不能傳資料。" },
+      "2": { "h": "iPhone只顯示DCIM資料夾", "b": "這是正常的。Windows能讀取相機膠卷，但不能把檔案寫進iPhone。請用Apple裝置把檔案加入App、用iCloud雲碟，或用直連傳輸App。" },
+      "3": { "h": "都在同一個Wi-Fi，但App裡什麼都沒有", "b": "在iPhone上檢查「設定」「隱私權與安全性」「區域網路」並允許該App。在Windows上確認網路設為「私人」，因為「公用」設定檔會阻擋裝置探索。任何一端開著VPN也可能看不到對方。" },
+      "4": { "h": "手機連結拒收檔案", "b": "拖放會拒絕資料夾、超過512 MB的檔案，以及只存在OneDrive的檔案。把資料夾壓縮成zip，先把檔案設為「永遠保留在此裝置上」，或大檔案改用Quick Share。" }
+    }
+  },
+  "security": {
+    "title": "讓傳輸保持私密",
+    "body": "傳到手機的檔案往往比較敏感：護照掃描檔、薪資單、有條碼的票券。各方法的差別在於，最後還有誰手上留著副本。",
+    "items": {
+      "0": { "h": "不出這個房間", "b": "USB傳輸線、Windows版Quick Share、AirDrop、LocalSend以及同一網路內的BIShare，都在兩台裝置之間直接傳檔案，無線方式還會加密連線。" },
+      "1": { "h": "經過伺服器，已密封", "b": "BIShare連結在上傳前就在電腦上加密檔案，伺服器保存的是它讀不了的資料。WhatsApp也對檔案做端對端加密，但檔案會留在兩台裝置的聊天紀錄裡。" },
+      "2": { "h": "經過伺服器，服務商可讀取", "b": "標準資料保護下的iCloud雲碟、Google雲端硬碟、OneDrive、包含儲存的訊息在內的Telegram雲端聊天，以及電子郵件，都會在傳輸途中保護檔案，但營運服務的公司保有開啟所存內容的能力。開啟Apple的進階資料保護後，iCloud雲碟的情況就不同了。" }
     }
   },
   "faq": {
-    "title": "從電腦到手機：常見問題",
+    "title": "電腦傳手機：常見問題",
     "items": {
-      "0": {
-        "q": "如何不用傳輸線把檔案從電腦傳到手機？",
-        "a": "在電腦和手機上都裝好 BIShare。在同一個 Wi-Fi 下選取手機發送即可——檔案以端對端加密直接傳輸，中間沒有伺服器。不在同一網路？分享連結或 QR 碼，在手機瀏覽器開啟下載即可。"
-      },
-      "1": {
-        "q": "怎麼把檔案從電腦弄到我的 iPhone 上？",
-        "a": "用 BIShare，iPhone 不需要 Lightning 傳輸線，也不用 iTunes 或 Finder。從電腦透過 Wi-Fi 發送、在 iPhone 上接收，或在 Safari 開啟連結點下載。相片、影片、PDF——任何類型的檔案都行。"
-      },
-      "2": {
-        "q": "能從電腦往手機傳大檔案嗎？",
-        "a": "能。透過自家 Wi-Fi 的鄰近傳輸完全沒有大小限制。分享連結可免費傳輸最大 100 GB 的檔案——遠超任何郵件附件上限。"
-      },
-      "3": {
-        "q": "手機上需要裝應用程式嗎？",
-        "a": "接收瀏覽器連結不需要——開啟下載即可，免應用程式也免帳號。在手機上安裝 BIShare 會讓鄰近傳輸更快，還能把檔案傳回電腦，但接收時從來都不是必需的。"
-      },
-      "4": {
-        "q": "這樣傳檔案安全嗎？",
-        "a": "安全。鄰近傳輸採用端對端加密，絕不離開你的本地網路。分享連結在傳輸過程中加密，並在 24 小時後自動失效，因此網路上不會留下任何東西。"
-      }
+      "0": { "q": "不用USB傳輸線，怎麼把檔案從電腦傳到手機？", "a": "Windows傳Android，用Windows版Quick Share或手機連結。Mac上，用AirDrop傳iPhone或支援的Android手機。任何電腦和手機，都可以兩邊裝BIShare透過Wi-Fi傳送，或在手機瀏覽器開啟電腦建立的連結。" },
+      "1": { "q": "怎麼把檔案從Windows電腦傳到iPhone？", "a": "無線方式是用Windows版iCloud把檔案存進iCloud雲碟，或用BIShare這類跨平台App。用傳輸線則透過Apple裝置App，把檔案加入支援檔案共享的App。檔案總管無法把檔案複製到iPhone。" },
+      "2": { "q": "能用Quick Share把檔案從電腦傳到iPhone嗎？", "a": "不能。Windows版Quick Share只能傳給Android手機。Google為Quick Share加入的AirDrop相容，是在支援的Android手機和Apple裝置之間運作，不適用於Windows電腦。" },
+      "3": { "q": "手機連結能和iPhone互傳檔案嗎？", "a": "iPhone版手機連結透過藍牙處理訊息、通話和通知。給iPhone的檔案分享Microsoft一直透過Windows測試人員計劃推出，所以大多數電腦還沒有。" },
+      "4": { "q": "手機連結的檔案大小上限是多少？", "a": "拖放到手機畫面時，每個檔案上限512 MB，一次最多100個檔案，而且不接受資料夾或只在雲端的檔案。" },
+      "5": { "q": "把大影片從電腦傳到手機，最好的辦法是什麼？", "a": "用不限大小的直連方式：同一個Wi-Fi下的BIShare、傳Android的Windows版Quick Share、從Mac發出的AirDrop，或接Android的USB傳輸線。手機在別處時，BIShare連結可以傳最大100 GB的檔案。" },
+      "6": { "q": "為什麼Android手機用USB接電腦後沒有顯示？", "a": "手機很可能處於充電模式。解鎖手機，點USB通知，選「檔案傳輸」。如果沒有這個選項，可能是只能充電的傳輸線。" },
+      "7": { "q": "怎麼把檔案從Mac傳到Android手機？", "a": "如果手機支援Quick Share的AirDrop相容，例如Pixel 9或更新機型，把它設為對所有人可見，再從Mac用AirDrop傳送。否則就用BIShare或LocalSend這類跨平台App，或USB傳輸線搭配OpenMTP。" },
+      "8": { "q": "從電腦傳來的檔案在手機的什麼地方？", "a": "Android上一般在Download資料夾。iPhone上，Safari下載和iCloud雲碟檔案在「檔案」App，AirDrop的照片進入照片，透過Apple裝置加入的檔案留在所選App內。" },
+      "9": { "q": "從電腦傳檔案到手機免費嗎？", "a": "免費。BIShare、Windows版Quick Share、手機連結、AirDrop、LocalSend和USB傳輸線都不花錢。雲端硬碟在不超過免費空間時也免費。" }
     }
   },
   "cta": {
-    "title": "幾秒鐘就把檔案送上手機",
-    "body": "免費，免帳號。在你的 PC、Mac 或 Linux 上安裝 BIShare，就能傳到任何手機——有了瀏覽器連結，手機連應用程式都不用裝。",
-    "download": "下載 BIShare"
+    "title": "任何電腦，任何手機",
+    "body": "開源免費，兩台裝置都不需要帳號。在同一個房間就用Wi-Fi傳，手機在別人口袋裡就傳一個連結。",
+    "download": "下載BIShare"
   },
-  "a11y": {
-    "yes": "是",
-    "no": "否"
+  "a11y": { "yes": "是", "no": "否" },
+  "art": {
+    "hero": { "alt": "一台筆電傳檔案到手機，標題為：把檔案從電腦傳到手機，2026年8種不用傳輸線的方法。", "title": "把檔案從電腦傳到手機", "sub": "8種不用傳輸線的方法，2026", "left": "電腦", "right": "手機" },
+    "matrix": { "alt": "各組合的內建方法：Windows傳Android用Quick Share或手機連結；Windows傳iPhone用iCloud雲碟或Apple裝置App；Mac傳iPhone用AirDrop；Mac傳Android只有支援的手機可用AirDrop；Linux傳Android用KDE Connect；Linux傳iPhone沒有內建方法。BIShare涵蓋全部六種。", "title": "依電腦和手機劃分的內建方法", "sub": "不裝第三方App時每種組合能用什麼", "android": "Android", "iphone": "iPhone", "windows": "Windows", "mac": "Mac", "linux": "Linux", "wa": "Quick Share · 手機連結", "wi": "iCloud雲碟 · Apple裝置（傳輸線）", "ma": "支援的手機可用AirDrop", "mi": "AirDrop", "la": "KDE Connect · GSConnect", "li": "沒有內建方法", "good": "好", "partial": "部分", "none": "無", "foot": "BIShare在六個格子都能用：同一個Wi-Fi，或在手機瀏覽器開啟連結" },
+    "caps": { "alt": "各方法可接受的最大單一檔案（對數刻度）：電子郵件約25 MB，手機連結拖放512 MB，Telegram和WhatsApp 2 GB，Windows版iCloud 50 GB，BIShare連結100 GB；同一網路內的BIShare、Quick Share、AirDrop和USB傳輸線除手機剩餘空間外沒有上限。", "title": "每種方法能傳的最大單一檔案", "sub": "單檔上限，2026年9月（對數刻度）", "email": "電子郵件附件", "phonelink": "手機連結拖放", "chat": "Telegram · WhatsApp", "icloud": "Windows版iCloud", "link": "BIShare連結", "direct": "附近的BIShare · Quick Share · AirDrop · USB", "noCap": "手機儲存空間", "foot": "免費雲端空間會先用完：iCloud 5 GB、OneDrive 5 GB、Google 15 GB" },
+    "landing": { "alt": "電腦傳來的檔案在手機上的位置：Android上，Quick Share、手機連結和瀏覽器下載進入Download資料夾，USB複製的檔案在你選的資料夾；iPhone上，Safari下載和iCloud雲碟檔案在「檔案」App，AirDrop照片進入照片，透過Apple裝置加入的檔案留在所選App內，BIShare把檔案放在收件匣。", "title": "檔案落在手機的哪裡", "sub": "傳完後開啟這個App", "androidTitle": "Android", "iphoneTitle": "iPhone", "a0": "Quick Share · 手機連結 · 瀏覽器", "a0p": "Download資料夾", "a1": "Galaxy上的Quick Share", "a1p": "Download › Quick Share", "a2": "BIShare", "a2p": "收件匣，再儲存到照片", "a3": "「檔案傳輸」模式的USB傳輸線", "a3p": "你複製進去的資料夾", "i0": "Safari連結 · iCloud雲碟", "i0p": "「檔案」App", "i1": "AirDrop", "i1p": "照片，文件交給對應App", "i2": "Apple裝置 · Finder傳輸線", "i2p": "所選App內", "i3": "BIShare", "i3p": "收件匣，再儲存到照片" }
   }
 }
