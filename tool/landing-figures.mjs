@@ -32,7 +32,6 @@ const FIGURES = {
   "localsend-alternative": { left: "Mac", right: "Windows PC", title: "Same network like LocalSend, plus a link when you need one" },
   "nearby-share-alternative": { left: "Android", right: "iPhone · Mac · Linux", title: "Past where Quick Share stops" },
   "send-anywhere-alternative": { left: "Phone", right: "Laptop", title: "Six characters, no ads, no account" },
-  "send-files-android-to-iphone": { left: "Android", right: "iPhone", title: "Android to iPhone, full quality" },
   "send-files-without-internet": { left: "Phone hotspot", right: "Laptop", title: "No router, no internet, still a network" },
   "share-files-without-account": { left: "Any device", right: "Anyone, any browser", title: "Nobody signs in, on either side" },
   "sharedrop-alternative": { left: "Browser", right: "Browser", title: "Drag between two tabs, or send a link" },
