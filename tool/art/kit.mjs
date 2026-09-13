@@ -143,13 +143,19 @@ export function beam(x1, x2, y) {
 export const FIT_SCRIPT = `
 (() => {
   const NS = "http://www.w3.org/2000/svg";
-  const noSpaces = (s) => /[\\u3040-\\u30ff\\u3400-\\u9fff\\uac00-\\ud7af]/.test(s) && s.split(" ").length < 3;
+  // Japanese and Chinese wrap between characters; Korean wraps at spaces like Latin.
+  const noSpaces = (s) => /[\\u3040-\\u30ff\\u3400-\\u9fff\\uff00-\\uffef]/.test(s) && !/[\\uac00-\\ud7af]/.test(s);
   for (const t of document.querySelectorAll("text[data-wrap]")) {
     const max = +t.dataset.wrap, maxLines = +t.dataset.lines, lh = +t.dataset.lh;
     const raw = t.textContent, x = t.getAttribute("x"), y0 = +t.getAttribute("y");
     let size = +t.getAttribute("font-size");
-    const tokens = noSpaces(raw) ? [...raw] : raw.split(" ");
-    const joiner = noSpaces(raw) ? "" : " ";
+    // CJK breaks between characters, but a Latin word, a number with its
+    // unit ("10 GB", "50 Mbps") or a product name must never split.
+    const cjk = noSpaces(raw);
+    const tokens = cjk
+      ? raw.match(/\\d+(?:[.,]\\d+)?\\s?(?:GB|MB\\/s|MB|Mbps|KB|TB)|[A-Za-z0-9][A-Za-z0-9.\\-+\\/]*|\\s+|./gu)
+      : raw.split(" ");
+    const joiner = cjk ? "" : " ";
     const layout = () => {
       t.textContent = "";
       const probe = document.createElementNS(NS, "tspan");
@@ -175,7 +181,8 @@ export const FIT_SCRIPT = `
         s.textContent = l;
         t.appendChild(s);
       });
-      if (lines.length <= maxLines && widest() <= max + 1) break;
+      const orphan = cjk && lines.length > 1 && [...lines[lines.length - 1]].length <= 2;
+      if (lines.length <= maxLines && widest() <= max + 1 && !orphan) break;
       size -= 1; t.setAttribute("font-size", size); lines = layout();
     }
   }

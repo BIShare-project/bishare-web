@@ -280,10 +280,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "تطبيق سطح المكتب وفيه هاتف iPhone وهاتف Galaxy متجاوران في قائمة شبكة Wi-Fi واحدة، وكلٌّ منهما على بُعد نقرة من الاستقبال.",
-    "transfer": "واجهة المتصفح على bishare.app/transfer بعد إفلات ملف: رابط للمشاركة، ورمز QR للهواتف، ورمز قصير يمكن قراءته بصوت عالٍ."
-  },
   "cta": {
     "title": "تطبيق واحد يصل إلى كل أجهزتك",
     "body": "مجاني، مفتوح المصدر، بلا حساب. ثبّت BIShare على هاتفك أو حاسوبك المحمول أو المكتبي وابدأ الإرسال. والطرف الآخر لا يحتاج التطبيق أصلاً.",
@@ -292,5 +288,75 @@
   "a11y": {
     "yes": "نعم",
     "no": "لا"
+  },
+  "art": {
+    "hero": {
+      "alt": "جهاز iPhone يرسل إلى هاتف Android وحاسوب محمول بنظام Windows، مع العنوان: بدائل AirDrop في 2026، ثمانية مرتبة وما يغطيه جسر Quick Share الجديد.",
+      "title": "بدائل AirDrop في 2026",
+      "sub": "8 بدائل مرتبة، وما يغطيه جسر Quick Share",
+      "left": "iPhone · Mac",
+      "right": "Android · Windows · Linux"
+    },
+    "reach": {
+      "alt": "من يصل إليه AirDrop في سبتمبر 2026: أجهزة Apple، إضافة إلى Pixel 10 و9 و8a، وSamsung Galaxy S24 حتى S26 وFold وFlip من الجيلين السادس والسابع بواجهة One UI 8.5، وطرازات محددة من OnePlus وXiaomi وOppo وVivo وHonor. ما زال خارج التغطية: معظم هواتف Android الأخرى وWindows وLinux وكل من ليس في الغرفة نفسها.",
+      "title": "من يصل إليه AirDrop في 2026",
+      "sub": "بعد أن أصبح Quick Share يتحدث مع AirDrop",
+      "yesTitle": "يعمل مباشرة، والطرفان على «الجميع»",
+      "yes": {
+        "apple": "iPhone وiPad وMac",
+        "pixel": "Pixel 10 · Pixel 9 · Pixel 8a",
+        "samsung": "Galaxy S24 · S25 · S26 · Z Fold 6/7 · Z Flip 6/7 (One UI 8.5)",
+        "others": "OnePlus 15 · Xiaomi 17T Pro · Oppo Find X9, N6 · Vivo X300 · Honor Magic V6"
+      },
+      "noTitle": "ما زال خارج التغطية",
+      "no": {
+        "android": "معظم هواتف Android الأخرى، ومنها الاقتصادية والقديمة",
+        "rest": "حواسيب Windows وLinux · كل من ليس في الغرفة نفسها"
+      },
+      "note": "قائمة الهواتف المدعومة حتى سبتمبر 2026، وGoogle تضيف طرازات باستمرار"
+    },
+    "pairs": {
+      "alt": "شبكة من ستة أزواج أجهزة والمسار المناسب لكل منها: Quick Share أو BIShare بين iPhone وAndroid، وBIShare أو LocalSend بين Mac وWindows، وBIShare من iPhone إلى حاسوب Windows، وBIShare أو LocalSend إلى Linux، ورابط لشخص في مدينة أخرى، ونقطة اتصال هاتف عند غياب الإنترنت.",
+      "title": "أي مسار لأي زوج",
+      "sub": "زوج الأجهزة يحدد أكثر مما تحدده العلامة التجارية",
+      "items": {
+        "0": {
+          "pair": "iPhone ↔ Android",
+          "route": "Quick Share إن كان الهاتف في القائمة، وإلا BIShare أو LocalSend"
+        },
+        "1": {
+          "pair": "Mac ↔ Windows",
+          "route": "BIShare أو LocalSend على الحاسوبين"
+        },
+        "2": {
+          "pair": "iPhone ← حاسوب Windows",
+          "route": "BIShare عبر Wi-Fi، بلا كابل وبلا حساب"
+        },
+        "3": {
+          "pair": "أي هاتف ← Linux",
+          "route": "BIShare أو LocalSend، الوحيدان هنا بتطبيق لـ Linux"
+        },
+        "4": {
+          "pair": "شخص في مدينة أخرى",
+          "route": "رابط: BIShare حتى 100 غيغابايت، وWormhole حتى 10 غيغابايت"
+        },
+        "5": {
+          "pair": "لا إنترنت إطلاقًا",
+          "route": "صِل الجهازين بنقطة اتصال هاتف ثم أرسل مباشرة"
+        }
+      }
+    },
+    "time": {
+      "alt": "كم يستغرق فيديو بحجم 1 غيغابايت: أقل من 15 ثانية على Wi-Fi 6، ونحو 20 إلى 25 ثانية على Wi-Fi 5، ونحو ثلاث دقائق عبر رابط برفع 50 ميغابت/ث قبل أن يبدأ التنزيل أصلًا.",
+      "title": "كم يستغرق فيديو بحجم 1 غيغابايت",
+      "sub": "المسار المباشر تحدّه Wi-Fi، والرابط تحدّه سرعة الرفع",
+      "wifi6": "مباشر، Wi-Fi 6",
+      "wifi5": "مباشر، Wi-Fi 5",
+      "link": "رابط، رفع 50 ميغابت/ث",
+      "wifi6v": "< 15 s",
+      "wifi5v": "20–25 s",
+      "linkv": "≈ 3 min",
+      "foot": "طول الأعمدة بمقياس الجذر التربيعي كي تتسع الثواني والدقائق في مخطط واحد"
+    }
   }
 }

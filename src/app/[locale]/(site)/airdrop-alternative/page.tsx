@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
@@ -11,6 +10,8 @@ import { HeroCta } from "@/components/site/hero-cta";
 import { StoreButtons } from "@/components/site/store-buttons";
 import { ArticleToc } from "@/components/site/article-toc";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
+import { LandingArt } from "@/components/site/landing-art";
+import { ImageLightbox } from "@/components/site/image-lightbox";
 import { ArrowRight, Check, X } from "lucide-react";
 
 /**
@@ -83,7 +84,7 @@ export async function generateMetadata({
     title: { absolute: title },
     description,
     alternates: buildAlternates(locale, SLUG),
-    ...sharedOpenGraph(title, description, SLUG),
+    ...sharedOpenGraph(title, description, SLUG, locale),
   };
 }
 
@@ -109,37 +110,6 @@ const strong = (chunks: React.ReactNode) => (
 const highlight = (chunks: React.ReactNode) => (
   <span className="text-foreground">{chunks}</span>
 );
-
-function Shot({
-  src,
-  alt,
-  width = 1400,
-  height = 787,
-}: {
-  src: string;
-  alt: string;
-  /** Intrinsic size, so the browser reserves the right box before load. */
-  width?: number;
-  height?: number;
-}) {
-  return (
-    <figure className="overflow-hidden rounded-xl border border-border bg-card">
-      <picture>
-        <source srcSet={`${src}.webp`} type="image/webp" />
-        <Image
-          src={`${src}.jpg`}
-          alt={alt}
-          width={width}
-          height={height}
-          className="h-auto w-full"
-        />
-      </picture>
-      <figcaption className="border-t border-border px-4 py-3 text-[13px] leading-relaxed text-muted-foreground">
-        {alt}
-      </figcaption>
-    </figure>
-  );
-}
 
 /** Prose list section — a heading and a paragraph per item. */
 function ProseList({
@@ -279,7 +249,16 @@ export default async function AirdropAlternativePage({
               <StoreButtons />
             </div>
 
-            <Shot src="/img/airdrop-alternative/route" alt={chrome("figureCaption")} width={1400} height={700} />
+            <LandingArt
+              slug={SLUG}
+              name="hero"
+              locale={locale}
+              alt={t("art.hero.alt")}
+              width={1200}
+              height={630}
+              zoomHint={chrome("imageZoom")}
+              className="mt-8"
+            />
 
             {/* Why AirDrop stops */}
             <section className="mt-14">
@@ -300,6 +279,16 @@ export default async function AirdropAlternativePage({
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t("interop.body")}
               </p>
+              <LandingArt
+                slug={SLUG}
+                name="reach"
+                locale={locale}
+                alt={t("art.reach.alt")}
+                width={1200}
+                height={700}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
               <ProseList
                 items={INTEROP_ITEMS}
                 head={(i) => t(`interop.items.${i}.h`)}
@@ -395,6 +384,16 @@ export default async function AirdropAlternativePage({
             {/* Device pairs */}
             <section className="mt-14">
               <H2 id="pairs">{t("pairs.title")}</H2>
+              <LandingArt
+                slug={SLUG}
+                name="pairs"
+                locale={locale}
+                alt={t("art.pairs.alt")}
+                width={1200}
+                height={720}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
               <ProseList
                 items={PAIR_ITEMS}
                 head={(i) => t(`pairs.items.${i}.h`)}
@@ -410,13 +409,6 @@ export default async function AirdropAlternativePage({
                 head={(i) => t(`steps.items.${i}.h`)}
                 body={(i) => t(`steps.items.${i}.b`)}
               />
-              <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                <Shot
-                  src="/img/airdrop-windows/devices"
-                  alt={t("shots.devices")}
-                />
-                <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} width={1280} height={800} />
-              </div>
             </section>
 
             {/* Speed */}
@@ -425,6 +417,16 @@ export default async function AirdropAlternativePage({
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t("speed.body")}
               </p>
+              <LandingArt
+                slug={SLUG}
+                name="time"
+                locale={locale}
+                alt={t("art.time.alt")}
+                width={1200}
+                height={520}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
               <ProseList
                 items={SPEED_ITEMS}
                 head={(i) => t(`speed.items.${i}.h`)}
@@ -500,6 +502,7 @@ export default async function AirdropAlternativePage({
       </main>
 
       <SiteFooter />
+      <ImageLightbox closeLabel={chrome("imageClose")} />
     </div>
   );
 }

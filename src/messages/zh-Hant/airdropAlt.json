@@ -280,10 +280,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "桌面 App 的畫面：同一 Wi-Fi 下，一支 iPhone 與一支 Galaxy 手機並排列著，各自點一下就能接收。",
-    "transfer": "把檔案放進 bishare.app/transfer 之後的瀏覽器畫面：一條分享連結、一個給手機掃的 QR code，以及一個可以唸出來的短代碼。"
-  },
   "cta": {
     "title": "一個 App，搆得到你所有的裝置",
     "body": "免費、開源、免帳號。在手機、筆電或桌機上裝好 BIShare 就能開始傳送。對面甚至不需要這個 App。",
@@ -292,5 +288,75 @@
   "a11y": {
     "yes": "是",
     "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "一支iPhone傳送到Android手機與Windows筆電的插圖，標題：2026年AirDrop替代方案，8款排名與新Quick Share互通的涵蓋範圍。",
+      "title": "AirDrop替代方案（2026）",
+      "sub": "8款排名，以及Quick Share互通的涵蓋範圍",
+      "left": "iPhone · Mac",
+      "right": "Android · Windows · Linux"
+    },
+    "reach": {
+      "alt": "2026年9月AirDrop能傳到的裝置：Apple裝置，以及Pixel 10、9、8a，Samsung Galaxy S24至S26與One UI 8.5上的第六、七代Fold和Flip，還有OnePlus、Xiaomi、Oppo、Vivo、Honor的部分機型。仍被排除：多數其他Android手機、Windows、Linux，以及不在同一個房間的人。",
+      "title": "2026年AirDrop能傳給誰",
+      "sub": "自從Quick Share能與AirDrop互通之後",
+      "yesTitle": "可直接互傳，雙方都設為所有人",
+      "yes": {
+        "apple": "iPhone、iPad、Mac",
+        "pixel": "Pixel 10、Pixel 9系列、Pixel 8a",
+        "samsung": "Galaxy S24、S25、S26 · Z Fold與Z Flip 6和7（One UI 8.5）",
+        "others": "OnePlus 15 · Xiaomi 17T Pro · Oppo Find X9, N6 · Vivo X300 · Honor Magic V6"
+      },
+      "noTitle": "仍被排除",
+      "no": {
+        "android": "多數其他Android手機，包括入門款與舊機型",
+        "rest": "Windows與Linux電腦 · 不在同一個房間的人"
+      },
+      "note": "支援機型截至2026年9月，Google仍陸續增加"
+    },
+    "pairs": {
+      "alt": "六組裝置組合與合適途徑：iPhone與Android用Quick Share或BIShare，Mac與Windows用BIShare或LocalSend，iPhone到Windows電腦用BIShare，傳到Linux用BIShare或LocalSend，遠地用連結，沒有網路用手機熱點。",
+      "title": "不同裝置組合用什麼",
+      "sub": "裝置組合比品牌更關鍵",
+      "items": {
+        "0": {
+          "pair": "iPhone ↔ Android",
+          "route": "機型在清單中就用Quick Share，否則用BIShare或LocalSend"
+        },
+        "1": {
+          "pair": "Mac ↔ Windows",
+          "route": "兩台電腦都裝BIShare或LocalSend"
+        },
+        "2": {
+          "pair": "iPhone → Windows電腦",
+          "route": "透過Wi-Fi用BIShare，不需傳輸線和帳號"
+        },
+        "3": {
+          "pair": "任何手機 → Linux",
+          "route": "BIShare或LocalSend，這裡只有它們有Linux App"
+        },
+        "4": {
+          "pair": "在另一座城市的人",
+          "route": "連結：BIShare最多100 GB，Wormhole最多10 GB"
+        },
+        "5": {
+          "pair": "完全沒有網路",
+          "route": "兩台裝置連上同一個手機熱點後直接傳送"
+        }
+      }
+    },
+    "time": {
+      "alt": "1 GB影片需要多久：Wi-Fi 6不到15秒，Wi-Fi 5約20到25秒，上傳50 Mbps時用連結在下載開始前就要約三分鐘。",
+      "title": "1 GB影片需要多久",
+      "sub": "直連受Wi-Fi限制，連結受上傳速度限制",
+      "wifi6": "直連，Wi-Fi 6",
+      "wifi5": "直連，Wi-Fi 5",
+      "link": "連結，上傳50 Mbps",
+      "wifi6v": "不到15秒",
+      "wifi5v": "20–25秒",
+      "linkv": "約3分鐘",
+      "foot": "為讓秒和分鐘放在同一張圖，長條長度採平方根刻度"
+    }
   }
 }

@@ -280,10 +280,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "デスクトップアプリの画面。同じWi-Fi上にiPhoneとGalaxyのスマホが並び、どちらもワンクリックで受信できる状態。",
-    "transfer": "ファイルを落としたあとのbishare.app/transferのブラウザ画面。共有リンク、スマホ用のQRコード、口頭で伝えられる短いコード。"
-  },
   "cta": {
     "title": "持っているすべての端末に届く1つのアプリ",
     "body": "無料、オープンソース、アカウント不要。スマホ、ノート、デスクトップにBIShareを入れて送り始めてください。相手側はアプリさえ必要ありません。",
@@ -292,5 +288,75 @@
   "a11y": {
     "yes": "はい",
     "no": "いいえ"
+  },
+  "art": {
+    "hero": {
+      "alt": "iPhoneからAndroidスマートフォンとWindowsノートへ送るイラスト。タイトルは「AirDropの代替（2026年）、8つのランキングと新しいQuick Share連携の対応範囲」。",
+      "title": "AirDropの代替（2026年）",
+      "sub": "8つのランキングと、Quick Share連携の対応範囲",
+      "left": "iPhone · Mac",
+      "right": "Android · Windows · Linux"
+    },
+    "reach": {
+      "alt": "2026年9月時点でAirDropが届く相手。Apple製品に加え、Pixel 10、9、8a、Samsung Galaxy S24〜S26とOne UI 8.5の第6・第7世代Fold/Flip、OnePlus、Xiaomi、Oppo、Vivo、Honorの一部機種。対象外は、その他の多くのAndroid、Windows、Linux、同じ部屋にいない相手。",
+      "title": "2026年、AirDropが届く相手",
+      "sub": "Quick ShareがAirDropと通信できるようになってから",
+      "yesTitle": "直接届く、双方「すべての人」に設定",
+      "yes": {
+        "apple": "iPhone、iPad、Mac",
+        "pixel": "Pixel 10、Pixel 9シリーズ、Pixel 8a",
+        "samsung": "Galaxy S24、S25、S26 · Z Fold / Z Flip 6と7（One UI 8.5）",
+        "others": "OnePlus 15 · Xiaomi 17T Pro · Oppo Find X9, N6 · Vivo X300 · Honor Magic V6"
+      },
+      "noTitle": "まだ届かない相手",
+      "no": {
+        "android": "その他の多くのAndroid（低価格機や旧機種を含む）",
+        "rest": "WindowsとLinuxのパソコン · 同じ部屋にいない相手"
+      },
+      "note": "対応機種は2026年9月時点。Googleは順次追加中"
+    },
+    "pairs": {
+      "alt": "6つの端末の組み合わせと合う経路の一覧。iPhoneとAndroidはQuick ShareかBIShare、MacとWindowsはBIShareかLocalSend、iPhoneからWindows PCはBIShare、LinuxへはBIShareかLocalSend、別の街の相手にはリンク、インターネットがなければスマホのテザリング。",
+      "title": "組み合わせ別の経路",
+      "sub": "ブランドより端末の組み合わせで決まる",
+      "items": {
+        "0": {
+          "pair": "iPhone ↔ Android",
+          "route": "対応機種ならQuick Share、それ以外はBIShareかLocalSend"
+        },
+        "1": {
+          "pair": "Mac ↔ Windows",
+          "route": "両方のパソコンにBIShareかLocalSend"
+        },
+        "2": {
+          "pair": "iPhone → Windows PC",
+          "route": "Wi-FiでBIShare、ケーブルもアカウントも不要"
+        },
+        "3": {
+          "pair": "スマホ → Linux",
+          "route": "BIShareかLocalSend、ここでLinuxアプリがあるのはこの2つ"
+        },
+        "4": {
+          "pair": "別の街にいる相手",
+          "route": "リンク：BIShareは最大100 GB、Wormholeは最大10 GB"
+        },
+        "5": {
+          "pair": "インターネットがない",
+          "route": "両方をスマホのテザリングにつないで直接送る"
+        }
+      }
+    },
+    "time": {
+      "alt": "1 GBの動画にかかる時間。Wi-Fi 6で15秒未満、Wi-Fi 5で約20〜25秒、アップロード50 Mbpsのリンクではダウンロード開始前に約3分。",
+      "title": "1 GBの動画にかかる時間",
+      "sub": "直接転送はWi-Fi、リンクはアップロード速度で決まる",
+      "wifi6": "直接、Wi-Fi 6",
+      "wifi5": "直接、Wi-Fi 5",
+      "link": "リンク、アップロード50 Mbps",
+      "wifi6v": "15秒未満",
+      "wifi5v": "20–25秒",
+      "linkv": "約3分",
+      "foot": "秒と分を1つのグラフに収めるため、バーの長さは平方根スケール"
+    }
   }
 }
