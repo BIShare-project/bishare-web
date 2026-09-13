@@ -29,7 +29,6 @@ const FIGURES = {
   "airdrop-not-working": { left: "iPhone", right: "iPhone · Mac", title: "When AirDrop will not connect, ordinary Wi-Fi still will" },
   "encrypted-file-transfer": { left: "Any device", right: "Any device", title: "Encrypted before it leaves, on both routes" },
   "firefox-send-alternative": { left: "Browser", right: "Anyone, any browser", title: "The Firefox Send idea, still running" },
-  "localsend-alternative": { left: "Mac", right: "Windows PC", title: "Same network like LocalSend, plus a link when you need one" },
   "nearby-share-alternative": { left: "Android", right: "iPhone · Mac · Linux", title: "Past where Quick Share stops" },
   "send-anywhere-alternative": { left: "Phone", right: "Laptop", title: "Six characters, no ads, no account" },
   "send-files-without-internet": { left: "Phone hotspot", right: "Laptop", title: "No router, no internet, still a network" },

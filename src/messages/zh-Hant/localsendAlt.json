@@ -1,83 +1,338 @@
 {
   "meta": {
-    "title": "LocalSend 替代方案：區網速度加分享連結",
-    "description": "和 LocalSend 一樣在同一 Wi-Fi 下裝置直連加密傳輸，另有 100 GB 連結可傳到其他網路。免費開源，全平台可用。"
+    "title": "2026年最佳LocalSend替代：7款免費App比較",
+    "description": "LocalSend在同一個Wi-Fi下很好用。對方裝置不在身邊或找不到時，可以比較BIShare、PairDrop、KDE Connect、Blip、Warpinator等工具。"
   },
   "hero": {
-    "eyebrow": "LocalSend 替代方案",
-    "title": "你喜愛 LocalSend 的一切 —— 再加上突破網路的觸及能力",
-    "body": "<strong>LocalSend</strong> 是一種在同一 Wi-Fi 下於裝置間傳送檔案的出色開源方式。BIShare 同樣能做到 —— 跨每個平台即時且端對端加密 —— 並更進一步：<highlight>為不在附近的任何人提供瀏覽器連結</highlight>，外加雲端儲存與同步。",
-    "ctaPrimary": "免費試用 BIShare",
-    "ctaSecondary": "看看它如何運作"
+    "eyebrow": "LocalSend替代方案",
+    "title": "最佳LocalSend替代工具",
+    "body": "LocalSend的好評是實力換來的：它免費、開源，幾乎能在所有系統上執行，不需要帳號，也不經過雲端伺服器，就能透過Wi-Fi網路傳檔案。大家另找工具，通常只是出於幾個具體原因。對方在另一棟大樓裡；路由器把裝置彼此隔離，手機始終不會出現在筆電螢幕上；一群人需要同時拿到同一批檔案；或是iPhone要毫不費力地傳到Linux電腦。這份指南會說明LocalSend能做什麼、在哪裡止步，把它和BIShare並排比較，依各自最擅長的情境替七款替代工具排名，並解決讓多數人開始尋找替代品的裝置搜尋問題。<strong>BIShare</strong>就是這七款之一：在同一個網路中，它的用法和LocalSend一樣；對不在這個網路裡的人，它還能提供<strong>最大100 GB的加密連結</strong>。<highlight>免費、開源、不需帳號。</highlight>",
+    "ctaPrimary": "免費取得BIShare",
+    "ctaSecondary": "運作方式"
   },
-  "why": {
-    "title": "LocalSend 止步於何處",
-    "body": "LocalSend 為一件事而生，並把它做得很好：在<strong>同一網路</strong>的裝置間直接傳輸。但這也是它的邊界 —— 如果對方在另一座城市、用著行動數據，或位於另一個路由器之後，就沒有辦法觸及他們，也沒有雲端來讓你自己的裝置之間保持檔案同步。"
+  "updated": "2026年9月更新 · LocalSend資訊取自其GitHub儲存庫，各替代工具已於本月在官網確認",
+  "disclosure": "BIShare是我們開發的，LocalSend是我們尊敬的專案。如果所有傳輸都在同一個網路裡完成，LocalSend可能就完全夠用，本頁也會清楚寫出它的優勢。",
+  "quick": {
+    "title": "快速回答",
+    "items": [
+      "<strong>體驗不變，還能傳到Wi-Fi之外：</strong>在同一個網路中，BIShare讓裝置之間直接傳輸；對不在網路裡的人，它會變成一個100 GB的加密連結。",
+      "<strong>兩邊都不想安裝任何東西：</strong>PairDrop在瀏覽器裡執行，用6位數配對碼就能連接不同網路裡的裝置。",
+      "<strong>把手機當成Linux或Windows電腦的遙控器：</strong>KDE Connect在檔案傳輸之外，還提供剪貼簿同步、通知和媒體控制。",
+      "<strong>透過網際網路在自己的裝置之間傳超大檔案：</strong>Blip不限大小直接傳送，中斷後可接續，非商業用途免費，但需要帳號。",
+      "<strong>家用網路裡的Linux Mint電腦：</strong>Warpinator系統內建，不必設定。",
+      "<strong>全是Apple裝置，或Android加Windows的家庭：</strong>系統內建的AirDrop和Quick Share最省事。"
+    ]
   },
-  "how": {
-    "title": "BIShare 如何接手 LocalSend 力所不及之處",
+  "limits": {
+    "title": "LocalSend擅長什麼，又在哪裡止步",
+    "body": "LocalSend圍繞一個想法設計：同一個區域網路裡的裝置互相找到彼此，並透過HTTPS直接溝通，完全不需要連上網際網路。這種設計既是它的長處，也是它的極限。",
     "items": {
       "0": {
-        "h": "同樣的本地即時傳輸",
-        "b": "在同一 Wi-Fi 下，BIShare 以本地網路速度、端對端加密地在裝置間傳送，涵蓋 iPhone、Android、Windows、Mac 和 Linux —— 正是 LocalSend 的使用情境，不繞道雲端。"
+        "h": "它的長處",
+        "b": "它支援Android、iPhone、Mac、Windows、Linux，甚至Fire OS平板，可以從App商店以及Winget、Homebrew、Flathub等套件管理工具安裝，採用Apache 2.0授權。每台裝置都會產生自己的TLS憑證，所以傳輸有加密，也不經過任何公司的伺服器。對共用一台路由器的家庭或辦公室來說，它已經很難被超越。"
       },
       "1": {
-        "h": "為任何人、任何地點提供的連結",
-        "b": "當接收方不在你的網路裡時，分享一個連結或短代碼，他們以任意瀏覽器開啟 —— 其裝置上無需應用程式、無需帳戶。這正是 LocalSend 所沒有的部分。"
+        "h": "它止步的地方",
+        "b": "兩台裝置必須在同一個區域網路裡。其他城市的朋友、用行動數據的手機、連著訪客網路的筆電都傳不到，也沒有中繼伺服器可以備援。它的連結分享模式能讓對方不裝App、直接用瀏覽器下載，但連結指向的是區域網路裡的傳送裝置，所以只對已經連上同一個Wi-Fi的人有用。"
       },
       "2": {
-        "h": "群組需要檔案時，用房間",
-        "b": "一個短代碼即可與整個群組分享——可選，房間最長 24 小時後關閉。"
+        "h": "裝置為什麼找不到",
+        "b": "裝置搜尋仰賴連接埠53317上的多點傳送。開啟AP隔離或用戶端隔離的路由器、訪客網路、設為「公用」的Windows網路、防火牆和VPN都會擋住它，這也是為什麼LocalSend最常見的抱怨就是：對方裝置一直沒有出現。"
       }
     }
   },
-  "comparison": {
-    "title": "BIShare 對比 LocalSend 對比 Snapdrop",
+  "versus": {
+    "title": "LocalSend與BIShare並排比較",
+    "body": "兩者的共同點多於差異。都是開源軟體，都能在同一個網路裡不限大小直接傳檔案，也都不需要帳號。差別出現在裝置分隔兩地的時候。",
+    "items": {
+      "0": {
+        "h": "在同一個網路中",
+        "b": "兩者都以路由器允許的最快速度在裝置之間直接傳檔案，沒有網際網路時也都能透過手機熱點繼續運作。LocalSend可以選擇單一接收者、多個接收者或分享連結；BIShare可以傳給附近的一台裝置，或透過房間代碼傳給多個人。"
+      },
+      "1": {
+        "h": "對方在別處時",
+        "b": "這正是BIShare多出來的能力。BIShare連結在傳送裝置上完成加密，最多容納100 GB，不論接收者身在何處，24小時內都能用任何瀏覽器開啟。LocalSend則沒有辦法走出區域網路。"
+      },
+      "2": {
+        "h": "群組",
+        "b": "BIShare房間讓多人透過短代碼從App或瀏覽器加入，一起放入或取走檔案；房間裡的檔案會在24小時內到期。LocalSend的多接收者模式只有在所有人都連著同一個Wi-Fi時才適合群組。"
+      },
+      "3": {
+        "h": "LocalSend勝出的地方",
+        "b": "LocalSend支援Fire OS平板，上架的套件管理工具更多，而且完全沒有伺服器元件，有些人基於原則更喜歡這一點。如果你從不把檔案傳到自己的網路之外，它用更少的環節就能把事情做好。"
+      }
+    }
+  },
+  "methods": {
+    "title": "七款LocalSend替代工具排名",
+    "consLabel": "注意：",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "首選：LocalSend式的本機傳輸，再加上給其他人的連結和房間",
+        "facts": "提供iPhone、Android、Windows、macOS和Linux App，連結和房間也能用瀏覽器開啟 · MIT授權 · 同一個網路內裝置直傳，不限大小 · 加密連結容量100 GB，效期一天 · 輸入短代碼就能進入房間 · 不必註冊",
+        "body": "在兩台裝置上安裝BIShare，它們就會在同一個Wi-Fi或手機熱點中互相出現，和LocalSend裝置一樣；選好一台，檔案就會加密後直接傳過去，沒有大小限制。接收者不在附近時，就改成建立連結：檔案在離開你的裝置之前就已加密，對方在一天之內用任何瀏覽器就能下載，什麼都不必安裝。對一個班級、團隊或家庭來說，一個房間用一組短代碼就能把所有人聚在一起。",
+        "cons": "連結和房間需要BIShare的伺服器保存加密資料，因此要連上網際網路，這點不同於純本機的LocalSend傳輸。沒有Fire OS App。"
+      },
+      "1": {
+        "name": "PairDrop",
+        "tag": "最適合誰都不想安裝軟體的時候",
+        "facts": "任何現代瀏覽器，也能安裝成網頁App · 開源（GPL-3.0） · 透過6位數代碼或QR碼跨網路配對 · 5個字母的公開房間 · 點對點，必要時經TURN伺服器中繼 · 不需帳號",
+        "body": "在兩台裝置的瀏覽器裡開啟PairDrop，同一個網路中的裝置會自動出現，就像不必安裝App的LocalSend。用6位數代碼或QR碼把兩台裝置配對一次，之後即使在不同網路裡它們也能繼續找到彼此；直連路徑被擋住時，連線會經過PairDrop的TURN伺服器中繼。不論哪種情況，檔案都維持端對端加密，專案本身也可以自行架設。",
+        "cons": "傳輸期間兩邊的瀏覽器分頁都必須保持開啟，超大檔案受瀏覽器記憶體處理方式限制，公開服務也需要連上網際網路，裝置才能找到彼此。"
+      },
+      "2": {
+        "name": "KDE Connect",
+        "tag": "最適合手機和電腦之間不只要傳檔案的時候",
+        "facts": "Linux、Windows、macOS、Android、iOS · 開源（GPL） · 同一個區域網路 · 傳送檔案、同步剪貼簿、通知、媒體控制和遠端輸入 · 不需帳號",
+        "body": "KDE Connect把同一個網路中的手機和電腦配對，讓它們協同運作：雙向傳檔案、共用剪貼簿、在電腦上回覆通知，還能把手機當成觸控板或媒體遙控器。在Linux桌面上它常常已經內建，在Android上它是本機工具裡功能最完整的。",
+        "cons": "受到Apple的限制，iOS版能做的事比Android版少得多，每台裝置都要個別配對，而且和LocalSend一樣，傳不到另一個網路裡的裝置。"
+      },
+      "3": {
+        "name": "Blip",
+        "tag": "最適合透過網際網路在自己的裝置之間傳送超大檔案",
+        "facts": "Mac、Windows、iPhone、Android，尚無Linux App · 非商業用途免費，商業用途需付費方案 · 不限大小 · 中斷後可接續 · 需驗證電子郵件的帳號",
+        "body": "Blip能把任何大小的檔案直接傳到你的其他裝置或其他Blip使用者，不必先上傳到儲存服務。兩端在同一個區域網路時走區域網路，不在時改走網際網路，斷線或筆電進入睡眠後還能從中斷處接著傳。把影片專案從工作室的電腦搬到家裡的電腦，它順暢得令人意外。",
+        "cons": "它是閉源軟體，兩端都要帳號，沒有Linux版本，商業使用必須購買付費方案。"
+      },
+      "4": {
+        "name": "Warpinator",
+        "tag": "最適合家用網路中的Linux Mint電腦之間",
+        "facts": "Linux Mint預設內建，其他發行版可從Flathub取得 · 有Windows和Android的非官方移植版 · 開源 · 同一個區域網路 · 不需帳號",
+        "body": "Warpinator由Linux Mint團隊開發，能找到網路中其他裝有Warpinator的電腦，對方快速同意後就能互傳檔案。Mint已經預先安裝，所以家裡兩台電腦不必下載任何東西就能互換資料夾。社群移植版還把它帶到Windows電腦和Android手機上。",
+        "cons": "沒有iPhone App，Windows和Android版本是非官方的，而且只能在區域網路內使用。"
+      },
+      "5": {
+        "name": "AirDrop和Quick Share",
+        "tag": "最適合所有裝置都屬於同一個生態系的時候",
+        "facts": "AirDrop：iPhone、iPad、Mac，以及Quick Share中支援AirDrop的Android手機 · Quick Share：Android、Chromebook、Windows電腦 · 系統內建 · 近距離，透過藍牙和Wi-Fi",
+        "body": "如果所有裝置都是Apple的，AirDrop本來就在分享選單裡，完全不必設定；Android手機和Windows電腦之間的Quick Share也一樣。裝置距離很近時，兩者即使沒有共同的Wi-Fi網路也能使用，較新的Pixel和Galaxy機型還能透過AirDrop傳送到Apple裝置。",
+        "cons": "它們是封閉的，綁定各自的平台，要求裝置在實體上彼此靠近，而且完全不支援Linux。"
+      },
+      "6": {
+        "name": "OnionShare",
+        "tag": "最適合透過Tor匿名分享",
+        "facts": "Windows、Mac、Linux、Android、iOS · 開源 · 透過Tor的onion位址分享 · 接收者使用Tor Browser · 不需帳號，不經第三方伺服器",
+        "body": "OnionShare在你自己的電腦上執行一個小型網頁伺服器，並以無法猜到的onion位址發布；接收者用Tor Browser開啟這個位址，直接從你這裡下載。沒有任何公司能看到檔案，連你自己管理的中繼都不行，所以記者和社運人士會使用它。它也能接收檔案，還能架設簡單的聊天室。",
+        "cons": "經過Tor傳輸很慢，接收者需要Tor Browser，而且在對方下載完成前，你的電腦必須一直開機並保持連線。"
+      }
+    }
+  },
+  "table": {
+    "title": "一覽表",
     "cols": {
+      "feature": "功能",
+      "bishare": "BIShare",
       "localsend": "LocalSend",
-      "snapdrop": "Snapdrop",
-      "bishare": "BIShare"
+      "pairdrop": "PairDrop",
+      "kde": "KDE Connect",
+      "blip": "Blip",
+      "warpinator": "Warpinator"
     },
     "rows": {
-      "r0": "跨所有平台的本地即時傳輸",
-      "r1": "端對端加密",
-      "r2": "觸及不在你網路裡的人（連結）",
-      "r3": "接收方無需應用程式（以瀏覽器開啟）",
-      "r4": "雲端儲存與跨裝置同步"
+      "r0": "開源",
+      "r1": "能傳到另一個網路的裝置",
+      "r2": "接收者只用瀏覽器即可",
+      "r3": "不連網也能用",
+      "r4": "原生iPhone App",
+      "r5": "不需帳號"
+    },
+    "note": "截至2026年9月。BIShare透過需要連網的加密連結和房間傳到其他網路，而它的直傳在同一個網路或熱點下可離線使用。LocalSend的分享連結只能在同一個區域網路內的瀏覽器開啟。PairDrop配對後能傳到其他網路，但仰賴其信令伺服器，因此算作需要連網；它能在Safari中執行，但沒有原生iPhone App。KDE Connect的iOS App功能有限。Blip每台裝置都需要帳號。Warpinator的Windows和Android版本是非官方的。"
+  },
+  "choose": {
+    "title": "不同情境該選哪一款",
+    "body": "依對方裝置在哪裡、由誰在使用來選，而不是看功能清單。",
+    "items": {
+      "0": {
+        "h": "所有人都在同一個家庭或辦公室網路中",
+        "b": "繼續用LocalSend就好；如果還需要傳連結給外面的人，就用BIShare。Linux Mint上則已經內建Warpinator。"
+      },
+      "1": {
+        "h": "對方在別的地方",
+        "b": "BIShare連結可用任何瀏覽器開啟24小時，最多100 GB。PairDrop需要兩台裝置先配對，Blip適合在你自己的帳號之間傳超大檔案。"
+      },
+      "2": {
+        "h": "訪客電腦或受管制的電腦",
+        "b": "選只需瀏覽器的方式：PairDrop，或是BIShare連結或房間，這樣就不必在你無法管理的電腦上安裝任何東西。"
+      },
+      "3": {
+        "h": "手機和電腦整天搭配使用",
+        "b": "KDE Connect在檔案傳輸之外加上剪貼簿、通知和遠端控制，在Android和Linux之間特別好用。"
+      }
+    }
+  },
+  "steps": {
+    "title": "從LocalSend換到BIShare",
+    "items": {
+      "0": {
+        "h": "在常用的裝置上安裝",
+        "b": "BIShare已上架Apple和Google的App商店、Microsoft Store和Mac App Store，也有Linux版本。把裝置連到同一個Wi-Fi或手機熱點；iPhone會詢問一次是否允許尋找區域網路裝置，點「允許」即可。"
+      },
+      "1": {
+        "h": "近距離照舊傳送",
+        "b": "選好檔案，從附近裝置清單中選擇對方裝置，在接收端點選接受。傳輸只在區域網路內進行，沒有大小限制，和LocalSend完全一樣。"
+      },
+      "2": {
+        "h": "對方不在身邊時用連結或房間",
+        "b": "替身處任何地方的一位接收者建立連結，最多100 GB、效期24小時；或是開一個房間，把房間代碼分享給一群人。接收者用瀏覽器即可，不必安裝任何東西。"
+      }
+    }
+  },
+  "fixes": {
+    "title": "LocalSend或其他本機App找不到對方裝置時",
+    "items": {
+      "0": {
+        "h": "路由器隔離了裝置",
+        "b": "許多路由器、Mesh系統和訪客網路會開啟AP隔離或用戶端隔離，導致裝置之間彼此看不到。把兩台裝置都連到主網路而不是訪客網路，或在路由器設定中關閉隔離。"
+      },
+      "1": {
+        "h": "Windows把網路當成公用網路",
+        "b": "在Windows設定中把網路設定檔改為「私人」，再到Windows Defender防火牆允許該App通過；LocalSend的TCP和UDP都使用連接埠53317。"
+      },
+      "2": {
+        "h": "VPN正在執行",
+        "b": "VPN常把流量導出區域網路，附近的裝置就會消失。傳輸期間暫停VPN，或開啟VPN的區域網路存取選項。"
+      },
+      "3": {
+        "h": "iPhone沒有出現",
+        "b": "打開iPhone的「設定」，進入「隱私權與安全性」中的「區域網路」，替該App開啟開關。傳送時讓App保持在前景。"
+      },
+      "4": {
+        "h": "頻段或子網路不同",
+        "b": "有些路由器會把2.4 GHz和5 GHz，或有線和無線裝置分到不同子網路，多點傳送無法通過。讓兩台裝置連同一個頻段，或透過手機熱點連線，熱點永遠等同一個共用網路。"
+      },
+      "5": {
+        "h": "完全無法變更網路",
+        "b": "在你無法管理的飯店、學校或公司Wi-Fi上，改用不仰賴裝置搜尋的方式：BIShare連結、PairDrop配對碼，或雲端資料夾。"
+      }
+    }
+  },
+  "security": {
+    "title": "這些工具的隱私保護如何？",
+    "body": "它們都會加密傳輸。真正該問的是：有沒有東西存到別人的伺服器上，以及誰能知道這次傳輸曾經發生。",
+    "items": {
+      "0": {
+        "h": "僅限本機",
+        "b": "LocalSend、Warpinator和KDE Connect從不離開區域網路，LocalSend還會用每台裝置各自產生的憑證加密每一次傳輸。BIShare在同一個網路內的直傳同樣只在本機進行。"
+      },
+      "1": {
+        "h": "經過中繼，仍然端對端加密",
+        "b": "PairDrop只在直連失敗時才透過TURN伺服器中繼，資料始終維持端對端加密。BIShare連結在上傳前就在你的裝置上加密，金鑰保存在連結裡而不是伺服器上，並在24小時後刪除。"
+      },
+      "2": {
+        "h": "為匿名而設計",
+        "b": "OnionShare透過Tor轉送，隱藏誰在和誰分享。Blip以及系統內建的AirDrop和Quick Share會在傳輸途中加密資料，但會把傳輸和帳號或裝置身分連結起來。"
+      }
     }
   },
   "faq": {
-    "title": "常見問題",
+    "title": "LocalSend替代工具：常見問題",
     "items": {
       "0": {
-        "q": "BIShare 像 LocalSend 一樣開源嗎？",
-        "a": "LocalSend 完全開源；BIShare 可免費使用，採用開放、有文件記錄的傳輸協定，並具備端對端加密。如果開源是你唯一的要求，LocalSend 是很好的選擇 —— 如果你還需要連結分享和雲端同步，BIShare 涵蓋的範圍更廣。"
+        "q": "LocalSend最好的替代工具是什麼？",
+        "a": "想要本機傳輸又能傳到網路之外，選BIShare，它多了加密連結和房間。只用瀏覽器，選PairDrop。Android和Linux整合，選KDE Connect。透過網際網路在自己的裝置之間傳超大檔案，選Blip。"
       },
       "1": {
-        "q": "BIShare 能像 LocalSend 那樣在同一網路下不經雲端運作嗎？",
-        "a": "可以。在同一 Wi-Fi 下，傳輸以本地速度直接在裝置間進行，絕不經過雲端 —— 雲端功能完全是可選的。"
+        "q": "LocalSend能透過網際網路使用嗎？",
+        "a": "不能。LocalSend只在同一個區域網路內的裝置之間運作，它的連結分享模式也只能在該網路內的瀏覽器開啟。"
       },
       "2": {
-        "q": "BIShare 能傳送給身處不同地點的人嗎？",
-        "a": "可以 —— 這正是它相較 LocalSend 所增加的主要能力。分享一個連結或短代碼，接收方無論身在何處都能以任意瀏覽器開啟，無需應用程式或帳戶。"
+        "q": "為什麼LocalSend找不到我的另一台裝置？",
+        "a": "通常是路由器隔離了裝置、Windows把網路設為公用、防火牆擋住連接埠53317，或是VPN正在執行。讓兩台裝置連同一個主網路，把它設為私人網路，並在防火牆允許該App通過。"
       },
       "3": {
-        "q": "BIShare 支援哪些平台？",
-        "a": "iPhone、Android、macOS、Windows、Linux 以及網頁 —— 與 LocalSend 一樣廣泛的平台涵蓋，再加上為接收方提供的瀏覽器體驗。"
+        "q": "有不必安裝App的LocalSend替代工具嗎？",
+        "a": "有。PairDrop完全在瀏覽器中執行，BIShare的連結或房間接收者也能用任何瀏覽器開啟。"
       },
       "4": {
-        "q": "它免費嗎？",
-        "a": "是的，全部免費。傳送和接收都免費，接收方無需帳戶，連結會自動失效。BIShare 是開源軟體（MIT），沒有付費方案。"
+        "q": "BIShare和LocalSend一樣開源嗎？",
+        "a": "是的。BIShare的原始碼以MIT授權發布，LocalSend則採用Apache 2.0。"
+      },
+      "5": {
+        "q": "哪款LocalSend替代工具能在iPhone和Linux之間使用？",
+        "a": "BIShare兩邊都有App，PairDrop在Safari和任何Linux瀏覽器中都能用。KDE Connect有功能較少的iOS App，而Warpinator和Blip都不支援這個組合。"
+      },
+      "6": {
+        "q": "能不能像LocalSend那樣，但遠端傳檔案給其他城市的人？",
+        "a": "能。BIShare連結一整天內誰都能開啟，最多100 GB；PairDrop能傳到另一個網路中已配對的裝置；Blip透過網際網路連接帳號。"
+      },
+      "7": {
+        "q": "BIShare本機傳輸需要連網嗎？",
+        "a": "不需要。裝置連著同一個Wi-Fi網路或手機熱點時，直傳可以離線完成。只有連結和房間需要連線。"
+      },
+      "8": {
+        "q": "LocalSend安全嗎？",
+        "a": "LocalSend使用每台裝置各自產生的憑證，透過HTTPS加密傳輸，資料只留在你的區域網路內。只接受來自你認得的裝置的傳輸。"
+      },
+      "9": {
+        "q": "BIShare免費嗎？",
+        "a": "免費。沒有任何需要付費的地方：BIShare的程式碼以MIT授權公開，不顯示廣告，不必註冊，直傳也沒有上限。"
       }
     }
   },
   "cta": {
-    "title": "保留本地速度，擺脫網路邊界。",
-    "body": "在每台裝置上免費安裝 BIShare。在你的網路內即時傳輸，為其他所有人提供連結，全程端對端加密。",
-    "download": "下載 BIShare"
+    "title": "保留本機速度，再給其他人一個連結",
+    "body": "開源又免費。像LocalSend一樣在自己的網路裡直接傳送，或與不在網路中的人分享加密連結或房間。",
+    "download": "下載BIShare"
   },
   "a11y": {
     "yes": "是",
     "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "手機和筆電在同一個網路中互傳檔案，另有一條連結延伸到更遠處，標題為最佳LocalSend替代工具，2026年7款免費App比較。",
+      "title": "最佳LocalSend替代工具",
+      "sub": "2026年7款免費App比較",
+      "left": "手機",
+      "right": "筆電"
+    },
+    "reach": {
+      "alt": "各工具能傳多遠：同一個Wi-Fi下，LocalSend、Warpinator、KDE Connect和BIShare都能用；不同網路下，配對後的PairDrop、Blip和BIShare連結能用；接收者只有瀏覽器時，PairDrop以及BIShare連結和房間能用。",
+      "title": "各工具能傳多遠",
+      "sub": "從同一個Wi-Fi到任何有瀏覽器的人",
+      "z1": "同一個Wi-Fi或熱點",
+      "z1apps": "LocalSend · Warpinator · KDE Connect · BIShare",
+      "z2": "不同的網路",
+      "z2apps": "PairDrop（已配對） · Blip · BIShare連結",
+      "z3": "只有瀏覽器，人在哪都行",
+      "z3apps": "PairDrop · BIShare連結或房間",
+      "foot": "走出區域網路的方式都需要連網"
+    },
+    "versus": {
+      "alt": "LocalSend與BIShare比較：兩者都開源，在同一個網路中不限大小直接傳送，不連網也能用；只有BIShare能傳到另一個網路中的人，讓瀏覽器接收者在任何地方下載，並用房間代碼召集群組。",
+      "title": "LocalSend與BIShare",
+      "sub": "同一個網路中不分軒輊，分隔兩地才見差異",
+      "ls": "LocalSend",
+      "bs": "BIShare",
+      "r0": "開源",
+      "r1": "同一網路直傳，不限大小",
+      "r2": "不連網也能用",
+      "r3": "能傳到另一個網路",
+      "r4": "瀏覽器接收者人在哪都行",
+      "r5": "憑代碼進入的群組房間",
+      "foot": "LocalSend的分享連結只能在同一個區域網路內開啟"
+    },
+    "choose": {
+      "alt": "依情境選擇LocalSend替代工具：所有人在同一個網路，繼續用LocalSend或用BIShare；對方在別處，用BIShare連結、PairDrop或Blip；訪客電腦，用PairDrop或BIShare連結；手機和電腦搭配，用KDE Connect。",
+      "title": "依情境選擇",
+      "sub": "關鍵在於對方裝置在哪裡",
+      "a": {
+        "need": "所有人在同一個網路",
+        "pick": "LocalSend · BIShare · Warpinator"
+      },
+      "b": {
+        "need": "對方在別的地方",
+        "pick": "BIShare連結 · PairDrop · Blip"
+      },
+      "c": {
+        "need": "訪客或受管制的電腦",
+        "pick": "PairDrop · BIShare連結或房間"
+      },
+      "d": {
+        "need": "手機和電腦整天搭配",
+        "pick": "KDE Connect"
+      }
+    }
   }
 }

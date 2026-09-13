@@ -1,83 +1,129 @@
 {
   "meta": {
-    "title": "Alternative à LocalSend : la vitesse locale, plus un lien",
-    "description": "Comme LocalSend, BIShare envoie des fichiers chiffrés d'appareil à appareil sur votre Wi-Fi, et ajoute un lien de 100 Go vers d'autres réseaux. Gratuit, open source."
+    "title": "Meilleures alternatives à LocalSend en 2026 : 7 apps gratuites",
+    "description": "LocalSend brille sur un même Wi-Fi. Si l'autre appareil est ailleurs ou n'apparaît pas, comparez BIShare, PairDrop, KDE Connect, Blip, Warpinator et d'autres."
   },
   "hero": {
     "eyebrow": "Alternative à LocalSend",
-    "title": "Tout ce que vous aimez dans LocalSend — et une portée au-delà de votre réseau",
-    "body": "<strong>LocalSend</strong> est un excellent moyen open source d'envoyer des fichiers entre appareils du même Wi-Fi. BIShare le fait aussi — instantané et chiffré de bout en bout sur toutes les plateformes — puis va plus loin : <highlight>un lien de navigateur pour quiconque n'est pas à proximité</highlight>, plus le stockage cloud et la synchronisation.",
-    "ctaPrimary": "Essayez BIShare gratuitement",
-    "ctaSecondary": "Voir comment ça marche"
+    "title": "Les meilleures alternatives à LocalSend",
+    "body": "LocalSend a mérité sa réputation : gratuit, open source, disponible presque partout, il fait passer des fichiers sur le Wi-Fi sans compte ni serveur cloud. Si l'on cherche autre chose, c'est pour une poignée de raisons précises. L'autre personne est dans un autre bâtiment, le téléphone n'apparaît jamais sur le portable parce que le routeur isole les appareils, un groupe a besoin des mêmes fichiers en même temps, ou un iPhone doit joindre un bureau Linux sans bricoler. Ce guide explique ce que fait LocalSend et où il s'arrête, le compare directement à BIShare, classe sept alternatives selon leur point fort et règle les problèmes de détection qui poussent la plupart des gens à chercher. <strong>BIShare</strong> fait partie des sept : sur un réseau partagé, il fonctionne comme LocalSend, et il ajoute <strong>un lien chiffré jusqu'à 100 Go pour quiconque n'est pas sur ce réseau</strong>. <highlight>Gratuit, open source, sans compte.</highlight>",
+    "ctaPrimary": "Obtenir BIShare gratuitement",
+    "ctaSecondary": "Comment ça marche"
   },
-  "why": {
-    "title": "Là où LocalSend s'arrête",
-    "body": "LocalSend est conçu pour une seule mission et il l'accomplit bien : les transferts directs entre appareils du <strong>même réseau</strong>. Mais c'est aussi sa limite — si l'autre personne est dans une autre ville, en données mobiles ou derrière un autre routeur, impossible de l'atteindre, et il n'y a pas de cloud pour garder vos fichiers synchronisés entre vos propres appareils."
+  "updated": "Mis à jour en septembre 2026 · informations sur LocalSend tirées de son dépôt GitHub, alternatives vérifiées ce mois-ci sur leurs propres sites",
+  "disclosure": "BIShare est notre produit, et LocalSend est un projet que nous respectons. Si tous vos transferts se font sur un seul réseau, LocalSend peut suffire, et cette page dit où il l'emporte.",
+  "quick": {
+    "title": "Réponse rapide",
+    "items": [
+      "<strong>La même expérience, avec une portée au-delà de votre Wi-Fi :</strong> BIShare transfère d'appareil à appareil quand vous partagez un réseau et devient un lien chiffré de 100 Go pour ceux qui n'y sont pas.",
+      "<strong>Rien à installer d'un côté comme de l'autre :</strong> PairDrop fonctionne dans le navigateur, et un code d'association à 6 chiffres relie des appareils sur des réseaux différents.",
+      "<strong>Le téléphone comme télécommande d'un bureau Linux ou Windows :</strong> KDE Connect ajoute presse-papiers partagé, notifications et commandes multimédias au transfert de fichiers.",
+      "<strong>D'énormes fichiers entre vos propres appareils via internet :</strong> Blip envoie toutes les tailles en direct et reprend après une coupure, gratuit pour un usage non commercial avec un compte.",
+      "<strong>Des machines Linux Mint sur le réseau de la maison :</strong> Warpinator est déjà installé et ne demande aucun réglage.",
+      "<strong>Foyers tout Apple, ou Android avec Windows :</strong> AirDrop et Quick Share, intégrés, demandent le moins d'effort."
+    ]
   },
-  "how": {
-    "title": "Comment BIShare prend le relais là où LocalSend s'arrête",
+  "limits": {
+    "title": "Ce que LocalSend fait bien, et là où il s'arrête",
+    "body": "LocalSend repose sur une idée : les appareils d'un même réseau local se trouvent et se parlent directement en HTTPS, sans connexion internet. Ce principe fait sa force et sa limite.",
     "items": {
-      "0": {
-        "h": "Le même transfert local instantané",
-        "b": "Sur le même Wi-Fi, BIShare envoie d'appareil à appareil à la vitesse du réseau local, chiffré de bout en bout, sur iPhone, Android, Windows, Mac et Linux — exactement le cas d'usage de LocalSend, sans détour par le cloud."
-      },
-      "1": {
-        "h": "Un lien pour tous, partout",
-        "b": "Quand le destinataire n'est pas sur votre réseau, partagez un lien ou un code court qu'il ouvre dans n'importe quel navigateur — sans application ni compte de son côté. C'est l'élément que LocalSend n'a pas."
-      },
-      "2": {
-        "h": "Des salons quand un groupe a besoin des fichiers",
-        "b": "Partagez avec tout un groupe grâce à un code court — optionnel, et le salon se ferme en 24 heures au plus."
-      }
+      "0": { "h": "Là où il brille", "b": "Il fonctionne sur Android, iPhone, Mac, Windows, Linux et même les tablettes Fire OS, s'installe depuis les boutiques d'applications et des gestionnaires de paquets comme Winget, Homebrew et Flathub, et est publié sous licence Apache 2.0. Chaque appareil génère son propre certificat TLS : les transferts sont chiffrés et rien ne passe par le serveur d'une entreprise. Pour un foyer ou un bureau derrière un seul routeur, difficile de faire mieux." },
+      "1": { "h": "Là où il s'arrête", "b": "Les deux appareils doivent partager un réseau local. Un ami dans une autre ville, un téléphone en données mobiles ou un portable sur le réseau invité restent hors de portée, et aucun relais ne prend le relais. Son mode de partage par lien permet de télécharger depuis un navigateur sans l'application, mais le lien pointe vers l'appareil expéditeur sur le réseau local : il ne sert donc qu'à quelqu'un déjà sur le même Wi-Fi." },
+      "2": { "h": "Pourquoi les appareils disparaissent", "b": "La détection passe par le multicast sur le port 53317. Les routeurs avec isolation des points d'accès ou des clients, les réseaux invités, les réseaux marqués Public sous Windows, les pare-feu et les VPN la bloquent, d'où la plainte la plus fréquente à propos de LocalSend : l'autre appareil n'apparaît jamais." }
     }
   },
-  "comparison": {
-    "title": "BIShare face à LocalSend et Snapdrop",
-    "cols": {
-      "localsend": "LocalSend",
-      "snapdrop": "Snapdrop",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "r0": "Transfert local instantané sur toutes les plateformes",
-      "r1": "Chiffrement de bout en bout",
-      "r2": "Atteindre quelqu'un hors de votre réseau (lien)",
-      "r3": "Le destinataire n'a besoin d'aucune application (ouverture dans un navigateur)",
-      "r4": "Stockage cloud et synchronisation entre appareils"
+  "versus": {
+    "title": "LocalSend et BIShare, côte à côte",
+    "body": "Les deux se ressemblent plus qu'ils ne diffèrent. Tous deux sont open source, transfèrent en direct sur un réseau partagé sans limite de taille et ne demandent aucun compte. Les différences apparaissent quand les appareils sont éloignés.",
+    "items": {
+      "0": { "h": "Sur le même réseau", "b": "Les deux font passer les fichiers entre appareils aussi vite que le routeur le permet, et les deux continuent de fonctionner sur le partage de connexion d'un téléphone quand internet manque. LocalSend propose un destinataire, plusieurs destinataires ou un lien ; BIShare envoie à un appareil proche ou à plusieurs personnes via un code de salle." },
+      "1": { "h": "Quand l'autre personne est ailleurs", "b": "C'est là que BIShare apporte quelque chose. Un lien BIShare est chiffré sur l'appareil expéditeur, contient jusqu'à 100 Go et s'ouvre dans n'importe quel navigateur pendant 24 heures, où que soit le destinataire. LocalSend n'a aucun moyen de sortir du réseau local." },
+      "2": { "h": "Les groupes", "b": "Plusieurs personnes rejoignent une salle BIShare avec un code court, depuis l'application ou un navigateur, et y déposent ou récupèrent des fichiers ensemble ; les fichiers d'une salle expirent sous 24 heures. Le mode plusieurs destinataires de LocalSend ne couvre un groupe que si tout le monde est sur le même Wi-Fi." },
+      "3": { "h": "Là où LocalSend l'emporte", "b": "LocalSend prend en charge les tablettes Fire OS, est distribué par davantage de gestionnaires de paquets et n'a aucune composante serveur, ce que certains préfèrent par principe. Si vous n'envoyez jamais hors de votre réseau, il fait le travail avec moins de pièces en jeu." }
+    }
+  },
+  "methods": {
+    "title": "Sept alternatives à LocalSend, classées",
+    "consLabel": "Points de vigilance :",
+    "items": {
+      "0": { "name": "BIShare", "tag": "Notre choix : transferts locaux façon LocalSend, plus lien et salles pour tous les autres", "facts": "Applications iPhone, Android, Windows, macOS et Linux, plus accès navigateur aux liens et aux salles · licence MIT · d'appareil à appareil sur un réseau partagé, taille illimitée · liens chiffrés jusqu'à 100 Go valables un jour · salles avec code court · sans inscription", "body": "Installez BIShare sur les deux appareils : ils se voient sur un Wi-Fi commun ou le partage de connexion d'un téléphone, exactement comme avec LocalSend ; choisissez-en un et les fichiers passent directement, chiffrés et sans limite de taille. Quand le destinataire n'est pas à proximité, créez plutôt un lien : les fichiers sont chiffrés avant de quitter votre appareil, et l'autre personne les télécharge dans n'importe quel navigateur dans la journée, sans rien installer. Pour une classe, une équipe ou une famille, une salle réunit tout le monde derrière un code court.", "cons": "Les liens et les salles reposent sur le serveur de BIShare, qui conserve les données chiffrées, et ont donc besoin d'internet, contrairement à un transfert LocalSend purement local. Il n'existe pas d'application Fire OS." },
+      "1": { "name": "PairDrop", "tag": "Le meilleur quand personne ne veut rien installer", "facts": "Tout navigateur récent, installable en web app · open source (GPL-3.0) · association par code à 6 chiffres ou QR entre réseaux · salles publiques avec code de 5 lettres · pair-à-pair, relayé par un serveur TURN si besoin · sans compte", "body": "Ouvrez PairDrop dans un navigateur sur les deux appareils et tout ce qui est sur le même réseau apparaît automatiquement, un peu comme LocalSend sans application. Associez deux appareils une fois avec un code à 6 chiffres ou un QR code, et ils continuent de se retrouver sur des réseaux différents, la connexion passant par le serveur TURN de PairDrop quand la voie directe est bloquée. Les fichiers restent chiffrés de bout en bout dans tous les cas, et le projet peut être auto-hébergé.", "cons": "Les deux onglets doivent rester ouverts pendant le transfert, les très gros fichiers dépendent de la gestion mémoire du navigateur, et le service public a besoin d'internet pour que les appareils se trouvent." },
+      "2": { "name": "KDE Connect", "tag": "Le meilleur quand téléphone et ordinateur doivent partager plus que des fichiers", "facts": "Linux, Windows, macOS, Android, iOS · open source (GPL) · même réseau local · envoi de fichiers, presse-papiers, notifications, commandes multimédias et à distance · sans compte", "body": "KDE Connect associe un téléphone à un ordinateur du même réseau et en fait une équipe : envoyer des fichiers dans les deux sens, partager le presse-papiers, répondre aux notifications depuis le bureau et utiliser le téléphone comme pavé tactile ou télécommande multimédia. Il est souvent déjà disponible sur les bureaux Linux, et sur Android c'est le plus complet des outils locaux.", "cons": "L'application iOS fait bien moins que la version Android à cause des restrictions d'Apple, l'association se fait appareil par appareil, et comme LocalSend il ne peut pas joindre un appareil sur un autre réseau." },
+      "3": { "name": "Blip", "tag": "Le meilleur pour envoyer d'énormes fichiers entre vos appareils via internet", "facts": "Mac, Windows, iPhone, Android, pas encore d'application Linux · gratuit pour un usage non commercial, offres payantes pour les entreprises · aucune limite de taille · reprend après une coupure · compte avec vérification par e-mail", "body": "Blip envoie des fichiers de toute taille directement à vos autres appareils, ou à d'autres utilisateurs Blip, sans les téléverser d'abord vers un service de stockage. Il passe par le réseau local quand les deux extrêmités en partagent un, par internet sinon, et reprend là où il s'était arrêté après une connexion coupée ou un portable en veille. Pour déplacer un projet vidéo de la machine du studio à celle de la maison, c'est remarquablement fluide.", "cons": "Il n'est pas open source, exige un compte des deux côtés, n'existe pas sous Linux, et un usage professionnel impose une offre payante." },
+      "4": { "name": "Warpinator", "tag": "Le meilleur entre machines Linux Mint sur le réseau de la maison", "facts": "Par défaut sur Linux Mint, sur Flathub pour les autres distributions · portages non officiels pour Windows et Android · open source · même réseau local · sans compte", "body": "Warpinator, développé par l'équipe de Linux Mint, repère les autres machines Warpinator du réseau et leur envoie des fichiers après une acceptation rapide. Sur Mint il est déjà installé, si bien que deux ordinateurs familiaux peuvent échanger des dossiers sans rien télécharger. Des portages communautaires l'étendent aux PC Windows et aux téléphones Android.", "cons": "Il n'existe pas d'application iPhone, les versions Windows et Android ne sont pas officielles, et il ne fonctionne que sur le réseau local." },
+      "5": { "name": "AirDrop et Quick Share", "tag": "Le meilleur quand tous vos appareils viennent du même écosystème", "facts": "AirDrop : iPhone, iPad, Mac et téléphones Android compatibles AirDrop via Quick Share · Quick Share : Android, Chromebooks, PC Windows · intégrés · à proximité, par Bluetooth et Wi-Fi", "body": "Si tous les appareils sont Apple, AirDrop est déjà dans la feuille de partage et ne demande aucun réglage ; il en va de même pour Quick Share entre téléphones Android et PC Windows. Tous deux fonctionnent quand les appareils sont proches, même sans Wi-Fi commun, et les Pixel et Galaxy récents peuvent aussi envoyer vers des appareils Apple via AirDrop.", "cons": "Ils sont fermés et liés à leurs plateformes, exigent que les appareils soient physiquement proches et n'atteignent pas du tout Linux." },
+      "6": { "name": "OnionShare", "tag": "Le meilleur pour partager anonymement via Tor", "facts": "Windows, Mac, Linux, Android, iOS · open source · partage via une adresse onion Tor · le destinataire utilise Tor Browser · sans compte ni serveur tiers", "body": "OnionShare lance un petit serveur web sur votre propre ordinateur et le publie sous une adresse onion impossible à deviner ; le destinataire l'ouvre dans Tor Browser et télécharge directement chez vous. Aucune entreprise, pas même un relais que vous contrôlez, ne voit les fichiers, ce qui explique son usage par des journalistes et des militants. Il peut aussi recevoir des fichiers et héberger une messagerie simple.", "cons": "Tor rend les transferts lents, le destinataire a besoin de Tor Browser, et votre ordinateur doit rester allumé et connecté jusqu'à la fin du téléchargement." }
+    }
+  },
+  "table": {
+    "title": "En un coup d'œil",
+    "cols": { "feature": "Critère", "bishare": "BIShare", "localsend": "LocalSend", "pairdrop": "PairDrop", "kde": "KDE Connect", "blip": "Blip", "warpinator": "Warpinator" },
+    "rows": { "r0": "Open source", "r1": "Atteint un appareil sur un autre réseau", "r2": "Le destinataire peut se contenter d'un navigateur", "r3": "Fonctionne sans connexion internet", "r4": "Application iPhone native", "r5": "Aucun compte nécessaire" },
+    "note": "Situation en septembre 2026. BIShare atteint d'autres réseaux via des liens chiffrés et des salles, qui demandent internet, tandis que ses transferts directs fonctionnent hors ligne sur un réseau partagé ou un partage de connexion. Le lien de LocalSend ne s'ouvre que dans un navigateur du même réseau local. PairDrop atteint d'autres réseaux après association et a besoin de son serveur de signalisation, il compte donc comme dépendant d'internet ; il fonctionne dans Safari mais n'a pas d'application iPhone native. L'application iOS de KDE Connect est limitée. Blip demande un compte sur chaque appareil. Les versions Windows et Android de Warpinator ne sont pas officielles."
+  },
+  "choose": {
+    "title": "Quelle alternative selon la situation",
+    "body": "Choisissez selon l'endroit où se trouve l'autre appareil et qui l'utilise, pas selon la longueur des listes de fonctions.",
+    "items": {
+      "0": { "h": "Tout le monde est sur le même réseau, à la maison ou au bureau", "b": "Restez sur LocalSend, ou prenez BIShare si vous voulez aussi des liens pour les personnes à l'extérieur. Sur Linux Mint, Warpinator est déjà là." },
+      "1": { "h": "L'autre personne est ailleurs", "b": "Un lien BIShare s'ouvre dans n'importe quel navigateur pendant 24 heures, jusqu'à 100 Go. PairDrop fonctionne une fois les deux appareils associés, et Blip convient aux énormes fichiers entre vos propres comptes." },
+      "2": { "h": "Un ordinateur invité ou verrouillé", "b": "Passez par une voie uniquement navigateur : PairDrop, ou un lien ou une salle BIShare, pour ne rien installer sur une machine que vous ne maîtrisez pas." },
+      "3": { "h": "Téléphone et ordinateur travaillent ensemble toute la journée", "b": "KDE Connect ajoute presse-papiers, notifications et contrôle à distance au transfert de fichiers, surtout entre Android et Linux." }
+    }
+  },
+  "steps": {
+    "title": "Passer de LocalSend à BIShare",
+    "items": {
+      "0": { "h": "Installez-le sur les appareils que vous utilisez", "b": "BIShare est dans les boutiques d'applications d'Apple et de Google, le Microsoft Store et le Mac App Store, et il existe une version Linux. Mettez les appareils sur un même Wi-Fi ou le partage de connexion d'un téléphone ; un iPhone demande une fois l'autorisation de voir les appareils locaux, touchez Autoriser." },
+      "1": { "h": "Envoyez à proximité comme d'habitude", "b": "Choisissez les fichiers, sélectionnez l'autre appareil dans la liste à proximité et acceptez côté destinataire. Les transferts restent sur le réseau local et n'ont pas de limite de taille, comme avec LocalSend." },
+      "2": { "h": "Utilisez un lien ou une salle quand quelqu'un est absent", "b": "Créez un lien pour un destinataire où qu'il soit, jusqu'à 100 Go et valable 24 heures, ou ouvrez une salle et partagez son code avec un groupe. Les destinataires peuvent passer par un navigateur sans rien installer." }
+    }
+  },
+  "fixes": {
+    "title": "Quand LocalSend, ou une autre app locale, ne trouve pas l'autre appareil",
+    "items": {
+      "0": { "h": "Le routeur isole les appareils", "b": "Beaucoup de routeurs, de systèmes mesh et de réseaux invités activent l'isolation des points d'accès ou des clients, qui empêche les appareils de se voir. Connectez les deux au réseau principal plutôt qu'au réseau invité, ou désactivez l'isolation dans les réglages du routeur." },
+      "1": { "h": "Windows considère le réseau comme Public", "b": "Passez le profil réseau sur Privé dans les paramètres de Windows, puis autorisez l'application dans le Pare-feu Windows Defender ; LocalSend utilise le port 53317 en TCP comme en UDP." },
+      "2": { "h": "Un VPN est actif", "b": "Les VPN détournent souvent le trafic hors du réseau local, si bien que les appareils voisins disparaissent. Mettez le VPN en pause, ou activez son option d'accès au réseau local, pendant le transfert." },
+      "3": { "h": "L'iPhone n'apparaît pas", "b": "Dans les Réglages de l'iPhone, ouvrez Confidentialité et sécurité, Réseau local, et activez l'application. Gardez l'application au premier plan pendant l'envoi." },
+      "4": { "h": "Bandes ou sous-réseaux différents", "b": "Certains routeurs placent le 2,4 GHz et le 5 GHz, ou le filaire et le Wi-Fi, sur des sous-réseaux séparés qui bloquent le multicast. Connectez les deux appareils à la même bande, ou reliez-les via le partage de connexion d'un téléphone, qui fonctionne toujours comme réseau commun." },
+      "5": { "h": "Impossible de modifier le réseau", "b": "Sur le Wi-Fi d'un hôtel, d'une école ou d'un bureau que vous ne gérez pas, passez à une méthode qui ne dépend pas de la détection : un lien BIShare, un code d'association PairDrop ou un dossier cloud." }
+    }
+  },
+  "security": {
+    "title": "Ces outils sont-ils vraiment privés ?",
+    "body": "Tous chiffrent les transferts. Les vraies questions : quelque chose est-il stocké sur le serveur d'un tiers, et qui peut voir qu'un transfert a eu lieu ?",
+    "items": {
+      "0": { "h": "Uniquement en local", "b": "LocalSend, Warpinator et KDE Connect ne sortent jamais du réseau local, et LocalSend chiffre chaque transfert avec des certificats générés sur chaque appareil. Les transferts directs BIShare sur un réseau partagé restent eux aussi en local." },
+      "1": { "h": "Relayé mais chiffré de bout en bout", "b": "PairDrop ne passe par son serveur TURN que si la connexion directe échoue, et les données restent chiffrées de bout en bout. Un lien BIShare est chiffré sur votre appareil avant l'envoi, la clé se trouve dans le lien et non sur le serveur, et tout est supprimé au bout de 24 heures." },
+      "2": { "h": "Anonyme par conception", "b": "OnionShare masque qui partage avec qui en passant par Tor. Blip ainsi qu'AirDrop et Quick Share, intégrés, chiffrent les données en transit mais rattachent les transferts à un compte ou à l'identité d'un appareil." }
     }
   },
   "faq": {
-    "title": "Questions fréquentes",
+    "title": "Alternatives à LocalSend : FAQ",
     "items": {
-      "0": {
-        "q": "BIShare est-il open source comme LocalSend ?",
-        "a": "LocalSend est entièrement open source ; BIShare est gratuit à utiliser, avec un protocole de transfert ouvert et documenté et un chiffrement de bout en bout. Si l'open source est votre seule exigence, LocalSend est un excellent choix — si vous avez aussi besoin du partage par lien et de la synchronisation cloud, BIShare couvre plus de terrain."
-      },
-      "1": {
-        "q": "BIShare fonctionne-t-il sur le même réseau sans le cloud, comme LocalSend ?",
-        "a": "Oui. Sur le même Wi-Fi, les transferts se font directement d'appareil à appareil à la vitesse locale et ne touchent jamais le cloud — les fonctions cloud sont entièrement optionnelles."
-      },
-      "2": {
-        "q": "BIShare peut-il envoyer à quelqu'un situé ailleurs ?",
-        "a": "Oui — c'est le principal ajout par rapport à LocalSend. Partagez un lien ou un code court et le destinataire l'ouvre dans n'importe quel navigateur, où qu'il soit, sans application ni compte."
-      },
-      "3": {
-        "q": "Quelles plateformes BIShare prend-il en charge ?",
-        "a": "iPhone, Android, macOS, Windows, Linux et le web — la même large couverture de plateformes que LocalSend, plus une expérience navigateur pour les destinataires."
-      },
-      "4": {
-        "q": "Est-ce gratuit ?",
-        "a": "Oui, entièrement. L'envoi et la réception sont gratuits, le destinataire n'a jamais besoin de compte et les liens expirent d'eux-mêmes. BIShare est open source (MIT) et n'a aucune offre payante."
-      }
+      "0": { "q": "Quelle est la meilleure alternative à LocalSend ?", "a": "Pour des transferts locaux avec une portée au-delà de votre réseau, BIShare, qui ajoute liens chiffrés et salles. Pour un usage uniquement navigateur, PairDrop. Pour l'intégration Android et Linux, KDE Connect. Pour d'énormes fichiers via internet entre vos propres appareils, Blip." },
+      "1": { "q": "LocalSend fonctionne-t-il via internet ?", "a": "Non. LocalSend ne fonctionne qu'entre appareils du même réseau local, et son lien de partage ne s'ouvre que dans un navigateur de ce réseau." },
+      "2": { "q": "Pourquoi LocalSend ne trouve-t-il pas mon autre appareil ?", "a": "Le plus souvent, le routeur isole les appareils, Windows considère le réseau comme Public, un pare-feu bloque le port 53317 ou un VPN est actif. Mettez les deux appareils sur le même réseau principal, passez-le en Privé et autorisez l'application dans le pare-feu." },
+      "3": { "q": "Existe-t-il une alternative à LocalSend sans installer d'application ?", "a": "Oui. PairDrop fonctionne entièrement dans le navigateur, et le destinataire peut ouvrir un lien ou une salle BIShare dans n'importe quel navigateur." },
+      "4": { "q": "BIShare est-il open source comme LocalSend ?", "a": "Oui. Le code de BIShare est publié sous licence MIT, tandis que LocalSend utilise Apache 2.0." },
+      "5": { "q": "Quelle alternative à LocalSend fonctionne entre iPhone et Linux ?", "a": "BIShare a des applications pour les deux, et PairDrop fonctionne dans Safari et dans tout navigateur Linux. KDE Connect a une application iOS moins complète, et Warpinator et Blip n'offrent rien pour ce duo." },
+      "6": { "q": "Peut-on envoyer à quelqu'un dans une autre ville, comme avec LocalSend mais à distance ?", "a": "Oui. Un lien BIShare atteint n'importe qui pendant une journée entière, jusqu'à 100 Go ; PairDrop atteint un appareil associé sur un autre réseau ; Blip relie des comptes via internet." },
+      "7": { "q": "BIShare a-t-il besoin d'internet pour les transferts locaux ?", "a": "Non. Quand les appareils partagent un Wi-Fi ou le partage de connexion d'un téléphone, les transferts directs fonctionnent hors ligne. Seuls les liens et les salles demandent une connexion." },
+      "8": { "q": "LocalSend est-il sûr ?", "a": "LocalSend chiffre les transferts en HTTPS avec des certificats générés sur chaque appareil et garde les données sur votre réseau local. N'acceptez que les transferts d'appareils que vous reconnaissez." },
+      "9": { "q": "BIShare est-il gratuit ?", "a": "Oui. Il n'y a rien à payer : le code de BIShare est publié sous licence MIT, sans publicité, sans inscription et sans plafond pour les transferts directs." }
     }
   },
   "cta": {
-    "title": "Gardez la vitesse locale. Supprimez la frontière du réseau.",
-    "body": "Installez BIShare gratuitement sur tous vos appareils. Instantané sur votre réseau, un lien pour tous les autres, chiffré de bout en bout d'un bout à l'autre.",
+    "title": "Gardez la vitesse locale, ajoutez un lien pour les autres",
+    "body": "Open source et gratuit. Envoyez directement sur votre propre réseau comme avec LocalSend, ou partagez un lien ou une salle chiffrés avec ceux qui n'y sont pas.",
     "download": "Télécharger BIShare"
   },
-  "a11y": {
-    "yes": "Oui",
-    "no": "Non"
+  "a11y": { "yes": "Oui", "no": "Non" },
+  "art": {
+    "hero": { "alt": "Un téléphone et un portable échangent des fichiers sur le même réseau, un lien porte plus loin, titre : les meilleures alternatives à LocalSend, sept applications gratuites comparées pour 2026.", "title": "Les meilleures alternatives à LocalSend", "sub": "7 apps gratuites comparées pour 2026", "left": "Téléphone", "right": "Portable" },
+    "reach": { "alt": "Jusqu'où va chaque outil : sur le même Wi-Fi, LocalSend, Warpinator, KDE Connect et BIShare fonctionnent ; sur un autre réseau, PairDrop après association, Blip et les liens BIShare ; pour un destinataire qui n'a qu'un navigateur, PairDrop et les liens et salles BIShare.", "title": "Jusqu'où va chaque outil", "sub": "Du même Wi-Fi à n'importe qui muni d'un navigateur", "z1": "Même Wi-Fi ou partage de connexion", "z1apps": "LocalSend · Warpinator · KDE Connect · BIShare", "z2": "Un autre réseau", "z2apps": "PairDrop (associé) · Blip · lien BIShare", "z3": "Un navigateur, n'importe où", "z3apps": "PairDrop · lien ou salle BIShare", "foot": "Les méthodes qui sortent du réseau local ont besoin d'une connexion internet" },
+    "versus": { "alt": "LocalSend et BIShare comparés : tous deux open source, ils envoient en direct sur le même réseau sans limite de taille et fonctionnent sans internet ; seul BIShare atteint quelqu'un sur un autre réseau, permet à un navigateur de télécharger de n'importe où et réunit un groupe avec un code de salle.", "title": "LocalSend et BIShare", "sub": "Identiques sur un réseau, différents dès que les appareils s'éloignent", "ls": "LocalSend", "bs": "BIShare", "r0": "Open source", "r1": "Direct sur un réseau, sans limite", "r2": "Fonctionne sans internet", "r3": "Atteint un autre réseau", "r4": "Navigateur destinataire n'importe où", "r5": "Salle de groupe avec code", "foot": "Le lien de LocalSend ne s'ouvre que sur le même réseau local" },
+    "choose": { "alt": "Choisir une alternative à LocalSend selon la situation : tous sur un réseau, restez sur LocalSend ou prenez BIShare ; l'autre personne ailleurs, lien BIShare, PairDrop ou Blip ; un ordinateur invité, PairDrop ou lien BIShare ; téléphone et ordinateur ensemble, KDE Connect.", "title": "Choisir selon la situation", "sub": "L'endroit où se trouve l'autre appareil tranche", "a": { "need": "Tous sur un réseau", "pick": "LocalSend · BIShare · Warpinator" }, "b": { "need": "L'autre personne est ailleurs", "pick": "Lien BIShare · PairDrop · Blip" }, "c": { "need": "Ordinateur invité ou verrouillé", "pick": "PairDrop · lien ou salle BIShare" }, "d": { "need": "Téléphone et ordinateur toute la journée", "pick": "KDE Connect" } }
   }
 }
