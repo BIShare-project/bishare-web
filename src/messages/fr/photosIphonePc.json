@@ -1,83 +1,150 @@
 {
   "meta": {
-    "title": "Transférer les photos de l'iPhone vers le PC sans câble",
-    "description": "Photos et vidéos d'un iPhone vers un PC Windows en Wi-Fi, en pleine résolution. Sans câble, sans iTunes, sans abonnement iCloud. Gratuit, chiffré, sans compte."
+    "title": "Transférer des photos d'iPhone vers PC : 8 méthodes (2026)",
+    "description": "Transférez photos et vidéos d'un iPhone vers un PC Windows par câble, iCloud, Google Photos, OneDrive ou Wi-Fi, sans perte de qualité, et réglez les imports qui ne trouvent rien."
   },
   "hero": {
-    "eyebrow": "iPhone → PC Windows",
-    "title": "Transférez vos photos d'iPhone vers PC sans câble",
-    "body": "Votre pellicule mérite mieux qu'un câble Lightning fatigué et un import Photos qui meurt à 43 %. <strong>BIShare</strong> envoie vos photos et vidéos de l'<strong>iPhone directement vers votre PC en Wi-Fi</strong> — pleine résolution, HEIC et Live Photos intacts, par centaines. <highlight>Côté PC, un simple navigateur suffit pour recevoir, sans rien installer.</highlight>",
+    "eyebrow": "Photos d'iPhone vers un PC Windows",
+    "title": "Comment transférer des photos d'un iPhone vers un PC",
+    "body": "Copier sa pellicule sur Windows semble l'affaire de deux minutes, jusqu'au moment où la fenêtre d'importation annonce qu'il n'y a rien à importer, où un dossier rempli de fichiers HEIC refuse de s'ouvrir, ou où la moitié de l'été dernier manque parce qu'elle n'existe que dans iCloud. Presque tous ces échecs viennent de deux choses : l'endroit où se trouvent réellement les originaux en pleine qualité, et le format dans lequel l'iPhone les livre. Ce guide commence par là, puis classe huit façons de déplacer les photos, de l'import par câble décrit par Apple à iCloud pour Windows, Google Photos, OneDrive et des applications d'envoi direct en Wi-Fi, avec un plan dédié aux photothèques de plusieurs dizaines de milliers de clichés et une solution pour chaque erreur d'importation courante. <strong>BIShare</strong> fait partie des huit : il envoie <strong>photos et vidéos de l'iPhone vers le PC en Wi-Fi, en pleine résolution</strong>, ou sous forme de lien chiffré que le PC ouvre dans un navigateur. <highlight>Gratuit, open source, sans compte.</highlight>",
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
-  "why": {
-    "title": "Pourquoi les méthodes habituelles massacrent vos photos",
-    "body": "La voie du câble dépend de pilotes, d'invites de confiance et d'un importateur Photos qui s'étouffe sur les grandes bibliothèques. iCloud réclame un abonnement mensuel dès que vous dépassez <strong>5 Go</strong> — et si « Optimiser le stockage » est actif, les originaux pleine qualité ne sont même plus sur votre téléphone. L'e-mail vous limite à quelques mégaoctets, et les applis de messagerie recompressent chaque image en bouillie. Aucun de ces problèmes ne vient de vos photos ; ils viennent du trajet. Changez le trajet, ils disparaissent."
+  "updated": "Mis à jour en septembre 2026 · étapes d'importation issues de l'assistance Apple et Microsoft, limites d'iCloud, Google Photos et OneDrive relevées sur leurs pages d'aide",
+  "disclosure": "BIShare est notre produit. Pour une pellicule complète, l'import par câble d'Apple ou iCloud pour Windows est souvent le meilleur outil, et le classement ci-dessous le dit.",
+  "quick": {
+    "title": "Réponse rapide",
+    "items": [
+      "<strong>Toute la pellicule, en une fois :</strong> installez Apple Devices depuis le Microsoft Store, branchez l'iPhone déverrouillé, touchez Se fier, puis choisissez Importer dans l'application Photos de Windows.",
+      "<strong>Vos photos se synchronisent déjà avec iCloud :</strong> installez iCloud pour Windows et activez Photos ; la photothèque apparaît dans l'Explorateur de fichiers et dans Microsoft Photos.",
+      "<strong>Un PC prêté ou professionnel :</strong> connectez-vous sur iCloud.com/photos et téléchargez, jusqu'à 1 000 éléments par sélection, au format original ou au format le plus compatible.",
+      "<strong>Quelques clichés sans câble :</strong> BIShare sur l'iPhone et le PC les envoie sur le même Wi-Fi en pleine résolution, ou via un lien que le PC ouvre dans n'importe quel navigateur.",
+      "<strong>L'import ne trouve aucune photo :</strong> déverrouillez l'iPhone, touchez de nouveau Se fier et, si Photos iCloud utilise Optimiser le stockage de l'iPhone, téléchargez d'abord les originaux sur le téléphone.",
+      "<strong>Windows n'ouvre pas les fichiers :</strong> installez les Extensions d'image HEIF, gratuites, pour les photos HEIC et les Extensions vidéo HEVC pour les vidéos, ou réglez l'appareil photo sur Le plus compatible."
+    ]
   },
-  "how": {
-    "title": "Comment BIShare déplace votre pellicule",
+  "originals": {
+    "title": "Avant de commencer : les originaux sont-ils vraiment sur l'iPhone ?",
+    "body": "Un câble ne voit que ce qui est stocké sur le téléphone. Avec Photos iCloud activé, il peut s'agir d'un petit aperçu plutôt que de la photo, et la page d'assistance d'Apple indique de télécharger les originaux avant d'importer sur un PC.",
     "items": {
-      "0": {
-        "h": "Même Wi-Fi, en ligne droite",
-        "b": "Ouvrez BIShare sur l'iPhone, choisissez vos photos, touchez votre PC. Les fichiers voyagent directement entre les deux machines, chiffrés de bout en bout — rien n'est téléversé nulle part. Les originaux arrivent au bit près : pleine résolution, EXIF et localisation intacts."
-      },
-      "1": {
-        "h": "Des centaines à la fois",
-        "b": "Sélectionnez en masse dans la pellicule et envoyez tout le lot d'un coup — il atterrit dans un seul dossier sur le PC, à la vitesse du Wi-Fi local. Les photos d'un séjour prennent des minutes, pas une soirée."
-      },
-      "2": {
-        "h": "Pas de Wi-Fi commun ? Aucun souci",
-        "b": "Activez le partage de connexion de l'iPhone et le PC s'y joint — le transfert fonctionne sans aucun internet. Ou envoyez un lien à expiration : le PC télécharge depuis n'importe quel navigateur, où qu'il soit."
-      }
+      "0": { "h": "Optimiser le stockage de l'iPhone ne garde que des vignettes", "b": "Quand l'espace manque, ce réglage de Photos iCloud remplace les anciens fichiers en pleine résolution par des versions allégées et laisse les originaux dans iCloud. À l'écran, tout paraît normal, mais Windows les ignore ou reçoit la copie réduite. Vérifiez dans les réglages de Photos : si Optimiser le stockage de l'iPhone est coché et que la photothèque dépasse l'espace libre du téléphone, l'import par câble sera incomplet." },
+      "1": { "h": "Télécharger et garder les originaux règle le problème, s'il y a de la place", "b": "Passer à Télécharger et garder les originaux rapatrie chaque fichier en taille réelle sur l'iPhone via le Wi-Fi, ce qui peut prendre des heures pour une grosse photothèque et demande assez d'espace libre pour tout. Si le téléphone ne peut pas contenir la photothèque entière, laissez le câble de côté et récupérez les images depuis iCloud, avec iCloud pour Windows ou iCloud.com." },
+      "2": { "h": "Sans Photos iCloud, pas de surprise", "b": "Si Photos iCloud est désactivé, chaque photo et vidéo de la pellicule est un fichier complet sur l'iPhone, et toutes les méthodes de ce guide la trouveront. Reste la question du format, traitée plus bas : HEIC et HEVC tels qu'enregistrés, ou JPEG et H.264 convertis pendant le transfert." }
     }
   },
-  "comparison": {
-    "title": "Câble, iCloud ou direct ?",
-    "cols": {
-      "airdrop": "USB + app Photos",
-      "quick": "iCloud",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "r0": "Sans câble, pilotes ni invites de confiance",
-      "r1": "Gratuit quelle que soit la taille de la bibliothèque — pas de mur des 5 Go",
-      "r2": "Sans compte ni abonnement",
-      "r3": "Les photos sur le PC en minutes, pas une synchro nocturne",
-      "r4": "Rien n'est envoyé sur un serveur"
+  "methods": {
+    "title": "Huit façons de transférer des photos d'un iPhone vers un PC, classées",
+    "consLabel": "Points de vigilance :",
+    "items": {
+      "0": { "name": "BIShare", "tag": "Le meilleur sans câble : photos et vidéos choisies, directement vers le PC en Wi-Fi", "facts": "App iPhone, app Windows du Microsoft Store ou n'importe quel navigateur pour un lien · open source (MIT) · direct sur le même réseau, sans limite de taille · liens jusqu'à 100 Go pendant 24 heures · chiffré · sans compte", "body": "Ouvrez BIShare sur l'iPhone, touchez Photos, sélectionnez les images et les vidéos, puis choisissez le PC dans la liste des appareils à proximité ; l'application Windows accepte et les enregistre dans son dossier de téléchargement. Les fichiers arrivent en pleine résolution et dans leur format d'origine, un HEIC reste donc un HEIC et une vidéo 4K reste en 4K, sans rien téléverser tant que les deux appareils partagent un Wi-Fi ou que le PC se connecte au partage de connexion de l'iPhone. Si le PC est ailleurs, créez plutôt un lien : le lot est chiffré sur le téléphone et le PC le télécharge dans un navigateur sous 24 heures, sans rien installer.", "cons": "Il envoie ce que vous sélectionnez, ce qui convient mieux à quelques dizaines ou centaines d'éléments qu'à une photothèque de 40 000 photos. Les Live Photos arrivent en image fixe, et les photos choisies dans la photothèque reçoivent de nouveaux noms au lieu de IMG_1234." },
+      "1": { "name": "Application Photos de Windows avec un câble USB", "tag": "Le meilleur pour copier toute la pellicule d'un coup", "facts": "Windows 10 ou 11 · application Apple Devices du Microsoft Store · câble USB qui transmet les données · iPhone déverrouillé et approuvé · photos et vidéos · fichiers originaux, sans compte", "body": "C'est la méthode que documentent à la fois Apple et Microsoft. Installez Apple Devices pour que Windows dispose du pilote de l'iPhone, branchez le téléphone, déverrouillez-le et touchez Se fier, puis ouvrez Photos sur le PC, choisissez Importer et sélectionnez l'iPhone. Vous pouvez tout cocher ou une partie seulement et choisir l'emplacement d'enregistrement, et les originaux restent sur le téléphone. Pour une première sauvegarde complète, c'est l'option la plus rapide pour la plupart des gens, car rien n'attend un téléversement.", "cons": "Elle ne voit que les fichiers stockés sur l'iPhone, donc Optimiser le stockage de l'iPhone laisse des trous. Les imports de milliers d'éléments peuvent se bloquer si le téléphone se verrouille ou si le câble bouge, et les retouches faites dans l'app Photos de l'iPhone risquent de ne pas suivre." },
+      "2": { "name": "Explorateur de fichiers et le dossier DCIM", "tag": "Le meilleur pour extraire quelques dossiers à la main", "facts": "Windows 10 ou 11 · câble, iPhone déverrouillé et approuvé · Ce PC › Apple iPhone › Internal Storage › DCIM · dossiers comme 100APPLE · rien à installer hormis Apple Devices", "body": "Un iPhone déverrouillé apparaît aussi dans Ce PC, où Internal Storage contient DCIM et une série de dossiers numérotés comme 100APPLE et 101APPLE. Copiez-les sur un disque ou faites glisser des fichiers isolés, comme avec la carte d'un appareil photo. Pratique quand l'app Photos fait des siennes ou pour jeter un œil sans assistant d'importation, et on y voit les fichiers annexes que l'app Photos masque.", "cons": "Les dossiers sont découpés par nombre de fichiers, pas par date ni par album, et retrouver un voyage oblige à en ouvrir plusieurs. Les grosses copies peuvent échouer avec « Un périphérique attaché au système ne fonctionne pas », signe en général que l'iPhone convertit les fichiers à la volée ; régler Transférer sur Mac ou PC sur Conserver les originaux évite la plupart de ces cas." },
+      "3": { "name": "iCloud pour Windows", "tag": "Le meilleur quand la photothèque vit déjà dans Photos iCloud", "facts": "Windows 11 pour la version actuelle · gratuit dans le Microsoft Store · compte Apple · 5 Go d'iCloud gratuits, iCloud+ payant au-delà · Photos iCloud dans l'Explorateur de fichiers et Microsoft Photos", "body": "Connectez-vous, activez Photos, et Photos iCloud apparaît dans le volet de navigation de l'Explorateur de fichiers et dans Microsoft Photos. Un double-clic sur une vignette télécharge l'élément sur le PC. Comme il lit la copie dans le cloud, il retrouve les originaux qu'Optimiser le stockage de l'iPhone a retirés du téléphone, et les nouvelles photos continuent d'arriver sans câble.", "cons": "Seuls 5 Go d'iCloud sont gratuits et une pellicule ordinaire les dépasse vite, cette méthode s'accompagne donc souvent d'un forfait iCloud+. La première synchronisation d'une grosse photothèque sur une connexion domestique est lente, et les modifications faites sur le PC ne repartent pas vers l'iPhone." },
+      "4": { "name": "iCloud.com dans un navigateur", "tag": "Le meilleur sur un PC qui n'est pas le vôtre, sans rien installer", "facts": "N'importe quel navigateur · compte Apple avec connexion à deux facteurs · jusqu'à 1 000 éléments par sélection · téléchargement en Originaux non modifiés ou Le plus compatible (JPEG, MP4/H.264)", "body": "Rendez-vous sur iCloud.com/photos, connectez-vous, sélectionnez photos et vidéos et cliquez sur le bouton de téléchargement. Apple propose de choisir entre les originaux non modifiés et une version la plus compatible, le moyen le plus simple de donner des JPEG à quelqu'un qui ne peut pas ouvrir le HEIC. Sur l'ordinateur d'une bibliothèque ou d'un bureau, cela évite d'installer un logiciel Apple et ne laisse aucune session ouverte une fois l'onglet fermé.", "cons": "Chaque sélection s'arrête à 1 000 éléments, une grosse photothèque devient donc une longue série de sélections et de téléchargements. Tout passe par iCloud, il faut donc Photos iCloud activé et le stockage nécessaire." },
+      "5": { "name": "Google Photos", "tag": "Le meilleur si vous utilisez aussi Android ou voulez la photothèque dans n'importe quel navigateur", "facts": "App iPhone, photos.google.com sur le PC · compte Google · 15 Go gratuits partagés avec Gmail et Drive · sauvegarde en qualité d'origine ou Économiseur d'espace", "body": "Installez Google Photos sur l'iPhone, activez la sauvegarde, et chaque image devient accessible sur photos.google.com, où vous pouvez télécharger depuis le PC des clichés isolés, des albums ou une sélection. C'est une passerelle raisonnable pour un foyer qui mêle iPhone et Android. Apple propose en outre sur privacy.apple.com un outil qui copie une photothèque iCloud vers Google Photos en trois à sept jours.", "cons": "L'Économiseur d'espace peut redimensionner les photos de plus de 16 Mpx et les vidéos au-delà de 1080p, choisissez donc la qualité d'origine si la copie sur PC compte. Les sauvegardes entament les 15 Go partagés avec Gmail et Drive." },
+      "6": { "name": "Chargement de l'appareil photo OneDrive", "tag": "Le meilleur si vous payez déjà le stockage Microsoft 365", "facts": "App OneDrive pour iPhone · compte Microsoft · 5 Go gratuits, jusqu'à 1 To avec Microsoft 365 · chargement de l'appareil photo avec vidéos · tailles d'origine en Wi-Fi", "body": "Dans l'app OneDrive, le chargement de l'appareil photo envoie les nouvelles photos, et les vidéos si vous l'autorisez, dans l'espace Images de votre OneDrive, qu'un PC Windows connecté au même compte synchronise déjà dans l'Explorateur de fichiers. Pour les abonnés Microsoft 365, c'est un circuit sans intervention : on prend la photo, elle arrive un peu plus tard sur le PC.", "cons": "Cinq gigaoctets gratuits se remplissent vite, les envois s'interrompent si l'app est fermée de force, et le chargement de l'appareil photo ne fonctionne qu'avec un compte à la fois." },
+      "7": { "name": "LocalSend", "tag": "Alternative open source en Wi-Fi pour des lots ponctuels", "facts": "iPhone, Windows, macOS, Linux, Android · licence Apache 2.0 · même réseau local · sans compte, sans internet", "body": "LocalSend détecte les appareils du même réseau et envoie directement les fichiers sélectionnés de l'un à l'autre, un peu comme le mode à proximité de BIShare. Installez-le des deux côtés, choisissez les photos dans l'app iPhone et sélectionnez le PC. Gratuit, sans publicité et activement maintenu, c'est une option solide pour qui préfère un outil porté par la communauté.", "cons": "Il ne fonctionne que sur un réseau local partagé, sans option de lien pour un PC situé ailleurs, et la détection peut échouer sur un Wi-Fi invité ou d'entreprise qui isole les appareils." }
+    }
+  },
+  "table": {
+    "title": "En un coup d'œil",
+    "cols": { "feature": "Critère", "bishare": "BIShare", "photos": "App Photos + câble", "explorer": "Explorateur de fichiers", "icloud": "iCloud pour Windows", "web": "iCloud.com", "google": "Google Photos" },
+    "rows": { "r0": "Fonctionne sans câble", "r1": "Trouve les originaux présents seulement dans iCloud", "r2": "Aucun compte à utiliser", "r3": "Gère sans peine une photothèque de 10 000 photos", "r4": "Rien n'est envoyé vers un service cloud" },
+    "note": "Situation en septembre 2026. BIShare envoie les éléments sélectionnés, sans limite de taille quand l'iPhone et le PC partagent un réseau ; un lien transporte jusqu'à 100 Go pendant 24 heures. L'app Photos et l'Explorateur de fichiers nécessitent Apple Devices et ne lisent que les fichiers stockés sur l'iPhone. iCloud pour Windows et iCloud.com dépendent de Photos iCloud et du stockage iCloud, 5 Go gratuits ; iCloud.com télécharge jusqu'à 1 000 éléments par sélection. Google Photos inclut 15 Go partagés avec Gmail et Drive."
+  },
+  "choose": {
+    "title": "Quelle méthode selon votre situation",
+    "body": "Deux questions tranchent : les originaux sont-ils sur le téléphone ou dans iCloud, et s'agit-il de quelques photos ou de toute la photothèque ?",
+    "items": {
+      "0": { "h": "Tout est sur l'iPhone et un câble est à portée de main", "b": "Utilisez l'application Photos de Windows. Elle copie toute la pellicule sans abonnement de stockage ni compte, et c'est la méthode prise en charge par Apple." },
+      "1": { "h": "La photothèque est dans iCloud et le téléphone manque de place", "b": "Utilisez iCloud pour Windows sur votre PC, ou iCloud.com sur celui de quelqu'un d'autre. Tous deux lisent les fichiers en pleine résolution que le téléphone ne conserve plus." },
+      "2": { "h": "Quelques dizaines de clichés, pas de câble sous la main", "b": "Envoyez-les en Wi-Fi avec BIShare ou LocalSend, ou créez un lien BIShare si le PC est dans un autre bâtiment. Rien n'est réduit, et c'est plus rapide que de chercher le câble." },
+      "3": { "h": "Un foyer avec iPhone et Android", "b": "Sauvegardez les deux téléphones dans Google Photos en qualité d'origine et téléchargez sur le PC depuis photos.google.com, en surveillant les 15 Go partagés." }
+    }
+  },
+  "formats": {
+    "title": "HEIC, HEVC, ProRAW et Live Photos : ce qui arrive sur le PC",
+    "body": "Un iPhone réglé sur Haute efficacité enregistre les photos en HEIC et les vidéos en HEVC. Ce que reçoit Windows dépend du réglage Transférer sur Mac ou PC, dans les réglages Photos de l'iPhone.",
+    "items": {
+      "0": { "h": "Automatique ou Conserver les originaux", "b": "Automatique convertit le HEIC en JPEG et le HEVC en H.264 pendant la copie quand il estime que le PC risque de ne pas les prendre en charge. Conserver les originaux livre les fichiers tels qu'enregistrés. Automatique est plus pratique pour ouvrir les fichiers, mais la conversion à la volée rend les grosses copies par câble plus lentes et plus fragiles ; pour une sauvegarde complète, Conserver les originaux associé aux extensions Windows est le choix le plus stable." },
+      "1": { "h": "Ouvrir les photos HEIC et les vidéos HEVC sous Windows", "b": "Les Extensions d'image HEIF de Microsoft sont gratuites dans le Microsoft Store et permettent à Photos et à l'Explorateur de fichiers d'afficher le HEIC. Les Extensions vidéo HEVC coûtent 0,99 dollar sur le Store américain et sont nécessaires pour lire les vidéos d'iPhone dans les apps Windows. Les lecteurs dotés de leurs propres codecs, comme VLC, lisent le HEVC sans l'extension." },
+      "2": { "h": "Changer le format des prochaines prises de vue", "b": "Dans Réglages, Appareil photo, Formats, Le plus compatible fait enregistrer l'iPhone en JPEG et H.264 à partir de ce moment, ce qu'Apple recommande pour la compatibilité la plus large. Les fichiers prennent plus de place sur le téléphone, et certaines fonctions, comme la 4K à 60 images par seconde en HEVC, exigent Haute efficacité." },
+      "3": { "h": "Live Photos et photos retouchées", "b": "Par câble, une Live Photo arrive généralement sous forme d'image fixe accompagnée d'un court clip MOV portant le même nom ; gardez les deux pour conserver le mouvement. Les photos retouchées sur l'iPhone peuvent être accompagnées d'un petit fichier AAE qui stocke les modifications et que Windows ignore, si bien que le PC peut afficher l'original non retouché. Télécharger depuis iCloud.com en Le plus compatible, ou partager la photo retouchée depuis le téléphone, livre la version visible à l'écran." },
+      "4": { "h": "ProRAW et ProRes", "b": "Les photos Apple ProRAW sont des fichiers DNG de 25 Mo ou plus, et la vidéo ProRes occupe plusieurs gigaoctets par minute. L'app Photos de Windows peut lister les DNG, mais les retoucher correctement demande un logiciel comme Lightroom, et le ProRes exige un lecteur ou un monteur compatible. Prévoyez l'espace disque avant d'importer l'un ou l'autre." }
+    }
+  },
+  "library": {
+    "title": "Déplacer une photothèque entière de plusieurs milliers de photos",
+    "body": "Une photothèque de 30 000 photos n'a rien à voir avec un anniversaire. Traitez-la comme un projet avec une liste de contrôle, pas comme un unique import interminable.",
+    "items": {
+      "0": { "h": "Vérifiez l'espace et le nombre avant de commencer", "b": "Dans Réglages, Général, Stockage iPhone, Photos indique la place occupée par la photothèque ; le PC doit avoir au moins autant d'espace libre, et de préférence davantage. Notez le nombre de photos et de vidéos affiché en bas de la vue Photothèque pour le comparer avec ce qui arrive sur le PC." },
+      "1": { "h": "Importez par tranches", "b": "Sélectionner une année ou quelques mois à la fois garde chaque import court, si bien qu'un écran verrouillé ou un câble mal branché coûte quelques minutes et non une soirée. Laissez l'iPhone déverrouillé et branché sur secteur, et réglez le Verrouillage automatique sur Jamais pendant l'import." },
+      "2": { "h": "Vérifiez avant de supprimer quoi que ce soit", "b": "Comparez les nombres, ouvrez un échantillon de photos et de vidéos de différentes années et sauvegardez le dossier importé sur un second disque avant de libérer de l'espace sur l'iPhone. Avec Photos iCloud activé, supprimer sur le téléphone supprime aussi dans iCloud et sur tous vos autres appareils." },
+      "3": { "h": "Gardez le classement par date", "b": "Les fichiers importés conservent la date de prise de vue dans leurs métadonnées, que Photos et la plupart des logiciels photo utilisent pour trier, même si l'Explorateur de fichiers affiche une autre date dans la colonne Modifié le. Choisir une arborescence par année ou par mois pendant l'import évite de chercher ensuite." }
+    }
+  },
+  "steps": {
+    "title": "Envoyer des photos de l'iPhone vers le PC avec BIShare",
+    "items": {
+      "0": { "h": "Installez-le sur les deux appareils", "b": "Installez BIShare sur l'iPhone depuis l'App Store et sur le PC depuis le Microsoft Store. Connectez les deux au même Wi-Fi, ou reliez le PC au Partage de connexion de l'iPhone, et autorisez l'accès au réseau local sur l'iPhone quand il le demande." },
+      "1": { "h": "Choisissez les photos et les vidéos", "b": "Touchez Photos dans l'app iPhone et sélectionnez les images et les clips voulus. Ils partent en pleine résolution et dans leur format d'origine, sans être compressés comme une pièce jointe de messagerie." },
+      "2": { "h": "Choisissez le PC, ou créez un lien", "b": "Sélectionnez le PC parmi les appareils à proximité et acceptez sous Windows ; les fichiers arrivent dans le dossier de téléchargement de BIShare, Téléchargements sauf si vous le changez. Si le PC n'est pas sur le même réseau, créez un lien et ouvrez-le dans le navigateur du PC sous 24 heures." }
+    }
+  },
+  "speed": {
+    "title": "Combien de temps faut-il ?",
+    "body": "La durée dépend de la connexion, pas du nom de la méthode. Les solutions cloud ajoutent un envoi depuis le téléphone puis un téléchargement vers le PC ; le câble et le Wi-Fi s'en dispensent.",
+    "items": {
+      "0": { "h": "Débit du câble selon le modèle", "b": "Les iPhone à connecteur Lightning ainsi que les iPhone 15, 16, 17 et Air en USB-C se connectent à la vitesse USB 2, jusqu'à 480 Mb/s. Les iPhone 15 Pro, 16 Pro et 17 Pro prennent en charge l'USB 3 jusqu'à 10 Gb/s, mais seulement avec un câble prévu pour ce débit, et le logiciel d'importation reste souvent le facteur limitant." },
+      "1": { "h": "Wi-Fi entre le téléphone et le PC", "b": "Un envoi direct va à la vitesse du réseau local, qui avec un routeur récent approche souvent celle d'un câble USB 2. Brancher le PC en Ethernet et garder l'iPhone près du routeur aide davantage que n'importe quel réglage." },
+      "2": { "h": "Par le cloud", "b": "iCloud, Google Photos et OneDrive doivent d'abord recevoir la photothèque depuis le téléphone, et le débit montant d'une connexion domestique ne représente souvent qu'une fraction du débit descendant. La première sauvegarde d'une grosse photothèque peut durer des jours ; ensuite, seules les nouvelles photos transitent." }
+    }
+  },
+  "fixes": {
+    "title": "Quand les photos refusent de s'importer",
+    "items": {
+      "0": { "h": "Le PC ne voit pas du tout l'iPhone", "b": "Déverrouillez l'iPhone et laissez-le sur l'écran d'accueil, touchez Se fier quand on vous le demande, installez ou mettez à jour Apple Devices depuis le Microsoft Store et essayez un autre câble et un autre port. Les câbles de recharge seule alimentent le téléphone sans transmettre de données." },
+      "1": { "h": "L'import ne trouve aucune photo, ou seulement une partie", "b": "C'est presque toujours Photos iCloud avec Optimiser le stockage de l'iPhone : les originaux sont dans iCloud, pas sur le téléphone. Téléchargez-les d'abord sur l'iPhone, ou récupérez-les avec iCloud pour Windows ou iCloud.com." },
+      "2": { "h": "« Un périphérique attaché au système ne fonctionne pas »", "b": "La copie s'est généralement interrompue pendant que l'iPhone convertissait les fichiers pour Windows. Dans les réglages Photos de l'iPhone, réglez Transférer sur Mac ou PC sur Conserver les originaux, rebranchez et importez par petits lots." },
+      "3": { "h": "Les photos sont arrivées mais ne s'ouvrent pas", "b": "Ce sont des fichiers HEIC. Installez les Extensions d'image HEIF gratuites depuis le Microsoft Store, ou téléchargez depuis iCloud.com en Le plus compatible si le destinataire a besoin de JPEG." },
+      "4": { "h": "Les vidéos apparaissent mais ne se lisent pas", "b": "La vidéo d'iPhone est généralement en HEVC. Achetez les Extensions vidéo HEVC dans le Microsoft Store, lisez les clips avec VLC ou passez en Le plus compatible pour les prochains enregistrements." },
+      "5": { "h": "Les retouches et recadrages manquent sur le PC", "b": "L'import a récupéré l'original et un fichier annexe AAE que Windows ne sait pas appliquer. Partagez plutôt la photo retouchée depuis l'iPhone, ou téléchargez-la sur iCloud.com en Le plus compatible, qui applique les retouches." }
+    }
+  },
+  "security": {
+    "title": "Confidentialité : données de localisation et qui garde une copie",
+    "body": "Une photo contient plus que des pixels. Avant de déplacer une photothèque, décidez où doivent aboutir les copies et quelles informations les accompagnent.",
+    "items": {
+      "0": { "h": "La localisation voyage dans le fichier", "b": "Les photos d'iPhone stockent la date, l'appareil et généralement les coordonnées GPS dans leurs métadonnées, et les transferts en pleine qualité les conservent. Pour les images destinées à d'autres, la feuille de partage de l'iPhone propose Options, où l'on peut désactiver la localisation pour ce partage." },
+      "1": { "h": "Les solutions cloud laissent une copie chez le fournisseur", "b": "Photos iCloud, Google Photos et OneDrive conservent votre photothèque sur leurs serveurs. Photos iCloud n'est chiffré de bout en bout que si vous activez la Protection avancée des données ; sinon, Apple détient les clés, comme Google et Microsoft pour leurs services." },
+      "2": { "h": "Les méthodes locales ne laissent pas de troisième copie", "b": "Un import par câble, un envoi LocalSend et un envoi direct BIShare ne déplacent les photos qu'entre votre iPhone et votre PC. Un lien BIShare est chiffré sur l'iPhone avant l'envoi, le serveur stocke donc des données qu'il ne peut pas lire et les supprime au bout de 24 heures." }
     }
   },
   "faq": {
-    "title": "Le transfert de photos iPhone, en questions",
+    "title": "Photos d'iPhone vers PC : FAQ",
     "items": {
-      "0": {
-        "q": "Mes photos perdent-elles en qualité pendant le transfert ?",
-        "a": "Non. BIShare déplace les fichiers originaux au bit près — pleine résolution, aucune recompression, EXIF et localisation intacts. Un ProRAW de 48 Mpx arrive en ProRAW de 48 Mpx."
-      },
-      "1": {
-        "q": "Comment ouvrir des photos HEIC sous Windows ?",
-        "a": "Windows 10 et 11 ouvrent le HEIC avec les extensions d'image HEIF gratuites de Microsoft. Vous préférez le JPEG partout ? Réglez Réglages → Appareil photo → Formats sur « Le plus compatible » et les nouvelles photos seront en JPEG. BIShare transfère les deux formats sans les modifier."
-      },
-      "2": {
-        "q": "Puis-je transférer toute ma pellicule d'un coup ?",
-        "a": "Vous pouvez sélectionner en masse et envoyer de très gros lots en un seul transfert — la limite pratique est le disque de votre PC, pas l'appli. Pour des milliers de photos, quelques gros lots successifs rendent la vérification plus simple."
-      },
-      "3": {
-        "q": "Mon PC doit-il installer BIShare ?",
-        "a": "Non — sur le même réseau, le PC peut recevoir dans n'importe quel navigateur sur bishare.app/transfer. Installer l'appli Windows vaut le coup pour les gros lots : c'est plus rapide et les photos arrivent droit dans le dossier de votre choix."
-      },
-      "4": {
-        "q": "Et les Live Photos et vidéos 4K ?",
-        "a": "Une Live Photo, c'est une photo plus une courte vidéo, et les deux parties sont transférées. La vidéo 4K passe à la vitesse du Wi-Fi local, sans plafond de taille sur la voie directe — un clip de plusieurs gigas est la routine, pas un cas particulier."
-      }
+      "0": { "q": "Quelle est la façon la plus simple de transférer des photos d'un iPhone vers un PC ?", "a": "Pour toute la pellicule, branchez l'iPhone avec un câble, installez Apple Devices, touchez Se fier et choisissez Importer dans l'application Photos de Windows. Pour quelques photos sans câble, envoyez-les en Wi-Fi avec une app comme BIShare." },
+      "1": { "q": "Pourquoi mon PC indique-t-il qu'il n'y a aucune photo sur l'iPhone ?", "a": "L'iPhone est verrouillé ou non approuvé, Apple Devices manque, ou les originaux sont dans iCloud parce qu'Optimiser le stockage de l'iPhone est activé. Déverrouillez et approuvez, installez Apple Devices, puis téléchargez les originaux ou utilisez iCloud pour Windows." },
+      "2": { "q": "Peut-on transférer des photos d'un iPhone vers un PC sans iTunes ?", "a": "Oui. iTunes n'est plus nécessaire sous Windows ; Apple Devices fournit le pilote et l'application Photos de Windows réalise l'import. Les méthodes sans fil n'ont besoin d'aucun des deux." },
+      "3": { "q": "Comment transférer des photos d'un iPhone vers un PC sans fil ?", "a": "Par le cloud avec iCloud pour Windows, iCloud.com, Google Photos ou OneDrive, ou directement sur le même Wi-Fi avec BIShare ou LocalSend. Mobile connecté de Microsoft ne transfère pas les photos d'un iPhone." },
+      "4": { "q": "Les photos perdent-elles en qualité entre l'iPhone et le PC ?", "a": "Pas par câble, iCloud, OneDrive ou une app Wi-Fi directe. Google Photos en Économiseur d'espace peut redimensionner, les messageries compressent, et le réglage Automatique convertit le HEIC en JPEG tout en gardant la résolution." },
+      "5": { "q": "Comment convertir le HEIC en JPG lors du transfert vers un PC ?", "a": "Réglez Transférer sur Mac ou PC sur Automatique dans les réglages Photos de l'iPhone, téléchargez depuis iCloud.com en Le plus compatible, ou gardez le HEIC et installez sous Windows les Extensions d'image HEIF gratuites." },
+      "6": { "q": "Comment télécharger plus de 1 000 photos d'iCloud vers un PC ?", "a": "iCloud.com limite chaque sélection à 1 000 éléments, il faut donc procéder par lots, ou installer iCloud pour Windows, qui affiche toute la photothèque dans l'Explorateur de fichiers." },
+      "7": { "q": "Pourquoi mes Live Photos font-elles deux fichiers sur le PC ?", "a": "Windows reçoit une Live Photo sous forme d'image fixe et d'un court clip MOV du même nom. L'image fonctionne seule ; gardez le clip si vous voulez le mouvement." },
+      "8": { "q": "Mobile connecté transfère-t-il les photos d'iPhone vers Windows ?", "a": "Non. Sur iPhone, Mobile connecté gère les appels, les messages et les notifications ; ses fonctions photo sont réservées aux téléphones Android." },
+      "9": { "q": "BIShare est-il gratuit pour envoyer les photos d'un iPhone vers un PC ?", "a": "Oui. BIShare est open source sous licence MIT, sans publicité, sans compte et sans limite pour les envois directs en Wi-Fi." }
     }
   },
   "cta": {
-    "title": "Votre pellicule, sur votre PC ce soir",
-    "body": "Gratuit, chiffré de bout en bout, et plus rapide que la chasse au câble ne l'a jamais été.",
+    "title": "Les photos de l'iPhone sur le PC, sans câble",
+    "body": "Open source et gratuit. Envoyez photos et vidéos en Wi-Fi en pleine résolution, ou partagez un lien chiffré que n'importe quel navigateur de PC peut ouvrir.",
     "download": "Télécharger BIShare"
   },
-  "a11y": {
-    "yes": "Oui",
-    "no": "Non"
+  "a11y": { "yes": "Oui", "no": "Non" },
+  "art": {
+    "hero": { "alt": "Un iPhone envoie une grille de photos vers un ordinateur portable Windows, titre : transférer des photos d'un iPhone vers un PC, huit méthodes pour 2026.", "title": "Photos d'iPhone vers PC", "sub": "8 méthodes pour 2026, avec ou sans câble", "left": "iPhone", "right": "PC Windows" },
+    "originals": { "alt": "Où se trouvent les originaux des photos d'iPhone et ce que voit un import par câble : Photos iCloud désactivé, tous les originaux sont sur l'iPhone et l'import les récupère tous ; avec Télécharger et garder les originaux, ils sont sur l'iPhone et dans iCloud et l'import les récupère tous ; avec Optimiser le stockage de l'iPhone, beaucoup d'originaux ne sont que dans iCloud et l'import les manque, il faut alors iCloud pour Windows ou iCloud.com.", "title": "Ce que voit un import par câble", "sub": "Tout dépend du réglage Photos iCloud de l'iPhone", "off": "Photos iCloud désactivé", "keep": "Télécharger et garder les originaux", "optimize": "Optimiser le stockage", "onPhone": "Sur l'iPhone", "inCloud": "Dans iCloud", "full": "Originaux complets", "preview": "Petits aperçus", "none": "Non utilisé", "gets": "L'import récupère", "all": "Toutes les photos", "partial": "Des photos manquent", "fix": "Utilisez iCloud pour Windows ou iCloud.com" },
+    "formats": { "alt": "Le réglage de l'iPhone Transférer sur Mac ou PC : Automatique convertit le HEIC en JPEG et le HEVC en H.264 pendant la copie, s'ouvre sans codec supplémentaire mais est plus lent et peut échouer sur les grosses copies ; Conserver les originaux copie HEIC et HEVC tels qu'enregistrés, est plus stable et nécessite sous Windows les Extensions d'image HEIF gratuites et les Extensions vidéo HEVC payantes.", "title": "Automatique ou Conserver les originaux ?", "sub": "Réglages de l'iPhone : Photos, Transférer sur Mac ou PC", "auto": "Automatique", "keep": "Conserver les originaux", "photo": "Photos", "video": "Vidéos", "autoGood": "S'ouvre sans codec supplémentaire", "autoBad": "Plus lent, échoue sur les gros lots", "keepGood": "Fichiers exacts, imports stables", "keepBad": "Extensions Windows nécessaires", "ext": "Extensions d'image HEIF : gratuites · Extensions vidéo HEVC : 0,99 $ aux États-Unis", "foot": "Le plus compatible, dans Réglages, Appareil photo, Formats, enregistre les nouvelles prises en JPEG et H.264" },
+    "routes": { "alt": "Choisir une méthode de l'iPhone vers le PC : si les originaux ne sont que dans iCloud, iCloud pour Windows ou iCloud.com ; s'ils sont sur l'iPhone et qu'il s'agit de toute la photothèque, l'application Photos de Windows avec un câble ; pour quelques photos sur le même Wi-Fi, BIShare ou LocalSend ; pour un PC situé ailleurs, un lien BIShare ou Google Photos.", "title": "Trouver la méthode en trois questions", "sub": "Où sont les originaux, combien de photos, et où se trouve le PC", "q1": "Les originaux sont-ils sur l'iPhone ?", "no": "Non, dans iCloud", "yes": "Oui", "cloud": "iCloud pour Windows · iCloud.com", "q2": "Toute la photothèque ou quelques photos ?", "whole": "Tout", "few": "Quelques-unes", "cable": "App Photos + câble", "q3": "Même Wi-Fi que le PC ?", "same": "Même Wi-Fi", "away": "PC ailleurs", "wifi": "BIShare · LocalSend", "link": "Lien BIShare · Google Photos" }
   }
 }

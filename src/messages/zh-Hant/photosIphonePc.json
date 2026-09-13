@@ -1,83 +1,150 @@
 {
   "meta": {
-    "title": "iPhone 照片傳到電腦，免傳輸線",
-    "description": "透過 Wi-Fi 把 iPhone 照片和影片以完整解析度傳到 Windows 電腦。免傳輸線、iTunes 或 iCloud 方案。免費加密。"
+    "title": "iPhone照片傳到電腦的8種方法（2026）",
+    "description": "用傳輸線、iCloud、Google相簿、OneDrive或Wi-Fi把iPhone照片和影片無損傳到Windows電腦，以及匯入時看不到照片的解決方法。"
   },
   "hero": {
-    "eyebrow": "iPhone → Windows 電腦",
-    "title": "不用傳輸線，把 iPhone 照片傳到電腦",
-    "body": "你的相機膠卷值得更好的待遇，而不是磨損的 Lightning 線和卡在 43% 的照片匯入。<strong>BIShare</strong> 把照片與影片<strong>從 iPhone 經 Wi-Fi 直達電腦</strong>——原始解析度，HEIC 與原況照片完好，一次數百張。<highlight>電腦端用一般瀏覽器就能接收，無需安裝。</highlight>",
-    "ctaPrimary": "免費取得 BIShare",
-    "ctaSecondary": "運作方式"
+    "eyebrow": "iPhone照片傳到Windows電腦",
+    "title": "如何把iPhone照片傳到電腦",
+    "body": "把相機膠卷複製到Windows，看起來兩分鐘就能搞定，直到匯入視窗顯示沒有可匯入的項目、一整個資料夾的HEIC檔案打不開，或是去年夏天的照片少了一半，因為它們只存在iCloud裡。這類問題幾乎都出在兩件事：原始檔到底存在哪裡，以及iPhone用什麼格式交出去。本文就從這裡講起，再替八種傳照片的方法排名，從Apple官方介紹的傳輸線匯入，到Windows版iCloud、Google相簿、OneDrive和Wi-Fi直傳App，另外還有給幾萬張照片圖庫的搬移計畫，以及每種常見匯入錯誤的解法。<strong>BIShare</strong>也是其中之一：它能<strong>透過Wi-Fi把iPhone的照片和影片以原始解析度傳到電腦</strong>，也能產生加密連結，讓電腦在瀏覽器裡開啟下載。<highlight>免費、開源、不需帳號。</highlight>",
+    "ctaPrimary": "免費取得BIShare",
+    "ctaSecondary": "了解運作方式"
   },
-  "why": {
-    "title": "為什麼常見方法會毀了你的照片",
-    "body": "傳輸線這條路仰賴驅動程式、信任提示，以及一遇到大型圖庫就噎住的匯入器。iCloud 在你超過 <strong>5 GB</strong> 的那一刻就要月費——而且開著「最佳化儲存空間」時，全畫質原檔甚至已不在手機上。電子郵件把你限制在幾 MB，聊天軟體則悄悄把每張圖重壓成渣。這些問題都不在照片，而在路徑。換條路徑，它們就消失。"
+  "updated": "2026年9月更新 · 匯入步驟取自Apple支援與Microsoft支援，iCloud、Google相簿和OneDrive的限制取自各自說明頁面",
+  "disclosure": "BIShare是我們的產品。如果要搬整個相機膠卷，Apple的傳輸線匯入或Windows版iCloud往往更合適，下面的排名也寫明了這一點。",
+  "quick": {
+    "title": "快速回答",
+    "items": [
+      "<strong>一次匯出整個相機膠卷：</strong>從Microsoft Store安裝Apple Devices，連接已解鎖的iPhone，點「信任」，再到Windows的「相片」App選擇「匯入」。",
+      "<strong>照片本來就同步到iCloud：</strong>安裝Windows版iCloud並開啟「照片」，圖庫會出現在檔案總管和Microsoft相片中。",
+      "<strong>借來的電腦或公司電腦：</strong>登入iCloud.com/photos下載，每次最多選1,000項，可選原始格式或相容性最高的格式。",
+      "<strong>不用傳輸線傳幾張：</strong>iPhone和電腦上的BIShare能在同一個Wi-Fi下以原始解析度傳送，也能產生連結，讓電腦用任何瀏覽器開啟。",
+      "<strong>匯入顯示沒有照片：</strong>解鎖iPhone並重新點「信任」；如果iCloud照片開了「最佳化iPhone儲存空間」，先把原始檔下載回手機。",
+      "<strong>Windows打不開檔案：</strong>替HEIC照片安裝免費的HEIF影像延伸模組，替iPhone影片安裝HEVC視訊延伸模組，或把相機格式改成「最相容」。"
+    ]
   },
-  "how": {
-    "title": "BIShare 如何搬運你的相機膠卷",
+  "originals": {
+    "title": "開始之前：原始檔真的在iPhone上嗎？",
+    "body": "傳輸線只看得到手機裡實際存著的東西。開啟iCloud照片後，那可能只是一張小預覽圖，Apple支援頁面也建議先下載原始檔再匯入電腦。",
     "items": {
-      "0": {
-        "h": "同一 Wi-Fi，直線過去",
-        "b": "在 iPhone 開啟 BIShare，選好照片，點一下你的電腦。檔案在兩台裝置間直接傳輸、端對端加密——不上傳到任何地方。原檔逐位元組抵達：解析度、EXIF 與位置資訊完好。"
-      },
-      "1": {
-        "h": "一次數百張",
-        "b": "在相機膠卷多選，一次送出整批——以區網速度落進電腦的同一個資料夾。一趟旅行的照片只要幾分鐘，不是一整晚。"
-      },
-      "2": {
-        "h": "沒有共同 Wi-Fi？也行",
-        "b": "開啟 iPhone 熱點讓電腦加入——傳輸完全不需要網際網路。或改傳限時連結：電腦在任何地方用任何瀏覽器下載。"
-      }
+      "0": { "h": "「最佳化iPhone儲存空間」只在手機上留縮圖", "b": "儲存空間不夠時，這個iCloud照片設定會把較舊的原始解析度檔案換成輕量版本，原始檔留在iCloud。螢幕上看起來一切正常，但Windows會跳過這些照片，或拿到縮小版。到「照片」設定看一下：如果選的是「最佳化iPhone儲存空間」，而圖庫比手機剩餘空間還大，傳輸線匯入一定會缺照片。" },
+      "1": { "h": "空間夠的話，「下載並保留原始檔」就能解決", "b": "改成「下載並保留原始檔」後，每個原尺寸檔案都會透過Wi-Fi重新下載到iPhone。圖庫大的話可能要好幾個小時，也需要足夠的剩餘空間裝下全部。如果手機裝不下整個圖庫，就別用傳輸線了，改用Windows版iCloud或iCloud.com直接從iCloud取。" },
+      "2": { "h": "沒開iCloud照片，就不會有意外", "b": "如果iCloud照片是關閉的，相機膠卷裡每張照片和每段影片都是iPhone上的完整檔案，本文任何方法都找得到。剩下的只是格式問題，後面會說明：保留拍攝時的HEIC和HEVC，或在傳輸時轉成JPEG和H.264。" }
     }
   },
-  "comparison": {
-    "title": "傳輸線、iCloud，還是直傳？",
-    "cols": {
-      "airdrop": "USB + 照片 App",
-      "quick": "iCloud",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "r0": "不需要傳輸線、驅動程式或信任提示",
-      "r1": "圖庫多大都免費——沒有 5 GB 這道牆",
-      "r2": "不需要帳號或訂閱",
-      "r3": "照片幾分鐘到電腦，而不是整夜同步",
-      "r4": "不向任何伺服器上傳任何東西"
+  "methods": {
+    "title": "8種把iPhone照片傳到電腦的方法排名",
+    "consLabel": "注意：",
+    "items": {
+      "0": { "name": "BIShare", "tag": "不用傳輸線的首選：選好的照片和影片透過Wi-Fi直接傳到電腦", "facts": "iPhone App、Microsoft Store上的Windows App，或用任何瀏覽器開啟連結 · 開源（MIT） · 同一網路直傳，不限大小 · 連結最多100 GB，保留24小時 · 加密 · 不需帳號", "body": "在iPhone上開啟BIShare，點「照片」，選好照片和影片片段，再從附近裝置清單選電腦；Windows App接收後會存進它的下載資料夾。檔案以原始解析度和拍攝時的格式送達，HEIC還是HEIC，4K影片還是4K；只要兩台裝置在同一個Wi-Fi，或電腦連著iPhone的個人熱點，就不會上傳任何東西。電腦不在身邊時就產生連結：這批檔案在手機上加密，電腦在24小時內用瀏覽器下載，不必安裝任何軟體。", "cons": "它只傳你選取的內容，所以比較適合幾十到幾百個項目，而不是四萬張照片的圖庫。原況照片會以靜態照片送達，從圖庫選的照片檔名會變，不再是IMG_1234。" },
+      "1": { "name": "Windows「相片」App加USB傳輸線", "tag": "一次複製整個相機膠卷的首選", "facts": "Windows 10或11 · Microsoft Store的Apple Devices App · 能傳資料的USB線 · iPhone已解鎖並信任此電腦 · 照片和影片 · 原始檔案，不需帳號", "body": "這是Apple和Microsoft都在說明文件介紹的方法。先安裝Apple Devices，讓Windows有iPhone驅動程式；接上手機、解鎖並點「信任」，再在電腦上開啟「相片」，選擇「匯入」並選iPhone。可以全選也可以只選一部分，還能決定儲存位置，原始檔仍留在手機上。第一次完整備份時，這對多數人來說是最快的方法，因為不必等任何上傳。", "cons": "它只看得到存在iPhone上的檔案，開了「最佳化iPhone儲存空間」就會有缺口。匯入幾千個項目時，手機一鎖定或傳輸線一鬆就可能卡住，而且在iPhone「照片」裡做的編輯不一定會帶過來。" },
+      "2": { "name": "檔案總管和DCIM資料夾", "tag": "手動拖出幾個資料夾的首選", "facts": "Windows 10或11 · 傳輸線，iPhone已解鎖並信任 · 本機 › Apple iPhone › Internal Storage › DCIM · 100APPLE之類的資料夾 · 除了Apple Devices不必安裝其他軟體", "body": "解鎖的iPhone也會出現在「本機」裡，Internal Storage下有DCIM和一串編號資料夾，例如100APPLE、101APPLE。可以像處理相機記憶卡一樣複製到硬碟，或單獨拖出幾個檔案。「相片」App出狀況，或只想快速看看而不走匯入精靈時很方便，還能看到「相片」App隱藏的附屬檔案。", "cons": "資料夾依數量而不是日期或相簿分開，找一次旅行的照片得翻好幾個資料夾。大量複製可能以「連結到系統的裝置無法運作」中斷，通常代表iPhone正在邊傳邊轉檔；把「傳輸到Mac或PC」設為「保留原始檔」，大多數情況都能避免。" },
+      "3": { "name": "Windows版iCloud", "tag": "圖庫本來就在iCloud照片裡時的首選", "facts": "目前版本需Windows 11 · Microsoft Store免費 · Apple帳號 · iCloud免費5 GB，超出需付費iCloud+ · iCloud照片顯示在檔案總管和Microsoft相片中", "body": "登入並開啟「照片」後，iCloud照片會出現在檔案總管的瀏覽窗格和Microsoft相片裡。在縮圖上按兩下，就會把那一項下載到電腦。因為讀取的是雲端副本，它找得到被「最佳化iPhone儲存空間」移出手機的原始檔，新拍的照片也會持續同步過來，不用傳輸線。", "cons": "iCloud只有5 GB免費，一般的相機膠卷很快就會超過，所以走這條路通常得訂閱iCloud+。大圖庫第一次同步在家用網路上很慢，在電腦上做的修改也不會同步回iPhone。" },
+      "4": { "name": "瀏覽器裡的iCloud.com", "tag": "在別人的電腦上、不裝任何軟體時的首選", "facts": "任何瀏覽器 · 開啟雙重認證的Apple帳號 · 每次最多選1,000項 · 可下載「未修改的原始檔」或「最相容」（JPEG、MP4/H.264）", "body": "開啟iCloud.com/photos並登入，選取照片和影片，按下載按鈕。Apple讓你在未修改的原始檔和最相容的版本之間選擇，這是把JPEG交給打不開HEIC的人最簡單的方法。在圖書館或辦公室的電腦上，也不必安裝Apple軟體，關掉分頁後不會留下登入狀態。", "cons": "每次選取最多1,000項，大圖庫就得反覆選取、下載很多輪。所有內容都經過iCloud，所以必須開啟iCloud照片，並有足夠空間存放。" },
+      "5": { "name": "Google相簿", "tag": "家裡也用Android，或想在任何瀏覽器看圖庫時的首選", "facts": "iPhone App，電腦上用photos.google.com · Google帳戶 · 免費15 GB，與Gmail和雲端硬碟共用 · 以原始畫質或省空間畫質備份", "body": "在iPhone上安裝Google相簿並開啟備份，所有照片都能在photos.google.com看到，可以在電腦上下載單張、整本相簿或選取的一批。對iPhone和Android手機混用的家庭來說，這是穩妥的橋樑。Apple也在privacy.apple.com提供工具，能在三到七天內把iCloud照片圖庫複製到Google相簿。", "cons": "「省空間」畫質可能把超過1,600萬像素的照片和超過1080p的影片縮小，如果電腦上的副本很重要，請選原始畫質。備份會占用與Gmail和雲端硬碟共用的15 GB。" },
+      "6": { "name": "OneDrive相機上傳", "tag": "已經在為Microsoft 365儲存空間付費時的首選", "facts": "iPhone版OneDrive App · Microsoft帳戶 · 免費5 GB，Microsoft 365最多1 TB · 相機上傳可包含影片 · Wi-Fi下維持原始大小", "body": "在OneDrive App裡，「相機上傳」會把新照片，以及你允許的影片，傳到OneDrive的圖片區，而登入同一帳戶的Windows電腦本來就在檔案總管裡同步它。對Microsoft 365訂閱者來說，這是一條幾乎不用動手的流程：拍完照，過一會兒就出現在電腦上。", "cons": "免費的5 GB很快就滿，強制關閉App後上傳會暫停，而且「相機上傳」一次只能用在一個帳戶。" },
+      "7": { "name": "LocalSend", "tag": "偶爾傳一批時的開源Wi-Fi替代方案", "facts": "iPhone、Windows、macOS、Linux、Android · Apache 2.0授權 · 同一個區域網路 · 不需帳號，不需網際網路", "body": "LocalSend會找到同一網路裡的裝置，把選取的檔案在裝置之間直接傳送，和BIShare的附近裝置模式差不多。兩邊都裝好，在iPhone App選照片，再選電腦即可。免費、無廣告、持續維護，想用社群專案的人可以放心選。", "cons": "只能在同一個區域網路內使用，沒有給遠端電腦用的連結功能；在隔離裝置的訪客Wi-Fi或公司Wi-Fi上，可能找不到對方。" }
+    }
+  },
+  "table": {
+    "title": "一覽表",
+    "cols": { "feature": "功能", "bishare": "BIShare", "photos": "「相片」App＋傳輸線", "explorer": "檔案總管", "icloud": "Windows版iCloud", "web": "iCloud.com", "google": "Google相簿" },
+    "rows": { "r0": "不用傳輸線", "r1": "找得到只存在iCloud的原始檔", "r2": "不必登入任何帳號", "r3": "輕鬆處理一萬張照片的圖庫", "r4": "不上傳到任何雲端服務" },
+    "note": "以上為2026年9月的狀況。BIShare傳送選取的項目，iPhone和電腦在同一網路時不限大小；連結最多100 GB，保留24小時。「相片」App和檔案總管需要Apple Devices，只能讀取存在iPhone上的檔案。Windows版iCloud和iCloud.com取決於iCloud照片和iCloud儲存空間，免費5 GB；iCloud.com每次最多下載1,000項。Google相簿包含與Gmail和雲端硬碟共用的15 GB。"
+  },
+  "choose": {
+    "title": "不同情況該選哪條路",
+    "body": "兩個問題就能決定：原始檔在手機上還是在iCloud？要傳的是幾張照片還是整個圖庫？",
+    "items": {
+      "0": { "h": "照片都在iPhone上，傳輸線也在手邊", "b": "用Windows的「相片」App。它不需要儲存方案也不需要帳號就能複製整個相機膠卷，也是Apple官方支援的方式。" },
+      "1": { "h": "圖庫在iCloud，手機空間吃緊", "b": "在自己的電腦用Windows版iCloud，在別人的電腦用iCloud.com。兩者都能讀取手機上已經不保留的原始解析度檔案。" },
+      "2": { "h": "幾十張照片，手邊沒有傳輸線", "b": "用BIShare或LocalSend透過Wi-Fi傳送；電腦在另一棟樓的話，就產生BIShare連結。什麼都不會被壓縮，比找傳輸線還快。" },
+      "3": { "h": "家裡iPhone和Android都有", "b": "把兩支手機都以原始畫質備份到Google相簿，再在電腦上從photos.google.com下載，同時留意共用的15 GB。" }
+    }
+  },
+  "formats": {
+    "title": "HEIC、HEVC、ProRAW和原況照片：電腦上收到什麼",
+    "body": "設為「高效率」的iPhone會把照片存成HEIC、影片存成HEVC。Windows收到什麼，取決於iPhone「照片」設定裡的「傳輸到Mac或PC」。",
+    "items": {
+      "0": { "h": "「自動」還是「保留原始檔」", "b": "「自動」會在判斷電腦可能不支援時，邊複製邊把HEIC轉成JPEG、把HEVC轉成H.264。「保留原始檔」則把拍攝時的檔案原封不動交出去。「自動」開檔比較省事，但邊傳邊轉會讓傳輸線大量複製更慢、更容易出錯；做完整備份時，「保留原始檔」搭配Windows延伸模組比較穩定。" },
+      "1": { "h": "在Windows上開啟HEIC照片和HEVC影片", "b": "Microsoft的HEIF影像延伸模組在Microsoft Store免費，裝好後「相片」和檔案總管就能顯示HEIC。HEVC視訊延伸模組在美國商店售價0.99美元，要在Windows App播放iPhone影片就需要它。VLC這類內建解碼器的播放器不裝延伸模組也能播放HEVC。" },
+      "2": { "h": "變更之後拍攝的格式", "b": "在「設定」的「相機」裡開啟「格式」，選「最相容」，iPhone之後就會以JPEG和H.264記錄，這也是Apple為了最大相容性建議的設定。檔案在手機上會占用更多空間，而且有些功能，例如HEVC的4K 60fps，需要「高效率」格式。" },
+      "3": { "h": "原況照片和編輯過的照片", "b": "透過傳輸線，原況照片通常會變成一張靜態照片加一段同名的短MOV影片；想保留動態效果就兩個都留著。在iPhone上編輯過的照片可能附帶一個記錄編輯內容的小AAE檔，Windows會忽略它，所以電腦上可能顯示未編輯的原始檔。從iCloud.com以「最相容」下載，或直接從手機分享編輯後的照片，拿到的就是螢幕上看到的版本。" },
+      "4": { "h": "ProRAW和ProRes", "b": "Apple ProRAW照片是25 MB起跳的DNG檔，ProRes影片每分鐘要占好幾GB。Windows「相片」App能列出DNG檔，但要好好編輯需要Lightroom這類軟體，ProRes也需要支援它的播放器或剪輯軟體。匯入前先算好磁碟空間。" }
+    }
+  },
+  "library": {
+    "title": "搬移幾千張照片的整個圖庫",
+    "body": "三萬張照片的圖庫，和一場生日派對的照片完全是兩回事。把它當成有檢查清單的專案，而不是一次漫長的匯入。",
+    "items": {
+      "0": { "h": "開始前先確認空間和數量", "b": "在「設定」的「一般」裡開啟「iPhone儲存空間」，「照片」一項會顯示圖庫占用多少；電腦至少要有同樣多的剩餘空間，最好再多一些。記下「圖庫」檢視最底部顯示的照片和影片數量，方便和電腦上收到的數量比對。" },
+      "1": { "h": "分批匯入", "b": "每次選一年或幾個月，單次匯入就會很短，鎖定畫面或傳輸線鬆脫損失的只是幾分鐘，而不是一整個晚上。匯入期間讓iPhone保持解鎖並接上電源，把「自動鎖定」設為「永不」。" },
+      "2": { "h": "刪除之前先核對", "b": "比對數量，打開不同年份的一些照片和影片抽查，並在清理iPhone空間前把匯入的資料夾再備份到第二顆硬碟。開啟iCloud照片時，在手機上刪除也會從iCloud和你所有其他裝置刪除。" },
+      "3": { "h": "維持依日期排序", "b": "匯入的檔案在中繼資料裡保留拍攝日期，「相片」和多數照片軟體都依它排序，即使檔案總管的「修改日期」欄顯示的是別的日期。匯入時選擇依年或依月的資料夾結構，之後找起來省事很多。" }
+    }
+  },
+  "steps": {
+    "title": "用BIShare把iPhone照片傳到電腦",
+    "items": {
+      "0": { "h": "兩台裝置都安裝", "b": "在iPhone上從App Store、在電腦上從Microsoft Store安裝BIShare。讓兩台裝置連同一個Wi-Fi，或讓電腦連iPhone的個人熱點，iPhone詢問時允許存取區域網路。" },
+      "1": { "h": "選擇照片和影片", "b": "在iPhone App點「照片」，選取要傳送的照片和影片片段。它們會以原始解析度和原始格式傳送，不會像聊天附件那樣被壓縮。" },
+      "2": { "h": "選擇電腦，或產生連結", "b": "從附近裝置選電腦，在Windows上接收；檔案會存到BIShare的下載資料夾，預設是「下載」。如果電腦不在同一網路，就產生連結，在24小時內用電腦瀏覽器開啟。" }
+    }
+  },
+  "speed": {
+    "title": "要花多久時間？",
+    "body": "耗時取決於連線，而不是方法的名稱。走雲端要多出手機上傳和電腦下載兩步；傳輸線和Wi-Fi兩步都省了。",
+    "items": {
+      "0": { "h": "不同機型的傳輸線速度", "b": "Lightning接頭的iPhone，以及USB-C接頭的iPhone 15、16、17和Air，都以USB 2速度連線，最高480 Mb/s。iPhone 15 Pro、16 Pro和17 Pro支援最高10 Gb/s的USB 3，但必須用支援這個速度的線，而且很多時候拖慢速度的其實是匯入軟體。" },
+      "1": { "h": "手機和電腦之間的Wi-Fi", "b": "直傳走的是區域網路速度，搭配較新的路由器時常和USB 2傳輸線差不多。電腦接網路線、iPhone靠近路由器，比調整任何設定都有用。" },
+      "2": { "h": "透過雲端", "b": "iCloud、Google相簿和OneDrive都得先讓手機把圖庫上傳，而家用網路的上傳速度通常只有下載速度的一小部分。大圖庫第一次備份可能要好幾天；之後只傳新照片。" }
+    }
+  },
+  "fixes": {
+    "title": "照片匯入不了怎麼辦",
+    "items": {
+      "0": { "h": "電腦完全偵測不到iPhone", "b": "解鎖iPhone並停在主畫面，出現提示時點「信任」，從Microsoft Store安裝或更新Apple Devices，再換一條線、換一個連接埠試試。只能充電的線可以供電，但傳不了資料。" },
+      "1": { "h": "匯入找不到照片，或只找到一部分", "b": "幾乎都是iCloud照片開了「最佳化iPhone儲存空間」：原始檔在iCloud，不在手機上。先下載回iPhone，或用Windows版iCloud或iCloud.com去取。" },
+      "2": { "h": "「連結到系統的裝置無法運作」", "b": "通常是iPhone正在為Windows轉檔時複製中斷了。在iPhone「照片」設定裡把「傳輸到Mac或PC」改為「保留原始檔」，重新連接，並分成小批匯入。" },
+      "3": { "h": "照片傳過來了卻打不開", "b": "那是HEIC檔。從Microsoft Store安裝免費的HEIF影像延伸模組，或如果對方需要JPEG，就從iCloud.com以「最相容」下載。" },
+      "4": { "h": "影片看得到但無法播放", "b": "iPhone影片通常是HEVC。在Microsoft Store購買HEVC視訊延伸模組，用VLC播放，或之後錄影改用「最相容」。" },
+      "5": { "h": "電腦上的編輯和裁切不見了", "b": "匯入拿到的是原始檔加上一個Windows無法套用的AAE附屬檔。改從iPhone分享編輯後的照片，或從iCloud.com以會套用編輯的「最相容」下載。" }
+    }
+  },
+  "security": {
+    "title": "隱私：位置資訊，以及誰手上有副本",
+    "body": "照片裡不只有像素。搬移圖庫之前，先想好副本該放在哪裡，哪些資訊會跟著一起走。",
+    "items": {
+      "0": { "h": "位置資訊就在檔案裡", "b": "iPhone照片會在中繼資料記錄日期、裝置，通常還有GPS座標，原始畫質傳輸會把這些都保留下來。要給別人的照片，可以在iPhone分享表單的「選項」裡，針對這次分享關閉位置。" },
+      "1": { "h": "雲端方式會在業者那裡留一份副本", "b": "iCloud照片、Google相簿和OneDrive都把你的圖庫存在自家伺服器。iCloud照片只有開啟「進階資料保護」才是端對端加密，否則金鑰在Apple手上，Google和Microsoft對自家服務也是如此。" },
+      "2": { "h": "本機方式不會留下第三份副本", "b": "傳輸線匯入、LocalSend傳送和BIShare直傳，照片只在你的iPhone和電腦之間移動。BIShare連結在上傳前就在iPhone上加密，所以伺服器存的是它讀不了的資料，並在24小時後刪除。" }
     }
   },
   "faq": {
-    "title": "iPhone 照片傳輸問答",
+    "title": "iPhone照片傳電腦常見問題",
     "items": {
-      "0": {
-        "q": "傳輸會損失畫質嗎？",
-        "a": "不會。BIShare 逐位元組搬運原始檔案——原解析度、零重壓縮，EXIF 與位置資訊完好。48 MP 的 ProRAW 抵達時仍是 48 MP 的 ProRAW。"
-      },
-      "1": {
-        "q": "Windows 上怎麼開 HEIC 照片？",
-        "a": "Windows 10/11 用微軟免費的 HEIF 影像延伸模組即可開啟。想全部用 JPEG？把 iPhone 設定 → 相機 → 格式改為「最相容」，新照片就是 JPEG。兩種格式 BIShare 都原樣傳輸。"
-      },
-      "2": {
-        "q": "能一次傳完整個相機膠卷嗎？",
-        "a": "可以多選並在一次傳輸裡送出非常大的批次——實際上限是電腦硬碟，不是 App。上千張時分成幾大批傳送，核對起來更省心。"
-      },
-      "3": {
-        "q": "電腦需要裝 BIShare 嗎？",
-        "a": "不需要——同一網路下，電腦用任何瀏覽器開 bishare.app/transfer 就能接收。大批量時裝 Windows 版更划算：更快，照片直接落進你選的資料夾。"
-      },
-      "4": {
-        "q": "原況照片和 4K 影片呢？",
-        "a": "原況照片是照片加短影片，兩部分都會傳輸。4K 影片以區網速度傳輸，直傳路徑沒有大小上限——幾 GB 的片段是家常便飯。"
-      }
+      "0": { "q": "把iPhone照片傳到電腦最簡單的方法是什麼？", "a": "整個相機膠卷的話，用傳輸線連接iPhone，安裝Apple Devices，點「信任」，再到Windows「相片」App選擇「匯入」。不用傳輸線傳幾張的話，用BIShare這類App透過Wi-Fi傳送。" },
+      "1": { "q": "為什麼電腦說iPhone上沒有照片？", "a": "iPhone鎖定了或沒有信任此電腦，沒裝Apple Devices，或開了「最佳化iPhone儲存空間」導致原始檔在iCloud。解鎖並信任，安裝Apple Devices，再下載原始檔或使用Windows版iCloud。" },
+      "2": { "q": "不用iTunes可以把iPhone照片傳到電腦嗎？", "a": "可以。Windows上已經不需要iTunes，驅動程式由Apple Devices提供，匯入由Windows「相片」App完成。無線方式兩者都不需要。" },
+      "3": { "q": "怎麼無線把iPhone照片傳到電腦？", "a": "走雲端可以用Windows版iCloud、iCloud.com、Google相簿或OneDrive，在同一個Wi-Fi下直傳可以用BIShare或LocalSend。Microsoft的「手機連結」無法傳輸iPhone上的照片。" },
+      "4": { "q": "iPhone照片傳到電腦會損失畫質嗎？", "a": "用傳輸線、iCloud、OneDrive或Wi-Fi直傳App都不會。Google相簿的「省空間」畫質可能縮小尺寸，聊天App會壓縮，「自動」設定會把HEIC轉成JPEG但維持解析度。" },
+      "5": { "q": "傳到電腦時怎麼把HEIC轉成JPG？", "a": "在iPhone「照片」設定把「傳輸到Mac或PC」設為「自動」，或從iCloud.com以「最相容」下載，或保留HEIC並在Windows安裝免費的HEIF影像延伸模組。" },
+      "6": { "q": "怎麼從iCloud下載超過1,000張照片到電腦？", "a": "iCloud.com每次最多選1,000項，所以要分批下載，或安裝Windows版iCloud，它會在檔案總管顯示整個圖庫。" },
+      "7": { "q": "為什麼原況照片在電腦上變成兩個檔案？", "a": "Windows收到的原況照片是一張靜態照片和一段同名的短MOV影片。靜態照片可以單獨使用；想保留動態效果就把影片也留著。" },
+      "8": { "q": "「手機連結」能把iPhone照片傳到Windows嗎？", "a": "不能。iPhone上的「手機連結」只處理通話、訊息和通知，照片功能只支援Android手機。" },
+      "9": { "q": "用BIShare把iPhone照片傳到電腦免費嗎？", "a": "免費。BIShare以MIT授權開源，沒有廣告，不需要帳號，Wi-Fi直傳也沒有限制。" }
     }
   },
   "cta": {
-    "title": "今晚，相機膠卷就在你電腦裡",
-    "body": "免費、端對端加密——比找那條線快多了。",
-    "download": "下載 BIShare"
+    "title": "不用傳輸線，把iPhone照片傳到電腦",
+    "body": "開源而且免費。透過Wi-Fi以原始解析度傳送照片和影片，或分享一個任何電腦瀏覽器都能開啟的加密連結。",
+    "download": "下載BIShare"
   },
-  "a11y": {
-    "yes": "是",
-    "no": "否"
+  "a11y": { "yes": "是", "no": "否" },
+  "art": {
+    "hero": { "alt": "一支iPhone把一組照片傳到Windows筆電，標題為如何把iPhone照片傳到電腦，2026年8種方法。", "title": "iPhone照片傳到電腦", "sub": "2026年8種方法，有線無線都有", "left": "iPhone", "right": "Windows電腦" },
+    "originals": { "alt": "iPhone照片原始檔存在哪裡，以及傳輸線匯入看得到什麼：關閉iCloud照片時，所有原始檔都在iPhone上，匯入能拿到全部；選擇「下載並保留原始檔」時，原始檔同時在iPhone和iCloud，匯入能拿到全部；選擇「最佳化iPhone儲存空間」時，很多原始檔只在iCloud，匯入會漏掉，需要用Windows版iCloud或iCloud.com。", "title": "傳輸線匯入看得到什麼", "sub": "取決於iPhone上的iCloud照片設定", "off": "iCloud照片關閉", "keep": "下載並保留原始檔", "optimize": "最佳化儲存空間", "onPhone": "在iPhone上", "inCloud": "在iCloud", "full": "完整原始檔", "preview": "小尺寸預覽", "none": "未使用", "gets": "傳輸線匯入拿到", "all": "全部照片", "partial": "缺少部分照片", "fix": "改用Windows版iCloud或iCloud.com" },
+    "formats": { "alt": "iPhone的「傳輸到Mac或PC」設定：「自動」在複製時把HEIC轉為JPEG、HEVC轉為H.264，不裝額外解碼器也能開啟，但速度較慢，大量複製可能出錯；「保留原始檔」依拍攝原樣複製HEIC和HEVC，比較穩定，但Windows需要免費的HEIF影像延伸模組和付費的HEVC視訊延伸模組。", "title": "「自動」還是「保留原始檔」？", "sub": "iPhone設定：照片 › 傳輸到Mac或PC", "auto": "自動", "keep": "保留原始檔", "photo": "照片", "video": "影片", "autoGood": "不需額外解碼器就能開啟", "autoBad": "較慢，大量複製容易出錯", "keepGood": "原樣檔案，匯入更穩", "keepBad": "需要Windows延伸模組", "ext": "HEIF影像延伸模組：免費 · HEVC視訊延伸模組：美國售價0.99美元", "foot": "「設定」›「相機」›「格式」中的「最相容」會讓新拍的照片使用JPEG和H.264" },
+    "routes": { "alt": "選擇從iPhone到電腦的方法：原始檔只在iCloud時，用Windows版iCloud或iCloud.com；原始檔在iPhone上且要傳整個圖庫時，用傳輸線加Windows「相片」App；同一個Wi-Fi下傳幾張，用BIShare或LocalSend；電腦在別處時，用BIShare連結或Google相簿。", "title": "三個問題選好方法", "sub": "原始檔在哪、傳多少、電腦在哪", "q1": "原始檔在iPhone上嗎？", "no": "不在，在iCloud", "yes": "在", "cloud": "Windows版iCloud · iCloud.com", "q2": "整個圖庫還是幾張？", "whole": "整個圖庫", "few": "幾張", "cable": "「相片」App ＋ 傳輸線", "q3": "和電腦同一個Wi-Fi？", "same": "同一個Wi-Fi", "away": "電腦在別處", "wifi": "BIShare · LocalSend", "link": "BIShare連結 · Google相簿" }
   }
 }
