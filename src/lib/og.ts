@@ -13,7 +13,7 @@ const OG_IMAGE = {
 /**
  * Landing pages with a route figure (drawn by tool/landing-figures.mjs). For
  * these, the page's own figure is the share image, so a link to
- * /transfer-files-phone-to-pc previews "Phone → Windows PC" instead of the
+ * /transfer-photos-from-iphone-to-pc previews its own route figure instead of the
  * generic brand card. Keep in sync with FIGURES in that script.
  */
 const ROUTE_FIGURES = new Set([
@@ -23,7 +23,6 @@ const ROUTE_FIGURES = new Set([
   "/send-files-without-internet",
   "/share-files-without-account", "/sharedrop-alternative", "/shareit-alternative",
   "/smash-alternative", "/transfer-files-between-computers",
-  "/transfer-files-phone-to-pc",
   "/transfer-photos-from-iphone-to-pc", "/wetransfer-alternative",
   "/wormhole-alternative",
 ]);

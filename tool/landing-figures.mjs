@@ -38,7 +38,6 @@ const FIGURES = {
   "shareit-alternative": { left: "Android", right: "Windows PC", title: "Same speed, no ads and no permissions" },
   "smash-alternative": { left: "Laptop", right: "Client, any browser", title: "No queue, no size tier" },
   "transfer-files-between-computers": { left: "Laptop", right: "Laptop", title: "Computer to computer, no cloud in between" },
-  "transfer-files-phone-to-pc": { left: "Phone", right: "Windows PC", title: "Phone to PC, wireless" },
   "transfer-photos-from-iphone-to-pc": { left: "iPhone", right: "Windows PC", title: "Photos off an iPhone, original quality" },
   "wetransfer-alternative": { left: "Laptop", right: "Anyone, any browser", title: "A link that carries 100 GB, free" },
   "wormhole-alternative": { left: "Browser", right: "Anyone, any browser", title: "Encrypted links, and a local route Wormhole has never had" },

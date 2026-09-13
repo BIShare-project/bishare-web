@@ -1,83 +1,164 @@
 {
   "meta": {
-    "title": "手機傳檔案到電腦：無線免費",
-    "description": "從 iPhone 或 Android 傳檔案到 Windows、Mac、Linux，免傳輸線也不繞雲端：Wi-Fi 直連或連結。免費，免帳號。"
+    "title": "手機傳檔案到電腦：8種無線與USB方法（2026）",
+    "description": "把iPhone或Android手機的照片、影片和檔案傳到Windows、Mac或Linux：Quick Share、手機連結、AirDrop、USB傳輸線、iCloud或Google相簿，以及一款免費App。"
   },
   "hero": {
-    "eyebrow": "手機到電腦",
-    "title": "手機傳檔案到電腦",
-    "body": "傳輸線麻煩，上傳雲端又慢。<strong>BIShare</strong> 把相片、影片和檔案直接從你的 <strong>iPhone 或 Android 手機傳到任何 Windows、Mac 或 Linux 電腦</strong>——在本地 Wi-Fi 上無線傳輸，或用電腦以任何瀏覽器開啟的連結。<highlight>不用傳輸線，也不繞雲端。</highlight>",
-    "ctaPrimary": "免費取得 BIShare",
-    "ctaSecondary": "看看怎麼用"
+    "eyebrow": "手機 → 電腦",
+    "title": "把檔案從手機傳到電腦",
+    "body": "從手機裡取檔案聽起來是一件事，其實是四件：拿走幾張照片、清空相機膠卷、搬走一段聊天App傳不動的大影片，或存下路上下載的文件。每件事的最佳途徑都不一樣，手機品牌和電腦一樣重要。Android手機靠Google和Microsoft輕鬆連到Windows，iPhone靠AirDrop連到Mac，其他組合則仰賴傳輸線、雲端圖庫或第三方App。下面替八種方法排名，說明每種電腦怎麼處理收到的檔案、Windows使用者會碰到的HEIC和原況照片問題，以及事後去哪裡找檔案。<strong>BIShare</strong>是這八種之一，也是唯一能<strong>從iPhone和Android手機傳到任何Windows、Mac或Linux電腦</strong>、只靠你家Wi-Fi的方法。<highlight>免費、開源、不需帳號。</highlight>",
+    "ctaPrimary": "免費取得BIShare",
+    "ctaSecondary": "運作方式"
   },
-  "why": {
-    "title": "為什麼把檔案從手機匯出這麼麻煩",
-    "body": "把 iPhone 接上 Windows 電腦，只看得到相機膠卷——而且往往還要 iTunes。Android 走 USB 又愛在複製途中斷線。寄信給自己會撞上 <strong>25 MB 上限</strong>，還會把相片重新壓縮。雲端 App 先逼你全部上傳，再在另一端全部下載一次。BIShare 把這些通通略過：檔案<strong>直接從手機傳到電腦</strong>，保持原畫質，走你本來就在用的網路。"
+  "updated": "2026年9月更新 · 手機連結與Quick Share的細節取自Microsoft與Google說明頁，iPhone匯入步驟取自Apple支援",
+  "disclosure": "BIShare是我們的產品。Quick Share、手機連結、AirDrop和iCloud都免費，而且常常已經裝好；下面很多工作用它們就對了，頁面會寫明是哪些。",
+  "quick": {
+    "title": "簡短回答",
+    "items": [
+      "<strong>Android手機傳Windows電腦：</strong>把檔案分享到Quick Share，選擇正在執行Google Quick Share App的電腦。檔案會進入「下載」裡的Quick Share資料夾。",
+      "<strong>iPhone傳Windows電腦，照片：</strong>接上傳輸線，點「信任」，在裝好Apple裝置的前提下用Windows「相片」App匯入。開著iCloud照片的話，先把原始檔下載到iPhone。",
+      "<strong>iPhone傳Windows電腦，其他檔案：</strong>目前還沒有通用的內建無線方法。用iCloud雲碟，或兩邊都能執行的App，例如BIShare。",
+      "<strong>iPhone、Pixel 9或近期Galaxy傳Mac：</strong>AirDrop，從Android傳送時要讓Mac接收所有人的檔案。檔案會進入Mac的「下載項目」資料夾。",
+      "<strong>同一個Wi-Fi下任何手機傳任何電腦：</strong>兩邊都裝BIShare，原始檔加密後直接傳輸，大小不限。",
+      "<strong>你不在電腦旁：</strong>在手機上建立BIShare連結，24小時內在電腦瀏覽器開啟即可，最多100 GB。"
+    ]
   },
-  "how": {
-    "title": "把檔案送進電腦的兩種方式",
+  "types": {
+    "title": "要傳什麼？這決定了用哪種方法",
+    "body": "同一支手機一個下午可能要用三種方法。先對準工作，再看裝置組合。",
     "items": {
-      "0": {
-        "h": "同一 Wi-Fi？直接傳",
-        "b": "在 BIShare 裡選取你的電腦，檔案就直接飛過去，端對端加密——不會存在任何伺服器上。就算完全沒網路，靠手機熱點也能傳。"
-      },
-      "1": {
-        "h": "不在電腦旁邊？",
-        "b": "BIShare 會給你一個連結、一個 QR 碼和一組 6 位碼。在電腦上用任何瀏覽器開啟連結下載即可——不用裝 App，也不用帳號。連結 24 小時後自動失效。"
-      },
-      "2": {
-        "h": "任何手機，任何電腦",
-        "b": "iPhone、Android、Windows、Mac、Linux——一個 App，雙向互通。從手機傳到電腦，也能從電腦傳回任何手機。"
-      }
+      "0": { "h": "幾張照片或一張截圖", "b": "速度比數量重要，所以分享選單最合適：傳Windows電腦用Quick Share，傳Mac用AirDrop，已設定好的話用手機連結的照片庫，或用BIShare直接傳。聊天App也行，但不以檔案形式附加的話會壓縮圖片。" },
+      "1": { "h": "整個相機膠卷", "b": "幾千個項目適合傳輸線或照片圖庫。用Windows「相片」App、Mac上的「影像擷取」或「照片」匯入，或讓iCloud照片或Google相簿同步全部內容，再從電腦端下載。幾百個檔案之後，無線分享選單就很累人。" },
+      "2": { "h": "一段長影片", "b": "大小限制說了算。聊天App在2 GB封頂，手機連結的拖放在512 MB封頂，雲端圖庫還會占用免費空間。直連方式，也就是Quick Share、AirDrop、傳輸線或Wi-Fi下的BIShare，只受剩餘磁碟空間限制。" },
+      "3": { "h": "文件和下載的檔案", "b": "PDF、帳單和從郵件存下的檔案不在相機膠卷裡，照片工具看不到。用手機的「檔案」App搭配分享選單途徑、雲端硬碟，或BIShare，它能讀取手機允許開啟的任何資料夾。" }
     }
   },
-  "comparison": {
-    "title": "電子郵件 vs USB 傳輸線 vs BIShare",
-    "cols": {
-      "airdrop": "電子郵件",
-      "quick": "USB 傳輸線",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "r0": "無線又直連——不繞雲、不用線",
-      "r1": "端對端加密",
-      "r2": "一鍵搞定——不必插線或加附件",
-      "r3": "人不在電腦旁也能傳",
-      "r4": "免費"
+  "methods": {
+    "title": "把檔案從手機裡取出來的八種方法，依推薦排序",
+    "consLabel": "注意：",
+    "items": {
+      "0": { "name": "BIShare", "tag": "綜合最佳：iPhone或Android傳Windows、Mac或Linux", "facts": "iPhone、Android、Windows、macOS、Linux · 開源（MIT） · 同一網路直連，不限大小 · 連結最大100 GB，保留24小時 · 端對端加密 · 不需註冊", "body": "在手機上開啟App，從它能讀取的任何資料夾選照片、影片或檔案，在附近裝置清單點電腦；電腦接受後，原始檔以完整大小抵達。iPhone和Galaxy之間、Windows桌機和Linux筆電之間都沒有任何差別，沒有路由器時用手機自己的熱點也能傳。傳完前就得出門也沒關係：把選取的內容改成連結，電腦當天稍晚用任何瀏覽器下載就好，檔案離開手機前就已加密。", "cons": "直連需要安裝桌面App。連結24小時後消失，適合交接，不適合存檔。" },
+      "1": { "name": "Windows版Quick Share", "tag": "Android手機傳Windows電腦最好的內建方法", "facts": "Android 6.0或更新 · Windows 10或更新的64位元電腦，或Arm筆電上的Windows 11 · 兩端開藍牙和Wi-Fi，約5公尺內 · 檔案存在「下載」› Quick Share", "body": "電腦裝好Google的Quick Share App後，它會出現在手機一般分享選單的Quick Share裡。點它，若沒設成自己的裝置就在電腦上接受，檔案會寫入「下載」裡的Quick Share資料夾。分享選單能交出的任何檔案類型都能傳，包括直接從圖庫傳影片，Google也沒有公布大小上限。Galaxy使用者搭配Samsung電腦時，可以改用Microsoft Store裡的Samsung版。", "cons": "只支援Android。兩台裝置必須靠近，封鎖裝置間通訊的網路會讓它失效；Google建議把電腦連到手機熱點。" },
+      "2": { "name": "手機連結", "tag": "在Windows上取最近照片和截圖最方便", "facts": "Android 10+上的「連結至Windows」 · Windows 10或11 · 登入Microsoft帳戶 · 兩者在同一個Wi-Fi · 顯示最近2,000張照片和截圖 · 檔案存在「下載」› Phone Link", "body": "手機連結在這件事上有兩個用處。它的「相片」分頁顯示相機和截圖資料夾裡最近2,000張照片和截圖，任何一張點一下就能複製或存到電腦。其他檔案從手機分享到「連結至Windows」，部分Samsung和榮耀手機上顯示為「傳送到電腦」，檔案會進入「下載」裡的Phone Link資料夾。預載「連結至Windows」的手機還能從鏡像畫面拖出檔案。", "cons": "「相片」分頁只顯示圖片、不顯示影片，而且只限這兩個資料夾。拖放每個檔案最多512 MB。iPhone版主要處理訊息和通話；Microsoft至今只在測試人員版本提供iPhone檔案分享。" },
+      "3": { "name": "AirDrop", "tag": "從iPhone或支援的Android手機傳Mac最好的內建方法", "facts": "iPhone、iPad傳Mac · 透過Quick Share支援Pixel 9以後機型和部分Galaxy、小米、OnePlus等 · 僅限近距離 · 檔案存在Mac的「下載項目」資料夾", "body": "在iPhone上點「分享」「AirDrop」再選Mac；兩邊使用同一個Apple帳號時會直接接收。從Google AirDrop名單上的Android手機傳送時，在Mac上打開控制中心，允許所有人AirDrop 10分鐘，再在Quick Share裡選Mac。兩種情況都是直連，原始畫質不變，收到的內容放在Mac的「下載項目」裡，而不是照片圖庫。", "cons": "只能是Mac。目前只有少數Android機型符合條件，而對所有人開放的10分鐘裡，附近的陌生人也看得到這台Mac。" },
+      "4": { "name": "USB傳輸線", "tag": "清空相機膠卷或拷大批Android資料夾最合適", "facts": "Android：「檔案傳輸」模式，任何資料夾，檔案總管或Linux檔案管理員 · iPhone：只有相機膠卷，裝有Apple裝置的Windows「相片」，或Mac上的「照片」和「影像擷取」 · Mac存取Android儲存空間需第三方App", "body": "在USB通知裡設成「檔案傳輸」的Android手機，會在Windows和大多數Linux檔案管理員裡顯示為磁碟機，所有資料夾都能複製，不只是照片。iPhone則像相機一樣：解鎖、點「信任」，Windows「相片」App或Mac上的「影像擷取」就能匯入照片和影片。這裡Apple的提醒很重要：開著iCloud照片的話，匯入前要先把完整解析度的原始檔下載到iPhone，否則電腦只看得到存在本機的內容。", "cons": "這種方式只能從iPhone取出照片和影片。用USB 2.0傳輸線大量匯入很慢，Mac上瀏覽Android儲存空間還需要OpenMTP這類工具。" },
+      "5": { "name": "iCloud照片或Google相簿", "tag": "希望整個圖庫都到電腦上並保持同步時最合適", "facts": "iCloud：免費5 GB，Windows版iCloud在檔案總管和「相片」中顯示iCloud照片 · Google相簿：免費15 GB與Gmail和雲端硬碟共用，在photos.google.com下載 · 兩端都需要帳號", "body": "如果手機已經備份到照片圖庫，你在電腦上一登入，照片就在那裡了。Windows版iCloud把iCloud照片放進檔案總管和Windows「相片」App，Mac則在「照片」裡看到。Google相簿在任何電腦瀏覽器都能用，可以下載單張、整本相簿或打包成zip的多張照片。文件方面，iCloud雲碟和Google雲端硬碟搭配手機「檔案」App做同樣的事。", "cons": "先上傳再下載，新拍的一批4K影片要等你的網路。免費額度很快用完，Google相簿只有備份用原始畫質時才保留完整解析度。" },
+      "6": { "name": "PairDrop", "tag": "電腦上不能安裝任何東西時很好用", "facts": "任何現代瀏覽器都能執行 · 開源（GPL-3.0） · 探索同一網路中的裝置 · 透過6位數配對碼或QR碼連接不同網路的裝置 · 直連失敗時經TURN伺服器轉送", "body": "在手機瀏覽器和電腦上開啟pairdrop.net，同一網路下雙方立刻就看得到對方。點電腦、選檔案，檔案點對點傳過去。在不能安裝軟體的公司電腦上，或在朋友的筆電上臨時傳一次都很方便，配對過的裝置會互相記住。", "cons": "傳輸期間兩個瀏覽器分頁都得開著，大檔案取決於手機會不會讓瀏覽器休眠，也沒有背景傳輸。" },
+      "7": { "name": "KDE Connect", "tag": "Android手機傳Linux最好的內建方法", "facts": "Android App搭配KDE Plasma，GNOME上用GSConnect · 也有Windows和macOS版 · 同一網路 · 還能同步剪貼簿和通知 · 收到的檔案預設存到「下載」", "body": "把手機上的KDE Connect App和桌面配對一次，之後從任何Android App分享檔案到KDE Connect，都會傳到電腦的「下載」資料夾。GNOME上的GSConnect擴充功能使用同一協定。想讓手機和桌面整天保持連線、而不只是傳檔案的Linux使用者，自然會選它。", "cons": "iPhone App能做的比Android版少得多。在隔離裝置的網路上可能找不到裝置，離開區域網路也無法使用。" }
+    }
+  },
+  "table": {
+    "title": "一覽比較",
+    "cols": { "feature": "功能", "bishare": "BIShare", "quickshare": "Windows版Quick Share", "phonelink": "手機連結", "airdrop": "AirDrop", "usb": "USB傳輸線", "cloud": "iCloud / Google相簿" },
+    "rows": { "r0": "iPhone和Android都能傳", "r1": "能到Windows、Mac和Linux", "r2": "不需傳輸線", "r3": "任何檔案類型，不只是照片", "r4": "單一檔案不限大小", "r5": "免費且不占雲端空間" },
+    "note": "2026年9月的情況。BIShare的不限大小是指手機和電腦在同一網路時，連結最多攜帶100 GB。Google的Windows App只接收Android手機的檔案，需要64位元電腦。Microsoft的App只向Android使用者提供檔案功能，需要Microsoft帳戶和同一個Wi-Fi，並拒收超過512 MB的拖放檔案。AirDrop只能傳到Mac，來源是iPhone或Google AirDrop名單上的Android手機。USB傳輸線能從Android取出任何檔案，但從iPhone只能取出照片和影片，Mac瀏覽Android儲存空間還需要第三方App。照片圖庫會占用免費額度，Apple是5 GB，Google是15 GB，而且只存照片和影片片段，其他檔案交給各自的雲端硬碟。"
+  },
+  "windows": {
+    "title": "Android傳Windows：Quick Share、手機連結還是傳輸線？",
+    "body": "三者都免費，都不需要第三方App。差別在於你要傳什麼，以及是否想讓手機一直保持連線。",
+    "items": {
+      "0": { "h": "零散檔案用Quick Share", "b": "不必事先配對，也沒有公布的大小上限。傳圖庫裡的影片或「下載」裡的PDF，它最快，檔案會進入電腦的「下載」› Quick Share。兩邊登入同一個Google帳戶時，把可見性設為「你的裝置」就能省略接受確認。" },
+      "1": { "h": "剛拍的照片用手機連結", "b": "它的「相片」分頁本來就在顯示相機膠卷，所以取截圖或一分鐘前拍的照片最快。在照片上按右鍵即可複製或儲存。從手機分享選單傳來的檔案會進入「下載」› Phone Link，這個資料夾可以在手機連結的設定裡修改。" },
+      "2": { "h": "一次搬全部用傳輸線", "b": "要搬整個DCIM資料夾或手機裡全部的WhatsApp媒體時，「檔案傳輸」模式的傳輸線能讓檔案總管一次複製整個資料夾，而且不需要Wi-Fi。只傳照片的話，常顯示為「傳輸圖片」的PTP模式能讓Windows「相片」App像讀相機一樣匯入。" }
+    }
+  },
+  "iphone": {
+    "title": "iPhone傳Windows：照片容易，檔案難",
+    "body": "Windows把iPhone當成相機而不是儲存裝置。所以匯入照片很簡單，其他幾乎所有事不靠雲端或App都很麻煩。",
+    "items": {
+      "0": { "h": "照片：傳輸線、信任、匯入", "b": "Apple的步驟是：從Microsoft Store安裝Apple裝置，連接iPhone，解鎖並點「信任」，然後在Windows「相片」App中匯入。如果iCloud照片在手機上只保留最佳化版本，要先下載原始檔，否則匯入時會漏掉。" },
+      "1": { "h": "整個圖庫：Windows版iCloud", "b": "登入Windows版iCloud並開啟照片後，iCloud照片會出現在檔案總管和Windows「相片」App裡，新拍的照片不用傳輸線就會出現在電腦上。圖庫需要iCloud空間，對大多數相機膠卷來說代表要為超出免費5 GB的部分付費。" },
+      "2": { "h": "文件：iCloud雲碟或App", "b": "iPhone「檔案」App裡的檔案可以放進iCloud雲碟，再從檔案總管的iCloud雲碟資料夾取出。不用iCloud的話，實用的無線途徑是兩台裝置上都有的App，例如BIShare，或PairDrop這類瀏覽器工具。手機連結的iPhone檔案分享仍然只在Windows測試人員版本提供。" }
+    }
+  },
+  "maclinux": {
+    "title": "手機傳Mac或Linux電腦",
+    "body": "Mac從iPhone傳最省事，Linux從Android傳最省事，但現在兩者的交集比以前多。",
+    "items": {
+      "0": { "h": "iPhone傳Mac", "b": "從一個檔案到幾百張照片都用AirDrop。整個相機膠卷的話，接上傳輸線，用「照片」匯入圖庫，或用「影像擷取」直接複製到資料夾，這樣不會撐大照片圖庫。" },
+      "1": { "h": "Android傳Mac", "b": "Pixel 9以後的機型，以及Google AirDrop名單上的其他手機，可以在Quick Share裡用AirDrop傳到Mac。「影像擷取」也能從以PTP模式連接的Android手機匯入照片。其他資料夾用傳輸線傳的話，由於Google已不再提供Android File Transfer，Mac需要OpenMTP之類的工具。" },
+      "2": { "h": "手機傳Linux", "b": "Android日常用KDE Connect或GSConnect，大多數桌面檔案管理員也能掛載USB「檔案傳輸」模式的Android手機。iPhone就難一些：以libimobiledevice為基礎的檔案管理員能透過傳輸線讀取相機膠卷，其他內容最好用跨平台App或瀏覽器連結傳送。" }
+    }
+  },
+  "landing": {
+    "title": "檔案落在電腦的哪裡",
+    "body": "大多數「怎麼沒收到」，其實是檔案躺在你沒想到的資料夾裡。先查這些地方。",
+    "items": {
+      "0": { "h": "Windows", "b": "Quick Share存到「下載」› Quick Share，手機連結存到「下載」› Phone Link。用Windows「相片」App匯入的照片預設進「圖片」資料夾，除非另選位置。Windows版iCloud的iCloud照片出現在檔案總管的瀏覽窗格，透過連結用瀏覽器下載的檔案進「下載」。" },
+      "1": { "h": "Mac", "b": "AirDrop把所有東西都放進「下載項目」，照片也一樣，所以要拖進去才會加入照片圖庫。用「照片」匯入會直接進圖庫，而「影像擷取」會寫入視窗底部選定的資料夾。" },
+      "2": { "h": "Linux，以及透過BIShare收到的一切", "b": "KDE Connect預設使用家目錄下的「下載」資料夾，可在設定中變更。電腦上的BIShare把收到的檔案存到App裡設定的資料夾，預設「下載」，並在收件匣顯示，一點就能開啟資料夾。" }
+    }
+  },
+  "formats": {
+    "title": "HEIC、原況照片等讓Windows卡住的檔案",
+    "body": "傳輸成功了，檔案卻可能打不開。iPhone或Android手機遇上Windows電腦時，常見原因如下。",
+    "items": {
+      "0": { "h": "HEIC照片和HEVC影片", "b": "iPhone預設用HEIC和HEVC拍攝。Windows打不開的話，從Microsoft Store安裝Microsoft的HEIF影像延伸模組和HEVC視訊延伸模組，或在iPhone上把「設定」「相機」「格式」改為「最相容」，之後拍的就是JPEG和H.264。" },
+      "1": { "h": "原況照片會分成兩個檔案", "b": "透過傳輸線匯入時，原況照片會變成一張靜態圖片加一個同名的短MOV檔案。刪掉MOV只留照片；兩個都留則保留動態，只是Windows會把它們當兩個檔案播放。" },
+      "2": { "h": "Android動態相片仍是一個檔案", "b": "Samsung和Pixel手機的動態相片把動態部分藏在JPEG檔案本身。Windows只顯示靜態畫面；想把動態保留為可播放的片段，傳送前先在手機圖庫匯出為影片。" }
+    }
+  },
+  "steps": {
+    "title": "用BIShare從手機傳到電腦",
+    "items": {
+      "0": { "h": "在手機和電腦上安裝", "b": "手機App從App Store或Google Play安裝，桌面App從Microsoft Store、Mac App Store或Linux下載安裝。把兩者連到同一個Wi-Fi，或讓電腦連上手機熱點；iPhone詢問時允許存取區域網路。" },
+      "1": { "h": "選檔案和電腦", "b": "在手機上選照片、影片或檔案，電腦出現後點它，再到電腦上確認。原始檔以完整大小抵達接收資料夾。" },
+      "2": { "h": "或傳個連結之後再取", "b": "切換到「連結」，把網址傳給自己，24小時內坐到電腦前時開啟。不需要安裝任何東西，瀏覽器能處理最多100 GB。" }
+    }
+  },
+  "speed": {
+    "title": "需要多久",
+    "body": "這裡幾乎每種方法的慢端都是手機：它的Wi-Fi無線電，以及雲端方式中必須先完成的上傳。",
+    "items": {
+      "0": { "h": "Wi-Fi直連", "b": "離路由器一個房間遠的新款手機，Wi-Fi 5下通常傳送40到50 MB/s，Wi-Fi 6下70到110 MB/s，5 GB的影片一兩分鐘就傳完。手機熱點慢一些，通常10–30 MB/s。" },
+      "1": { "h": "USB", "b": "USB 2.0傳輸線上限480 Mbit/s，幾千個小檔案會讓相機膠卷匯入更慢。兩端都支援更高速度的USB-C傳輸線和連接埠，對大影片的幫助比對照片圖庫大。" },
+      "2": { "h": "照片圖庫和連結", "b": "用行動數據或上傳速度慢時，一天的照片可能要排很久的隊。50 Mbit/s的上傳頻寬每GB要花大約三分鐘，電腦才有機會去取。" }
+    }
+  },
+  "fixes": {
+    "title": "電腦什麼都沒收到時",
+    "items": {
+      "0": { "h": "Quick Share裡沒有電腦", "b": "在電腦上開啟Quick Share App讓它執行，確認兩端的藍牙和Wi-Fi都開著，並暫時把電腦的可見性設為「所有人」測試。訪客網路和辦公網路常會隔離裝置，把電腦連到手機熱點就能繞過。" },
+      "1": { "h": "Windows說iPhone裡沒有照片", "b": "解鎖iPhone並再點一次「信任」，確認已安裝Apple裝置；如果開著iCloud照片，先把原始檔下載到手機。只存在iCloud的照片，傳輸線匯入是看不到的。" },
+      "2": { "h": "Android手機透過USB顯示為空", "b": "手機處於「僅充電」模式或被鎖定。解鎖後下拉USB通知，改為「檔案傳輸」。如果仍然顯示為空，換一條傳輸線，很多線只能充電。" },
+      "3": { "h": "Android的AirDrop找不到Mac", "b": "在Mac上允許所有人AirDrop 10分鐘，保持螢幕亮著，並確認手機在Google名單上且已更新。兩端都要開藍牙和Wi-Fi。" },
+      "4": { "h": "照片複製過去卻打不開", "b": "多半是HEIC或HEVC。從Microsoft Store安裝HEIF和HEVC延伸模組，或用支援HEIC的檢視器開啟，並把iPhone改為「最相容」以便之後拍攝。" }
+    }
+  },
+  "security": {
+    "title": "讓傳輸保持私密",
+    "body": "手機裡存著每個人最私密的檔案。傳輸有多私密，取決於檔案是否曾經停留在別人的伺服器上。",
+    "items": {
+      "0": { "h": "直連且在本機", "b": "傳輸線、Windows版Quick Share、AirDrop、KDE Connect以及本機BIShare傳輸從不把檔案交給第三台機器，其中無線方式都會加密連線。" },
+      "1": { "h": "經轉送但已密封", "b": "BIShare連結在上傳前就在手機上密封，伺服器手上只剩沒有金鑰的密文。PairDrop的WebRTC連線同樣加密，即使由TURN伺服器轉送也是如此。" },
+      "2": { "h": "由服務商保存", "b": "標準資料保護下的iCloud照片和Google相簿把你的圖庫存在它們的伺服器上，服務商可以存取。開啟Apple的進階資料保護後，iCloud照片會增加端對端加密。" }
     }
   },
   "faq": {
-    "title": "手機傳檔案到電腦：常見問題",
+    "title": "手機傳電腦：常見問題",
     "items": {
-      "0": {
-        "q": "怎麼無線把檔案從手機傳到電腦？",
-        "a": "在手機上裝 BIShare。在同一 Wi-Fi 下開啟它，選取你的電腦，然後傳送——檔案直接傳輸，端對端加密。若不在電腦旁邊，就分享 BIShare 給你的連結，在電腦瀏覽器裡開啟下載。兩種方式都不用傳輸線。"
-      },
-      "1": {
-        "q": "不用 iTunes，怎麼把 iPhone 的相片傳到 Windows 電腦？",
-        "a": "用 BIShare 傳送，不必插線。它透過 Wi-Fi 把相片以原始解析度直接複製到電腦——沒有 iTunes，沒有「信任這部電腦」的彈窗，也沒有 25 MB 的郵件上限。HEIC 相片原樣傳到，影片和任何其他檔案也照此取得。"
-      },
-      "2": {
-        "q": "可以把檔案從 Android 傳到 Mac 或 Linux 嗎？",
-        "a": "可以。BIShare 對所有平台一視同仁，所以 Android → Mac、Android → Linux 和 Android → Windows 完全一樣。同一網路下是直接傳輸；否則用分享連結，它能在 macOS 或 Linux 的任何瀏覽器裡開啟。"
-      },
-      "3": {
-        "q": "手機傳檔案到電腦有大小限制嗎？",
-        "a": "在自己 Wi-Fi 上的近距離傳輸沒有大小上限——想傳好幾 GB 的影片都行。分享連結免費支援最大 100 GB 的檔案，連結會在 24 小時後自動失效。"
-      },
-      "4": {
-        "q": "電腦上需要裝什麼嗎？",
-        "a": "用連結接收不用——任何瀏覽器即可，不用 App 也不用帳號。若想要快速、直接的近距離傳輸，也在電腦上裝免費的 BIShare App；它能解鎖雙向傳送和更高速度，但只是要下載別人分享的檔案時從不必需。"
-      }
+      "0": { "q": "不用USB傳輸線，怎麼把檔案從手機傳到電腦？", "a": "使用Windows的Android使用者有Google的Quick Share App和Microsoft的手機連結。從iPhone或支援的Android手機傳Mac，用AirDrop。任何手機和電腦都可以兩邊裝BIShare透過Wi-Fi傳送，或在手機上建立連結再到電腦上開啟。" },
+      "1": { "q": "為什麼接上iPhone後Windows只顯示照片？", "a": "Windows把iPhone當相機讀取，所以只看得到相機膠卷。其他檔案需要iCloud雲碟、兩台裝置上都有的App，或用Apple裝置處理支援檔案共享的App裡的檔案。" },
+      "2": { "q": "Quick Share在Windows上把檔案存到哪裡？", "a": "存到「下載」資料夾裡一個名為Quick Share的資料夾。" },
+      "3": { "q": "手機連結把檔案存到電腦的哪裡？", "a": "從Android手機分享到手機連結的檔案，預設儲存在「下載」› Phone Link。資料夾可以在手機連結的設定中修改。" },
+      "4": { "q": "手機連結能顯示手機裡的影片嗎？", "a": "不能。手機連結的「相片」分頁顯示相機和截圖資料夾裡最近2,000張照片和截圖，而且只有圖片。影片請用Quick Share、傳輸線或直連App傳送。" },
+      "5": { "q": "怎麼把iPhone照片匯入Windows電腦？", "a": "從Microsoft Store安裝Apple裝置，用傳輸線連接iPhone，解鎖並點「信任」，然後在Windows「相片」App中匯入。開著iCloud照片的話，匯入前先把原始檔下載到iPhone。" },
+      "6": { "q": "怎麼把檔案從Android手機傳到Mac？", "a": "如果手機屬於能透過Quick Share用AirDrop的機型，讓Mac接收所有人的AirDrop 10分鐘，再在Quick Share裡選它。否則就用BIShare等跨平台App，或用傳輸線搭配「影像擷取」匯入照片。" },
+      "7": { "q": "為什麼iPhone照片在電腦上打不開？", "a": "通常是HEIC圖片或HEVC影片。從Microsoft Store安裝HEIF影像延伸模組和HEVC視訊延伸模組，或把iPhone相機設為「最相容」，用JPEG和H.264拍攝。" },
+      "8": { "q": "把大影片從手機傳到電腦，最快的方法是什麼？", "a": "用快速Wi-Fi或好的傳輸線直連：同一網路下的BIShare、傳Windows的Quick Share、傳Mac的AirDrop，或USB-C傳輸線。雲端圖庫和連結比較慢，因為手機要先上傳。" },
+      "9": { "q": "從手機傳檔案到電腦免費嗎？", "a": "免費。BIShare、Windows版Quick Share、手機連結、AirDrop、KDE Connect、PairDrop和USB傳輸線都不花錢。iCloud照片和Google相簿在圖庫不超出免費空間時也免費。" }
     }
   },
   "cta": {
-    "title": "幾秒鐘把手機裡的每張相片、每個檔案都取出來",
-    "body": "免費，免帳號。把 BIShare 裝到手機和電腦上——或者只在電腦上開一個連結——就能開始傳檔案。",
-    "download": "下載 BIShare"
+    "title": "從任何手機到任何電腦",
+    "body": "開源免費，不需帳號。現在就用Wi-Fi傳原始檔，或傳一個稍後在桌前開啟的連結。",
+    "download": "下載BIShare"
   },
-  "a11y": {
-    "yes": "是",
-    "no": "否"
+  "a11y": { "yes": "是", "no": "否" },
+  "art": {
+    "hero": { "alt": "一支手機向筆電傳送照片和檔案，標題為：把檔案從手機傳到電腦，8種無線或USB方法，2026。", "title": "把檔案從手機傳到電腦", "sub": "8種無線或USB方法，2026", "left": "手機", "right": "電腦" },
+    "types": { "alt": "依傳輸內容選最佳方法：幾張照片用分享選單（Quick Share、AirDrop、手機連結或BIShare）；整個相機膠卷用傳輸線匯入或照片圖庫；一段長影片用不限大小的直連方式；文件用「檔案」App搭配分享選單、雲端硬碟或BIShare。", "title": "傳什麼決定用什麼方法", "sub": "先對準工作，再看手機和電腦", "t0": "幾張照片", "r0": "分享選單：Quick Share、AirDrop、手機連結、BIShare", "t1": "整個相機膠卷", "r1": "傳輸線匯入、iCloud照片或Google相簿", "t2": "一段長影片", "r2": "不限大小的直連方式", "t3": "文件", "r3": "「檔案」App加分享選單、雲端或BIShare", "foot": "聊天App檔案上限2 GB，不以檔案形式傳送會壓縮照片" },
+    "landing": { "alt": "手機傳來的檔案在電腦上的位置：Windows上Quick Share存到「下載」› Quick Share，手機連結存到「下載」› Phone Link，「相片」App匯入到「圖片」；Mac上AirDrop存到「下載項目」，「照片」匯入到圖庫；Linux上KDE Connect存到「下載」；BIShare使用接收資料夾，預設「下載」。", "title": "檔案落在電腦的哪裡", "sub": "覺得少了什麼時先看這裡", "win": "Windows", "mac": "Mac", "linux": "Linux", "w0": "Quick Share", "w0p": "下載 › Quick Share", "w1": "手機連結", "w1p": "下載 › Phone Link", "w2": "「相片」App匯入", "w2p": "圖片", "m0": "AirDrop", "m0p": "下載項目", "m1": "「照片」匯入", "m1p": "照片圖庫", "m2": "影像擷取", "m2p": "你選的資料夾", "l0": "KDE Connect", "l0p": "下載", "l1": "USB檔案管理員", "l1p": "你複製到的資料夾", "l2": "BIShare", "l2p": "接收資料夾，預設「下載」" },
+    "formats": { "alt": "iPhone和Android照片格式在Windows上的情況：HEIC和HEVC需要Microsoft的HEIF和HEVC延伸模組，或把iPhone設為最相容；傳輸線匯入的原況照片變成靜態圖片加MOV；Android動態相片把影片藏在JPEG裡，所以要先匯出片段。", "title": "複製過去的照片為什麼在Windows上打不開", "sub": "三個格式問題及各自的解法", "a": { "from": "iPhone照片或影片", "what": "HEIC · HEVC", "fix": "安裝HEIF和HEVC延伸模組，或相機 › 格式 › 最相容" }, "b": { "from": "iPhone原況照片", "what": "靜態圖片 + MOV", "fix": "兩個檔案都留以保留動態；只要照片就刪掉MOV" }, "c": { "from": "Android動態相片", "what": "藏在JPEG裡的影片", "fix": "傳送前在圖庫裡把片段匯出為影片" } }
   }
 }
