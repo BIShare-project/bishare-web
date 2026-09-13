@@ -23,7 +23,7 @@ const ROUTE_FIGURES = new Set([
   "/send-anywhere-alternative", "/send-files-android-to-iphone",
   "/send-files-iphone-to-android", "/send-files-without-internet", "/send-large-files",
   "/share-files-without-account", "/sharedrop-alternative",
-  "/shareit-alternative", "/smash-alternative", "/snapdrop-alternative",
+  "/shareit-alternative", "/smash-alternative",
   "/transfer-files-between-computers", "/transfer-files-pc-to-phone",
   "/transfer-files-phone-to-pc", "/transfer-photos-from-iphone-to-pc",
   "/wetransfer-alternative", "/wormhole-alternative",

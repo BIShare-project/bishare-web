@@ -272,10 +272,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "桌面应用里，同一个网络上并排列着两部手机和一台笔记本，每一台都离接收只差一次点击。",
-    "transfer": "文件落到传输页面之后：一个网址、一个二维码方块和六个字符，过期倒计时已经在走。"
-  },
   "cta": {
     "title": "留住 Snapdrop 的习惯，丢掉网络的限制",
     "body": "免费、开源、无需账号。用应用发到房间那头，或者用一条链接发到国土那头，对方在任意浏览器里就能打开。",
@@ -284,5 +280,96 @@
   "a11y": {
     "yes": "是",
     "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "两个浏览器窗口互传文件的插图，标题：2026年Snapdrop替代方案，LimeWire接手后的变化与7款实测替代。",
+      "title": "Snapdrop替代方案（2026）",
+      "sub": "LimeWire接手后的变化，以及7款实测替代",
+      "left": "你的浏览器",
+      "right": "对方的设备"
+    },
+    "status": {
+      "alt": "Snapdrop今昔对比表：过去是独立开源项目，现在归LimeWire所有；网站仍在运行且外观不变；在线网站的代码不再公开；经典版本仍可自行部署。",
+      "title": "Snapdrop的过去与现在",
+      "sub": "2026年9月打开网站并查阅代码仓库核实",
+      "colRow": "",
+      "colThen": "经典版Snapdrop",
+      "colNow": "如今的snapdrop.net",
+      "rows": {
+        "owner": {
+          "label": "运营方",
+          "then": "独立开源项目",
+          "now": "LimeWire"
+        },
+        "site": {
+          "label": "网站是否在线",
+          "then": "是",
+          "now": "是，还是熟悉的页面"
+        },
+        "code": {
+          "label": "在线网站的代码",
+          "then": "在GitHub公开",
+          "now": "未公开"
+        },
+        "selfhost": {
+          "label": "自行部署",
+          "then": "可以",
+          "now": "可以，用保留的代码仓库"
+        }
+      }
+    },
+    "choose": {
+      "alt": "六种情况与合适工具的图表：两台不能安装软件的笔记本用PairDrop，自己的设备日常用BIShare或LocalSend，跨网络用配对码或BIShare链接，隔离设备的酒店或办公室Wi-Fi同样如此，一个超大文件用BIShare链接，想完全掌控就自建PairDrop。",
+      "title": "该打开哪一个",
+      "sub": "六种常见情况和对应的工具",
+      "items": {
+        "0": {
+          "q": "同一Wi-Fi下的两台笔记本，不能装任何软件",
+          "a": "两边浏览器都用PairDrop"
+        },
+        "1": {
+          "q": "自己的手机和笔记本，每天都用",
+          "a": "BIShare或LocalSend"
+        },
+        "2": {
+          "q": "对方在另一个网络",
+          "a": "PairDrop配对码或BIShare链接"
+        },
+        "3": {
+          "q": "隔离设备的酒店、咖啡馆或办公室Wi-Fi",
+          "a": "配对码或链接"
+        },
+        "4": {
+          "q": "一个超大文件，只传一次",
+          "a": "BIShare链接，最多100 GB"
+        },
+        "5": {
+          "q": "想确保不会被悄悄改变",
+          "a": "自建PairDrop"
+        }
+      }
+    },
+    "lanes": {
+      "alt": "三种途径对比：浏览器标签页通过JavaScript缓冲，关闭标签页就中断；安装的应用最接近Wi-Fi速度，屏幕休眠也不中断；互联网链接受上传速度限制，50 Mbps下每GB约三分钟。",
+      "title": "时间花在哪里",
+      "sub": "同一Wi-Fi、同一文件、三种途径",
+      "tab": {
+        "name": "浏览器标签页",
+        "examples": "PairDrop、Snapdrop、ShareDrop",
+        "note": "经JavaScript缓冲，关闭标签页即中断"
+      },
+      "app": {
+        "name": "安装的应用",
+        "examples": "BIShare、LocalSend",
+        "note": "接近Wi-Fi速度（40–110 MB/s），屏幕休眠也继续"
+      },
+      "link": {
+        "name": "互联网链接",
+        "examples": "BIShare链接、Wormhole、Transfer.zip",
+        "note": "受上传限制：50 Mbps下每GB约3分钟"
+      },
+      "foot": "条形表示Wi-Fi 6网络下的相对吞吐量，并非基准测试"
+    }
   }
 }

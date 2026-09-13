@@ -43,7 +43,6 @@ const FIGURES = {
   "sharedrop-alternative": { left: "Browser", right: "Browser", title: "Drag between two tabs, or send a link" },
   "shareit-alternative": { left: "Android", right: "Windows PC", title: "Same speed, no ads and no permissions" },
   "smash-alternative": { left: "Laptop", right: "Client, any browser", title: "No queue, no size tier" },
-  "snapdrop-alternative": { left: "Browser", right: "Browser", title: "The Snapdrop habit, minus the same-network rule" },
   "transfer-files-between-computers": { left: "Laptop", right: "Laptop", title: "Computer to computer, no cloud in between" },
   "transfer-files-pc-to-phone": { left: "Windows PC", right: "Phone", title: "PC to phone, wireless" },
   "transfer-files-phone-to-pc": { left: "Phone", right: "Windows PC", title: "Phone to PC, wireless" },

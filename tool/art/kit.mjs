@@ -16,7 +16,10 @@ export const C = {
 };
 
 export const FONT =
-  "-apple-system, 'Segoe UI', 'Hiragino Sans', 'PingFang SC', 'Apple SD Gothic Neo', 'Geeza Pro', 'Kohinoor Devanagari', 'Noto Sans', system-ui, sans-serif";
+  "-apple-system, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Arial, 'Hiragino Sans', 'PingFang SC', 'Apple SD Gothic Neo', 'Geeza Pro', 'Kohinoor Devanagari', 'Noto Sans', system-ui, sans-serif";
+/* Latin-and-Cyrillic faces come before the CJK ones on purpose: Hiragino
+   carries Cyrillic glyphs with full-width spacing, and Chromium picks it up
+   for Russian if it is earlier in the stack. */
 
 export const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -179,6 +182,28 @@ export const FIT_SCRIPT = `
   for (const t of document.querySelectorAll("text[data-fit]")) {
     const max = +t.dataset.fit; let size = +t.getAttribute("font-size");
     while (t.getComputedTextLength() > max && size > 9) { size -= 0.5; t.setAttribute("font-size", size); }
+  }
+})();
+`;
+
+/**
+ * Right-to-left locales read tables, flows and bar charts from the right, so
+ * those images are mirrored as a whole and every <text> is flipped back
+ * around its own anchor, which keeps glyphs readable while the layout reads
+ * right to left. Runs after FIT_SCRIPT. Heroes are left as drawn.
+ */
+export const MIRROR_SCRIPT = `
+(() => {
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.querySelector("svg");
+  const w = +svg.getAttribute("width");
+  const g = document.createElementNS(NS, "g");
+  g.setAttribute("transform", "translate(" + w + ",0) scale(-1,1)");
+  for (const el of [...svg.childNodes]) if (el.nodeName !== "defs") g.appendChild(el);
+  svg.appendChild(g);
+  for (const t of g.querySelectorAll("text")) {
+    const x = +t.getAttribute("x");
+    t.setAttribute("transform", "translate(" + 2 * x + ",0) scale(-1,1)");
   }
 })();
 `;

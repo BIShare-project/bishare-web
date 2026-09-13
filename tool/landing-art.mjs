@@ -2,7 +2,8 @@
  * Renders the custom art for SEO landing pages, one set per locale.
  *
  * Each page has a definition in tool/art/<slug>.mjs exporting `ns` (its
- * message namespace) and `images`: { name: { w, h, draw(labels, locale) } }.
+ * message namespace) and `images`: { name: { w, h, mirror?, draw(labels,
+ * locale) } }. `mirror: true` flips tables, flows and charts for Arabic.
  * Labels come from src/messages/<locale>/<ns>.json under "art", the same file
  * the page reads its alt text and captions from, so image text, alt and page
  * copy are translated together and cannot drift apart.
@@ -18,7 +19,7 @@ import { chromium } from "@playwright/test";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { FIT_SCRIPT } from "./art/kit.mjs";
+import { FIT_SCRIPT, MIRROR_SCRIPT } from "./art/kit.mjs";
 
 const LOCALES = ["en", "ar", "de", "es", "fr", "hi", "id", "ja", "ko", "pt-BR", "ru", "zh-Hans", "zh-Hant"];
 const [slug, ...only] = process.argv.slice(2);
@@ -44,6 +45,7 @@ for (const locale of locales) {
     );
     await page.evaluate(() => document.fonts.ready);
     await page.addScriptTag({ content: FIT_SCRIPT });
+    if (dir === "rtl" && img.mirror) await page.addScriptTag({ content: MIRROR_SCRIPT });
     await page.waitForTimeout(60);
     const base = path.join(outDir, `${name}.${locale}`);
     await page.screenshot({ path: `${base}.png` });

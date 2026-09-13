@@ -272,10 +272,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "桌面 App 裡，同一個網路上並排列著兩支手機和一台筆電，每一台都離接收只差一次點擊。",
-    "transfer": "檔案落到傳輸頁面之後：一個網址、一個 QR 方塊和六個字元，過期倒數已經在走。"
-  },
   "cta": {
     "title": "留住 Snapdrop 的習慣，丟掉網路的限制",
     "body": "免費、開源、免帳號。用 App 傳到房間那頭，或者用一條連結傳到國土那頭，對方在任何瀏覽器裡就能打開。",
@@ -284,5 +280,96 @@
   "a11y": {
     "yes": "是",
     "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "兩個瀏覽器視窗互傳檔案的插圖，標題：2026年Snapdrop替代方案，LimeWire接手後的變化與7款實測替代。",
+      "title": "Snapdrop替代方案（2026）",
+      "sub": "LimeWire接手後的變化，以及7款實測替代",
+      "left": "你的瀏覽器",
+      "right": "對方的裝置"
+    },
+    "status": {
+      "alt": "Snapdrop今昔對照表：過去是獨立開源專案，現在歸LimeWire所有；網站仍在運作且外觀不變；線上網站的程式碼不再公開；經典版本仍可自行架設。",
+      "title": "Snapdrop的過去與現在",
+      "sub": "2026年9月開啟網站並查閱程式庫確認",
+      "colRow": "",
+      "colThen": "經典版Snapdrop",
+      "colNow": "現在的snapdrop.net",
+      "rows": {
+        "owner": {
+          "label": "營運者",
+          "then": "獨立開源專案",
+          "now": "LimeWire"
+        },
+        "site": {
+          "label": "網站是否上線",
+          "then": "是",
+          "now": "是，還是熟悉的頁面"
+        },
+        "code": {
+          "label": "線上網站的程式碼",
+          "then": "在GitHub公開",
+          "now": "未公開"
+        },
+        "selfhost": {
+          "label": "自行架設",
+          "then": "可以",
+          "now": "可以，用保留的程式庫"
+        }
+      }
+    },
+    "choose": {
+      "alt": "六種情況與合適工具的圖表：兩台不能安裝軟體的筆電用PairDrop，自己的裝置日常用BIShare或LocalSend，跨網路用配對碼或BIShare連結，會隔離裝置的飯店或辦公室Wi-Fi也一樣，一個超大檔案用BIShare連結，想完全掌控就自架PairDrop。",
+      "title": "該開哪一個",
+      "sub": "六種常見情況與對應的工具",
+      "items": {
+        "0": {
+          "q": "同一Wi-Fi的兩台筆電，不能安裝任何東西",
+          "a": "兩邊瀏覽器都用PairDrop"
+        },
+        "1": {
+          "q": "自己的手機和筆電，每天使用",
+          "a": "BIShare或LocalSend"
+        },
+        "2": {
+          "q": "對方在另一個網路",
+          "a": "PairDrop配對碼或BIShare連結"
+        },
+        "3": {
+          "q": "會隔離裝置的飯店、咖啡廳或辦公室Wi-Fi",
+          "a": "配對碼或連結"
+        },
+        "4": {
+          "q": "一個超大檔案，只傳一次",
+          "a": "BIShare連結，最多100 GB"
+        },
+        "5": {
+          "q": "想確定不會被悄悄改變",
+          "a": "自架PairDrop"
+        }
+      }
+    },
+    "lanes": {
+      "alt": "三種途徑比較：瀏覽器分頁透過JavaScript緩衝，關閉分頁就中斷；安裝的App最接近Wi-Fi速度，螢幕休眠也不中斷；網際網路連結受上傳速度限制，50 Mbps時每GB約三分鐘。",
+      "title": "時間花在哪裡",
+      "sub": "同一Wi-Fi、同一檔案、三種途徑",
+      "tab": {
+        "name": "瀏覽器分頁",
+        "examples": "PairDrop、Snapdrop、ShareDrop",
+        "note": "經JavaScript緩衝，關閉分頁即中斷"
+      },
+      "app": {
+        "name": "安裝的App",
+        "examples": "BIShare、LocalSend",
+        "note": "接近Wi-Fi速度（40–110 MB/s），螢幕休眠也繼續"
+      },
+      "link": {
+        "name": "網際網路連結",
+        "examples": "BIShare連結、Wormhole、Transfer.zip",
+        "note": "受上傳限制：50 Mbps時每GB約3分鐘"
+      },
+      "foot": "長條代表Wi-Fi 6網路下的相對傳輸量，並非基準測試"
+    }
   }
 }

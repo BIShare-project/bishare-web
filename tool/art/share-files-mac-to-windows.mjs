@@ -19,6 +19,7 @@ export const images = {
   },
 
   flow: {
+    mirror: true,
     w: 1200, h: 740,
     draw: (L) => frame(1200, 740, `
       ${text(600, 72, L.title, { size: 36, weight: 660, fit: 1080 })}
@@ -38,6 +39,7 @@ export const images = {
   },
 
   usb: {
+    mirror: true,
     w: 1200, h: 600,
     draw: (L) => {
       const colX = [200, 460, 715, 970];
@@ -68,6 +70,7 @@ export const images = {
   },
 
   speed: {
+    mirror: true,
     w: 1200, h: 560,
     draw: (L) => {
       const max = 120, x0 = 420, span = 640;

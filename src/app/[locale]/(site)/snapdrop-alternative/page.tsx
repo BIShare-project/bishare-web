@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
@@ -11,6 +10,8 @@ import { HeroCta } from "@/components/site/hero-cta";
 import { StoreButtons } from "@/components/site/store-buttons";
 import { ArticleToc } from "@/components/site/article-toc";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
+import { LandingArt } from "@/components/site/landing-art";
+import { ImageLightbox } from "@/components/site/image-lightbox";
 import { ArrowRight, Check, X } from "lucide-react";
 
 /**
@@ -84,7 +85,7 @@ export async function generateMetadata({
     title: { absolute: title },
     description,
     alternates: buildAlternates(locale, SLUG),
-    ...sharedOpenGraph(title, description, SLUG),
+    ...sharedOpenGraph(title, description, SLUG, locale),
   };
 }
 
@@ -110,37 +111,6 @@ const strong = (chunks: React.ReactNode) => (
 const highlight = (chunks: React.ReactNode) => (
   <span className="text-foreground">{chunks}</span>
 );
-
-function Shot({
-  src,
-  alt,
-  width = 1400,
-  height = 787,
-}: {
-  src: string;
-  alt: string;
-  /** Intrinsic size, so the browser reserves the right box before load. */
-  width?: number;
-  height?: number;
-}) {
-  return (
-    <figure className="overflow-hidden rounded-xl border border-border bg-card">
-      <picture>
-        <source srcSet={`${src}.webp`} type="image/webp" />
-        <Image
-          src={`${src}.jpg`}
-          alt={alt}
-          width={width}
-          height={height}
-          className="h-auto w-full"
-        />
-      </picture>
-      <figcaption className="border-t border-border px-4 py-3 text-[13px] leading-relaxed text-muted-foreground">
-        {alt}
-      </figcaption>
-    </figure>
-  );
-}
 
 /** Prose list section — a heading and a paragraph per item. */
 function ProseList({
@@ -280,7 +250,16 @@ export default async function SnapdropAlternativePage({
               <StoreButtons />
             </div>
 
-            <Shot src="/img/snapdrop-alternative/route" alt={chrome("figureCaption")} width={1400} height={700} />
+            <LandingArt
+              slug={SLUG}
+              name="hero"
+              locale={locale}
+              alt={t("art.hero.alt")}
+              width={1200}
+              height={630}
+              zoomHint={chrome("imageZoom")}
+              className="mt-8"
+            />
 
             {/* What happened to Snapdrop */}
             <section className="mt-14">
@@ -288,6 +267,16 @@ export default async function SnapdropAlternativePage({
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t("status.body")}
               </p>
+              <LandingArt
+                slug={SLUG}
+                name="status"
+                locale={locale}
+                alt={t("art.status.alt")}
+                width={1200}
+                height={620}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
               <ProseList
                 items={STATUS_ITEMS}
                 head={(i) => t(`status.items.${i}.h`)}
@@ -396,6 +385,16 @@ export default async function SnapdropAlternativePage({
             {/* Situations */}
             <section className="mt-14">
               <H2 id="situations">{t("situations.title")}</H2>
+              <LandingArt
+                slug={SLUG}
+                name="choose"
+                locale={locale}
+                alt={t("art.choose.alt")}
+                width={1200}
+                height={860}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
               <ProseList
                 items={SITUATION_ITEMS}
                 head={(i) => t(`situations.items.${i}.h`)}
@@ -411,13 +410,6 @@ export default async function SnapdropAlternativePage({
                 head={(i) => t(`steps.items.${i}.h`)}
                 body={(i) => t(`steps.items.${i}.b`)}
               />
-              <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                <Shot
-                  src="/img/airdrop-windows/devices"
-                  alt={t("shots.devices")}
-                />
-                <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} width={1280} height={800} />
-              </div>
             </section>
 
             {/* Speed */}
@@ -426,6 +418,16 @@ export default async function SnapdropAlternativePage({
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t("speed.body")}
               </p>
+              <LandingArt
+                slug={SLUG}
+                name="lanes"
+                locale={locale}
+                alt={t("art.lanes.alt")}
+                width={1200}
+                height={600}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
               <ProseList
                 items={SPEED_ITEMS}
                 head={(i) => t(`speed.items.${i}.h`)}
@@ -501,6 +503,7 @@ export default async function SnapdropAlternativePage({
       </main>
 
       <SiteFooter />
+      <ImageLightbox closeLabel={chrome("imageClose")} />
     </div>
   );
 }
