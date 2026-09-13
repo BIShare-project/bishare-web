@@ -11,6 +11,9 @@ import { VButton } from "@/components/site/vbutton";
 import { HeroCta } from "@/components/site/hero-cta";
 import { StoreButtons } from "@/components/site/store-buttons";
 import { Link } from "@/i18n/navigation";
+import { publishedSlugs } from "@/content/blog/registry";
+
+const SPEED_POST = "airdrop-for-windows-speeds";
 import { ArrowRight, Check, X } from "lucide-react";
 
 /**
@@ -89,13 +92,24 @@ const strong = (chunks: React.ReactNode) => (
   <strong className="text-foreground">{chunks}</strong>
 );
 
-function Shot({ src, alt }: { src: string; alt: string }) {
+function Shot({
+  src,
+  alt,
+  width = 1400,
+  height = 787,
+}: {
+  src: string;
+  alt: string;
+  /** Intrinsic size, so the browser reserves the right box before load. */
+  width?: number;
+  height?: number;
+}) {
   return (
     <figure className="overflow-hidden rounded-xl border border-border bg-card">
       <picture>
         <source srcSet={`${src}.webp`} type="image/webp" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${src}.jpg`} alt={alt} width={1400} height={800} loading="lazy" decoding="async" className="h-auto w-full" />
+        <img src={`${src}.jpg`} alt={alt} width={width} height={height} loading="lazy" decoding="async" className="h-auto w-full" />
       </picture>
       <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">{alt}</figcaption>
     </figure>
@@ -277,7 +291,7 @@ export default async function SendLargeFilesPage({
             ))}
           </ol>
           <div className="mt-6">
-            <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} />
+            <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} width={1280} height={800} />
           </div>
         </section>
 
@@ -302,12 +316,16 @@ export default async function SendLargeFilesPage({
           <p className="mt-4 leading-relaxed text-muted-foreground">{t("speed.body")}</p>
           <DataTable cols={cols("speed", 3)} rows={table("speed", SPEED_ROWS, 3)} />
           <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{t("speed.local")}</p>
-          <p className="mt-3">
-            <Link href="/blog/airdrop-for-windows-speeds" className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:underline">
-              {t("speed.link")}
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </p>
+          {/* The speed article is scheduled; link it only once it is live so
+              the page never points at a 404 while it waits. */}
+          {publishedSlugs().has(SPEED_POST) && (
+            <p className="mt-3">
+              <Link href={`/blog/${SPEED_POST}`} className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:underline">
+                {t("speed.link")}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </p>
+          )}
         </section>
 
         {/* Every way, and when each fits */}

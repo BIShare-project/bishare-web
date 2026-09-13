@@ -17,6 +17,9 @@ import {
 import { RELEASES_URL } from "../download/availability";
 import { ArrowRight, Check, Download, X } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { publishedSlugs } from "@/content/blog/registry";
+
+const SPEED_POST = "airdrop-for-windows-speeds";
 
 /**
  * High-intent SEO landing targeting "AirDrop for Windows" / "AirDrop for PC" and
@@ -410,12 +413,16 @@ export default async function AirdropForWindowsPage({
             </table>
           </div>
           <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{t("speed.note")}</p>
-          <p className="mt-3">
-            <Link href="/blog/airdrop-for-windows-speeds" className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:underline">
-              {t("speed.link")}
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </p>
+          {/* The speed article is scheduled; link it only once it is live so
+              the page never points at a 404 while it waits. */}
+          {publishedSlugs().has(SPEED_POST) && (
+            <p className="mt-3">
+              <Link href={`/blog/${SPEED_POST}`} className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:underline">
+                {t("speed.link")}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </p>
+          )}
         </section>
 
         {/* Security — what leaves the device */}

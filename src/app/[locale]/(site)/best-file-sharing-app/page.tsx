@@ -98,13 +98,24 @@ const strong = (chunks: React.ReactNode) => (
   <strong className="text-foreground">{chunks}</strong>
 );
 
-function Shot({ src, alt }: { src: string; alt: string }) {
+function Shot({
+  src,
+  alt,
+  width = 1400,
+  height = 787,
+}: {
+  src: string;
+  alt: string;
+  /** Intrinsic size, so the browser reserves the right box before load. */
+  width?: number;
+  height?: number;
+}) {
   return (
     <figure className="overflow-hidden rounded-xl border border-border bg-card">
       <picture>
         <source srcSet={`${src}.webp`} type="image/webp" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${src}.jpg`} alt={alt} width={1400} height={800} loading="lazy" decoding="async" className="h-auto w-full" />
+        <img src={`${src}.jpg`} alt={alt} width={width} height={height} loading="lazy" decoding="async" className="h-auto w-full" />
       </picture>
       <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">{alt}</figcaption>
     </figure>
@@ -211,7 +222,7 @@ export default async function BestFileSharingAppPage({
           <StoreButtons />
         </div>
 
-        <Shot src="/img/best-file-sharing-app/route" alt={chrome("figureCaption")} />
+        <Shot src="/img/best-file-sharing-app/route" alt={chrome("figureCaption")} width={1400} height={700} />
 
         {/* How we judged */}
         <section className="mt-14">
@@ -301,7 +312,7 @@ export default async function BestFileSharingAppPage({
           <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("why.body", { strong })}</p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <Shot src="/img/airdrop-windows/devices" alt={t("shots.devices")} />
-            <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} />
+            <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} width={1280} height={800} />
           </div>
         </section>
 

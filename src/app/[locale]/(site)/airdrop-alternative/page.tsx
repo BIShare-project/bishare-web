@@ -110,7 +110,18 @@ const highlight = (chunks: React.ReactNode) => (
   <span className="text-foreground">{chunks}</span>
 );
 
-function Shot({ src, alt }: { src: string; alt: string }) {
+function Shot({
+  src,
+  alt,
+  width = 1400,
+  height = 787,
+}: {
+  src: string;
+  alt: string;
+  /** Intrinsic size, so the browser reserves the right box before load. */
+  width?: number;
+  height?: number;
+}) {
   return (
     <figure className="overflow-hidden rounded-xl border border-border bg-card">
       <picture>
@@ -118,8 +129,8 @@ function Shot({ src, alt }: { src: string; alt: string }) {
         <Image
           src={`${src}.jpg`}
           alt={alt}
-          width={1280}
-          height={800}
+          width={width}
+          height={height}
           className="h-auto w-full"
         />
       </picture>
@@ -268,7 +279,7 @@ export default async function AirdropAlternativePage({
               <StoreButtons />
             </div>
 
-            <Shot src="/img/airdrop-alternative/route" alt={chrome("figureCaption")} />
+            <Shot src="/img/airdrop-alternative/route" alt={chrome("figureCaption")} width={1400} height={700} />
 
             {/* Why AirDrop stops */}
             <section className="mt-14">
@@ -404,7 +415,7 @@ export default async function AirdropAlternativePage({
                   src="/img/airdrop-windows/devices"
                   alt={t("shots.devices")}
                 />
-                <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} />
+                <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} width={1280} height={800} />
               </div>
             </section>
 

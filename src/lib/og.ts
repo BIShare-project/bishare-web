@@ -11,6 +11,25 @@ const OG_IMAGE = {
 };
 
 /**
+ * Landing pages with a route figure (drawn by tool/landing-figures.mjs). For
+ * these, the page's own figure is the share image, so a link to
+ * /share-files-mac-to-windows previews "Mac → Windows PC" instead of the
+ * generic brand card. Keep in sync with FIGURES in that script.
+ */
+const ROUTE_FIGURES = new Set([
+  "/airdrop-alternative", "/airdrop-for-android", "/airdrop-for-windows",
+  "/airdrop-not-working", "/best-file-sharing-app", "/encrypted-file-transfer",
+  "/firefox-send-alternative", "/localsend-alternative", "/nearby-share-alternative",
+  "/send-anywhere-alternative", "/send-files-android-to-iphone",
+  "/send-files-iphone-to-android", "/send-files-without-internet", "/send-large-files",
+  "/share-files-mac-to-windows", "/share-files-without-account", "/sharedrop-alternative",
+  "/shareit-alternative", "/smash-alternative", "/snapdrop-alternative",
+  "/transfer-files-between-computers", "/transfer-files-pc-to-phone",
+  "/transfer-files-phone-to-pc", "/transfer-photos-from-iphone-to-pc",
+  "/wetransfer-alternative", "/wormhole-alternative",
+]);
+
+/**
  * Shared OpenGraph builder so every page inherits the brand og-image and
  * site name without re-declaring them (review fix #19). Spread the result
  * into a page's `metadata`:
@@ -28,6 +47,9 @@ export function sharedOpenGraph(
   description: string,
   path = "/"
 ): Pick<Metadata, "openGraph" | "twitter"> {
+  const image = ROUTE_FIGURES.has(path)
+    ? { url: `/img${path}/route.jpg`, width: 1400, height: 700, alt: title }
+    : OG_IMAGE;
   return {
     openGraph: {
       title,
@@ -35,13 +57,13 @@ export function sharedOpenGraph(
       url: `${SITE_URL}${path}`,
       type: "website",
       siteName: SITE_NAME,
-      images: [OG_IMAGE],
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [{ url: OG_IMAGE.url, alt: OG_IMAGE.alt }],
+      images: [{ url: image.url, alt: image.alt }],
     },
   };
 }
