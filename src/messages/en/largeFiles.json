@@ -372,8 +372,7 @@
     ]
   },
   "shots": {
-    "transfer": "bishare.app/transfer: drop a file up to 100 GB, get a link, a QR code and a 6-character code. Uploads encrypted, expires in 24 hours.",
-    "send": "The desktop app: pick a device on your Wi-Fi and send with no size limit — nothing goes through a server."
+    "transfer": "bishare.app/transfer before a file is added: the Link, Nearby and QR Beam tabs, a drop zone marked up to 100 GB free, and a box for entering a 6-character code."
   },
   "devices": {
     "title": "Large files between specific devices",
@@ -404,5 +403,50 @@
         "href": "/send-files-without-internet"
       }
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "A laptop sending a 100 GB file to a browser, titled send large files free up to 100 GB: by link or device to device, encrypted, no account.",
+      "title": "Send large files free, up to 100 GB",
+      "sub": "By link or device to device · encrypted · no account",
+      "left": "Your computer",
+      "right": "Any browser"
+    },
+    "limits": {
+      "alt": "Log-scale chart of free per-transfer limits checked in September 2026: email 20 to 25 MB, Smash 2 GB before a queue, WeTransfer 3 GB, Filemail, TransferNow, SendBig and TransferXL 5 GB, SwissTransfer 50 GB, a BIShare link 100 GB, and BIShare device to device with no limit.",
+      "title": "Free limit per transfer",
+      "sub": "As published by each service, September 2026 · log scale",
+      "smashV": "2 GB, then a queue",
+      "bishareLink": "BIShare link",
+      "bishareNearby": "BIShare device to device",
+      "noLimit": "no limit",
+      "foot": "Each step on the scale is ten times the last, so megabytes and 100 GB fit on one chart"
+    },
+    "time": {
+      "alt": "How long a 10 GB file takes: about 2 hours 20 minutes on a 10 Mbps upload, 28 minutes at 50 Mbps, 14 minutes at 100 Mbps, 3 minutes at 500 Mbps, and a few minutes device to device on Wi-Fi 6 with no upload at all.",
+      "title": "How long 10 GB takes",
+      "sub": "A link is bound by your upload speed; nearby skips the internet",
+      "up10": "Link, 10 Mbps upload",
+      "up50": "Link, 50 Mbps upload",
+      "up100": "Link, 100 Mbps upload",
+      "up500": "Link, 500 Mbps upload",
+      "nearby": "Device to device, Wi-Fi 6",
+      "v10": "2 h 20 min",
+      "v50": "28 min",
+      "v100": "14 min",
+      "v500": "3 min",
+      "vNear": "≈ 2–3 min",
+      "foot": "Bar length on a square-root scale so hours and minutes fit together"
+    },
+    "link": {
+      "alt": "Anatomy of a BIShare link: the part before the # sign, bishare.app/transfer and a code, reaches the server and only locates the stored transfer, which is encrypted; the part after the #, the key, never leaves the browser and is what decrypts the file.",
+      "title": "What the server sees in a link",
+      "sub": "Illustrative link; every transfer gets its own code and key",
+      "serverTitle": "Sent to the server",
+      "serverBody": "Only finds the transfer, which is stored already encrypted",
+      "keyTitle": "Stays in the browser",
+      "keyBody": "The key that decrypts the file",
+      "foot": "Browsers never send the part after # to a server, so the stored copy is unreadable to us"
+    }
   }
 }

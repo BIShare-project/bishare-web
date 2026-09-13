@@ -372,8 +372,7 @@
     ]
   },
   "shots": {
-    "transfer": "bishare.app/transfer: suelta un archivo de hasta 100 GB y obtén un enlace, un código QR y un código de 6 caracteres. Sube cifrado, caduca en 24 horas.",
-    "send": "La app de escritorio: elige un dispositivo de tu Wi-Fi y envía sin límite de tamaño — nada pasa por un servidor."
+    "transfer": "bishare.app/transfer antes de añadir un archivo: las pestañas Link, Nearby y QR Beam, una zona para soltar con hasta 100 GB gratis y un campo para un código de 6 caracteres."
   },
   "devices": {
     "title": "Archivos grandes entre dispositivos concretos",
@@ -404,5 +403,50 @@
         "href": "/send-files-without-internet"
       }
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "Un portátil enviando un archivo de 100 GB a un navegador, con el título: enviar archivos grandes gratis hasta 100 GB, por enlace o de dispositivo a dispositivo, cifrado y sin cuenta.",
+      "title": "Enviar archivos grandes gratis, hasta 100 GB",
+      "sub": "Por enlace o de dispositivo a dispositivo · cifrado · sin cuenta",
+      "left": "Tu ordenador",
+      "right": "Cualquier navegador"
+    },
+    "limits": {
+      "alt": "Gráfico logarítmico de límites gratis por envío, septiembre de 2026: correo 20 a 25 MB, Smash 2 GB antes de la cola, WeTransfer 3 GB, Filemail, TransferNow, SendBig y TransferXL 5 GB, SwissTransfer 50 GB, enlace de BIShare 100 GB y BIShare de dispositivo a dispositivo sin límite.",
+      "title": "Límite gratis por envío",
+      "sub": "Según cada servicio, septiembre de 2026 · escala logarítmica",
+      "smashV": "2 GB, luego cola",
+      "bishareLink": "Enlace de BIShare",
+      "bishareNearby": "BIShare de dispositivo a dispositivo",
+      "noLimit": "sin límite",
+      "foot": "Cada paso de la escala es diez veces el anterior, así caben megabytes y 100 GB en un gráfico"
+    },
+    "time": {
+      "alt": "Cuánto tardan 10 GB: unas 2 horas 20 minutos con 10 Mbps de subida, 28 minutos a 50 Mbps, 14 minutos a 100 Mbps, 3 minutos a 500 Mbps y pocos minutos de dispositivo a dispositivo por Wi-Fi 6 sin subir nada.",
+      "title": "Cuánto tardan 10 GB",
+      "sub": "Un enlace depende de tu subida; en local se salta internet",
+      "up10": "Enlace, 10 Mbps de subida",
+      "up50": "Enlace, 50 Mbps de subida",
+      "up100": "Enlace, 100 Mbps de subida",
+      "up500": "Enlace, 500 Mbps de subida",
+      "nearby": "Dispositivo a dispositivo, Wi-Fi 6",
+      "v10": "2 h 20 min",
+      "v50": "28 min",
+      "v100": "14 min",
+      "v500": "3 min",
+      "vNear": "≈ 2–3 min",
+      "foot": "Longitud de barra en escala de raíz cuadrada para que horas y minutos quepan juntos"
+    },
+    "link": {
+      "alt": "Anatomía de un enlace de BIShare: la parte antes del signo #, bishare.app/transfer y un código, llega al servidor y solo localiza la transferencia guardada, que está cifrada; la parte después del #, la clave, nunca sale del navegador y es la que descifra el archivo.",
+      "title": "Qué ve el servidor de un enlace",
+      "sub": "Enlace de ejemplo; cada transferencia tiene su propio código y clave",
+      "serverTitle": "Llega al servidor",
+      "serverBody": "Solo localiza la transferencia, guardada ya cifrada",
+      "keyTitle": "Se queda en el navegador",
+      "keyBody": "La clave que descifra el archivo",
+      "foot": "Los navegadores nunca envían a un servidor lo que va después del #, así que no podemos leer la copia guardada"
+    }
   }
 }

@@ -372,8 +372,7 @@
     ]
   },
   "shots": {
-    "transfer": "bishare.app/transfer: 최대 100GB 파일을 놓고 링크, QR 코드, 6자리 코드를 받으세요. 암호화 업로드, 24시간 뒤 만료.",
-    "send": "데스크톱 앱: 내 Wi-Fi의 기기를 골라 용량 제한 없이 보내기 — 서버를 거치는 것은 없습니다."
+    "transfer": "파일을 추가하기 전의 bishare.app/transfer: Link, Nearby, QR Beam 탭, 최대 100 GB 무료 드롭 영역, 6자리 코드 입력란."
   },
   "devices": {
     "title": "특정 기기 사이의 대용량 파일",
@@ -404,5 +403,50 @@
         "href": "/send-files-without-internet"
       }
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "노트북이 브라우저로 100 GB 파일을 보내는 그림. 제목: 대용량 파일 무료 전송, 최대 100 GB, 링크 또는 기기 간 직접, 암호화, 계정 불필요.",
+      "title": "대용량 파일 무료 전송, 최대 100 GB",
+      "sub": "링크 또는 기기 간 직접 · 암호화 · 계정 불필요",
+      "left": "내 컴퓨터",
+      "right": "아무 브라우저"
+    },
+    "limits": {
+      "alt": "전송 1회당 무료 한도 로그 그래프(2026년 9월): 이메일 20~25 MB, Smash는 2 GB 이후 대기열, WeTransfer 3 GB, Filemail·TransferNow·SendBig·TransferXL 5 GB, SwissTransfer 50 GB, BIShare 링크 100 GB, BIShare 기기 간 직접은 무제한.",
+      "title": "전송 1회당 무료 한도",
+      "sub": "각 서비스 공개 기준, 2026년 9월 · 로그 척도",
+      "smashV": "2 GB 후 대기열",
+      "bishareLink": "BIShare 링크",
+      "bishareNearby": "BIShare 기기 간 직접",
+      "noLimit": "무제한",
+      "foot": "한 칸마다 10배씩 커지는 척도라 MB와 100 GB가 한 그래프에 들어갑니다"
+    },
+    "time": {
+      "alt": "10 GB에 걸리는 시간: 업로드 10 Mbps에서 약 2시간 20분, 50 Mbps에서 28분, 100 Mbps에서 14분, 500 Mbps에서 3분, Wi-Fi 6 기기 간 직접 전송은 업로드 없이 몇 분.",
+      "title": "10 GB에 걸리는 시간",
+      "sub": "링크는 업로드 속도가, 직접 전송은 인터넷을 거치지 않음",
+      "up10": "링크, 업로드 10 Mbps",
+      "up50": "링크, 업로드 50 Mbps",
+      "up100": "링크, 업로드 100 Mbps",
+      "up500": "링크, 업로드 500 Mbps",
+      "nearby": "기기 간 직접, Wi-Fi 6",
+      "v10": "2시간 20분",
+      "v50": "28분",
+      "v100": "14분",
+      "v500": "3분",
+      "vNear": "약 2~3분",
+      "foot": "시간과 분을 함께 담기 위해 막대 길이는 제곱근 척도"
+    },
+    "link": {
+      "alt": "BIShare 링크의 구조: # 앞부분인 bishare.app/transfer와 코드는 서버에 전달되어 암호화된 채 저장된 전송을 찾는 데만 쓰이고, # 뒷부분인 키는 브라우저를 절대 떠나지 않으며 파일을 복호화합니다.",
+      "title": "링크에서 서버가 보는 부분",
+      "sub": "예시 링크, 전송마다 코드와 키가 다름",
+      "serverTitle": "서버로 전송됨",
+      "serverBody": "이미 암호화되어 저장된 전송을 찾기만 함",
+      "keyTitle": "브라우저에 남음",
+      "keyBody": "파일을 복호화하는 키",
+      "foot": "브라우저는 # 뒤 부분을 서버로 보내지 않으므로 저장된 사본을 저희는 읽을 수 없습니다"
+    }
   }
 }

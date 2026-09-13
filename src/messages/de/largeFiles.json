@@ -372,8 +372,7 @@
     ]
   },
   "shots": {
-    "transfer": "bishare.app/transfer: eine Datei bis 100 GB ablegen, Link, QR-Code und 6-stelligen Code bekommen. Verschlüsselt hochgeladen, läuft nach 24 Stunden ab.",
-    "send": "Die Desktop-App: ein Gerät im WLAN wählen und ohne Größenlimit senden — nichts läuft über einen Server."
+    "transfer": "bishare.app/transfer vor dem Hinzufügen einer Datei: die Tabs Link, Nearby und QR Beam, ein Ablagefeld mit bis zu 100 GB gratis und ein Feld für einen 6-stelligen Code."
   },
   "devices": {
     "title": "Große Dateien zwischen bestimmten Geräten",
@@ -404,5 +403,50 @@
         "href": "/send-files-without-internet"
       }
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "Ein Laptop sendet eine 100-GB-Datei an einen Browser, Titel: große Dateien kostenlos senden, bis 100 GB, per Link oder direkt von Gerät zu Gerät, verschlüsselt, ohne Konto.",
+      "title": "Große Dateien kostenlos senden, bis 100 GB",
+      "sub": "Per Link oder direkt · verschlüsselt · ohne Konto",
+      "left": "Ihr Computer",
+      "right": "Beliebiger Browser"
+    },
+    "limits": {
+      "alt": "Logarithmisches Diagramm der Gratis-Limits pro Übertragung, Stand September 2026: E-Mail 20 bis 25 MB, Smash 2 GB vor der Warteschlange, WeTransfer 3 GB, Filemail, TransferNow, SendBig und TransferXL 5 GB, SwissTransfer 50 GB, BIShare-Link 100 GB und BIShare direkt von Gerät zu Gerät ohne Limit.",
+      "title": "Gratis-Limit pro Übertragung",
+      "sub": "Laut Angaben der Dienste, September 2026 · logarithmische Skala",
+      "smashV": "2 GB, dann Warteschlange",
+      "bishareLink": "BIShare-Link",
+      "bishareNearby": "BIShare von Gerät zu Gerät",
+      "noLimit": "kein Limit",
+      "foot": "Jede Stufe der Skala ist zehnmal so groß wie die vorige, daher passen Megabyte und 100 GB in ein Diagramm"
+    },
+    "time": {
+      "alt": "Wie lange 10 GB brauchen: etwa 2 Stunden 20 Minuten bei 10 Mbit/s Upload, 28 Minuten bei 50 Mbit/s, 14 Minuten bei 100 Mbit/s, 3 Minuten bei 500 Mbit/s und wenige Minuten direkt per Wi-Fi 6 ganz ohne Upload.",
+      "title": "Wie lange 10 GB brauchen",
+      "sub": "Ein Link hängt am Upload, direkt geht es am Internet vorbei",
+      "up10": "Link, 10 Mbit/s Upload",
+      "up50": "Link, 50 Mbit/s Upload",
+      "up100": "Link, 100 Mbit/s Upload",
+      "up500": "Link, 500 Mbit/s Upload",
+      "nearby": "Gerät zu Gerät, Wi-Fi 6",
+      "v10": "2 h 20 min",
+      "v50": "28 min",
+      "v100": "14 min",
+      "v500": "3 min",
+      "vNear": "≈ 2–3 min",
+      "foot": "Balkenlänge auf Wurzelskala, damit Stunden und Minuten zusammenpassen"
+    },
+    "link": {
+      "alt": "Aufbau eines BIShare-Links: Der Teil vor dem #-Zeichen, bishare.app/transfer und ein Code, erreicht den Server und findet nur die gespeicherte, verschlüsselte Übertragung; der Teil nach dem #, der Schlüssel, verlässt den Browser nie und entschlüsselt die Datei.",
+      "title": "Was der Server von einem Link sieht",
+      "sub": "Beispiel-Link; jede Übertragung bekommt eigenen Code und Schlüssel",
+      "serverTitle": "Geht an den Server",
+      "serverBody": "Findet nur die Übertragung, die bereits verschlüsselt gespeichert ist",
+      "keyTitle": "Bleibt im Browser",
+      "keyBody": "Der Schlüssel, der die Datei entschlüsselt",
+      "foot": "Browser senden den Teil nach # nie an einen Server, daher können wir die gespeicherte Kopie nicht lesen"
+    }
   }
 }

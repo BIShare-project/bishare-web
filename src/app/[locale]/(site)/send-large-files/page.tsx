@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
+import { LandingArt } from "@/components/site/landing-art";
+import { ImageLightbox } from "@/components/site/image-lightbox";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { ArticleToc } from "@/components/site/article-toc";
@@ -14,6 +16,7 @@ import { Link } from "@/i18n/navigation";
 import { publishedSlugs } from "@/content/blog/registry";
 
 const SPEED_POST = "airdrop-for-windows-speeds";
+const SLUG = "/send-large-files";
 import { ArrowRight, Check, X } from "lucide-react";
 
 /**
@@ -46,7 +49,7 @@ export async function generateMetadata({
     title: { absolute: title },
     description,
     alternates: buildAlternates(locale, "/send-large-files"),
-    ...sharedOpenGraph(title, description, "/send-large-files"),
+    ...sharedOpenGraph(title, description, SLUG, locale),
   };
 }
 
@@ -250,24 +253,16 @@ export default async function SendLargeFilesPage({
           <StoreButtons />
         </div>
 
-        <figure className="mt-10 overflow-hidden rounded-xl border border-border bg-card">
-          <picture>
-            <source srcSet="/img/send-large-files/route.webp" type="image/webp" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/img/send-large-files/route.jpg"
-              alt={chrome("figureCaption")}
-              width={1400}
-              height={700}
-              loading="lazy"
-              decoding="async"
-              className="h-auto w-full"
-            />
-          </picture>
-          <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">
-            {chrome("figureCaption")}
-          </figcaption>
-        </figure>
+        <LandingArt
+          slug={SLUG}
+          name="hero"
+          locale={locale}
+          alt={t("art.hero.alt")}
+          width={1200}
+          height={630}
+          zoomHint={chrome("imageZoom")}
+          className="mt-10"
+        />
 
         {/* Why it is still a pain */}
         <section className="mt-14">
@@ -306,6 +301,16 @@ export default async function SendLargeFilesPage({
         <section className="mt-14">
           <H2 id="limits">{t("limits.title")}</H2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("limits.intro")}</p>
+          <LandingArt
+            slug={SLUG}
+            name="limits"
+            locale={locale}
+            alt={t("art.limits.alt")}
+            width={1200}
+            height={720}
+            zoomHint={chrome("imageZoom")}
+            className="mt-6"
+          />
           <DataTable cols={cols("limits", 5)} rows={table("limits", LIMIT_ROWS, 5)} minWidth={720} />
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t("limits.note")}</p>
         </section>
@@ -314,6 +319,16 @@ export default async function SendLargeFilesPage({
         <section className="mt-14">
           <H2 id="speed">{t("speed.title")}</H2>
           <p className="mt-4 leading-relaxed text-muted-foreground">{t("speed.body")}</p>
+          <LandingArt
+            slug={SLUG}
+            name="time"
+            locale={locale}
+            alt={t("art.time.alt")}
+            width={1200}
+            height={620}
+            zoomHint={chrome("imageZoom")}
+            className="mt-6"
+          />
           <DataTable cols={cols("speed", 3)} rows={table("speed", SPEED_ROWS, 3)} />
           <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{t("speed.local")}</p>
           {/* The speed article is scheduled; link it only once it is live so
@@ -360,11 +375,6 @@ export default async function SendLargeFilesPage({
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("devices.note")}</p>
         </section>
 
-        {/* Desktop shot — the nearby route */}
-        <section className="mt-14">
-          <Shot src="/img/airdrop-windows/send" alt={t("shots.send")} />
-        </section>
-
         {/* Security */}
         <section className="mt-14">
           <H2 id="security">{t("security.title")}</H2>
@@ -378,6 +388,16 @@ export default async function SendLargeFilesPage({
               </li>
             ))}
           </ul>
+          <LandingArt
+            slug={SLUG}
+            name="link"
+            locale={locale}
+            alt={t("art.link.alt")}
+            width={1200}
+            height={560}
+            zoomHint={chrome("imageZoom")}
+            className="mt-8"
+          />
         </section>
 
         {/* Tips */}
@@ -459,6 +479,7 @@ export default async function SendLargeFilesPage({
         </div>
       </main>
       <SiteFooter />
+      <ImageLightbox closeLabel={chrome("imageClose")} />
     </div>
   );
 }

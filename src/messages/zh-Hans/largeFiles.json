@@ -372,8 +372,7 @@
     ]
   },
   "shots": {
-    "transfer": "bishare.app/transfer：拖入最大 100 GB 的文件，获得链接、二维码和 6 位代码。加密上传，24 小时失效。",
-    "send": "桌面应用：在你的 Wi-Fi 里选一台设备，不限大小发送——不经过任何服务器。"
+    "transfer": "添加文件前的bishare.app/transfer：Link、Nearby和QR Beam标签页，标有最多100 GB免费的拖放区，以及输入6位代码的输入框。"
   },
   "devices": {
     "title": "特定设备之间的大文件",
@@ -404,5 +403,50 @@
         "href": "/send-files-without-internet"
       }
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "一台笔记本向浏览器发送100 GB文件的插图，标题：免费发送大文件，最多100 GB，通过链接或设备直传，加密且无需账号。",
+      "title": "免费发送大文件，最多100 GB",
+      "sub": "链接或设备直传 · 加密 · 无需账号",
+      "left": "你的电脑",
+      "right": "任意浏览器"
+    },
+    "limits": {
+      "alt": "每次传输免费上限的对数图（2026年9月）：邮件20至25 MB，Smash超过2 GB要排队，WeTransfer 3 GB，Filemail、TransferNow、SendBig和TransferXL 5 GB，SwissTransfer 50 GB，BIShare链接100 GB，BIShare设备直传不限大小。",
+      "title": "每次传输的免费上限",
+      "sub": "按各服务公布数据，2026年9月 · 对数刻度",
+      "smashV": "2 GB，之后排队",
+      "bishareLink": "BIShare链接",
+      "bishareNearby": "BIShare设备直传",
+      "noLimit": "不限",
+      "foot": "刻度每格是上一格的十倍，因此MB和100 GB能放在同一张图里"
+    },
+    "time": {
+      "alt": "10 GB需要多久：上传10 Mbps约2小时20分钟，50 Mbps约28分钟，100 Mbps约14分钟，500 Mbps约3分钟，Wi-Fi 6设备直传无需上传，几分钟即可。",
+      "title": "10 GB需要多久",
+      "sub": "链接受上传速度限制，直传完全不经过互联网",
+      "up10": "链接，上传10 Mbps",
+      "up50": "链接，上传50 Mbps",
+      "up100": "链接，上传100 Mbps",
+      "up500": "链接，上传500 Mbps",
+      "nearby": "设备直传，Wi-Fi 6",
+      "v10": "2小时20分",
+      "v50": "28分钟",
+      "v100": "14分钟",
+      "v500": "3分钟",
+      "vNear": "约2–3分钟",
+      "foot": "为让小时和分钟同处一图，条形长度采用平方根刻度"
+    },
+    "link": {
+      "alt": "BIShare链接的结构：#号之前的bishare.app/transfer和代码会发送到服务器，只用于找到加密存储的传输；#号之后的密钥从不离开浏览器，由它来解密文件。",
+      "title": "链接中服务器能看到什么",
+      "sub": "示例链接，每次传输的代码和密钥都不同",
+      "serverTitle": "发送到服务器",
+      "serverBody": "只用于找到已加密存储的传输",
+      "keyTitle": "留在浏览器",
+      "keyBody": "用于解密文件的密钥",
+      "foot": "浏览器从不把#之后的内容发给服务器，所以我们无法读取存储的副本"
+    }
   }
 }

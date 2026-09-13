@@ -372,8 +372,7 @@
     ]
   },
   "shots": {
-    "transfer": "bishare.app/transfer : déposez un fichier jusqu'à 100 Go, obtenez un lien, un QR code et un code à 6 caractères. Envoi chiffré, expiration en 24 heures.",
-    "send": "L'appli de bureau : choisissez un appareil sur votre Wi-Fi et envoyez sans limite de taille — rien ne passe par un serveur."
+    "transfer": "bishare.app/transfer avant l'ajout d'un fichier : les onglets Link, Nearby et QR Beam, une zone de dépôt jusqu'à 100 Go gratuits et un champ pour un code à 6 caractères."
   },
   "devices": {
     "title": "Gros fichiers entre appareils précis",
@@ -404,5 +403,50 @@
         "href": "/send-files-without-internet"
       }
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "Un portable qui envoie un fichier de 100 Go vers un navigateur, avec le titre : envoyer de gros fichiers gratuitement jusqu'à 100 Go, par lien ou d'appareil à appareil, chiffré et sans compte.",
+      "title": "Envoyer de gros fichiers gratuitement, jusqu'à 100 Go",
+      "sub": "Par lien ou d'appareil à appareil · chiffré · sans compte",
+      "left": "Votre ordinateur",
+      "right": "N'importe quel navigateur"
+    },
+    "limits": {
+      "alt": "Graphique logarithmique des limites gratuites par envoi, septembre 2026 : e-mail 20 à 25 Mo, Smash 2 Go avant la file d'attente, WeTransfer 3 Go, Filemail, TransferNow, SendBig et TransferXL 5 Go, SwissTransfer 50 Go, lien BIShare 100 Go et BIShare d'appareil à appareil sans limite.",
+      "title": "Limite gratuite par envoi",
+      "sub": "Selon chaque service, septembre 2026 · échelle logarithmique",
+      "smashV": "2 Go, puis file d'attente",
+      "bishareLink": "Lien BIShare",
+      "bishareNearby": "BIShare d'appareil à appareil",
+      "noLimit": "sans limite",
+      "foot": "Chaque palier vaut dix fois le précédent, pour faire tenir mégaoctets et 100 Go sur un graphique"
+    },
+    "time": {
+      "alt": "Temps pour 10 Go : environ 2 h 20 avec 10 Mbit/s en envoi, 28 minutes à 50 Mbit/s, 14 minutes à 100 Mbit/s, 3 minutes à 500 Mbit/s et quelques minutes d'appareil à appareil en Wi-Fi 6, sans aucun envoi en ligne.",
+      "title": "Combien de temps pour 10 Go",
+      "sub": "Un lien dépend de votre débit d'envoi ; en local, on évite internet",
+      "up10": "Lien, envoi à 10 Mbit/s",
+      "up50": "Lien, envoi à 50 Mbit/s",
+      "up100": "Lien, envoi à 100 Mbit/s",
+      "up500": "Lien, envoi à 500 Mbit/s",
+      "nearby": "D'appareil à appareil, Wi-Fi 6",
+      "v10": "2 h 20 min",
+      "v50": "28 min",
+      "v100": "14 min",
+      "v500": "3 min",
+      "vNear": "≈ 2–3 min",
+      "foot": "Longueur des barres en échelle racine carrée pour faire tenir heures et minutes"
+    },
+    "link": {
+      "alt": "Anatomie d'un lien BIShare : la partie avant le signe #, bishare.app/transfer et un code, arrive au serveur et sert seulement à retrouver le transfert stocké, déjà chiffré ; la partie après le #, la clé, ne quitte jamais le navigateur et déchiffre le fichier.",
+      "title": "Ce que le serveur voit d'un lien",
+      "sub": "Lien d'exemple ; chaque transfert a son propre code et sa clé",
+      "serverTitle": "Envoyé au serveur",
+      "serverBody": "Sert seulement à retrouver le transfert, stocké déjà chiffré",
+      "keyTitle": "Reste dans le navigateur",
+      "keyBody": "La clé qui déchiffre le fichier",
+      "foot": "Les navigateurs n'envoient jamais la partie après # à un serveur, la copie stockée nous est donc illisible"
+    }
   }
 }

@@ -217,6 +217,10 @@ export const MIRROR_SCRIPT = `
   for (const t of g.querySelectorAll("text")) {
     const x = +t.getAttribute("x");
     t.setAttribute("transform", "translate(" + 2 * x + ",0) scale(-1,1)");
+    // A start-anchored label must grow away from its bar after the flip, so swap the anchor.
+    const anchor = t.getAttribute("text-anchor");
+    if (anchor === "start") t.setAttribute("text-anchor", "end");
+    else if (anchor === "end") t.setAttribute("text-anchor", "start");
   }
 })();
 `;

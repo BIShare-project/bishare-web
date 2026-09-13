@@ -372,8 +372,7 @@
     ]
   },
   "shots": {
-    "transfer": "bishare.app/transfer：拖入最大 100 GB 的檔案，取得連結、QR code 和 6 位代碼。加密上傳，24 小時失效。",
-    "send": "桌面 App：在你的 Wi-Fi 裡選一台裝置，不限大小傳送——不經過任何伺服器。"
+    "transfer": "加入檔案前的bishare.app/transfer：Link、Nearby與QR Beam分頁，標示最多100 GB免費的拖放區，以及輸入6碼代碼的欄位。"
   },
   "devices": {
     "title": "特定裝置之間的大檔案",
@@ -404,5 +403,50 @@
         "href": "/send-files-without-internet"
       }
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "一台筆電向瀏覽器傳送100 GB檔案的插圖，標題：免費傳送大檔案，最多100 GB，透過連結或裝置直傳，加密且免帳號。",
+      "title": "免費傳送大檔案，最多100 GB",
+      "sub": "連結或裝置直傳 · 加密 · 免帳號",
+      "left": "你的電腦",
+      "right": "任何瀏覽器"
+    },
+    "limits": {
+      "alt": "每次傳送免費上限的對數圖（2026年9月）：電子郵件20至25 MB，Smash超過2 GB要排隊，WeTransfer 3 GB，Filemail、TransferNow、SendBig與TransferXL 5 GB，SwissTransfer 50 GB，BIShare連結100 GB，BIShare裝置直傳不限大小。",
+      "title": "每次傳送的免費上限",
+      "sub": "依各服務公布資料，2026年9月 · 對數刻度",
+      "smashV": "2 GB，之後排隊",
+      "bishareLink": "BIShare連結",
+      "bishareNearby": "BIShare裝置直傳",
+      "noLimit": "不限",
+      "foot": "刻度每格是上一格的十倍，因此MB與100 GB能放在同一張圖"
+    },
+    "time": {
+      "alt": "10 GB需要多久：上傳10 Mbps約2小時20分鐘，50 Mbps約28分鐘，100 Mbps約14分鐘，500 Mbps約3分鐘，Wi-Fi 6裝置直傳不需上傳，幾分鐘即可。",
+      "title": "10 GB需要多久",
+      "sub": "連結受上傳速度限制，直傳完全不經過網際網路",
+      "up10": "連結，上傳10 Mbps",
+      "up50": "連結，上傳50 Mbps",
+      "up100": "連結，上傳100 Mbps",
+      "up500": "連結，上傳500 Mbps",
+      "nearby": "裝置直傳，Wi-Fi 6",
+      "v10": "2小時20分",
+      "v50": "28分鐘",
+      "v100": "14分鐘",
+      "v500": "3分鐘",
+      "vNear": "約2–3分鐘",
+      "foot": "為讓小時和分鐘放在同一張圖，長條長度採平方根刻度"
+    },
+    "link": {
+      "alt": "BIShare連結的結構：#號之前的bishare.app/transfer和代碼會送到伺服器，只用來找到加密儲存的傳送；#號之後的金鑰從不離開瀏覽器，由它來解密檔案。",
+      "title": "連結中伺服器看得到什麼",
+      "sub": "範例連結，每次傳送的代碼與金鑰都不同",
+      "serverTitle": "送到伺服器",
+      "serverBody": "只用來找到已加密儲存的傳送",
+      "keyTitle": "留在瀏覽器",
+      "keyBody": "用來解密檔案的金鑰",
+      "foot": "瀏覽器從不把#之後的內容送到伺服器，所以我們無法讀取儲存的副本"
+    }
   }
 }
