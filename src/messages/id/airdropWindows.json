@@ -210,8 +210,8 @@
     "phone": "Di iPhone atau Mac, pasang dari App Store; di Android, dari Google Play. Kalau orang lain tidak bisa memasang apa pun, jalur browser di bawah tidak butuh apa pun di sisi mereka."
   },
   "shots": {
-    "devices": "Daftar perangkat di aplikasi desktop BIShare: iPhone dan ponsel Android di Wi-Fi yang sama, siap menerima dengan satu klik.",
-    "send": "Mengirim dari aplikasi desktop: jatuhkan file, pilih perangkat, transfer langsung berjalan terenkripsi — tidak ada yang lewat server."
+    "devices": "Daftar perangkat di aplikasi desktop BIShare, dengan iPhone dan ponsel Android Samsung yang tersimpan sebagai perangkat dikenal serta kapan masing-masing terakhir terlihat.",
+    "send": "Tautan aman yang siap dibagikan: kode QR, kode pendek, dan label enkripsi end-to-end, sekali unduh, serta kedaluwarsa 24 jam. Kuncinya ada setelah tanda # dan tidak pernah sampai ke server."
   },
   "scenarios": {
     "title": "Jalur mana untuk keperluan apa",
@@ -320,5 +320,68 @@
       "Di jalur tautan, file dienkripsi di browser atau aplikasi Anda sebelum diunggah. Kuncinya ada di tautan setelah tanda #, yang tidak pernah dikirim browser ke server, jadi yang disimpan di penyimpanan kami hanya ciphertext yang tidak bisa dibuka. Tautan kedaluwarsa dalam 24 jam; Anda juga bisa membuat yang hancur sendiri setelah unduhan pertama.",
       "Tidak ada akun, tidak ada unggah kontak, tidak ada SDK iklan. Aplikasi Windows bertanda tangan dan kami terbitkan di Microsoft Store; kode sumber untuk semua platform terbuka."
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "iPhone dan Mac mengirim file ke laptop Windows, dengan judul: AirDrop untuk Windows 2026, dari iPhone dan Mac ke PC, gratis dan tanpa kabel.",
+      "title": "AirDrop untuk Windows, 2026",
+      "sub": "Dari iPhone dan Mac ke PC Windows · gratis · tanpa kabel",
+      "left": "iPhone · Mac",
+      "right": "PC Windows"
+    },
+    "compare": {
+      "alt": "Transfer file iPhone lewat Phone Link dibandingkan BIShare: Phone Link butuh kanal Windows Insider, akun Microsoft, pairing Bluetooth, dan aplikasi di kedua sisi, dan hanya jalan antara iPhone dan Windows; BIShare jalan di Windows 10 dan 11 versi stabil tanpa akun atau pairing, mencakup Mac, Android, dan Linux, dan penerima bisa memakai browser.",
+      "title": "Phone Link atau BIShare untuk iPhone ke PC",
+      "sub": "Apa yang dibutuhkan masing-masing sebelum file pertama",
+      "colNeed": "",
+      "colPhoneLink": "Phone Link",
+      "colBishare": "BIShare",
+      "rows": {
+        "windows": {
+          "need": "Versi Windows",
+          "pl": "Kanal Windows Insider",
+          "bi": "Windows 10 dan 11 stabil"
+        },
+        "account": {
+          "need": "Akun",
+          "pl": "Akun Microsoft di kedua sisi",
+          "bi": "Tidak perlu"
+        },
+        "pairing": {
+          "need": "Penyiapan",
+          "pl": "Pairing Bluetooth LE, iOS 16+",
+          "bi": "Wi-Fi yang sama, atau tautan"
+        },
+        "devices": {
+          "need": "Perangkat",
+          "pl": "Hanya iPhone ↔ Windows",
+          "bi": "iPhone, Mac, Android, Linux ↔ Windows"
+        },
+        "receiver": {
+          "need": "Sisi penerima",
+          "pl": "Selalu butuh aplikasi",
+          "bi": "Aplikasi, atau cukup browser"
+        }
+      },
+      "foot": "Sesuai dokumentasi September 2026; halaman dukungan Microsoft masih menjelaskan transfer Phone Link hanya untuk Android"
+    },
+    "speed": {
+      "alt": "Kecepatan terukur dari ponsel ke PC: 3 sampai 8 MB/s di Wi-Fi 2,4 GHz, 2 sampai 5 menit per GB; 40 sampai 50 MB/s di Wi-Fi 5, 20 sampai 30 detik; 50 sampai 70 MB/s dengan PC di Ethernet dan ponsel di 5 GHz, 15 sampai 20 detik; 70 sampai 110 MB/s di Wi-Fi 6 jarak dekat, 10 sampai 15 detik; sekitar 110 MB/s dengan keduanya di Ethernet, sekitar 9 detik.",
+      "title": "Ponsel ke PC: kemampuan koneksinya",
+      "sub": "Throughput terukur di jalur lokal dan waktu untuk 1 GB",
+      "colSpeed": "Throughput",
+      "colTime": "1 GB butuh",
+      "g24": "Wi-Fi 2,4 GHz",
+      "wifi5": "Wi-Fi 5 di 5 GHz",
+      "mixed": "PC di Ethernet, ponsel di 5 GHz",
+      "wifi6": "Wi-Fi 6, jarak dekat",
+      "eth": "Keduanya di Ethernet gigabit",
+      "t24": "2–5 mnt",
+      "t5": "20–30 dtk",
+      "tMixed": "15–20 dtk",
+      "t6": "10–15 dtk",
+      "tEth": "≈ 9 dtk",
+      "foot": "Ribuan foto kecil lebih lambat daripada satu video dengan ukuran total sama"
+    }
   }
 }

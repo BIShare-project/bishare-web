@@ -210,8 +210,8 @@
     "phone": "iPhoneやMacにはApp Storeから、AndroidにはGoogle Playからインストール。相手が何もインストールできない場合は、下のブラウザー経由なら相手側に何も要りません。"
   },
   "shots": {
-    "devices": "BIShareデスクトップアプリのデバイス一覧：同じWi-Fi上のiPhoneとAndroidスマホが、ワンクリックで受信できる状態。",
-    "send": "デスクトップアプリからの送信：ファイルをドロップしてデバイスを選ぶと、転送は暗号化されたまま始まります。サーバーは一切経由しません。"
+    "devices": "BIShareデスクトップアプリのデバイス一覧。iPhoneとSamsungのAndroidスマートフォンが既知のデバイスとして保存され、それぞれ最後に見つかった日時が表示されている。",
+    "send": "共有できる状態のセキュアリンク。QRコード、短いコード、エンドツーエンド暗号化・1回限り・24時間で失効のバッジ。鍵は#の後ろにあり、サーバーには届かない。"
   },
   "scenarios": {
     "title": "用途別に、どのルートを使うか",
@@ -320,5 +320,68 @@
       "リンクルートでは、アップロード前にブラウザーまたはアプリ内でファイルが暗号化されます。鍵はリンクの#以降に入り、ブラウザーはこの部分をサーバーへ送らないため、私たちのストレージが持つのは開けない暗号文だけです。リンクは24時間で失効し、初回ダウンロード後に自動消滅するリンクも作れます。",
       "アカウントなし、連絡先のアップロードなし、広告SDKなし。Windowsアプリは署名済みで私たちがMicrosoft Storeに公開しており、全プラットフォームのソースコードを公開しています。"
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "iPhoneとMacからWindowsノートへファイルを送るイラスト。タイトルは「WindowsでAirDrop（2026年）、iPhoneとMacからPCへ、無料でケーブル不要」。",
+      "title": "WindowsでAirDrop（2026年）",
+      "sub": "iPhoneとMacからWindows PCへ · 無料 · ケーブル不要",
+      "left": "iPhone · Mac",
+      "right": "Windows PC"
+    },
+    "compare": {
+      "alt": "Phone LinkのiPhoneファイル転送とBIShareの比較。Phone LinkはWindows Insiderチャネル、Microsoftアカウント、Bluetoothペアリング、両側のアプリが必要で、iPhoneとWindowsの間だけ。BIShareは安定版Windows 10と11でアカウントもペアリングも不要、Mac、Android、Linuxにも対応し、受け取る側はブラウザでもよい。",
+      "title": "iPhoneからPCへ：Phone LinkかBIShareか",
+      "sub": "最初のファイルを送るまでに必要なもの",
+      "colNeed": "",
+      "colPhoneLink": "Phone Link",
+      "colBishare": "BIShare",
+      "rows": {
+        "windows": {
+          "need": "Windowsのバージョン",
+          "pl": "Windows Insiderチャネル",
+          "bi": "安定版Windows 10と11"
+        },
+        "account": {
+          "need": "アカウント",
+          "pl": "両側でMicrosoftアカウント",
+          "bi": "不要"
+        },
+        "pairing": {
+          "need": "準備",
+          "pl": "Bluetooth LEペアリング、iOS 16以降",
+          "bi": "同じWi-Fi、またはリンク"
+        },
+        "devices": {
+          "need": "対応端末",
+          "pl": "iPhone ↔ Windowsのみ",
+          "bi": "iPhone、Mac、Android、Linux ↔ Windows"
+        },
+        "receiver": {
+          "need": "受け取る側",
+          "pl": "常にアプリが必要",
+          "bi": "アプリ、またはブラウザだけ"
+        }
+      },
+      "foot": "2026年9月時点のドキュメントによる。Microsoftのサポートページは今もPhone Linkのファイル転送をAndroid向けとして説明"
+    },
+    "speed": {
+      "alt": "スマホからPCへの実測速度。2.4 GHzのWi-Fiで3〜8 MB/s、1 GBあたり2〜5分。Wi-Fi 5で40〜50 MB/s、20〜30秒。PCが有線LANでスマホが5 GHzなら50〜70 MB/s、15〜20秒。近距離のWi-Fi 6で70〜110 MB/s、10〜15秒。両方が有線なら約110 MB/s、約9秒。",
+      "title": "スマホからPCへ：接続ごとの速度",
+      "sub": "ローカル経路での実測値と1 GBにかかる時間",
+      "colSpeed": "スループット",
+      "colTime": "1 GBの所要時間",
+      "g24": "2.4 GHzのWi-Fi",
+      "wifi5": "5 GHzのWi-Fi 5",
+      "mixed": "PCは有線LAN、スマホは5 GHz",
+      "wifi6": "Wi-Fi 6、近距離",
+      "eth": "両方ギガビット有線LAN",
+      "t24": "2〜5分",
+      "t5": "20〜30秒",
+      "tMixed": "15〜20秒",
+      "t6": "10〜15秒",
+      "tEth": "約9秒",
+      "foot": "小さな写真が何千枚もあると、同じ合計サイズの動画1本より遅くなる"
+    }
   }
 }

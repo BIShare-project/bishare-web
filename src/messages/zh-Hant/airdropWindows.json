@@ -210,8 +210,8 @@
     "phone": "iPhone 或 Mac 從 App Store 安裝；Android 從 Google Play 安裝。如果對方什麼都裝不了，下面的瀏覽器方式對方那端不需要任何東西。"
   },
   "shots": {
-    "devices": "BIShare 桌面 App 的裝置清單：同一 Wi-Fi 下的 iPhone 與 Android 手機，一鍵即可接收。",
-    "send": "從桌面 App 傳送：拖入檔案、選擇裝置，傳輸即以加密方式開始——不經過任何伺服器。"
+    "devices": "BIShare桌面App的裝置清單，一支iPhone和一支三星Android手機被儲存為已知裝置，並顯示各自最後出現時間。",
+    "send": "可以分享的安全連結：QR碼、短代碼，以及端對端加密、一次性下載與24小時後失效的標籤。金鑰在#之後，永遠不會送到伺服器。"
   },
   "scenarios": {
     "title": "什麼任務走哪條路",
@@ -320,5 +320,68 @@
       "連結路徑下，檔案在上傳前就在你的瀏覽器或 App 裡加密。金鑰放在連結 # 號之後，瀏覽器從不把這部分送給伺服器，所以我們的儲存空間裡只有打不開的密文。連結 24 小時失效；你也可以產生首次下載後即自毀的連結。",
       "沒有帳號，不上傳通訊錄，沒有廣告 SDK。Windows App 已簽章並由我們發布在 Microsoft Store；各平台原始碼公開。"
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "一支iPhone和一台Mac向Windows筆電傳送檔案的插圖，標題：2026年Windows上的AirDrop，從iPhone和Mac傳到電腦，免費且不需傳輸線。",
+      "title": "Windows版AirDrop（2026）",
+      "sub": "從iPhone和Mac傳到Windows電腦 · 免費 · 不需傳輸線",
+      "left": "iPhone · Mac",
+      "right": "Windows電腦"
+    },
+    "compare": {
+      "alt": "Phone Link的iPhone檔案傳輸與BIShare比較：Phone Link需要Windows測試人員計畫、Microsoft帳戶、藍牙配對以及雙方安裝App，且只限iPhone與Windows之間；BIShare在正式版Windows 10和11上不需帳戶或配對，也支援Mac、Android和Linux，接收方用瀏覽器也可以。",
+      "title": "iPhone傳電腦：Phone Link還是BIShare",
+      "sub": "傳送第一個檔案前各自需要什麼",
+      "colNeed": "",
+      "colPhoneLink": "Phone Link",
+      "colBishare": "BIShare",
+      "rows": {
+        "windows": {
+          "need": "Windows版本",
+          "pl": "Windows測試人員計畫",
+          "bi": "正式版Windows 10和11"
+        },
+        "account": {
+          "need": "帳戶",
+          "pl": "雙方都要Microsoft帳戶",
+          "bi": "不需要"
+        },
+        "pairing": {
+          "need": "設定",
+          "pl": "藍牙LE配對，iOS 16以上",
+          "bi": "同一Wi-Fi或連結"
+        },
+        "devices": {
+          "need": "支援裝置",
+          "pl": "僅iPhone ↔ Windows",
+          "bi": "iPhone、Mac、Android、Linux ↔ Windows"
+        },
+        "receiver": {
+          "need": "接收方",
+          "pl": "一定要App",
+          "bi": "App或只要瀏覽器"
+        }
+      },
+      "foot": "依據2026年9月的文件；Microsoft支援頁面仍只為Android說明Phone Link檔案傳輸"
+    },
+    "speed": {
+      "alt": "手機到電腦的實測速度：2.4 GHz Wi-Fi為3至8 MB/s，每GB 2至5分鐘；Wi-Fi 5為40至50 MB/s，20至30秒；電腦接乙太網路、手機在5 GHz時為50至70 MB/s，15至20秒；近距離Wi-Fi 6為70至110 MB/s，10至15秒；兩者都接乙太網路約110 MB/s，約9秒。",
+      "title": "手機到電腦：連線能跑多快",
+      "sub": "本機途徑實測傳輸量與1 GB所需時間",
+      "colSpeed": "傳輸量",
+      "colTime": "1 GB用時",
+      "g24": "2.4 GHz Wi-Fi",
+      "wifi5": "5 GHz的Wi-Fi 5",
+      "mixed": "電腦接乙太網路，手機在5 GHz",
+      "wifi6": "Wi-Fi 6，近距離",
+      "eth": "兩者都接Gigabit乙太網路",
+      "t24": "2–5分鐘",
+      "t5": "20–30秒",
+      "tMixed": "15–20秒",
+      "t6": "10–15秒",
+      "tEth": "約9秒",
+      "foot": "數千張小照片比同樣總大小的一支影片傳得慢"
+    }
   }
 }

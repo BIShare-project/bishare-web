@@ -48,7 +48,13 @@ function H2({ id, children }: { id: string; children: React.ReactNode }) {
 }
 
 /** Route figure — one per landing, drawn by tool/landing-figures.mjs. */
-function RouteFigure({ slug, caption }: { slug: string; caption: string }) {
+/**
+ * The route figure is drawn once per page but its caption string is shared by
+ * every template landing, so the alt text leads with the page's own H1 to stay
+ * unique per page and per locale. Pages rebuilt with their own art
+ * (tool/landing-art.mjs) do not use this component.
+ */
+function RouteFigure({ slug, title, caption }: { slug: string; title: string; caption: string }) {
   const src = `/img${slug}/route`;
   return (
     <figure className="mt-10 overflow-hidden rounded-xl border border-border bg-card">
@@ -56,7 +62,7 @@ function RouteFigure({ slug, caption }: { slug: string; caption: string }) {
         <source srcSet={`${src}.webp`} type="image/webp" />
         <Image
           src={`${src}.jpg`}
-          alt={caption}
+          alt={`${title} · ${caption}`}
           width={1400}
           height={700}
           className="h-auto w-full"
@@ -156,7 +162,7 @@ export async function ArticleLanding({
               <StoreButtons />
             </div>
 
-            <RouteFigure slug={slug} caption={chrome("figureCaption")} />
+            <RouteFigure slug={slug} title={t("hero.title")} caption={chrome("figureCaption")} />
 
             {/* Page-specific prose sections (e.g. the seven fixes) */}
             {leadSections.map((sec) => (

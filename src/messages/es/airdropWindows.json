@@ -210,8 +210,8 @@
     "phone": "En el iPhone o el Mac, instala desde el App Store; en Android, desde Google Play. Si la otra persona no puede instalar nada, la vía del navegador de abajo no necesita nada en su lado."
   },
   "shots": {
-    "devices": "Lista de dispositivos de la app de escritorio de BIShare: un iPhone y un Android en la misma Wi-Fi, listos para recibir con un clic.",
-    "send": "Enviar desde la app de escritorio: suelta un archivo, elige el dispositivo y la transferencia empieza cifrada — nada pasa por un servidor."
+    "devices": "La lista de dispositivos de la app de escritorio de BIShare, con un iPhone y un móvil Android de Samsung guardados como conocidos y cuándo se vio cada uno por última vez.",
+    "send": "Un enlace seguro listo para compartir: código QR, código corto y etiquetas de cifrado de extremo a extremo, descarga única y caducidad de 24 horas. La clave va después del # y nunca llega al servidor."
   },
   "scenarios": {
     "title": "Qué vía para cada tarea",
@@ -320,5 +320,68 @@
       "En la vía del enlace el archivo se cifra en tu navegador o app antes de subirse. La clave viaja en el enlace tras el signo #, que los navegadores nunca envían a un servidor, así que nuestro almacenamiento guarda un cifrado que no puede abrir. Los enlaces caducan en 24 horas; también puedes crear uno que se autodestruya tras la primera descarga.",
       "No hay cuenta, ni subida de contactos, ni SDK de publicidad. La app de Windows está firmada y publicada por nosotros en Microsoft Store; el código fuente de todas las plataformas es público."
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "Un iPhone y un Mac enviando archivos a un portátil con Windows, con el título: AirDrop para Windows en 2026, del iPhone y el Mac al PC, gratis y sin cable.",
+      "title": "AirDrop para Windows, 2026",
+      "sub": "Del iPhone y el Mac a un PC con Windows · gratis · sin cable",
+      "left": "iPhone · Mac",
+      "right": "PC con Windows"
+    },
+    "compare": {
+      "alt": "Transferencia de archivos del iPhone con Phone Link frente a BIShare: Phone Link necesita el canal Windows Insider, una cuenta Microsoft, emparejamiento Bluetooth y apps en ambos lados, y solo funciona entre iPhone y Windows; BIShare funciona en Windows 10 y 11 estables sin cuenta ni emparejamiento, cubre Mac, Android y Linux, y quien recibe puede usar un navegador.",
+      "title": "Phone Link o BIShare del iPhone al PC",
+      "sub": "Lo que necesita cada uno antes del primer archivo",
+      "colNeed": "",
+      "colPhoneLink": "Phone Link",
+      "colBishare": "BIShare",
+      "rows": {
+        "windows": {
+          "need": "Versión de Windows",
+          "pl": "Canal Windows Insider",
+          "bi": "Windows 10 y 11 estables"
+        },
+        "account": {
+          "need": "Cuenta",
+          "pl": "Cuenta Microsoft en ambos",
+          "bi": "Ninguna"
+        },
+        "pairing": {
+          "need": "Configuración",
+          "pl": "Emparejamiento Bluetooth LE, iOS 16+",
+          "bi": "Misma Wi-Fi o un enlace"
+        },
+        "devices": {
+          "need": "Dispositivos",
+          "pl": "Solo iPhone ↔ Windows",
+          "bi": "iPhone, Mac, Android, Linux ↔ Windows"
+        },
+        "receiver": {
+          "need": "Quien recibe",
+          "pl": "Siempre necesita la app",
+          "bi": "La app o solo un navegador"
+        }
+      },
+      "foot": "Según la documentación de septiembre de 2026; las páginas de soporte de Microsoft aún describen la transferencia de Phone Link solo para Android"
+    },
+    "speed": {
+      "alt": "Velocidades medidas del móvil al PC: 3 a 8 MB/s en Wi-Fi de 2,4 GHz, 2 a 5 minutos por GB; 40 a 50 MB/s en Wi-Fi 5, 20 a 30 segundos; 50 a 70 MB/s con el PC por Ethernet y el móvil en 5 GHz, 15 a 20 segundos; 70 a 110 MB/s en Wi-Fi 6 a corta distancia, 10 a 15 segundos; unos 110 MB/s con ambos por Ethernet, unos 9 segundos.",
+      "title": "Del móvil al PC: lo que da la conexión",
+      "sub": "Rendimiento medido en la vía local y cuánto tarda 1 GB",
+      "colSpeed": "Rendimiento",
+      "colTime": "1 GB tarda",
+      "g24": "Wi-Fi en 2,4 GHz",
+      "wifi5": "Wi-Fi 5 en 5 GHz",
+      "mixed": "PC por Ethernet, móvil en 5 GHz",
+      "wifi6": "Wi-Fi 6, a corta distancia",
+      "eth": "Ambos por Ethernet gigabit",
+      "t24": "2–5 min",
+      "t5": "20–30 s",
+      "tMixed": "15–20 s",
+      "t6": "10–15 s",
+      "tEth": "≈ 9 s",
+      "foot": "Miles de fotos pequeñas tardan más que un vídeo del mismo tamaño total"
+    }
   }
 }

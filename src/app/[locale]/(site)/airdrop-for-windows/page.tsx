@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
+import { LandingArt } from "@/components/site/landing-art";
+import { ImageLightbox } from "@/components/site/image-lightbox";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { ArticleToc } from "@/components/site/article-toc";
@@ -38,6 +40,8 @@ const LAST_UPDATED = "2026-09-12";
 const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
+const SLUG = "/airdrop-for-windows";
+
 export async function generateMetadata({
   params,
 }: {
@@ -51,7 +55,7 @@ export async function generateMetadata({
     title: { absolute: title },
     description,
     alternates: buildAlternates(locale, "/airdrop-for-windows"),
-    ...sharedOpenGraph(title, description, "/airdrop-for-windows"),
+    ...sharedOpenGraph(title, description, SLUG, locale),
   };
 }
 
@@ -201,24 +205,16 @@ export default async function AirdropForWindowsPage({
           <StoreButtons />
         </div>
 
-        <figure className="mt-10 overflow-hidden rounded-xl border border-border bg-card">
-          <picture>
-            <source srcSet="/img/airdrop-for-windows/route.webp" type="image/webp" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/img/airdrop-for-windows/route.jpg"
-              alt={chrome("figureCaption")}
-              width={1400}
-              height={700}
-              loading="lazy"
-              decoding="async"
-              className="h-auto w-full"
-            />
-          </picture>
-          <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">
-            {chrome("figureCaption")}
-          </figcaption>
-        </figure>
+        <LandingArt
+          slug={SLUG}
+          name="hero"
+          locale={locale}
+          alt={t("art.hero.alt")}
+          width={1200}
+          height={630}
+          zoomHint={chrome("imageZoom")}
+          className="mt-10"
+        />
 
         {/* Why AirDrop can't reach Windows */}
         <section className="mt-14">
@@ -241,6 +237,16 @@ export default async function AirdropForWindowsPage({
             ))}
           </ul>
           <p className="mt-5 leading-relaxed text-foreground">{t("phoneLink.verdict")}</p>
+          <LandingArt
+            slug={SLUG}
+            name="compare"
+            locale={locale}
+            alt={t("art.compare.alt")}
+            width={1200}
+            height={720}
+            zoomHint={chrome("imageZoom")}
+            className="mt-6"
+          />
         </section>
 
         {/* The download — the intent behind most of these searches */}
@@ -390,6 +396,16 @@ export default async function AirdropForWindowsPage({
         <section className="mt-14">
           <H2 id="speed">{t("speed.title")}</H2>
           <p className="mt-4 leading-relaxed text-muted-foreground">{t("speed.body")}</p>
+          <LandingArt
+            slug={SLUG}
+            name="speed"
+            locale={locale}
+            alt={t("art.speed.alt")}
+            width={1200}
+            height={640}
+            zoomHint={chrome("imageZoom")}
+            className="mt-6"
+          />
           <div className="mt-5 overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[520px] text-sm">
               <thead>
@@ -524,6 +540,7 @@ export default async function AirdropForWindowsPage({
         </div>
       </main>
       <SiteFooter />
+      <ImageLightbox closeLabel={chrome("imageClose")} />
     </div>
   );
 }

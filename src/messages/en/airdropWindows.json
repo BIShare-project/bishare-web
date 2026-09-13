@@ -210,8 +210,8 @@
     "phone": "On the iPhone or Mac, install from the App Store; on Android, from Google Play. If the other person cannot install anything, the browser route below needs nothing on their side."
   },
   "shots": {
-    "devices": "BIShare's device list on the desktop app: an iPhone and an Android phone on the same Wi-Fi, ready to receive with one click.",
-    "send": "Sending from the desktop app: drop a file, pick the device, and the transfer starts encrypted — nothing goes to a server."
+    "devices": "BIShare's device list on the desktop app, with an iPhone and a Samsung Android phone saved as known devices and when each was last seen.",
+    "send": "A secure link ready to share: a QR code, the short code, and badges for end-to-end encrypted, one-time and 24-hour expiry. The key travels after the # and never reaches the server."
   },
   "scenarios": {
     "title": "Which route for which job",
@@ -320,5 +320,68 @@
       "On the link route the file is encrypted in your browser or app before upload. The key travels in the link after the # sign, which browsers never send to a server, so what our storage holds is ciphertext it cannot open. Links expire in 24 hours; you can also make one that self-destructs after the first download.",
       "There is no account, no contact upload and no ad SDK. The Windows app is signed and published by us on the Microsoft Store; the source code for every platform is public."
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "An iPhone and a Mac sending files to a Windows laptop, titled AirDrop for Windows in 2026: iPhone and Mac to a PC, free, with no cable.",
+      "title": "AirDrop for Windows, 2026",
+      "sub": "iPhone and Mac to a Windows PC · free · no cable",
+      "left": "iPhone · Mac",
+      "right": "Windows PC"
+    },
+    "compare": {
+      "alt": "Phone Link's iPhone file transfer compared with BIShare: Phone Link needs the Windows Insider channel, a Microsoft account, Bluetooth pairing and apps on both sides, and works only between iPhone and Windows; BIShare runs on stable Windows 10 and 11 with no account or pairing, covers Mac, Android and Linux, and a receiver can use a browser.",
+      "title": "Phone Link or BIShare for iPhone to PC",
+      "sub": "What each one needs before the first file moves",
+      "colNeed": "",
+      "colPhoneLink": "Phone Link",
+      "colBishare": "BIShare",
+      "rows": {
+        "windows": {
+          "need": "Windows version",
+          "pl": "Windows Insider channel",
+          "bi": "Stable Windows 10 and 11"
+        },
+        "account": {
+          "need": "Account",
+          "pl": "Microsoft account on both",
+          "bi": "None"
+        },
+        "pairing": {
+          "need": "Setup",
+          "pl": "Bluetooth LE pairing, iOS 16+",
+          "bi": "Same Wi-Fi, or a link"
+        },
+        "devices": {
+          "need": "Devices covered",
+          "pl": "iPhone ↔ Windows only",
+          "bi": "iPhone, Mac, Android, Linux ↔ Windows"
+        },
+        "receiver": {
+          "need": "Receiving side",
+          "pl": "Always needs the app",
+          "bi": "App, or just a browser"
+        }
+      },
+      "foot": "As documented in September 2026; Microsoft's own support pages still describe Phone Link file transfer for Android"
+    },
+    "speed": {
+      "alt": "Measured phone-to-PC speeds: 3 to 8 MB/s on 2.4 GHz Wi-Fi, 2 to 5 minutes per GB; 40 to 50 MB/s on Wi-Fi 5, 20 to 30 seconds; 50 to 70 MB/s with the PC on Ethernet and the phone on 5 GHz, 15 to 20 seconds; 70 to 110 MB/s on Wi-Fi 6 at close range, 10 to 15 seconds; about 110 MB/s with both on Ethernet, about 9 seconds.",
+      "title": "Phone to PC: what the link allows",
+      "sub": "Measured throughput on the local route, and what 1 GB takes",
+      "colSpeed": "Throughput",
+      "colTime": "1 GB takes",
+      "g24": "Wi-Fi on 2.4 GHz",
+      "wifi5": "Wi-Fi 5 on 5 GHz",
+      "mixed": "PC on Ethernet, phone on 5 GHz",
+      "wifi6": "Wi-Fi 6, close range",
+      "eth": "Both on Gigabit Ethernet",
+      "t24": "2–5 min",
+      "t5": "20–30 s",
+      "tMixed": "15–20 s",
+      "t6": "10–15 s",
+      "tEth": "≈ 9 s",
+      "foot": "Thousands of small photos move slower than one video of the same total size"
+    }
   }
 }

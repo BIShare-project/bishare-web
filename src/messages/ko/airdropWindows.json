@@ -210,8 +210,8 @@
     "phone": "iPhone이나 Mac에는 App Store에서, Android에는 Google Play에서 설치하세요. 상대가 아무것도 설치할 수 없다면 아래 브라우저 방식은 상대 쪽에 아무것도 요구하지 않습니다."
   },
   "shots": {
-    "devices": "BIShare 데스크톱 앱의 기기 목록: 같은 Wi-Fi에 있는 iPhone과 Android 휴대폰이 클릭 한 번으로 받을 준비가 된 모습.",
-    "send": "데스크톱 앱에서 보내기: 파일을 놓고 기기를 고르면 전송이 암호화된 채 시작됩니다. 서버를 거치는 것은 없습니다."
+    "devices": "BIShare 데스크톱 앱의 기기 목록. iPhone과 Samsung Android 휴대폰이 알려진 기기로 저장되어 있고 각각 마지막으로 확인된 시각이 표시됩니다.",
+    "send": "공유할 준비가 된 보안 링크: QR 코드, 짧은 코드, 종단 간 암호화·1회 다운로드·24시간 만료 배지. 키는 # 뒤에 있어 서버에 전달되지 않습니다."
   },
   "scenarios": {
     "title": "어떤 작업에 어떤 경로를 쓸까",
@@ -320,5 +320,68 @@
       "링크 경로에서는 업로드 전에 브라우저나 앱 안에서 파일이 암호화됩니다. 키는 링크의 # 뒤에 실리는데, 브라우저는 이 부분을 서버로 보내지 않으므로 저희 저장소에는 열 수 없는 암호문만 남습니다. 링크는 24시간 뒤 만료되고, 첫 다운로드 후 스스로 사라지는 링크도 만들 수 있어요.",
       "계정 없음, 연락처 업로드 없음, 광고 SDK 없음. Windows 앱은 서명되어 저희가 Microsoft Store에 게시했고, 모든 플랫폼의 소스 코드가 공개되어 있습니다."
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "iPhone과 Mac이 Windows 노트북으로 파일을 보내는 그림. 제목: 2026년 Windows용 AirDrop, iPhone과 Mac에서 PC로, 무료, 케이블 없이.",
+      "title": "Windows용 AirDrop, 2026",
+      "sub": "iPhone과 Mac에서 Windows PC로 · 무료 · 케이블 없이",
+      "left": "iPhone · Mac",
+      "right": "Windows PC"
+    },
+    "compare": {
+      "alt": "Phone Link의 iPhone 파일 전송과 BIShare 비교. Phone Link는 Windows 참가자 채널, Microsoft 계정, Bluetooth 페어링, 양쪽 앱이 필요하고 iPhone과 Windows 사이에서만 동작. BIShare는 정식 Windows 10과 11에서 계정이나 페어링 없이 동작하고 Mac, Android, Linux도 지원하며 받는 쪽은 브라우저만 있어도 됨.",
+      "title": "iPhone에서 PC로: Phone Link와 BIShare",
+      "sub": "첫 파일을 보내기 전에 각각 필요한 것",
+      "colNeed": "",
+      "colPhoneLink": "Phone Link",
+      "colBishare": "BIShare",
+      "rows": {
+        "windows": {
+          "need": "Windows 버전",
+          "pl": "Windows 참가자 채널",
+          "bi": "정식 Windows 10과 11"
+        },
+        "account": {
+          "need": "계정",
+          "pl": "양쪽 모두 Microsoft 계정",
+          "bi": "필요 없음"
+        },
+        "pairing": {
+          "need": "설정",
+          "pl": "Bluetooth LE 페어링, iOS 16 이상",
+          "bi": "같은 Wi-Fi 또는 링크"
+        },
+        "devices": {
+          "need": "지원 기기",
+          "pl": "iPhone ↔ Windows만",
+          "bi": "iPhone, Mac, Android, Linux ↔ Windows"
+        },
+        "receiver": {
+          "need": "받는 쪽",
+          "pl": "항상 앱 필요",
+          "bi": "앱 또는 브라우저만"
+        }
+      },
+      "foot": "2026년 9월 문서 기준. Microsoft 지원 페이지는 여전히 Phone Link 파일 전송을 Android용으로만 설명합니다"
+    },
+    "speed": {
+      "alt": "휴대폰에서 PC로 측정한 속도: 2.4 GHz Wi-Fi 3~8 MB/s, 1 GB에 2~5분; Wi-Fi 5 40~50 MB/s, 20~30초; PC는 이더넷, 휴대폰은 5 GHz일 때 50~70 MB/s, 15~20초; 가까운 Wi-Fi 6 70~110 MB/s, 10~15초; 둘 다 이더넷이면 약 110 MB/s, 약 9초.",
+      "title": "휴대폰에서 PC로: 연결별 속도",
+      "sub": "로컬 경로 측정값과 1 GB 소요 시간",
+      "colSpeed": "처리량",
+      "colTime": "1 GB 소요",
+      "g24": "2.4 GHz Wi-Fi",
+      "wifi5": "5 GHz Wi-Fi 5",
+      "mixed": "PC는 이더넷, 휴대폰은 5 GHz",
+      "wifi6": "Wi-Fi 6, 가까운 거리",
+      "eth": "둘 다 기가비트 이더넷",
+      "t24": "2~5분",
+      "t5": "20~30초",
+      "tMixed": "15~20초",
+      "t6": "10~15초",
+      "tEth": "약 9초",
+      "foot": "작은 사진 수천 장은 같은 총용량의 동영상 한 개보다 느립니다"
+    }
   }
 }

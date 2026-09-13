@@ -210,8 +210,8 @@
     "phone": "Auf iPhone oder Mac aus dem App Store installieren, auf Android aus Google Play. Kann die andere Person nichts installieren, braucht der Browser-Weg unten auf ihrer Seite nichts."
   },
   "shots": {
-    "devices": "Geräteliste der BIShare-Desktop-App: ein iPhone und ein Android-Handy im selben WLAN, mit einem Klick empfangsbereit.",
-    "send": "Senden aus der Desktop-App: Datei ablegen, Gerät wählen, und die Übertragung startet verschlüsselt — nichts geht an einen Server."
+    "devices": "Die Geräteliste der BIShare-Desktop-App mit einem iPhone und einem Samsung-Android-Handy als bekannte Geräte und wann jedes zuletzt gesehen wurde.",
+    "send": "Ein fertiger sicherer Link: QR-Code, Kurzcode und Hinweise auf Ende-zu-Ende-Verschlüsselung, Einmal-Download und 24 Stunden Gültigkeit. Der Schlüssel steht hinter dem # und erreicht nie den Server."
   },
   "scenarios": {
     "title": "Welcher Weg für welche Aufgabe",
@@ -320,5 +320,68 @@
       "Auf dem Link-Weg wird die Datei vor dem Upload im Browser oder in der App verschlüsselt. Der Schlüssel steckt im Link hinter dem #-Zeichen, das Browser nie an einen Server senden — unser Speicher hält also Chiffretext, den er nicht öffnen kann. Links laufen nach 24 Stunden ab; auf Wunsch zerstört sich einer nach dem ersten Download selbst.",
       "Kein Konto, kein Kontakte-Upload, kein Werbe-SDK. Die Windows-App ist signiert und von uns im Microsoft Store veröffentlicht; der Quellcode für jede Plattform ist öffentlich."
     ]
+  },
+  "art": {
+    "hero": {
+      "alt": "Ein iPhone und ein Mac senden Dateien an einen Windows-Laptop, Titel: AirDrop für Windows 2026, vom iPhone und Mac auf den PC, kostenlos und ohne Kabel.",
+      "title": "AirDrop für Windows, 2026",
+      "sub": "Vom iPhone und Mac auf den Windows-PC · kostenlos · ohne Kabel",
+      "left": "iPhone · Mac",
+      "right": "Windows-PC"
+    },
+    "compare": {
+      "alt": "Dateiübertragung per Phone Link vom iPhone im Vergleich mit BIShare: Phone Link braucht den Windows-Insider-Kanal, ein Microsoft-Konto, Bluetooth-Kopplung und Apps auf beiden Seiten und funktioniert nur zwischen iPhone und Windows; BIShare läuft auf stabilem Windows 10 und 11 ohne Konto oder Kopplung, deckt Mac, Android und Linux ab, und Empfänger können einen Browser nutzen.",
+      "title": "Phone Link oder BIShare vom iPhone zum PC",
+      "sub": "Was beide brauchen, bevor die erste Datei fließt",
+      "colNeed": "",
+      "colPhoneLink": "Phone Link",
+      "colBishare": "BIShare",
+      "rows": {
+        "windows": {
+          "need": "Windows-Version",
+          "pl": "Windows-Insider-Kanal",
+          "bi": "Stabiles Windows 10 und 11"
+        },
+        "account": {
+          "need": "Konto",
+          "pl": "Microsoft-Konto auf beiden Seiten",
+          "bi": "Keins"
+        },
+        "pairing": {
+          "need": "Einrichtung",
+          "pl": "Bluetooth-LE-Kopplung, iOS 16+",
+          "bi": "Gleiches WLAN oder ein Link"
+        },
+        "devices": {
+          "need": "Geräte",
+          "pl": "Nur iPhone ↔ Windows",
+          "bi": "iPhone, Mac, Android, Linux ↔ Windows"
+        },
+        "receiver": {
+          "need": "Empfängerseite",
+          "pl": "Braucht immer die App",
+          "bi": "App oder einfach ein Browser"
+        }
+      },
+      "foot": "Stand der Dokumentation September 2026; Microsofts Support-Seiten beschreiben die Dateiübertragung per Phone Link weiter nur für Android"
+    },
+    "speed": {
+      "alt": "Gemessene Geschwindigkeiten vom Handy zum PC: 3 bis 8 MB/s im 2,4-GHz-WLAN, 2 bis 5 Minuten pro GB; 40 bis 50 MB/s mit Wi-Fi 5, 20 bis 30 Sekunden; 50 bis 70 MB/s mit PC am Ethernet und Handy auf 5 GHz, 15 bis 20 Sekunden; 70 bis 110 MB/s mit Wi-Fi 6 aus der Nähe, 10 bis 15 Sekunden; etwa 110 MB/s mit beiden am Ethernet, etwa 9 Sekunden.",
+      "title": "Handy zum PC: was die Verbindung hergibt",
+      "sub": "Gemessener Durchsatz auf dem lokalen Weg und Dauer für 1 GB",
+      "colSpeed": "Durchsatz",
+      "colTime": "1 GB dauert",
+      "g24": "WLAN auf 2,4 GHz",
+      "wifi5": "Wi-Fi 5 auf 5 GHz",
+      "mixed": "PC am Ethernet, Handy auf 5 GHz",
+      "wifi6": "Wi-Fi 6, aus der Nähe",
+      "eth": "Beide am Gigabit-Ethernet",
+      "t24": "2–5 min",
+      "t5": "20–30 s",
+      "tMixed": "15–20 s",
+      "t6": "10–15 s",
+      "tEth": "≈ 9 s",
+      "foot": "Tausende kleine Fotos brauchen länger als ein Video gleicher Gesamtgröße"
+    }
   }
 }

@@ -17,15 +17,15 @@ const OG_IMAGE = {
  * generic brand card. Keep in sync with FIGURES in that script.
  */
 const ROUTE_FIGURES = new Set([
-  "/airdrop-for-android", "/airdrop-for-windows",
-  "/airdrop-not-working", "/encrypted-file-transfer",
+  "/airdrop-for-android", "/airdrop-not-working", "/encrypted-file-transfer",
   "/firefox-send-alternative", "/localsend-alternative", "/nearby-share-alternative",
   "/send-anywhere-alternative", "/send-files-android-to-iphone",
-  "/send-files-iphone-to-android", "/send-files-without-internet",   "/share-files-without-account", "/sharedrop-alternative",
-  "/shareit-alternative", "/smash-alternative",
-  "/transfer-files-between-computers", "/transfer-files-pc-to-phone",
-  "/transfer-files-phone-to-pc", "/transfer-photos-from-iphone-to-pc",
-  "/wetransfer-alternative", "/wormhole-alternative",
+  "/send-files-iphone-to-android", "/send-files-without-internet",
+  "/share-files-without-account", "/sharedrop-alternative", "/shareit-alternative",
+  "/smash-alternative", "/transfer-files-between-computers",
+  "/transfer-files-pc-to-phone", "/transfer-files-phone-to-pc",
+  "/transfer-photos-from-iphone-to-pc", "/wetransfer-alternative",
+  "/wormhole-alternative",
 ]);
 
 /**
