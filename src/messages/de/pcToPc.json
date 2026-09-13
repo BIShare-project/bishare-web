@@ -1,83 +1,140 @@
 {
   "meta": {
-    "title": "Dateien zwischen zwei Computern per WLAN übertragen",
-    "description": "Dateien zwischen zwei Computern, Notebook zu Notebook oder Mac zu Windows, direkt per WLAN. Kein USB-Stick, kein Cloud-Upload, keine Netzfreigabe. Kostenlos, verschlüsselt."
+    "title": "Dateien zwischen zwei Computern übertragen: 8 Wege (2026)",
+    "description": "Dateien von PC zu PC, Mac zu Mac oder Windows zu Mac: Windows-Sicherung, Nahfreigabe, Netzwerkfreigabe, Migrationsassistent, Laufwerk, Cloud oder eine direkte App."
   },
   "hero": {
-    "eyebrow": "Computer ↔ Computer",
-    "title": "Dateien zwischen zwei Computern — ohne die Rituale",
-    "body": "Zwei Computer auf demselben Schreibtisch sollten keinen USB-Stick-Pendelverkehr, keine Mail an sich selbst und keinen Cloud-Umweg brauchen, um einen Ordner zu tauschen. <strong>BIShare</strong> bewegt Dateien <strong>direkt zwischen zwei beliebigen Computern</strong> — Windows, Mac oder Linux, in jeder Kombination — über das Netzwerk, das sie ohnehin teilen. <highlight>Eine Seite kommt sogar mit einem simplen Browser aus.</highlight>",
+    "eyebrow": "Von Computer zu Computer",
+    "title": "Dateien zwischen zwei Computern übertragen",
+    "body": "Dateien von einem Computer auf einen anderen zu bringen, klingt nach einer einzigen Aufgabe. Ein Ordner für die Kollegin am anderen Ende des Büros, ein neuer Laptop, der alles vom alten braucht, und ein Mac, der Projekte mit einem Windows-PC tauscht, sind aber drei verschiedene Aufgaben mit drei verschiedenen besten Wegen. Windows hat inzwischen eine eingebaute PC-zu-PC-Übertragung bei der Einrichtung, Macs haben seit Jahren den Migrationsassistenten, und beide können Ordner im Netzwerk freigeben, wenn man die richtigen Schalter kennt. Diese Anleitung geht vom Computerpaar vor Ihnen aus, bewertet acht Wege, erklärt, was eine vollständige Migration mitnimmt und was sie zurücklässt, und behandelt Laufwerksformate, Geschwindigkeiten und Einstellungen, an denen die meisten Kopien scheitern. Einer der acht ist <strong>BIShare</strong>, das <strong>Dateien und Ordner direkt zwischen Windows, Mac und Linux</strong> im selben Netzwerk sendet, ohne Größenlimit und ohne Upload. <highlight>Kostenlos und Open Source, ohne Anmeldung.</highlight>",
     "ctaPrimary": "BIShare kostenlos holen",
-    "ctaSecondary": "So funktioniert's"
+    "ctaSecondary": "So funktioniert es"
   },
-  "why": {
-    "title": "Der Stick-Pendelverkehr und andere Rituale",
-    "body": "Der Stick heißt: ihn finden, hoffen, dass er richtig formatiert ist (<strong>NTFS lässt sich am Mac nicht beschreiben</strong>), und hin- und herlaufen. Netzwerkfreigaben heißen Berechtigungen, Arbeitsgruppen und eine Einstellungs-Safari auf beiden Maschinen. E-Mail deckelt bei 25 MB, und die Cloud schickt deine Datei über ein Rechenzentrum auf Reisen, nur um das Zimmer zu durchqueren. Alles davon ist ein Workaround für dasselbe fehlende Feature — Computer, die direkt miteinander reden. Genau das ist das Feature."
+  "updated": "Aktualisiert im September 2026 · Details zu Windows-Sicherung und Nahfreigabe aus dem Microsoft Support, Migrationsassistent aus dem Apple Support, Thunderbolt Share von Intel",
+  "disclosure": "BIShare ist unser Produkt. Um ein ganzes Benutzerkonto auf einen neuen Computer zu bringen, leisten Windows-Sicherung oder der Migrationsassistent mehr als jede Übertragungs-App, und das Ranking sagt das auch.",
+  "quick": {
+    "title": "Kurze Antwort",
+    "items": [
+      "<strong>Neuen Windows-11-PC einrichten:</strong> Während der Einrichtung die Wiederherstellung von einem anderen PC wählen und mit der Windows-Sicherung auf dem alten PC koppeln; Dateien und Einstellungen kommen übers Netzwerk.",
+      "<strong>Neuen Mac einrichten:</strong> Der Migrationsassistent kopiert Apps, Benutzerkonten, Einstellungen und Dateien vom alten Mac oder von einem Windows-PC.",
+      "<strong>Ein paar Dateien zwischen zwei nahen Windows-PCs:</strong> Die Nahfreigabe im Menü Teilen, eingestellt auf „Jeder in der Nähe“, legt sie unter Downloads ab.",
+      "<strong>Ein großer Ordner zwischen Windows, Mac oder Linux:</strong> BIShare auf beiden Computern sendet ihn direkt im selben Netzwerk ohne Größenlimit.",
+      "<strong>Derselbe Ordner, täglich von beiden Rechnern genutzt:</strong> ihn unter Windows oder mit der macOS-Dateifreigabe im Netzwerk freigeben und vom anderen Computer öffnen.",
+      "<strong>Gar kein Netzwerk:</strong> Ein externes Laufwerk im Format exFAT lässt sich unter Windows und auf dem Mac lesen und beschreiben."
+    ]
   },
-  "how": {
-    "title": "So funktioniert der Direktweg",
+  "pairs": {
+    "title": "Zuerst das Paar: Welche zwei Computer?",
+    "body": "Der beste Weg hängt weniger von den Dateien ab als von den beiden Betriebssystemen. Eingebaute Werkzeuge sind innerhalb einer Plattform hervorragend und über Plattformgrenzen hinweg dünn.",
     "items": {
-      "0": {
-        "h": "Zwei Maschinen, ein Werkzeug",
-        "b": "Installiere BIShare auf Windows, Mac oder Linux — beliebig gemischt. Eine Maschine ohne Installationsrechte (gesperrter Firmenlaptop, der PC eines Freundes) sendet und empfängt im Browser-Tab."
-      },
-      "1": {
-        "h": "Sie finden sich von selbst",
-        "b": "Im selben Netzwerk erscheinen sich die beiden Computer automatisch. Zieh eine Datei — oder einen ganzen Ordner — auf die andere Maschine: sie landet Ende-zu-Ende-verschlüsselt mit WLAN-Tempo, ohne unterwegs irgendwo gespeichert zu werden."
-      },
-      "2": {
-        "h": "Kein Router? Improvisier einen",
-        "b": "Kein gemeinsames Netz — Umzugstag, Kundenstandort? Der Hotspot eines Handys zählt als Netzwerk, ganz ohne Internet. Beide Computer treten bei und die Übertragung läuft exakt gleich."
-      }
+      "0": { "h": "Windows zu Windows", "b": "Windows bringt die meisten eingebauten Optionen mit: die Übertragung der Windows-Sicherung für einen neuen PC, die Nahfreigabe für schnelle Sendungen zwischen PCs in der Nähe und die Netzwerkfreigabe für Ordner, die beide Rechner öffnen. Ohne gemeinsames privates Netzwerk weicht die Nahfreigabe auf Bluetooth aus, was für ein Dokument reicht und für ein Video langsam ist." },
+      "1": { "h": "Mac zu Mac", "b": "AirDrop deckt schnelle Sendungen ab, der Migrationsassistent zieht ein komplettes Benutzerkonto per WLAN, Ethernet oder Thunderbolt-Kabel auf einen neuen Mac um, und die Dateifreigabe in den Systemeinstellungen lässt einen Mac Ordner auf dem anderen öffnen. Zwischen zwei Macs braucht man selten etwas anderes." },
+      "2": { "h": "Windows und Mac", "b": "Apples Windows-Migrationsassistent bringt Dateien und Einstellungen von einem PC auf einen neuen Mac, doch in die andere Richtung gibt es nichts Eingebautes. Für den Alltag schließen eine Windows-Freigabe im Finder des Mac, ein exFAT-Laufwerk, ein Cloud-Ordner oder eine plattformübergreifende App wie BIShare die Lücke." },
+      "3": { "h": "Linux mit im Spiel", "b": "Linux-Desktops sprechen SMB und können daher Windows- und Mac-Freigaben öffnen, und Linux Mint bringt Warpinator für Übertragungen im LAN mit. Plattformübergreifende Apps wie LocalSend und BIShare kommen ganz ohne eingebundene Freigaben aus, und rsync über SSH passt für alle, die sich im Terminal wohlfühlen." }
     }
   },
-  "comparison": {
-    "title": "USB-Stick, Cloud oder direkt?",
-    "cols": {
-      "airdrop": "USB-Stick",
-      "quick": "Cloud-Speicher",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "r0": "Keine Hardware zu suchen, formatieren oder tragen",
-      "r1": "Ein Sprung — kein Hoch-und-wieder-runter-Umweg",
-      "r2": "Kein NTFS-vs-Mac-Formatkopfweh",
-      "r3": "Ordner mit vielen Gigabyte in lokalem WLAN-Tempo",
-      "r4": "Nichts bleibt auf einem Server zurück"
+  "methods": {
+    "title": "Acht Wege, Dateien zwischen zwei Computern zu übertragen, im Ranking",
+    "consLabel": "Achtung:",
+    "items": {
+      "0": { "name": "BIShare", "tag": "Am besten für alltägliche Übertragungen zwischen Windows, Mac und Linux", "facts": "Windows (Microsoft Store), Mac App Store, Linux · Open Source unter MIT-Lizenz · direkt im gemeinsamen Netzwerk ohne Größenlimit · ein Link fasst bis zu 100 GB und gilt einen Tag · Ende-zu-Ende-verschlüsselt · keine Anmeldung", "body": "BIShare auf beiden Computern installieren, Dateien oder einen Ordner auf das App-Fenster ziehen und den anderen Computer in der Liste der Geräte in der Nähe wählen; die Empfängerseite bestätigt, und die Dateien landen im Speicherordner von BIShare. Weil nichts hochgeladen wird, wandert ein 40-GB-Projekt mit der Geschwindigkeit des lokalen Netzes, und das funktioniert in jeder Kombination aus Windows, macOS und Linux. Ist kein Router da, dient der Hotspot eines Telefons als Netzwerk. Steht der andere Computer in einem anderen Gebäude, stattdessen einen Link erstellen, den dieser Computer 24 Stunden lang in jedem Browser öffnen kann.", "cons": "Es überträgt Dateien, keine installierten Apps oder Einstellungen, und ersetzt daher kein Migrationswerkzeug für einen neuen Computer. Ein Ordner wird für den Transport in ein einzelnes ZIP-Archiv gepackt, und für eine Direktübertragung brauchen beide Computer die App." },
+      "1": { "name": "Windows-Sicherung: Übertragung auf einen neuen PC", "tag": "Am besten für den Umzug auf einen neuen Windows-11-PC", "facts": "Alter PC: Windows 10 oder 11 · neuer PC: Windows 11 24H2 oder neuer, während der Einrichtung · Microsoft-Konto · dasselbe WLAN oder kabelgebundene Netzwerk · einmaliger Kopplungscode · Dateien und Einstellungen", "body": "Solange der neue PC noch in der Ersteinrichtung steckt, mit einem Microsoft-Konto anmelden und die Wiederherstellung von einem anderen PC wählen. Auf dem alten PC die Windows-Sicherung öffnen, die Übertragung auf einen neuen PC auswählen und den Kopplungscode bestätigen, den der neue PC anzeigt. Dokumente, Fotos, Videos und andere Dateien kommen samt Hintergrundbild, Designs und weiteren persönlichen Einstellungen übers Netzwerk, und bricht die Verbindung ab, setzt Windows selbst fort.", "cons": "Die Option erscheint nur bei der Einrichtung, ein bereits eingerichteter PC kann sie nicht nutzen. Installierte Apps, gespeicherte Kennwörter, OneDrive-Dateien und mit BitLocker verschlüsselte Laufwerke werden nicht übertragen, und beide PCs sollten bis zum Ende am Strom bleiben." },
+      "2": { "name": "Nahfreigabe in Windows", "tag": "Am besten für ein paar Dateien zwischen zwei Windows-PCs im selben Raum", "facts": "Windows 11 oder Windows 10 ab Version 1803 · Bluetooth LE · WLAN, wenn beide PCs im selben privaten Netzwerk sind · „Nur meine Geräte“ oder „Jeder in der Nähe“ · speichert unter Downloads", "body": "Die Nahfreigabe auf beiden PCs in den Einstellungen einschalten, „Jeder in der Nähe“ wählen, falls sie unterschiedliche Microsoft-Konten nutzen, dann im Datei-Explorer mit der rechten Maustaste auf eine Datei klicken, Teilen wählen und den anderen PC auswählen. Der Empfänger nimmt eine Benachrichtigung an, und die Datei landet unter Downloads oder in einem in den Einstellungen gewählten Ordner. Nichts zu installieren, und über Bluetooth klappt es sogar, wenn die PCs nicht im selben Netzwerk sind.", "cons": "Nur für Windows. Ohne gemeinsames privates Netzwerk läuft sie über Bluetooth, was bei großen Dateien quälend langsam ist, und „Jeder in der Nähe“ macht Namen und Bluetooth-Adresse des PCs für Menschen in der Umgebung sichtbar." },
+      "3": { "name": "Netzwerkfreigabe (SMB)", "tag": "Am besten für einen Ordner, den beide Computer dauerhaft nutzen", "facts": "In Windows, macOS und den meisten Linux-Desktops eingebaut · selbes lokales Netzwerk · privates Netzwerkprofil unter Windows · Freigaberechte pro Ordner · kein Größenlimit", "body": "Unter Windows für private Netzwerke die Netzwerkerkennung sowie die Datei- und Druckerfreigabe einschalten und dann einen Ordner über seine Eigenschaften freigeben; andere Computer öffnen ihn im Datei-Explorer unter Netzwerk, auf dem Mac über „Mit Server verbinden“ im Finder oder im Dateimanager von Linux. Auf dem Mac erledigt die Dateifreigabe unter Allgemein, Teilen in den Systemeinstellungen dasselbe. Einmal eingerichtet, verhält sich der Ordner wie ein Teil der Festplatte des anderen Computers, praktisch für gemeinsame Projektordner und Mediensammlungen.", "cons": "Die Einrichtung braucht mehr Schritte als jeder andere Weg, und Berechtigungen, Konten und Firewall-Abfragen lassen viele erste Versuche scheitern. Offene Freigaben auf einem Laptop im öffentlichen WLAN sind ein Risiko, daher die Freigabe abschalten, wenn sie nicht gebraucht wird." },
+      "4": { "name": "Migrationsassistent (Mac)", "tag": "Am besten, um ein ganzes Benutzerkonto auf einen neuen Mac zu bringen", "facts": "In macOS eingebaut · Mac zu Mac per WLAN, Ethernet oder Thunderbolt-Kabel oder aus einem Time-Machine-Backup · Windows-Migrationsassistent 3 für PC zu Mac, Windows 10 oder neuer, macOS Sonoma 14.4 oder neuer", "body": "Den Migrationsassistenten im Ordner Dienstprogramme oder während der Einrichtung des neuen Mac öffnen und als Quelle den alten Mac, ein Time-Machine-Backup oder einen Windows-PC wählen. Von einem Mac kopiert er Apps, Benutzerkonten, Einstellungen und Dokumente, ohne den alten Mac zu verändern, und ein Thunderbolt- oder Ethernet-Kabel ist meist schneller als WLAN. Von einem PC zuerst Apples Windows-Migrationsassistenten unter Windows installieren und auf beiden Computern WLAN und Bluetooth eingeschaltet lassen.", "cons": "Er bringt Daten nur auf einen Mac; von Apple gibt es nichts, das einen Mac auf einen Windows-PC umzieht. Antiviren-, Firewall- und VPN-Software kann ihn blockieren, bis sie ausgeschaltet wird, und ein großes Konto per WLAN kann Stunden dauern." },
+      "5": { "name": "Externes Laufwerk oder USB-Stick", "tag": "Am besten, wenn die Computer gar kein Netzwerk teilen", "facts": "Beliebiges USB-Laufwerk oder SSD · exFAT lässt sich unter Windows und auf dem Mac lesen und beschreiben · NTFS ist auf dem Mac schreibgeschützt · FAT32 begrenzt jede Datei auf 4 GB · kein Konto, kein Internet", "body": "Die Dateien aufs Laufwerk kopieren, es zum anderen Computer bringen und dort herunterkopieren. Für ein Laufwerk, das zwischen Windows und Mac pendelt, es im Festplattendienstprogramm oder im Datei-Explorer als exFAT formatieren, damit beide darauf schreiben können. Eine schnelle USB-3-SSD schlägt bei mehreren Dutzend Gigabyte oft das WLAN, und für einen Offline-Computer oder einen Standort mit gesperrtem Netzwerk ist ein Laufwerk noch immer die einfachste Lösung.", "cons": "Formatieren löscht das Laufwerk, also vorher prüfen, was darauf ist. Einen Stick hin und her zu tragen, wird bei wiederholten Übertragungen schnell lästig, und ein verlorenes, unverschlüsseltes Laufwerk legt alles darauf offen." },
+      "6": { "name": "Cloud-Ordner: OneDrive, iCloud Drive oder Google Drive", "tag": "Am besten, wenn die beiden Computer selten am selben Ort sind", "facts": "OneDrive: 5 GB kostenlos, einzelne Dateien bis 250 GB · iCloud Drive: 5 GB kostenlos · Google Drive: 15 GB kostenlos, zusammen mit Gmail und Google Fotos · dasselbe Konto auf beiden Computern", "body": "Dateien in einen synchronisierten Ordner auf einem Computer legen, und sie erscheinen auf dem anderen, sobald dieser synchronisiert, ob er nun gegenüber oder am anderen Ende des Landes steht. Wer ohnehin mit OneDrive oder iCloud Drive arbeitet, muss gar nichts übertragen, weil die Dateien dem Konto folgen. Nebenbei bleibt eine Sicherungskopie in der Cloud.", "cons": "Alles wird erst hochgeladen und dann heruntergeladen, daher bestimmt die Upload-Geschwindigkeit zu Hause das Tempo, und der kostenlose Speicher füllt sich schnell. Auch zwei Computer im selben Raum schicken die Daten erst in ein Rechenzentrum und zurück." },
+      "7": { "name": "LocalSend oder Warpinator", "tag": "Open-Source-Alternativen im LAN für gelegentliche Übertragungen", "facts": "LocalSend: Windows, macOS, Linux, Android, iPhone, Apache 2.0 · Warpinator: Standard unter Linux Mint, auf Flathub, inoffizielle Windows-Portierungen · selbes lokales Netzwerk · kein Konto", "body": "LocalSend erkennt Computer, die mit ihm ein Netzwerk teilen, und reicht die gewählten Dateien direkt hinüber, auf allen großen Plattformen. Warpinator, vom Linux-Mint-Team entwickelt, macht dasselbe zwischen Linux-Rechnern und über Community-Portierungen auch mit Windows-PCs. Beide sind kostenlos, werbefrei und einfach und damit eine gute Wahl für alle, die von der Community getragene Werkzeuge bevorzugen.", "cons": "Keins von beiden funktioniert außerhalb des lokalen Netzes, und in Hotel-, Gäste- oder Firmennetzen, die Geräte voneinander trennen, findet man den anderen Computer oft nicht. Die Windows-Versionen von Warpinator sind inoffiziell." }
+    }
+  },
+  "table": {
+    "title": "Auf einen Blick",
+    "cols": { "feature": "Merkmal", "bishare": "BIShare", "backup": "Windows-Sicherung", "nearby": "Nahfreigabe", "smb": "Netzwerkfreigabe", "drive": "Externes Laufwerk", "cloud": "Cloud-Ordner" },
+    "rows": { "r0": "Funktioniert zwischen Windows und Mac", "r1": "Nimmt Einstellungen mit, nicht nur Dateien", "r2": "Nichts wird ins Internet hochgeladen", "r3": "Jederzeit nutzbar, nicht nur bei der Einrichtung", "r4": "Keine zusätzliche Hardware und kein Speicherabo" },
+    "note": "Stand September 2026. BIShare braucht für eine Direktübertragung die App auf beiden Computern und hat im selben Netzwerk kein Größenlimit; ein BIShare-Link fasst höchstens 100 GB und läuft nach einem Tag ab. Die Übertragung der Windows-Sicherung läuft während der Einrichtung des neuen PCs und setzt dort Windows 11 24H2 oder neuer voraus. Die Nahfreigabe gibt es nur unter Windows, und ohne gemeinsames privates Netzwerk weicht sie auf Bluetooth aus. Netzwerkfreigaben funktionieren nach der Einrichtung zwischen Windows, Mac und Linux. Ein externes Laufwerk, das auch am Mac hängt, sollte exFAT sein. Cloud-Ordner brauchen ein Konto und Speicher für die Dateien."
+  },
+  "migrate": {
+    "title": "Alles auf einen neuen Computer umziehen",
+    "body": "Ein neuer Computer ist eine Migration, keine Übertragung. Ziel ist der alte Schreibtisch mit Dokumenten und Einstellungen auf dem neuen Gerät, ohne Verluste, und die Werkzeuge unterscheiden sich darin, wie viel davon sie mitnehmen.",
+    "items": {
+      "0": { "h": "Windows zu Windows: was mitkommt und was nicht", "b": "Die PC-zu-PC-Übertragung der Windows-Sicherung bringt Dateien und persönliche Einstellungen, und Apps aus dem Microsoft Store stehen zur Neuinstallation bereit. Aus dem Web installierte Desktop-Programme, außerhalb eines synchronisierten Kontos gespeicherte Browser-Kennwörter und an die alte Hardware gebundene Lizenzen muss man einzeln erledigen. Laplink PCmover, ein kostenpflichtiges Werkzeug, ist die übliche Wahl, wenn installierte Programme mitkommen müssen." },
+      "1": { "h": "Mac zu Mac: das ganze Benutzerkonto", "b": "Der Migrationsassistent kopiert Benutzerkonten, Apps und Einstellungen neben den Dateien, sodass der neue Mac bei der ersten Anmeldung oft wie der alte aussieht. Ein Kabel zu wählen und ihn über Nacht laufen zu lassen, ist der entspannteste Weg, ein großes Konto umzuziehen." },
+      "2": { "h": "Bevor der alte Computer gelöscht wird", "b": "Auf dem neuen Gerät ein paar Dateien aus verschiedenen Ordnern öffnen, prüfen, ob E-Mail, Browser-Lesezeichen und Passwortmanager angemeldet sind, und Softwarelizenzen mit begrenzten Aktivierungen deaktivieren. Den alten Computer oder ein vollständiges Backup davon ein paar Wochen behalten; die fehlende Datei taucht meist erst auf, wenn jemand sie braucht." },
+      "3": { "h": "Windows 10 wird nicht mehr unterstützt", "b": "Microsoft hat den Support für Windows 10 am 14. Oktober 2025 beendet, was in diesem Jahr viele auf neue PCs gebracht hat. Der alte PC kann seine Dateien trotzdem per Windows-Sicherung, Nahfreigabe, Freigabe, Laufwerk oder BIShare abgeben, auch wenn er keine Sicherheitsupdates mehr bekommt." }
+    }
+  },
+  "formats": {
+    "title": "Laufwerke, Formate und Dateinamen, an denen plattformübergreifende Kopien scheitern",
+    "body": "Bricht eine Kopie zwischen Windows und Mac mittendrin ab, liegt es oft am Ziel und nicht am Weg.",
+    "items": {
+      "0": { "h": "exFAT, NTFS und APFS", "b": "Windows formatiert Laufwerke standardmäßig als NTFS, das ein Mac lesen, aber nicht beschreiben kann. Macs nutzen APFS, das Windows ohne Zusatzsoftware nicht lesen kann. exFAT ist der gemeinsame Nenner: Beide Systeme lesen und schreiben es, und es kennt keine praktische Grenze für die Dateigröße." },
+      "1": { "h": "Die 4-GB-Mauer bei FAT32", "b": "Ältere USB-Sticks kommen oft als FAT32, das keine einzelne Datei über 4 GB annimmt. Beim Kopieren eines langen Films oder eines ISO-Abbilds kommt dann eine nichtssagende Fehlermeldung, obwohl auf dem Stick noch reichlich Platz ist. Neu als exFAT formatieren behebt das." },
+      "2": { "h": "Namen, die Windows ablehnt", "b": "macOS und Linux erlauben in Dateinamen Zeichen, die Windows zurückweist, darunter Doppelpunkte, Fragezeichen, Sternchen, Anführungszeichen und senkrechte Striche, und Windows lehnt auch Namen ab, die auf ein Leerzeichen oder einen Punkt enden. Solche Dateien vor dem Kopieren auf einen Windows-PC umbenennen oder den Ordner als Archiv senden." },
+      "3": { "h": "Versteckte Dateien, die mitreisen", "b": "Beim Kopieren von einem Mac auf ein Nicht-Mac-Laufwerk entstehen neben jedem Dokument kleine Dateien, die mit ._ beginnen, und in Ordnern .DS_Store-Dateien. Es sind harmlose Metadaten, die man unter Windows gefahrlos löschen kann." }
+    }
+  },
+  "steps": {
+    "title": "Dateien mit BIShare zwischen Computern übertragen",
+    "items": {
+      "0": { "h": "Auf beiden Computern installieren", "b": "BIShare unter Windows aus dem Microsoft Store, auf dem Mac aus dem Mac App Store oder als Linux-Download holen. Beide mit demselben WLAN oder Kabelnetz verbinden oder beide in den Hotspot eines Telefons bringen." },
+      "1": { "h": "Dateien oder einen Ordner hineinziehen", "b": "Dateien oder einen ganzen Ordner auf das App-Fenster ziehen oder über Dateien danach suchen. Teilen beide Computer ein Netzwerk, gibt es kein Größenlimit." },
+      "2": { "h": "Den anderen Computer wählen", "b": "Ihn unter den Geräten in der Nähe auswählen und auf der Empfängerseite annehmen. Die Dateien landen im in BIShare eingestellten Ordner, anfangs Downloads. Sind die beiden Rechner in getrennten Netzwerken, einen Link erzeugen und ihn innerhalb eines Tages im Browser des anderen Computers öffnen." }
+    }
+  },
+  "speed": {
+    "title": "Wie schnell jeder Weg sein kann",
+    "body": "Die Verbindung setzt die Obergrenze, das langsamere der beiden Laufwerke das tatsächliche Tempo. Die nominellen Übertragungsraten unten sind Höchstwerte; echte Kopien liegen darunter.",
+    "items": {
+      "0": { "h": "WLAN gegen Kabel", "b": "Das WLAN-Tempo schwankt mit Entfernung, Wänden und Router, daher ist ein Gigabit-Ethernet-Kabel für große Ordner oft schneller und immer gleichmäßiger. Schon einen der beiden Computer per Kabel am Router anzuschließen, hilft einer drahtlosen Übertragung." },
+      "1": { "h": "USB- und Thunderbolt-Laufwerke", "b": "Eine externe USB-3-SSD kopiert Dutzende Gigabyte zügig, und die Grenze ist oft der Anschluss des Computers oder das Laufwerk selbst. Zwei PCs mit Thunderbolt-4- oder -5-Anschlüssen können sich mit Intels Thunderbolt Share auch direkt mit bis zu 20 oder 40 Gbit/s verbinden, allerdings muss einer von ihnen oder das Zubehör eine Lizenz des Herstellers haben." },
+      "2": { "h": "Bluetooth und die Cloud", "b": "Bluetooth, das die Nahfreigabe ohne gemeinsames Netzwerk nutzt, reicht für Dokumente und ist für Videos unpraktisch. Cloud-Ordner hängen an der Upload-Geschwindigkeit des Absenders, die bei Heimanschlüssen meist nur ein Bruchteil der Download-Geschwindigkeit ist." }
+    }
+  },
+  "fixes": {
+    "title": "Wenn eine Übertragung zwischen Computern scheitert",
+    "items": {
+      "0": { "h": "Der andere PC erscheint nicht unter Netzwerk", "b": "Auf beiden PCs das Netzwerkprofil auf Privat stellen, in den erweiterten Freigabeeinstellungen Netzwerkerkennung sowie Datei- und Druckerfreigabe aktivieren und prüfen, ob beide am selben Router hängen und nicht im Gästenetz. Die Adresse des anderen PCs wie \\\\PCNAME direkt in den Datei-Explorer einzutippen, klappt oft, wenn das Durchsuchen versagt." },
+      "1": { "h": "Die Nahfreigabe findet den PC nicht", "b": "Auf beiden PCs Bluetooth einschalten, die Nahfreigabe auf „Jeder in der Nähe“ stellen und sie wenige Meter voneinander entfernt halten. Läuft auf einem PC Windows 10, prüfen, ob es Version 1803 oder neuer ist." },
+      "2": { "h": "Auf dem neuen PC fehlt die Übertragungsoption", "b": "Die PC-zu-PC-Übertragung der Windows-Sicherung wird nur während der Ersteinrichtung unter Windows 11 24H2 oder neuer angeboten. Auf einem bereits eingerichteten PC stattdessen eine Freigabe, ein Laufwerk, einen Cloud-Ordner oder eine App nutzen." },
+      "3": { "h": "Der Mac kann nicht aufs Laufwerk kopieren", "b": "Mit NTFS formatierte Laufwerke öffnen sich auf dem Mac nur zum Lesen. Die Dateien an einen sicheren Ort verschieben und das Laufwerk dann als exFAT löschen, wenn es weiter zwischen Windows und Mac pendeln soll." },
+      "4": { "h": "Eine große Datei lässt sich nicht auf einen USB-Stick kopieren", "b": "Ein als FAT32 formatierter Stick lehnt Dateien über 4 GB ab. Ihn als exFAT neu formatieren oder die Datei stattdessen übers Netzwerk senden." },
+      "5": { "h": "Lange Übertragungen brechen mittendrin ab", "b": "Den Ruhezustand auf beiden Computern verhindern, Laptops am Strom lassen und VPN- oder Firewall-Software pausieren, die lokale Verbindungen kappt. Ein riesiges Projekt in mehreren Etappen zu übertragen, heißt, dass eine Unterbrechung Minuten statt Stunden kostet." }
+    }
+  },
+  "security": {
+    "title": "Übertragungen zwischen Computern privat halten",
+    "body": "Lokale Übertragungen sind von Haus aus privat, doch ein paar Gewohnheiten sorgen dafür, dass es so bleibt.",
+    "items": {
+      "0": { "h": "Ordner nur in privaten Netzwerken freigeben", "b": "Netzwerkfreigabe und eine auf „Jeder in der Nähe“ gestellte Nahfreigabe machen einen Computer auffindbar. Freigaben auf das private Netzwerkprofil beschränken, auf Laptops, die unterwegs sind, abschalten und kennwortgeschützte Freigaben nutzen, wo andere Menschen im Netz sind." },
+      "1": { "h": "Laufwerke verschlüsseln, die das Haus verlassen", "b": "Ein USB-Stick oder eine externe SSD mit persönlichen Dateien sollte verschlüsselt sein, mit BitLocker To Go unter Windows oder einem verschlüsselten APFS-Volume auf dem Mac, denn ein verlorenes Laufwerk kann sonst jeder lesen." },
+      "2": { "h": "Wissen, wo Kopien landen", "b": "Cloud-Ordner hinterlassen eine Kopie beim Anbieter. Eine Direktübertragung mit BIShare, LocalSend, der Nahfreigabe oder einer Netzwerkfreigabe bewegt Dateien nur zwischen den beiden Computern, und ein BIShare-Link wird vor dem Upload verschlüsselt und nach 24 Stunden gelöscht." }
     }
   },
   "faq": {
-    "title": "Computer-zu-Computer, beantwortet",
+    "title": "Dateien zwischen Computern übertragen: häufige Fragen",
     "items": {
-      "0": {
-        "q": "Geht die Übertragung auch ohne Router?",
-        "a": "Ja — der Hotspot jedes Handys dient als Treffpunkt, ganz ohne Internet. Beide Computer treten dem Hotspot bei und übertragen direkt. Im normalen Heim- oder Büronetz übernimmt der Router diese Rolle."
-      },
-      "1": {
-        "q": "Funktioniert es zwischen Mac und Windows?",
-        "a": "Ja, in beide Richtungen — und mit Linux, in jeder Kombination. Alle Plattformen sprechen dasselbe Protokoll, Mac ↔ Windows verhält sich exakt wie PC ↔ PC. Keine SMB-Freigaben, keine Treiber, kein Format-Jonglieren."
-      },
-      "2": {
-        "q": "Kann ich einen ganzen Ordner schicken?",
-        "a": "Ja — zieh einen Ordner hinein und er kommt als Ordner an, Struktur intakt. Für ein ganzes Benutzerprofil voller Daten schick lieber ein paar große Schübe — jeder lässt sich beim Eintreffen leichter prüfen."
-      },
-      "3": {
-        "q": "Wie schnell ist es?",
-        "a": "So schnell wie das Netzwerk zwischen den Maschinen — typisch 40–50 MB/s in gewöhnlichem WLAN 5, mehr per Kabel oder neuerem WLAN. Ein 10-GB-Ordner ist eine Sache von Minuten: er durchquert das Zimmer statt zweimal das Internet."
-      },
-      "4": {
-        "q": "Ist das im Büronetz sicher?",
-        "a": "Übertragungen sind Ende-zu-Ende zwischen den Geräten verschlüsselt — andere Maschinen im Netz sehen nur Chiffretext. Nichts wird auf einen Server geladen, und der empfangende Computer muss jede eingehende Übertragung ausdrücklich annehmen."
-      }
+      "0": { "q": "Wie bekomme ich Dateien am einfachsten von einem Computer auf einen anderen?", "a": "Für einen neuen Windows-11-PC die Übertragung der Windows-Sicherung während der Einrichtung, für einen neuen Mac den Migrationsassistenten. Für alltägliche Dateien zwischen zwei beliebigen Computern im selben Netzwerk braucht eine direkte App wie BIShare oder LocalSend den geringsten Aufwand." },
+      "1": { "q": "Wie schickt man Dateien am besten per WLAN von PC zu PC?", "a": "Die Nahfreigabe für ein paar Dateien, die Netzwerkfreigabe für Ordner, die beide PCs öffnen, oder eine direkte Übertragungs-App für große Ordner. Alle halten die Daten im lokalen Netzwerk." },
+      "2": { "q": "Kann ich Dateien per USB-Kabel zwischen Computern übertragen?", "a": "Ein normales USB-Kabel verbindet zwei PCs nicht zur Dateiübertragung. Stattdessen einen USB-Stick, ein Ethernet-Kabel zwischen den Computern, spezielle PC-zu-PC-Übertragungskabel mit eigener Software oder Thunderbolt Share auf unterstützten PCs verwenden." },
+      "3": { "q": "Wie ziehe ich alles vom alten auf den neuen PC um?", "a": "Auf einem neuen Windows-11-PC während der Einrichtung die Wiederherstellung von einem anderen PC wählen und mit der Windows-Sicherung auf dem alten PC koppeln. Dateien und Einstellungen kommen mit; installierte Programme und gespeicherte Kennwörter müssen neu eingerichtet werden." },
+      "4": { "q": "Kann ich Dateien ohne Zusatzsoftware von einem Windows-PC auf einen Mac bringen?", "a": "Ja, für einen neuen Mac: Apples Windows-Migrationsassistent kopiert Dateien und Einstellungen vom PC. Für alltägliche Dateien eine Windows-Freigabe im Finder des Mac öffnen oder ein exFAT-Laufwerk oder einen Cloud-Ordner nutzen; eine plattformübergreifende App wie BIShare geht auch." },
+      "5": { "q": "Wie übertrage ich Dateien vom Mac auf Windows?", "a": "Die Dateifreigabe auf dem Mac einschalten und sie vom PC öffnen, auf ein exFAT-Laufwerk kopieren, einen Cloud-Ordner nutzen oder mit einer plattformübergreifenden App senden. Apple hat kein Migrationswerkzeug für Mac zu Windows." },
+      "6": { "q": "Mein Mac zeigt das externe Laufwerk an, kopiert aber nicht darauf. Warum?", "a": "Das Laufwerk ist als NTFS formatiert, das macOS lesen, aber nicht beschreiben kann. Um es mit Windows und Mac zu nutzen, als exFAT neu formatieren, nachdem die Dateien in Sicherheit gebracht wurden." },
+      "7": { "q": "Müssen beide Computer im selben Netzwerk sein?", "a": "Für Netzwerkfreigabe, LocalSend und eine direkte BIShare-Übertragung ja, wobei ein Telefon-Hotspot zählt. Die Nahfreigabe kann auf Bluetooth ausweichen, und ein Cloud-Ordner oder ein BIShare-Link funktioniert von überall." },
+      "8": { "q": "Wie übertrage ich einen großen Ordner am schnellsten zwischen Computern?", "a": "Per Kabel: eine Ethernet-Verbindung für Netzwerkübertragungen, eine schnelle USB-SSD oder Thunderbolt Share auf unterstützten PCs. Im WLAN schlägt eine Direktübertragung im selben Netzwerk den Upload in die Cloud." },
+      "9": { "q": "Ist BIShare für Übertragungen zwischen Computern kostenlos?", "a": "Ja. BIShare kostet nichts: Der Code steht unter MIT-Lizenz, es gibt weder Werbung noch Anmeldung, und Direktübertragungen zwischen Computern im selben Netzwerk sind in der Größe nicht begrenzt." }
     }
   },
   "cta": {
-    "title": "Schick den USB-Stick in Rente",
-    "body": "Zwei Computer, ein direkter Sprung — kostenlos, verschlüsselt, auf jedem Desktop-OS.",
+    "title": "Dateien direkt zwischen zwei beliebigen Computern bewegen",
+    "body": "Open Source und kostenlos. Dateien und Ordner zwischen Windows, Mac und Linux über das eigene Netzwerk senden, ohne Größenlimit und ohne Upload.",
     "download": "BIShare herunterladen"
   },
-  "a11y": {
-    "yes": "Ja",
-    "no": "Nein"
+  "a11y": { "yes": "Ja", "no": "Nein" },
+  "art": {
+    "hero": { "alt": "Ein Windows-Laptop schickt einen Ordner direkt an einen Mac, Titel: Dateien zwischen zwei Computern übertragen, acht Wege für 2026.", "title": "Dateien zwischen zwei Computern übertragen", "sub": "8 Wege für Windows, Mac und Linux 2026", "left": "Windows-PC", "right": "Mac" },
+    "pairs": { "alt": "Die besten eingebauten Wege je Computerpaar: Windows zu Windows mit Übertragung der Windows-Sicherung, Nahfreigabe und Netzwerkfreigabe; Mac zu Mac mit AirDrop, Migrationsassistent und Dateifreigabe; Windows zu Mac mit Windows-Migrationsassistent für einen neuen Mac und SMB-Freigabe oder exFAT-Laufwerk; Linux-Kombinationen mit SMB-Freigaben, Warpinator oder einer plattformübergreifenden App.", "title": "Eingebaute Wege je Computerpaar", "sub": "Stark innerhalb einer Plattform, dünn über Plattformgrenzen", "builtLabel": "Eingebaut", "anyLabel": "Geht auch", "a": { "pair": "Windows ↔ Windows", "built": "Windows-Sicherung · Nahfreigabe · Netzwerkfreigabe", "any": "Laufwerk · Cloud · BIShare" }, "b": { "pair": "Mac ↔ Mac", "built": "AirDrop · Migrationsassistent · Dateifreigabe", "any": "Laufwerk · Cloud · BIShare" }, "c": { "pair": "Windows ↔ Mac", "built": "Windows-Migrationsassistent · SMB-Freigabe", "any": "exFAT-Laufwerk · Cloud · BIShare" }, "d": { "pair": "Linux ↔ alle", "built": "SMB-Freigabe · Warpinator unter Linux Mint", "any": "LocalSend · BIShare · rsync" } },
+    "moves": { "alt": "Was jedes Werkzeug auf einen neuen Computer bringt: Die Übertragung der Windows-Sicherung nimmt Dateien und Einstellungen mit, aber keine installierten Apps, und nur bei der Ersteinrichtung; der Migrationsassistent nimmt Dateien, Einstellungen und Apps mit, bei der Einrichtung oder später; BIShare überträgt Dateien und Ordner jederzeit, aber keine Einstellungen oder Apps.", "title": "Was auf den neuen Computer umzieht", "sub": "Ein Migrationswerkzeug nimmt mehr mit als eine Dateiübertragung", "backup": "Windows-Sicherung", "migration": "Migrationsassistent", "bishare": "BIShare", "files": "Dateien und Ordner", "settings": "Einstellungen", "apps": "Installierte Apps", "anytime": "Übertragung nach der Einrichtung", "foot": "Die Windows-Sicherung lässt außerdem gespeicherte Kennwörter, OneDrive-Dateien und BitLocker-Laufwerke aus" },
+    "speed": { "alt": "Höchste Übertragungsraten nach Verbindung auf logarithmischer Skala: Bluetooth LE 2 Mbit/s, Gigabit-Ethernet 1 Gbit/s, 2,5-Gigabit-Ethernet 2,5 Gbit/s, USB 3.2 Gen 1 5 Gbit/s, Thunderbolt-4-Netzwerk 20 Gbit/s, Thunderbolt-5-Netzwerk 40 Gbit/s. Echte Kopien sind langsamer, und WLAN schwankt.", "title": "Höchste Übertragungsrate je Verbindung", "sub": "Nominelle Höchstwerte; das langsamere Laufwerk und die Bedingungen bestimmen das echte Tempo", "r0": "Bluetooth LE", "r1": "Gigabit-Ethernet", "r2": "2,5-Gigabit-Ethernet", "r3": "USB 3.2 Gen 1", "r4": "Thunderbolt-4-Netzwerk", "r5": "Thunderbolt-5-Netzwerk", "foot": "WLAN fehlt, weil echte Geschwindigkeiten stark von Entfernung, Wänden und Router abhängen" }
   }
 }

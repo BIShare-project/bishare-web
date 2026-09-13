@@ -22,7 +22,7 @@ const ROUTE_FIGURES = new Set([
   "/send-anywhere-alternative",
   "/send-files-without-internet",
   "/share-files-without-account", "/sharedrop-alternative", "/shareit-alternative",
-  "/smash-alternative", "/transfer-files-between-computers",
+  "/smash-alternative",
   "/wormhole-alternative",
 ]);
 

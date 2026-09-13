@@ -1,83 +1,371 @@
 {
   "meta": {
-    "title": "Transfer Files Between Two Computers Over Wi-Fi",
-    "description": "Move files between two computers, laptop to laptop or Mac to Windows, directly over Wi-Fi. No USB stick, no cloud upload, no network-share setup. Free and encrypted."
+    "title": "How to Transfer Files Between Two Computers: 8 Ways (2026)",
+    "description": "Move files from PC to PC, Mac to Mac or Windows to Mac: Windows Backup, Nearby sharing, network sharing, Migration Assistant, a drive, the cloud or a direct app."
   },
   "hero": {
-    "eyebrow": "Computer ↔ Computer",
-    "title": "Transfer files between two computers, minus the rituals",
-    "body": "Two computers on the same desk shouldn't need a USB stick shuttle, an email to yourself, or a cloud round-trip to swap a folder. <strong>BIShare</strong> moves files <strong>directly between any two computers</strong> — Windows, Mac, or Linux, in any combination — over the network they already share. <highlight>One side can even use a plain browser.</highlight>",
+    "eyebrow": "Computer to computer",
+    "title": "How to transfer files between two computers",
+    "body": "Moving files from one computer to another sounds like a single task, but a folder for a colleague across the office, a new laptop that needs everything from the old one, and a Mac swapping projects with a Windows PC are three different jobs with three different best routes. Windows now has a built-in PC-to-PC transfer during setup, Macs have had Migration Assistant for years, and both can share folders over the network if you know which switches to flip. This guide starts from the pair of computers in front of you, ranks eight ways to move the files, explains what a full migration carries and what it leaves behind, and covers the drive formats, speeds and settings that cause most failed copies. One of the eight is <strong>BIShare</strong>, which sends <strong>files and folders directly between Windows, Mac and Linux</strong> on the same network, with no size limit and nothing uploaded. <highlight>Free and open source, with no sign-up.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
-  "why": {
-    "title": "The USB-stick shuffle, and other rituals",
-    "body": "The stick means finding it, hoping it's formatted right (<strong>NTFS won't write on a Mac</strong>), and walking it back and forth. Network shares mean permissions, workgroups, and a settings safari on both machines. Email caps you at 25 MB, and the cloud sends your file on a round trip through a data center just to cross the room. Every one of these is a workaround for the same missing feature — computers talking to each other directly. That's the feature."
+  "updated": "Updated September 2026 · Windows Backup and Nearby sharing details from Microsoft Support, Migration Assistant from Apple Support, Thunderbolt Share from Intel",
+  "disclosure": "BIShare is ours. For moving a whole account onto a new computer, Windows Backup or Migration Assistant does more than any file transfer app, and the rankings say so.",
+  "quick": {
+    "title": "Quick answer",
+    "items": [
+      "<strong>Setting up a new Windows 11 PC:</strong> during setup, choose to restore from another PC and pair it with Windows Backup on the old one; files and settings come across the network.",
+      "<strong>Setting up a new Mac:</strong> Migration Assistant copies apps, accounts, settings and files from the old Mac or from a Windows PC.",
+      "<strong>A few files between two Windows PCs nearby:</strong> Nearby sharing in the Share menu, set to Everyone nearby, drops them in Downloads.",
+      "<strong>A big folder between Windows, Mac or Linux:</strong> BIShare on both computers sends it directly over the same network with no size limit.",
+      "<strong>The same folder, used from both machines every day:</strong> share it over the network from Windows or macOS File Sharing and open it from the other computer.",
+      "<strong>No network at all:</strong> an external drive formatted as exFAT reads and writes on both Windows and Mac."
+    ]
   },
-  "how": {
-    "title": "How the direct route works",
+  "pairs": {
+    "title": "Start with the pair: which two computers?",
+    "body": "The best route depends less on the files than on the two operating systems. Built-in tools are excellent inside one platform and thin across platforms.",
     "items": {
       "0": {
-        "h": "Both machines, one tool",
-        "b": "Install BIShare on Windows, Mac, or Linux — any mix. A machine you can't install on (a locked-down work laptop, a friend's PC) can send and receive from a browser tab instead."
+        "h": "Windows to Windows",
+        "b": "Windows has the richest built-in options: Windows Backup's transfer for a new PC, Nearby sharing for quick sends between PCs close together, and network file sharing for folders you open from both machines. Nearby sharing falls back to Bluetooth when the PCs are not on the same private network, which is fine for a document and slow for a video."
       },
       "1": {
-        "h": "They find each other",
-        "b": "On the same network, the two computers appear to each other automatically. Drag a file — or a whole folder — onto the other machine, and it lands end-to-end encrypted at Wi-Fi speed, with nothing stored anywhere in between."
+        "h": "Mac to Mac",
+        "b": "AirDrop covers quick sends, Migration Assistant moves an entire user account to a new Mac over Wi-Fi, Ethernet or a Thunderbolt cable, and File Sharing in System Settings lets one Mac open folders on the other. Between two Macs you rarely need anything else."
       },
       "2": {
-        "h": "No router? Improvise one",
-        "b": "No shared network around — a move-in day, a client site? A phone hotspot counts as a network, with zero internet needed. Both computers join it and the transfer runs exactly the same."
+        "h": "Windows and Mac",
+        "b": "Apple's Windows Migration Assistant moves files and settings from a PC to a new Mac, but nothing built in goes the other way. For everyday transfers, a Windows share opened from the Mac's Finder, an exFAT drive, a cloud folder or a cross-platform app such as BIShare fills the gap."
+      },
+      "3": {
+        "h": "Linux in the mix",
+        "b": "Linux desktops speak SMB, so they can open Windows and Mac shares, and Linux Mint ships Warpinator for LAN transfers. Cross-platform apps such as LocalSend and BIShare avoid mounting shares at all, and rsync over SSH suits people comfortable in a terminal."
       }
     }
   },
-  "comparison": {
-    "title": "USB stick, cloud, or direct?",
+  "methods": {
+    "title": "Eight ways to move files between two computers, ranked",
+    "consLabel": "Watch out for:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Best overall for everyday transfers across Windows, Mac and Linux",
+        "facts": "Windows (Microsoft Store), Mac App Store, Linux · MIT-licensed open source · direct on a shared network with no size cap · a link holds up to 100 GB and stays valid a day · end-to-end encrypted · no sign-up",
+        "body": "Install BIShare on both computers, drag files or a folder onto the app window, and pick the other computer from the nearby list; the receiving side confirms, and the files are written to BIShare's save folder. Nothing is uploaded, so a 40 GB project moves at the speed of the local network, and the same steps work between any mix of Windows, macOS and Linux. With no router around, a phone's hotspot serves as the network. When the other computer is in another building, make a link instead, which that computer can open in any browser for the next 24 hours.",
+        "cons": "It moves files, not installed apps or settings, so it does not replace a migration tool for a new computer. A folder is packed into a single zip archive for the trip, and both computers need the app for a direct transfer."
+      },
+      "1": {
+        "name": "Windows Backup: transfer to a new PC",
+        "tag": "Best for moving into a new Windows 11 PC",
+        "facts": "Old PC: Windows 10 or 11 · new PC: Windows 11 24H2 or later, during setup · Microsoft account · same Wi-Fi or wired network · one-time pairing code · files and settings",
+        "body": "While the new PC is still in its first-time setup, sign in with a Microsoft account and choose to restore from another PC. Open Windows Backup on the old PC, select the option to transfer to a new PC, and confirm the pairing code the new PC shows. Documents, photos, videos and other files come across the network along with wallpaper, themes and other personal settings, and Windows resumes on its own if the connection drops.",
+        "cons": "It only appears during setup, so an already configured PC cannot use it. Installed apps, saved passwords, OneDrive files and BitLocker-encrypted drives do not transfer, and both PCs should stay plugged in until it finishes."
+      },
+      "2": {
+        "name": "Nearby sharing in Windows",
+        "tag": "Best for a few files between two Windows PCs in the same room",
+        "facts": "Windows 11, or Windows 10 version 1803 and later · Bluetooth LE · Wi-Fi when both PCs are on the same private network · My devices only or Everyone nearby · saves to Downloads",
+        "body": "Turn on Nearby sharing in Settings on both PCs, choose Everyone nearby if they use different Microsoft accounts, then right-click a file in File Explorer, choose Share and pick the other PC. The recipient accepts a notification and the file lands in Downloads, or in another folder chosen in Settings. Nothing to install, and it works even when the PCs are not on the same network, using Bluetooth.",
+        "cons": "It is Windows only. Without a shared private network it runs over Bluetooth, which is painfully slow for large files, and Everyone nearby makes the PC's name and Bluetooth address visible to people around you."
+      },
+      "3": {
+        "name": "Network file sharing (SMB)",
+        "tag": "Best for a folder both computers keep using",
+        "facts": "Built into Windows, macOS and most Linux desktops · same local network · private network profile on Windows · share permissions per folder · no size limit",
+        "body": "On Windows, turn on network discovery and file and printer sharing for private networks, then share a folder from its properties; other computers open it from Network in File Explorer, from Finder's Connect to Server on a Mac, or from a Linux file manager. On a Mac, File Sharing under General, Sharing in System Settings does the same. Once set up, the folder behaves like part of the other computer's disk, which suits shared project folders and media libraries.",
+        "cons": "Setup takes more steps than any other route, and permissions, accounts and firewall prompts trip up many first attempts. Leaving shares open on a laptop that joins public Wi-Fi is a risk, so turn sharing off when it is not needed."
+      },
+      "4": {
+        "name": "Migration Assistant (Mac)",
+        "tag": "Best for moving an entire account onto a new Mac",
+        "facts": "Built into macOS · Mac to Mac over Wi-Fi, Ethernet or Thunderbolt cable, or from a Time Machine backup · Windows Migration Assistant 3 for PC to Mac, Windows 10 or later, macOS Sonoma 14.4 or later",
+        "body": "Open Migration Assistant from the Utilities folder, or during the new Mac's setup, and choose the old Mac, a Time Machine backup or a Windows PC as the source. From a Mac it copies apps, user accounts, settings and documents, leaving the old Mac untouched, and a Thunderbolt or Ethernet cable is usually faster than Wi-Fi. From a PC, install Apple's Windows Migration Assistant on Windows first and keep Wi-Fi and Bluetooth on for both computers.",
+        "cons": "It only moves data onto a Mac; nothing from Apple migrates a Mac to a Windows PC. Antivirus, firewall and VPN software can block it until turned off, and a large account over Wi-Fi can take hours."
+      },
+      "5": {
+        "name": "External drive or USB stick",
+        "tag": "Best when the computers share no network at all",
+        "facts": "Any USB drive or SSD · exFAT reads and writes on Windows and Mac · NTFS is read-only on a Mac · FAT32 caps each file at 4 GB · no account, no internet",
+        "body": "Copy the files onto the drive, move it to the other computer and copy them off. For a drive shared between Windows and Mac, format it as exFAT in Disk Utility or File Explorer so both can write to it. A fast USB 3 SSD often beats Wi-Fi for tens of gigabytes, and a drive is still the simplest answer for an offline computer or a site with locked-down networking.",
+        "cons": "Formatting erases the drive, so check what is on it first. Walking a stick back and forth gets old quickly for repeated transfers, and a lost unencrypted drive exposes everything on it."
+      },
+      "6": {
+        "name": "Cloud folder: OneDrive, iCloud Drive or Google Drive",
+        "tag": "Best when the two computers are rarely in the same place",
+        "facts": "OneDrive: 5 GB at no cost, single files up to 250 GB · iCloud Drive: 5 GB at no cost · Google Drive: 15 GB at no cost, pooled with Gmail and Google Photos · the same account on both computers",
+        "body": "Put the files in a synced folder on one computer and they appear on the other once it syncs, whether it is across the street or across the country. For people who already work out of OneDrive or iCloud Drive, nothing needs to be transferred at all, because the files follow the account. It also leaves a backup copy in the cloud.",
+        "cons": "Everything is uploaded first and downloaded second, so home upload speed sets the pace, and free storage fills quickly. Two computers in the same room still send the data out to a data centre and back."
+      },
+      "7": {
+        "name": "LocalSend or Warpinator",
+        "tag": "Open source LAN alternatives for occasional transfers",
+        "facts": "LocalSend: Windows, macOS, Linux, Android, iPhone, Apache 2.0 · Warpinator: Linux Mint default, on Flathub, unofficial Windows ports · same local network · no account",
+        "body": "LocalSend spots computers sharing a network with it and passes the chosen files straight across, on every major platform. Warpinator, built by the Linux Mint team, does the same between Linux machines and, through community ports, Windows PCs. Both are free, ad-free and simple, which makes them good choices for anyone who prefers community-run tools.",
+        "cons": "Neither works beyond the local network, and finding the other computer often fails on hotel, guest or corporate networks that keep devices apart. The Windows versions of Warpinator are unofficial."
+      }
+    }
+  },
+  "table": {
+    "title": "At a glance",
     "cols": {
-      "airdrop": "USB drive",
-      "quick": "Cloud drive",
-      "bishare": "BIShare"
+      "feature": "Feature",
+      "bishare": "BIShare",
+      "backup": "Windows Backup",
+      "nearby": "Nearby sharing",
+      "smb": "Network sharing",
+      "drive": "External drive",
+      "cloud": "Cloud folder"
     },
     "rows": {
-      "r0": "No hardware to find, format, or carry",
-      "r1": "One hop — no upload-then-download detour",
-      "r2": "No NTFS-vs-Mac formatting headaches",
-      "r3": "Multi-gigabyte folders at local Wi-Fi speed",
-      "r4": "Nothing left behind on a server"
+      "r0": "Works between Windows and Mac",
+      "r1": "Carries settings as well as files",
+      "r2": "Nothing uploaded to the internet",
+      "r3": "Usable any time, not only during setup",
+      "r4": "No extra hardware or storage plan"
+    },
+    "note": "As of September 2026. BIShare needs the app on both computers for a direct transfer and has no size limit on one network; a BIShare link tops out at 100 GB and expires after a day. Windows Backup's transfer runs during the new PC's setup and needs Windows 11 24H2 or later on the new PC. Nearby sharing is Windows only and falls back to Bluetooth without a shared private network. Network sharing works between Windows, Mac and Linux once set up. An external drive shared with a Mac should be exFAT. Cloud folders need an account and storage for the files."
+  },
+  "migrate": {
+    "title": "Moving everything to a new computer",
+    "body": "A new computer is a migration, not a transfer. The goal is the old desktop, documents and settings on the new machine with nothing lost, and the tools differ in how much of that they carry.",
+    "items": {
+      "0": {
+        "h": "Windows to Windows: what comes and what does not",
+        "b": "Windows Backup's PC-to-PC transfer brings files and personal settings, and apps from the Microsoft Store are ready to reinstall. Desktop apps installed from the web, browser passwords saved outside a synced account, and licences tied to the old hardware have to be handled one by one. Laplink PCmover, a paid tool, is the usual choice when installed apps must come along."
+      },
+      "1": {
+        "h": "Mac to Mac: the whole account",
+        "b": "Migration Assistant copies user accounts, apps and settings as well as files, so the new Mac often looks like the old one on first login. Choosing a cable and letting it run overnight is the least stressful way to move a large account."
+      },
+      "2": {
+        "h": "Before you wipe the old computer",
+        "b": "Open a handful of files from different folders on the new machine, check that email, browser bookmarks and password managers are signed in, and deauthorise software licences that limit activations. Keep the old computer, or a full backup of it, for a few weeks; the missing file usually turns up only when someone needs it."
+      },
+      "3": {
+        "h": "Windows 10 is out of support",
+        "b": "Microsoft ended Windows 10 support on 14 October 2025, which has pushed many people onto new PCs this year. The old PC can still send its files with Windows Backup, Nearby sharing, a share, a drive or BIShare, even though it no longer gets security updates."
+      }
+    }
+  },
+  "formats": {
+    "title": "Drives, formats and file names that break cross-platform copies",
+    "body": "When a copy between Windows and Mac fails halfway, the cause is often the destination rather than the route.",
+    "items": {
+      "0": {
+        "h": "exFAT, NTFS and APFS",
+        "b": "Windows formats drives as NTFS by default, which a Mac can read but not write. Macs use APFS, which Windows cannot read without extra software. exFAT is the common ground: both systems read and write it, and it has no practical file size limit."
+      },
+      "1": {
+        "h": "The 4 GB wall on FAT32",
+        "b": "Older USB sticks often come as FAT32, which refuses any single file larger than 4 GB. Copying a long film or an ISO image stops with an unhelpful error even though the stick has room to spare. Reformatting as exFAT fixes it."
+      },
+      "2": {
+        "h": "Names Windows will not accept",
+        "b": "macOS and Linux allow characters in file names that Windows rejects, including colons, question marks, asterisks, quotation marks and vertical bars, and Windows also refuses names that end in a space or a period. Rename those files, or send the folder as an archive, before copying to a Windows PC."
+      },
+      "3": {
+        "h": "Hidden files that tag along",
+        "b": "Copying from a Mac to a non-Mac drive can leave small files starting with ._ next to each document, plus .DS_Store files in folders. They are harmless metadata and safe to delete on Windows."
+      }
+    }
+  },
+  "steps": {
+    "title": "Transferring files between computers with BIShare",
+    "items": {
+      "0": {
+        "h": "Install on both computers",
+        "b": "Get BIShare from the Microsoft Store on Windows, the Mac App Store on a Mac, or the Linux download. Connect both to one Wi-Fi or wired network, or have both join a phone's hotspot."
+      },
+      "1": {
+        "h": "Drag in files or a folder",
+        "b": "Drop files or a whole folder onto the app window, or use Files to browse for them. There is no size limit when both computers share a network."
+      },
+      "2": {
+        "h": "Pick the other computer",
+        "b": "Choose it from the nearby devices and accept on the receiving side. Files are stored in the folder set in BIShare, which starts out as Downloads. When the two machines are on separate networks, generate a link and open it in the other computer's browser within a day."
+      }
+    }
+  },
+  "speed": {
+    "title": "How fast each route can be",
+    "body": "The connection sets the ceiling and the slower of the two drives sets the real speed. Nominal link rates below are maximums; real copies land lower.",
+    "items": {
+      "0": {
+        "h": "Wi-Fi versus a cable",
+        "b": "Wi-Fi speed swings with distance, walls and the router, so a gigabit Ethernet cable is often faster and always steadier for large folders. Plugging one of the two computers into the router already helps a wireless transfer."
+      },
+      "1": {
+        "h": "USB and Thunderbolt drives",
+        "b": "A USB 3 external SSD copies tens of gigabytes quickly, and the limit is often the computer's port or the drive itself. Two PCs with Thunderbolt 4 or 5 ports can also link directly with Intel's Thunderbolt Share at up to 20 or 40 Gb/s, but one of them, or the accessory, must carry a licence from its manufacturer."
+      },
+      "2": {
+        "h": "Bluetooth and the cloud",
+        "b": "Bluetooth, which Nearby sharing uses without a shared network, is fine for documents and impractical for video. Cloud folders are bound by the sender's upload speed, which on home connections is usually a fraction of the download speed."
+      }
+    }
+  },
+  "fixes": {
+    "title": "When a transfer between computers fails",
+    "items": {
+      "0": {
+        "h": "The other PC does not appear in Network",
+        "b": "Set the network profile to Private on both PCs, enable Network discovery plus File and printer sharing under Advanced sharing settings, and check that both are on the same router rather than a guest network. Typing the other PC's address, such as \\\\PCNAME, into File Explorer often works when browsing does not."
+      },
+      "1": {
+        "h": "Nearby sharing cannot find the PC",
+        "b": "Turn on Bluetooth on both PCs, set Nearby sharing to Everyone nearby, and keep them within a few metres. If one PC runs Windows 10, check that it is version 1803 or later."
+      },
+      "2": {
+        "h": "The transfer option is missing on the new PC",
+        "b": "Windows Backup's PC-to-PC transfer is only offered during first-time setup on Windows 11 24H2 or later. On a PC that is already set up, use a share, a drive, a cloud folder or an app instead."
+      },
+      "3": {
+        "h": "The Mac cannot copy to the drive",
+        "b": "Drives formatted with NTFS open on a Mac for reading only. Move the files somewhere safe, then erase the drive as exFAT if it will keep travelling between Windows and Mac."
+      },
+      "4": {
+        "h": "A large file refuses to copy to a USB stick",
+        "b": "A stick formatted as FAT32 rejects files over 4 GB. Reformat it as exFAT, or send the file over the network instead."
+      },
+      "5": {
+        "h": "Long transfers stop partway",
+        "b": "Stop both computers from sleeping, keep laptops plugged in, and pause VPN or firewall software that drops local connections. Moving a huge project in a few batches means an interruption costs minutes rather than hours."
+      }
+    }
+  },
+  "security": {
+    "title": "Keeping transfers between computers private",
+    "body": "Local transfers are private by default, but a few habits keep them that way.",
+    "items": {
+      "0": {
+        "h": "Share folders only on private networks",
+        "b": "Network sharing and Nearby sharing set to Everyone nearby make a computer discoverable. Keep sharing to the Private network profile, turn it off on laptops that travel, and use password-protected shares where the network has other people on it."
+      },
+      "1": {
+        "h": "Encrypt drives that leave the house",
+        "b": "A USB stick or external SSD with personal files should be encrypted, with BitLocker To Go on Windows or an encrypted APFS volume on a Mac, because a lost drive is otherwise readable by anyone."
+      },
+      "2": {
+        "h": "Know where copies end up",
+        "b": "Cloud folders keep a copy with the provider. A direct transfer with BIShare, LocalSend, Nearby sharing or a network share moves files only between the two computers, and a BIShare link is encrypted before upload and deleted after 24 hours."
+      }
     }
   },
   "faq": {
-    "title": "Computer-to-computer transfer, answered",
+    "title": "Transferring files between computers: FAQ",
     "items": {
       "0": {
-        "q": "Can I transfer between two computers without a router?",
-        "a": "Yes — any phone's hotspot works as the meeting point, with no internet required. Both computers join the hotspot and transfer directly. On a normal home or office network, the router does the same job."
+        "q": "What is the simplest way to move files from one computer to another?",
+        "a": "For a new Windows 11 PC, use Windows Backup's transfer during setup; for a new Mac, Migration Assistant. For everyday files between any two computers on the same network, a direct app such as BIShare or LocalSend needs the least setup."
       },
       "1": {
-        "q": "Does it work between Mac and Windows?",
-        "a": "Yes, in both directions — and Linux too, in any combination. Every platform runs the same protocol, so a Mac ↔ Windows transfer behaves exactly like PC ↔ PC. No SMB shares, no drivers, no format juggling."
+        "q": "What is the best way to send files PC to PC over Wi-Fi?",
+        "a": "Use Nearby sharing for a few files, network file sharing for folders you open from both PCs, or a direct transfer app for large folders. All of them keep the data on your local network."
       },
       "2": {
-        "q": "Can I send an entire folder?",
-        "a": "Yes — drag a folder in and it arrives as a folder, structure intact. For a whole user profile's worth of data, send in a few large batches so each one is easy to verify on arrival."
+        "q": "Can I transfer files between computers with a USB cable?",
+        "a": "A regular USB cable does not connect two PCs for file transfer. Use a USB drive, an Ethernet cable between the computers, special PC-to-PC transfer cables that come with their own software, or Thunderbolt Share on PCs that support it."
       },
       "3": {
-        "q": "How fast is it?",
-        "a": "As fast as the network between the machines — typically 40–50 MB/s on ordinary Wi-Fi 5, more on wired or newer Wi-Fi. A 10 GB folder is minutes, because it crosses the room instead of crossing the internet twice."
+        "q": "How do I move everything from my old PC to a new PC?",
+        "a": "On a new Windows 11 PC, choose to restore from another PC during setup and pair it with Windows Backup on the old PC. Files and settings transfer; installed apps and saved passwords need to be set up again."
       },
       "4": {
-        "q": "Is it safe to use on an office network?",
-        "a": "Transfers are end-to-end encrypted device-to-device, so other machines on the network see only ciphertext. Nothing is uploaded to a server, and the receiving computer has to explicitly accept each incoming transfer."
+        "q": "Can I move files from a Windows PC to a Mac without extra software?",
+        "a": "Yes, for a new Mac: Apple's Windows Migration Assistant copies files and settings from the PC. For everyday files, open a Windows share from the Mac's Finder, or use an exFAT drive or a cloud folder; a cross-platform app such as BIShare also works."
+      },
+      "5": {
+        "q": "How do I transfer files from Mac to Windows?",
+        "a": "Turn on File Sharing on the Mac and open it from the PC, copy to an exFAT drive, use a cloud folder, or send with a cross-platform app. Apple has no migration tool for Mac to Windows."
+      },
+      "6": {
+        "q": "My Mac shows the external drive but will not copy to it. Why?",
+        "a": "The drive is formatted as NTFS, which macOS can read but not write. Reformat it as exFAT to use it with both Windows and Mac, after copying its files somewhere safe."
+      },
+      "7": {
+        "q": "Do both computers need to be on the same network?",
+        "a": "For network sharing, LocalSend and a direct BIShare transfer, yes, though a phone hotspot counts. Nearby sharing can fall back to Bluetooth, and a cloud folder or a BIShare link works from anywhere."
+      },
+      "8": {
+        "q": "What is the fastest way to transfer a large folder between computers?",
+        "a": "A cable: an Ethernet connection for network transfers, a fast USB SSD, or Thunderbolt Share on supported PCs. Over Wi-Fi, a direct transfer on one network beats uploading to the cloud."
+      },
+      "9": {
+        "q": "Is BIShare free for transfers between computers?",
+        "a": "Yes. BIShare costs nothing: the code is MIT-licensed, there are no ads or sign-ups, and direct transfers between computers on one network are not capped in size."
       }
     }
   },
   "cta": {
-    "title": "Retire the USB stick",
-    "body": "Two computers, one direct hop — free, encrypted, on every desktop OS.",
+    "title": "Move files between any two computers directly",
+    "body": "Open source and free. Send files and folders between Windows, Mac and Linux over your own network, with no size limit and nothing uploaded.",
     "download": "Download BIShare"
   },
   "a11y": {
     "yes": "Yes",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "A Windows laptop sending a folder directly to a Mac laptop, titled how to transfer files between two computers, eight ways for 2026.",
+      "title": "Transfer files between two computers",
+      "sub": "8 ways for Windows, Mac and Linux in 2026",
+      "left": "Windows PC",
+      "right": "Mac"
+    },
+    "pairs": {
+      "alt": "The best built-in routes for each pair of computers: Windows to Windows has Windows Backup transfer, Nearby sharing and network sharing; Mac to Mac has AirDrop, Migration Assistant and File Sharing; Windows to Mac has Windows Migration Assistant for a new Mac and network sharing or an exFAT drive; Linux mixes use SMB shares, Warpinator or a cross-platform app.",
+      "title": "Built-in routes by pair of computers",
+      "sub": "Strong inside one platform, thin across platforms",
+      "builtLabel": "Built in",
+      "anyLabel": "Also works",
+      "a": {
+        "pair": "Windows ↔ Windows",
+        "built": "Windows Backup · Nearby sharing · network share",
+        "any": "Drive · cloud · BIShare"
+      },
+      "b": {
+        "pair": "Mac ↔ Mac",
+        "built": "AirDrop · Migration Assistant · File Sharing",
+        "any": "Drive · cloud · BIShare"
+      },
+      "c": {
+        "pair": "Windows ↔ Mac",
+        "built": "Windows Migration Assistant · SMB share",
+        "any": "exFAT drive · cloud · BIShare"
+      },
+      "d": {
+        "pair": "Linux ↔ any",
+        "built": "SMB share · Warpinator on Linux Mint",
+        "any": "LocalSend · BIShare · rsync"
+      }
+    },
+    "moves": {
+      "alt": "What each tool carries to a new computer: the Windows Backup transfer moves files and settings but not installed apps, and only during first-time setup; Migration Assistant moves files, settings and apps, at setup or later; BIShare moves files and folders at any time but not settings or apps.",
+      "title": "What moves to the new computer",
+      "sub": "A migration tool carries more than a file transfer",
+      "backup": "Windows Backup",
+      "migration": "Migration Assistant",
+      "bishare": "BIShare",
+      "files": "Files and folders",
+      "settings": "Settings",
+      "apps": "Installed apps",
+      "anytime": "Transfer after setup is done",
+      "foot": "Windows Backup also skips saved passwords, OneDrive files and BitLocker drives"
+    },
+    "speed": {
+      "alt": "Top link speeds for moving files between computers, on a log scale: Bluetooth LE 2 Mb/s, gigabit Ethernet 1 Gb/s, 2.5 gigabit Ethernet 2.5 Gb/s, USB 3.2 Gen 1 5 Gb/s, Thunderbolt 4 networking 20 Gb/s, Thunderbolt 5 networking 40 Gb/s. Real copies are slower and Wi-Fi varies.",
+      "title": "Top link speed by connection",
+      "sub": "Nominal maximums; the slower drive and conditions decide the real speed",
+      "r0": "Bluetooth LE",
+      "r1": "Gigabit Ethernet",
+      "r2": "2.5 Gigabit Ethernet",
+      "r3": "USB 3.2 Gen 1",
+      "r4": "Thunderbolt 4 networking",
+      "r5": "Thunderbolt 5 networking",
+      "foot": "Wi-Fi is left out because real speeds vary widely with distance, walls and the router"
+    }
   }
 }

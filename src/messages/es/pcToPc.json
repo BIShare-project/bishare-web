@@ -1,83 +1,140 @@
 {
   "meta": {
-    "title": "Transferir archivos entre dos ordenadores por Wi-Fi",
-    "description": "Pasa archivos entre dos ordenadores, portátil a portátil o Mac a Windows, directo por Wi-Fi. Sin memoria USB, sin subir a la nube, sin configurar carpetas. Gratis y cifrado."
+    "title": "Cómo pasar archivos entre dos ordenadores: 8 formas (2026)",
+    "description": "Pasa archivos de PC a PC, de Mac a Mac o de Windows a Mac: Copia de seguridad de Windows, Uso compartido cercano, carpetas en red, Asistente de Migración, disco, nube o una app."
   },
   "hero": {
-    "eyebrow": "Ordenador ↔ Ordenador",
-    "title": "Transfiere archivos entre dos ordenadores, sin rituales",
-    "body": "Dos ordenadores en la misma mesa no deberían necesitar un USB de ida y vuelta, un correo a ti mismo ni un viaje por la nube para intercambiar una carpeta. <strong>BIShare</strong> mueve archivos <strong>directamente entre dos ordenadores cualesquiera</strong> — Windows, Mac o Linux, en cualquier combinación — por la red que ya comparten. <highlight>Un lado puede incluso usar un simple navegador.</highlight>",
+    "eyebrow": "De ordenador a ordenador",
+    "title": "Cómo pasar archivos entre dos ordenadores",
+    "body": "Mover archivos de un ordenador a otro parece una sola tarea, pero una carpeta para una compañera al otro lado de la oficina, un portátil nuevo que necesita todo lo del viejo y un Mac que intercambia proyectos con un PC con Windows son tres trabajos distintos con tres vías distintas. Windows ya trae una transferencia de PC a PC durante la configuración, los Mac tienen el Asistente de Migración desde hace años, y ambos pueden compartir carpetas en la red si sabes qué opciones activar. Esta guía parte de la pareja de ordenadores que tienes delante, clasifica ocho formas de mover los archivos, explica qué se lleva una migración completa y qué deja atrás, y repasa los formatos de disco, las velocidades y los ajustes que causan la mayoría de copias fallidas. Una de las ocho es <strong>BIShare</strong>, que envía <strong>archivos y carpetas directamente entre Windows, Mac y Linux</strong> en la misma red, sin límite de tamaño y sin subir nada. <highlight>Gratis y de código abierto, sin registro.</highlight>",
     "ctaPrimary": "Consigue BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
-  "why": {
-    "title": "El vaivén del USB, y otros rituales",
-    "body": "El USB implica encontrarlo, confiar en que esté bien formateado (<strong>NTFS no se escribe en un Mac</strong>) y pasearlo de un lado a otro. Las carpetas compartidas implican permisos, grupos de trabajo y un safari de ajustes en ambas máquinas. El correo te corta a 25 MB, y la nube manda tu archivo de viaje por un centro de datos solo para cruzar la habitación. Cada uno de estos es un apaño para la misma función ausente: que los ordenadores se hablen directamente. Esa es la función."
+  "updated": "Actualizado en septiembre de 2026 · detalles de la Copia de seguridad de Windows y del Uso compartido cercano del soporte de Microsoft, Asistente de Migración del soporte de Apple, Thunderbolt Share de Intel",
+  "disclosure": "BIShare es nuestro. Para llevar una cuenta completa a un ordenador nuevo, la Copia de seguridad de Windows o el Asistente de Migración hacen más que cualquier app de envío, y la clasificación lo dice.",
+  "quick": {
+    "title": "Respuesta rápida",
+    "items": [
+      "<strong>Configurar un PC nuevo con Windows 11:</strong> durante la configuración, elige restaurar desde otro PC y emparéjalo con la Copia de seguridad de Windows del antiguo; archivos y ajustes llegan por la red.",
+      "<strong>Configurar un Mac nuevo:</strong> el Asistente de Migración copia apps, cuentas, ajustes y archivos del Mac antiguo o de un PC con Windows.",
+      "<strong>Unos pocos archivos entre dos PC con Windows cercanos:</strong> Uso compartido cercano en el menú Compartir, con la opción Todos los que estén cerca, los deja en Descargas.",
+      "<strong>Una carpeta grande entre Windows, Mac o Linux:</strong> BIShare en ambos ordenadores la envía directamente por la misma red, sin límite de tamaño.",
+      "<strong>La misma carpeta, usada a diario desde los dos equipos:</strong> compártela en red desde Windows o con Compartir archivos de macOS y ábrela desde el otro ordenador.",
+      "<strong>Sin red de ningún tipo:</strong> un disco externo con formato exFAT se lee y se escribe tanto en Windows como en Mac."
+    ]
   },
-  "how": {
-    "title": "Cómo funciona la ruta directa",
+  "pairs": {
+    "title": "Empieza por la pareja: ¿qué dos ordenadores son?",
+    "body": "La mejor vía depende menos de los archivos que de los dos sistemas operativos. Las herramientas integradas son excelentes dentro de una plataforma y escasas entre plataformas.",
     "items": {
-      "0": {
-        "h": "Dos máquinas, una herramienta",
-        "b": "Instala BIShare en Windows, Mac o Linux — cualquier mezcla. Una máquina donde no puedas instalar (un portátil de empresa bloqueado, el PC de un amigo) puede enviar y recibir desde una pestaña del navegador."
-      },
-      "1": {
-        "h": "Se encuentran solas",
-        "b": "En la misma red, los dos ordenadores aparecen automáticamente el uno al otro. Arrastra un archivo — o una carpeta entera — a la otra máquina y aterriza cifrado de extremo a extremo a velocidad de Wi-Fi, sin guardarse en ningún punto intermedio."
-      },
-      "2": {
-        "h": "¿Sin router? Improvisa uno",
-        "b": "¿No hay red compartida — día de mudanza, oficina de un cliente? El punto de acceso de un teléfono cuenta como red, sin internet. Ambos ordenadores se unen y la transferencia funciona exactamente igual."
-      }
+      "0": { "h": "De Windows a Windows", "b": "Windows tiene las opciones integradas más completas: la transferencia de la Copia de seguridad de Windows para un PC nuevo, el Uso compartido cercano para envíos rápidos entre PC próximos y el uso compartido en red para carpetas que se abren desde los dos equipos. Sin una red privada compartida, el Uso compartido cercano recurre a Bluetooth, que basta para un documento y es lento para un vídeo." },
+      "1": { "h": "De Mac a Mac", "b": "AirDrop cubre los envíos rápidos, el Asistente de Migración traslada una cuenta de usuario entera a un Mac nuevo por Wi-Fi, Ethernet o cable Thunderbolt, y Compartir archivos en Ajustes del Sistema permite que un Mac abra carpetas del otro. Entre dos Mac rara vez hace falta algo más." },
+      "2": { "h": "Windows y Mac", "b": "El Asistente de Migración para Windows de Apple lleva archivos y ajustes de un PC a un Mac nuevo, pero no hay nada integrado en sentido contrario. Para el día a día, una carpeta compartida de Windows abierta desde el Finder del Mac, un disco exFAT, una carpeta en la nube o una app multiplataforma como BIShare cubren el hueco." },
+      "3": { "h": "Linux en la mezcla", "b": "Los escritorios Linux hablan SMB, así que pueden abrir carpetas compartidas de Windows y Mac, y Linux Mint incluye Warpinator para transferencias en la red local. Las apps multiplataforma como LocalSend y BIShare evitan montar carpetas compartidas, y rsync sobre SSH encaja con quien se maneja bien en la terminal." }
     }
   },
-  "comparison": {
-    "title": "¿USB, nube o directo?",
-    "cols": {
-      "airdrop": "USB",
-      "quick": "Nube",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "r0": "Sin hardware que buscar, formatear o cargar",
-      "r1": "Un solo salto — sin desvío de subir-y-bajar",
-      "r2": "Sin líos de formato NTFS vs Mac",
-      "r3": "Carpetas de varios gigas a velocidad de Wi-Fi local",
-      "r4": "Nada se queda en un servidor"
+  "methods": {
+    "title": "Ocho formas de pasar archivos entre dos ordenadores, clasificadas",
+    "consLabel": "Ojo con:",
+    "items": {
+      "0": { "name": "BIShare", "tag": "La mejor en general para el día a día entre Windows, Mac y Linux", "facts": "Windows (Microsoft Store), Mac App Store, Linux · código abierto con licencia MIT · directo en una red compartida sin límite de tamaño · un enlace admite hasta 100 GB y dura un día · cifrado de extremo a extremo · sin registro", "body": "Instala BIShare en los dos ordenadores, arrastra archivos o una carpeta a la ventana de la app y elige el otro ordenador en la lista de dispositivos cercanos; el lado receptor confirma y los archivos se guardan en la carpeta de BIShare. Como no se sube nada, un proyecto de 40 GB viaja a la velocidad de la red local, y los pasos son iguales en cualquier combinación de Windows, macOS y Linux. Sin router cerca, el punto de acceso de un móvil sirve de red. Si el otro ordenador está en otro edificio, crea un enlace, que ese ordenador puede abrir en cualquier navegador durante las 24 horas siguientes.", "cons": "Mueve archivos, no apps instaladas ni ajustes, así que no sustituye a una herramienta de migración para un ordenador nuevo. Una carpeta viaja empaquetada en un único archivo zip, y ambos ordenadores necesitan la app para un envío directo." },
+      "1": { "name": "Copia de seguridad de Windows: transferir a un PC nuevo", "tag": "La mejor para estrenar un PC con Windows 11", "facts": "PC antiguo: Windows 10 u 11 · PC nuevo: Windows 11 24H2 o posterior, durante la configuración · cuenta Microsoft · misma Wi-Fi o red por cable · código de emparejamiento de un solo uso · archivos y ajustes", "body": "Mientras el PC nuevo sigue en la configuración inicial, inicia sesión con una cuenta Microsoft y elige restaurar desde otro PC. Abre la Copia de seguridad de Windows en el PC antiguo, selecciona la opción de transferir a un PC nuevo y confirma el código que muestra el PC nuevo. Documentos, fotos, vídeos y demás archivos llegan por la red junto con el fondo de pantalla, los temas y otros ajustes personales, y Windows reanuda solo si se corta la conexión.", "cons": "Solo aparece durante la configuración, así que un PC ya configurado no puede usarla. No se transfieren las apps instaladas, las contraseñas guardadas, los archivos de OneDrive ni las unidades cifradas con BitLocker, y los dos PC deberían seguir enchufados hasta que termine." },
+      "2": { "name": "Uso compartido cercano en Windows", "tag": "La mejor para unos pocos archivos entre dos PC con Windows en la misma sala", "facts": "Windows 11, o Windows 10 versión 1803 y posteriores · Bluetooth LE · Wi-Fi cuando ambos PC están en la misma red privada · Solo mis dispositivos o Todos los que estén cerca · guarda en Descargas", "body": "Activa Uso compartido cercano en Configuración en los dos PC, elige Todos los que estén cerca si usan cuentas Microsoft distintas, haz clic derecho en un archivo en el Explorador de archivos, elige Compartir y selecciona el otro PC. El destinatario acepta una notificación y el archivo llega a Descargas o a otra carpeta elegida en Configuración. No hay nada que instalar, y funciona incluso si los PC no están en la misma red, usando Bluetooth.", "cons": "Es solo para Windows. Sin una red privada compartida va por Bluetooth, desesperadamente lento con archivos grandes, y Todos los que estén cerca hace visibles el nombre y la dirección Bluetooth del PC a quien esté alrededor." },
+      "3": { "name": "Uso compartido en red (SMB)", "tag": "La mejor para una carpeta que ambos ordenadores siguen usando", "facts": "Integrado en Windows, macOS y la mayoría de escritorios Linux · misma red local · perfil de red privada en Windows · permisos por carpeta · sin límite de tamaño", "body": "En Windows, activa la detección de redes y el uso compartido de archivos e impresoras para redes privadas y comparte una carpeta desde sus propiedades; los otros ordenadores la abren desde Red en el Explorador de archivos, desde Conectarse al servidor en el Finder de un Mac o desde un gestor de archivos de Linux. En un Mac, Compartir archivos en General, Compartir de Ajustes del Sistema hace lo mismo. Una vez configurada, la carpeta se comporta como parte del disco del otro ordenador, algo útil para carpetas de proyecto y bibliotecas multimedia compartidas.", "cons": "La configuración lleva más pasos que cualquier otra vía, y los permisos, las cuentas y los avisos del cortafuegos hacen fallar muchos primeros intentos. Dejar carpetas compartidas en un portátil que se conecta a Wi-Fi públicas es un riesgo, así que desactiva el uso compartido cuando no haga falta." },
+      "4": { "name": "Asistente de Migración (Mac)", "tag": "La mejor para trasladar una cuenta completa a un Mac nuevo", "facts": "Integrado en macOS · de Mac a Mac por Wi-Fi, Ethernet o cable Thunderbolt, o desde una copia de Time Machine · Asistente de Migración para Windows 3 para PC a Mac, Windows 10 o posterior, macOS Sonoma 14.4 o posterior", "body": "Abre el Asistente de Migración desde la carpeta Utilidades, o durante la configuración del Mac nuevo, y elige como origen el Mac antiguo, una copia de Time Machine o un PC con Windows. Desde un Mac copia apps, cuentas de usuario, ajustes y documentos sin tocar el Mac antiguo, y un cable Thunderbolt o Ethernet suele ser más rápido que la Wi-Fi. Desde un PC, instala primero en Windows el Asistente de Migración para Windows de Apple y mantén la Wi-Fi y el Bluetooth activados en ambos ordenadores.", "cons": "Solo lleva datos a un Mac; Apple no ofrece nada para migrar un Mac a un PC con Windows. El antivirus, el cortafuegos y las VPN pueden bloquearlo hasta que se desactiven, y una cuenta grande por Wi-Fi puede tardar horas." },
+      "5": { "name": "Disco externo o memoria USB", "tag": "La mejor cuando los ordenadores no comparten ninguna red", "facts": "Cualquier disco USB o SSD · exFAT se lee y escribe en Windows y Mac · NTFS es de solo lectura en un Mac · FAT32 limita cada archivo a 4 GB · sin cuenta, sin internet", "body": "Copia los archivos al disco, llévalo al otro ordenador y cópialos allí. Para un disco que va y viene entre Windows y Mac, dale formato exFAT en Utilidad de Discos o en el Explorador de archivos para que ambos puedan escribir en él. Un SSD USB 3 rápido suele superar a la Wi-Fi con decenas de gigas, y un disco sigue siendo la respuesta más sencilla para un ordenador sin conexión o un lugar con la red bloqueada.", "cons": "Formatear borra el disco, así que revisa antes lo que contiene. Llevar una memoria de un lado a otro cansa enseguida si las transferencias se repiten, y un disco sin cifrar perdido deja al descubierto todo lo que guarda." },
+      "6": { "name": "Carpeta en la nube: OneDrive, iCloud Drive o Google Drive", "tag": "La mejor cuando los dos ordenadores rara vez están en el mismo sitio", "facts": "OneDrive: 5 GB sin coste, archivos sueltos de hasta 250 GB · iCloud Drive: 5 GB sin coste · Google Drive: 15 GB sin coste, compartidos con Gmail y Google Fotos · la misma cuenta en ambos ordenadores", "body": "Pon los archivos en una carpeta sincronizada en un ordenador y aparecerán en el otro cuando sincronice, esté en la acera de enfrente o en otra ciudad. Quien ya trabaja desde OneDrive o iCloud Drive no tiene que transferir nada, porque los archivos siguen a la cuenta. Además queda una copia de seguridad en la nube.", "cons": "Todo se sube primero y se descarga después, así que la velocidad de subida de casa marca el ritmo, y el almacenamiento gratuito se llena rápido. Dos ordenadores en la misma habitación siguen enviando los datos a un centro de datos y de vuelta." },
+      "7": { "name": "LocalSend o Warpinator", "tag": "Alternativas de código abierto en la red local para envíos ocasionales", "facts": "LocalSend: Windows, macOS, Linux, Android, iPhone, Apache 2.0 · Warpinator: predeterminado en Linux Mint, en Flathub, versiones no oficiales para Windows · misma red local · sin cuenta", "body": "LocalSend detecta los ordenadores que comparten red con él y pasa los archivos elegidos directamente, en todas las plataformas principales. Warpinator, creado por el equipo de Linux Mint, hace lo mismo entre equipos Linux y, gracias a versiones de la comunidad, con PC con Windows. Ambos son gratis, sin anuncios y sencillos, buenas opciones para quien prefiera herramientas de la comunidad.", "cons": "Ninguno funciona fuera de la red local, y encontrar el otro ordenador suele fallar en redes de hotel, de invitados o corporativas que separan los dispositivos. Las versiones de Warpinator para Windows no son oficiales." }
+    }
+  },
+  "table": {
+    "title": "De un vistazo",
+    "cols": { "feature": "Función", "bishare": "BIShare", "backup": "Copia de seguridad de Windows", "nearby": "Uso compartido cercano", "smb": "Uso compartido en red", "drive": "Disco externo", "cloud": "Carpeta en la nube" },
+    "rows": { "r0": "Funciona entre Windows y Mac", "r1": "Lleva ajustes además de archivos", "r2": "No se sube nada a internet", "r3": "Se puede usar en cualquier momento, no solo al configurar", "r4": "Sin hardware extra ni plan de almacenamiento" },
+    "note": "Datos de septiembre de 2026. BIShare necesita la app en ambos ordenadores para un envío directo y no tiene límite de tamaño en una misma red; un enlace de BIShare admite como máximo 100 GB y caduca al cabo de un día. La transferencia de la Copia de seguridad de Windows se hace durante la configuración del PC nuevo y requiere Windows 11 24H2 o posterior en él. El Uso compartido cercano es solo para Windows y recurre a Bluetooth sin una red privada compartida. El uso compartido en red funciona entre Windows, Mac y Linux una vez configurado. Un disco externo que también use un Mac debería ser exFAT. Las carpetas en la nube necesitan una cuenta y espacio para los archivos."
+  },
+  "migrate": {
+    "title": "Pasar todo a un ordenador nuevo",
+    "body": "Un ordenador nuevo es una migración, no una transferencia. El objetivo es tener el escritorio, los documentos y los ajustes de siempre en la máquina nueva sin perder nada, y las herramientas se diferencian en cuánto de eso se llevan.",
+    "items": {
+      "0": { "h": "De Windows a Windows: qué pasa y qué no", "b": "La transferencia de PC a PC de la Copia de seguridad de Windows trae archivos y ajustes personales, y las apps de Microsoft Store quedan listas para reinstalarse. Los programas instalados desde la web, las contraseñas del navegador guardadas fuera de una cuenta sincronizada y las licencias ligadas al hardware antiguo hay que resolverlos uno a uno. Laplink PCmover, una herramienta de pago, es la opción habitual cuando las apps instaladas tienen que venir también." },
+      "1": { "h": "De Mac a Mac: la cuenta entera", "b": "El Asistente de Migración copia cuentas de usuario, apps y ajustes además de los archivos, así que el Mac nuevo suele parecerse al antiguo en el primer inicio de sesión. Usar un cable y dejarlo trabajar de noche es la forma más tranquila de trasladar una cuenta grande." },
+      "2": { "h": "Antes de borrar el ordenador antiguo", "b": "Abre unos cuantos archivos de carpetas distintas en la máquina nueva, comprueba que el correo, los marcadores del navegador y el gestor de contraseñas tienen la sesión iniciada, y desautoriza las licencias de software con activaciones limitadas. Conserva el ordenador antiguo, o una copia completa, durante unas semanas; el archivo que falta suele aparecer justo cuando alguien lo necesita." },
+      "3": { "h": "Windows 10 ya no tiene soporte", "b": "Microsoft terminó el soporte de Windows 10 el 14 de octubre de 2025, lo que ha llevado a mucha gente a comprar PC nuevos este año. El PC antiguo aún puede enviar sus archivos con la Copia de seguridad de Windows, el Uso compartido cercano, una carpeta compartida, un disco o BIShare, aunque ya no reciba actualizaciones de seguridad." }
+    }
+  },
+  "formats": {
+    "title": "Discos, formatos y nombres de archivo que rompen las copias entre plataformas",
+    "body": "Cuando una copia entre Windows y Mac falla a mitad, la causa suele estar en el destino y no en la vía.",
+    "items": {
+      "0": { "h": "exFAT, NTFS y APFS", "b": "Windows formatea los discos en NTFS por defecto, que un Mac puede leer pero no escribir. Los Mac usan APFS, que Windows no lee sin software adicional. exFAT es el terreno común: ambos sistemas lo leen y escriben, y no tiene un límite práctico de tamaño de archivo." },
+      "1": { "h": "El muro de 4 GB de FAT32", "b": "Las memorias USB antiguas suelen venir en FAT32, que rechaza cualquier archivo de más de 4 GB. Copiar una película larga o una imagen ISO se detiene con un error poco claro aunque la memoria tenga espacio de sobra. Reformatearla en exFAT lo soluciona." },
+      "2": { "h": "Nombres que Windows no acepta", "b": "macOS y Linux permiten en los nombres de archivo caracteres que Windows rechaza, como dos puntos, signos de interrogación, asteriscos, comillas y barras verticales, y Windows tampoco admite nombres que terminen en espacio o punto. Cambia el nombre de esos archivos, o envía la carpeta como archivo comprimido, antes de copiarla a un PC con Windows." },
+      "3": { "h": "Archivos ocultos que se cuelan", "b": "Copiar desde un Mac a un disco que no es de Mac puede dejar pequeños archivos que empiezan por ._ junto a cada documento, además de archivos .DS_Store en las carpetas. Son metadatos inofensivos y se pueden borrar sin problema en Windows." }
+    }
+  },
+  "steps": {
+    "title": "Pasar archivos entre ordenadores con BIShare",
+    "items": {
+      "0": { "h": "Instala en los dos ordenadores", "b": "Consigue BIShare en Microsoft Store en Windows, en el Mac App Store en un Mac o en la descarga para Linux. Conecta ambos a la misma Wi-Fi o red por cable, o haz que los dos se unan al punto de acceso de un móvil." },
+      "1": { "h": "Arrastra archivos o una carpeta", "b": "Suelta archivos o una carpeta entera en la ventana de la app, o usa Archivos para buscarlos. No hay límite de tamaño cuando ambos ordenadores comparten red." },
+      "2": { "h": "Elige el otro ordenador", "b": "Selecciónalo entre los dispositivos cercanos y acepta en el lado receptor. Los archivos se guardan en la carpeta configurada en BIShare, que al principio es Descargas. Si los dos equipos están en redes distintas, genera un enlace y ábrelo en el navegador del otro ordenador en el plazo de un día." }
+    }
+  },
+  "speed": {
+    "title": "Qué velocidad puede alcanzar cada vía",
+    "body": "La conexión marca el techo y el más lento de los dos discos marca la velocidad real. Las velocidades de enlace nominales de abajo son máximos; las copias reales se quedan por debajo.",
+    "items": {
+      "0": { "h": "Wi-Fi frente a cable", "b": "La velocidad de la Wi-Fi varía con la distancia, las paredes y el router, así que un cable Gigabit Ethernet suele ser más rápido y siempre más estable para carpetas grandes. Conectar por cable al router solo uno de los dos ordenadores ya ayuda a una transferencia inalámbrica." },
+      "1": { "h": "Discos USB y Thunderbolt", "b": "Un SSD externo USB 3 copia decenas de gigas con rapidez, y el límite suele estar en el puerto del ordenador o en el propio disco. Dos PC con puertos Thunderbolt 4 o 5 también pueden conectarse directamente con Thunderbolt Share de Intel a hasta 20 o 40 Gb/s, pero uno de ellos, o el accesorio, debe tener una licencia de su fabricante." },
+      "2": { "h": "Bluetooth y la nube", "b": "El Bluetooth, que usa el Uso compartido cercano sin una red compartida, sirve para documentos y no es práctico para vídeo. Las carpetas en la nube dependen de la velocidad de subida del remitente, que en las conexiones domésticas suele ser una fracción de la de bajada." }
+    }
+  },
+  "fixes": {
+    "title": "Cuando falla una transferencia entre ordenadores",
+    "items": {
+      "0": { "h": "El otro PC no aparece en Red", "b": "Pon el perfil de red en Privada en ambos PC, habilita Detección de redes y Uso compartido de archivos e impresoras en Configuración de uso compartido avanzada, y comprueba que los dos estén en el mismo router y no en una red de invitados. Escribir la dirección del otro PC, como \\\\NOMBREPC, en el Explorador de archivos suele funcionar cuando la exploración no lo encuentra." },
+      "1": { "h": "El Uso compartido cercano no encuentra el PC", "b": "Activa el Bluetooth en los dos PC, pon el Uso compartido cercano en Todos los que estén cerca y mantenlos a pocos metros. Si uno usa Windows 10, comprueba que sea la versión 1803 o posterior." },
+      "2": { "h": "Falta la opción de transferencia en el PC nuevo", "b": "La transferencia de PC a PC de la Copia de seguridad de Windows solo se ofrece durante la configuración inicial en Windows 11 24H2 o posterior. En un PC ya configurado, usa una carpeta compartida, un disco, una carpeta en la nube o una app." },
+      "3": { "h": "El Mac no puede copiar al disco", "b": "Los discos con formato NTFS se abren en un Mac solo para lectura. Lleva los archivos a un lugar seguro y borra después el disco con formato exFAT si va a seguir yendo de Windows a Mac." },
+      "4": { "h": "Un archivo grande no se copia a la memoria USB", "b": "Una memoria con formato FAT32 rechaza archivos de más de 4 GB. Reformatéala en exFAT o envía el archivo por la red." },
+      "5": { "h": "Las transferencias largas se detienen a mitad", "b": "Evita que los dos ordenadores entren en reposo, deja los portátiles enchufados y pausa las VPN o los cortafuegos que corten las conexiones locales. Mover un proyecto enorme en varias tandas hace que una interrupción cueste minutos y no horas." }
+    }
+  },
+  "security": {
+    "title": "Mantener privadas las transferencias entre ordenadores",
+    "body": "Las transferencias locales son privadas de entrada, pero algunos hábitos ayudan a que sigan siéndolo.",
+    "items": {
+      "0": { "h": "Comparte carpetas solo en redes privadas", "b": "El uso compartido en red y el Uso compartido cercano con Todos los que estén cerca hacen visible un ordenador. Limita el uso compartido al perfil de red privada, desactívalo en portátiles que viajan y usa carpetas protegidas con contraseña cuando haya otras personas en la red." },
+      "1": { "h": "Cifra los discos que salen de casa", "b": "Una memoria USB o un SSD externo con archivos personales debería ir cifrado, con BitLocker To Go en Windows o un volumen APFS cifrado en Mac, porque si no un disco perdido lo puede leer cualquiera." },
+      "2": { "h": "Sabe dónde acaban las copias", "b": "Las carpetas en la nube dejan una copia en el proveedor. Un envío directo con BIShare, LocalSend, el Uso compartido cercano o una carpeta en red mueve los archivos solo entre los dos ordenadores, y un enlace de BIShare se cifra antes de subirse y se borra a las 24 horas." }
     }
   },
   "faq": {
-    "title": "Transferencia entre ordenadores, resuelta",
+    "title": "Pasar archivos entre ordenadores: preguntas frecuentes",
     "items": {
-      "0": {
-        "q": "¿Puedo transferir entre dos ordenadores sin router?",
-        "a": "Sí — el punto de acceso de cualquier teléfono sirve de punto de encuentro, sin internet. Ambos ordenadores se unen al punto de acceso y transfieren en directo. En una red normal de casa u oficina, el router hace ese papel."
-      },
-      "1": {
-        "q": "¿Funciona entre Mac y Windows?",
-        "a": "Sí, en ambos sentidos — y con Linux, en cualquier combinación. Todas las plataformas hablan el mismo protocolo, así que Mac ↔ Windows se comporta igual que PC ↔ PC. Sin SMB, sin drivers, sin malabares de formatos."
-      },
-      "2": {
-        "q": "¿Puedo enviar una carpeta entera?",
-        "a": "Sí — arrastra una carpeta y llega como carpeta, con su estructura intacta. Para el equivalente a un perfil de usuario completo, envía en unos pocos lotes grandes para verificar cada llegada con calma."
-      },
-      "3": {
-        "q": "¿Qué velocidad alcanza?",
-        "a": "La de la red entre las máquinas — típicamente 40–50 MB/s en Wi-Fi 5 corriente, más por cable o Wi-Fi más nuevo. Una carpeta de 10 GB son minutos, porque cruza la habitación en vez de cruzar internet dos veces."
-      },
-      "4": {
-        "q": "¿Es seguro en una red de oficina?",
-        "a": "Las transferencias van cifradas de extremo a extremo entre dispositivos, así que el resto de máquinas de la red solo ve texto cifrado. Nada se sube a un servidor, y el ordenador receptor debe aceptar explícitamente cada transferencia entrante."
-      }
+      "0": { "q": "¿Cuál es la manera más sencilla de mover archivos de un ordenador a otro?", "a": "Para un PC nuevo con Windows 11, la transferencia de la Copia de seguridad de Windows durante la configuración; para un Mac nuevo, el Asistente de Migración. Para archivos cotidianos entre dos ordenadores cualesquiera en la misma red, una app directa como BIShare o LocalSend es la que menos configuración pide." },
+      "1": { "q": "¿Cuál es la mejor forma de enviar archivos de PC a PC por Wi-Fi?", "a": "El Uso compartido cercano para unos pocos archivos, el uso compartido en red para carpetas que abren los dos PC o una app de envío directo para carpetas grandes. Todas mantienen los datos en tu red local." },
+      "2": { "q": "¿Puedo pasar archivos entre ordenadores con un cable USB?", "a": "Un cable USB normal no conecta dos PC para transferir archivos. Usa una memoria USB, un cable Ethernet entre los ordenadores, cables especiales de PC a PC que traen su propio software o Thunderbolt Share en PC compatibles." },
+      "3": { "q": "¿Cómo paso todo de mi PC antiguo a uno nuevo?", "a": "En un PC nuevo con Windows 11, elige restaurar desde otro PC durante la configuración y emparéjalo con la Copia de seguridad de Windows del antiguo. Se transfieren archivos y ajustes; las apps instaladas y las contraseñas guardadas hay que volver a configurarlas." },
+      "4": { "q": "¿Puedo pasar archivos de un PC con Windows a un Mac sin software extra?", "a": "Sí, para un Mac nuevo: el Asistente de Migración para Windows de Apple copia archivos y ajustes desde el PC. Para archivos cotidianos, abre una carpeta compartida de Windows desde el Finder del Mac o usa un disco exFAT o una carpeta en la nube; una app multiplataforma como BIShare también sirve." },
+      "5": { "q": "¿Cómo paso archivos de Mac a Windows?", "a": "Activa Compartir archivos en el Mac y ábrelo desde el PC, copia a un disco exFAT, usa una carpeta en la nube o envía con una app multiplataforma. Apple no tiene herramienta de migración de Mac a Windows." },
+      "6": { "q": "Mi Mac muestra el disco externo pero no copia en él. ¿Por qué?", "a": "El disco tiene formato NTFS, que macOS puede leer pero no escribir. Para usarlo con Windows y Mac, reformatéalo en exFAT después de poner sus archivos a salvo." },
+      "7": { "q": "¿Tienen que estar los dos ordenadores en la misma red?", "a": "Para el uso compartido en red, LocalSend y un envío directo con BIShare, sí, aunque el punto de acceso de un móvil cuenta. El Uso compartido cercano puede recurrir a Bluetooth, y una carpeta en la nube o un enlace de BIShare funcionan desde cualquier lugar." },
+      "8": { "q": "¿Cuál es la forma más rápida de pasar una carpeta grande entre ordenadores?", "a": "Un cable: una conexión Ethernet para transferencias por red, un SSD USB rápido o Thunderbolt Share en PC compatibles. Por Wi-Fi, un envío directo en la misma red gana a subirlo a la nube." },
+      "9": { "q": "¿BIShare es gratis para transferencias entre ordenadores?", "a": "Sí. BIShare no cuesta nada: el código tiene licencia MIT, no hay anuncios ni registro, y los envíos directos entre ordenadores de la misma red no tienen límite de tamaño." }
     }
   },
   "cta": {
-    "title": "Jubila el USB",
-    "body": "Dos ordenadores, un salto directo — gratis, cifrado, en todos los sistemas de escritorio.",
+    "title": "Mueve archivos directamente entre dos ordenadores cualesquiera",
+    "body": "Código abierto y gratis. Envía archivos y carpetas entre Windows, Mac y Linux por tu propia red, sin límite de tamaño y sin subir nada.",
     "download": "Descargar BIShare"
   },
-  "a11y": {
-    "yes": "Sí",
-    "no": "No"
+  "a11y": { "yes": "Sí", "no": "No" },
+  "art": {
+    "hero": { "alt": "Un portátil con Windows enviando una carpeta directamente a un Mac, con el título cómo pasar archivos entre dos ordenadores, ocho formas para 2026.", "title": "Pasar archivos entre dos ordenadores", "sub": "8 formas para Windows, Mac y Linux en 2026", "left": "PC con Windows", "right": "Mac" },
+    "pairs": { "alt": "Las mejores vías integradas para cada pareja de ordenadores: de Windows a Windows, transferencia de la Copia de seguridad de Windows, Uso compartido cercano y uso compartido en red; de Mac a Mac, AirDrop, Asistente de Migración y Compartir archivos; de Windows a Mac, Asistente de Migración para Windows para un Mac nuevo y carpeta SMB o disco exFAT; con Linux, carpetas SMB, Warpinator o una app multiplataforma.", "title": "Vías integradas por pareja de ordenadores", "sub": "Fuertes dentro de una plataforma, escasas entre plataformas", "builtLabel": "Integrado", "anyLabel": "También sirve", "a": { "pair": "Windows ↔ Windows", "built": "Copia de seguridad · Uso compartido cercano · carpeta en red", "any": "Disco · nube · BIShare" }, "b": { "pair": "Mac ↔ Mac", "built": "AirDrop · Asistente de Migración · Compartir archivos", "any": "Disco · nube · BIShare" }, "c": { "pair": "Windows ↔ Mac", "built": "Asistente de Migración para Windows · carpeta SMB", "any": "Disco exFAT · nube · BIShare" }, "d": { "pair": "Linux ↔ cualquiera", "built": "Carpeta SMB · Warpinator en Linux Mint", "any": "LocalSend · BIShare · rsync" } },
+    "moves": { "alt": "Qué lleva cada herramienta a un ordenador nuevo: la transferencia de la Copia de seguridad de Windows mueve archivos y ajustes pero no las apps instaladas, y solo en la configuración inicial; el Asistente de Migración mueve archivos, ajustes y apps, al configurar o después; BIShare mueve archivos y carpetas en cualquier momento, pero no ajustes ni apps.", "title": "Qué pasa al ordenador nuevo", "sub": "Una herramienta de migración lleva más que un envío de archivos", "backup": "Copia de seguridad", "migration": "Asistente de Migración", "bishare": "BIShare", "files": "Archivos y carpetas", "settings": "Ajustes", "apps": "Apps instaladas", "anytime": "Transferencia tras configurar", "foot": "La Copia de seguridad de Windows tampoco pasa contraseñas guardadas, archivos de OneDrive ni unidades BitLocker" },
+    "speed": { "alt": "Velocidad máxima de enlace por conexión, en escala logarítmica: Bluetooth LE 2 Mb/s, Gigabit Ethernet 1 Gb/s, Ethernet de 2,5 gigabits 2,5 Gb/s, USB 3.2 Gen 1 5 Gb/s, red Thunderbolt 4 20 Gb/s, red Thunderbolt 5 40 Gb/s. Las copias reales son más lentas y la Wi-Fi varía.", "title": "Velocidad máxima de enlace por conexión", "sub": "Máximos nominales; el disco más lento y las condiciones deciden la velocidad real", "r0": "Bluetooth LE", "r1": "Gigabit Ethernet", "r2": "Ethernet de 2,5 gigabits", "r3": "USB 3.2 Gen 1", "r4": "Red Thunderbolt 4", "r5": "Red Thunderbolt 5", "foot": "La Wi-Fi no aparece porque su velocidad real varía mucho con la distancia, las paredes y el router" }
   }
 }

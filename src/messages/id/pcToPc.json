@@ -1,83 +1,140 @@
 {
   "meta": {
-    "title": "Transfer File Antar Dua Komputer Lewat Wi-Fi",
-    "description": "Pindahkan file antar dua komputer, laptop ke laptop atau Mac ke Windows, langsung lewat Wi-Fi. Tanpa flashdisk, tanpa unggah ke cloud, tanpa atur berbagi jaringan."
+    "title": "Cara Transfer File Antara Dua Komputer: 8 Cara (2026)",
+    "description": "Pindahkan file PC ke PC, Mac ke Mac, atau Windows ke Mac: Pencadangan Windows, Berbagi di sekitar, berbagi jaringan, Asisten Migrasi, drive, cloud, atau aplikasi langsung."
   },
   "hero": {
-    "eyebrow": "Komputer ↔ Komputer",
-    "title": "Transfer file antar dua komputer, tanpa ritual",
-    "body": "Dua komputer di meja yang sama tidak seharusnya butuh flashdisk bolak-balik, email ke diri sendiri, atau perjalanan cloud untuk bertukar folder. <strong>BIShare</strong> memindahkan file <strong>langsung antar dua komputer mana pun</strong> — Windows, Mac, atau Linux, kombinasi apa saja — lewat jaringan yang sudah mereka pakai bersama. <highlight>Satu sisi bahkan bisa pakai browser biasa.</highlight>",
-    "ctaPrimary": "Ambil BIShare gratis",
+    "eyebrow": "Komputer ke komputer",
+    "title": "Cara transfer file antara dua komputer",
+    "body": "Memindahkan file dari satu komputer ke komputer lain terdengar seperti satu pekerjaan, padahal folder untuk rekan di ujung kantor, laptop baru yang perlu semua isi laptop lama, dan Mac yang bertukar proyek dengan PC Windows adalah tiga pekerjaan berbeda dengan tiga cara terbaik yang berbeda pula. Windows kini punya transfer PC ke PC bawaan saat penyiapan, Mac sudah bertahun-tahun punya Asisten Migrasi, dan keduanya bisa berbagi folder lewat jaringan asal tahu pengaturan mana yang harus dinyalakan. Panduan ini berangkat dari pasangan komputer di depan Anda, mengurutkan delapan cara memindahkan file, menjelaskan apa yang dibawa migrasi penuh dan apa yang tertinggal, lalu membahas format drive, kecepatan, dan pengaturan yang paling sering membuat penyalinan gagal. Salah satu dari delapan cara itu adalah <strong>BIShare</strong>, yang mengirim <strong>file dan folder langsung antara Windows, Mac, dan Linux</strong> di jaringan yang sama, tanpa batas ukuran dan tanpa upload. <highlight>Gratis dan open source, tanpa daftar.</highlight>",
+    "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
-  "why": {
-    "title": "Ritual flashdisk, dan ritual-ritual lainnya",
-    "body": "Flashdisk berarti mencarinya dulu, berharap formatnya benar (<strong>NTFS tak bisa ditulis di Mac</strong>), lalu berjalan bolak-balik. Network share berarti permission, workgroup, dan safari pengaturan di kedua mesin. Email mentok di 25 MB, dan cloud mengirim file Anda berwisata lewat data center hanya untuk menyeberangi ruangan. Semua itu adalah akal-akalan untuk satu fitur yang hilang — komputer yang bicara langsung satu sama lain. Itulah fiturnya."
+  "updated": "Diperbarui September 2026 · detail Pencadangan Windows dan Berbagi di sekitar dari Dukungan Microsoft, Asisten Migrasi dari Dukungan Apple, Thunderbolt Share dari Intel",
+  "disclosure": "BIShare adalah produk kami. Untuk memindahkan seluruh akun ke komputer baru, Pencadangan Windows atau Asisten Migrasi melakukan lebih banyak daripada aplikasi transfer mana pun, dan peringkat di bawah menyebutkannya.",
+  "quick": {
+    "title": "Jawaban singkat",
+    "items": [
+      "<strong>Menyiapkan PC Windows 11 baru:</strong> saat penyiapan, pilih pulihkan dari PC lain lalu pasangkan dengan Pencadangan Windows di PC lama; file dan pengaturan pindah lewat jaringan.",
+      "<strong>Menyiapkan Mac baru:</strong> Asisten Migrasi menyalin aplikasi, akun, pengaturan, dan file dari Mac lama atau dari PC Windows.",
+      "<strong>Beberapa file antara dua PC Windows yang berdekatan:</strong> Berbagi di sekitar di menu Bagikan, dengan pilihan Semua orang di sekitar, menaruhnya di Unduhan.",
+      "<strong>Folder besar antara Windows, Mac, atau Linux:</strong> BIShare di kedua komputer mengirimnya langsung lewat jaringan yang sama tanpa batas ukuran.",
+      "<strong>Folder yang sama dipakai tiap hari dari kedua mesin:</strong> bagikan lewat jaringan dari Windows atau dengan Berbagi File di macOS, lalu buka dari komputer lain.",
+      "<strong>Tidak ada jaringan sama sekali:</strong> drive eksternal berformat exFAT bisa dibaca dan ditulis di Windows maupun Mac."
+    ]
   },
-  "how": {
-    "title": "Cara kerja jalur langsung",
+  "pairs": {
+    "title": "Mulai dari pasangannya: dua komputer apa?",
+    "body": "Cara terbaik lebih bergantung pada dua sistem operasinya daripada pada filenya. Alat bawaan sangat bagus di dalam satu platform dan tipis antarplatform.",
     "items": {
-      "0": {
-        "h": "Dua mesin, satu alat",
-        "b": "Pasang BIShare di Windows, Mac, atau Linux — kombinasi bebas. Mesin yang tak bisa dipasangi (laptop kantor yang dikunci, PC teman) bisa mengirim dan menerima dari tab browser."
-      },
-      "1": {
-        "h": "Mereka saling menemukan",
-        "b": "Di jaringan yang sama, kedua komputer otomatis saling muncul. Seret file — atau satu folder utuh — ke mesin satunya, dan dia mendarat terenkripsi end-to-end dengan kecepatan Wi-Fi, tanpa tersimpan di mana pun di tengah jalan."
-      },
-      "2": {
-        "h": "Tak ada router? Improvisasi",
-        "b": "Tidak ada jaringan bersama — hari pindahan, lokasi klien? Hotspot ponsel juga jaringan, tanpa perlu internet. Kedua komputer bergabung dan transfer berjalan persis sama."
-      }
+      "0": { "h": "Windows ke Windows", "b": "Windows punya pilihan bawaan paling lengkap: transfer Pencadangan Windows untuk PC baru, Berbagi di sekitar untuk kiriman cepat antar-PC yang berdekatan, dan berbagi jaringan untuk folder yang dibuka dari kedua mesin. Tanpa jaringan privat yang sama, Berbagi di sekitar beralih ke Bluetooth, yang cukup untuk dokumen tapi lambat untuk video." },
+      "1": { "h": "Mac ke Mac", "b": "AirDrop menangani kiriman cepat, Asisten Migrasi memindahkan seluruh akun pengguna ke Mac baru lewat Wi-Fi, Ethernet, atau kabel Thunderbolt, dan Berbagi File di Pengaturan Sistem memungkinkan satu Mac membuka folder di Mac lain. Antara dua Mac, jarang perlu yang lain." },
+      "2": { "h": "Windows dan Mac", "b": "Asisten Migrasi Windows dari Apple memindahkan file dan pengaturan dari PC ke Mac baru, tetapi tidak ada alat bawaan untuk arah sebaliknya. Untuk sehari-hari, folder bersama Windows yang dibuka dari Finder di Mac, drive exFAT, folder cloud, atau aplikasi lintas platform seperti BIShare menutup celahnya." },
+      "3": { "h": "Linux ikut dalam campuran", "b": "Desktop Linux memahami SMB, jadi bisa membuka folder bersama Windows dan Mac, dan Linux Mint menyertakan Warpinator untuk transfer di LAN. Aplikasi lintas platform seperti LocalSend dan BIShare tidak perlu memasang folder bersama sama sekali, dan rsync lewat SSH cocok bagi yang nyaman di terminal." }
     }
   },
-  "comparison": {
-    "title": "Flashdisk, cloud, atau langsung?",
-    "cols": {
-      "airdrop": "Flashdisk",
-      "quick": "Cloud drive",
-      "bishare": "BIShare"
-    },
-    "rows": {
-      "r0": "Tanpa hardware yang harus dicari, diformat, dibawa",
-      "r1": "Satu lompatan — tanpa detour upload-lalu-download",
-      "r2": "Tanpa pusing format NTFS vs Mac",
-      "r3": "Folder multi-gigabita dengan kecepatan Wi-Fi lokal",
-      "r4": "Tak ada yang tertinggal di server"
+  "methods": {
+    "title": "Delapan cara transfer file antara dua komputer, diurutkan",
+    "consLabel": "Perlu diperhatikan:",
+    "items": {
+      "0": { "name": "BIShare", "tag": "Terbaik secara umum untuk transfer sehari-hari antara Windows, Mac, dan Linux", "facts": "Windows (Microsoft Store), Mac App Store, Linux · open source berlisensi MIT · langsung di jaringan bersama tanpa batas ukuran · satu link memuat hingga 100 GB dan berlaku sehari · terenkripsi end-to-end · tanpa daftar", "body": "Pasang BIShare di kedua komputer, seret file atau folder ke jendela aplikasi, lalu pilih komputer lain dari daftar perangkat terdekat; sisi penerima mengonfirmasi dan file ditulis ke folder simpan BIShare. Karena tidak ada yang diupload, proyek 40 GB berpindah secepat jaringan lokal, dan langkahnya sama untuk kombinasi apa pun dari Windows, macOS, dan Linux. Tanpa router, hotspot ponsel bisa jadi jaringannya. Kalau komputer lain ada di gedung lain, buat link saja, yang bisa dibuka komputer itu di browser apa pun selama 24 jam berikutnya.", "cons": "Aplikasi ini memindahkan file, bukan aplikasi terpasang atau pengaturan, jadi tidak menggantikan alat migrasi untuk komputer baru. Folder dikemas menjadi satu arsip zip untuk perjalanannya, dan kedua komputer perlu aplikasinya untuk transfer langsung." },
+      "1": { "name": "Pencadangan Windows: transfer ke PC baru", "tag": "Terbaik untuk pindah ke PC Windows 11 baru", "facts": "PC lama: Windows 10 atau 11 · PC baru: Windows 11 24H2 atau lebih baru, saat penyiapan · akun Microsoft · Wi-Fi atau jaringan kabel yang sama · kode pemasangan sekali pakai · file dan pengaturan", "body": "Selama PC baru masih dalam penyiapan awal, masuk dengan akun Microsoft lalu pilih pulihkan dari PC lain. Buka Pencadangan Windows di PC lama, pilih opsi transfer ke PC baru, dan konfirmasi kode pemasangan yang ditampilkan PC baru. Dokumen, foto, video, dan file lain pindah lewat jaringan bersama wallpaper, tema, dan pengaturan pribadi lainnya, dan Windows melanjutkan sendiri kalau koneksi terputus.", "cons": "Opsi ini hanya muncul saat penyiapan, jadi PC yang sudah disiapkan tidak bisa memakainya. Aplikasi terpasang, kata sandi tersimpan, file OneDrive, dan drive yang dienkripsi BitLocker tidak ikut, dan kedua PC sebaiknya tetap tersambung ke listrik sampai selesai." },
+      "2": { "name": "Berbagi di sekitar di Windows", "tag": "Terbaik untuk beberapa file antara dua PC Windows di ruangan yang sama", "facts": "Windows 11, atau Windows 10 versi 1803 ke atas · Bluetooth LE · Wi-Fi bila kedua PC di jaringan privat yang sama · Hanya perangkat saya atau Semua orang di sekitar · menyimpan ke Unduhan", "body": "Nyalakan Berbagi di sekitar di Pengaturan kedua PC, pilih Semua orang di sekitar kalau akun Microsoft-nya berbeda, lalu klik kanan file di File Explorer, pilih Bagikan, dan pilih PC lainnya. Penerima menerima notifikasi dan file masuk ke Unduhan, atau folder lain yang dipilih di Pengaturan. Tidak ada yang perlu dipasang, dan tetap bisa jalan meski PC tidak di jaringan yang sama, lewat Bluetooth.", "cons": "Hanya untuk Windows. Tanpa jaringan privat bersama, pengiriman lewat Bluetooth yang sangat lambat untuk file besar, dan Semua orang di sekitar membuat nama dan alamat Bluetooth PC terlihat oleh orang di sekitar." },
+      "3": { "name": "Berbagi jaringan (SMB)", "tag": "Terbaik untuk folder yang terus dipakai kedua komputer", "facts": "Bawaan di Windows, macOS, dan kebanyakan desktop Linux · jaringan lokal yang sama · profil jaringan privat di Windows · izin per folder · tanpa batas ukuran", "body": "Di Windows, nyalakan penemuan jaringan serta berbagi file dan printer untuk jaringan privat, lalu bagikan folder dari propertinya; komputer lain membukanya dari Jaringan di File Explorer, dari Hubungkan ke Server di Finder Mac, atau dari pengelola file Linux. Di Mac, Berbagi File di Umum, Berbagi pada Pengaturan Sistem melakukan hal yang sama. Setelah disiapkan, folder itu terasa seperti bagian dari disk komputer lain, cocok untuk folder proyek dan pustaka media bersama.", "cons": "Penyiapannya butuh langkah paling banyak dibanding cara lain, dan izin, akun, serta peringatan firewall sering menggagalkan percobaan pertama. Membiarkan folder bersama terbuka di laptop yang tersambung ke Wi-Fi publik berisiko, jadi matikan berbagi saat tidak perlu." },
+      "4": { "name": "Asisten Migrasi (Mac)", "tag": "Terbaik untuk memindahkan seluruh akun ke Mac baru", "facts": "Bawaan macOS · Mac ke Mac lewat Wi-Fi, Ethernet, atau kabel Thunderbolt, atau dari cadangan Time Machine · Asisten Migrasi Windows 3 untuk PC ke Mac, Windows 10 atau lebih baru, macOS Sonoma 14.4 atau lebih baru", "body": "Buka Asisten Migrasi dari folder Utilitas, atau saat penyiapan Mac baru, lalu pilih Mac lama, cadangan Time Machine, atau PC Windows sebagai sumber. Dari Mac, aplikasi ini menyalin aplikasi, akun pengguna, pengaturan, dan dokumen tanpa mengubah Mac lama, dan kabel Thunderbolt atau Ethernet biasanya lebih cepat daripada Wi-Fi. Dari PC, pasang dulu Asisten Migrasi Windows dari Apple di Windows dan biarkan Wi-Fi serta Bluetooth menyala di kedua komputer.", "cons": "Hanya memindahkan data ke Mac; Apple tidak menyediakan alat untuk memigrasi Mac ke PC Windows. Antivirus, firewall, dan VPN bisa memblokirnya sampai dimatikan, dan akun besar lewat Wi-Fi bisa makan waktu berjam-jam." },
+      "5": { "name": "Drive eksternal atau flashdisk", "tag": "Terbaik saat kedua komputer tidak berbagi jaringan apa pun", "facts": "Drive USB atau SSD apa pun · exFAT bisa dibaca dan ditulis di Windows dan Mac · NTFS hanya-baca di Mac · FAT32 membatasi tiap file 4 GB · tanpa akun, tanpa internet", "body": "Salin file ke drive, bawa ke komputer lain, lalu salin keluar. Untuk drive yang bolak-balik antara Windows dan Mac, format sebagai exFAT di Utilitas Disk atau File Explorer supaya keduanya bisa menulis ke sana. SSD USB 3 yang cepat sering mengalahkan Wi-Fi untuk puluhan gigabyte, dan drive tetap jawaban paling sederhana untuk komputer yang offline atau lokasi dengan jaringan terkunci.", "cons": "Memformat menghapus isi drive, jadi periksa dulu isinya. Bolak-balik membawa flashdisk cepat melelahkan untuk transfer berulang, dan drive tanpa enkripsi yang hilang membuka semua isinya." },
+      "6": { "name": "Folder cloud: OneDrive, iCloud Drive, atau Google Drive", "tag": "Terbaik saat kedua komputer jarang berada di tempat yang sama", "facts": "OneDrive: 5 GB tanpa biaya, file tunggal hingga 250 GB · iCloud Drive: 5 GB tanpa biaya · Google Drive: 15 GB tanpa biaya, dipakai bersama Gmail dan Google Foto · akun yang sama di kedua komputer", "body": "Taruh file di folder yang tersinkron di satu komputer dan file itu muncul di komputer lain begitu tersinkron, entah di seberang jalan atau di kota lain. Bagi yang sudah bekerja dari OneDrive atau iCloud Drive, tidak ada yang perlu ditransfer karena file mengikuti akun. Sekaligus ada salinan cadangan di cloud.", "cons": "Semuanya diupload dulu lalu diunduh, jadi kecepatan upload di rumah menentukan tempo, dan penyimpanan gratis cepat penuh. Dua komputer di ruangan yang sama tetap mengirim data ke pusat data dan kembali." },
+      "7": { "name": "LocalSend atau Warpinator", "tag": "Alternatif open source di LAN untuk transfer sesekali", "facts": "LocalSend: Windows, macOS, Linux, Android, iPhone, Apache 2.0 · Warpinator: bawaan Linux Mint, di Flathub, port Windows tidak resmi · jaringan lokal yang sama · tanpa akun", "body": "LocalSend mengenali komputer yang berbagi jaringan dengannya dan meneruskan file pilihan secara langsung, di semua platform utama. Warpinator, buatan tim Linux Mint, melakukan hal serupa antar-mesin Linux dan, lewat port dari komunitas, dengan PC Windows. Keduanya gratis, tanpa iklan, dan sederhana, pilihan bagus bagi yang lebih suka alat buatan komunitas.", "cons": "Keduanya tidak bekerja di luar jaringan lokal, dan menemukan komputer lain sering gagal di jaringan hotel, tamu, atau kantor yang memisahkan perangkat. Versi Windows dari Warpinator tidak resmi." }
+    }
+  },
+  "table": {
+    "title": "Sekilas",
+    "cols": { "feature": "Fitur", "bishare": "BIShare", "backup": "Pencadangan Windows", "nearby": "Berbagi di sekitar", "smb": "Berbagi jaringan", "drive": "Drive eksternal", "cloud": "Folder cloud" },
+    "rows": { "r0": "Bisa antara Windows dan Mac", "r1": "Membawa pengaturan, bukan hanya file", "r2": "Tidak ada yang diupload ke internet", "r3": "Bisa dipakai kapan saja, tidak hanya saat penyiapan", "r4": "Tanpa perangkat tambahan atau paket penyimpanan" },
+    "note": "Per September 2026. BIShare butuh aplikasinya di kedua komputer untuk transfer langsung dan tidak punya batas ukuran di satu jaringan; link BIShare maksimal 100 GB dan kedaluwarsa setelah sehari. Transfer Pencadangan Windows berjalan saat penyiapan PC baru dan membutuhkan Windows 11 24H2 atau lebih baru di PC tersebut. Berbagi di sekitar hanya untuk Windows dan beralih ke Bluetooth tanpa jaringan privat bersama. Berbagi jaringan bekerja antara Windows, Mac, dan Linux setelah disiapkan. Drive eksternal yang juga dipakai di Mac sebaiknya exFAT. Folder cloud butuh akun dan ruang untuk filenya."
+  },
+  "migrate": {
+    "title": "Memindahkan semuanya ke komputer baru",
+    "body": "Komputer baru berarti migrasi, bukan sekadar transfer. Tujuannya desktop, dokumen, dan pengaturan lama ada di mesin baru tanpa ada yang hilang, dan alat-alatnya berbeda dalam seberapa banyak yang bisa dibawa.",
+    "items": {
+      "0": { "h": "Windows ke Windows: yang ikut dan yang tidak", "b": "Transfer PC ke PC dari Pencadangan Windows membawa file dan pengaturan pribadi, dan aplikasi dari Microsoft Store siap dipasang ulang. Program desktop yang dipasang dari web, kata sandi browser yang disimpan di luar akun tersinkron, dan lisensi yang terikat ke perangkat keras lama harus diurus satu per satu. Laplink PCmover, alat berbayar, jadi pilihan umum kalau aplikasi terpasang harus ikut pindah." },
+      "1": { "h": "Mac ke Mac: seluruh akun", "b": "Asisten Migrasi menyalin akun pengguna, aplikasi, dan pengaturan selain file, jadi Mac baru sering terlihat seperti yang lama saat pertama masuk. Memilih kabel dan membiarkannya berjalan semalaman adalah cara paling tenang untuk memindahkan akun besar." },
+      "2": { "h": "Sebelum menghapus komputer lama", "b": "Buka beberapa file dari folder berbeda di mesin baru, pastikan email, bookmark browser, dan pengelola kata sandi sudah masuk, dan cabut otorisasi lisensi software yang aktivasinya terbatas. Simpan komputer lama, atau cadangan lengkapnya, selama beberapa minggu; file yang hilang biasanya baru ketahuan saat seseorang membutuhkannya." },
+      "3": { "h": "Windows 10 sudah tidak didukung", "b": "Microsoft mengakhiri dukungan Windows 10 pada 14 Oktober 2025, yang mendorong banyak orang membeli PC baru tahun ini. PC lama tetap bisa mengirim filenya lewat Pencadangan Windows, Berbagi di sekitar, folder bersama, drive, atau BIShare, meski tidak lagi mendapat pembaruan keamanan." }
+    }
+  },
+  "formats": {
+    "title": "Drive, format, dan nama file yang merusak penyalinan lintas platform",
+    "body": "Saat penyalinan antara Windows dan Mac gagal di tengah jalan, penyebabnya sering ada di tujuan, bukan di caranya.",
+    "items": {
+      "0": { "h": "exFAT, NTFS, dan APFS", "b": "Windows memformat drive sebagai NTFS secara bawaan, yang bisa dibaca Mac tetapi tidak bisa ditulisi. Mac memakai APFS, yang tidak bisa dibaca Windows tanpa software tambahan. exFAT adalah titik temunya: kedua sistem bisa membaca dan menulisnya, dan tidak ada batas ukuran file yang berarti dalam praktik." },
+      "1": { "h": "Tembok 4 GB di FAT32", "b": "Flashdisk lama sering berformat FAT32, yang menolak file tunggal di atas 4 GB. Menyalin film panjang atau image ISO berhenti dengan pesan error yang tidak jelas padahal ruang di flashdisk masih banyak. Format ulang ke exFAT menyelesaikannya." },
+      "2": { "h": "Nama yang tidak diterima Windows", "b": "macOS dan Linux mengizinkan karakter di nama file yang ditolak Windows, termasuk titik dua, tanda tanya, bintang, tanda kutip, dan garis tegak, dan Windows juga menolak nama yang berakhir dengan spasi atau titik. Ganti nama file itu, atau kirim foldernya sebagai arsip, sebelum menyalin ke PC Windows." },
+      "3": { "h": "File tersembunyi yang ikut terbawa", "b": "Menyalin dari Mac ke drive non-Mac bisa meninggalkan file kecil berawalan ._ di samping tiap dokumen, ditambah file .DS_Store di dalam folder. Itu hanya metadata yang tidak berbahaya dan aman dihapus di Windows." }
+    }
+  },
+  "steps": {
+    "title": "Transfer file antarkomputer dengan BIShare",
+    "items": {
+      "0": { "h": "Pasang di kedua komputer", "b": "Ambil BIShare dari Microsoft Store di Windows, Mac App Store di Mac, atau unduhan Linux. Sambungkan keduanya ke Wi-Fi atau jaringan kabel yang sama, atau sambungkan keduanya ke hotspot ponsel." },
+      "1": { "h": "Seret file atau folder", "b": "Letakkan file atau seluruh folder di jendela aplikasi, atau pakai Files untuk mencarinya. Tidak ada batas ukuran selama kedua komputer berbagi jaringan." },
+      "2": { "h": "Pilih komputer lainnya", "b": "Pilih dari daftar perangkat terdekat lalu terima di sisi penerima. File disimpan di folder yang diatur di BIShare, awalnya Unduhan. Kalau kedua mesin ada di jaringan terpisah, buat link dan buka di browser komputer lain dalam sehari." }
+    }
+  },
+  "speed": {
+    "title": "Seberapa cepat tiap cara",
+    "body": "Koneksi menentukan batas atas, dan drive yang lebih lambat dari keduanya menentukan kecepatan nyata. Kecepatan link nominal di bawah adalah batas maksimum; penyalinan nyata lebih rendah.",
+    "items": {
+      "0": { "h": "Wi-Fi lawan kabel", "b": "Kecepatan Wi-Fi naik turun karena jarak, tembok, dan router, jadi kabel Ethernet gigabit sering lebih cepat dan selalu lebih stabil untuk folder besar. Menyambungkan salah satu komputer ke router lewat kabel saja sudah membantu transfer nirkabel." },
+      "1": { "h": "Drive USB dan Thunderbolt", "b": "SSD eksternal USB 3 menyalin puluhan gigabyte dengan cepat, dan batasnya sering ada di port komputer atau di drive itu sendiri. Dua PC dengan port Thunderbolt 4 atau 5 juga bisa terhubung langsung dengan Thunderbolt Share dari Intel hingga 20 atau 40 Gb/s, tetapi salah satunya, atau aksesorinya, harus punya lisensi dari produsennya." },
+      "2": { "h": "Bluetooth dan cloud", "b": "Bluetooth, yang dipakai Berbagi di sekitar tanpa jaringan bersama, cukup untuk dokumen dan tidak praktis untuk video. Folder cloud bergantung pada kecepatan upload pengirim, yang pada koneksi rumahan biasanya hanya sebagian kecil dari kecepatan unduh." }
+    }
+  },
+  "fixes": {
+    "title": "Saat transfer antarkomputer gagal",
+    "items": {
+      "0": { "h": "PC lain tidak muncul di Jaringan", "b": "Ubah profil jaringan ke Privat di kedua PC, aktifkan Penemuan jaringan serta Berbagi file dan printer di pengaturan berbagi lanjutan, dan pastikan keduanya di router yang sama, bukan jaringan tamu. Mengetik alamat PC lain, seperti \\\\NAMAPC, di File Explorer sering berhasil saat penelusuran gagal." },
+      "1": { "h": "Berbagi di sekitar tidak menemukan PC", "b": "Nyalakan Bluetooth di kedua PC, atur Berbagi di sekitar ke Semua orang di sekitar, dan dekatkan dalam jarak beberapa meter. Kalau salah satunya Windows 10, pastikan versinya 1803 atau lebih baru." },
+      "2": { "h": "Opsi transfer tidak ada di PC baru", "b": "Transfer PC ke PC dari Pencadangan Windows hanya ditawarkan saat penyiapan awal di Windows 11 24H2 atau lebih baru. Di PC yang sudah disiapkan, gunakan folder bersama, drive, folder cloud, atau aplikasi." },
+      "3": { "h": "Mac tidak bisa menyalin ke drive", "b": "Drive berformat NTFS terbuka di Mac hanya untuk dibaca. Pindahkan file ke tempat aman, lalu hapus drive sebagai exFAT kalau akan terus bolak-balik antara Windows dan Mac." },
+      "4": { "h": "File besar tidak mau disalin ke flashdisk", "b": "Flashdisk berformat FAT32 menolak file di atas 4 GB. Format ulang ke exFAT, atau kirim filenya lewat jaringan saja." },
+      "5": { "h": "Transfer panjang berhenti di tengah", "b": "Cegah kedua komputer masuk mode tidur, biarkan laptop tersambung ke charger, dan jeda VPN atau firewall yang memutus koneksi lokal. Memindahkan proyek raksasa dalam beberapa bagian membuat gangguan hanya membuang menit, bukan jam." }
+    }
+  },
+  "security": {
+    "title": "Menjaga transfer antarkomputer tetap privat",
+    "body": "Transfer lokal sudah privat dari awal, tetapi beberapa kebiasaan menjaganya tetap begitu.",
+    "items": {
+      "0": { "h": "Bagikan folder hanya di jaringan privat", "b": "Berbagi jaringan dan Berbagi di sekitar dengan Semua orang di sekitar membuat komputer bisa ditemukan. Batasi berbagi pada profil jaringan privat, matikan di laptop yang sering dibawa bepergian, dan pakai folder bersama berkata sandi bila ada orang lain di jaringan." },
+      "1": { "h": "Enkripsi drive yang dibawa keluar rumah", "b": "Flashdisk atau SSD eksternal berisi file pribadi sebaiknya dienkripsi, dengan BitLocker To Go di Windows atau volume APFS terenkripsi di Mac, karena drive yang hilang bisa dibaca siapa saja." },
+      "2": { "h": "Ketahui ke mana salinan pergi", "b": "Folder cloud meninggalkan salinan di penyedia. Transfer langsung dengan BIShare, LocalSend, Berbagi di sekitar, atau folder jaringan hanya memindahkan file antara kedua komputer, dan link BIShare dienkripsi sebelum diupload lalu dihapus setelah 24 jam." }
     }
   },
   "faq": {
-    "title": "Transfer antar komputer, terjawab",
+    "title": "Transfer file antarkomputer: FAQ",
     "items": {
-      "0": {
-        "q": "Bisakah transfer antar dua komputer tanpa router?",
-        "a": "Bisa — hotspot ponsel mana pun jadi titik temu, tanpa perlu internet. Kedua komputer bergabung ke hotspot dan transfer langsung. Di jaringan rumah atau kantor biasa, router yang memerankan itu."
-      },
-      "1": {
-        "q": "Apakah jalan antara Mac dan Windows?",
-        "a": "Ya, dua arah — Linux juga, kombinasi bebas. Semua platform menjalankan protokol yang sama, jadi transfer Mac ↔ Windows berperilaku persis seperti PC ↔ PC. Tanpa SMB share, tanpa driver, tanpa juggling format."
-      },
-      "2": {
-        "q": "Bisakah mengirim satu folder utuh?",
-        "a": "Bisa — seret folder dan dia tiba sebagai folder, struktur utuh. Untuk data seukuran profil user penuh, kirim dalam beberapa gelombang besar supaya tiap gelombang mudah diverifikasi."
-      },
-      "3": {
-        "q": "Seberapa cepat?",
-        "a": "Secepat jaringan di antara kedua mesin — biasanya 40–50 MB/s di Wi-Fi 5 biasa, lebih di kabel atau Wi-Fi lebih baru. Folder 10 GB itu hitungan menit, karena dia menyeberangi ruangan alih-alih menyeberangi internet dua kali."
-      },
-      "4": {
-        "q": "Aman dipakai di jaringan kantor?",
-        "a": "Transfer terenkripsi end-to-end antar perangkat, jadi mesin lain di jaringan hanya melihat ciphertext. Tak ada yang diunggah ke server, dan komputer penerima harus menyetujui setiap transfer masuk secara eksplisit."
-      }
+      "0": { "q": "Apa cara paling sederhana memindahkan file dari satu komputer ke komputer lain?", "a": "Untuk PC Windows 11 baru, pakai transfer Pencadangan Windows saat penyiapan; untuk Mac baru, Asisten Migrasi. Untuk file sehari-hari antara dua komputer mana pun di jaringan yang sama, aplikasi langsung seperti BIShare atau LocalSend paling sedikit butuh penyiapan." },
+      "1": { "q": "Apa cara terbaik mengirim file PC ke PC lewat Wi-Fi?", "a": "Berbagi di sekitar untuk beberapa file, berbagi jaringan untuk folder yang dibuka dari kedua PC, atau aplikasi transfer langsung untuk folder besar. Semuanya menjaga data tetap di jaringan lokal Anda." },
+      "2": { "q": "Bisakah transfer file antarkomputer pakai kabel USB?", "a": "Kabel USB biasa tidak menghubungkan dua PC untuk transfer file. Gunakan flashdisk, kabel Ethernet antarkomputer, kabel transfer PC ke PC khusus yang disertai software sendiri, atau Thunderbolt Share di PC yang mendukung." },
+      "3": { "q": "Bagaimana memindahkan semuanya dari PC lama ke PC baru?", "a": "Di PC Windows 11 baru, pilih pulihkan dari PC lain saat penyiapan dan pasangkan dengan Pencadangan Windows di PC lama. File dan pengaturan ikut; aplikasi terpasang dan kata sandi tersimpan perlu disiapkan ulang." },
+      "4": { "q": "Bisakah memindahkan file dari PC Windows ke Mac tanpa software tambahan?", "a": "Bisa, untuk Mac baru: Asisten Migrasi Windows dari Apple menyalin file dan pengaturan dari PC. Untuk file sehari-hari, buka folder bersama Windows dari Finder di Mac, atau pakai drive exFAT atau folder cloud; aplikasi lintas platform seperti BIShare juga bisa." },
+      "5": { "q": "Bagaimana transfer file dari Mac ke Windows?", "a": "Nyalakan Berbagi File di Mac lalu buka dari PC, salin ke drive exFAT, pakai folder cloud, atau kirim dengan aplikasi lintas platform. Apple tidak punya alat migrasi dari Mac ke Windows." },
+      "6": { "q": "Mac saya menampilkan drive eksternal tapi tidak bisa menyalin ke sana. Kenapa?", "a": "Drive itu berformat NTFS, yang bisa dibaca macOS tetapi tidak bisa ditulisi. Untuk dipakai di Windows dan Mac, format ulang ke exFAT setelah file di dalamnya diamankan." },
+      "7": { "q": "Apakah kedua komputer harus di jaringan yang sama?", "a": "Untuk berbagi jaringan, LocalSend, dan transfer langsung BIShare, ya, dan hotspot ponsel juga dihitung. Berbagi di sekitar bisa beralih ke Bluetooth, dan folder cloud atau link BIShare bisa dari mana saja." },
+      "8": { "q": "Apa cara tercepat memindahkan folder besar antarkomputer?", "a": "Kabel: koneksi Ethernet untuk transfer lewat jaringan, SSD USB yang cepat, atau Thunderbolt Share di PC yang mendukung. Lewat Wi-Fi, transfer langsung di jaringan yang sama mengalahkan upload ke cloud." },
+      "9": { "q": "Apakah BIShare gratis untuk transfer antarkomputer?", "a": "Ya. BIShare tidak berbayar: kodenya berlisensi MIT, tanpa iklan dan tanpa daftar, dan transfer langsung antarkomputer di satu jaringan tidak dibatasi ukurannya." }
     }
   },
   "cta": {
-    "title": "Pensiunkan flashdisk itu",
-    "body": "Dua komputer, satu lompatan langsung — gratis, terenkripsi, di semua OS desktop.",
+    "title": "Pindahkan file langsung antara dua komputer mana pun",
+    "body": "Open source dan gratis. Kirim file dan folder antara Windows, Mac, dan Linux lewat jaringan Anda sendiri, tanpa batas ukuran dan tanpa upload.",
     "download": "Unduh BIShare"
   },
-  "a11y": {
-    "yes": "Ya",
-    "no": "Tidak"
+  "a11y": { "yes": "Ya", "no": "Tidak" },
+  "art": {
+    "hero": { "alt": "Laptop Windows mengirim folder langsung ke Mac, berjudul cara transfer file antara dua komputer, delapan cara untuk 2026.", "title": "Transfer file antara dua komputer", "sub": "8 cara untuk Windows, Mac, dan Linux di 2026", "left": "PC Windows", "right": "Mac" },
+    "pairs": { "alt": "Cara bawaan terbaik untuk tiap pasangan komputer: Windows ke Windows dengan transfer Pencadangan Windows, Berbagi di sekitar, dan berbagi jaringan; Mac ke Mac dengan AirDrop, Asisten Migrasi, dan Berbagi File; Windows ke Mac dengan Asisten Migrasi Windows untuk Mac baru dan folder SMB atau drive exFAT; Linux dengan folder SMB, Warpinator, atau aplikasi lintas platform.", "title": "Cara bawaan per pasangan komputer", "sub": "Kuat di dalam satu platform, tipis antarplatform", "builtLabel": "Bawaan", "anyLabel": "Juga bisa", "a": { "pair": "Windows ↔ Windows", "built": "Pencadangan Windows · Berbagi di sekitar · folder jaringan", "any": "Drive · cloud · BIShare" }, "b": { "pair": "Mac ↔ Mac", "built": "AirDrop · Asisten Migrasi · Berbagi File", "any": "Drive · cloud · BIShare" }, "c": { "pair": "Windows ↔ Mac", "built": "Asisten Migrasi Windows · folder SMB", "any": "Drive exFAT · cloud · BIShare" }, "d": { "pair": "Linux ↔ semua", "built": "Folder SMB · Warpinator di Linux Mint", "any": "LocalSend · BIShare · rsync" } },
+    "moves": { "alt": "Apa yang dibawa tiap alat ke komputer baru: transfer Pencadangan Windows membawa file dan pengaturan tetapi tidak aplikasi terpasang, dan hanya saat penyiapan awal; Asisten Migrasi membawa file, pengaturan, dan aplikasi, saat penyiapan atau setelahnya; BIShare memindahkan file dan folder kapan saja, tetapi tidak pengaturan atau aplikasi.", "title": "Apa yang pindah ke komputer baru", "sub": "Alat migrasi membawa lebih banyak daripada transfer file", "backup": "Pencadangan Windows", "migration": "Asisten Migrasi", "bishare": "BIShare", "files": "File dan folder", "settings": "Pengaturan", "apps": "Aplikasi terpasang", "anytime": "Transfer setelah penyiapan", "foot": "Pencadangan Windows juga tidak membawa kata sandi tersimpan, file OneDrive, dan drive BitLocker" },
+    "speed": { "alt": "Kecepatan link tertinggi per koneksi dalam skala logaritmik: Bluetooth LE 2 Mb/s, Ethernet gigabit 1 Gb/s, Ethernet 2,5 gigabit 2,5 Gb/s, USB 3.2 Gen 1 5 Gb/s, jaringan Thunderbolt 4 20 Gb/s, jaringan Thunderbolt 5 40 Gb/s. Penyalinan nyata lebih lambat dan Wi-Fi bervariasi.", "title": "Kecepatan link tertinggi per koneksi", "sub": "Batas nominal; drive yang lebih lambat dan kondisi menentukan kecepatan nyata", "r0": "Bluetooth LE", "r1": "Ethernet gigabit", "r2": "Ethernet 2,5 gigabit", "r3": "USB 3.2 Gen 1", "r4": "Jaringan Thunderbolt 4", "r5": "Jaringan Thunderbolt 5", "foot": "Wi-Fi tidak dimasukkan karena kecepatan nyatanya sangat bervariasi menurut jarak, tembok, dan router" }
   }
 }
