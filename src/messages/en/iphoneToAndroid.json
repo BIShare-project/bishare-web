@@ -1,83 +1,369 @@
 {
   "meta": {
-    "title": "Send Files from iPhone to Android Without a Cable",
-    "description": "Move photos, videos and files from iPhone to Android over Wi-Fi at full quality, or by a link the Android phone opens in any browser. Free, no account, no cable."
+    "title": "Send Files from iPhone to Android: 8 Ways That Work (2026)",
+    "description": "How to send photos, videos and files from an iPhone to an Android phone in 2026: AirDrop to Quick Share, iCloud links, Google Drive, USB-C and a free direct app."
   },
   "hero": {
     "eyebrow": "iPhone → Android",
     "title": "Send files from iPhone to Android",
-    "body": "Your iPhone won't AirDrop to an Android phone, and Quick Share pretends the iPhone doesn't exist. <strong>BIShare</strong> bridges the gap: send photos, videos, and any file from your <strong>iPhone straight to Android</strong> — over local Wi-Fi in seconds, or through a link the other phone opens in any browser. <highlight>No app to install on the Android side.</highlight>",
+    "body": "Most guides on this still open with \"AirDrop doesn't work with Android\". That stopped being entirely true in late 2025, when Google taught Quick Share to speak AirDrop, and in early 2026 Apple added a Transfer to Android option to iOS. Both help, but each covers a narrower case than the headlines suggest. This page sorts out which of the eight real ways fits a single photo, a folder of video, a friend across town and a full phone switch, and where <strong>BIShare</strong> fills the gaps: <strong>any iPhone to any Android phone</strong>, straight across Wi-Fi or through a link. <highlight>Open source, free to use, and nobody has to register.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
-  "why": {
-    "title": "Why you can't AirDrop to Android",
-    "body": "AirDrop speaks an Apple-only language, so it stops at the edge of the Apple world — iPhone, iPad, Mac, and nothing else. Google's Quick Share does the same thing in reverse: it links <strong>Android and Windows</strong> but has no way to reach an iPhone. So the most ordinary handoff of all — passing a photo from your iPhone to a friend's Android — falls through the crack between them. BIShare exists to close it."
+  "updated": "Updated September 2026 · Device list checked against Google's Quick Share page, migration steps against Apple's iOS 26.3 support article",
+  "disclosure": "BIShare is ours. Several options below are built into the phones and cost nothing, and if the Android phone is on Google's supported list, AirDrop itself may be all you need; we say so where it applies.",
+  "quick": {
+    "title": "Quick answer",
+    "items": [
+      "<strong>Android phone is a recent Pixel, Galaxy S or foldable:</strong> try AirDrop first. Set the iPhone to Everyone for 10 minutes, make the Android phone visible to everyone, and it appears in the AirDrop sheet.",
+      "<strong>Any other Android phone, same Wi-Fi:</strong> BIShare on both phones sends the original files directly and encrypted, with no size limit.",
+      "<strong>Nothing to install on the Android phone:</strong> send a link. A BIShare link carries up to 100 GB and opens in Chrome; an iCloud link does the same for photos and lasts 30 days.",
+      "<strong>One big video by email:</strong> Mail Drop in the iPhone's Mail app handles attachments up to 5 GB and works with a Gmail address.",
+      "<strong>Switching to Android for good:</strong> use Transfer to Android in iOS 26.3 or later with an Android 17 phone. It moves photos, messages, contacts and even the eSIM, which no file-sharing app does.",
+      "<strong>Don't bother with Bluetooth:</strong> an iPhone will not send files over Bluetooth to an Android phone, even when the two are paired."
+    ]
   },
-  "how": {
-    "title": "How BIShare sends iPhone → Android",
+  "changed": {
+    "title": "What changed in 2026, and what didn't",
+    "body": "Two changes from Apple and Google reshaped this question in the space of a few months. Neither turns every iPhone and Android pair into a one-tap handoff, so it helps to know exactly where each one reaches.",
     "items": {
       "0": {
-        "h": "On the same Wi-Fi",
-        "b": "Both phones on one network? BIShare sends each file directly between them, end-to-end encrypted, with nothing kept on a server. It's quick — and it still works off a phone hotspot when there's no internet around."
+        "h": "AirDrop can now reach some Android phones",
+        "b": "Google made Quick Share interoperable with AirDrop, starting with the Pixel 10 in November 2025. Pixel 9 models and the 8a followed, then Samsung flagships (Galaxy S24, S25, S26, and the sixth and seventh generation Fold and Flip once updated to One UI 8.5). By June 2026 the list also named the OnePlus 15, Xiaomi 17T Pro, Honor Magic V6, Oppo's Find N6 and Find X9 range, and Vivo's X300 range. Every iPhone can take part. A mid-range Galaxy A, an older Pixel or most budget phones cannot."
       },
       "1": {
-        "h": "When you're not together",
-        "b": "Far apart, or the Android owner would rather not install anything? You get a share link, a QR code, and a 6-character code. They open it in any browser and download — no app, no account. The link clears itself after 24 hours."
+        "h": "iOS gained a way out",
+        "b": "iOS 26.3 added Transfer to Android under Settings, General, Transfer or Reset iPhone. It pairs with a phone running Android 17 by QR code and moves photos, contacts, calendars, call history and messages, and on supported carriers the eSIM number too. It is built for leaving the iPhone, not for handing one file to a friend who keeps theirs."
       },
       "2": {
-        "h": "Every platform",
-        "b": "It isn't only iPhone to Android. One app moves files between iPhone, Android, Mac, Windows, and Linux — pick any two and send, in either direction."
+        "h": "What is still missing",
+        "b": "A built-in way to send a file to an Android phone that is not on Google's list. A built-in way to reach an Android phone that is not in the same room. And any Bluetooth file transfer from an iPhone at all. Those three are why the rest of this page exists."
       }
     }
   },
-  "comparison": {
-    "title": "AirDrop vs Quick Share vs BIShare",
+  "methods": {
+    "title": "The eight ways, ranked",
+    "consLabel": "The catch:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Best overall: works with every Android phone, near or far",
+        "facts": "Apps for iOS and Android, also desktop · MIT-licensed, costs nothing · uncapped between phones on one network · links hold 100 GB · encrypted end to end · sign-up not needed",
+        "body": "The phone model does not matter. With the app on both phones and both on one Wi-Fi, the Android phone shows up in the iPhone's device list, you pick it, the other person taps accept, and the originals travel straight across at the speed of your network without touching a server. Photos keep their full resolution and videos are not re-encoded. When the other person is somewhere else, or would rather not install anything, the app switches to a shareable link (with a QR code and a short 6-character code as alternatives); the recipient opens that in Chrome, Samsung Internet or whatever browser the phone has, and pulls down as much as 100 GB. The file is encrypted on the iPhone before it uploads and the link expires after 24 hours.",
+        "cons": "The direct Wi-Fi route needs the app on the Android phone as well. Links are meant for handing files over, not for keeping them, so the file is gone once the link expires."
+      },
+      "1": {
+        "name": "AirDrop to Quick Share",
+        "tag": "Best built-in option, if the Android phone is on the list",
+        "facts": "Every iPhone · Pixel 10, 9, 8a, Galaxy S24–S26, Z Fold/Flip 6 and 7, selected Xiaomi, OnePlus, Oppo, Vivo, Honor · nearby only · no app · no size limit published",
+        "body": "On a supported phone this is the closest thing to AirDrop between two iPhones. Open Control Center on the iPhone, set AirDrop to Everyone for 10 minutes, and make the Android phone visible to everyone in its Quick Share settings. On a Samsung phone, also turn on Share with Apple devices. The Android phone then appears in the iPhone's share sheet like any Apple device, and it works the other way round too. Both phones need Bluetooth and Wi-Fi switched on and have to be within a few metres of each other.",
+        "cons": "Contacts Only mode cannot work across the two platforms, so both sides must be open to everyone nearby while you send. And the list of supported phones leaves out most Android phones in use today."
+      },
+      "2": {
+        "name": "An iCloud link or Mail Drop",
+        "tag": "Built into the iPhone, opens in any browser",
+        "facts": "Every iPhone · iCloud link for photos and videos, expires after 30 days · Mail Drop up to 5 GB, expires after 30 days · needs iCloud on the sender's side",
+        "body": "Two Apple features are easy to miss. In Photos, select pictures or videos, tap Share and choose Copy iCloud Link; the link opens in a browser on the Android phone and stays live for 30 days. For files rather than photos, attach them in the Mail app and send to the Android owner's Gmail address. Anything too big for a normal attachment is offered as Mail Drop, which carries up to 5 GB and does not count against your iCloud storage.",
+        "cons": "Everything goes through Apple's servers at your upload speed. iCloud links need iCloud Photos turned on, and Mail Drop links stop working after 30 days."
+      },
+      "3": {
+        "name": "Google Drive or Google Photos",
+        "tag": "Best when the files should stay in the cloud",
+        "facts": "Apps on iPhone, preinstalled on most Android phones · 15 GB free, shared across Gmail, Drive and Photos · Google account required",
+        "body": "Most Android owners already have a Google account and the Photos and Drive apps. Upload from the iPhone, then share the album or file with their address, or send a link. It suits a shared family album that keeps growing, or a folder both of you will return to. In Google Photos, check that backup quality is set to Original if you care about full resolution.",
+        "cons": "It is an upload followed by a download, so it is slow for large video, it eats into a 15 GB free allowance, and you need a Google account on the iPhone."
+      },
+      "4": {
+        "name": "LocalSend",
+        "tag": "Open-source app for the same Wi-Fi",
+        "facts": "iOS, Android and desktop apps · open source, free · local network only · encrypted · nobody signs up",
+        "body": "LocalSend does the same-network part of what BIShare does, and does it well: install it on both phones, they find each other, and files go across directly. For two people in one house who only ever swap files in person, it is a solid free choice.",
+        "cons": "It cannot hand a file to a phone somewhere else, and it is no help if the other person won't install anything."
+      },
+      "5": {
+        "name": "WhatsApp or Telegram, sent as a document",
+        "tag": "Fine when the chat already exists",
+        "facts": "Both phones need the app and an account · documents up to 2 GB · photos sent the normal way are compressed",
+        "body": "If you already talk in WhatsApp or Telegram, this is the path of least effort. The trick is how you attach. A photo sent through the gallery picker is shrunk and recompressed; the same photo attached as a document keeps its original size and quality. In WhatsApp, tap the attachment button, choose Document and pick the file from Files or Photos.",
+        "cons": "A 2 GB ceiling per file, a copy sitting in the chat history, and it is easy to forget the document trick and send a blurry version."
+      },
+      "6": {
+        "name": "A USB-C flash drive",
+        "tag": "No network at all, for iPhone 15 and later",
+        "facts": "iPhone 15 or later with USB-C · Android phone with USB-C · exFAT drive · Files app on both",
+        "body": "An iPhone with a USB-C port reads and writes external drives in the Files app, and it can format them there too. Copy the files onto the drive, plug it into the Android phone and open its Files app. Format the drive as exFAT so single files over 4 GB fit. Most current Android phones read exFAT, and Pixels have since Android 13; if yours does not, FAT32 works everywhere but refuses any file of 4 GB or more.",
+        "cons": "You need the drive in hand, iPhones with a Lightning port need an adapter that not every drive supports, and copying photos out of the Photos app to Files first is an extra step."
+      },
+      "7": {
+        "name": "A computer in the middle",
+        "tag": "The old way, still works",
+        "facts": "Windows PC or Mac · two cables · no internet needed · slow to set up",
+        "body": "Plug the iPhone into a Windows PC, copy photos from its DCIM folder in File Explorer, then plug in the Android phone and paste them into its storage. On a Mac, import with the Photos app and copy to the Android phone through a file manager app.",
+        "cons": "Two cables, a computer, trust prompts on both phones, and on a Mac an extra app just to see Android storage. Worth it only when nothing else is available."
+      }
+    }
+  },
+  "table": {
+    "title": "At a glance",
     "cols": {
-      "airdrop": "AirDrop",
-      "quick": "Quick Share",
-      "bishare": "BIShare"
+      "feature": "Feature",
+      "bishare": "BIShare",
+      "quickshare": "AirDrop + Quick Share",
+      "icloud": "iCloud link / Mail Drop",
+      "drive": "Google Drive",
+      "whatsapp": "WhatsApp document",
+      "usb": "USB-C drive"
     },
     "rows": {
-      "r0": "Sends iPhone → Android",
-      "r1": "Truly cross-platform",
-      "r2": "Recipient needs no app",
-      "r3": "Works with iPhone",
-      "r4": "Free, no account"
+      "r0": "Works with any Android phone",
+      "r1": "Works from any iPhone",
+      "r2": "Nothing to install on the Android phone",
+      "r3": "Reaches a phone that is not nearby",
+      "r4": "Keeps original quality",
+      "r5": "No cloud or messaging account",
+      "r6": "Single files over 5 GB",
+      "r7": "End-to-end encrypted"
+    },
+    "note": "Status as of September 2026. For BIShare, the no-install result refers to its browser link (100 GB); the direct Wi-Fi route needs the app on both phones and has no size limit. AirDrop to Quick Share needs a supported Android phone, both sides visible to everyone, and Bluetooth and Wi-Fi on; Google publishes no file size limit, and the link between the phones is encrypted. iCloud links need iCloud Photos and expire in 30 days; Mail Drop caps attachments at 5 GB. Google Drive's free plan holds 15 GB in total. WhatsApp documents are end-to-end encrypted and capped at 2 GB. A USB-C drive needs an iPhone 15 or later and exFAT for files over 4 GB."
+  },
+  "switching": {
+    "title": "Moving everything to a new Android phone",
+    "body": "Sending some files and switching phones are different jobs. If the Android phone is replacing the iPhone, use a migration tool rather than dragging files across one batch at a time.",
+    "items": {
+      "0": {
+        "h": "Transfer to Android, built into iOS 26.3",
+        "b": "The iPhone needs iOS 26.3 or later and the Android phone Android 17. Start setting up the Android phone, or on the iPhone go to Settings, General, Transfer or Reset iPhone, Transfer to Android. Keep the phones close with Bluetooth on, scan the QR code on the Android screen with the iPhone's camera, choose what to bring, and confirm. Photos, contacts, calendars, call history and messages move, along with accessibility settings, Home Screen layout and wallpaper."
+      },
+      "1": {
+        "h": "The eSIM can come too, on some carriers",
+        "b": "Apple lists AT&T, FirstNet, T-Mobile and Verizon in the US, KDDI in Japan, Deutsche Telekom in Germany, SFR in France and EE in the UK. Once the number moves, it stops working on the iPhone. Health data is not part of the transfer, and third-party app data only comes along if the developer has added support."
+      },
+      "2": {
+        "h": "Older Android phones",
+        "b": "A phone that is not on Android 17 yet still has Google's own setup-time migration, which copies contacts, calendar events, photos and videos from the iPhone. It does not move the eSIM, so for anything outside what a migration tool carries, such as documents in the Files app, a file-sharing method from the list above fills in afterwards."
+      }
+    }
+  },
+  "steps": {
+    "title": "iPhone to Android with BIShare, step by step",
+    "items": {
+      "0": {
+        "h": "Install on both phones and join one Wi-Fi",
+        "b": "Get BIShare from the App Store on the iPhone and from Google Play on the Android phone, then connect both to the same Wi-Fi. When iOS asks whether BIShare may find devices on your local network, allow it, or the Android phone will never appear. A phone hotspot works as the shared network if there is no Wi-Fi around."
+      },
+      "1": {
+        "h": "Pick the files and the phone",
+        "b": "Tap send, choose photos, videos or anything from Files, and select the Android phone from the list. The other person accepts, and the files land in their gallery or Downloads folder at full quality, encrypted on the way."
+      },
+      "2": {
+        "h": "Or send a link instead",
+        "b": "Not in the same place, or the Android owner does not want the app? Choose the link option, or open bishare.app/transfer in Safari and drop the files in. Send the link or 6-character code by any message; it opens in the Android phone's browser, downloads up to 100 GB, and expires after 24 hours."
+      }
+    }
+  },
+  "photos": {
+    "title": "Why photos sometimes look wrong on Android, and how to avoid it",
+    "body": "Photo quality problems between iPhone and Android usually come from formats and compression rather than from the transfer itself.",
+    "items": {
+      "0": {
+        "h": "HEIC files",
+        "b": "iPhones save photos as HEIC by default. Android has decoded HEIC since Android 8.0 and Google Photos opens it, but some older gallery apps, editors and websites still refuse it. If the person receiving needs JPEG, switch the iPhone to Settings, Camera, Formats, Most Compatible before taking the photos."
+      },
+      "1": {
+        "h": "Live Photos",
+        "b": "A Live Photo is a still image with a short video attached, and Android has no format that plays the two together. Expect the still to arrive. If the moment matters, open the Live Photo, tap Share and choose Save as Video, then send that video."
+      },
+      "2": {
+        "h": "Compression by chat apps",
+        "b": "Messaging apps resize and recompress photos and videos sent the normal way, which is why a crisp iPhone shot can arrive soft. Send the original file through a direct transfer, a link, or as a document."
+      },
+      "3": {
+        "h": "Video",
+        "b": "iPhone video is usually HEVC, which Android has played since Android 5.0, so nearly every phone handles it. Very large 4K or ProRes clips are where transfer choice matters most: a direct Wi-Fi route moves them in seconds to minutes, while a cloud route has to upload the whole file first."
+      }
+    }
+  },
+  "speed": {
+    "title": "How long a transfer takes",
+    "body": "Phones in the same room are limited by the Wi-Fi, not by the app. Anything that goes through the internet is limited by your upload speed.",
+    "items": {
+      "0": {
+        "h": "Direct over Wi-Fi",
+        "b": "With both phones close to a Wi-Fi 5 router, expect somewhere near 40–50 MB/s; a Wi-Fi 6 router lifts that to roughly 70–110 MB/s. A 1 GB video takes well under half a minute. Over a phone hotspot, expect roughly 10–30 MB/s."
+      },
+      "1": {
+        "h": "AirDrop to Quick Share",
+        "b": "The two phones build their own short-range connection, so a slow or absent router is not an obstacle. It suits a handful of photos or a few videos; for a large batch, keep both screens awake and the phones close together."
+      },
+      "2": {
+        "h": "Links, iCloud, Drive and chat apps",
+        "b": "The file uploads once and downloads once. On a 50 Mbps upload, 1 GB needs about three minutes before the Android phone can start downloading, and 10 GB takes more than half an hour."
+      }
+    }
+  },
+  "fixes": {
+    "title": "When the Android phone doesn't show up",
+    "items": {
+      "0": {
+        "h": "The Android phone isn't in the AirDrop sheet",
+        "b": "Check it is on the supported list and up to date, that the iPhone is set to Everyone for 10 minutes rather than Contacts Only, that the Android phone is visible to everyone, and on Samsung that Share with Apple devices is on. Both need Bluetooth and Wi-Fi on and the screens unlocked."
+      },
+      "1": {
+        "h": "The phones share a Wi-Fi but can't see each other in an app",
+        "b": "On the iPhone, open Settings, Privacy & Security, Local Network and make sure the app is allowed. Guest networks and some office or hotel Wi-Fi keep devices apart; use a phone hotspot instead. A VPN on either phone can also block local discovery."
+      },
+      "2": {
+        "h": "Bluetooth pairs but nothing sends",
+        "b": "That is expected. iPhones only exchange files with other Apple devices, so pairing with an Android phone over Bluetooth never offers file transfer. Use Wi-Fi or a link."
+      },
+      "3": {
+        "h": "Photos won't open on the Android phone",
+        "b": "They are almost certainly HEIC and the app in use cannot read them. Open them in Google Photos, or resend from an iPhone set to Most Compatible, which saves new photos as JPEG."
+      },
+      "4": {
+        "h": "The link download is crawling",
+        "b": "Link speed is capped by the sender's upload. If both phones are actually in the same place, switch to a direct Wi-Fi route, which skips the internet entirely."
+      }
+    }
+  },
+  "security": {
+    "title": "Who can see the files on the way",
+    "body": "Photos of family, ID scans and documents deserve a route that does not leave copies behind. This is how the options compare.",
+    "items": {
+      "0": {
+        "h": "Phone to phone, nothing stored",
+        "b": "BIShare's direct route, LocalSend and AirDrop to Quick Share send between the two phones and encrypt the connection. No copy is left on a server."
+      },
+      "1": {
+        "h": "Through a server that cannot read it",
+        "b": "BIShare links encrypt the file on the iPhone before upload and put the decryption key after the # in the address. Browsers do not transmit that fragment, so the server only ever stores scrambled data. WhatsApp documents are end-to-end encrypted too, but stay in both chat histories."
+      },
+      "2": {
+        "h": "Through a server that can",
+        "b": "iCloud links, Mail Drop and Google Drive encrypt files in transit and on their servers, but under standard settings the provider holds the keys. Fine for holiday photos, worth a second thought for passports and contracts."
+      }
     }
   },
   "faq": {
     "title": "iPhone to Android: FAQ",
     "items": {
       "0": {
-        "q": "How do I send files from an iPhone to an Android phone?",
-        "a": "Install BIShare on the iPhone. On the same Wi-Fi, pick the Android phone from the list and send — files go directly, end-to-end encrypted. Not on the same network? Share the link, QR code, or 6-character code and the Android phone downloads it in any browser."
+        "q": "Can you AirDrop from an iPhone to an Android phone?",
+        "a": "Yes, if the Android phone supports Quick Share's AirDrop compatibility: the Pixel 10, 9 and 8a, the Galaxy S24, S25 and S26 lines and the Z Fold/Flip 6 and 7, plus selected Xiaomi, OnePlus, Oppo, Vivo and Honor models. Set the iPhone's AirDrop to Everyone for 10 minutes. Other Android phones cannot receive AirDrop."
       },
       "1": {
-        "q": "Can I AirDrop from iPhone to Android?",
-        "a": "No — AirDrop is Apple-only and can't see Android devices at all. BIShare does the same job across both: direct nearby transfers when the phones are together, and a browser-based link when they're apart."
+        "q": "What is the easiest way to send files from iPhone to Android?",
+        "a": "If the Android phone is on Google's supported list, AirDrop with both sides visible to everyone. Otherwise, install BIShare on both and send over the same Wi-Fi, or send a BIShare link that opens in the Android phone's browser."
       },
       "2": {
-        "q": "How do I send photos and videos from iPhone to Android without losing quality?",
-        "a": "BIShare sends the original file, so photos and videos arrive at full resolution — no messaging-app compression. Nearby transfers over your own network have no size cap, and single files up to 100 GB work over a share link."
+        "q": "Can I send files from iPhone to Android via Bluetooth?",
+        "a": "No. iPhones do not transfer files over Bluetooth to non-Apple devices, even when paired. Use a Wi-Fi app, AirDrop to a supported Android phone, or a link."
       },
       "3": {
-        "q": "Does the Android phone need to install an app?",
-        "a": "Not to receive a link — they just open it in a browser and download, no app or account needed. Installing BIShare on the Android side makes nearby transfers faster and unlocks every feature, but it's never required to receive."
+        "q": "How do I keep full photo quality when sending from iPhone to Android?",
+        "a": "Send the original files by a direct transfer, a BIShare or iCloud link, Google Drive, or as a document in WhatsApp. Avoid attaching them as normal photos in chat apps, which compresses them. If the recipient needs JPEG, set the iPhone to Most Compatible."
       },
       "4": {
-        "q": "Is there a file size or cost limit?",
-        "a": "BIShare is free with no account. Nearby transfers over your own Wi-Fi have no size limit; share links handle single files up to 100 GB and expire automatically after 24 hours."
+        "q": "How do I send a large video from iPhone to Android?",
+        "a": "On the same Wi-Fi, a direct app such as BIShare has no size limit. Apart, a BIShare link carries up to 100 GB and Mail Drop up to 5 GB. WhatsApp documents stop at 2 GB."
+      },
+      "5": {
+        "q": "Can I send files from iPhone to Android without an app?",
+        "a": "Yes. Use Copy iCloud Link in Photos, Mail Drop in the Mail app, or bishare.app/transfer in Safari; the Android phone opens each in a browser. A supported Android phone can also receive AirDrop directly."
+      },
+      "6": {
+        "q": "Does iOS 26.3 let me transfer to Android?",
+        "a": "Yes, for switching phones. Transfer to Android in Settings moves photos, messages, contacts, calendars and call history to a phone running Android 17, and the eSIM on supported carriers. It is not meant for sending a single file."
+      },
+      "7": {
+        "q": "Why can't my Android phone open photos from my iPhone?",
+        "a": "They are probably HEIC. Android can decode HEIC and Google Photos opens it, but some apps cannot. Set the iPhone's camera format to Most Compatible to save future photos as JPEG."
+      },
+      "8": {
+        "q": "Must the iPhone and the Android phone share a Wi-Fi network?",
+        "a": "Only for direct routes, meaning BIShare phone to phone or LocalSend. AirDrop to Quick Share needs the phones close together with Bluetooth and Wi-Fi on. Links, iCloud, Drive and chat apps work anywhere."
+      },
+      "9": {
+        "q": "Is it free to send files from iPhone to Android?",
+        "a": "Yes. BIShare, LocalSend, AirDrop to Quick Share, iCloud links, Mail Drop and Google Drive's free 15 GB all cost nothing. Only very large or long-term cloud storage needs a paid plan."
       }
     }
   },
   "cta": {
-    "title": "Get your iPhone and Android talking in seconds",
-    "body": "Free, no account. Install BIShare on your iPhone and start sending — the Android side doesn't even need the app.",
+    "title": "Every iPhone, every Android phone",
+    "body": "No cost, no sign-up, code on GitHub. Beam files across the room over Wi-Fi, or across the country with a link that opens in the Android phone's browser.",
     "download": "Download BIShare"
   },
   "a11y": {
     "yes": "Yes",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "An iPhone sending files to an Android phone, titled send files from iPhone to Android: eight ways that work in 2026.",
+      "title": "Send files from iPhone to Android",
+      "sub": "8 ways that work in 2026",
+      "left": "iPhone",
+      "right": "Android"
+    },
+    "decide": {
+      "alt": "Decision chart: if you are moving to Android for good, use Transfer to Android; otherwise, if the Android phone is on Google's Quick Share list, use AirDrop with both sides set to Everyone; otherwise, if you are in the same place, use BIShare or LocalSend over Wi-Fi; if not, send a BIShare link or an iCloud link.",
+      "title": "Which way to use",
+      "sub": "Three questions, in this order",
+      "yes": "Yes",
+      "no": "No",
+      "q1": "Moving to the Android phone for good?",
+      "a1": "Transfer to Android in iOS 26.3",
+      "q2": "Is the Android phone on Google's Quick Share list?",
+      "a2": "AirDrop, both sides set to Everyone",
+      "q3": "Are the two phones in the same place?",
+      "a3": "BIShare or LocalSend over Wi-Fi",
+      "a4": "Apart: a BIShare link up to 100 GB, or an iCloud link for photos (30 days)"
+    },
+    "switchTo": {
+      "alt": "Transfer to Android at a glance: it needs iOS 26.3 or later, a phone on Android 17, Bluetooth and Wi-Fi, and a QR code scan; it moves photos, videos, messages, contacts, calendars, call history and the eSIM on supported carriers; health data stays behind, and third-party app data only moves if the developer supports it.",
+      "title": "Switching phones: Transfer to Android",
+      "sub": "Built into iOS 26.3, for leaving the iPhone rather than sending one file",
+      "needTitle": "What it needs",
+      "need0": "iPhone on iOS 26.3 or later",
+      "need1": "Android phone on Android 17",
+      "need2": "Bluetooth on, iPhone on Wi-Fi",
+      "need3": "Scan the QR code on the Android screen",
+      "movesTitle": "What moves",
+      "moves0": "Photos and videos",
+      "moves1": "Messages, contacts, calendars",
+      "moves2": "Call history, Home Screen layout, wallpaper",
+      "moves3": "The eSIM, on supported carriers",
+      "staysTitle": "What stays behind",
+      "stays0": "Health data",
+      "stays1": "Third-party app data, unless the developer adds support",
+      "stays2": "The number on the iPhone, once the eSIM moves",
+      "foot": "From Apple's support article for iOS 26.3; carrier list for eSIM is limited to a few countries"
+    },
+    "photos": {
+      "alt": "Four reasons iPhone photos look wrong on Android: HEIC files, which Android has decoded since 8.0 and which Most Compatible avoids; Live Photos, where only the still arrives unless saved as video; chat apps that compress photos unless sent as a document; and HEVC video, which Android has played since 5.0.",
+      "title": "Why photos look wrong on Android",
+      "sub": "Usually the format or the app, not the transfer",
+      "heic": {
+        "name": "HEIC photos",
+        "what": "Android decodes HEIC since 8.0, but some apps still refuse it",
+        "fix": "Camera, Formats, Most Compatible for JPEG"
+      },
+      "live": {
+        "name": "Live Photos",
+        "what": "Android has no format for the still and video together",
+        "fix": "Share, Save as Video, then send that"
+      },
+      "chat": {
+        "name": "Chat app compression",
+        "what": "Photos sent the normal way are resized",
+        "fix": "Send as a document, a link, or directly"
+      },
+      "video": {
+        "name": "HEVC video",
+        "what": "Android has played HEVC since 5.0",
+        "fix": "Big 4K clips: send directly over Wi-Fi"
+      }
+    }
   }
 }

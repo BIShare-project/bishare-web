@@ -1,83 +1,369 @@
 {
   "meta": {
-    "title": "iPhone에서 Android로 파일 보내기, 케이블 없이",
-    "description": "iPhone에서 Android로 사진·영상·파일을 Wi-Fi로 원본 화질 그대로, 또는 브라우저 링크로 전송. 무료, 계정·케이블 불필요."
+    "title": "iPhone→Android 파일 전송 방법 8가지 (2026)",
+    "description": "2026년 iPhone에서 Android로 사진·동영상·파일 보내는 법. AirDrop과 Quick Share, iCloud 링크, Google Drive, USB-C, 무료 직접 전송 앱."
   },
   "hero": {
     "eyebrow": "iPhone → Android",
-    "title": "아이폰에서 안드로이드로 파일 보내기",
-    "body": "아이폰은 안드로이드폰으로 에어드롭할 수 없고, 퀵 셰어는 마치 아이폰이 없는 것처럼 굽니다. <strong>BIShare</strong>는 그 틈을 메웁니다. 사진, 동영상, 어떤 파일이든 <strong>아이폰에서 안드로이드로 곧바로</strong> — 로컬 Wi-Fi로 몇 초 만에, 또는 상대 폰이 아무 브라우저에서나 여는 링크로 보내세요. <highlight>안드로이드 쪽에는 앱을 설치할 필요가 없습니다.</highlight>",
+    "title": "iPhone에서 Android로 파일 보내기",
+    "body": "대부분의 가이드는 여전히 \"AirDrop은 Android에서 안 된다\"로 시작합니다. 하지만 2025년 말 Google이 Quick Share가 AirDrop과 통하도록 만들면서 그 말은 완전히 맞지 않게 되었고, 2026년 초에는 Apple이 iOS에 Android로 전송 기능을 넣었습니다. 둘 다 도움이 되지만, 각각이 다루는 범위는 기사 제목보다 좁습니다. 이 페이지는 사진 한 장, 동영상 폴더, 도시 반대편의 친구, 휴대폰 완전 교체에 여덟 가지 실제 방법 중 무엇이 맞는지 정리하고, <strong>BIShare</strong>가 빈틈을 어떻게 채우는지 보여 줍니다. <strong>어떤 iPhone에서든 어떤 Android로든</strong>, Wi-Fi로 바로 또는 링크로 보냅니다. <highlight>오픈 소스, 무료, 누구도 가입할 필요 없음.</highlight>",
     "ctaPrimary": "BIShare 무료로 받기",
     "ctaSecondary": "작동 방식"
   },
-  "why": {
-    "title": "에어드롭이 안드로이드에 닿지 못하는 이유",
-    "body": "에어드롭은 애플 전용 언어만 쓰기 때문에 애플 세계의 가장자리 — 아이폰, 아이패드, 맥 — 에서 멈춥니다. 구글의 퀵 셰어는 정반대로, <strong>안드로이드와 윈도우</strong>는 잇지만 아이폰에 닿을 방법이 없습니다. 그래서 가장 흔한 전달 — 아이폰 사진을 친구의 안드로이드로 건네는 일 — 이 둘 사이의 틈으로 떨어집니다. BIShare는 바로 그 틈을 메우려고 있습니다."
+  "updated": "2026년 9월 업데이트 · 기기 목록은 Google의 Quick Share 페이지로, 이전 절차는 Apple의 iOS 26.3 지원 문서로 확인",
+  "disclosure": "BIShare는 저희 제품입니다. 아래의 몇몇 방법은 휴대폰에 기본으로 들어 있어 무료이며, Android 휴대폰이 Google 지원 목록에 있다면 AirDrop만으로 충분할 수도 있습니다. 해당하는 곳에서는 그렇게 적었습니다.",
+  "quick": {
+    "title": "빠른 답변",
+    "items": [
+      "<strong>Android가 최신 Pixel, Galaxy S, 폴더블이라면:</strong> 먼저 AirDrop을 써 보세요. iPhone을 모든 사람(10분)으로 설정하고 Android를 모든 사람에게 표시하면 AirDrop 화면에 나타납니다.",
+      "<strong>그 밖의 Android, 같은 Wi-Fi라면:</strong> 두 휴대폰의 BIShare가 원본 파일을 직접, 암호화해서 보냅니다. 크기 제한은 없습니다.",
+      "<strong>Android에 아무것도 설치하지 않으려면:</strong> 링크를 보내세요. BIShare 링크는 최대 100 GB를 담아 Chrome에서 열리고, iCloud 링크도 사진이라면 같은 역할을 하며 30일간 유지됩니다.",
+      "<strong>큰 동영상을 이메일로 보내려면:</strong> iPhone Mail 앱의 Mail Drop은 최대 5 GB 첨부를 처리하고 Gmail 주소로도 보낼 수 있습니다.",
+      "<strong>Android로 완전히 옮긴다면:</strong> iOS 26.3 이상에서 Android 17 휴대폰과 함께 Android로 전송을 쓰세요. 사진, 메시지, 연락처는 물론 eSIM까지 옮기며, 이는 어떤 파일 공유 앱도 못 하는 일입니다.",
+      "<strong>Bluetooth는 소용없습니다:</strong> iPhone은 페어링되어 있어도 Android 휴대폰에 Bluetooth로 파일을 보내지 않습니다."
+    ]
   },
-  "how": {
-    "title": "BIShare가 아이폰 → 안드로이드로 보내는 방법",
+  "changed": {
+    "title": "2026년에 바뀐 것과 바뀌지 않은 것",
+    "body": "Apple과 Google의 두 가지 변화가 몇 달 만에 이 문제의 판도를 바꿨습니다. 그렇다고 모든 iPhone과 Android 조합이 한 번 탭으로 주고받게 된 것은 아니니, 각각이 어디까지 닿는지 정확히 알아 두는 편이 좋습니다.",
     "items": {
       "0": {
-        "h": "같은 Wi-Fi에서",
-        "b": "두 폰이 같은 네트워크에 있나요? BIShare는 각 파일을 기기 사이에서 곧바로, 종단 간 암호화로 보내며 서버에는 아무것도 남기지 않습니다. 빠르고, 인터넷이 없어도 폰 핫스팟으로 작동합니다."
+        "h": "AirDrop이 이제 일부 Android에 닿는다",
+        "b": "Google은 2025년 11월 Pixel 10을 시작으로 Quick Share를 AirDrop과 호환되게 만들었습니다. 이어 Pixel 9 시리즈와 Pixel 8a가 추가됐고, 그다음 Samsung 플래그십(Galaxy S24, S25, S26, One UI 8.5로 업데이트한 6·7세대 Fold와 Flip)이 합류했습니다. 2026년 6월까지 목록에는 OnePlus 15, Xiaomi 17T Pro, Honor Magic V6, Oppo의 Find N6와 Find X9 시리즈, Vivo의 X300 시리즈도 올랐습니다. iPhone은 모두 참여할 수 있습니다. 중급 Galaxy A, 구형 Pixel, 대부분의 저가폰은 해당하지 않습니다."
       },
       "1": {
-        "h": "떨어져 있을 때",
-        "b": "멀리 있거나 안드로이드 주인이 아무것도 설치하기 싫다면, 링크와 QR 코드, 6자리 코드가 생깁니다. 상대는 아무 브라우저에서나 열어 내려받기만 하면 됩니다 — 앱도 계정도 필요 없이. 링크는 24시간 뒤 저절로 사라집니다."
+        "h": "iOS에 출구가 생겼다",
+        "b": "iOS 26.3은 설정의 일반 > 전송 또는 iPhone 재설정에 Android로 전송을 추가했습니다. Android 17 휴대폰과 QR 코드로 연결해 사진, 연락처, 캘린더, 통화 기록, 메시지를 옮기고, 지원 통신사라면 eSIM 번호도 옮깁니다. iPhone을 떠나기 위한 기능이지, iPhone을 계속 쓰는 친구에게 파일 하나를 건네기 위한 기능은 아닙니다."
       },
       "2": {
-        "h": "모든 플랫폼",
-        "b": "아이폰에서 안드로이드만이 아닙니다. 앱 하나로 아이폰, 안드로이드, 맥, 윈도우, 리눅스 사이에서 파일을 옮깁니다 — 아무 두 기기나 골라 양방향으로 보내세요."
+        "h": "여전히 없는 것",
+        "b": "Google 목록에 없는 Android로 파일을 보내는 기본 방법. 같은 방에 없는 Android에 닿는 기본 방법. 그리고 iPhone에서 Bluetooth로 파일을 보내는 것 자체. 이 페이지의 나머지는 이 세 가지 때문에 있습니다."
       }
     }
   },
-  "comparison": {
-    "title": "에어드롭 vs 퀵 셰어 vs BIShare",
+  "methods": {
+    "title": "여덟 가지 방법 순위",
+    "consLabel": "단점:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "종합 1위: 가깝든 멀든 모든 Android에 전송",
+        "facts": "iOS·Android 앱, 데스크톱도 지원 · MIT 라이선스, 무료 · 같은 네트워크의 휴대폰 간 무제한 · 링크 최대 100 GB · 종단 간 암호화 · 가입 불필요",
+        "body": "휴대폰 기종은 상관없습니다. 두 휴대폰에 앱을 설치하고 같은 Wi-Fi에 연결하면 Android가 iPhone의 기기 목록에 나타나고, 선택한 뒤 상대가 수락하면 원본이 네트워크 속도 그대로 서버를 거치지 않고 건너갑니다. 사진은 해상도가 유지되고 동영상은 다시 인코딩되지 않습니다. 상대가 다른 곳에 있거나 아무것도 설치하고 싶지 않다면, 앱이 공유 링크(대신 QR 코드나 6자리 짧은 코드도 가능)로 전환합니다. 받는 사람은 Chrome, Samsung Internet 등 휴대폰 브라우저에서 열어 최대 100 GB를 내려받습니다. 파일은 업로드 전에 iPhone에서 암호화되고, 링크는 24시간 뒤 만료됩니다.",
+        "cons": "Wi-Fi 직접 전송은 Android에도 앱이 필요합니다. 링크는 파일을 건네기 위한 것이지 보관용이 아니라서, 만료되면 파일도 사라집니다."
+      },
+      "1": {
+        "name": "AirDrop과 Quick Share",
+        "tag": "Android가 목록에 있다면 최고의 기본 기능",
+        "facts": "모든 iPhone · Pixel 10, 9, 8a, Galaxy S24–S26, Z Fold/Flip 6과 7, 일부 Xiaomi, OnePlus, Oppo, Vivo, Honor · 근거리만 · 앱 불필요 · 크기 한도 공개 안 됨",
+        "body": "지원 기종이라면 iPhone끼리의 AirDrop과 가장 비슷합니다. iPhone에서 제어 센터를 열고 AirDrop을 모든 사람(10분)으로 설정한 뒤, Android의 Quick Share 설정에서 모든 사람에게 표시되게 합니다. Samsung 휴대폰이라면 Apple 기기와 공유도 켜세요. 그러면 Android가 다른 Apple 기기처럼 iPhone의 공유 화면에 나타나고, 반대 방향으로도 됩니다. 두 휴대폰 모두 Bluetooth와 Wi-Fi를 켜고 몇 미터 안에 있어야 합니다.",
+        "cons": "연락처만 모드는 플랫폼 간에 동작하지 않아 보내는 동안 양쪽이 주변 모든 사람에게 열려 있습니다. 또 지금 쓰이는 Android 대부분이 목록에 없습니다."
+      },
+      "2": {
+        "name": "iCloud 링크 또는 Mail Drop",
+        "tag": "iPhone 기본 기능, 어떤 브라우저에서도 열림",
+        "facts": "모든 iPhone · 사진·동영상용 iCloud 링크, 30일 후 만료 · Mail Drop 최대 5 GB, 30일 후 만료 · 보내는 쪽에 iCloud 필요",
+        "body": "놓치기 쉬운 Apple 기능이 두 가지 있습니다. 사진 앱에서 사진이나 동영상을 고르고 공유를 누른 뒤 iCloud 링크 복사를 선택하면, 링크가 Android 브라우저에서 열리고 30일간 유지됩니다. 사진이 아닌 파일은 Mail 앱에서 첨부해 상대의 Gmail 주소로 보내세요. 일반 첨부로는 너무 큰 파일은 Mail Drop으로 보내지며, 최대 5 GB까지이고 iCloud 용량에서 차감되지 않습니다.",
+        "cons": "모든 것이 업로드 속도로 Apple 서버를 거칩니다. iCloud 링크는 iCloud 사진이 켜져 있어야 하고, Mail Drop 링크는 30일 뒤 작동하지 않습니다."
+      },
+      "3": {
+        "name": "Google Drive 또는 Google 포토",
+        "tag": "파일을 클라우드에 둬야 할 때 최적",
+        "facts": "iPhone용 앱 있음, 대부분의 Android에 기본 탑재 · 무료 15 GB를 Gmail, Drive, 포토가 공유 · Google 계정 필요",
+        "body": "대부분의 Android 사용자는 이미 Google 계정과 포토, Drive 앱을 갖고 있습니다. iPhone에서 업로드한 뒤 앨범이나 파일을 상대 주소와 공유하거나 링크를 보내세요. 계속 늘어나는 가족 앨범이나 둘이 자주 여는 폴더에 잘 맞습니다. 해상도가 중요하다면 Google 포토의 백업 화질이 원본인지 확인하세요.",
+        "cons": "업로드 후 다운로드라서 큰 동영상은 느리고, 무료 15 GB를 차지하며, iPhone에도 Google 계정이 있어야 합니다."
+      },
+      "4": {
+        "name": "LocalSend",
+        "tag": "같은 Wi-Fi용 오픈 소스 앱",
+        "facts": "iOS, Android, 데스크톱 앱 · 오픈 소스, 무료 · 로컬 네트워크만 · 암호화 · 가입 없음",
+        "body": "LocalSend는 BIShare의 같은 네트워크 부분을 해내며, 잘 해냅니다. 두 휴대폰에 설치하면 서로를 찾고 파일이 직접 건너갑니다. 한집에 사는 두 사람이 직접 만나 파일을 주고받기만 한다면 탄탄한 무료 선택지입니다.",
+        "cons": "다른 곳에 있는 휴대폰에는 보낼 수 없고, 상대가 아무것도 설치하지 않으려 하면 소용이 없습니다."
+      },
+      "5": {
+        "name": "WhatsApp이나 Telegram에서 문서로 보내기",
+        "tag": "이미 대화방이 있다면 괜찮은 방법",
+        "facts": "두 휴대폰에 앱과 계정 필요 · 문서 최대 2 GB · 일반 방식으로 보낸 사진은 압축됨",
+        "body": "이미 WhatsApp이나 Telegram으로 대화한다면 가장 손이 덜 가는 방법입니다. 핵심은 첨부 방식입니다. 갤러리에서 보낸 사진은 줄어들고 다시 압축되지만, 같은 사진을 문서로 첨부하면 원래 크기와 화질이 유지됩니다. WhatsApp에서 첨부 버튼을 누르고 문서를 고른 뒤 파일이나 사진에서 파일을 선택하세요.",
+        "cons": "파일당 2 GB 한도, 대화 기록에 남는 사본, 그리고 문서 방식을 잊고 흐린 사진을 보내기 쉽다는 점."
+      },
+      "6": {
+        "name": "USB-C 메모리",
+        "tag": "네트워크가 전혀 없어도 되는 방법, iPhone 15 이상",
+        "facts": "USB-C가 있는 iPhone 15 이상 · USB-C가 있는 Android · exFAT 메모리 · 양쪽의 파일 앱",
+        "body": "USB-C 포트가 있는 iPhone은 파일 앱에서 외장 저장장치를 읽고 쓰며 포맷도 할 수 있습니다. 파일을 메모리에 복사해 Android에 꽂고 파일 앱을 여세요. 4 GB가 넘는 파일도 담기려면 메모리를 exFAT으로 포맷합니다. 요즘 Android 대부분은 exFAT을 읽고, Pixel은 Android 13부터 지원합니다. 읽지 못한다면 FAT32는 어디서나 되지만 4 GB 이상 파일은 받지 않습니다.",
+        "cons": "메모리가 손에 있어야 하고, Lightning iPhone은 모든 메모리와 맞지는 않는 어댑터가 필요하며, 사진 앱에서 파일 앱으로 먼저 복사하는 단계가 더 있습니다."
+      },
+      "7": {
+        "name": "컴퓨터를 거치기",
+        "tag": "오래된 방법, 아직도 동작",
+        "facts": "Windows PC 또는 Mac · 케이블 두 개 · 인터넷 불필요 · 준비가 번거로움",
+        "body": "iPhone을 Windows PC에 연결해 파일 탐색기에서 DCIM 폴더의 사진을 복사하고, Android를 연결해 저장공간에 붙여 넣습니다. Mac에서는 사진 앱으로 가져온 뒤 파일 관리자 앱으로 Android에 복사합니다.",
+        "cons": "케이블 두 개, 컴퓨터, 두 휴대폰의 신뢰 확인, 그리고 Mac에서는 Android 저장공간을 보려고만 앱을 하나 더 써야 합니다. 다른 방법이 없을 때만 할 만합니다."
+      }
+    }
+  },
+  "table": {
+    "title": "한눈에 보기",
     "cols": {
-      "airdrop": "AirDrop",
-      "quick": "Quick Share",
-      "bishare": "BIShare"
+      "feature": "항목",
+      "bishare": "BIShare",
+      "quickshare": "AirDrop + Quick Share",
+      "icloud": "iCloud 링크 / Mail Drop",
+      "drive": "Google Drive",
+      "whatsapp": "WhatsApp 문서",
+      "usb": "USB-C 메모리"
     },
     "rows": {
-      "r0": "아이폰 → 안드로이드 전송",
-      "r1": "진정한 크로스플랫폼",
-      "r2": "받는 사람 앱 불필요",
-      "r3": "아이폰과 호환",
-      "r4": "무료, 계정 불필요"
+      "r0": "모든 Android에서 동작",
+      "r1": "모든 iPhone에서 동작",
+      "r2": "Android에 설치할 것 없음",
+      "r3": "근처에 없는 휴대폰에 전달",
+      "r4": "원본 화질 유지",
+      "r5": "클라우드·메신저 계정 불필요",
+      "r6": "5 GB 넘는 단일 파일",
+      "r7": "종단 간 암호화"
+    },
+    "note": "2026년 9월 기준. BIShare의 설치 불필요는 브라우저 링크(100 GB) 기준이며, Wi-Fi 직접 전송은 두 휴대폰 모두 앱이 필요하고 크기 제한이 없습니다. AirDrop과 Quick Share는 지원되는 Android, 양쪽 모두 모든 사람에게 표시, Bluetooth와 Wi-Fi 켜기가 필요합니다. Google은 크기 한도를 공개하지 않으며 휴대폰 간 연결은 암호화됩니다. iCloud 링크는 iCloud 사진이 필요하고 30일 뒤 만료되며, Mail Drop 첨부는 최대 5 GB입니다. Google Drive 무료 요금제는 총 15 GB입니다. WhatsApp 문서는 종단 간 암호화되며 2 GB로 제한됩니다. USB-C 메모리는 iPhone 15 이상과, 4 GB 넘는 파일에는 exFAT이 필요합니다."
+  },
+  "switching": {
+    "title": "새 Android로 모두 옮기기",
+    "body": "파일 몇 개를 보내는 일과 휴대폰을 바꾸는 일은 다릅니다. Android가 iPhone을 대신한다면 파일을 여러 번 나눠 옮기기보다 이전 도구를 쓰세요.",
+    "items": {
+      "0": {
+        "h": "iOS 26.3에 들어 있는 Android로 전송",
+        "b": "iPhone은 iOS 26.3 이상, Android는 Android 17이 필요합니다. Android 초기 설정을 시작하거나, iPhone에서 설정 > 일반 > 전송 또는 iPhone 재설정 > Android로 전송으로 갑니다. Bluetooth를 켠 채 휴대폰을 가까이 두고, Android 화면의 QR 코드를 iPhone 카메라로 스캔해 가져갈 항목을 고르고 확인합니다. 사진, 연락처, 캘린더, 통화 기록, 메시지와 함께 손쉬운 사용 설정, 홈 화면 배치, 배경화면도 옮겨집니다."
+      },
+      "1": {
+        "h": "일부 통신사는 eSIM도 옮겨짐",
+        "b": "Apple은 미국의 AT&T, FirstNet, T-Mobile, Verizon, 일본의 KDDI, 독일의 Deutsche Telekom, 프랑스의 SFR, 영국의 EE를 명시합니다. 번호가 옮겨지면 iPhone에서는 더 이상 쓸 수 없습니다. 건강 데이터는 전송되지 않으며, 타사 앱 데이터는 개발자가 지원을 추가한 경우에만 옮겨집니다."
+      },
+      "2": {
+        "h": "구형 Android",
+        "b": "아직 Android 17이 아닌 휴대폰도 설정 과정에서 Google의 자체 이전 기능을 쓸 수 있으며, iPhone의 연락처, 캘린더 일정, 사진, 동영상을 복사합니다. eSIM은 옮기지 못하므로, 파일 앱의 문서처럼 이전 도구가 담지 못하는 것은 나중에 위 목록의 방법으로 채우면 됩니다."
+      }
+    }
+  },
+  "steps": {
+    "title": "BIShare로 iPhone에서 Android로 보내는 단계",
+    "items": {
+      "0": {
+        "h": "두 휴대폰에 설치하고 같은 Wi-Fi에 연결",
+        "b": "iPhone은 App Store, Android는 Google Play에서 BIShare를 설치하고 둘 다 같은 Wi-Fi에 연결합니다. iOS가 로컬 네트워크의 기기를 찾도록 허용할지 물으면 허용하세요. 그러지 않으면 Android가 나타나지 않습니다. 주변에 Wi-Fi가 없으면 휴대폰 핫스팟을 공용 네트워크로 쓸 수 있습니다."
+      },
+      "1": {
+        "h": "파일과 휴대폰 고르기",
+        "b": "보내기를 누르고 사진, 동영상, 또는 파일 앱의 무엇이든 고른 다음 목록에서 Android를 선택합니다. 상대가 수락하면 파일이 전송 중 암호화된 채 원본 화질로 갤러리나 다운로드 폴더에 도착합니다."
+      },
+      "2": {
+        "h": "또는 링크 보내기",
+        "b": "같은 곳에 있지 않거나 Android 사용자가 앱을 원하지 않나요? 링크 옵션을 고르거나 Safari에서 bishare.app/transfer 를 열어 파일을 끌어다 놓으세요. 링크나 6자리 코드를 아무 메시지로 보내면 Android 브라우저에서 열려 최대 100 GB를 내려받고, 24시간 뒤 만료됩니다."
+      }
+    }
+  },
+  "photos": {
+    "title": "Android에서 사진이 이상하게 보이는 이유와 피하는 법",
+    "body": "iPhone과 Android 사이의 사진 화질 문제는 대개 전송 자체가 아니라 형식과 압축에서 생깁니다.",
+    "items": {
+      "0": {
+        "h": "HEIC 파일",
+        "b": "iPhone은 기본적으로 사진을 HEIC로 저장합니다. Android는 Android 8.0부터 HEIC를 디코딩하고 Google 포토도 열지만, 일부 오래된 갤러리 앱, 편집기, 웹사이트는 아직 받아들이지 않습니다. 받는 사람이 JPEG가 필요하다면 촬영 전에 iPhone의 설정 > 카메라 > 포맷 > 높은 호환성으로 바꾸세요."
+      },
+      "1": {
+        "h": "Live Photos",
+        "b": "Live Photo는 짧은 동영상이 붙은 사진인데, Android에는 둘을 함께 재생하는 형식이 없습니다. 사진만 도착한다고 생각하세요. 그 순간이 중요하다면 Live Photo를 열고 공유를 눌러 비디오로 저장을 고른 뒤 그 동영상을 보내세요."
+      },
+      "2": {
+        "h": "채팅 앱의 압축",
+        "b": "메신저 앱은 일반 방식으로 보낸 사진과 동영상을 줄이고 다시 압축하기 때문에, 선명한 iPhone 사진이 흐리게 도착할 수 있습니다. 원본 파일을 직접 전송, 링크, 또는 문서로 보내세요."
+      },
+      "3": {
+        "h": "동영상",
+        "b": "iPhone 동영상은 대개 HEVC이고 Android는 Android 5.0부터 재생하므로 거의 모든 휴대폰에서 문제없습니다. 전송 방식이 가장 크게 차이 나는 것은 아주 큰 4K나 ProRes 영상입니다. Wi-Fi로 직접 보내면 몇 초에서 몇 분이면 되지만, 클라우드는 먼저 파일 전체를 올려야 합니다."
+      }
+    }
+  },
+  "speed": {
+    "title": "전송에 걸리는 시간",
+    "body": "같은 방의 휴대폰끼리는 앱이 아니라 Wi-Fi가 속도를 정합니다. 인터넷을 거치는 것은 모두 업로드 속도에 묶입니다.",
+    "items": {
+      "0": {
+        "h": "Wi-Fi로 직접",
+        "b": "두 휴대폰이 Wi-Fi 5 공유기 근처라면 약 40–50 MB/s, Wi-Fi 6 공유기라면 약 70–110 MB/s까지 나옵니다. 1 GB 동영상은 30초보다 훨씬 짧게 걸립니다. 휴대폰 핫스팟에서는 약 10–30 MB/s를 예상하세요."
+      },
+      "1": {
+        "h": "AirDrop과 Quick Share",
+        "b": "두 휴대폰이 자체 근거리 연결을 만들기 때문에 공유기가 느리거나 없어도 문제가 없습니다. 사진 몇 장이나 동영상 몇 개에 알맞으며, 많은 양을 보낼 때는 두 화면을 켜 두고 휴대폰을 붙여 두세요."
+      },
+      "2": {
+        "h": "링크, iCloud, Drive, 채팅 앱",
+        "b": "파일은 한 번 업로드되고 한 번 다운로드됩니다. 업로드 50 Mbps에서는 Android가 다운로드를 시작하기 전에 1 GB에 약 3분, 10 GB에는 30분 넘게 걸립니다."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Android가 보이지 않을 때",
+    "items": {
+      "0": {
+        "h": "AirDrop 화면에 Android가 없음",
+        "b": "지원 목록에 있고 최신 상태인지, iPhone이 연락처만이 아니라 모든 사람(10분)인지, Android가 모든 사람에게 표시되는지, Samsung이라면 Apple 기기와 공유가 켜져 있는지 확인하세요. 두 기기 모두 Bluetooth와 Wi-Fi가 켜져 있고 화면 잠금이 풀려 있어야 합니다."
+      },
+      "1": {
+        "h": "같은 Wi-Fi인데 앱에서 서로 안 보임",
+        "b": "iPhone에서 설정 > 개인정보 보호 및 보안 > 로컬 네트워크를 열어 앱이 허용되어 있는지 확인하세요. 게스트 네트워크나 일부 사무실·호텔 Wi-Fi는 기기끼리 격리하므로 휴대폰 핫스팟을 대신 쓰세요. 어느 쪽 휴대폰의 VPN도 로컬 검색을 막을 수 있습니다."
+      },
+      "2": {
+        "h": "Bluetooth는 연결되는데 아무것도 안 보내짐",
+        "b": "정상입니다. iPhone은 다른 Apple 기기하고만 파일을 주고받기 때문에, Android와 Bluetooth로 페어링해도 파일 전송 옵션은 나오지 않습니다. Wi-Fi나 링크를 쓰세요."
+      },
+      "3": {
+        "h": "Android에서 사진이 열리지 않음",
+        "b": "거의 확실히 HEIC이고 사용 중인 앱이 읽지 못하는 것입니다. Google 포토에서 열거나, 높은 호환성으로 설정한 iPhone에서 다시 보내면 새 사진은 JPEG로 저장됩니다."
+      },
+      "4": {
+        "h": "링크 다운로드가 너무 느림",
+        "b": "링크 속도는 보내는 사람의 업로드 속도에 묶입니다. 두 휴대폰이 실제로 같은 곳에 있다면 인터넷을 거치지 않는 Wi-Fi 직접 전송으로 바꾸세요."
+      }
+    }
+  },
+  "security": {
+    "title": "전송 중에 파일을 볼 수 있는 사람",
+    "body": "가족사진, 신분증 스캔, 서류는 사본을 남기지 않는 경로로 보내야 합니다. 방법별로 비교하면 이렇습니다.",
+    "items": {
+      "0": {
+        "h": "휴대폰에서 휴대폰으로, 저장 없음",
+        "b": "BIShare 직접 전송, LocalSend, AirDrop과 Quick Share는 두 휴대폰 사이에서 보내고 연결을 암호화합니다. 서버에 사본이 남지 않습니다."
+      },
+      "1": {
+        "h": "읽을 수 없는 서버를 거침",
+        "b": "BIShare 링크는 업로드 전에 iPhone에서 파일을 암호화하고 복호화 키를 주소의 # 뒤에 둡니다. 브라우저는 이 부분을 서버로 보내지 않으므로 서버에는 알아볼 수 없는 데이터만 저장됩니다. WhatsApp 문서도 종단 간 암호화되지만 양쪽 대화 기록에 남습니다."
+      },
+      "2": {
+        "h": "읽을 수 있는 서버를 거침",
+        "b": "iCloud 링크, Mail Drop, Google Drive는 전송 중과 서버에서 파일을 암호화하지만, 기본 설정에서는 제공업체가 키를 갖고 있습니다. 여행 사진이라면 괜찮지만 여권이나 계약서라면 한 번 더 생각해 볼 만합니다."
+      }
     }
   },
   "faq": {
-    "title": "아이폰에서 안드로이드로: 자주 묻는 질문",
+    "title": "iPhone에서 Android로: 자주 묻는 질문",
     "items": {
       "0": {
-        "q": "아이폰에서 안드로이드폰으로 파일을 어떻게 보내나요?",
-        "a": "아이폰에 BIShare를 설치하세요. 같은 Wi-Fi에서 목록에서 안드로이드폰을 골라 보내면 파일이 종단 간 암호화로 곧바로 갑니다. 같은 네트워크가 아니라면 링크나 QR 코드, 6자리 코드를 공유하면 안드로이드가 아무 브라우저에서나 내려받습니다."
+        "q": "iPhone에서 Android로 AirDrop할 수 있나요?",
+        "a": "Android가 Quick Share의 AirDrop 호환을 지원한다면 가능합니다. Pixel 10, 9, 8a, Galaxy S24, S25, S26 시리즈와 Z Fold/Flip 6과 7, 그리고 일부 Xiaomi, OnePlus, Oppo, Vivo, Honor 모델입니다. iPhone의 AirDrop을 모든 사람(10분)으로 설정하세요. 그 밖의 Android는 AirDrop을 받을 수 없습니다."
       },
       "1": {
-        "q": "아이폰에서 안드로이드로 에어드롭할 수 있나요?",
-        "a": "아니요 — 에어드롭은 애플 전용이라 안드로이드 기기를 아예 인식하지 못합니다. BIShare는 양쪽에서 같은 일을 합니다. 폰이 가까이 있으면 직접 근거리 전송, 멀리 있으면 브라우저 링크입니다."
+        "q": "iPhone에서 Android로 파일을 보내는 가장 쉬운 방법은?",
+        "a": "Android가 Google 지원 목록에 있다면 양쪽을 모든 사람에게 표시하고 AirDrop을 쓰세요. 그렇지 않다면 두 휴대폰에 BIShare를 설치해 같은 Wi-Fi로 보내거나, Android 브라우저에서 열리는 BIShare 링크를 보내세요."
       },
       "2": {
-        "q": "아이폰에서 안드로이드로 사진과 동영상을 화질 저하 없이 보내려면?",
-        "a": "BIShare는 원본 파일을 보내므로 사진과 동영상이 원본 해상도 그대로 도착합니다 — 메신저 앱 같은 압축이 없습니다. 내 네트워크를 통한 근거리 전송은 용량 제한이 없고, 링크로는 한 파일당 최대 100GB까지 보냅니다."
+        "q": "iPhone에서 Android로 Bluetooth 전송이 되나요?",
+        "a": "안 됩니다. iPhone은 페어링되어 있어도 Apple이 아닌 기기에 Bluetooth로 파일을 보내지 않습니다. Wi-Fi 앱, 지원 Android로의 AirDrop, 또는 링크를 쓰세요."
       },
       "3": {
-        "q": "안드로이드폰에 앱을 설치해야 하나요?",
-        "a": "링크로 받을 때는 아니요 — 브라우저에서 열어 내려받기만 하면 되고 앱도 계정도 필요 없습니다. 안드로이드 쪽에 BIShare를 설치하면 근거리 전송이 빨라지고 모든 기능이 열리지만, 받는 데는 결코 필수가 아닙니다."
+        "q": "iPhone에서 Android로 사진을 원본 화질 그대로 보내려면?",
+        "a": "원본 파일을 직접 전송, BIShare나 iCloud 링크, Google Drive, 또는 WhatsApp 문서로 보내세요. 채팅 앱에 일반 사진으로 첨부하면 압축되니 피하세요. 받는 사람이 JPEG가 필요하다면 iPhone을 높은 호환성으로 설정하세요."
       },
       "4": {
-        "q": "용량이나 요금 제한이 있나요?",
-        "a": "BIShare는 무료이고 계정이 필요 없습니다. 내 Wi-Fi를 통한 근거리 전송은 용량 제한이 없고, 링크는 한 파일당 최대 100GB까지 처리하며 24시간 뒤 자동으로 만료됩니다."
+        "q": "iPhone에서 Android로 큰 동영상을 보내려면?",
+        "a": "같은 Wi-Fi에서는 BIShare 같은 직접 전송 앱에 크기 제한이 없습니다. 떨어져 있다면 BIShare 링크는 최대 100 GB, Mail Drop은 최대 5 GB입니다. WhatsApp 문서는 2 GB에서 멈춥니다."
+      },
+      "5": {
+        "q": "앱 없이 iPhone에서 Android로 파일을 보낼 수 있나요?",
+        "a": "가능합니다. 사진 앱의 iCloud 링크 복사, Mail 앱의 Mail Drop, Safari의 bishare.app/transfer 를 쓰면 Android가 모두 브라우저에서 엽니다. 지원되는 Android라면 AirDrop을 직접 받을 수도 있습니다."
+      },
+      "6": {
+        "q": "iOS 26.3에서 Android로 전송할 수 있나요?",
+        "a": "휴대폰을 바꾸는 용도라면 가능합니다. 설정의 Android로 전송은 사진, 메시지, 연락처, 캘린더, 통화 기록을 Android 17 휴대폰으로 옮기고, 지원 통신사라면 eSIM도 옮깁니다. 파일 하나를 보내기 위한 기능은 아닙니다."
+      },
+      "7": {
+        "q": "Android에서 iPhone 사진이 안 열리는 이유는?",
+        "a": "아마 HEIC일 것입니다. Android는 HEIC를 디코딩할 수 있고 Google 포토도 열지만, 열지 못하는 앱도 있습니다. iPhone 카메라 포맷을 높은 호환성으로 바꾸면 이후 사진은 JPEG로 저장됩니다."
+      },
+      "8": {
+        "q": "iPhone과 Android가 같은 Wi-Fi에 있어야 하나요?",
+        "a": "직접 전송, 즉 BIShare 휴대폰 간 전송이나 LocalSend에만 해당합니다. AirDrop과 Quick Share는 Bluetooth와 Wi-Fi를 켠 채 휴대폰이 가까이 있어야 합니다. 링크, iCloud, Drive, 채팅 앱은 어디서든 됩니다."
+      },
+      "9": {
+        "q": "iPhone에서 Android로 파일 보내기는 무료인가요?",
+        "a": "무료입니다. BIShare, LocalSend, AirDrop과 Quick Share, iCloud 링크, Mail Drop, Google Drive 무료 15 GB 모두 비용이 들지 않습니다. 아주 크거나 장기간의 클라우드 저장만 유료 요금제가 필요합니다."
       }
     }
   },
   "cta": {
-    "title": "아이폰과 안드로이드를 몇 초 만에 이어보세요",
-    "body": "무료, 계정 불필요. 아이폰에 BIShare를 설치하고 보내기 시작하세요 — 안드로이드 쪽은 앱조차 필요 없습니다.",
+    "title": "모든 iPhone에서, 모든 Android로",
+    "body": "무료, 가입 없음, 코드는 GitHub에 공개. 방 건너편에는 Wi-Fi로, 나라 반대편에는 Android 브라우저에서 열리는 링크로 파일을 보내세요.",
     "download": "BIShare 다운로드"
   },
   "a11y": {
     "yes": "예",
     "no": "아니요"
+  },
+  "art": {
+    "hero": {
+      "alt": "iPhone이 Android 휴대폰으로 파일을 보내는 그림. 제목: iPhone에서 Android로 파일 보내기, 2026년에 통하는 여덟 가지 방법.",
+      "title": "iPhone에서 Android로 파일 보내기",
+      "sub": "2026년에 통하는 8가지 방법",
+      "left": "iPhone",
+      "right": "Android"
+    },
+    "decide": {
+      "alt": "선택 흐름: Android로 완전히 옮긴다면 Android로 전송. 아니라면, Android가 Google Quick Share 목록에 있을 때 양쪽을 모든 사람으로 두고 AirDrop. 아니라면, 두 휴대폰이 같은 곳에 있을 때 Wi-Fi로 BIShare나 LocalSend. 떨어져 있다면 BIShare 링크나 iCloud 링크.",
+      "title": "어떤 방법을 쓸까",
+      "sub": "이 순서로 세 가지 질문",
+      "yes": "예",
+      "no": "아니요",
+      "q1": "Android로 완전히 옮기나요?",
+      "a1": "iOS 26.3의 Android로 전송",
+      "q2": "Android가 Google Quick Share 목록에 있나요?",
+      "a2": "AirDrop, 양쪽 모두 모든 사람",
+      "q3": "두 휴대폰이 같은 곳에 있나요?",
+      "a3": "Wi-Fi로 BIShare나 LocalSend",
+      "a4": "떨어져 있다면: 최대 100 GB BIShare 링크, 또는 사진용 iCloud 링크(30일)"
+    },
+    "switchTo": {
+      "alt": "Android로 전송 한눈에 보기: iOS 26.3 이상, Android 17 휴대폰, Bluetooth와 Wi-Fi, QR 코드 스캔이 필요. 사진, 동영상, 메시지, 연락처, 캘린더, 통화 기록, 지원 통신사의 eSIM이 옮겨짐. 건강 데이터는 남고, 타사 앱 데이터는 개발자가 지원할 때만 옮겨짐.",
+      "title": "휴대폰 교체: Android로 전송",
+      "sub": "iOS 26.3 기본 기능, 파일 하나가 아니라 iPhone을 떠날 때 쓰는 기능",
+      "needTitle": "필요한 것",
+      "need0": "iOS 26.3 이상의 iPhone",
+      "need1": "Android 17 휴대폰",
+      "need2": "Bluetooth 켜기, iPhone은 Wi-Fi 연결",
+      "need3": "Android 화면의 QR 코드 스캔",
+      "movesTitle": "옮겨지는 것",
+      "moves0": "사진과 동영상",
+      "moves1": "메시지, 연락처, 캘린더",
+      "moves2": "통화 기록, 홈 화면, 배경화면",
+      "moves3": "지원 통신사의 eSIM",
+      "staysTitle": "남는 것",
+      "stays0": "건강 데이터",
+      "stays1": "개발자가 지원하지 않는 타사 앱 데이터",
+      "stays2": "eSIM을 옮긴 뒤의 iPhone 번호",
+      "foot": "Apple의 iOS 26.3 지원 문서 기준, eSIM 지원 통신사는 일부 국가만 해당"
+    },
+    "photos": {
+      "alt": "iPhone 사진이 Android에서 이상하게 보이는 네 가지 이유: Android가 8.0부터 디코딩하고 높은 호환성으로 피할 수 있는 HEIC 파일, 비디오로 저장하지 않으면 사진만 도착하는 Live Photos, 문서로 보내지 않으면 압축하는 채팅 앱, Android가 5.0부터 재생하는 HEVC 동영상.",
+      "title": "Android에서 사진이 이상하게 보이는 이유",
+      "sub": "대개 전송이 아니라 형식이나 앱 때문",
+      "heic": {
+        "name": "HEIC 사진",
+        "what": "Android는 8.0부터 HEIC를 디코딩하지만 거부하는 앱도 있음",
+        "fix": "카메라, 포맷, 높은 호환성으로 JPEG"
+      },
+      "live": {
+        "name": "Live Photos",
+        "what": "Android에는 사진과 동영상을 함께 담는 형식이 없음",
+        "fix": "공유, 비디오로 저장 후 전송"
+      },
+      "chat": {
+        "name": "채팅 앱 압축",
+        "what": "일반 방식으로 보낸 사진은 축소됨",
+        "fix": "문서, 링크, 직접 전송으로 보내기"
+      },
+      "video": {
+        "name": "HEVC 동영상",
+        "what": "Android는 5.0부터 HEVC 재생",
+        "fix": "큰 4K 영상은 Wi-Fi로 직접"
+      }
+    }
   }
 }
