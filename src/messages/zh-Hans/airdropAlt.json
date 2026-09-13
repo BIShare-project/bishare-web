@@ -1,49 +1,234 @@
 {
   "meta": {
-    "title": "适用于所有设备的 AirDrop 替代方案 | BIShare",
-    "description": "想要不限于苹果的 AirDrop 替代方案？BIShare 可在 iPhone、Android、Windows、Mac 和 Linux 之间传文件——就近或用链接。免费，无需账号。"
+    "title": "AirDrop 替代方案（2026）：8 种跨设备做法",
+    "description": "2026 年 9 月对比的八款 AirDrop 替代方案：哪些能发到 Android、Windows、Mac 和 Linux，Quick Share 新增的 AirDrop 支持到底覆盖到哪，以及你手上的这对设备该用哪一个。"
   },
   "hero": {
     "eyebrow": "跨平台的 AirDrop",
     "title": "适用于每台设备的 AirDrop 替代方案",
-    "body": "AirDrop 只跟苹果设备对话——一旦房间里出现 Android 手机、Windows 笔记本或 Linux 机器，它就哑了。<strong>BIShare</strong> 是能在 <strong>iPhone、Android、Windows、Mac 和 Linux</strong> 上运行的 AirDrop 替代方案：同一 Wi-Fi 下设备间直接发送，相隔两地时递上一个链接，对方在任意浏览器里打开即可。<highlight>免费、无需账号、毫无绑定。</highlight>",
+    "body": "AirDrop 只跟 Apple 的设备说话。房间里一出现 Android 手机、Windows 笔记本或 Linux 机器，它就安静了。这一页讲清楚真正能用的八种替代方案、每一种要你付出什么，以及你手上这对设备该选哪一个。<strong>BIShare</strong> 排在前面，是因为它把两半活儿都干了：<strong>同一 Wi-Fi 下的即时传输</strong>，以及<strong>人人都能打开的链接</strong>，横跨 iPhone、Android、Windows、Mac 和 Linux。<highlight>免费、开源、无需账号。</highlight>",
     "ctaPrimary": "免费获取 BIShare",
-    "ctaSecondary": "工作原理"
+    "ctaSecondary": "工作方式"
+  },
+  "updated": "2026 年 9 月更新 · 逐一复核每种替代方案的平台、限制与前提条件",
+  "disclosure": "BIShare 是我们做的，请带着这一点掂量这份排名。下文的每一条说法都能在各家自己的文档里核对，而 BIShare 屈居第二的地方，我们点名写出来，不绕开。",
+  "quick": {
+    "title": "一句话答案",
+    "items": [
+      "<strong>综合最佳：</strong>BIShare。在共享 Wi-Fi 上它的表现和 AirDrop 一样，直连、加密、不上传任何东西，区别只在于对面那台可以是 Android 手机、Windows 笔记本或 Linux 台式机。附近没有人时，它会切换成一条 100 GB 的链接，在任何浏览器里都能打开。免费、开源、不用注册。",
+      "<strong>开源里最好的，仅限同一网络：</strong>LocalSend 在共享 Wi-Fi 上很出色。两端都要装应用，而且没有链接这条路。",
+      "<strong>内置方案里最好的：</strong>Quick Share，免费而且手机里本来就有。自 2025 年 11 月起，在特定机型名单上，它能通过 AirDrop 本身向 iPhone 发送并接收。没有 Mac 或 Linux 应用，而且需要 Google 账号。",
+      "<strong>如果两部手机都在 Google 的名单上</strong>（Pixel 9/10、较新的 Galaxy S 与 Z，以及部分小米、一加、Oppo、vivo 和荣耀），Android 发到 iPhone 根本不需要第三方应用。把两边都设成“所有人”。",
+      "<strong>哪里都不装东西：</strong>PairDrop 在两个浏览器标签页里运行，6 位数配对码还能把不在同一网络的设备接起来。",
+      "<strong>给远处的人发一个大文件：</strong>BIShare 的链接能带 100 GB 加密内容，Wormhole 以同样方式带 10 GB。",
+      "<strong>建议跳过：</strong>SHAREit 以及同类应用。广告、过宽的权限，还有一串安全方面的旧账。"
+    ]
   },
   "why": {
-    "title": "你为什么可能需要 AirDrop 替代方案",
-    "body": "AirDrop 用起来毫不费力——前提是所有人都在苹果阵营。它建立在苹果专属协议之上，因此根本触及不到 <strong>Android 手机、Windows 电脑或 Linux 机器</strong>。谷歌的 Quick Share 和微软的 Phone Link 各补上一块缺口，却总有人被落下。BIShare 反其道而行：用一个工具连通<strong>每一个平台</strong>——要么直接经你的网络，要么通过一个普通的浏览器链接。"
-  },
-  "how": {
-    "title": "BIShare 如何在任何地方取代 AirDrop",
+    "title": "AirDrop 在哪里止步，为什么",
+    "body": "AirDrop 不是通用的文件传输协议。它是 Apple 设备之间的短距离连接，建立在 Apple Wireless Direct Link 之上，也就是 Apple 的芯片在跟 Apple 的软件说话。它没有 Android 客户端，没有 Windows 客户端，也没有 Linux 客户端，而且永远不会有，因为这套协议并未公开给别人实现。正是这一个事实把人们推去寻找替代方案，它会在四种场合冒出来。",
     "items": {
       "0": {
-        "h": "同一网络，直达对面",
-        "b": "当两台设备处于同一 Wi-Fi 时，文件从一端直达另一端，端到端加密，绝不经过任何服务器。没有网络？手机热点照样好使。"
+        "h": "同行的人里有人用 Android",
+        "b": "这是最常见的原因，而且 2026 年情况有了变化。部分 Android 手机上的 Quick Share 现在能直接和 AirDrop 对话，但这只覆盖一份特定机型名单，而不是整个 Android，下一节会讲清楚。一家人里在一堆 iPhone 中夹着一台旧款或中端 Android，今天仍然没有内置办法把一段视频传过去。"
       },
       "1": {
-        "h": "隔壁房间或相隔千里",
-        "b": "你会得到一个链接、一个二维码和一个 6 位字符码。对方在任意浏览器里——Safari、Chrome，随便哪个——打开链接下载。无需应用、无需注册，链接 24 小时后自动失效。"
+        "h": "另一台机器跑的是 Windows 或 Linux",
+        "b": "Mac 无法用 AirDrop 发给 Windows 笔记本，Windows 电脑更是根本用不了 AirDrop。微软的“就近共享”只在两台 Windows 电脑之间工作，别的都不行。Linux 从来就什么都没有分到。"
       },
       "2": {
-        "h": "五大平台，一个应用",
-        "b": "iPhone、Android、Windows、Mac 和 Linux 运行的都是同一个 BIShare。从任意一台发往任意一台——或发给只开着浏览器的人。"
+        "h": "对方不在这个房间里",
+        "b": "AirDrop 要求两台设备都在蓝牙范围内、处于唤醒状态且已解锁。要把文件发给另一栋楼、另一个网络或另一个时区的人，它毫无用处。在那种场合，链接这条路比原始速度更重要。"
+      },
+      "3": {
+        "h": "AirDrop 开着，两边都是 Apple，却还是失败",
+        "b": "设备发现坏得够频繁，以至于“AirDrop 用不了”本身成了一个搜索词。个人热点开着、Wi-Fi 或蓝牙关着、设成“仅限联系人”而对方没存你的号码、屏幕锁着，或者两台设备相距超过约 9 米：任何一条都会让对面那台消失。而跑在普通 Wi-Fi 上的替代方案，根本不依赖那次握手。"
       }
     }
   },
-  "comparison": {
-    "title": "AirDrop 对比 SHAREit 对比 BIShare",
+  "interop": {
+    "title": "2026 年更新：Quick Share 现在会说 AirDrop 的话",
+    "body": "这是多年来最大的变化。2025 年 11 月，Google 在 Pixel 10 系列上推出了 Quick Share 与 AirDrop 的互通，做法是逆向工程而非双方协商，此后名单一直在扩大。只要两部手机都在名单里，你在 Android 和 iPhone、iPad 或 Mac 之间挪一个文件，就不再需要第三方应用。",
+    "items": {
+      "0": {
+        "h": "哪些 Android 手机能做到",
+        "b": "Pixel 10 和 Pixel 9 系列，包括 9a 和 8a。三星 Galaxy S24、S25、S26，以及运行 One UI 8.5 的 Z Fold 6/7 和 Z Flip 6/7。此外还有不断扩大的一批：小米 17T Pro、一加 15、Oppo Find X9 系列和 N6、vivo X300 系列、荣耀 Magic V6。Pixel 10 在 2025 年 11 月到位，Pixel 9 在 2026 年 2 月，三星各机型在 2026 年 3 月到 4 月之间，名单还在往里加。"
+      },
+      "1": {
+        "h": "你需要设置什么",
+        "b": "两边都必须对“所有人”可见。AirDrop 的“仅限联系人”模式没法跨平台工作，因为不存在可供比对的共享联系人身份。它是双向的，从手机到 Apple 设备、再从 Apple 设备回来，走的还是 AirDrop 一直用的那条短距离连接。"
+      },
+      "2": {
+        "h": "它仍然覆盖不到的部分",
+        "b": "名单之外的任何 Android 手机，也就是在用设备里的绝大多数。这座桥完全没碰的 Windows 和 Linux。Mac 到 Windows。发给不在房间里的人。还有装不了、也开不了任何东西的接收方。跨平台工具今天仍在填的，正是这些窟窿。"
+      }
+    }
+  },
+  "alts": {
+    "title": "八种替代方案排行",
+    "consLabel": "不足之处：",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "综合最佳：AirDrop 的行为，但不要求你用 Apple",
+        "facts": "五大平台原生，外加任意浏览器 · MIT 许可、免费 · 近距离不限大小，链接最高 100 GB · 端到端加密 · 两端都不必注册",
+        "body": "把两台设备放进同一个 Wi-Fi，BIShare 的行为就和 AirDrop 一样：对面那台出现在列表里，你选中它，文件以网络允许的速度过去，内容从头到尾没有任何服务器看见过。差别在于什么算“对面那台”。一部 Galaxy 手机、一台 ThinkPad、一台装 Fedora 的台式机和一台 iPad，都是同样合法的目标。附近没人时，同一个应用改为给你一条链接、一个二维码和一个 6 位字符代码；对面的人用手边任意浏览器打开、下载，全程不装东西也不注册。这条链接最多能带 100 GB，文件在上传之前就已经在你的浏览器里封好，密钥留在浏览器永远不会发出去的那段 URL 里。链接一天后作废，你愿意的话也可以设成首次下载后即作废。多人场合还有房间码，让几个人在同一套加密下互相放文件。",
+        "cons": "文件不会保存。链接一过期文件就没了，所以如果你想下个月还能在某处找到副本，这就是选错了工具。另外，并排放着的两台 iPhone 走 AirDrop 自己的射频确实更快，因为它会建起一条绕开路由器的直连。"
+      },
+      "1": {
+        "name": "LocalSend",
+        "tag": "同一网络下最好的开源替代",
+        "facts": "五个平台，两端都要应用 · 免费、开源 · 只限同一 Wi-Fi · 设备之间加密 · 不用注册",
+        "body": "去开源论坛问一句什么能替代 AirDrop，第一个答案就是 LocalSend。它配得上：从列表里挑一台设备，发送，完事，文件直接穿过网络，谁的服务器上都不留东西。AirDrop 最常拒绝的那一对组合——同一 Wi-Fi 上的 Mac 和 Windows 笔记本——它补得严严实实，这件事干得不比这里任何工具差。",
+        "cons": "两端都得装软件，这就把受管控的办公电脑排除在外了；而且完全没有链接模式，你网络之外的人一律够不着。"
+      },
+      "2": {
+        "name": "Quick Share（Google）",
+        "tag": "内置的那一个，2026 年起会说 AirDrop 的话",
+        "facts": "Android 与 Windows · 免费 · 需要登录 Google · 没有 Mac 应用也没有 Linux 应用 · 在公布的机型名单上与 AirDrop 通信",
+        "body": "Android 内置就近共享已有多年，而 Google 的 Windows 客户端会在蓝牙和 Wi-Fi 都打开时，把电脑拉进同一个圈子。更有意思的部分要新得多。Google 逆向了 AirDrop，并在 2025 年 11 月把它塞进 Quick Share，于是受支持的手机现在不经第三方应用就能和 iPhone、iPad 或 Mac 互传文件。Apple 没有参与，也没有就是否封堵表过态。对一个 Android 和 Windows 并存、又恰好有这类手机的家庭来说，这就是那个免费答案，而且是个好答案。",
+        "cons": "AirDrop 这座桥只限 Google 名单上的手机，两边都必须对“所有人”可见；Quick Share 自身依然没有 Mac 或 Linux 客户端，你网络之外的人也一样够不着。"
+      },
+      "3": {
+        "name": "PairDrop（以及 Snapdrop）",
+        "tag": "真的什么都装不了时的最佳选择",
+        "facts": "两端各开一个浏览器标签页 · 免费、开源 · 同一网络，或用配对码跨网络配对 · WebRTC，加密 · 不保存任何内容",
+        "body": "Snapdrop 让大家知道，两台笔记本之间可以什么都不装就把文件递过去；PairDrop 是把这个想法接着做下去的分支。在两台设备上打开同一个页面，拖过去，文件就点对点走了。同一网络里的设备会自己发现彼此，而 6 位数配对码或一个临时公共房间，能把分处完全不同网络的两台设备连起来。在借来的笔记本上，或者在那种装点东西就得开工单的办公电脑上，这通常是最快的出口。",
+        "cons": "既没有应用，也没有能留到之后的链接，所以整个传输过程两个标签页都得开着。酒店和办公室那种把客户端互相隔离的网络，会逼你走配对码这条路。"
+      },
+      "4": {
+        "name": "Phone Link（微软）",
+        "tag": "Windows 自带，一部手机对一台电脑",
+        "facts": "Windows 11 和 10 · 免费 · 同一 Wi-Fi 下的 Android 文件与照片；iPhone 文件传输仅限 Insider · 微软账号和“连接到 Windows”应用 · 没有 Mac，没有 Linux",
+        "body": "Phone Link 是微软架在手机和 Windows 电脑之间的桥。配 Android 手机时，它搬照片和文件已经搬了很多年；从 Windows 11 版本 22631.4112 起，你可以直接从 Windows 的共享菜单把文件发给同一 Wi-Fi 上已配对的手机，前提是手机上装的是 2.1.6 或更新的“连接到 Windows”。自 2024 年 12 月起，它也能与 iPhone 互传文件，这是 Windows 手里最接近内置 AirDrop 的东西。但这条路要求不少：Windows Insider 计划、iOS 16 或更新版本、一次蓝牙低功耗配对，以及两端的微软账号。微软自己的支持页面至今仍只把文件传输写成 Android 专属。",
+        "cons": "一部手机配一台电脑。Mac 到电脑没有，电脑到 Mac 没有，Linux 没有，也没有办法发到别人的设备上。"
+      },
+      "5": {
+        "name": "Wormhole",
+        "tag": "对方在远处时最好的加密链接",
+        "facts": "仅浏览器 · 免费 · 上限 10 GB · 上传之前先在浏览器里加密 · 24 小时后删除 · 不用注册",
+        "body": "Wormhole 身上没有一处是在同一个房间里和 AirDrop 较劲。它回答的是问题的另一半，也就是 AirDrop 从来没表过态的那部分：怎么把文件私下送到一个离你很远的人手里。加密先在你的浏览器里完成，密钥随链接文本一起上路，服务方手上只剩一堆它打不开的字节。5 GB 以下的文件会在他们服务器上等一天；更大的文件则在两个浏览器之间实时流过去。",
+        "cons": "十 GB 就是那堵墙，本地模式压根没有，而且只要有一边的浏览器关掉，大文件传输就塌了。"
+      },
+      "6": {
+        "name": "Send Anywhere",
+        "tag": "跨平台，背后带着广告和付费套餐",
+        "facts": "五大平台外加浏览器 · 免费版带广告 · 每条链接 10 GB · 传输途中加密，非端到端 · 链接需要注册",
+        "body": "被这一类产品抄了一半的 6 位数密钥，最早就出自这里。你在一块屏幕上读出数字，在另一块上敲进去，文件就落地了，几乎你手上任何设备都行。若只是想原样替掉 AirDrop 那张平台表，它做得到，而且做了十年。",
+        "cons": "广告长在免费版里，订阅提示从不远离，而且文件经过服务方时是可读的。"
+      },
+      "7": {
+        "name": "SHAREit、Xender 之类的应用",
+        "tag": "纸面上快，别的方面处处昂贵",
+        "facts": "iPhone、Android、Windows、Mac · 免费，靠广告养活 · 近距离传输 · 自家服务器可读 · 捆绑信息流，权限过宽",
+        "body": "先到的是这批应用。远在 LocalSend 出现之前，SHAREit 和 Xender 就是一部手机把电影递给另一部手机的办法，如今应用商店的搜索结果还把它们排在前面。传输本身今天照旧能用。长起来的是围在它周围的一切：全屏广告、没人要的内容流、远超一次传输所需的权限请求，以及横跨数年的一连串安全与隐私问题。",
+        "cons": "广告、权限，还有那份记录。上面列的任何一款工具都能把同样的文件搬过去，而且不带这些，多数还免费、还安静。"
+      }
+    }
+  },
+  "table": {
+    "title": "一览对比",
     "cols": {
+      "feature": "项目",
       "airdrop": "AirDrop",
-      "quick": "SHAREit",
-      "bishare": "BIShare"
+      "bishare": "BIShare",
+      "localsend": "LocalSend",
+      "quickshare": "Quick Share",
+      "pairdrop": "PairDrop",
+      "wormhole": "Wormhole"
     },
     "rows": {
-      "r0": "真正跨平台，含 Linux",
-      "r1": "仅凭链接即可接收，无需应用",
-      "r2": "就近可用，联网也可用",
-      "r3": "端到端加密",
-      "r4": "免费，无需账号"
+      "r0": "能发到 Android 手机",
+      "r1": "能发到 Windows 电脑或 Linux 机器",
+      "r2": "能发到 Mac",
+      "r3": "直接走 Wi-Fi，不上传",
+      "r4": "够得到另一栋楼里的人",
+      "r5": "接收方不用装应用也不用登录",
+      "r6": "在手机热点上照样能用",
+      "r7": "无广告、无付费套餐、源码公开"
+    },
+    "note": "2026 年 9 月依据各家自己的文档核对。AirDrop 只在一种特定情形下能到达 Android 手机，即通过受支持机型上的 Quick Share，所以第一行是叉不是勾。Quick Share 本身没有 Mac 或 Linux 应用，并且要求已登录的 Google 账号。两台设备用 6 位数配对码配上之后，PairDrop 跨网络也能继续用。Wormhole 到 10 GB 为止，文件保留 24 小时。"
+  },
+  "pairs": {
+    "title": "哪种设备组合用哪种替代方案",
+    "items": {
+      "0": {
+        "h": "iPhone 到 Android，或 Android 到 iPhone",
+        "b": "如果那部 Android 手机在 Google 的互通名单里，Quick Share 现在会自己把两个方向都办妥。两边的 AirDrop 和 Quick Share 都设成“所有人”。至于其他 Android 手机以及更老的设备，AirDrop 依旧看不见它们：BIShare 和 LocalSend 都能在共享 Wi-Fi 上直接发送，而两部手机不在一起时 BIShare 还能给你一条链接。要是双方都装不了东西，就在两个浏览器里打开 PairDrop。"
+      },
+      "1": {
+        "h": "Mac 到 Windows，或 Windows 到 Mac",
+        "b": "这是 AirDrop 用户最惦记的一对。BIShare 和 LocalSend 都在 macOS 与 Windows 上原生运行，以局域网速度搬文件。Phone Link 在这里帮不上忙，因为它连的是手机和电脑，不是两台电脑。"
+      },
+      "2": {
+        "h": "iPhone 到 Windows 电脑",
+        "b": "BIShare 直接走 Wi-Fi 发送，不用数据线也不用账号。如果你在 Windows Insider 通道，手机是 iOS 16 或更新版本并完成了蓝牙配对，Phone Link 也能做到。照片的话，数据线加“照片”应用依然可行，但只有单向。"
+      },
+      "3": {
+        "h": "任意手机到 Linux 机器",
+        "b": "这里只有 BIShare 和 LocalSend 拿得出真正的 Linux 客户端。Quick Share、Phone Link 和 AirDrop 对 Linux 什么都没有，剩下的就是 PairDrop 这类浏览器工具。"
+      },
+      "4": {
+        "h": "发给另一座城市的人",
+        "b": "到这一步，近距离工具就不相干了。BIShare 的链接最多带 100 GB，加密，24 小时后过期；Wormhole 的链接以同样方式带 10 GB。两者都不要求收件人装任何东西。"
+      },
+      "5": {
+        "h": "在完全没有网络的两台设备之间",
+        "b": "打开其中一部手机的热点，把两台设备都连上去。即便移动数据关着，那个热点也是一张网络，BIShare 和 LocalSend 在上面照样满速传输。而 AirDrop 只要个人热点开着就拒绝工作，这是它失败最常见的原因之一。"
+      }
+    }
+  },
+  "steps": {
+    "title": "把 AirDrop 换成 BIShare，一步步来",
+    "items": {
+      "0": {
+        "h": "两台设备就在附近：装好然后发送",
+        "b": "从 App Store、Google Play、微软商店或官网把 BIShare 装到两台设备上，再把它们连进同一个 Wi-Fi。一两秒内，彼此就会出现在对方的列表里。选文件，选设备，在对面点接受。传输是直连并且端到端加密的，没有任何东西上传到服务器。没有 Wi-Fi 时，手机热点的用法一模一样。"
+      },
+      "1": {
+        "h": "对方在别处：发一条链接",
+        "b": "在任意浏览器里打开 bishare.app/transfer，或者打开应用里的分享界面，把文件放进去。100 GB 以内都行。三种传递方式会一次返回：一条链接、一个给手机摄像头扫的二维码，以及一个别人可以手打的短代码。加密在上传开始之前就于本地完成，密钥留在浏览器自己收着的那段 URL 片段里，所以文件对我们是不可读的。你平时怎么跟人联系，就怎么把链接发出去。它 24 小时后失效，或者按你的设置在第一次下载后失效。"
+      },
+      "2": {
+        "h": "一群人互传文件：开一个房间",
+        "b": "房间会给一群人一个 6 位字符代码。加入的人都可以从应用或浏览器为其他人放文件，全程用成员共享的密钥端到端加密。这正是 AirDrop 从来没有覆盖过的多人场景。"
+      }
+    }
+  },
+  "speed": {
+    "title": "这些替代方案到底有多快",
+    "body": "凡是直接走你自己网络传输的，限制来自网络而不是应用。在普通的 Wi-Fi 5 上，设备之间的传输大致落在每秒 40–50 MB；在 Wi-Fi 6 上、两台设备都靠近路由器时，是每秒 70–110 MB。也就是说，一个 1 GB 的视频在 Wi-Fi 5 上约 20 到 25 秒，在 Wi-Fi 6 上不到 15 秒，BIShare、LocalSend、Quick Share 和 AirDrop 都一样，因为它们受同一套射频的约束。",
+    "items": {
+      "0": {
+        "h": "走链接的传输受限于你的上传带宽",
+        "b": "链接这条路是上传一次、下载一次，所以天花板是你的线路而不是工具。上传 50 Mbps 时，1 GB 大约三分钟，10 GB 要半个多小时。BIShare 的链接、Wormhole、WeTransfer 和其他任何服务都一样，这也正是为什么只要两台设备在同一个地方，就值得走本地这条路。"
+      },
+      "1": {
+        "h": "AirDrop 只有在两台 Apple 设备并排时才更快",
+        "b": "AirDrop 能在两台 Apple 设备之间协商出一条直连的点对点 Wi-Fi 链路，完全绕开路由器；在那个狭窄的情形里，它比任何走普通 Wi-Fi 的方案都快。可只要有一台不是 Apple 设备，这点优势你花多少钱都拿不到。"
+      },
+      "2": {
+        "h": "真正拖慢传输的是什么",
+        "b": "离路由器太远、用 2.4 GHz 而不是 5 GHz、手机被省电模式压着，以及成千上万个小文件而不是几个大文件。先把这些修好，再去怪应用：这里这些工具之间的差距，比起 Wi-Fi 摆位好坏的差距要小得多。"
+      }
+    }
+  },
+  "security": {
+    "title": "替代方案有 AirDrop 那么私密吗",
+    "body": "AirDrop 把标准立得很高：传输是加密的，不经过服务器，什么也不保存。任何值得一用的替代品都该跟上，这里有几款确实跟上了。但不是全部，而且这个差别比功能表所暗示的要沉重。",
+    "items": {
+      "0": {
+        "h": "端到端加密，什么都不保存",
+        "b": "BIShare 的两条路都做端到端加密。走链接时，密钥放在 URL 的片段部分，那是网址中浏览器唯一永远不会送上网络的一段，所以我们连原则上都打不开你发的东西。AirDrop、LocalSend、PairDrop 的浏览器传输和 Wormhole 的链接，守的是同一套标准。"
+      },
+      "1": {
+        "h": "只在传输途中加密",
+        "b": "Send Anywhere、WeTransfer、Google Drive 和 SHAREit 在链路上用 HTTPS，这能挡住同一网络里的人读你的文件。但服务方自己仍然握着一份可读的副本。对一段假期视频来说也许够了；换成合同或护照扫描件，那完全是另一回事。"
+      },
+      "2": {
+        "h": "看看应用在要什么",
+        "b": "一个传输应用需要的，是你选中的那些文件的访问权和本地网络，仅此而已。它不需要你的通讯录、通话记录、位置，也不需要安装其他应用的权限。过宽的权限请求和内置的广告信息流，是一个免费应用正在用别的方式收钱最清楚的信号。"
+      }
     }
   },
   "faq": {
@@ -51,29 +236,57 @@
     "items": {
       "0": {
         "q": "最好的 AirDrop 替代方案是哪个？",
-        "a": "对多数人来说是 BIShare，因为它做的正是 AirDrop 所做的——即时、直接、加密的传输——只是覆盖 iPhone、Android、Windows、Mac 和 Linux，而不止苹果设备。它还加了浏览器链接模式，让你也能发给不在身边、甚至完全没有应用的人。"
+        "a": "对多数人来说是 BIShare，因为它做的正是 AirDrop 做的事，也就是即时、直连、加密的传输，只不过范围从只限 Apple 设备扩到了 iPhone、Android、Windows、Mac 和 Linux，还额外给不在附近的人补上一条浏览器链接。如果你只在同一 Wi-Fi 的设备之间传，并且偏好完全没有云端成分的开源方案，LocalSend 是极好的免费选择。"
       },
       "1": {
-        "q": "有没有能在 iPhone 和 Android 之间用的 AirDrop 替代方案？",
-        "a": "有。AirDrop 根本触及不到 Android，而 BIShare 双向搞定 iPhone ↔ Android。同一 Wi-Fi 下它设备间直接传；相隔两地时，它给你一个链接，对方手机在浏览器里打开即可下载文件。"
+        "q": "有能在 iPhone 和 Android 之间用的 AirDrop 替代方案吗？",
+        "a": "现在部分已经内置，配合应用则完全可行。自 2025 年 11 月起，在受支持的 Android 手机上（Pixel 9 与 10 系列、运行 One UI 8.5 的较新三星 Galaxy S 与 Z，以及少数小米、一加、Oppo、vivo 和荣耀机型），只要两边都设成“所有人”，Quick Share 就能通过 AirDrop 本身向 iPhone 发送并接收。至于其他 Android 手机，AirDrop 根本看不见：BIShare 双向处理 iPhone 与 Android，在共享 Wi-Fi 上直连，两机分开时改用链接；LocalSend 在同一网络的场合也处理得很好。"
       },
       "2": {
-        "q": "有没有免费、无需账号的 AirDrop 替代方案？",
-        "a": "BIShare 免费且无需注册。经你自己网络的就近传输没有大小上限，分享链接对任意平台上的任何人都有效。最大 100 GB 的大文件也能通过链接免费发送，而该链接会在 24 小时后自动失效。"
+        "q": "Windows 上相当于 AirDrop 的是什么？",
+        "a": "没有单一的内置对应物。“就近共享”只在两台 Windows 电脑之间有效；Phone Link 连的是一部手机和一台电脑，其中 iPhone 文件传输还限于 Insider 版本。BIShare 和 LocalSend 都能让一台 Windows 电脑与 iPhone、Android 手机、Mac 和 Linux 机器之间获得 AirDrop 式的传输。"
       },
       "3": {
-        "q": "AirDrop 替代方案和 AirDrop 一样私密安全吗？",
-        "a": "BIShare 就是为此而生。直接传输采用端到端加密，只留在你的本地网络内——服务器上不存任何东西。这很重要，因为许多老旧的“分享”应用并不加密，还把文件绕经云端。BIShare 不会。"
+        "q": "Linux 有 AirDrop 替代方案吗？",
+        "a": "BIShare 和 LocalSend 都提供真正的 Linux 客户端，并以局域网速度传输。AirDrop、Quick Share 和 Phone Link 对 Linux 什么都没有。如果你什么都装不了，浏览器里的 PairDrop 就是出路。"
       },
       "4": {
-        "q": "不安装任何东西也能用 AirDrop 替代方案吗？",
-        "a": "接收的话可以。当有人给你发来 BIShare 链接，你只需在任意浏览器里打开并下载——你这边无需应用、无需账号。安装应用只会让就近传输更快并解锁全部功能，但接收从来不是必须装。"
+        "q": "有免费又不用账号的 AirDrop 替代方案吗？",
+        "a": "BIShare 免费、开源，两端都不要求注册。近距离传输没有大小上限，分享链接最多带 100 GB 并且会自动过期。LocalSend 和 PairDrop 同样免费且无需账号；Quick Share 需要 Google 账号，Send Anywhere 的链接功能需要一个账号。"
+      },
+      "5": {
+        "q": "能不装任何东西就用 AirDrop 替代方案吗？",
+        "a": "接收可以。在任意浏览器里打开 BIShare 链接然后下载即可，不用应用也不用账号。要不装东西就发送，用 bishare.app/transfer 或 PairDrop，两者都完全在浏览器里运行。安装应用只是让近距离传输更快，并多出一份设备列表。"
+      },
+      "6": {
+        "q": "AirDrop 替代方案有它那么安全吗？",
+        "a": "好的那几款有。BIShare 的本地传输和链接都是端到端加密，链接的密钥从不到达我们的服务器；LocalSend、PairDrop 和 Wormhole 同样是端到端加密。Send Anywhere、WeTransfer、Google Drive 和 SHAREit 不是，它们在传输途中保护文件，但服务方仍然能读到内容。"
+      },
+      "7": {
+        "q": "两台 Apple 设备之间的 AirDrop 为什么会失灵？",
+        "a": "通常是这五件事之一：个人热点开着、Wi-Fi 或蓝牙关着、接收方设成“仅限联系人”而你的号码不在他的通讯录里、屏幕锁着，或者两台设备相距超过约 9 米。跑在普通 Wi-Fi 上的工具完全跳过了那次握手，这也是有些人连在两台 Mac 之间都改用它们的原因。"
+      },
+      "8": {
+        "q": "传大文件用哪个 AirDrop 替代方案最好？",
+        "a": "只有在中间插进服务器时，大小才成为问题。近距离时 BIShare 和 LocalSend 压根没有上限，200 GB 的文件夹只是等 Wi-Fi 的事，而不是找套餐的事。走链接时数字就重要了：BIShare 免费版到 100 GB 为止，Wormhole 和 Send Anywhere 到 10 GB，WeTransfer 到 3 GB。云存储则改由你账号里剩余的空间来限制。"
+      },
+      "9": {
+        "q": "2026 年 Android 手机能给 iPhone 发 AirDrop 吗？",
+        "a": "在受支持的机型上可以，而且不用额外应用。Quick Share 在 Pixel 9 与 10 系列、运行 One UI 8.5 的较新三星 Galaxy S 与 Z，以及不断变长的小米、一加、Oppo、vivo 和荣耀名单上，都会说 AirDrop 的协议。两台设备都要设成“所有人”而不是“仅限联系人”。名单之外的任何手机，以及 Windows、Linux 或不在同一房间的人，仍然需要 BIShare 或 LocalSend 这类跨平台工具。"
+      },
+      "10": {
+        "q": "AirDrop 替代方案在没有网络时能用吗？",
+        "a": "本地那几款可以。BIShare 和 LocalSend 在任何共享网络上都能传，包括关掉移动数据的手机热点，因为它们不上传任何东西。而基于链接的工具，比如 Wormhole、WeTransfer 和云盘，按定义就需要两端都有连接。"
       }
     }
   },
+  "shots": {
+    "devices": "桌面应用的界面：同一 Wi-Fi 下，一部 iPhone 和一部 Galaxy 手机并排列着，各自点一下就能接收。",
+    "transfer": "把文件放进 bishare.app/transfer 之后的浏览器界面：一条分享链接、一个给手机扫的二维码，以及一个可以念出来的短代码。"
+  },
   "cta": {
-    "title": "一个应用，触达你拥有的每台设备",
-    "body": "免费，无需账号。把 BIShare 装到手机、笔记本或台式机上就能开始发送——对方甚至不用装应用。",
+    "title": "一个应用，够得到你所有的设备",
+    "body": "免费、开源、无需账号。在手机、笔记本或台式机上装好 BIShare 就能开始发送。对面甚至不需要这个应用。",
     "download": "下载 BIShare"
   },
   "a11y": {
