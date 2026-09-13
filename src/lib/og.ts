@@ -17,7 +17,7 @@ const OG_IMAGE = {
  * generic brand card. Keep in sync with FIGURES in that script.
  */
 const ROUTE_FIGURES = new Set([
-  "/airdrop-for-android", "/airdrop-not-working", "/encrypted-file-transfer",
+  "/airdrop-not-working", "/encrypted-file-transfer",
   "/firefox-send-alternative", "/nearby-share-alternative",
   "/send-anywhere-alternative",
   "/send-files-without-internet",

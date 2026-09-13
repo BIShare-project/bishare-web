@@ -1,83 +1,368 @@
 {
   "meta": {
-    "title": "安卓版 AirDrop：iPhone 与安卓互传文件",
-    "description": "AirDrop 无法连接安卓。BIShare 通过 Wi-Fi 或浏览器链接在 iPhone 与安卓之间传照片、视频和文件。免费，无需账号。"
+    "title": "安卓AirDrop（2026）：支持机型与使用方法",
+    "description": "安卓手机现在可通过Quick Share与iPhone、Mac互传AirDrop。查看你的手机是否在列表中，设置好两端，并了解其他手机的替代办法。"
   },
   "hero": {
-    "eyebrow": "跨平台传输",
-    "title": "安卓版隔空投送",
-    "body": "AirDrop 很棒——直到你需要把文件发给朋友的 Android 或自己的 Windows 电脑。那时它就没用了。<strong>BIShare</strong> 是跨平台替代方案：在 <strong>iPhone 与 Android</strong> 之间，以及 Windows、Mac、Linux 之间，通过本地 Wi-Fi 即时传文件，或用一个链接让对方在任意浏览器中打开。<highlight>对方那端无需任何应用。</highlight>",
-    "ctaPrimary": "免费获取 BIShare",
+    "eyebrow": "安卓AirDrop",
+    "title": "安卓手机怎么用AirDrop",
+    "body": "在安卓手机上搜索AirDrop，你会得到两个截然不同的答案。Google的Quick Share一直是安卓自己的AirDrop，在安卓手机、Chromebook和Windows电脑之间传文件。而从2025年11月起，它还能直接和AirDrop对话了：在不断增加的Pixel、Galaxy等新款手机上，iPhone、iPad或Mac会直接出现在Quick Share菜单里。本指南会确认你的手机是否在这份列表中，逐一讲解两台设备上的设置，说明这座桥梁目前还做不到什么，并为其他任何安卓手机排出六种实现同样效果的方法。<strong>BIShare</strong>就是其中之一：它能在任何安卓手机和任何iPhone上运行，<strong>在同一网络下无需联网即可双向发送，不在同一网络时就生成链接</strong>。<highlight>免费、开源、无需账号。</highlight>",
+    "ctaPrimary": "免费获取BIShare",
     "ctaSecondary": "工作原理"
   },
-  "why": {
-    "title": "为什么 AirDrop 到不了 Android",
-    "body": "AirDrop 基于苹果专有协议，因此只能在苹果设备之间使用。谷歌的 Quick Share 覆盖 Android 和 Windows，却把 iPhone 排除在外。这就让最常见的现实场景——在 <strong>iPhone 和 Android 手机</strong>之间传一张照片或一段视频——没有好用的内置方案。BIShare 的存在，正是为了填补这一空缺。"
+  "updated": "2026年9月更新 · 机型列表来自Google的Quick Share与iPhone页面，设置步骤已于本月对照Google和Apple支持页面核实",
+  "disclosure": "BIShare是我们开发的。如果你的手机在Google的列表里，而Apple设备就在同一个房间，手机自带的Quick Share桥接更省事，所以本指南先从它讲起。",
+  "quick": {
+    "title": "简短回答",
+    "items": [
+      "<strong>Pixel 8a或更新机型、较新的Galaxy S或Z系列，或Google列表中的其他机型：</strong>只要Apple设备选择“所有人（10分钟）”，Quick Share就已经能和AirDrop互通。",
+      "<strong>运行One UI 8.5的Galaxy：</strong>找iPhone之前，先在设置、已连接的设备、Quick Share中打开与Apple设备共享。",
+      "<strong>其他安卓手机发给Apple设备：</strong>Quick Share二维码经Google上传，扫码的iPhone、iPad或Mac就能收到，两端都要联网。",
+      "<strong>任何安卓手机，双向传输，有网没网都行：</strong>BIShare通过同一Wi-Fi或热点直接发送，对远方的人则变成加密链接。",
+      "<strong>安卓发给安卓、Chromebook或Windows电脑：</strong>用普通的Quick Share就好，日常设为联系人或您的设备。",
+      "<strong>避开Google Play上叫AirDrop的应用：</strong>它们不是Apple做的，也从不会出现在iPhone的AirDrop菜单里。"
+    ]
   },
-  "how": {
-    "title": "BIShare 如何在 iPhone ↔ Android 之间传输",
+  "meaning": {
+    "title": "2026年“安卓AirDrop”指的是什么",
+    "body": "这个说法如今涵盖三种不同的东西。你需要哪一种，取决于另一端是什么设备。",
     "items": {
       "0": {
-        "h": "在同一 Wi-Fi 下",
-        "b": "文件设备到设备直接传输，端到端加密——完全不经过服务器。速度快，甚至能在没有网络的手机热点下工作。"
+        "h": "Quick Share，安卓自己的AirDrop",
+        "b": "Google的Nearby Share和三星的Quick Share在2024年合并为统一的Quick Share。它通过蓝牙和Wi-Fi在安卓手机和平板、Chromebook和Windows电脑之间传照片、视频和文件，并预装在带Google服务的安卓手机上，所以对大多数人来说，这就是他们手里已有的AirDrop。"
       },
       "1": {
-        "h": "当你们相隔两地时",
-        "b": "你会得到一个链接、一个二维码和一个 6 位字符码。对方在任意浏览器打开链接即可下载——那端无需应用、无需注册。链接 24 小时后自动失效。"
+        "h": "能和AirDrop对话的Quick Share",
+        "b": "2025年11月，Google让Pixel 10上的Quick Share能使用Apple的AirDrop协议，之后不断增加支持的手机。在支持的机型上，附近的iPhone、iPad和Mac会显示为Quick Share的发送对象，安卓手机也会出现在它们自己的AirDrop菜单里。这是Google独立完成的，Google表示欢迎与Apple合作。"
       },
       "2": {
-        "h": "全平台",
-        "b": "iPhone、Android、Windows、Mac 和 Linux——一款应用，任意方向。真的可以发给任何人。"
+        "h": "在哪都能像AirDrop一样用的应用",
+        "b": "对于Google尚未加入的手机、Windows和Linux电脑，以及不在同一个房间的人，跨平台应用就能解决。好用的应用在安卓手机和iPhone上表现一致，或者对方只需一个浏览器。"
       }
     }
   },
-  "comparison": {
-    "title": "AirDrop 对比 Quick Share 对比 BIShare",
+  "phones": {
+    "title": "你的安卓手机支持AirDrop吗？",
+    "body": "官方列表放在Google的Quick Share与iPhone页面上。自推出以来每隔几个月就会扩充一次，所以如果下面没有你的机型，放弃之前先去那个页面看看。",
+    "items": {
+      "0": {
+        "h": "Google Pixel",
+        "b": "Pixel 10系列在2025年11月率先支持。Pixel 9系列在2026年2月跟进，Pixel 8a也在列表中。Pixel通过Quick Share和Google Play系统更新获得这项功能，所以通常只要把两者都更新到最新就行。"
+      },
+      "1": {
+        "h": "三星Galaxy",
+        "b": "Galaxy需要One UI 8.5。Google页面列出了Galaxy S26、S25、S24系列，以及Z Fold7、Z Flip7、Z Fold6和Z TriFold。这项功能藏在与Apple设备共享的开关后面，并要求三星的Quick Share相关应用保持最新。"
+      },
+      "2": {
+        "h": "小米、一加、OPPO、荣耀和vivo",
+        "b": "列表中有Xiaomi 17T Pro、OnePlus 15、OPPO Find X9系列和Find N6、HONOR Magic V6以及vivo X300 Ultra。Google表示Motorola razr fold 2026以及更多OPPO、荣耀和vivo机型即将支持。"
+      },
+      "3": {
+        "h": "为什么老手机被排除在外",
+        "b": "AirDrop通过Apple自己的Wi-Fi连接Apple Wireless Direct Link传输数据，关于推送的报道称，能否支持取决于手机的Wi-Fi芯片能否适配它。所以即使运行最新版安卓的手机，也可能用不上这项功能。列表中的机型全部是2024年或之后发布的。"
+      }
+    }
+  },
+  "setup": {
+    "title": "在两台设备上完成设置",
+    "body": "安卓手机和Apple设备各需要改一处设置。常被忘掉的是Apple这边：Google的桥接无法跨平台匹配联系人，而iPhone选了“所有人”十分钟后就会退回“仅限联系人”。",
+    "items": {
+      "0": {
+        "h": "先更新Quick Share",
+        "b": "在安卓手机上安装待更新的系统更新，然后打开设置、安全和隐私、系统和更新、Google Play系统更新。如果是Galaxy，还要在Galaxy Store更新Quick Share、Quick Share Agent和Quick Share Connectivity，并在Google Play更新Quick Share extension。"
+      },
+      "1": {
+        "h": "Galaxy要打开Apple开关",
+        "b": "打开设置、已连接的设备、Quick Share，开启与Apple设备共享。开关关着的话，即使两台设备并排放在桌上，Galaxy也不会显示iPhone。"
+      },
+      "2": {
+        "h": "在iPhone或iPad上",
+        "b": "打开控制中心，长按连接控制那一组按钮，轻点AirDrop并选择“所有人（10分钟）”；同样的选项也在设置、通用、AirDrop里。保持Wi-Fi和蓝牙开启，并关闭个人热点。"
+      },
+      "3": {
+        "h": "在Mac上",
+        "b": "在控制中心或访达边栏中点按AirDrop，允许所有人发现。文件收到后再改回“仅限联系人”。"
+      },
+      "4": {
+        "h": "从安卓发送",
+        "b": "选好照片或文件，轻点分享，选择Quick Share，然后在出现的设备中点iPhone、iPad或Mac。Apple设备会弹出熟悉的AirDrop提示，让对方接受或拒绝。"
+      },
+      "5": {
+        "h": "在安卓上接收",
+        "b": "打开Quick Share并轻点接收，或把可见性设为“所有人（10分钟）”，同时保持屏幕解锁。在iPhone的分享菜单中选择AirDrop并点这台安卓手机；Quick Share会在保存任何内容前征求你的同意。"
+      }
+    }
+  },
+  "android": {
+    "title": "安卓、Chromebook和Windows之间的Quick Share",
+    "body": "房间里没人用Apple设备时，单靠Quick Share仍是传文件最快的方式，不过它的隐私选项在2026年有了变化。",
+    "items": {
+      "0": {
+        "h": "谁可以与你分享",
+        "b": "在设置中搜索Quick Share并打开可见性选项。“您的设备”针对登录同一Google账号的手机、平板和电脑，屏幕关闭时也有效。“联系人”让通讯录里的人在你屏幕解锁时看到你。“所有人（10分钟）”向附近任何人开放，之后恢复到你之前的选择。"
+      },
+      "1": {
+        "h": "常开的“所有人”选项没了",
+        "b": "2026年2月，Google取消了始终开启的“所有人”设置，只保留“您的设备”、“联系人”、“所有人（10分钟）”和“不可见”。Apple在iOS 16.2中也做了同样的调整。如果一台以前能轻松接收陌生人文件的手机现在收不到了，原因就在这里。"
+      },
+      "2": {
+        "h": "Windows电脑和Chromebook",
+        "b": "Chromebook内置Quick Share，Google的Windows版Quick Share应用适用于64位Windows 10及更高版本和Arm架构的Windows 11电脑，可与安卓手机互传文件。两者都连不到AirDrop：Google只为手机提供Apple桥接。"
+      }
+    }
+  },
+  "limits": {
+    "title": "AirDrop桥接目前还做不到的事",
+    "body": "Quick Share对AirDrop的支持是真正的直连，而不是绕道云端。但它比两台Apple设备之间的AirDrop范围更窄，有四点值得注意。",
+    "items": {
+      "0": {
+        "h": "“仅限联系人”不可用",
+        "b": "Google只支持AirDrop的“所有人（10分钟）”模式。也就是说，iPhone和安卓手机每次互传，都得有人暂时向周围所有人开放设备。Google表示想加入联系人模式，但这需要Apple配合。"
+      },
+      "1": {
+        "h": "两台设备必须靠近",
+        "b": "Google要求设备处于蓝牙范围内并开启Wi-Fi。无法AirDrop给其他城市的朋友，相隔两地时也没有链接可以兜底。"
+      },
+      "2": {
+        "h": "只限列表中的手机",
+        "b": "安卓平板不在Google的列表里，Windows电脑、Chromebook和Linux电脑也不在。2024年之前发布的手机完全没有，无论系统多新。"
+      },
+      "3": {
+        "h": "山寨应用补不上这个缺口",
+        "b": "在Google Play搜索AirDrop，会找到借用这个名字的应用。它们不是Apple做的，只能和装了同一应用的设备连接，所以永远不会出现在iPhone的AirDrop菜单里。让这类应用读取你的照片之前，先看清发布者是谁。"
+      }
+    }
+  },
+  "methods": {
+    "title": "任何安卓手机用上AirDrop的六种方法排名",
+    "body": "如果系统自带功能能覆盖你的手机和对方设备，就用自带功能；其他情况再挑一款应用。",
+    "consLabel": "注意：",
+    "items": {
+      "0": {
+        "name": "Quick Share + AirDrop",
+        "tag": "最适合手机在Google列表中、Apple设备就在旁边的情况",
+        "facts": "Quick Share的一部分 · 列表中的Pixel、Galaxy（One UI 8.5）、小米、一加、OPPO、荣耀和vivo手机 · iPhone、iPad和Mac · 双向 · 点对点，不经服务器 · 仅支持“所有人（10分钟）”",
+        "body": "不用安装，也不用解释。iPhone用户在熟悉的AirDrop菜单里就能找到你的手机，你在Quick Share里点他的iPhone即可。文件从一台设备直接传到另一台，Google在发布前还请渗透测试公司NetSPI检验过这条连接。",
+        "cons": "只适用于列表中的手机，Apple设备每次都得切换到“所有人（10分钟）”，传输范围止于蓝牙所及之处。"
+      },
+      "1": {
+        "name": "Quick Share二维码",
+        "tag": "最适合从列表外的手机发给Apple设备",
+        "facts": "带Google Play服务的Android 6.0及以上 · 仅安卓发往iPhone、iPad或Mac · 端到端加密，由Google保存24小时 · 每24小时10 GB，每次1,000个文件 · 两端都要联网",
+        "body": "在Quick Share中轻点“使用二维码”，而不是选择附近设备。iPhone用户用相机应用对准二维码，打开网页后从Google服务器下载文件。Google从2026年5月起通过Play服务推送这项功能，所以连永远等不到AirDrop桥接的平价机和老机型也能用。",
+        "cons": "只能单向从安卓发往Apple，走这条路不会有文件回到安卓手机，而且没有数据网络就用不了。"
+      },
+      "2": {
+        "name": "BIShare",
+        "tag": "最适合任何安卓手机，双向传输，有网没网都行",
+        "facts": "Android、iPhone、Windows、macOS、Linux · MIT许可 · 通过同一Wi-Fi或热点直传，不限大小 · 最大100 GB的加密链接，24小时内任意浏览器可打开 · 凭短码进入的房间 · 出现在安卓分享菜单中 · 无需账号",
+        "body": "BIShare补上桥接留下的空白。装了应用的安卓手机和iPhone，无论机型在不在列表里，都能在同一Wi-Fi或手机热点中找到彼此，不用互联网就能双向直传文件。Windows电脑或Linux笔记本也能用同样的方式加入。对方在别处时就分享链接：链接在你的手机上加密后再上传，一天之内任何浏览器都能打开。",
+        "cons": "近距离传输需要两台设备都装应用，链接则需要两端都能联网。"
+      },
+      "3": {
+        "name": "LocalSend",
+        "tag": "同一家庭网络设备的最佳开源选择",
+        "facts": "Android、iPhone、Windows、macOS、Linux · Apache 2.0 · 单个局域网 · 每台设备各有证书的HTTPS · 无需账号",
+        "body": "LocalSend就像覆盖整个网络的AirDrop。同一Wi-Fi中运行它的每台设备都会以好认的名字出现，点一下就能发送。从iPhone传到安卓和从安卓传到Linux桌面一样简单，全程不涉及服务器。",
+        "cons": "两台设备都要装应用，而且到不了其他网络里的任何设备，包括使用移动数据的手机。"
+      },
+      "4": {
+        "name": "PairDrop",
+        "tag": "最适合对方什么都不想装的时候",
+        "facts": "在新版浏览器中运行，可添加为网页应用 · GPL-3.0 · 发现同一网络中的设备，并可跨网络配对 · 点对点，TURN中继作备用 · 无需账号",
+        "body": "在安卓手机上和iPhone的Safari里打开pairdrop.net，同一网络下两台设备马上就能看到彼此。适合和刚认识的人传一次文件，配对之后两台设备以后在不同网络中也能再次找到对方。",
+        "cons": "两个浏览器标签页都得开着，设备互相发现需要联网，长视频可能撑满手机浏览器的内存。"
+      },
+      "5": {
+        "name": "Send Anywhere",
+        "tag": "最适合用能念出来的短码发送",
+        "facts": "Android、iOS、Windows、macOS和网页版 · 6位密钥，一次性，10分钟有效 · 分享链接保留48小时 · 付费方案可提高上限",
+        "body": "选好文件后，Send Anywhere会显示一个六位数密钥。对方在十分钟内把它输入应用或网站，传输就开始了，所以它一直是从安卓手机往朋友iPhone传照片的老牌选择。",
+        "cons": "闭源，密钥和链接依赖其服务器，免费额度低于付费方案。"
+      }
+    }
+  },
+  "table": {
+    "title": "一览表",
     "cols": {
-      "airdrop": "AirDrop",
-      "quick": "Quick Share",
-      "bishare": "BIShare"
+      "feature": "功能",
+      "qsad": "Quick Share + AirDrop",
+      "qsqr": "Quick Share二维码",
+      "bishare": "BIShare",
+      "localsend": "LocalSend",
+      "pairdrop": "PairDrop",
+      "sendanywhere": "Send Anywhere"
     },
     "rows": {
-      "iphoneAndroid": "iPhone → Android",
-      "winLinux": "支持 Windows / Linux",
-      "noApp": "接收方无需应用",
-      "crossPlatform": "真正跨平台",
-      "free": "免费，无需账户"
+      "r0": "任何带Google Play的安卓手机可用",
+      "r1": "iPhone无需安装任何东西",
+      "r2": "能传到Windows和Linux电脑",
+      "r3": "不联网也能用",
+      "r4": "也能从iPhone发往安卓",
+      "r5": "手机系统自带"
+    },
+    "note": "截至2026年9月。Quick Share + AirDrop需要Google列表中的手机，并直接连接设备，因此不依赖互联网，但只能近距离使用。二维码需要联网，且只能从安卓发往Apple设备。BIShare发送链接时iPhone上无需安装任何东西，但链接需要联网；近距离传输在两台设备都装有应用时可离线进行。LocalSend两端都需要应用。PairDrop在浏览器中运行，Send Anywhere也有网页版，但两者都依赖自家服务器来连接设备。"
+  },
+  "fixes": {
+    "title": "iPhone和安卓手机互相看不到时",
+    "items": {
+      "0": {
+        "h": "iPhone退回了“仅限联系人”",
+        "b": "“所有人（10分钟）”确实十分钟后就结束。如果安卓手机刚才还能看到iPhone、现在看不到了，就在iPhone上打开控制中心重新选择一次。"
+      },
+      "1": {
+        "h": "个人热点开着",
+        "b": "Apple要求双方在使用AirDrop前关闭个人热点。正在给笔记本共享蜂窝网络的iPhone，可能会从安卓和Apple设备的搜索中消失。"
+      },
+      "2": {
+        "h": "Galaxy上找不到开关",
+        "b": "如果已连接的设备、Quick Share下没有与Apple设备共享的选项，说明手机还没升级到One UI 8.5，或Quick Share相关应用太旧。通过软件更新和Galaxy Store更新，重启后再看。"
+      },
+      "3": {
+        "h": "安卓手机锁屏或未处于接收状态",
+        "b": "Apple设备只有在安卓手机可见时才能找到它。先解锁屏幕，在iPhone用户打开AirDrop之前打开Quick Share并轻点接收。"
+      },
+      "4": {
+        "h": "蓝牙、Wi-Fi或距离",
+        "b": "即使没有可加入的Wi-Fi网络，两台设备也都要打开蓝牙和Wi-Fi，并且相距最多几米。任何一方开着飞行模式，都会让搜索完全停止。"
+      },
+      "5": {
+        "h": "你的机型就是不支持",
+        "b": "没有任何设置能把Google列表外的手机加进去。发给iPhone可以用Quick Share二维码，想双向传输就在两台设备上装一款跨平台应用。"
+      }
+    }
+  },
+  "security": {
+    "title": "安卓上的AirDrop安全吗？",
+    "body": "和Apple设备互传文件，意味着手机要在一段时间内对附近所有人可见，所以最好了解这段时间里是什么在保护你。",
+    "items": {
+      "0": {
+        "h": "直连且经过审计的连接",
+        "b": "Google表示，AirDrop连接是点对点的，从不经过服务器，也不会被记录；核心部分用内存安全的Rust语言编写；NetSPI的独立评估认为它明显比其他实现更稳固。每个传入的文件仍需等你批准。"
+      },
+      "1": {
+        "h": "开放时间越短越好",
+        "b": "iPhone上的“所有人（10分钟）”和Quick Share里的“所有人（10分钟）”都会自动关闭。拒绝任何意料之外的内容，尤其在人多的地方，陌生人可能会发来不想看的图片。"
+      },
+      "2": {
+        "h": "链接与第三方应用",
+        "b": "Quick Share二维码会把文件以端到端加密的方式在Google服务器上保存24小时。BIShare链接在你的手机上加密，密钥随链接一起传递，而不是放在服务器上。只是借用AirDrop名字的应用，在允许其访问你的文件之前要格外小心。"
+      }
     }
   },
   "faq": {
-    "title": "iPhone 到 Android 传输：常见问题",
+    "title": "安卓AirDrop：常见问题",
     "items": {
       "0": {
-        "q": "能从 iPhone 用隔空投送发到 Android 吗？",
-        "a": "用 AirDrop 本身不行——AirDrop 是苹果专属，无法发给 Android。BIShare 在两端都能做到同样的事：在同一 Wi-Fi 下设备到设备直接发送；相隔两地时，它给你一个链接，Android 用户在任意浏览器打开即可下载文件。"
+        "q": "安卓有AirDrop吗？",
+        "a": "有，而且有两种形式。Quick Share是安卓手机、Chromebook和Windows电脑的内置对应功能；在不断增加的手机上，Quick Share还能与Apple的AirDrop互通，传到iPhone、iPad和Mac。"
       },
       "1": {
-        "q": "Android 上相当于 AirDrop 的是什么？",
-        "a": "BIShare。它像 AirDrop 一样工作，但是跨平台的——iPhone、Android、Windows、Mac 和 Linux——因此也填补了 AirDrop 和谷歌 Quick Share 都遗漏的 iPhone 与 Android 之间的空缺。"
+        "q": "哪些安卓手机能和iPhone互传AirDrop？",
+        "a": "截至2026年9月，Google列出的有Pixel 10和Pixel 9系列及Pixel 8a；运行One UI 8.5的Galaxy S26、S25、S24系列以及Z Fold7、Z Flip7、Z Fold6和Z TriFold；Xiaomi 17T Pro、OnePlus 15、OPPO Find X9系列和Find N6、HONOR Magic V6以及vivo X300 Ultra。"
       },
       "2": {
-        "q": "怎样把文件从 iPhone 发到 Android？",
-        "a": "在 iPhone 上安装 BIShare（Android 那端甚至不用应用）。在同一网络中选择设备并发送。不在附近？分享链接、二维码或 6 位字符码，Android 用户就能在浏览器里下载。"
+        "q": "怎么从iPhone AirDrop到安卓手机？",
+        "a": "把iPhone的AirDrop设为“所有人（10分钟）”，在安卓手机上打开Quick Share并轻点接收，然后在iPhone上选择AirDrop并点这台安卓手机。Galaxy需要先打开与Apple设备共享。"
       },
       "3": {
-        "q": "Android 用户需要安装什么吗？",
-        "a": "不用。对于分享链接，他们只需在任意浏览器打开并下载——那端无需应用、无需账户。安装应用能让附近传输更快并解锁全部功能，但接收从来都不是必需的。"
+        "q": "为什么我的三星手机不出现在AirDrop里？",
+        "a": "Galaxy需要One UI 8.5、最新的Quick Share相关应用，并打开与Apple设备共享的开关，而且机型必须在Google的列表中。iPhone也必须设为“所有人（10分钟）”。"
       },
       "4": {
-        "q": "BIShare 免费吗？",
-        "a": "是的——免费，无需账户。在自己网络下的附近传输没有大小限制，分享链接对任何人都有效。"
+        "q": "不在列表里的安卓手机能用AirDrop吗？",
+        "a": "不能通过AirDrop。你可以用Quick Share二维码从这台手机发给Apple设备，或者在两台设备上安装BIShare、LocalSend之类的应用。"
+      },
+      "5": {
+        "q": "安卓和iPhone之间AirDrop需要联网吗？",
+        "a": "不需要。Quick Share的AirDrop支持直接连接两台设备，中间没有服务器。而Quick Share二维码则需要两部手机都联网。"
+      },
+      "6": {
+        "q": "Google Play上的AirDrop应用是真的吗？",
+        "a": "没有一款是Apple出的。名字里带AirDrop的应用只能连接装了同一应用的设备，从不会出现在iPhone的AirDrop菜单里。"
+      },
+      "7": {
+        "q": "Windows电脑能通过Quick Share用AirDrop吗？",
+        "a": "不能。Google只为手机提供AirDrop支持。Windows版Quick Share可以和安卓手机互传文件，而BIShare这类跨平台应用能连接iPhone和电脑。"
+      },
+      "8": {
+        "q": "Quick Share发往AirDrop有大小限制吗？",
+        "a": "对于直连的AirDrop传输，Google没有公布上限。Quick Share二维码的上限是每24小时10 GB。"
+      },
+      "9": {
+        "q": "安卓版BIShare免费吗？",
+        "a": "免费。BIShare是采用MIT许可的免费开源应用，不需要账号，附近设备之间的直传也没有限制。"
       }
     }
   },
   "cta": {
-    "title": "几秒内在 iPhone 与 Android 之间互传",
-    "body": "免费，无需账户。在任意设备上安装即可开始发送——另一端甚至不用应用。",
-    "download": "下载 BIShare"
+    "title": "每部安卓手机都能像AirDrop一样分享",
+    "body": "开源且免费。在同一网络中的任何安卓手机与iPhone之间直接发送，或与其他人分享加密链接。",
+    "download": "下载BIShare"
   },
   "a11y": {
     "yes": "是",
     "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "安卓手机和iPhone双向互传文件，标题为安卓AirDrop，2026年哪些手机能用，其他手机用什么。",
+      "title": "安卓AirDrop",
+      "sub": "2026年支持的手机，以及其他手机的办法",
+      "left": "Android",
+      "right": "iPhone"
+    },
+    "phones": {
+      "alt": "2026年9月Google列出的可通过Quick Share使用AirDrop的安卓手机：Pixel 10和Pixel 9系列及Pixel 8a；运行One UI 8.5的Galaxy S26、S25、S24系列以及Z Fold7、Z Flip7、Z Fold6和Z TriFold；Xiaomi 17T Pro、OnePlus 15、OPPO Find X9和Find N6、HONOR Magic V6以及vivo X300 Ultra；Motorola razr fold 2026即将支持。",
+      "title": "支持AirDrop的安卓手机",
+      "sub": "Google列表，2026年9月",
+      "g": {
+        "name": "Google Pixel",
+        "m1": "Pixel 10系列 · Pixel 9系列",
+        "m2": "Pixel 8a"
+      },
+      "s": {
+        "name": "Samsung Galaxy",
+        "m1": "S26 · S25 · S24系列",
+        "m2": "Z Fold7 · Z Flip7 · Z Fold6 · Z TriFold",
+        "note": "需要One UI 8.5"
+      },
+      "o": {
+        "name": "其他品牌",
+        "m1": "Xiaomi 17T Pro · OnePlus 15 · HONOR Magic V6",
+        "m2": "OPPO Find X9, Find N6 · vivo X300 Ultra"
+      },
+      "c": {
+        "name": "即将支持",
+        "m1": "Motorola razr fold 2026",
+        "m2": "更多OPPO、荣耀和vivo机型"
+      },
+      "foot": "最新列表见android.com/quick-share/with-iphone"
+    },
+    "modes": {
+      "alt": "安卓手机能看到Apple设备的哪些AirDrop设置：接收关闭和仅限联系人对安卓不可见；iPhone或iPad上的所有人（10分钟）和Mac上的所有人可见；十分钟后iPhone退回仅限联系人。",
+      "title": "安卓手机能看到什么",
+      "sub": "由Apple设备的AirDrop设置决定",
+      "r0": "接收关闭",
+      "r1": "仅限联系人",
+      "r2": "所有人（10分钟）",
+      "r3": "所有人（Mac）",
+      "hidden": "不可见",
+      "shown": "可见",
+      "foot": "10分钟后，iPhone会退回“仅限联系人”"
+    },
+    "fallback": {
+      "alt": "从安卓手机选择方式：手机在Google列表中，用Quick Share + AirDrop；不在且只发给Apple设备，用Quick Share二维码；要从iPhone接收、传到Windows或Linux电脑或远方的人，用BIShare、LocalSend或PairDrop等应用。",
+      "title": "你的手机能走哪条路",
+      "sub": "三个问题，从上往下",
+      "q1": "你的手机在Google列表中吗？",
+      "a1": "Quick Share + AirDrop",
+      "q2": "只发给iPhone、iPad或Mac？",
+      "a2": "Quick Share二维码",
+      "q3": "也要接收，或发给电脑、远方的人？",
+      "a3": "BIShare · LocalSend · PairDrop",
+      "yes": "是",
+      "no": "否"
+    }
   }
 }

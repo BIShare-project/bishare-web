@@ -1,83 +1,368 @@
 {
   "meta": {
-    "title": "Android版AirDrop｜iPhoneとAndroidで共有",
-    "description": "AirDropはAndroidに届きません。BIShareならiPhoneとAndroidの間で写真・動画・ファイルをWi-Fiかブラウザのリンクで送れます。無料・登録不要。"
+    "title": "AndroidでAirDrop【2026年版】対応機種と使い方",
+    "description": "AndroidスマホがQuick Share経由でiPhoneやMacとAirDropできるようになりました。対応機種の確認、両側の設定、非対応機種での代わりの方法を解説します。"
   },
   "hero": {
-    "eyebrow": "クロスプラットフォーム転送",
-    "title": "Android版AirDrop",
-    "body": "AirDropは優れています——友だちのAndroidや自分のWindows PCにファイルを送りたくなるまでは。そうなると役に立ちません。<strong>BIShare</strong>はクロスプラットフォームの代替手段です。<strong>iPhoneとAndroid</strong>の間で、さらにWindows・Mac・Linuxとも、ローカルのWi-Fi経由で瞬時に、または相手がどのブラウザでも開けるリンクでファイルを送れます。<highlight>相手側にアプリは不要です。</highlight>",
+    "eyebrow": "AndroidでAirDrop",
+    "title": "AndroidでAirDropを使う方法",
+    "body": "AndroidスマホでAirDropを探すと、まったく違う2つの答えが見つかります。GoogleのQuick Shareは以前からAndroid版のAirDropとして、Androidスマホ、Chromebook、Windows PCの間でファイルをやり取りしてきました。さらに2025年11月からは、AirDropそのものと通信できるようになりました。増え続けるPixel、Galaxy、その他の新しいスマホでは、iPhone、iPad、MacがQuick Shareのメニューに直接表示されます。このガイドでは、あなたのスマホがその対象に入っているかを確認し、両方の端末の設定を順に説明し、この連携にまだできないことを解説したうえで、ほかのどのAndroidでも同じことを実現する6つの方法をランキングで紹介します。<strong>BIShare</strong>もその1つです。どのAndroidでもどのiPhoneでも動き、<strong>同じネットワークならインターネットなしで双方向に送れて、そうでなければリンクを作れます</strong>。<highlight>無料、オープンソース、アカウント不要。</highlight>",
     "ctaPrimary": "BIShareを無料で入手",
-    "ctaSecondary": "使い方"
+    "ctaSecondary": "仕組みを見る"
   },
-  "why": {
-    "title": "AirDropがAndroidに届かない理由",
-    "body": "AirDropはApple独自のプロトコルで作られているため、Appleデバイス間でしか動きません。GoogleのQuick ShareはAndroidとWindowsをカバーしますが、iPhoneは対象外です。その結果、最もよくある日常の場面——<strong>iPhoneとAndroidスマホ</strong>の間で写真や動画を移す——に、使い勝手のよい標準機能がありません。BIShareはまさにこの隙間を埋めるために存在します。"
+  "updated": "2026年9月更新 · 対応機種はGoogleの「Quick Share with iPhone」ページより、設定は今月GoogleとAppleのサポートページで確認",
+  "disclosure": "BIShareは私たちのアプリです。あなたのスマホがGoogleの対応リストに入っていて、Apple製品が同じ部屋にあるなら、スマホに組み込まれたQuick Shareの連携のほうが手軽です。そのためこのガイドはそこから始めます。",
+  "quick": {
+    "title": "結論",
+    "items": [
+      "<strong>Pixel 8a以降、最近のGalaxy SシリーズやZシリーズ、Googleが挙げるその他の機種:</strong>Apple側で「すべての人（10分間のみ）」を選べば、Quick ShareはすでにAirDropと連携できます。",
+      "<strong>One UI 8.5のGalaxy:</strong>iPhoneを探す前に、設定、接続済みデバイス、Quick ShareでAppleデバイスとの共有をオンにします。",
+      "<strong>それ以外のAndroidからApple製品に送る場合:</strong>Quick ShareのQRコードがGoogle経由でアップロードし、読み取ったiPhone、iPad、Macが受け取ります。両側にインターネットが必要です。",
+      "<strong>どのAndroidでも、双方向、インターネットの有無を問わず:</strong>BIShareは共通のWi-Fiやテザリングで直接送り、離れた相手には暗号化リンクに切り替わります。",
+      "<strong>AndroidからAndroid、Chromebook、Windows PCへ:</strong>普通のQuick Shareで十分です。普段は「連絡先」か「自分のデバイス」にしておきましょう。",
+      "<strong>Google Playの「AirDrop」という名前のアプリは避ける:</strong>Apple製ではなく、iPhoneのAirDropメニューに表示されることもありません。"
+    ]
   },
-  "how": {
-    "title": "BIShareがiPhone ↔ Androidで送る仕組み",
+  "meaning": {
+    "title": "2026年の「AndroidでAirDrop」が意味するもの",
+    "body": "この言葉は今、3つの別々のものを指しています。どれが必要かは、相手側の端末によって決まります。",
     "items": {
       "0": {
-        "h": "同じWi-Fi上で",
-        "b": "ファイルは端末から端末へ直接、エンドツーエンドで暗号化されて送られます——サーバーには一切触れません。高速で、インターネットのないスマホのテザリング経由でも動きます。"
+        "h": "Quick Share、Android自身のAirDrop",
+        "b": "GoogleのNearby ShareとSamsungのQuick Shareは、2024年に1つのQuick Shareに統合されました。BluetoothとWi-Fiで、Androidスマホやタブレット、Chromebook、Windows PCの間で写真、動画、ファイルを送れます。Googleのサービスを搭載したAndroidスマホには最初から入っているので、多くの人にとってはすでに手元にあるAirDropです。"
       },
       "1": {
-        "h": "離れているとき",
-        "b": "リンク、QRコード、6文字のコードが手に入ります。相手はどのブラウザでもリンクを開いてダウンロードするだけ——相手側にアプリも登録も不要です。リンクは24時間で自動的に期限切れになります。"
+        "h": "AirDropと通信できるQuick Share",
+        "b": "2025年11月、GoogleはPixel 10のQuick ShareでAppleのAirDropプロトコルを使えるようにし、その後も対応機種を増やしています。対応機種では、近くのiPhone、iPad、MacがQuick Shareの送信先として表示され、Androidスマホも相手側のAirDropメニューに表示されます。Googleはこれを独自に実現し、Appleとの協力を歓迎すると述べています。"
       },
       "2": {
-        "h": "あらゆるプラットフォーム",
-        "b": "iPhone、Android、Windows、Mac、Linux——1つのアプリで、どの方向へも。文字どおり誰にでも送れます。"
+        "h": "どこでもAirDropのように使えるアプリ",
+        "b": "Googleがまだ対応していないスマホ、WindowsやLinuxのパソコン、同じ部屋にいない相手には、クロスプラットフォームのアプリが役立ちます。使えるアプリはAndroidでもiPhoneでも同じように動くか、相手側にブラウザさえあれば済みます。"
       }
     }
   },
-  "comparison": {
-    "title": "AirDrop vs Quick Share vs BIShare",
+  "phones": {
+    "title": "あなたのAndroidスマホはAirDropに対応している？",
+    "body": "公式の対応リストは、Googleの「Quick Share with iPhone」ページにあります。提供開始以来、数か月ごとに増えているので、下に機種が見当たらなくても、諦める前にそのページを確認してください。",
+    "items": {
+      "0": {
+        "h": "Google Pixel",
+        "b": "最初は2025年11月のPixel 10シリーズでした。2026年2月にPixel 9シリーズが続き、Pixel 8aもリストに入っています。PixelはQuick ShareとGoogle Playシステムアップデートを通じて機能を受け取るので、たいていは両方を最新にするだけで使えます。"
+      },
+      "1": {
+        "h": "Samsung Galaxy",
+        "b": "GalaxyにはOne UI 8.5が必要です。Googleのページには、Galaxy S26、S25、S24シリーズと、Z Fold7、Z Flip7、Z Fold6、Z TriFoldが挙げられています。この機能はAppleデバイスとの共有スイッチの奥にあり、SamsungのQuick Share関連アプリが最新であることが前提です。"
+      },
+      "2": {
+        "h": "Xiaomi、OnePlus、OPPO、HONOR、vivo",
+        "b": "Xiaomi 17T Pro、OnePlus 15、OPPO Find X9シリーズとFind N6、HONOR Magic V6、vivo X300 Ultraがリストに入っています。Googleは、Motorola razr fold 2026と、OPPO、HONOR、vivoのほかの機種を近日対応予定としています。"
+      },
+      "3": {
+        "h": "古いスマホが対象外になる理由",
+        "b": "AirDropはApple独自のWi-Fi接続、Apple Wireless Direct Linkでデータを送ります。提供開始に関する報道によると、対応できるかどうかは、スマホのWi-Fiチップをそれに合わせられるかにかかっています。そのため最新のAndroidを載せたスマホでも対象外になることがあります。リストの機種はすべて2024年以降の発売です。"
+      }
+    }
+  },
+  "setup": {
+    "title": "両方の端末で設定する",
+    "body": "AndroidスマホとApple製品、それぞれに1つずつ変更が必要です。忘れがちなのはApple側です。Googleの連携はプラットフォームをまたいで連絡先を照合できず、iPhoneは「すべての人」を選んで10分たつと「連絡先のみ」に戻ります。",
+    "items": {
+      "0": {
+        "h": "まずQuick Shareを更新する",
+        "b": "Androidスマホで保留中のシステムアップデートを入れてから、設定、セキュリティとプライバシー、システムとアップデート、Google Play システム アップデートを開きます。Galaxyの場合は、Galaxy StoreでQuick Share、Quick Share Agent、Quick Share Connectivityを、Google PlayでQuick Share extensionも更新してください。"
+      },
+      "1": {
+        "h": "GalaxyではApple用のスイッチをオンにする",
+        "b": "設定、接続済みデバイス、Quick Shareを開き、Appleデバイスとの共有をオンにします。スイッチがオフのままだと、2台を机の上に並べてもGalaxyにiPhoneは表示されません。"
+      },
+      "2": {
+        "h": "iPhoneまたはiPadで",
+        "b": "コントロールセンターを開き、接続系のコントロールがまとまった部分を長押しし、AirDropをタップして「すべての人（10分間のみ）」を選びます。同じ項目は設定、一般、AirDropにもあります。Wi-FiとBluetoothはオンのままにし、インターネット共有はオフにしてください。"
+      },
+      "3": {
+        "h": "Macで",
+        "b": "コントロールセンターかFinderのサイドバーでAirDropをクリックし、すべての人に検出を許可します。ファイルが届いたら「連絡先のみ」に戻しましょう。"
+      },
+      "4": {
+        "h": "Androidから送る",
+        "b": "写真やファイルを選び、共有をタップしてQuick Shareを選択し、表示された端末の中からiPhone、iPad、Macをタップします。Apple側にはいつものAirDropの受け入れ確認が表示されます。"
+      },
+      "5": {
+        "h": "Androidで受け取る",
+        "b": "Quick Shareを開いて「受信」をタップするか、公開範囲を「全員（10分間）」にして、画面のロックを解除したままにします。iPhoneでは共有シートでAirDropを選び、Androidスマホをタップします。Quick Shareは保存する前にあなたの承認を求めます。"
+      }
+    }
+  },
+  "android": {
+    "title": "Android、Chromebook、Windowsの間のQuick Share",
+    "body": "部屋にApple製品を持つ人がいなければ、Quick Shareだけで今もいちばん速くファイルを移せます。なお、2026年にプライバシー設定が変わりました。",
+    "items": {
+      "0": {
+        "h": "共有を受ける相手",
+        "b": "設定でQuick Shareを検索し、公開範囲の項目を開きます。「自分のデバイス」は同じGoogleアカウントでログインしたスマホ、タブレット、パソコンが対象で、画面がオフでも使えます。「連絡先」は画面のロック解除中、連絡先に登録された人から見えるようにします。「全員（10分間）」は近くの誰にでも公開し、その後は前の設定に戻ります。"
+      },
+      "1": {
+        "h": "常時「全員」の設定はなくなった",
+        "b": "2026年2月、Googleは常にオンの「全員」を廃止し、「自分のデバイス」「連絡先」「全員（10分間）」「なし」が残りました。AppleもiOS 16.2で同じ変更をしています。以前は知らない人からも気軽に受け取れていたスマホが受け取れなくなったのは、これが理由です。"
+      },
+      "2": {
+        "h": "Windows PCとChromebook",
+        "b": "ChromebookにはQuick Shareが組み込まれており、GoogleのWindows用Quick Shareアプリは、64ビット版Windows 10以降とArm搭載のWindows 11 PCでAndroidスマホと送受信できます。どちらもAirDropには届きません。GoogleがApple連携を案内しているのはスマホだけです。"
+      }
+    }
+  },
+  "limits": {
+    "title": "AirDrop連携にまだできないこと",
+    "body": "Quick ShareのAirDrop対応は本物の直接接続で、クラウドを経由する回り道ではありません。ただし、Apple製品同士のAirDropより範囲が狭く、重要な違いが4つあります。",
+    "items": {
+      "0": {
+        "h": "「連絡先のみ」は使えない",
+        "b": "GoogleがサポートしているのはAirDropの「すべての人（10分間のみ）」モードだけです。つまりiPhoneとAndroidでやり取りするたびに、誰かが少しの間、周りの全員に端末を公開することになります。Googleは連絡先モードにも対応したいとしていますが、それにはAppleの協力が必要です。"
+      },
+      "1": {
+        "h": "2台が近くにある必要がある",
+        "b": "Googleは、端末をBluetoothの届く範囲に置き、Wi-Fiをオンにするよう求めています。別の街の友人にAirDropする方法はなく、離れているときに代わりに使えるリンクもありません。"
+      },
+      "2": {
+        "h": "対象はリストのスマホだけ",
+        "b": "AndroidタブレットはGoogleのリストに入っておらず、Windows PC、Chromebook、Linuxマシンも同様です。2024年より前に発売されたスマホは、ソフトウェアがどれだけ新しくてもまったく含まれていません。"
+      },
+      "3": {
+        "h": "偽物アプリでは埋められない",
+        "b": "Google PlayでAirDropと検索すると、その名前を使ったアプリが見つかります。Apple製ではなく、同じアプリを入れた端末としかつながらないため、iPhoneのAirDropメニューには決して表示されません。こうしたアプリに写真へのアクセスを許す前に、配信元を確認してください。"
+      }
+    }
+  },
+  "methods": {
+    "title": "どのAndroidからでもAirDropする6つの方法(ランキング)",
+    "body": "標準機能があなたのスマホと相手の端末をカバーしているならそれを使い、それ以外はアプリを選びましょう。",
+    "consLabel": "注意点:",
+    "items": {
+      "0": {
+        "name": "Quick Share＋AirDrop",
+        "tag": "スマホがGoogleのリストにあり、Apple製品が近くにあるときに最適",
+        "facts": "Quick Shareの一部 · リストにあるPixel、Galaxy（One UI 8.5）、Xiaomi、OnePlus、OPPO、HONOR、vivo · iPhone、iPad、Mac · 双方向 · P2P、サーバーなし · 「すべての人（10分間のみ）」のみ",
+        "body": "インストールも説明も要りません。iPhoneの持ち主はいつものAirDropメニューであなたのスマホを見つけ、あなたはQuick ShareでそのiPhoneをタップするだけです。ファイルは端末から端末へ直接届き、Googleは提供前にペネトレーションテスト会社のNetSPIに接続を検証させています。",
+        "cons": "リストにあるスマホでしか使えず、Apple側は毎回「すべての人（10分間のみ）」に切り替える必要があり、届く範囲はBluetoothの範囲までです。"
+      },
+      "1": {
+        "name": "Quick ShareのQRコード",
+        "tag": "リストにないスマホからApple製品に届けるのに最適",
+        "facts": "Google Play開発者サービス搭載のAndroid 6.0以降 · AndroidからiPhone、iPad、Macへの一方向のみ · エンドツーエンド暗号化、Googleが24時間保管 · 24時間で10 GB、1セッション1,000ファイル · 両側にインターネットが必要",
+        "body": "Quick Shareで近くの端末を選ぶ代わりに「QRコードを使用」をタップします。iPhoneの持ち主がカメラアプリでコードを読み取るとWebページが開き、ファイルがGoogleのサーバーからダウンロードされます。Googleは2026年5月からPlay開発者サービス経由で提供を始めたので、AirDrop連携が来ることのない低価格機や古い機種にも届きます。",
+        "cons": "AndroidからAppleへの一方向だけなので、この方法でAndroidスマホに戻ってくるものはなく、データ通信がないと使えません。"
+      },
+      "2": {
+        "name": "BIShare",
+        "tag": "どのAndroidでも、双方向、インターネットの有無を問わず使うなら最適",
+        "facts": "Android、iPhone、Windows、macOS、Linux · MITライセンス · 共通のWi-Fiやテザリングで直接、サイズ無制限 · 最大100 GBの暗号化リンクを24時間どのブラウザでも開ける · 短いコードで入れるルーム · Androidの共有メニューに表示 · アカウント不要",
+        "body": "BIShareは連携が届かない部分を補います。アプリを入れたAndroidとiPhoneなら、リストに入っていてもいなくても、同じWi-Fiやスマホのテザリングで互いを見つけ、インターネットを使わずにどちらの方向にも直接ファイルを送れます。Windows PCやLinuxのノートPCも同じように加われます。相手が別の場所にいるならリンクを共有しましょう。アップロード前にスマホ上で暗号化され、1日の間どのブラウザでも開けます。",
+        "cons": "近くでの転送には両方の端末にアプリが必要で、リンクには両側に接続が必要です。"
+      },
+      "3": {
+        "name": "LocalSend",
+        "tag": "家庭内ネットワークの端末向けのオープンソースで最良の選択",
+        "facts": "Android、iPhone、Windows、macOS、Linux · Apache 2.0 · 1つのローカルネットワーク · 端末ごとの証明書でHTTPS · アカウント不要",
+        "body": "LocalSendはネットワーク全体で使えるAirDropのように動きます。同じWi-Fiで起動している端末がわかりやすい名前で表示され、タップ1回で送れます。iPhoneからAndroidへもAndroidからLinuxデスクトップへも同じくらい簡単で、サーバーが関わることはありません。",
+        "cons": "両方の端末にアプリが必要で、別のネットワークにあるもの、たとえばモバイルデータ通信中のスマホには届きません。"
+      },
+      "4": {
+        "name": "PairDrop",
+        "tag": "相手が何もインストールしたくないときに最適",
+        "facts": "最新のブラウザで動作、Webアプリとして追加も可 · GPL-3.0 · 同じネットワークの端末を検出し、ネットワークをまたいでペアリング · P2P、予備にTURNリレー · アカウント不要",
+        "body": "AndroidスマホとiPhoneのSafariでpairdrop.netを開けば、同じネットワーク上で2台がすぐに表示されます。会ったばかりの相手と一度だけやり取りするのに向いていて、ペアリングしておけば後で別のネットワークでも互いを見つけられます。",
+        "cons": "両方のブラウザタブを開いたままにする必要があり、端末同士を引き合わせるのにインターネットが必要で、長い動画はスマホのブラウザのメモリを圧迫することがあります。"
+      },
+      "5": {
+        "name": "Send Anywhere",
+        "tag": "読み上げられる短いコードで送るのに最適",
+        "facts": "Android、iOS、Windows、macOSとWebサイト · 6桁のキー、1回限り、10分間有効 · 共有リンクは48時間有効 · 有料プランで上限が上がる",
+        "body": "ファイルを選ぶとSend Anywhereが6桁のキーを表示します。相手が10分以内にアプリかWebサイトで入力すると転送が始まるので、Androidスマホから友人のiPhoneに写真を送る手段として昔から定番です。",
+        "cons": "クローズドソースで、キーとリンクは同社のサーバー頼みです。無料の上限は有料プランより低めです。"
+      }
+    }
+  },
+  "table": {
+    "title": "比較表",
     "cols": {
-      "airdrop": "AirDrop",
-      "quick": "Quick Share",
-      "bishare": "BIShare"
+      "feature": "機能",
+      "qsad": "Quick Share＋AirDrop",
+      "qsqr": "Quick Share QR",
+      "bishare": "BIShare",
+      "localsend": "LocalSend",
+      "pairdrop": "PairDrop",
+      "sendanywhere": "Send Anywhere"
     },
     "rows": {
-      "iphoneAndroid": "iPhone → Android",
-      "winLinux": "Windows / Linux で動く",
-      "noApp": "受け取る側にアプリ不要",
-      "crossPlatform": "本当のクロスプラットフォーム",
-      "free": "無料・アカウント不要"
+      "r0": "Google Play搭載のどのAndroidでも使える",
+      "r1": "iPhoneに何もインストール不要",
+      "r2": "WindowsやLinuxのパソコンに届く",
+      "r3": "インターネットなしで使える",
+      "r4": "iPhoneからAndroidへも送れる",
+      "r5": "スマホに標準搭載"
+    },
+    "note": "2026年9月時点。Quick Share＋AirDropはGoogleのリストにあるスマホが必要で、端末同士を直接つなぐためインターネットには依存しませんが、近くでしか使えません。QRコードはインターネットが必要で、AndroidからApple製品への送信だけです。BIShareはリンクで送るならiPhone側に何も要りませんが、リンクにはインターネットが必要です。近くでの転送は両方の端末にアプリがあればオフラインで動きます。LocalSendは両側にアプリが必要です。PairDropはブラウザで動き、Send AnywhereにもWebサイトがありますが、どちらも端末をつなぐのに自社サーバーを使います。"
+  },
+  "fixes": {
+    "title": "iPhoneとAndroidが互いに見えないとき",
+    "items": {
+      "0": {
+        "h": "iPhoneが「連絡先のみ」に戻った",
+        "b": "「すべての人（10分間のみ）」は本当に10分で終わります。さっきまでAndroidからiPhoneが見えていたのに今は見えないなら、iPhoneのコントロールセンターを開いてもう一度選び直してください。"
+      },
+      "1": {
+        "h": "インターネット共有がオンになっている",
+        "b": "Appleは、AirDropを使う前に双方がインターネット共有をオフにするよう案内しています。ノートPCにモバイル回線を共有しているiPhoneは、AndroidからもApple製品からも検出されなくなることがあります。"
+      },
+      "2": {
+        "h": "Galaxyにスイッチが見当たらない",
+        "b": "接続済みデバイス、Quick ShareにAppleデバイスとの共有の項目がなければ、そのスマホはまだOne UI 8.5ではないか、Quick Share関連アプリが古いままです。ソフトウェア更新とGalaxy Storeでアップデートし、再起動してから確認し直してください。"
+      },
+      "3": {
+        "h": "Androidがロック中か受信状態になっていない",
+        "b": "Apple製品がAndroidスマホを見つけられるのは、公開状態になっている間だけです。画面のロックを解除し、iPhoneの持ち主がAirDropを開く前にQuick Shareを開いて「受信」をタップしてください。"
+      },
+      "4": {
+        "h": "Bluetooth、Wi-Fi、距離",
+        "b": "つなぐWi-Fiネットワークがなくても、両方の端末でBluetoothとWi-Fiをオンにし、離れても数メートル以内に置いてください。どちらかが機内モードだと検出はまったくできません。"
+      },
+      "5": {
+        "h": "機種がそもそも非対応",
+        "b": "Googleのリストにないスマホを追加できる設定はありません。iPhoneにはQuick ShareのQRコードで送るか、双方向でやり取りするなら両方の端末にクロスプラットフォームのアプリを入れてください。"
+      }
+    }
+  },
+  "security": {
+    "title": "AndroidのAirDropは安全？",
+    "body": "Apple製品とファイルをやり取りするということは、しばらくの間スマホを周りの全員に公開することです。その間に何が守ってくれるのかを知っておくと安心です。",
+    "items": {
+      "0": {
+        "h": "直接つながり、監査を受けた接続",
+        "b": "Googleによると、AirDropとの接続はP2Pで、サーバーを経由することも記録されることもなく、中核部分はメモリ安全なRustで書かれており、NetSPIの独立した評価ではほかの実装より格段に堅牢とされました。それでも、受信するファイルは毎回あなたの承認を待ちます。"
+      },
+      "1": {
+        "h": "公開する時間は短く",
+        "b": "iPhoneの「すべての人（10分間のみ）」も、Quick Shareの「全員（10分間）」も自動で閉じます。心当たりのないものは拒否しましょう。特に人の多い場所では、見知らぬ人から望まない画像が送られてくることがあります。"
+      },
+      "2": {
+        "h": "リンクとサードパーティ製アプリ",
+        "b": "Quick ShareのQRコードは、ファイルをエンドツーエンド暗号化したままGoogleのサーバーに24時間保管します。BIShareのリンクはスマホ上で暗号化され、鍵はサーバーではなくリンクの中にあります。AirDropの名前を借りているだけのアプリには、ファイルへのアクセスを許す前に特に注意してください。"
+      }
     }
   },
   "faq": {
-    "title": "iPhoneからAndroidへの転送：よくある質問",
+    "title": "AndroidでAirDrop:よくある質問",
     "items": {
       "0": {
-        "q": "iPhoneからAndroidへAirDropできますか？",
-        "a": "AirDrop自体ではできません——AirDropはApple専用で、Androidには送れません。BIShareは両方で同じことをします。同じWi-Fiなら端末から端末へ直接送り、離れているときはリンクを渡すので、Androidユーザーがどのブラウザでも開いてファイルをダウンロードできます。"
+        "q": "AndroidにAirDropはありますか？",
+        "a": "あります。2つの形で。Quick ShareはAndroidスマホ、Chromebook、Windows PC向けの標準機能で、さらに対応機種が増え続けているスマホではQuick ShareがAppleのAirDropとも連携し、iPhone、iPad、Macに届きます。"
       },
       "1": {
-        "q": "Android版のAirDropに相当するものは何ですか？",
-        "a": "BIShareです。AirDropのように動きますが、クロスプラットフォーム——iPhone、Android、Windows、Mac、Linux——なので、AirDropもGoogleのQuick Shareも取りこぼすiPhone↔Android間の隙間もカバーします。"
+        "q": "iPhoneとAirDropできるAndroidスマホは？",
+        "a": "2026年9月時点でGoogleが挙げているのは、Pixel 10シリーズ、Pixel 9シリーズ、Pixel 8a、One UI 8.5のGalaxy S26、S25、S24シリーズとZ Fold7、Z Flip7、Z Fold6、Z TriFold、Xiaomi 17T Pro、OnePlus 15、OPPO Find X9シリーズとFind N6、HONOR Magic V6、vivo X300 Ultraです。"
       },
       "2": {
-        "q": "iPhoneからAndroidへファイルを送るには？",
-        "a": "iPhoneにBIShareをインストールします（Android側はアプリすら不要）。同じネットワークで端末を選んで送信。近くにいない場合は、リンク・QR・6文字コードを共有すれば、Androidユーザーがブラウザでダウンロードできます。"
+        "q": "iPhoneからAndroidスマホにAirDropするには？",
+        "a": "iPhoneのAirDropを「すべての人（10分間のみ）」にし、AndroidスマホでQuick Shareを開いて「受信」をタップしてから、iPhoneでAirDropを選んでAndroidスマホをタップします。Galaxyでは先にAppleデバイスとの共有をオンにしてください。"
       },
       "3": {
-        "q": "Androidユーザーは何かインストールが必要ですか？",
-        "a": "いいえ。共有リンクなら、どのブラウザでも開いてダウンロードするだけ——相手側にアプリもアカウントも不要です。アプリを入れると近くへの転送が速くなり全機能が使えますが、受け取るのに必須ではありません。"
+        "q": "SamsungのスマホがAirDropに表示されないのはなぜ？",
+        "a": "GalaxyにはOne UI 8.5、最新のQuick Share関連アプリ、オンになったAppleデバイスとの共有スイッチが必要で、機種がGoogleのリストに入っている必要もあります。iPhone側も「すべての人（10分間のみ）」にしておく必要があります。"
       },
       "4": {
-        "q": "BIShareは無料ですか？",
-        "a": "はい——無料でアカウント不要です。自分のネットワークでの近距離転送にサイズ制限はなく、共有リンクは誰に対しても使えます。"
+        "q": "リストにないAndroidでもAirDropできますか？",
+        "a": "AirDropではできません。そのスマホからApple製品へはQuick ShareのQRコードで送れますし、BIShareやLocalSendのようなアプリを両方の端末に入れる方法もあります。"
+      },
+      "5": {
+        "q": "AndroidとiPhoneのAirDropにインターネットは必要？",
+        "a": "不要です。Quick ShareのAirDrop対応は、間にサーバーを挟まず2台を直接つなぎます。一方、Quick ShareのQRコードは両方のスマホにインターネットが必要です。"
+      },
+      "6": {
+        "q": "Google PlayのAirDropアプリは本物ですか？",
+        "a": "どれもApple製ではありません。名前にAirDropが入ったアプリは同じアプリを入れた端末としかつながらず、iPhoneのAirDropメニューに表示されることはありません。"
+      },
+      "7": {
+        "q": "Windows PCはQuick Share経由でAirDropを使えますか？",
+        "a": "使えません。GoogleはAirDrop対応をスマホ向けにしか案内していません。Windows用Quick ShareはAndroidスマホとファイルをやり取りでき、iPhoneとPCをつなぐにはBIShareのようなクロスプラットフォームのアプリが使えます。"
+      },
+      "8": {
+        "q": "Quick ShareからAirDropへの送信にサイズ上限はありますか？",
+        "a": "直接つながるAirDrop接続について、Googleは上限を公表していません。Quick ShareのQRコードは24時間で10 GBまでです。"
+      },
+      "9": {
+        "q": "AndroidのBIShareは無料ですか？",
+        "a": "はい。BIShareはMITライセンスの無料オープンソースで、アカウントは不要、近くの端末同士の直接転送に上限もありません。"
       }
     }
   },
   "cta": {
-    "title": "iPhoneとAndroidの間を数秒で送信",
-    "body": "無料・アカウント不要。どの端末にも入れて送信を始められます——相手側はアプリすら要りません。",
+    "title": "どのAndroidスマホでもAirDropのように共有",
+    "body": "オープンソースで無料。同じネットワーク上のAndroidとiPhoneの間で直接送るか、ほかの人とは暗号化リンクを共有しましょう。",
     "download": "BIShareをダウンロード"
   },
   "a11y": {
-    "yes": "はい",
-    "no": "いいえ"
+    "yes": "対応",
+    "no": "非対応"
+  },
+  "art": {
+    "hero": {
+      "alt": "AndroidスマホとiPhoneが双方向にファイルを送り合う様子。タイトルはAndroidでAirDrop、2026年に使える機種とそれ以外での方法。",
+      "title": "AndroidでAirDrop",
+      "sub": "2026年の対応機種と、非対応機種での方法",
+      "left": "Android",
+      "right": "iPhone"
+    },
+    "phones": {
+      "alt": "2026年9月時点でGoogleがQuick Share経由のAirDrop対応として挙げるAndroidスマホ:Pixel 10シリーズ、Pixel 9シリーズ、Pixel 8a、One UI 8.5のGalaxy S26、S25、S24シリーズとZ Fold7、Z Flip7、Z Fold6、Z TriFold、Xiaomi 17T Pro、OnePlus 15、OPPO Find X9とFind N6、HONOR Magic V6、vivo X300 Ultra、近日対応のMotorola razr fold 2026。",
+      "title": "AirDropに対応するAndroidスマホ",
+      "sub": "Googleのリスト、2026年9月",
+      "g": {
+        "name": "Google Pixel",
+        "m1": "Pixel 10シリーズ · Pixel 9シリーズ",
+        "m2": "Pixel 8a"
+      },
+      "s": {
+        "name": "Samsung Galaxy",
+        "m1": "S26 · S25 · S24シリーズ",
+        "m2": "Z Fold7 · Z Flip7 · Z Fold6 · Z TriFold",
+        "note": "One UI 8.5が必要"
+      },
+      "o": {
+        "name": "その他のメーカー",
+        "m1": "Xiaomi 17T Pro · OnePlus 15 · HONOR Magic V6",
+        "m2": "OPPO Find X9, Find N6 · vivo X300 Ultra"
+      },
+      "c": {
+        "name": "近日対応",
+        "m1": "Motorola razr fold 2026",
+        "m2": "OPPO、HONOR、vivoのほかの機種"
+      },
+      "foot": "最新のリストはandroid.com/quick-share/with-iphoneで確認"
+    },
+    "modes": {
+      "alt": "Apple製品のAirDrop設定のうちAndroidスマホから見えるもの:受信しないと連絡先のみはAndroidから見えず、iPhoneやiPadのすべての人（10分間のみ）とMacのすべての人は見える。10分後、iPhoneは連絡先のみに戻る。",
+      "title": "Androidスマホから見えるもの",
+      "sub": "決めるのはApple製品のAirDrop設定",
+      "r0": "受信しない",
+      "r1": "連絡先のみ",
+      "r2": "すべての人（10分間のみ）",
+      "r3": "すべての人（Mac）",
+      "hidden": "見えない",
+      "shown": "見える",
+      "foot": "10分たつと、iPhoneは「連絡先のみ」に戻ります"
+    },
+    "fallback": {
+      "alt": "Androidスマホからの方法の選び方:スマホがGoogleのリストにあればQuick Share＋AirDrop、なければApple製品に送るだけならQuick ShareのQRコード、iPhoneから受け取る、WindowsやLinuxのパソコンや離れた相手に送るならBIShare、LocalSend、PairDropなどのアプリ。",
+      "title": "あなたのスマホで使える方法",
+      "sub": "上から順に3つの質問",
+      "q1": "スマホはGoogleのリストにある？",
+      "a1": "Quick Share＋AirDrop",
+      "q2": "iPhone、iPad、Macに送るだけ？",
+      "a2": "Quick ShareのQRコード",
+      "q3": "受信も、PCや離れた相手も？",
+      "a3": "BIShare · LocalSend · PairDrop",
+      "yes": "はい",
+      "no": "いいえ"
+    }
   }
 }
