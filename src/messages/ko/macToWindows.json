@@ -289,10 +289,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "BIShare 데스크톱 앱의 기기 목록. 등록된 iPhone과 Samsung Android 휴대폰 두 대가 보입니다. 같은 네트워크의 Mac이나 Windows PC도 같은 방식으로 표시됩니다.",
-    "transfer": "브라우저의 bishare.app/transfer 화면. 왼쪽에 파일을 놓으면 링크가 생기고, 오른쪽에 6자리 코드를 입력하면 Windows PC에서 내려받습니다."
-  },
   "cta": {
     "title": "설정을 뒤지지 않고 Mac에서 Windows로",
     "body": "무료, 오픈 소스, 계정 불필요. 두 컴퓨터에 BIShare를 설치해 어느 방향으로든 보내거나, PC가 아무 브라우저에서나 여는 링크를 공유하세요.",
@@ -301,5 +297,67 @@
   "a11y": {
     "yes": "예",
     "no": "아니요"
+  },
+  "art": {
+    "hero": {
+      "alt": "Mac과 Windows 노트북이 양방향으로 파일을 주고받는 그림. 제목: Mac과 Windows 파일 공유, macOS Tahoe와 Windows 11에서 확인한 7가지 방법.",
+      "title": "Mac ↔ Windows 파일 공유",
+      "sub": "macOS Tahoe와 Windows 11에서 확인한 7가지 방법",
+      "mac": "Mac",
+      "pc": "Windows PC"
+    },
+    "flow": {
+      "alt": "다섯 가지 상황에 맞는 방법을 연결한 도표. 같은 책상의 공유 폴더는 SMB, 설정 없는 전송은 BIShare, 멀리 있는 PC는 링크, 네트워크가 없으면 exFAT USB 드라이브, 매일 동기화는 클라우드 드라이브.",
+      "title": "상황별로 맞는 방법",
+      "sub": "도구가 아니라 필요한 일에서 출발하세요",
+      "items": {
+        "0": {
+          "q": "두 컴퓨터가 같은 책상에 있고 공유 폴더가 필요함",
+          "a": "기본 SMB 공유"
+        },
+        "1": {
+          "q": "같은 네트워크, 설정 변경 없이, 양방향",
+          "a": "두 컴퓨터에 BIShare"
+        },
+        "2": {
+          "q": "PC가 다른 건물이나 다른 도시에 있음",
+          "a": "링크, 최대 100 GB"
+        },
+        "3": {
+          "q": "네트워크가 전혀 없음",
+          "a": "exFAT USB 드라이브"
+        },
+        "4": {
+          "q": "같은 폴더를 매일 양쪽에서 최신으로 유지",
+          "a": "클라우드 드라이브"
+        }
+      }
+    },
+    "usb": {
+      "alt": "USB 포맷 표. exFAT은 양쪽에서 읽기와 쓰기 가능, FAT32는 4 GB 초과 파일 불가, NTFS는 Mac에서 읽기 전용, APFS는 Windows에 표시되지 않음.",
+      "title": "Mac과 Windows의 USB 포맷",
+      "cols": {
+        "format": "포맷",
+        "mac": "Mac",
+        "win": "Windows",
+        "big": "4 GB 초과 파일"
+      },
+      "rw": "읽기·쓰기",
+      "ro": "읽기 전용",
+      "none": "표시 안 됨",
+      "yes": "가능",
+      "no": "불가"
+    },
+    "speed": {
+      "alt": "Mac과 PC 사이 일반적인 속도 막대 그래프. 업로드 50 Mbps 클라우드 약 6 MB/s, 저렴한 USB 메모리 10–30 MB/s, Wi-Fi 5 40–50 MB/s, Wi-Fi 6 70–110 MB/s, 기가비트 이더넷 약 110 MB/s.",
+      "title": "Mac과 PC 사이 일반적인 속도",
+      "sub": "초당 메가바이트, 두 컴퓨터 모두 공유기 근처",
+      "cloud": "클라우드, 업로드 50 Mbps",
+      "usb": "저렴한 USB 메모리",
+      "wifi5": "Wi-Fi 5",
+      "wifi6": "Wi-Fi 6",
+      "eth": "기가비트 이더넷",
+      "unit": "MB/s"
+    }
   }
 }

@@ -5,14 +5,20 @@ import { useCallback, useEffect, useRef, useState } from "react";
 /**
  * Tap-to-zoom for article images. Blog diagrams are authored at 1200 px wide
  * with ~14 px labels, which is unreadable once the column shrinks to a phone —
- * so every image in `.blog-prose` opens full-screen on click, where it can be
- * pinch-zoomed and panned.
+ * so every image in `.blog-prose` (and every landing figure[data-zoom]) opens
+ * full-screen on click. On a phone it opens at about twice the screen width
+ * and pans sideways, so the labels are legible without pinching.
  *
  * Delegation rather than per-image wrappers: the images come from MDX, so
  * there is no component to wrap. One listener on the document handles them all
  * and keeps the article markup plain.
  */
-export function ImageLightbox() {
+export function ImageLightbox({
+  closeLabel = "Close",
+}: {
+  /** Localized label for the close button (landing pages are translated). */
+  closeLabel?: string;
+} = {}) {
   const [src, setSrc] = useState<string | null>(null);
   const [alt, setAlt] = useState("");
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -23,7 +29,7 @@ export function ImageLightbox() {
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       const img = (e.target as Element | null)?.closest?.(
-        ".blog-prose img"
+        ".blog-prose img, figure[data-zoom] img"
       ) as HTMLImageElement | null;
       if (!img) return;
       // Don't hijack an image that is itself a link.
@@ -63,23 +69,23 @@ export function ImageLightbox() {
       aria-modal="true"
       aria-label={alt || "Expanded image"}
       onClick={close}
-      className="fixed inset-0 z-[90] flex items-center justify-center overflow-auto bg-background/95 p-4 backdrop-blur-sm sm:p-8"
+      className="fixed inset-0 z-[90] flex items-center justify-start overflow-auto bg-background/95 p-4 backdrop-blur-sm sm:justify-center sm:p-8"
     >
       <button
         ref={closeRef}
         type="button"
         onClick={close}
-        aria-label="Close image"
+        aria-label={closeLabel}
         className="fixed right-4 top-4 z-10 rounded-full border border-border bg-card px-3 py-1.5 text-sm font-medium text-foreground shadow-lg transition-colors hover:bg-secondary"
       >
-        Close
+        {closeLabel}
       </button>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt}
         onClick={(e) => e.stopPropagation()}
-        className="h-auto w-full max-w-[1200px] rounded-lg border border-border"
+        className="h-auto w-[220vw] max-w-none shrink-0 rounded-lg border border-border sm:w-full sm:max-w-[1200px] sm:shrink"
       />
     </div>
   );

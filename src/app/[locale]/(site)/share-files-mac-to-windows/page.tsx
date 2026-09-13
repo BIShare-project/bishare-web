@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
@@ -11,6 +10,8 @@ import { HeroCta } from "@/components/site/hero-cta";
 import { StoreButtons } from "@/components/site/store-buttons";
 import { ArticleToc } from "@/components/site/article-toc";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
+import { LandingArt } from "@/components/site/landing-art";
+import { ImageLightbox } from "@/components/site/image-lightbox";
 import { ArrowRight, Check, X } from "lucide-react";
 
 /**
@@ -76,7 +77,7 @@ export async function generateMetadata({
     title: { absolute: title },
     description,
     alternates: buildAlternates(locale, SLUG),
-    ...sharedOpenGraph(title, description, SLUG),
+    ...sharedOpenGraph(title, description, SLUG, locale),
   };
 }
 
@@ -102,37 +103,6 @@ const strong = (chunks: React.ReactNode) => (
 const highlight = (chunks: React.ReactNode) => (
   <span className="text-foreground">{chunks}</span>
 );
-
-function Shot({
-  src,
-  alt,
-  width = 1400,
-  height = 787,
-}: {
-  src: string;
-  alt: string;
-  /** Intrinsic size, so the browser reserves the right box before load. */
-  width?: number;
-  height?: number;
-}) {
-  return (
-    <figure className="overflow-hidden rounded-xl border border-border bg-card">
-      <picture>
-        <source srcSet={`${src}.webp`} type="image/webp" />
-        <Image
-          src={`${src}.jpg`}
-          alt={alt}
-          width={width}
-          height={height}
-          className="h-auto w-full"
-        />
-      </picture>
-      <figcaption className="border-t border-border px-4 py-3 text-[13px] leading-relaxed text-muted-foreground">
-        {alt}
-      </figcaption>
-    </figure>
-  );
-}
 
 /** Prose list section — a heading and a paragraph per item. */
 function ProseList({
@@ -272,11 +242,30 @@ export default async function MacToWindowsPage({
               <StoreButtons />
             </div>
 
-            <Shot src="/img/share-files-mac-to-windows/route" alt={chrome("figureCaption")} width={1400} height={700} />
+            <LandingArt
+              slug={SLUG}
+              name="hero"
+              locale={locale}
+              alt={t("art.hero.alt")}
+              width={1200}
+              height={630}
+              zoomHint={chrome("imageZoom")}
+              className="mt-8"
+            />
 
             {/* The alternatives */}
             <section className="mt-14">
               <H2 id="methods">{t("methods.title")}</H2>
+              <LandingArt
+                slug={SLUG}
+                name="flow"
+                locale={locale}
+                alt={t("art.flow.alt")}
+                width={1200}
+                height={740}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
               <div className="mt-6 space-y-8">
                 {ALT_ITEMS.map((i, n) => (
                   <div
@@ -396,6 +385,16 @@ export default async function MacToWindowsPage({
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t("usb.body")}
               </p>
+              <LandingArt
+                slug={SLUG}
+                name="usb"
+                locale={locale}
+                alt={t("art.usb.alt")}
+                width={1200}
+                height={600}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
               <ProseList
                 items={USB_ITEMS}
                 head={(i) => t(`usb.items.${i}.h`)}
@@ -411,13 +410,6 @@ export default async function MacToWindowsPage({
                 head={(i) => t(`steps.items.${i}.h`)}
                 body={(i) => t(`steps.items.${i}.b`)}
               />
-              <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                <Shot
-                  src="/img/airdrop-windows/devices"
-                  alt={t("shots.devices")}
-                />
-                <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} width={1280} height={800} />
-              </div>
             </section>
 
             {/* Speed */}
@@ -426,6 +418,16 @@ export default async function MacToWindowsPage({
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {t("speed.body")}
               </p>
+              <LandingArt
+                slug={SLUG}
+                name="speed"
+                locale={locale}
+                alt={t("art.speed.alt")}
+                width={1200}
+                height={560}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
               <ProseList
                 items={SPEED_ITEMS}
                 head={(i) => t(`speed.items.${i}.h`)}
@@ -511,6 +513,7 @@ export default async function MacToWindowsPage({
       </main>
 
       <SiteFooter />
+      <ImageLightbox closeLabel={chrome("imageClose")} />
     </div>
   );
 }

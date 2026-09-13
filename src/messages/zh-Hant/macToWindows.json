@@ -289,10 +289,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "BIShare桌面App的裝置清單，顯示兩台已知裝置：一支iPhone和一支三星Android手機。同一網路中的Mac或Windows電腦也會以相同方式列出。",
-    "transfer": "瀏覽器中的 bishare.app/transfer：在左側拖入檔案即可產生連結，在右側輸入6碼代碼即可在Windows電腦下載。"
-  },
   "cta": {
     "title": "從Mac到Windows，不必翻遍設定",
     "body": "免費、開放原始碼、免帳號。在兩台電腦安裝BIShare，任一方向都能傳；或分享一個PC用任何瀏覽器都能開啟的連結。",
@@ -301,5 +297,67 @@
   "a11y": {
     "yes": "是",
     "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "一台Mac與一台Windows筆電雙向互傳檔案的插圖，標題：Mac與Windows檔案分享，在macOS Tahoe與Windows 11上確認的7種方法。",
+      "title": "Mac與Windows檔案分享",
+      "sub": "7種方法，已在macOS Tahoe與Windows 11上確認",
+      "mac": "Mac",
+      "pc": "Windows電腦"
+    },
+    "flow": {
+      "alt": "將五種情況對應到方法的圖表：同一張桌上的共用資料夾用SMB，免設定傳輸用BIShare，遠處的電腦用連結，沒有網路用exFAT隨身碟，每天同步用雲端硬碟。",
+      "title": "哪種方法適合你的情況",
+      "sub": "從需求出發，而不是從工具出發",
+      "items": {
+        "0": {
+          "q": "兩台電腦固定在同一張桌上，需要共用資料夾",
+          "a": "系統內建SMB分享"
+        },
+        "1": {
+          "q": "同一網路、不改設定、雙向傳輸",
+          "a": "兩台電腦都裝BIShare"
+        },
+        "2": {
+          "q": "電腦在另一棟大樓或另一座城市",
+          "a": "連結，最多100 GB"
+        },
+        "3": {
+          "q": "完全沒有網路",
+          "a": "exFAT格式的隨身碟"
+        },
+        "4": {
+          "q": "同一資料夾每天都要在兩邊保持最新",
+          "a": "雲端硬碟"
+        }
+      }
+    },
+    "usb": {
+      "alt": "隨身碟格式表：exFAT在兩個系統都能讀寫，FAT32不接受超過4 GB的檔案，NTFS在Mac上唯讀，APFS在Windows中不會出現。",
+      "title": "Mac與Windows上的隨身碟格式",
+      "cols": {
+        "format": "格式",
+        "mac": "Mac",
+        "win": "Windows",
+        "big": "超過4 GB的檔案"
+      },
+      "rw": "可讀寫",
+      "ro": "唯讀",
+      "none": "不會出現",
+      "yes": "支援",
+      "no": "不支援"
+    },
+    "speed": {
+      "alt": "Mac與PC之間典型速度長條圖：上傳50 Mbps的雲端硬碟約6 MB/s，便宜隨身碟10–30 MB/s，Wi-Fi 5為40–50 MB/s，Wi-Fi 6為70–110 MB/s，Gigabit乙太網路約110 MB/s。",
+      "title": "Mac與PC之間的典型速度",
+      "sub": "每秒MB，兩台電腦都靠近路由器",
+      "cloud": "雲端硬碟，上傳50 Mbps",
+      "usb": "便宜的隨身碟",
+      "wifi5": "Wi-Fi 5",
+      "wifi6": "Wi-Fi 6",
+      "eth": "Gigabit乙太網路",
+      "unit": "MB/s"
+    }
   }
 }

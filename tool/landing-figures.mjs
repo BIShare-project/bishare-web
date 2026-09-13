@@ -39,7 +39,6 @@ const FIGURES = {
   "send-files-iphone-to-android": { left: "iPhone", right: "Android", title: "iPhone to Android, full quality" },
   "send-files-without-internet": { left: "Phone hotspot", right: "Laptop", title: "No router, no internet, still a network" },
   "send-large-files": { left: "Laptop", right: "Anyone, any browser", title: "Big files, no 3 GB ceiling" },
-  "share-files-mac-to-windows": { left: "Mac", right: "Windows PC", title: "The pair AirDrop refuses" },
   "share-files-without-account": { left: "Any device", right: "Anyone, any browser", title: "Nobody signs in, on either side" },
   "sharedrop-alternative": { left: "Browser", right: "Browser", title: "Drag between two tabs, or send a link" },
   "shareit-alternative": { left: "Android", right: "Windows PC", title: "Same speed, no ads and no permissions" },

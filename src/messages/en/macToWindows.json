@@ -289,10 +289,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "BIShare's desktop device list with two known devices, an iPhone and a Samsung Android phone. A Mac or Windows PC on the same network is listed the same way.",
-    "transfer": "bishare.app/transfer in a browser: drop a file on the left to get a link, or type the 6-character code on the right to download it on the Windows PC."
-  },
   "cta": {
     "title": "Mac to Windows, without the settings dig",
     "body": "Free, open source, no account. Install BIShare on both computers and send in either direction, or share a link the PC opens in any browser.",
@@ -301,5 +297,67 @@
   "a11y": {
     "yes": "Yes",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "A Mac and a Windows laptop passing files both ways, titled Mac and Windows file sharing: seven ways, checked on macOS Tahoe and Windows 11.",
+      "title": "Mac ↔ Windows file sharing",
+      "sub": "7 ways, checked on macOS Tahoe and Windows 11",
+      "mac": "Mac",
+      "pc": "Windows PC"
+    },
+    "flow": {
+      "alt": "Chart matching five situations to a method: shared folders on one desk use SMB, no-settings transfers use BIShare, a distant PC gets a link, no network means an exFAT USB drive, daily sync means a cloud drive.",
+      "title": "Which method fits your situation",
+      "sub": "Start from what you need, not from the tool",
+      "items": {
+        "0": {
+          "q": "Both computers stay on one desk and you want shared folders",
+          "a": "Built-in SMB file sharing"
+        },
+        "1": {
+          "q": "Same network, no settings to change, either direction",
+          "a": "BIShare on both computers"
+        },
+        "2": {
+          "q": "The PC is in another building or city",
+          "a": "A link, up to 100 GB"
+        },
+        "3": {
+          "q": "No network at all",
+          "a": "A USB drive formatted exFAT"
+        },
+        "4": {
+          "q": "The same folder must stay current on both every day",
+          "a": "A cloud drive"
+        }
+      }
+    },
+    "usb": {
+      "alt": "Table of USB drive formats: exFAT reads and writes on both systems, FAT32 refuses files over 4 GB, NTFS is read-only on a Mac, and APFS does not appear in Windows.",
+      "title": "USB drive formats on Mac and Windows",
+      "cols": {
+        "format": "Format",
+        "mac": "On a Mac",
+        "win": "On Windows",
+        "big": "Files over 4 GB"
+      },
+      "rw": "Read and write",
+      "ro": "Read only",
+      "none": "Not visible",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "speed": {
+      "alt": "Bar chart of typical speeds between a Mac and a PC: about 6 MB/s through a cloud drive on a 50 Mbps upload, 10–30 MB/s to a cheap USB stick, 40–50 MB/s on Wi-Fi 5, 70–110 MB/s on Wi-Fi 6 and about 110 MB/s on gigabit Ethernet.",
+      "title": "Typical speed between a Mac and a PC",
+      "sub": "Megabytes per second, both computers close to the router",
+      "cloud": "Cloud drive, 50 Mbps upload",
+      "usb": "Cheap USB stick",
+      "wifi5": "Wi-Fi 5",
+      "wifi6": "Wi-Fi 6",
+      "eth": "Gigabit Ethernet",
+      "unit": "MB/s"
+    }
   }
 }

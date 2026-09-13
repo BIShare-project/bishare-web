@@ -289,10 +289,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "La liste d'appareils de l'app de bureau BIShare avec deux appareils connus, un iPhone et un téléphone Android Samsung. Un Mac ou un PC Windows sur le même réseau s'y affiche de la même façon.",
-    "transfer": "bishare.app/transfer dans un navigateur : déposez un fichier à gauche pour obtenir un lien, ou saisissez le code à 6 caractères à droite pour le télécharger sur le PC Windows."
-  },
   "cta": {
     "title": "Du Mac vers Windows, sans fouiller les réglages",
     "body": "Gratuit, open source, sans compte. Installez BIShare sur les deux ordinateurs et envoyez dans les deux sens, ou partagez un lien que le PC ouvre dans n'importe quel navigateur.",
@@ -301,5 +297,67 @@
   "a11y": {
     "yes": "Oui",
     "no": "Non"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un Mac et un portable Windows qui échangent des fichiers dans les deux sens, avec le titre : partager des fichiers entre Mac et Windows, 7 méthodes vérifiées sous macOS Tahoe et Windows 11.",
+      "title": "Partage de fichiers Mac ↔ Windows",
+      "sub": "7 méthodes, vérifiées sous macOS Tahoe et Windows 11",
+      "mac": "Mac",
+      "pc": "PC Windows"
+    },
+    "flow": {
+      "alt": "Schéma associant cinq situations à une méthode : dossiers partagés sur un même bureau avec SMB, transfert sans réglage avec BIShare, PC éloigné par lien, aucun réseau avec une clé USB en exFAT, synchronisation quotidienne avec un cloud.",
+      "title": "Quelle méthode pour quelle situation",
+      "sub": "Partir du besoin, pas de l'outil",
+      "items": {
+        "0": {
+          "q": "Les deux ordinateurs restent sur le même bureau et vous voulez des dossiers partagés",
+          "a": "Partage SMB intégré"
+        },
+        "1": {
+          "q": "Même réseau, aucun réglage, dans les deux sens",
+          "a": "BIShare sur les deux ordinateurs"
+        },
+        "2": {
+          "q": "Le PC est dans un autre bâtiment ou une autre ville",
+          "a": "Un lien, jusqu'à 100 Go"
+        },
+        "3": {
+          "q": "Aucun réseau",
+          "a": "Disque USB en exFAT"
+        },
+        "4": {
+          "q": "Le même dossier doit être à jour chaque jour sur les deux",
+          "a": "Un cloud"
+        }
+      }
+    },
+    "usb": {
+      "alt": "Tableau des formats USB : exFAT lit et écrit sur les deux systèmes, FAT32 refuse les fichiers de plus de 4 Go, NTFS est en lecture seule sur Mac et APFS n'apparaît pas sous Windows.",
+      "title": "Formats USB sur Mac et Windows",
+      "cols": {
+        "format": "Format",
+        "mac": "Sur Mac",
+        "win": "Sous Windows",
+        "big": "Fichiers de plus de 4 Go"
+      },
+      "rw": "Lecture et écriture",
+      "ro": "Lecture seule",
+      "none": "Invisible",
+      "yes": "Oui",
+      "no": "Non"
+    },
+    "speed": {
+      "alt": "Graphique des vitesses typiques entre un Mac et un PC : environ 6 Mo/s via un cloud avec 50 Mbit/s en envoi, 10–30 Mo/s vers une clé USB bon marché, 40–50 Mo/s en Wi-Fi 5, 70–110 Mo/s en Wi-Fi 6 et environ 110 Mo/s en Ethernet gigabit.",
+      "title": "Vitesse typique entre un Mac et un PC",
+      "sub": "Mégaoctets par seconde, les deux ordinateurs près du routeur",
+      "cloud": "Cloud, envoi à 50 Mbit/s",
+      "usb": "Clé USB bon marché",
+      "wifi5": "Wi-Fi 5",
+      "wifi6": "Wi-Fi 6",
+      "eth": "Ethernet gigabit",
+      "unit": "Mo/s"
+    }
   }
 }

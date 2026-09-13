@@ -289,10 +289,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "Die Geräteliste der BIShare-Desktop-App mit zwei bekannten Geräten, einem iPhone und einem Samsung-Android-Handy. Ein Mac oder Windows-PC im selben Netz erscheint genauso.",
-    "transfer": "bishare.app/transfer im Browser: links eine Datei ablegen, um einen Link zu erhalten, oder rechts den 6-stelligen Code eingeben, um sie am Windows-PC herunterzuladen."
-  },
   "cta": {
     "title": "Mac zu Windows, ohne sich durch Einstellungen zu wühlen",
     "body": "Kostenlos, Open Source, ohne Konto. BIShare auf beiden Rechnern installieren und in beide Richtungen senden, oder einen Link teilen, den der PC in jedem Browser öffnet.",
@@ -301,5 +297,67 @@
   "a11y": {
     "yes": "Ja",
     "no": "Nein"
+  },
+  "art": {
+    "hero": {
+      "alt": "Ein Mac und ein Windows-Laptop tauschen Dateien in beide Richtungen aus, Titel: Dateien zwischen Mac und Windows teilen, 7 Wege, geprüft mit macOS Tahoe und Windows 11.",
+      "title": "Dateien teilen: Mac ↔ Windows",
+      "sub": "7 Wege, geprüft mit macOS Tahoe und Windows 11",
+      "mac": "Mac",
+      "pc": "Windows-PC"
+    },
+    "flow": {
+      "alt": "Übersicht, die fünf Situationen einer Methode zuordnet: freigegebene Ordner am selben Schreibtisch per SMB, Übertragung ohne Einstellungen per BIShare, ein entfernter PC per Link, kein Netz per exFAT-USB-Laufwerk, tägliche Synchronisation per Cloud-Laufwerk.",
+      "title": "Welche Methode zu Ihrer Situation passt",
+      "sub": "Beim Bedarf anfangen, nicht beim Werkzeug",
+      "items": {
+        "0": {
+          "q": "Beide Rechner bleiben am selben Schreibtisch, freigegebene Ordner gewünscht",
+          "a": "Eingebaute SMB-Freigabe"
+        },
+        "1": {
+          "q": "Gleiches Netz, keine Einstellungen ändern, beide Richtungen",
+          "a": "BIShare auf beiden Rechnern"
+        },
+        "2": {
+          "q": "Der PC steht in einem anderen Gebäude oder einer anderen Stadt",
+          "a": "Ein Link, bis 100 GB"
+        },
+        "3": {
+          "q": "Überhaupt kein Netz",
+          "a": "USB-Laufwerk mit exFAT"
+        },
+        "4": {
+          "q": "Derselbe Ordner muss täglich auf beiden aktuell sein",
+          "a": "Ein Cloud-Laufwerk"
+        }
+      }
+    },
+    "usb": {
+      "alt": "Tabelle der USB-Formate: exFAT liest und schreibt auf beiden Systemen, FAT32 lehnt Dateien über 4 GB ab, NTFS ist am Mac schreibgeschützt, APFS erscheint unter Windows nicht.",
+      "title": "USB-Formate auf Mac und Windows",
+      "cols": {
+        "format": "Format",
+        "mac": "Am Mac",
+        "win": "Unter Windows",
+        "big": "Dateien über 4 GB"
+      },
+      "rw": "Lesen und schreiben",
+      "ro": "Nur lesen",
+      "none": "Nicht sichtbar",
+      "yes": "Ja",
+      "no": "Nein"
+    },
+    "speed": {
+      "alt": "Balkendiagramm typischer Geschwindigkeiten zwischen Mac und PC: etwa 6 MB/s per Cloud-Laufwerk bei 50 Mbit/s Upload, 10–30 MB/s auf einen billigen USB-Stick, 40–50 MB/s mit Wi-Fi 5, 70–110 MB/s mit Wi-Fi 6 und etwa 110 MB/s mit Gigabit-Ethernet.",
+      "title": "Typisches Tempo zwischen Mac und PC",
+      "sub": "Megabyte pro Sekunde, beide Rechner nahe am Router",
+      "cloud": "Cloud-Laufwerk, 50 Mbit/s Upload",
+      "usb": "Billiger USB-Stick",
+      "wifi5": "Wi-Fi 5",
+      "wifi6": "Wi-Fi 6",
+      "eth": "Gigabit-Ethernet",
+      "unit": "MB/s"
+    }
   }
 }

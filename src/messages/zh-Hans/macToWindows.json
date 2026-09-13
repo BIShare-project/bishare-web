@@ -289,10 +289,6 @@
       }
     }
   },
-  "shots": {
-    "devices": "BIShare桌面应用的设备列表，显示两台已知设备：一部iPhone和一部三星Android手机。同一网络中的Mac或Windows电脑也会以同样方式列出。",
-    "transfer": "浏览器中的 bishare.app/transfer：在左侧拖入文件即可生成链接，在右侧输入6位代码即可在Windows电脑上下载。"
-  },
   "cta": {
     "title": "从Mac到Windows，不必翻遍设置",
     "body": "免费、开源、无需账号。在两台电脑上安装BIShare，任意方向发送；或者分享一个PC用任意浏览器都能打开的链接。",
@@ -301,5 +297,67 @@
   "a11y": {
     "yes": "是",
     "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "一台Mac和一台Windows笔记本双向互传文件的插图，标题：Mac与Windows文件共享，在macOS Tahoe和Windows 11上核实的7种方法。",
+      "title": "Mac与Windows文件共享",
+      "sub": "7种方法，已在macOS Tahoe和Windows 11上核实",
+      "mac": "Mac",
+      "pc": "Windows电脑"
+    },
+    "flow": {
+      "alt": "把五种情况对应到方法的图表：同一张桌上共享文件夹用SMB，免设置传输用BIShare，远处的电脑用链接，没有网络用exFAT格式U盘，每天同步用云盘。",
+      "title": "哪种方法适合你的情况",
+      "sub": "从需求出发，而不是从工具出发",
+      "items": {
+        "0": {
+          "q": "两台电脑固定在同一张桌上，需要共享文件夹",
+          "a": "系统自带SMB共享"
+        },
+        "1": {
+          "q": "同一网络、不改设置、双向传输",
+          "a": "两台电脑都装BIShare"
+        },
+        "2": {
+          "q": "电脑在另一栋楼或另一座城市",
+          "a": "链接，最多100 GB"
+        },
+        "3": {
+          "q": "完全没有网络",
+          "a": "exFAT格式的U盘"
+        },
+        "4": {
+          "q": "同一文件夹每天都要在两边保持最新",
+          "a": "云盘"
+        }
+      }
+    },
+    "usb": {
+      "alt": "U盘格式表：exFAT在两个系统上都能读写，FAT32不接受超过4 GB的文件，NTFS在Mac上只读，APFS在Windows中不显示。",
+      "title": "Mac与Windows上的U盘格式",
+      "cols": {
+        "format": "格式",
+        "mac": "Mac",
+        "win": "Windows",
+        "big": "超过4 GB的文件"
+      },
+      "rw": "可读写",
+      "ro": "只读",
+      "none": "不显示",
+      "yes": "支持",
+      "no": "不支持"
+    },
+    "speed": {
+      "alt": "Mac与PC之间典型速度柱状图：上传50 Mbps的云盘约6 MB/s，便宜U盘10–30 MB/s，Wi-Fi 5为40–50 MB/s，Wi-Fi 6为70–110 MB/s，千兆以太网约110 MB/s。",
+      "title": "Mac与PC之间的典型速度",
+      "sub": "每秒兆字节，两台电脑都靠近路由器",
+      "cloud": "云盘，上传50 Mbps",
+      "usb": "便宜的U盘",
+      "wifi5": "Wi-Fi 5",
+      "wifi6": "Wi-Fi 6",
+      "eth": "千兆以太网",
+      "unit": "MB/s"
+    }
   }
 }
