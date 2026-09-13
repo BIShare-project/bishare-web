@@ -1,79 +1,301 @@
 {
   "meta": {
-    "title": "Compartir archivos entre Mac y Windows en ambos sentidos",
-    "description": "Pasa archivos entre Mac y un PC con Windows sin AirDrop: directo por Wi-Fi a velocidad de red o con un enlace en el navegador. Gratis, sin cuenta, hasta 100 GB."
+    "title": "Compartir archivos entre Mac y Windows: 7 formas (2026)",
+    "description": "Todas las formas de pasar archivos entre un Mac y un PC con Windows: compartir por SMB paso a paso en macOS Tahoe y Windows 11, formatos USB, nube y app."
   },
   "hero": {
-    "eyebrow": "Transferencia Mac ↔ Windows",
-    "title": "Comparte archivos entre Mac y Windows",
-    "body": "AirDrop se detiene en el borde del mundo Apple: no ve un PC con Windows, y Windows no tiene su propio AirDrop. <strong>BIShare</strong> tiende el puente: mueve archivos <strong>entre tu Mac y un PC con Windows</strong> —en ambos sentidos, además de móviles y Linux— directamente por tu Wi-Fi local, o con un enlace que la otra persona abre en cualquier navegador. <highlight>Sin instalar nada de su lado.</highlight>",
+    "eyebrow": "Mac ↔ Windows",
+    "title": "Compartir archivos entre Mac y Windows",
+    "body": "AirDrop se queda en el borde del mundo de Apple, y Windows no tiene nada que hable con él. Aun así quedan siete formas reales de llevar un archivo de un Mac a un PC y de vuelta, y se parecen menos de lo que admiten casi todas las guías: una obliga a tocar ajustes en los dos equipos, otra rechaza en silencio archivos de más de 4 GB, otra pasa por el servidor de un tercero. Aquí están todas, con el método integrado explicado para <strong>macOS Tahoe y Windows 11</strong>, y <strong>BIShare</strong> para cuando quieres que simplemente funcione. <highlight>Gratis, código abierto, sin cuenta.</highlight>",
     "ctaPrimary": "Consigue BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
-  "why": {
-    "title": "Por qué no hay AirDrop entre Mac y Windows",
-    "body": "AirDrop habla protocolos exclusivos de Apple, así que funciona de maravilla entre Mac, iPhone y iPad, y nada en absoluto con Windows. Los apaños de siempre implican enviarte los archivos por correo, pelearte con un USB o subirlos al <strong>almacenamiento en la nube</strong> y esperar a que se sincronicen. BIShare se salta todo eso: lleva el archivo <strong>directo de tu Mac al PC</strong> por la red en la que ya estáis los dos."
+  "updated": "Actualizado en septiembre de 2026 · Rutas de menú revisadas con la ayuda de Apple para macOS 26 y la de Microsoft para Windows 11",
+  "disclosure": "BIShare es nuestro. El uso compartido de Windows integrado que explicamos abajo no cuesta nada ni requiere apps de nadie, y en un escritorio donde los dos equipos no se mueven es una respuesta perfectamente válida; indicamos en qué casos conviene más.",
+  "quick": {
+    "title": "Respuesta rápida",
+    "items": [
+      "<strong>Lo más rápido de configurar, en ambos sentidos:</strong> instala BIShare en el Mac y en el PC, conéctalos a la misma Wi-Fi, elige el otro equipo y envía. Directo y cifrado, sin límite de tamaño, sin subir nada.",
+      "<strong>Sin instalar nada:</strong> activa Compartir archivos con SMB en el Mac y luego escribe dos barras invertidas seguidas de la dirección del Mac en el Explorador de archivos del PC. Viene integrado, pero son unos minutos de ajustes en los dos lados.",
+      "<strong>El PC está en otro sitio:</strong> manda un enlace. BIShare lleva hasta 100 GB cifrados; en Windows se abre en Edge o Chrome, sin app.",
+      "<strong>Con un pendrive:</strong> formatéalo en <strong>exFAT</strong>. FAT32 rechaza cualquier archivo de más de 4 GB, Windows no lee unidades formateadas en Mac y macOS solo puede leer NTFS, no escribir en él.",
+      "<strong>Archivos que deben estar en los dos equipos:</strong> una nube como OneDrive, Google Drive o iCloud para Windows. Eso es sincronizar, no transferir, y depende de tu plan de almacenamiento.",
+      "<strong>Evita:</strong> enviarte los archivos por correo. Los adjuntos se quedan en unos 20–25 MB y las fotos suelen llegar comprimidas."
+    ]
   },
-  "how": {
-    "title": "Enviar de Mac a Windows, de dos formas",
+  "methods": {
+    "title": "Las siete formas, ordenadas",
+    "consLabel": "Dónde se queda corto:",
     "items": {
       "0": {
-        "h": "En la misma Wi-Fi",
-        "b": "Elige el otro equipo y envía. El archivo viaja de dispositivo a dispositivo, cifrado de extremo a extremo, sin quedarse en ningún servidor: rápido incluso con archivos grandes, y funciona hasta con el hotspot del móvil sin internet."
+        "name": "BIShare",
+        "tag": "La mejor en general: la comodidad de AirDrop entre un Mac y un PC",
+        "facts": "macOS, Windows, además de iPhone, Android y Linux · gratis, código abierto (MIT) · sin límite en la misma Wi-Fi, 100 GB por enlace · cifrado de extremo a extremo · sin cuenta",
+        "body": "Instálalo en los dos equipos y cada uno aparece en la lista del otro en cuanto comparten red. Eliges archivos, eliges el PC, aceptas al otro lado, y la transferencia va de equipo a equipo a la velocidad que den tu Wi-Fi o tu Ethernet, cifrada todo el camino y sin pasar por ningún servidor. Funciona en los dos sentidos sin cambiar ningún ajuste en ninguno de los ordenadores, y sigue funcionando cuando la red es un punto de acceso del móvil sin internet. Si el PC no está cerca, la misma app genera un enlace, un código QR y un código corto; Windows lo abre en cualquier navegador y descarga hasta 100 GB sin instalar nada. Los enlaces caducan a las 24 horas o tras una descarga.",
+        "cons": "Para la vía directa, los dos equipos necesitan la app. Mueve archivos, pero no le da al PC una carpeta del Mac para explorar como hace SMB."
       },
       "1": {
-        "h": "De un lado a otro de la ciudad",
-        "b": "Recibes un enlace, un código QR y un código de 6 caracteres. Abre el enlace en cualquier navegador —Edge, Chrome, Safari— y descarga; sin app, sin registro. El enlace se borra solo a las 24 horas."
+        "name": "Uso compartido de Windows (SMB), integrado",
+        "tag": "La mejor cuando los dos equipos se quedan en la misma mesa",
+        "facts": "Integrado en macOS y Windows · gratis · solo en la misma red · contraseña de cuenta en el equipo que comparte · sin límite de tamaño",
+        "body": "Ambos sistemas hablan SMB, el protocolo de las carpetas compartidas de Windows, así que un Mac puede publicar carpetas que el PC abre en el Explorador y un PC puede publicar carpetas que el Mac monta en el Finder. Una vez configurado, arrastras archivos en cualquier sentido como si el otro ordenador fuera un disco externo, algo que una app de transferencia no te da. El problema es la configuración: Compartir archivos y SMB en el Mac, uso compartido de Windows por cuenta, detección de redes y perfil de red Privada en el PC, y a veces un bucle de credenciales que desenredar. Los pasos completos están más abajo.",
+        "cons": "Varios ajustes en ambos equipos, solo en la misma red, y Apple advierte que las contraseñas de las cuentas con uso compartido de Windows pueden guardarse de forma menos segura, así que conviene desactivarlo cuando no se usa."
       },
       "2": {
-        "h": "En ambos sentidos, en todos los dispositivos",
-        "b": "De Mac a Windows, de Windows a Mac y también con los móviles. Una sola app cubre macOS, Windows, iPhone, Android y Linux: envía en la dirección que necesites."
+        "name": "LocalSend",
+        "tag": "App de código abierto para transferir en la misma red",
+        "facts": "macOS, Windows, iPhone, Android, Linux · gratis, código abierto · solo en la misma red · cifrado · sin cuenta",
+        "body": "LocalSend es una app de código abierto con buena reputación que cubre la mitad de BIShare, la de la misma red: la instalas en el Mac y en el PC, se ven y envías. No hay que tocar ajustes del sistema y es rápida. Para dos ordenadores de la misma casa que solo intercambian archivos entre sí, es una opción limpia.",
+        "cons": "Ninguna forma de llegar a un PC en otra red, y nada para quien no puede instalar la app."
+      },
+      "3": {
+        "name": "Una nube: OneDrive, Google Drive, iCloud para Windows, Dropbox",
+        "tag": "La mejor cuando el archivo debe vivir en los dos equipos",
+        "facts": "Apps para macOS y Windows · planes gratis: OneDrive 5 GB, Google Drive 15 GB, iCloud 5 GB, Dropbox 2 GB · requiere cuenta · sin cifrado de extremo a extremo por defecto",
+        "body": "Si la misma carpeta tiene que estar al día en el Mac y en el PC cada día, una carpeta sincronizada en la nube es la herramienta correcta, e iCloud para Windows, desde Microsoft Store, lleva incluso iCloud Drive y Fotos al PC. Para mover un archivo grande una sola vez es dar un rodeo: el archivo sube desde el Mac a tu velocidad de subida, luego baja al PC, y ocupa cuota de almacenamiento todo el tiempo.",
+        "cons": "Velocidad atada a la subida, una cuota, cuenta en los dos equipos, y el proveedor puede leer lo que guardas salvo que lo cifres tú."
+      },
+      "4": {
+        "name": "Un pendrive o un disco externo",
+        "tag": "Funciona sin red, si el formato es el correcto",
+        "facts": "Cualquier unidad en exFAT · no necesita red · la velocidad depende de la unidad y el puerto · entrega física",
+        "body": "Conectar una unidad a un ordenador y luego al otro sigue ganando a todo en un equipo sin red alguna, y un SSD USB 3 rápido mueve una carpeta de vídeo en poco tiempo. La trampa es el formato. exFAT lee y escribe en los dos sistemas sin límite práctico de tamaño. FAT32 también funciona en ambos, pero rechaza cualquier archivo individual de más de 4 GB. NTFS, el formato por defecto de Windows, se monta en solo lectura en el Mac, y las unidades APFS o Mac OS Plus formateadas en Mac ni siquiera aparecen en Windows.",
+        "cons": "Hay que estar en el mismo sitio, llevar la unidad de un lado a otro y reformatearla antes si venía en NTFS o APFS, lo que la borra."
+      },
+      "5": {
+        "name": "Un servicio de enlaces en el navegador: Wormhole, WeTransfer",
+        "tag": "Sin instalar, cuando el PC está en otro sitio",
+        "facts": "Cualquier navegador · Wormhole 10 GB, cifrado de extremo a extremo · WeTransfer gratis 3 GB, 3 días, sin cifrado de extremo a extremo",
+        "body": "Subes en el Mac, mandas un enlace y descargas en el PC. Nada que instalar en ningún equipo y ninguna configuración de red, por eso son la opción fácil para un envío puntual al portátil con Windows de un compañero. Wormhole cifra en el navegador antes de subir; el plan gratis de WeTransfer es el conocido, pero se queda en 3 GB y guarda los archivos tres días.",
+        "cons": "Todo sube y vuelve a bajar a velocidad de internet, con tope de tamaño, aunque los dos ordenadores estén en la misma mesa."
+      },
+      "6": {
+        "name": "Correo o una app de mensajería",
+        "tag": "Bien para un documento, mal para algo grande",
+        "facts": "Cualquier dispositivo · adjuntos limitados a unos 20–25 MB · imágenes a menudo recomprimidas · copia guardada en los servidores del proveedor",
+        "body": "Enviarte un PDF por correo funciona, y es lo primero que prueba casi todo el mundo. Deja de ser una solución en cuanto un archivo supera el límite de adjuntos, y las apps de mensajería suelen reducir fotos y vídeos por el camino.",
+        "cons": "Tope de tamaño pequeño, medios con pérdida y una copia permanente en el buzón de alguien."
       }
     }
   },
-  "comparison": {
-    "title": "Mac a Windows: AirDrop vs OneDrive vs BIShare",
+  "table": {
+    "title": "De un vistazo",
     "cols": {
-      "airdrop": "AirDrop",
-      "quick": "OneDrive",
-      "bishare": "BIShare"
+      "feature": "Característica",
+      "bishare": "BIShare",
+      "smb": "Compartir SMB",
+      "localsend": "LocalSend",
+      "cloud": "Nube",
+      "usb": "Unidad USB",
+      "link": "Servicio de enlaces"
     },
     "rows": {
-      "r0": "Mac ↔ Windows, sin la nube de por medio",
-      "r1": "Envía a un PC con Windows, sin cuenta",
-      "r2": "Cifrado de extremo a extremo en todas las plataformas",
-      "r3": "Funciona por Wi-Fi local, sin internet",
-      "r4": "Gratis"
+      "r0": "Nada que instalar en ningún ordenador",
+      "r1": "Sin ajustes del sistema que cambiar",
+      "r2": "Funciona de Mac a Windows y de Windows a Mac",
+      "r3": "Llega a un PC en otra red",
+      "r4": "Funciona sin internet",
+      "r5": "Sin cuenta en ningún lado",
+      "r6": "Sin tope de tamaño de archivo",
+      "r7": "Cifrado de extremo a extremo"
+    },
+    "note": "Revisado en septiembre de 2026. Los datos de BIShare sobre instalación y tamaño se refieren a dos vías: el enlace en el navegador no requiere instalar nada y lleva 100 GB, y la vía de app a app en una misma red no tiene límite de tamaño. Compartir por SMB solo funciona en la misma red y necesita la contraseña de una cuenta de usuario en el equipo que comparte. Las nubes necesitan cuenta y dependen del almacenamiento del plan (OneDrive 5 GB, Google Drive 15 GB, iCloud 5 GB, Dropbox 2 GB gratis). USB supone exFAT; FAT32 limita cada archivo a 4 GB. Servicio de enlaces refleja WeTransfer gratis (3 GB, sin cifrado de extremo a extremo) y Wormhole (10 GB, cifrado)."
+  },
+  "smb": {
+    "title": "La vía integrada: uso compartido de Windows, paso a paso",
+    "body": "Aquí solo intervienen los sistemas operativos. Las rutas son de macOS Tahoe (26) y Windows 11; las versiones anteriores tienen los mismos interruptores en sitios parecidos. Empieza por el equipo que tiene los archivos.",
+    "macTitle": "Compartir una carpeta del Mac para que el PC la abra",
+    "mac": {
+      "0": {
+        "h": "Activa Compartir archivos",
+        "b": "Menú Apple → Ajustes del Sistema → General → Compartir. Haz clic en el botón de información junto a Compartir archivos y actívalo. En Carpetas compartidas, añade la carpeta que quieres que vea el PC."
+      },
+      "1": {
+        "h": "Activa SMB y la cuenta",
+        "b": "En ese mismo panel, haz clic en Opciones y activa \"Compartir archivos y carpetas mediante SMB\". En la lista Compartir archivos de Windows, marca la cuenta de usuario del Mac con la que entrará el PC, escribe su contraseña y haz clic en OK."
+      },
+      "2": {
+        "h": "Apunta la dirección",
+        "b": "El panel de Compartir archivos muestra la dirección de red del Mac, como smb://192.168.1.20 o el nombre del ordenador. En el PC escribirás la parte que va después de smb://."
+      },
+      "3": {
+        "h": "Ábrela desde Windows",
+        "b": "En el PC, abre el Explorador de archivos, haz clic en la barra de direcciones y escribe dos barras invertidas seguidas de esa dirección, por ejemplo \\\\192.168.1.20, y pulsa Intro. Inicia sesión con el nombre y la contraseña de la cuenta del Mac que marcaste."
+      }
+    },
+    "winTitle": "Compartir una carpeta del PC para que el Mac la abra",
+    "win": {
+      "0": {
+        "h": "Pon la red como Privada",
+        "b": "Configuración → Red e Internet → tu conexión Wi-Fi o Ethernet → cambia Tipo de perfil de red a Privada. Con el perfil Pública, Windows oculta el PC a los demás dispositivos."
+      },
+      "1": {
+        "h": "Activa la detección y el uso compartido",
+        "b": "Busca en Configuración \"Configuración de uso compartido avanzado\". En Redes privadas, activa Detección de redes y Uso compartido de archivos e impresoras."
+      },
+      "2": {
+        "h": "Comparte la carpeta",
+        "b": "Haz clic derecho en la carpeta, elige Mostrar más opciones → Conceder acceso a → Usuarios específicos, o abre Propiedades → Compartir → Uso compartido avanzado y marca Compartir esta carpeta."
+      },
+      "3": {
+        "h": "Conecta desde el Mac",
+        "b": "En el Finder pulsa Comando-K (Ir → Conectarse al servidor), escribe smb:// seguido del nombre o la dirección IP del PC e inicia sesión con la cuenta de Windows. Si es una cuenta Microsoft, son su correo electrónico y su contraseña."
+      }
+    },
+    "warning": "Aviso de la propia Apple: las contraseñas de las cuentas usadas para compartir con Windows pueden guardarse de forma menos segura, así que desactiva esas cuentas en la lista Compartir archivos de Windows cuando no las uses."
+  },
+  "usb": {
+    "title": "Unidades USB: el formato lo decide todo",
+    "body": "Una unidad que funciona en un ordenador y falla en el otro casi siempre tiene un problema de formato, no una avería. Esto es lo que hace cada formato en cada sistema.",
+    "items": {
+      "0": {
+        "h": "exFAT: usa este",
+        "b": "Lee y escribe en macOS y en Windows, y admite archivos individuales mucho más grandes que cualquier unidad que vayas a tener. Formatéalo con Utilidad de Discos en el Mac (elige exFAT) o en el Explorador del PC (clic derecho en la unidad → Formatear → exFAT). Formatear borra la unidad."
+      },
+      "1": {
+        "h": "FAT32: funciona hasta que un archivo pasa de 4 GB",
+        "b": "También se lee y escribe en ambos, por eso los pendrives baratos vienen así. No puede guardar ningún archivo de 4 GB o más, de modo que un vídeo largo o una imagen de disco falla al copiarse con un error poco claro."
+      },
+      "2": {
+        "h": "NTFS: solo lectura en el Mac",
+        "b": "El formato por defecto de Windows. macOS lo monta y te deja copiar archivos desde él, pero no hacia él. Para escribir hace falta un controlador de terceros o, más sencillo, reformatear la unidad en exFAT."
+      },
+      "3": {
+        "h": "APFS y Mac OS Plus: invisibles para Windows",
+        "b": "Las unidades formateadas en un Mac con sus formatos propios no aparecen en el Explorador de archivos. Windows puede incluso ofrecer formatearlas, lo que borraría su contenido."
+      }
+    }
+  },
+  "steps": {
+    "title": "De Mac a Windows con BIShare, paso a paso",
+    "items": {
+      "0": {
+        "h": "Los dos ordenadores en la misma red",
+        "b": "Instala BIShare en el Mac desde App Store o la web y en el PC desde Microsoft Store, y conecta ambos a la misma Wi-Fi o Ethernet. Cada uno aparece en la lista del otro en uno o dos segundos, sin tocar ajustes de uso compartido en ninguno."
+      },
+      "1": {
+        "h": "Envía, en cualquier sentido",
+        "b": "Arrastra archivos a la app del Mac, o elígelos y selecciona el PC, y acepta en Windows. En sentido contrario funciona igual desde el PC. Una carpeta viaja como un único zip con su estructura intacta, y la transferencia va directa y cifrada de extremo a extremo."
+      },
+      "2": {
+        "h": "El PC no está cerca",
+        "b": "Abre bishare.app/transfer en el Mac, suelta el archivo y envía el enlace o el código de 6 caracteres. En el PC se abre en Edge, Chrome o Firefox y se descarga, hasta 100 GB, con el archivo cifrado antes de salir del Mac. El enlace deja de funcionar a las 24 horas."
+      }
+    }
+  },
+  "speed": {
+    "title": "Qué velocidad da cada método",
+    "body": "Entre dos ordenadores en la misma habitación, la velocidad la marcan la red o la unidad, no el software. Estas son las cifras con las que planificar.",
+    "items": {
+      "0": {
+        "h": "Wi-Fi",
+        "b": "Las transferencias directas, ya sea con BIShare, LocalSend o una carpeta SMB, rondan los 40–50 MB/s en Wi-Fi 5 y los 70–110 MB/s en Wi-Fi 6 cuando los dos equipos están cerca del router. Una carpeta de 10 GB tarda más o menos entre dos y cuatro minutos."
+      },
+      "1": {
+        "h": "Ethernet",
+        "b": "Con los dos conectados por cable al mismo router, Ethernet gigabit mantiene unos 110 MB/s estables, a menudo más que la Wi-Fi y mucho más constante en copias de horas. Un Mac sin puerto necesita un adaptador USB-C a Ethernet."
+      },
+      "2": {
+        "h": "Unidades USB y la nube",
+        "b": "Un SSD USB 3 puede superar a ambos, pero un pendrive barato suele escribir a 10–30 MB/s cuando se llena su caché. Cualquier nube o servicio de enlaces depende de tu subida: a 50 Mbps, 1 GB tarda unos tres minutos antes de que el PC pueda empezar a descargar."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Cuando el PC y el Mac no se ven",
+    "items": {
+      "0": {
+        "h": "El Mac no aparece en Red en el Explorador de archivos",
+        "b": "No confíes en explorar la red. Escribe dos barras invertidas y la dirección IP del Mac directamente en la barra de direcciones. La vista de red de Windows es poco fiable entre plataformas aunque la carpeta compartida funcione perfectamente."
+      },
+      "1": {
+        "h": "Windows pide credenciales una y otra vez",
+        "b": "Usa el nombre corto y la contraseña de la cuenta del Mac, y comprueba que esa cuenta esté marcada en Compartir archivos de Windows en el Mac. Si Windows guardó una contraseña incorrecta, borra la entrada en el Administrador de credenciales y vuelve a intentarlo."
+      },
+      "2": {
+        "h": "El Mac no puede conectarse al PC",
+        "b": "Comprueba que la red del PC esté como Privada, no Pública, y que el uso compartido de archivos e impresoras esté activado. Inicia sesión con la cuenta de Windows; si es una cuenta Microsoft, usa su correo en lugar de un nombre visible."
+      },
+      "3": {
+        "h": "Nada funciona en la red de un hotel, una oficina o una cafetería",
+        "b": "Muchas de estas redes aíslan los dispositivos entre sí, así que ningún método local puede conectar. Usa un punto de acceso del móvil al que se unan los dos equipos, un cable Ethernet o un enlace que vaya por internet."
+      },
+      "4": {
+        "h": "La copia a USB falla con un archivo grande",
+        "b": "La unidad es casi seguro FAT32, que no admite archivos de 4 GB o más. Reformatéala en exFAT después de sacar lo que necesites de ella."
+      }
+    }
+  },
+  "security": {
+    "title": "Mantener privada la transferencia",
+    "body": "Pasar archivos entre dos equipos tuyos no debería dejarle una copia a nadie más. Así queda cada vía.",
+    "items": {
+      "0": {
+        "h": "Se queda en tu red",
+        "b": "Compartir por SMB, LocalSend y la vía directa de BIShare nunca salen de tu red local. BIShare y LocalSend además cifran la propia transferencia, así que nadie más en la misma Wi-Fi puede leerla."
+      },
+      "1": {
+        "h": "Sale de tu red, pero sellado",
+        "b": "Los enlaces de BIShare y Wormhole cifran el archivo en el Mac antes de subirlo y guardan la clave en el enlace, así que el servicio intermedio tiene datos que no puede abrir."
+      },
+      "2": {
+        "h": "Sale de tu red, legible para el proveedor",
+        "b": "OneDrive, Google Drive, Dropbox, WeTransfer y el correo protegen el archivo en tránsito, pero pueden leerlo una vez guardado. Para archivos del día a día suele ser aceptable; para contratos o escaneos de documentos de identidad, no tanto."
+      }
     }
   },
   "faq": {
-    "title": "Mac a Windows: preguntas frecuentes",
+    "title": "Compartir archivos entre Mac y Windows: preguntas frecuentes",
     "items": {
       "0": {
         "q": "¿Se puede hacer AirDrop de un Mac a un PC con Windows?",
-        "a": "No: AirDrop es solo de Apple y Windows no puede recibir un AirDrop. BIShare hace lo mismo en ambos: en una misma red envía el archivo directamente, y cuando estáis lejos te da un enlace que el PC con Windows abre en cualquier navegador."
+        "a": "No. AirDrop solo existe en dispositivos Apple y Windows no puede recibirlo. Lo más parecido es una app multiplataforma como BIShare, que envía directamente entre los dos por Wi-Fi y te da un enlace cuando están lejos."
       },
       "1": {
         "q": "¿Cuál es la forma más fácil de compartir archivos entre Mac y Windows?",
-        "a": "En la misma Wi-Fi, instala BIShare en el Mac, elige el PC y envía: sin cables, sin nube. Si están en otro sitio, comparte el enlace, el QR o el código de 6 caracteres y lo descargan en el navegador."
+        "a": "Para la mayoría, instalar BIShare en ambos y enviar por la Wi-Fi compartida, porque no hay que cambiar ajustes en ningún ordenador y funciona en los dos sentidos. Si prefieres no instalar nada, el uso compartido SMB integrado también sirve, con unos minutos de configuración."
       },
       "2": {
-        "q": "¿Puedo transferir archivos grandes entre Mac y Windows gratis?",
-        "a": "Sí. Las transferencias directas por tu propia red no tienen un límite de tamaño fijo, y los enlaces para el navegador llevan archivos de hasta 100GB gratis, sin cuenta en ningún caso."
+        "q": "¿Cómo compartir archivos entre Mac y Windows sin programas?",
+        "a": "Usa el uso compartido de archivos SMB. En el Mac, activa Compartir archivos, activa \"Compartir archivos y carpetas mediante SMB\" y marca la cuenta en Compartir archivos de Windows. En el PC, escribe dos barras invertidas y la IP del Mac en el Explorador e inicia sesión con esa cuenta del Mac."
       },
       "3": {
-        "q": "¿Necesito OneDrive o Dropbox para mover archivos entre Mac y Windows?",
-        "a": "No. Los discos en la nube te obligan a subir el archivo y esperar a que se sincronice en el otro equipo. BIShare lo envía directo por la red local, así que no hay nada que subir ni nada que esperar."
+        "q": "¿Cómo paso archivos de Windows a Mac por Wi-Fi?",
+        "a": "Comparte la carpeta en el PC con la detección de redes y el uso compartido activados y la red en Privada; luego, en el Finder del Mac, pulsa Comando-K y escribe smb:// más la dirección del PC. O envíala con BIShare desde el PC, que se salta la configuración."
       },
       "4": {
-        "q": "¿El PC con Windows necesita instalar algún programa?",
-        "a": "No para un enlace: quien recibe solo lo abre en el navegador y descarga. Instalar la app gratuita de BIShare hace más rápidas las transferencias cercanas y funciona en ambos sentidos, pero nunca es obligatorio para recibir."
+        "q": "¿Qué formato de USB funciona en Mac y Windows?",
+        "a": "exFAT. Lee y escribe en ambos sin límite práctico de tamaño. FAT32 también funciona en los dos, pero rechaza archivos de 4 GB o más; NTFS es de solo lectura en el Mac; APFS y Mac OS Plus no se leen en Windows."
+      },
+      "5": {
+        "q": "¿Por qué mi Mac no puede escribir en mi disco externo de Windows?",
+        "a": "La unidad está en NTFS, que macOS monta en solo lectura. Copia los archivos, reformatea la unidad en exFAT y podrás leer y escribir en los dos ordenadores."
+      },
+      "6": {
+        "q": "¿Puedo pasar archivos grandes entre Mac y Windows gratis?",
+        "a": "Sí. En tu propia red, BIShare, LocalSend y el uso compartido SMB no tienen límite de tamaño. Por enlace, BIShare lleva hasta 100 GB gratis. Una unidad USB en exFAT tampoco tiene límite práctico."
+      },
+      "7": {
+        "q": "¿Necesito OneDrive o iCloud para pasar archivos entre un Mac y un PC?",
+        "a": "No. Una nube es útil cuando los mismos archivos deben estar sincronizados en los dos equipos, pero para una transferencia puntual es más lenta, porque el archivo sube y luego baja, y consume tu cuota de almacenamiento."
+      },
+      "8": {
+        "q": "¿Puedo compartir archivos entre Mac y Windows sin la misma Wi-Fi?",
+        "a": "Sí, de tres formas: un enlace que se abre en el navegador del PC, un punto de acceso del móvil al que se unen los dos ordenadores o un cable Ethernet. Compartir por SMB y LocalSend necesitan los dos equipos en la misma red."
+      },
+      "9": {
+        "q": "¿Es seguro el uso compartido de Windows desde un Mac?",
+        "a": "Mantiene los archivos en tu red, pero Apple indica que las contraseñas de las cuentas habilitadas para compartir con Windows pueden guardarse de forma menos segura, así que desactiva esas cuentas al terminar. Las herramientas que cifran la propia transferencia evitan ese compromiso."
       }
     }
   },
+  "shots": {
+    "devices": "La lista de dispositivos de la app de escritorio de BIShare con dos equipos conocidos, un iPhone y un móvil Android de Samsung. Un Mac o un PC con Windows en la misma red aparece igual.",
+    "transfer": "bishare.app/transfer en el navegador: suelta un archivo a la izquierda para obtener un enlace, o escribe el código de 6 caracteres a la derecha para descargarlo en el PC con Windows."
+  },
   "cta": {
-    "title": "Lleva tus archivos del Mac al PC en segundos",
-    "body": "Gratis, sin cuenta. Instala BIShare en tu Mac o PC con Windows y empieza a enviar, o simplemente comparte un enlace y olvídate de instalar nada.",
+    "title": "De Mac a Windows, sin pelearse con los ajustes",
+    "body": "Gratis, código abierto, sin cuenta. Instala BIShare en los dos ordenadores y envía en cualquier sentido, o comparte un enlace que el PC abre en cualquier navegador.",
     "download": "Descargar BIShare"
   },
   "a11y": {

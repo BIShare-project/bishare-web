@@ -1,79 +1,301 @@
 {
   "meta": {
-    "title": "Berbagi File Antara Mac dan Windows, Dua Arah",
-    "description": "Kirim file antara Mac dan PC Windows tanpa AirDrop: langsung lewat Wi-Fi dengan kecepatan jaringan, atau tautan di browser. Gratis, tanpa akun, hingga 100 GB."
+    "title": "Berbagi File antara Mac dan Windows: 7 Cara, Teruji (2026)",
+    "description": "Semua cara memindahkan file antara Mac dan PC Windows: berbagi SMB langkah demi langkah di macOS Tahoe dan Windows 11, format USB, cloud, dan satu aplikasi."
   },
   "hero": {
-    "eyebrow": "Transfer Mac ↔ Windows",
+    "eyebrow": "Mac ↔ Windows",
     "title": "Berbagi file antara Mac dan Windows",
-    "body": "AirDrop berhenti di tepi dunia Apple — ia tak bisa melihat PC Windows, dan Windows pun tak punya AirDrop sendiri. <strong>BIShare</strong> menjembatani celah itu: pindahkan file <strong>antara Mac dan PC Windows</strong> — dua arah, plus ponsel dan Linux — langsung lewat Wi-Fi lokal Anda, atau dengan tautan yang dibuka sisi lain di browser apa pun. <highlight>Tak ada yang perlu dipasang di sisi mereka.</highlight>",
+    "body": "AirDrop berhenti di batas ekosistem Apple, dan Windows tidak punya apa pun yang bisa bicara dengannya. Meski begitu, masih ada tujuh cara nyata untuk membawa file dari Mac ke PC dan sebaliknya, dan bedanya lebih besar daripada yang diakui kebanyakan panduan: satu mengharuskan utak-atik pengaturan di dua komputer, satu diam-diam menolak file di atas 4 GB, satu lagi lewat server pihak lain. Halaman ini membahas semuanya, dengan cara bawaan ditulis lengkap untuk <strong>macOS Tahoe dan Windows 11</strong>, plus <strong>BIShare</strong> kalau Anda ingin langsung jalan. <highlight>Gratis, open source, tanpa akun.</highlight>",
     "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
-  "why": {
-    "title": "Mengapa tak ada AirDrop antara Mac dan Windows",
-    "body": "AirDrop berbicara dalam protokol khusus Apple, jadi ia bekerja mulus antar Mac, iPhone, dan iPad — dan sama sekali tidak dengan Windows. Cara akal-akalan yang biasa berarti mengirim file ke email sendiri, bergulat dengan flash disk, atau mengunggah ke <strong>penyimpanan cloud</strong> lalu menunggu tersinkron. BIShare melewati semua itu: ia memindahkan file <strong>langsung dari Mac ke PC</strong> lewat jaringan yang sudah Anda gunakan bersama."
+  "updated": "Diperbarui September 2026 · Jalur menu dicocokkan dengan halaman dukungan Apple untuk macOS 26 dan Microsoft untuk Windows 11",
+  "disclosure": "BIShare adalah produk kami. Berbagi file Windows bawaan di bawah tidak memakan biaya dan tidak butuh aplikasi siapa pun, dan di meja tempat kedua komputer tidak berpindah, cara itu jawaban yang sepenuhnya layak; kami sebutkan kapan cara itu lebih cocok.",
+  "quick": {
+    "title": "Jawaban singkat",
+    "items": [
+      "<strong>Paling cepat disiapkan, dua arah:</strong> pasang BIShare di Mac dan PC, sambungkan ke Wi-Fi yang sama, pilih komputer lain lalu kirim. Langsung dan terenkripsi, tanpa batas ukuran, tidak ada yang diunggah.",
+      "<strong>Tanpa memasang apa pun:</strong> nyalakan Berbagi File dengan SMB di Mac, lalu ketik dua garis miring terbalik diikuti alamat Mac di File Explorer PC. Sudah bawaan, tetapi butuh beberapa menit pengaturan di kedua sisi.",
+      "<strong>PC ada di tempat lain:</strong> kirim tautan. BIShare membawa hingga 100 GB terenkripsi; di Windows tautan dibuka di Edge atau Chrome, tanpa aplikasi.",
+      "<strong>Pakai flashdisk:</strong> format sebagai <strong>exFAT</strong>. FAT32 menolak file apa pun di atas 4 GB, Windows tidak bisa membaca drive berformat Mac, dan macOS hanya bisa membaca NTFS, tidak bisa menulis ke sana.",
+      "<strong>File yang harus ada di dua komputer:</strong> drive cloud seperti OneDrive, Google Drive, atau iCloud untuk Windows. Itu sinkronisasi, bukan transfer, dan dibatasi paket penyimpanan Anda.",
+      "<strong>Hindari:</strong> mengirim file ke email sendiri. Lampiran mentok di sekitar 20–25 MB dan foto sering tiba dalam keadaan terkompres."
+    ]
   },
-  "how": {
-    "title": "Kirim Mac ↔ Windows, dua cara",
+  "methods": {
+    "title": "Tujuh cara, diurutkan",
+    "consLabel": "Kekurangannya:",
     "items": {
       "0": {
-        "h": "Di Wi-Fi yang sama",
-        "b": "Pilih perangkat satunya lalu kirim. File berpindah langsung dari perangkat ke perangkat, terenkripsi ujung-ke-ujung, tanpa singgah di server mana pun — cepat bahkan untuk file besar, dan tetap bekerja lewat hotspot ponsel tanpa internet sama sekali."
+        "name": "BIShare",
+        "tag": "Terbaik secara keseluruhan: kepraktisan AirDrop antara Mac dan PC",
+        "facts": "macOS, Windows, plus iPhone, Android, Linux · gratis, open source (MIT) · tanpa batas di Wi-Fi yang sama, 100 GB lewat tautan · enkripsi end-to-end · tanpa akun",
+        "body": "Pasang di kedua komputer dan masing-masing muncul di daftar perangkat yang lain begitu berada di jaringan yang sama. Pilih file, pilih PC, terima di sisi seberang, dan transfer berjalan dari komputer ke komputer secepat Wi-Fi atau Ethernet Anda, terenkripsi sepanjang jalan dan tidak pernah menyentuh server. Cara ini jalan dua arah tanpa mengubah satu pun pengaturan di kedua komputer, dan tetap jalan saat jaringannya hotspot ponsel tanpa internet. Kalau PC tidak di dekat Anda, aplikasi yang sama membuat tautan, kode QR, dan kode pendek; Windows membukanya di browser apa pun dan mengunduh hingga 100 GB tanpa memasang apa-apa. Tautan kedaluwarsa setelah 24 jam atau setelah satu kali unduh.",
+        "cons": "Untuk jalur langsung, kedua komputer butuh aplikasinya. BIShare memindahkan file, tetapi tidak memberi PC folder Mac yang bisa dijelajahi seperti SMB."
       },
       "1": {
-        "h": "Di seberang ruangan atau seberang kota",
-        "b": "Anda mendapat tautan, kode QR, dan kode 6 karakter. Buka tautan di browser apa pun — Edge, Chrome, Safari — lalu unduh; tanpa aplikasi, tanpa pendaftaran. Tautan menghapus dirinya sendiri setelah 24 jam."
+        "name": "Berbagi File Windows (SMB), bawaan",
+        "tag": "Terbaik jika kedua komputer tetap di meja yang sama",
+        "facts": "Bawaan macOS dan Windows · gratis · hanya di jaringan yang sama · kata sandi akun di sisi yang berbagi · tanpa batas ukuran",
+        "body": "Kedua sistem operasi memakai SMB, protokol di balik folder bersama Windows, jadi Mac bisa membagikan folder yang dibuka PC di File Explorer, dan PC bisa membagikan folder yang dipasang Mac di Finder. Setelah siap, Anda menyeret file ke dua arah seolah komputer lain adalah drive eksternal, hal yang tidak diberikan aplikasi transfer. Kendalanya ada di penyiapan: Berbagi File dan SMB di Mac, berbagi Windows per akun, penemuan jaringan dan profil jaringan Privat di PC, dan kadang lingkaran permintaan kredensial yang harus diurai. Langkah lengkapnya ada di bawah.",
+        "cons": "Beberapa pengaturan di kedua komputer, hanya di jaringan yang sama, dan Apple memperingatkan bahwa kata sandi akun untuk berbagi Windows bisa disimpan dengan kurang aman, jadi sebaiknya dimatikan saat tidak dipakai."
       },
       "2": {
-        "h": "Dua arah, setiap perangkat",
-        "b": "Mac ke Windows, Windows ke Mac, dan ponsel juga. Satu aplikasi mencakup macOS, Windows, iPhone, Android, dan Linux — kirim ke arah mana pun Anda perlu."
+        "name": "LocalSend",
+        "tag": "Aplikasi open source untuk transfer di jaringan yang sama",
+        "facts": "macOS, Windows, iPhone, Android, Linux · gratis, open source · hanya di jaringan yang sama · terenkripsi · tanpa akun",
+        "body": "LocalSend adalah aplikasi open source yang dihargai banyak orang dan mengerjakan separuh tugas BIShare, yaitu di jaringan yang sama: pasang di Mac dan PC, keduanya saling terlihat, lalu kirim. Tidak ada pengaturan sistem yang perlu diubah dan kecepatannya bagus. Untuk dua komputer di rumah yang sama yang hanya bertukar file satu sama lain, ini pilihan yang rapi.",
+        "cons": "Sama sekali tidak ada jalur ke PC di jaringan lain, dan tidak ada apa-apa untuk penerima yang tidak bisa memasang aplikasi."
+      },
+      "3": {
+        "name": "Drive cloud: OneDrive, Google Drive, iCloud untuk Windows, Dropbox",
+        "tag": "Terbaik jika file harus tinggal di kedua komputer",
+        "facts": "Aplikasi untuk macOS dan Windows · paket gratis: OneDrive 5 GB, Google Drive 15 GB, iCloud 5 GB, Dropbox 2 GB · wajib akun · secara bawaan tidak terenkripsi end-to-end",
+        "body": "Kalau folder yang sama harus selalu terbaru di Mac dan PC setiap hari, folder cloud yang tersinkron adalah alat yang tepat, dan iCloud untuk Windows dari Microsoft Store bahkan membawa iCloud Drive dan Foto ke PC. Untuk memindahkan satu file besar sekali saja, ini jalan memutar: file diunggah dari Mac sesuai kecepatan unggah Anda, lalu diunduh ke PC, dan menghabiskan kuota penyimpanan selama itu.",
+        "cons": "Kecepatan terikat unggahan, ada kuota, butuh akun di kedua komputer, dan penyedia bisa membaca isi simpanan Anda kecuali Anda mengenkripsinya sendiri."
+      },
+      "4": {
+        "name": "Flashdisk atau hard disk eksternal",
+        "tag": "Jalan tanpa jaringan, asal formatnya benar",
+        "facts": "Drive apa pun berformat exFAT · tidak butuh jaringan · kecepatan tergantung drive dan port · diserahkan secara fisik",
+        "body": "Mencolokkan drive ke satu komputer lalu ke komputer lain masih mengalahkan semua cara di mesin yang sama sekali tidak punya jaringan, dan SSD USB 3 yang cepat memindahkan folder video dalam waktu singkat. Jebakannya ada di format. exFAT bisa dibaca dan ditulis di kedua sistem tanpa batas ukuran file yang berarti. FAT32 juga jalan di keduanya, tetapi menolak file tunggal di atas 4 GB. NTFS, format bawaan Windows, hanya bisa dibaca di Mac, dan drive APFS atau Mac OS Extended yang diformat di Mac sama sekali tidak muncul di Windows.",
+        "cons": "Harus berada di tempat yang sama, membawa drive bolak-balik, dan memformat ulang dulu kalau drive-nya NTFS atau APFS, yang menghapus isinya."
+      },
+      "5": {
+        "name": "Layanan tautan di browser: Wormhole, WeTransfer",
+        "tag": "Tanpa instalasi, saat PC ada di tempat lain",
+        "facts": "Browser apa pun · Wormhole 10 GB, enkripsi end-to-end · WeTransfer gratis 3 GB, 3 hari, tidak terenkripsi end-to-end",
+        "body": "Unggah di Mac, kirim tautan, unduh di PC. Tidak ada yang perlu dipasang di komputer mana pun dan tidak ada pengaturan jaringan, sehingga ini pilihan mudah untuk kiriman sekali ke laptop Windows rekan kerja. Wormhole mengenkripsi di browser sebelum unggah; paket gratis WeTransfer yang paling dikenal, tetapi berhenti di 3 GB dan menyimpan file selama tiga hari.",
+        "cons": "Semua naik lalu turun lagi dengan kecepatan internet, dengan batas ukuran, bahkan saat kedua komputer ada di meja yang sama."
+      },
+      "6": {
+        "name": "Email atau aplikasi chat",
+        "tag": "Cukup untuk satu dokumen, salah untuk yang besar",
+        "facts": "Perangkat apa pun · lampiran dibatasi sekitar 20–25 MB · gambar sering dikompres ulang · salinan tersimpan di server penyedia",
+        "body": "Mengirim PDF ke email sendiri memang bisa, dan itu yang pertama dicoba kebanyakan orang. Cara itu tidak lagi menjawab begitu file melewati batas lampiran, dan aplikasi chat biasanya menyusutkan foto dan video di tengah jalan.",
+        "cons": "Batas ukuran kecil, media turun kualitas, dan salinan permanen di kotak masuk orang lain."
       }
     }
   },
-  "comparison": {
-    "title": "Mac ke Windows: AirDrop vs OneDrive vs BIShare",
+  "table": {
+    "title": "Sekilas",
     "cols": {
-      "airdrop": "AirDrop",
-      "quick": "OneDrive",
-      "bishare": "BIShare"
+      "feature": "Fitur",
+      "bishare": "BIShare",
+      "smb": "Berbagi SMB",
+      "localsend": "LocalSend",
+      "cloud": "Drive cloud",
+      "usb": "Drive USB",
+      "link": "Layanan tautan"
     },
     "rows": {
-      "r0": "Mac ↔ Windows, tanpa cloud di tengah",
-      "r1": "Kirim ke PC Windows, tanpa akun",
-      "r2": "Terenkripsi ujung-ke-ujung di setiap platform",
-      "r3": "Bekerja lewat Wi-Fi lokal, tanpa internet",
-      "r4": "Gratis digunakan"
+      "r0": "Tidak perlu memasang apa pun di kedua komputer",
+      "r1": "Tidak ada pengaturan sistem yang diubah",
+      "r2": "Jalan dari Mac ke Windows dan dari Windows ke Mac",
+      "r3": "Menjangkau PC di jaringan lain",
+      "r4": "Jalan tanpa internet",
+      "r5": "Tanpa akun di kedua sisi",
+      "r6": "Tanpa batas ukuran file",
+      "r7": "Enkripsi end-to-end"
+    },
+    "note": "Dicek September 2026. Angka instalasi dan ukuran BIShare mengacu pada dua jalur: tautan di browser tidak perlu instalasi dan membawa 100 GB, sedangkan jalur aplikasi ke aplikasi di satu jaringan tidak punya batas ukuran. Berbagi SMB hanya di jaringan yang sama dan butuh kata sandi akun pengguna di komputer yang berbagi. Drive cloud butuh akun dan dibatasi penyimpanan paket (OneDrive 5 GB, Google Drive 15 GB, iCloud 5 GB, Dropbox 2 GB gratis). USB diasumsikan exFAT; FAT32 membatasi file tunggal 4 GB. Layanan tautan mengacu pada WeTransfer gratis (3 GB, tidak terenkripsi end-to-end) dan Wormhole (10 GB, terenkripsi)."
+  },
+  "smb": {
+    "title": "Cara bawaan: Berbagi File Windows, langkah demi langkah",
+    "body": "Cara ini hanya memakai sistem operasi. Jalur di bawah untuk macOS Tahoe (26) dan Windows 11; versi lama menaruh sakelar yang sama di tempat serupa. Kerjakan dulu sisi yang menyimpan file.",
+    "macTitle": "Bagikan folder dari Mac agar PC bisa membukanya",
+    "mac": {
+      "0": {
+        "h": "Nyalakan Berbagi File",
+        "b": "Menu Apple → Pengaturan Sistem → Umum → Berbagi. Klik tombol info di sebelah Berbagi File lalu nyalakan. Di Folder yang Dibagikan, tambahkan folder yang ingin dilihat PC."
+      },
+      "1": {
+        "h": "Aktifkan SMB dan akunnya",
+        "b": "Masih di panel itu, klik Pilihan lalu nyalakan \"Bagikan file dan folder menggunakan SMB\". Di daftar Berbagi File Windows, centang akun pengguna Mac yang akan dipakai PC untuk masuk, ketik kata sandinya, lalu klik Selesai."
+      },
+      "2": {
+        "h": "Catat alamatnya",
+        "b": "Panel Berbagi File menampilkan alamat jaringan Mac, misalnya smb://192.168.1.20 atau nama komputernya. Bagian setelah smb:// yang nanti Anda ketik di PC."
+      },
+      "3": {
+        "h": "Buka dari Windows",
+        "b": "Di PC, buka File Explorer, klik bilah alamat, dan ketik dua garis miring terbalik diikuti alamat tadi, misalnya \\\\192.168.1.20, lalu tekan Enter. Masuk dengan nama dan kata sandi akun Mac yang tadi dicentang."
+      }
+    },
+    "winTitle": "Bagikan folder dari PC agar Mac bisa membukanya",
+    "win": {
+      "0": {
+        "h": "Jadikan jaringan Privat",
+        "b": "Pengaturan → Jaringan & internet → koneksi Wi-Fi atau Ethernet Anda → ubah Jenis profil jaringan ke Privat. Dengan profil Publik, Windows menyembunyikan PC dari perangkat lain."
+      },
+      "1": {
+        "h": "Nyalakan penemuan dan berbagi",
+        "b": "Cari \"Pengaturan berbagi tingkat lanjut\" di Pengaturan. Di bagian Jaringan privat, nyalakan Penemuan jaringan serta Berbagi file dan printer."
+      },
+      "2": {
+        "h": "Bagikan foldernya",
+        "b": "Klik kanan folder, pilih Tampilkan opsi lainnya → Berikan akses ke → Orang tertentu, atau buka Properti → Berbagi → Berbagi Tingkat Lanjut lalu centang Bagikan folder ini."
+      },
+      "3": {
+        "h": "Sambungkan dari Mac",
+        "b": "Di Finder tekan Command-K (Pergi → Sambungkan ke Server), ketik smb:// diikuti nama atau alamat IP PC, lalu masuk dengan akun Windows. Untuk akun Microsoft, gunakan alamat email dan kata sandi akun itu."
+      }
+    },
+    "warning": "Peringatan dari Apple sendiri: kata sandi akun yang dipakai untuk berbagi Windows bisa disimpan dengan kurang aman, jadi matikan akun-akun itu di daftar Berbagi File Windows saat tidak digunakan."
+  },
+  "usb": {
+    "title": "Drive USB: format yang menentukan segalanya",
+    "body": "Drive yang jalan di satu komputer tetapi gagal di komputer lain hampir selalu bermasalah di format, bukan rusak. Begini perilaku setiap format di tiap sistem.",
+    "items": {
+      "0": {
+        "h": "exFAT: pakai yang ini",
+        "b": "Bisa dibaca dan ditulis di macOS dan Windows, dan menampung file tunggal jauh lebih besar dari drive mana pun yang akan Anda punya. Format lewat Utilitas Disk di Mac (pilih exFAT) atau File Explorer di PC (klik kanan drive → Format → exFAT). Memformat menghapus isi drive."
+      },
+      "1": {
+        "h": "FAT32: jalan, sampai ada file lewat 4 GB",
+        "b": "Juga bisa dibaca dan ditulis di keduanya, itu sebabnya flashdisk murah dijual dengan format ini. FAT32 tidak bisa menyimpan file tunggal 4 GB atau lebih, jadi video panjang atau image disk gagal disalin dengan pesan error yang tidak jelas."
+      },
+      "2": {
+        "h": "NTFS: hanya bisa dibaca di Mac",
+        "b": "Format bawaan Windows. macOS memasangnya dan membiarkan Anda menyalin file darinya, tetapi tidak ke dalamnya. Untuk menulis perlu driver pihak ketiga, atau cukup format ulang drive ke exFAT."
+      },
+      "3": {
+        "h": "APFS dan Mac OS Extended: tak terlihat di Windows",
+        "b": "Drive yang diformat di Mac dengan format bawaannya sama sekali tidak muncul di File Explorer. Windows bahkan bisa menawarkan untuk memformatnya, yang akan menghapus isinya."
+      }
+    }
+  },
+  "steps": {
+    "title": "Mac ke Windows dengan BIShare, langkah demi langkah",
+    "items": {
+      "0": {
+        "h": "Kedua komputer di jaringan yang sama",
+        "b": "Pasang BIShare di Mac dari App Store atau situs, dan di PC dari Microsoft Store, lalu sambungkan keduanya ke Wi-Fi atau Ethernet yang sama. Masing-masing muncul di daftar yang lain dalam satu atau dua detik, tanpa menyentuh pengaturan berbagi di kedua komputer."
+      },
+      "1": {
+        "h": "Kirim, ke arah mana pun",
+        "b": "Seret file ke aplikasi di Mac, atau pilih file lalu pilih PC, kemudian terima di Windows. Arah sebaliknya dari PC bekerja dengan cara yang sama. Folder dikirim sebagai satu zip dengan struktur utuh, dan transfernya langsung serta terenkripsi end-to-end."
+      },
+      "2": {
+        "h": "PC tidak di dekat Anda",
+        "b": "Buka bishare.app/transfer di Mac, jatuhkan file, lalu kirim tautan atau kode 6 karakter. Di PC tautan terbuka di Edge, Chrome, atau Firefox dan langsung mengunduh, hingga 100 GB, dengan file sudah terenkripsi sebelum meninggalkan Mac. Tautan berhenti berfungsi setelah 24 jam."
+      }
+    }
+  },
+  "speed": {
+    "title": "Seberapa cepat tiap cara",
+    "body": "Di antara dua komputer dalam satu ruangan, jaringan atau drive yang menentukan kecepatan, bukan perangkat lunaknya. Angka ini yang bisa dipakai untuk perencanaan.",
+    "items": {
+      "0": {
+        "h": "Wi-Fi",
+        "b": "Transfer langsung, entah lewat BIShare, LocalSend, atau folder SMB, berada di sekitar 40–50 MB/s di Wi-Fi 5 dan 70–110 MB/s di Wi-Fi 6 saat kedua komputer dekat router. Folder 10 GB kira-kira butuh dua sampai empat menit."
+      },
+      "1": {
+        "h": "Ethernet",
+        "b": "Colokkan keduanya ke router yang sama dengan kabel, dan Ethernet gigabit bertahan stabil di sekitar 110 MB/s, sering lebih cepat dari Wi-Fi dan jauh lebih konsisten untuk salinan berjam-jam. Mac tanpa port butuh adaptor USB-C ke Ethernet."
+      },
+      "2": {
+        "h": "Drive USB dan cloud",
+        "b": "SSD USB 3 bisa mengalahkan keduanya, tetapi flashdisk murah sering menulis hanya 10–30 MB/s setelah cache-nya penuh. Semua layanan cloud atau tautan dibatasi kecepatan unggah Anda: di 50 Mbps, 1 GB butuh sekitar tiga menit sebelum PC bahkan bisa mulai mengunduh."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Saat PC dan Mac tidak saling melihat",
+    "items": {
+      "0": {
+        "h": "Mac tidak muncul di Jaringan pada File Explorer",
+        "b": "Jangan andalkan penjelajahan jaringan. Ketik dua garis miring terbalik dan alamat IP Mac langsung di bilah alamat. Tampilan jaringan Windows tidak bisa diandalkan antarplatform, meski folder bersamanya berjalan sempurna."
+      },
+      "1": {
+        "h": "Windows terus meminta kredensial",
+        "b": "Gunakan nama pendek dan kata sandi akun Mac, dan pastikan akun itu dicentang di Berbagi File Windows pada Mac. Kalau Windows menyimpan kata sandi yang salah, hapus entrinya di Credential Manager lalu coba lagi."
+      },
+      "2": {
+        "h": "Mac tidak bisa tersambung ke PC",
+        "b": "Pastikan jaringan PC disetel Privat, bukan Publik, dan Berbagi file dan printer menyala. Masuk dengan akun Windows; untuk akun Microsoft, pakai alamat emailnya, bukan nama tampilan."
+      },
+      "3": {
+        "h": "Tidak ada yang jalan di jaringan hotel, kantor, atau kafe",
+        "b": "Banyak jaringan seperti ini mengisolasi perangkat satu sama lain, sehingga tidak ada cara lokal yang bisa tersambung. Pakai hotspot ponsel yang diikuti kedua komputer, kabel Ethernet, atau tautan yang lewat internet."
+      },
+      "4": {
+        "h": "Salinan ke USB gagal untuk file besar",
+        "b": "Drive-nya hampir pasti FAT32, yang tidak bisa menampung file 4 GB atau lebih. Format ulang ke exFAT setelah memindahkan isi yang Anda perlukan."
+      }
+    }
+  },
+  "security": {
+    "title": "Menjaga transfer tetap privat",
+    "body": "Memindahkan file antara dua komputer milik sendiri seharusnya tidak memberi salinan kepada orang lain. Begini posisi setiap jalur.",
+    "items": {
+      "0": {
+        "h": "Tetap di jaringan Anda",
+        "b": "Berbagi SMB, LocalSend, dan jalur langsung BIShare tidak pernah keluar dari jaringan lokal Anda. BIShare dan LocalSend juga mengenkripsi transfernya, jadi orang lain di Wi-Fi yang sama tidak bisa membacanya."
+      },
+      "1": {
+        "h": "Keluar jaringan, tetapi tersegel",
+        "b": "Tautan BIShare dan Wormhole mengenkripsi file di Mac sebelum diunggah dan menaruh kuncinya di tautan, jadi layanan di tengah menyimpan data yang tidak bisa dibukanya."
+      },
+      "2": {
+        "h": "Keluar jaringan, bisa dibaca penyedia",
+        "b": "OneDrive, Google Drive, Dropbox, WeTransfer, dan email melindungi file selama perjalanan, tetapi bisa membacanya saat tersimpan. Untuk file sehari-hari itu sering bisa diterima, tetapi kurang cocok untuk kontrak atau hasil pindai KTP."
+      }
     }
   },
   "faq": {
-    "title": "Mac ke Windows: Tanya Jawab",
+    "title": "Berbagi file Mac dan Windows: tanya jawab",
     "items": {
       "0": {
-        "q": "Bisakah ber-AirDrop dari Mac ke PC Windows?",
-        "a": "Tidak — AirDrop hanya untuk Apple dan Windows tak bisa menerima AirDrop. BIShare melakukan tugas yang sama di keduanya: di satu jaringan ia mengirim file langsung, dan saat berjauhan ia memberi Anda tautan yang dibuka PC Windows di browser apa pun."
+        "q": "Bisakah AirDrop dari Mac ke PC Windows?",
+        "a": "Tidak. AirDrop hanya ada di perangkat Apple dan Windows tidak bisa menerimanya. Padanan terdekat adalah aplikasi lintas platform seperti BIShare, yang mengirim langsung antara keduanya lewat Wi-Fi dan memberi tautan saat keduanya berjauhan."
       },
       "1": {
         "q": "Apa cara termudah berbagi file antara Mac dan Windows?",
-        "a": "Di Wi-Fi yang sama, pasang BIShare di Mac, pilih PC-nya, lalu kirim — tanpa kabel, tanpa cloud. Jika mereka di tempat lain, bagikan tautan, QR, atau kode 6 karakter dan mereka mengunduhnya di browser."
+        "a": "Bagi kebanyakan orang, pasang BIShare di keduanya dan kirim lewat Wi-Fi yang sama, karena tidak ada pengaturan yang perlu diubah di komputer mana pun dan jalan dua arah. Kalau Anda tidak mau memasang apa pun, berbagi file SMB bawaan juga bisa, dengan penyiapan beberapa menit."
       },
       "2": {
-        "q": "Bisakah transfer file besar antara Mac dan Windows secara gratis?",
-        "a": "Bisa. Transfer langsung lewat jaringan Anda sendiri tanpa batas ukuran tetap, dan tautan berbagi di browser membawa file hingga 100GB gratis — tanpa akun di kedua sisi."
+        "q": "Bagaimana berbagi file antara Mac dan Windows tanpa software?",
+        "a": "Gunakan berbagi file SMB. Di Mac, nyalakan Berbagi File, aktifkan \"Bagikan file dan folder menggunakan SMB\" dan centang akun di Berbagi File Windows. Di PC, ketik dua garis miring terbalik diikuti IP Mac di File Explorer lalu masuk dengan akun Mac tersebut."
       },
       "3": {
-        "q": "Apakah saya perlu OneDrive atau Dropbox untuk memindahkan file antara Mac dan Windows?",
-        "a": "Tidak. Drive cloud memaksa Anda mengunggah file lalu menunggunya tersinkron di perangkat lain. BIShare mengirimnya langsung melintasi jaringan lokal, jadi tak ada yang perlu diunggah dan tak ada yang perlu ditunggu."
+        "q": "Bagaimana memindahkan file dari Windows ke Mac lewat Wi-Fi?",
+        "a": "Bagikan folder di PC dengan penemuan jaringan dan berbagi file menyala serta jaringan disetel Privat, lalu di Finder Mac tekan Command-K dan masukkan smb:// ditambah alamat PC. Atau kirim dengan BIShare dari PC, yang melewati semua penyiapan itu."
       },
       "4": {
-        "q": "Apakah PC Windows perlu memasang perangkat lunak?",
-        "a": "Tidak untuk tautan berbagi — penerima cukup membukanya di browser lalu mengunduh. Memasang aplikasi BIShare gratis membuat transfer terdekat lebih cepat dan bekerja dua arah, tetapi tak pernah wajib untuk menerima."
+        "q": "Format USB apa yang jalan di Mac dan Windows?",
+        "a": "exFAT. Bisa dibaca dan ditulis di keduanya tanpa batas ukuran file yang berarti. FAT32 juga jalan di keduanya tetapi menolak file 4 GB atau lebih; NTFS hanya bisa dibaca di Mac; APFS dan Mac OS Extended tidak bisa dibaca di Windows."
+      },
+      "5": {
+        "q": "Kenapa Mac saya tidak bisa menulis ke hard disk eksternal Windows?",
+        "a": "Drive itu berformat NTFS, yang dipasang macOS dalam mode hanya-baca. Salin filenya keluar, format ulang drive ke exFAT, dan drive bisa dibaca serta ditulis di kedua komputer."
+      },
+      "6": {
+        "q": "Bisakah memindahkan file besar antara Mac dan Windows secara gratis?",
+        "a": "Bisa. Di jaringan sendiri, BIShare, LocalSend, dan berbagi SMB tidak punya batas ukuran. Lewat tautan, BIShare membawa hingga 100 GB gratis. Drive USB berformat exFAT juga tidak punya batas yang berarti."
+      },
+      "7": {
+        "q": "Apakah perlu OneDrive atau iCloud untuk memindahkan file antara Mac dan PC?",
+        "a": "Tidak. Drive cloud berguna saat file yang sama harus tetap tersinkron di kedua komputer, tetapi untuk transfer sekali jalan hasilnya lebih lambat, karena file diunggah lalu diunduh, dan memakai kuota penyimpanan Anda."
+      },
+      "8": {
+        "q": "Bisakah berbagi file antara Mac dan Windows tanpa Wi-Fi yang sama?",
+        "a": "Bisa, dengan tiga cara: tautan yang dibuka di browser PC, hotspot ponsel yang diikuti kedua komputer, atau kabel Ethernet. Berbagi SMB dan LocalSend butuh kedua komputer di jaringan yang sama."
+      },
+      "9": {
+        "q": "Amankah Berbagi File Windows dari Mac?",
+        "a": "File tetap di jaringan Anda, tetapi Apple mencatat bahwa kata sandi akun yang diaktifkan untuk berbagi Windows bisa disimpan dengan kurang aman, jadi matikan akun itu setelah selesai. Alat yang mengenkripsi transfernya sendiri tidak punya kompromi tersebut."
       }
     }
   },
+  "shots": {
+    "devices": "Daftar perangkat di aplikasi desktop BIShare dengan dua perangkat dikenal, iPhone dan ponsel Android Samsung. Mac atau PC Windows di jaringan yang sama tampil dengan cara yang sama.",
+    "transfer": "bishare.app/transfer di browser: jatuhkan file di kiri untuk mendapat tautan, atau ketik kode 6 karakter di kanan untuk mengunduhnya di PC Windows."
+  },
   "cta": {
-    "title": "Pindahkan file dari Mac ke PC Anda dalam hitungan detik",
-    "body": "Gratis, tanpa akun. Pasang BIShare di Mac atau PC Windows Anda lalu mulai mengirim — atau cukup bagikan tautan dan lewati pemasangan sama sekali.",
+    "title": "Mac ke Windows, tanpa mengorek pengaturan",
+    "body": "Gratis, open source, tanpa akun. Pasang BIShare di kedua komputer dan kirim ke arah mana pun, atau bagikan tautan yang bisa dibuka PC di browser apa pun.",
     "download": "Unduh BIShare"
   },
   "a11y": {
