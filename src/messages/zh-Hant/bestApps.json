@@ -236,7 +236,7 @@
       },
       {
         "h": "iPhone 傳到 Android（或反過來）",
-        "b": "AirDrop 做不到。BIShare 與 LocalSend 都能透過 Wi-Fi 在兩者之間直傳；對方不在身邊時，BIShare 還能給你一條連結。"
+        "b": "只有在Google的Quick Share相容清單中的Android手機（例如較新的Pixel與Galaxy機型），且雙方都設為所有人時，AirDrop才能傳到。其他手機則由BIShare和LocalSend透過Wi-Fi在兩者之間直接傳送；不在一起時，BIShare也能提供連結。"
       },
       {
         "h": "不用傳輸線，從手機傳到電腦",
@@ -252,8 +252,88 @@
       }
     ]
   },
-  "shots": {
-    "devices": "BIShare 桌面 App 的裝置清單：同一 Wi-Fi 下的一台 iPhone 與一台 Android 手機，點一下即可接收。",
-    "transfer": "bishare.app/transfer：拖入最多 100 GB 的檔案，取得連結、QR code 與 6 位代碼。上傳前加密，24 小時後失效。"
+  "art": {
+    "hero": {
+      "alt": "一支iPhone、一台Mac、一台Windows筆電和一支Android手機圍繞數字10，標題：2026年最佳檔案分享App，用六項測試比較十款。",
+      "title": "最佳檔案分享App（2026）",
+      "sub": "用6項測試比較10款App",
+      "center": "10",
+      "platforms": "iPhone · Android · Windows · Mac · Linux"
+    },
+    "criteria": {
+      "alt": "排名使用的六項測試：跨平台、同一網路即時傳送、能傳到遠方的人、接收方不需任何準備、隱私，以及真實成本。",
+      "title": "我們如何評測這些App",
+      "sub": "六項測試，十款App一視同仁",
+      "items": {
+        "0": {
+          "h": "跨平台",
+          "b": "iPhone、Android、Windows、Mac、Linux任意組合"
+        },
+        "1": {
+          "h": "近處即時",
+          "b": "同一Wi-Fi直連，不上傳"
+        },
+        "2": {
+          "h": "能傳到遠方",
+          "b": "在其他網路也能用的連結或代碼"
+        },
+        "3": {
+          "h": "接收方不需準備",
+          "b": "不需App、帳號或註冊"
+        },
+        "4": {
+          "h": "隱私",
+          "b": "端對端加密，無廣告與追蹤器"
+        },
+        "5": {
+          "h": "真實成本",
+          "b": "依公布的免費額度，無隱藏方案"
+        }
+      }
+    },
+    "quadrant": {
+      "alt": "依比較表繪製的四象限圖：BIShare和PairDrop近處即時且能傳到遠方；LocalSend、AirDrop和Quick Share僅限近處；WeTransfer和Wormhole能傳到遠方，但在同一Wi-Fi也不是即時。",
+      "title": "近處、遠方，還是兩者兼具",
+      "sub": "依下方比較表擺放",
+      "qBoth": "近處與遠方",
+      "qNearOnly": "僅限近處",
+      "qFarOnly": "僅限遠方",
+      "qNeither": "都不是",
+      "none": "比較表中沒有App落在這裡",
+      "xAxis": "傳送給其他網路的人 →",
+      "yTop": "同一Wi-Fi即時",
+      "yBottom": "先上傳"
+    },
+    "choose": {
+      "alt": "六種情況與合適App：兩台筆電用BIShare或LocalSend，Android到Windows電腦用Quick Share或BIShare，iPhone與Android之間用BIShare、LocalSend或支援機型上的Quick Share，手機到電腦用任一本機工具或熱點，給客戶用BIShare或Wormhole連結，團隊用雲端硬碟。",
+      "title": "什麼任務用什麼App",
+      "sub": "六種常見情況",
+      "items": {
+        "0": {
+          "q": "兩台筆電，系統不限",
+          "a": "BIShare或LocalSend；無法安裝時用PairDrop"
+        },
+        "1": {
+          "q": "Android手機到Windows電腦",
+          "a": "有Google帳號用Quick Share，沒有就用BIShare"
+        },
+        "2": {
+          "q": "iPhone到Android，或反過來",
+          "a": "BIShare或LocalSend；支援的Pixel和Galaxy可用Quick Share"
+        },
+        "3": {
+          "q": "手機到電腦，不用傳輸線",
+          "a": "同一Wi-Fi下任一本機工具，或手機熱點"
+        },
+        "4": {
+          "q": "給客戶傳大檔案",
+          "a": "BIShare連結（100 GB）或Wormhole連結（10 GB）"
+        },
+        "5": {
+          "q": "團隊整週分享檔案",
+          "a": "Google Drive、Dropbox或OneDrive"
+        }
+      }
+    }
   }
 }

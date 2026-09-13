@@ -18,7 +18,7 @@ const OG_IMAGE = {
  */
 const ROUTE_FIGURES = new Set([
   "/airdrop-for-android", "/airdrop-for-windows",
-  "/airdrop-not-working", "/best-file-sharing-app", "/encrypted-file-transfer",
+  "/airdrop-not-working", "/encrypted-file-transfer",
   "/firefox-send-alternative", "/localsend-alternative", "/nearby-share-alternative",
   "/send-anywhere-alternative", "/send-files-android-to-iphone",
   "/send-files-iphone-to-android", "/send-files-without-internet", "/send-large-files",

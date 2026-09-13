@@ -236,7 +236,7 @@
       },
       {
         "h": "iPhoneからAndroidへ（またはその逆）",
-        "b": "AirDropではできません。BIShareとLocalSendはWi-Fi経由で両者の間を直接送ります。BIShareは離れているときのリンクも用意します。"
+        "b": "AirDropがAndroidに届くのは、最近のPixelやGalaxyなどGoogleのQuick Share互換リストにある機種で、双方を「すべての人」に設定したときだけです。それ以外のスマホでは、BIShareとLocalSendがWi-Fi経由で両者の間を直接送ります。BIShareは離れているときのリンクも用意します。"
       },
       {
         "h": "ケーブルなしでスマホからPCへ",
@@ -252,8 +252,88 @@
       }
     ]
   },
-  "shots": {
-    "devices": "BIShareデスクトップアプリの端末一覧。同じWi-Fi上のiPhoneとAndroidスマホが、ワンクリックで受信できる状態。",
-    "transfer": "bishare.app/transfer: 最大100 GBのファイルをドロップして、リンク・QRコード・6文字コードを取得。アップロード前に暗号化、24時間で失効。"
+  "art": {
+    "hero": {
+      "alt": "数字の10を囲むiPhone、Mac、Windowsノート、Androidスマートフォン。タイトルは「2026年のおすすめファイル共有アプリ、6つのテストで10本を比較」。",
+      "title": "おすすめファイル共有アプリ（2026年）",
+      "sub": "6つのテストで10本を比較",
+      "center": "10",
+      "platforms": "iPhone · Android · Windows · Mac · Linux"
+    },
+    "criteria": {
+      "alt": "ランキングに使った6つのテスト。クロスプラットフォーム、同じネットワークで即時、離れた相手に届く、受け取る側に何も不要、プライバシー、実際のコスト。",
+      "title": "アプリの評価方法",
+      "sub": "10本すべてに同じ6つのテスト",
+      "items": {
+        "0": {
+          "h": "OSをまたげる",
+          "b": "iPhone、Android、Windows、Mac、Linuxのどの組み合わせでも"
+        },
+        "1": {
+          "h": "近くなら即時",
+          "b": "同じWi-Fiで直接、アップロードなし"
+        },
+        "2": {
+          "h": "離れた相手に届く",
+          "b": "別のネットワークでも使えるリンクやコード"
+        },
+        "3": {
+          "h": "受け取る側は何も不要",
+          "b": "アプリもアカウントも登録もいらない"
+        },
+        "4": {
+          "h": "プライバシー",
+          "b": "エンドツーエンド暗号化、広告やトラッカーなし"
+        },
+        "5": {
+          "h": "実際のコスト",
+          "b": "公表どおりの無料枠、隠れた料金プランなし"
+        }
+      }
+    },
+    "quadrant": {
+      "alt": "比較表をもとにした4象限図。BIShareとPairDropは近くでは即時で、離れた相手にも届く。LocalSend、AirDrop、Quick Shareは近くのみ。WeTransferとWormholeは離れた相手に届くが、同じWi-Fiでも即時にはならない。",
+      "title": "近く、遠く、それとも両方",
+      "sub": "下の比較表をもとに配置",
+      "qBoth": "近くも遠くも",
+      "qNearOnly": "近くのみ",
+      "qFarOnly": "遠くのみ",
+      "qNeither": "どちらでもない",
+      "none": "比較表のアプリはここに入らない",
+      "xAxis": "別のネットワークの相手に送れる →",
+      "yTop": "同じWi-Fiで即時",
+      "yBottom": "先にアップロード"
+    },
+    "choose": {
+      "alt": "6つの状況と合うアプリ。2台のノートPCにはBIShareかLocalSend、AndroidからWindows PCにはQuick ShareかBIShare、iPhoneとAndroidの間はBIShare、LocalSend、または対応機種のQuick Share、スマホからPCにはローカルツールかテザリング、取引先にはBIShareかWormholeのリンク、チームにはクラウドドライブ。",
+      "title": "用途別のおすすめアプリ",
+      "sub": "よくある6つの状況",
+      "items": {
+        "0": {
+          "q": "2台のノートPC、OSは問わない",
+          "a": "BIShareかLocalSend。インストールできないならPairDrop"
+        },
+        "1": {
+          "q": "AndroidからWindows PCへ",
+          "a": "GoogleアカウントがあればQuick Share、なければBIShare"
+        },
+        "2": {
+          "q": "iPhoneからAndroid、またはその逆",
+          "a": "BIShareかLocalSend。対応するPixelとGalaxyならQuick Share"
+        },
+        "3": {
+          "q": "ケーブルなしでスマホからPCへ",
+          "a": "同じWi-Fiでローカルツール、またはスマホのテザリング"
+        },
+        "4": {
+          "q": "取引先に大きなファイル",
+          "a": "BIShareのリンク（100 GB）かWormholeのリンク（10 GB）"
+        },
+        "5": {
+          "q": "チームで1週間ファイルを共有",
+          "a": "Google Drive、Dropbox、OneDrive"
+        }
+      }
+    }
   }
 }

@@ -236,7 +236,7 @@
       },
       {
         "h": "iPhone vers Android (ou l'inverse)",
-        "b": "AirDrop ne le peut pas. BIShare et LocalSend envoient directement par Wi-Fi entre les deux ; BIShare vous donne aussi un lien quand ils ne sont pas ensemble."
+        "b": "AirDrop n'atteint un téléphone Android que s'il figure sur la liste de compatibilité Quick Share de Google, comme les Pixel et Galaxy récents, avec les deux côtés réglés sur « Tout le monde ». Pour tous les autres téléphones, BIShare et LocalSend envoient directement en Wi-Fi entre les deux ; BIShare vous donne aussi un lien quand ils ne sont pas ensemble."
       },
       {
         "h": "Téléphone vers PC sans câble",
@@ -252,8 +252,88 @@
       }
     ]
   },
-  "shots": {
-    "devices": "Liste des appareils de l'appli de bureau BIShare : un iPhone et un téléphone Android sur le même Wi-Fi, prêts à recevoir en un clic.",
-    "transfer": "bishare.app/transfer : déposez un fichier jusqu'à 100 Go, obtenez un lien, un QR code et un code à 6 caractères. Chiffré avant l'envoi, expire en 24 heures."
+  "art": {
+    "hero": {
+      "alt": "Un iPhone, un Mac, un portable Windows et un téléphone Android autour du chiffre 10, avec le titre : les meilleures apps de partage de fichiers en 2026, dix comparées sur six tests.",
+      "title": "Meilleures apps de partage de fichiers, 2026",
+      "sub": "10 apps comparées sur 6 tests",
+      "center": "10",
+      "platforms": "iPhone · Android · Windows · Mac · Linux"
+    },
+    "criteria": {
+      "alt": "Les six tests du classement : multiplateforme, instantané sur le même réseau, atteint quelqu'un au loin, rien à installer côté réception, confidentialité et coût réel.",
+      "title": "Comment les apps ont été évaluées",
+      "sub": "Six tests, appliqués de la même façon aux dix",
+      "items": {
+        "0": {
+          "h": "Multiplateforme",
+          "b": "N'importe quel mélange d'iPhone, Android, Windows, Mac, Linux"
+        },
+        "1": {
+          "h": "Instantané à proximité",
+          "b": "En direct sur le même Wi-Fi, rien n'est envoyé"
+        },
+        "2": {
+          "h": "Atteint au loin",
+          "b": "Un lien ou un code qui marche sur un autre réseau"
+        },
+        "3": {
+          "h": "Rien côté réception",
+          "b": "Ni app, ni compte, ni inscription pour recevoir"
+        },
+        "4": {
+          "h": "Confidentiel",
+          "b": "Chiffré de bout en bout, sans pub ni traceurs"
+        },
+        "5": {
+          "h": "Coût réel",
+          "b": "Limites gratuites telles que publiées, sans palier caché"
+        }
+      }
+    },
+    "quadrant": {
+      "alt": "Quadrant tiré du tableau comparatif : BIShare et PairDrop sont instantanés à proximité et atteignent aussi le lointain ; LocalSend, AirDrop et Quick Share seulement à proximité ; WeTransfer et Wormhole atteignent le lointain mais ne sont jamais instantanés sur le même Wi-Fi.",
+      "title": "À proximité, au loin, ou les deux",
+      "sub": "Placés d'après le tableau comparatif ci-dessous",
+      "qBoth": "Proche et lointain",
+      "qNearOnly": "Proche seulement",
+      "qFarOnly": "Lointain seulement",
+      "qNeither": "Aucun des deux",
+      "none": "Aucune app du tableau ne tombe ici",
+      "xAxis": "Envoie à quelqu'un sur un autre réseau →",
+      "yTop": "Instantané sur le même Wi-Fi",
+      "yBottom": "Envoie d'abord en ligne"
+    },
+    "choose": {
+      "alt": "Six situations et l'app adaptée : BIShare ou LocalSend entre deux portables, Quick Share ou BIShare d'Android vers un PC Windows, BIShare, LocalSend ou Quick Share sur téléphones compatibles entre iPhone et Android, un outil local ou un partage de connexion du téléphone au PC, un lien BIShare ou Wormhole pour un client et un cloud pour une équipe.",
+      "title": "Quelle app pour quel usage",
+      "sub": "Six situations courantes",
+      "items": {
+        "0": {
+          "q": "Deux portables, n'importe quel système",
+          "a": "BIShare ou LocalSend ; PairDrop si l'un ne peut rien installer"
+        },
+        "1": {
+          "q": "Téléphone Android vers PC Windows",
+          "a": "Quick Share avec un compte Google, ou BIShare sans"
+        },
+        "2": {
+          "q": "iPhone vers Android, ou l'inverse",
+          "a": "BIShare ou LocalSend ; Quick Share sur Pixel et Galaxy compatibles"
+        },
+        "3": {
+          "q": "Téléphone vers PC sans câble",
+          "a": "N'importe quel outil local sur le même Wi-Fi, ou un partage de connexion"
+        },
+        "4": {
+          "q": "Un gros fichier pour un client",
+          "a": "Lien BIShare (100 Go) ou lien Wormhole (10 Go)"
+        },
+        "5": {
+          "q": "Une équipe qui partage des fichiers toute la semaine",
+          "a": "Google Drive, Dropbox ou OneDrive"
+        }
+      }
+    }
   }
 }

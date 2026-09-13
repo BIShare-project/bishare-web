@@ -236,7 +236,7 @@
       },
       {
         "h": "iPhone에서 Android로(또는 반대로)",
-        "b": "AirDrop으로는 안 됩니다. BIShare와 LocalSend는 Wi-Fi로 둘 사이를 직접 전송합니다. BIShare는 떨어져 있을 때 쓸 링크도 줍니다."
+        "b": "AirDrop은 최신 Pixel과 Galaxy처럼 Google의 Quick Share 호환 목록에 있는 Android 휴대폰에만, 양쪽 모두 모든 사람으로 설정했을 때 전송됩니다. 그 밖의 휴대폰은 BIShare와 LocalSend가 Wi-Fi로 두 기기 사이를 직접 전송하며, 떨어져 있을 때는 BIShare가 링크도 제공합니다."
       },
       {
         "h": "케이블 없이 휴대폰에서 PC로",
@@ -252,8 +252,88 @@
       }
     ]
   },
-  "shots": {
-    "devices": "BIShare 데스크톱 앱의 기기 목록: 같은 Wi-Fi에 있는 iPhone과 Android 휴대폰이 클릭 한 번으로 받을 준비를 마친 상태.",
-    "transfer": "bishare.app/transfer: 최대 100GB 파일을 끌어다 놓고 링크, QR 코드, 6자리 코드를 받습니다. 업로드 전에 암호화되고 24시간 뒤 만료됩니다."
+  "art": {
+    "hero": {
+      "alt": "숫자 10을 둘러싼 iPhone, Mac, Windows 노트북, Android 휴대폰. 제목: 2026년 최고의 파일 공유 앱, 6가지 테스트로 10개 비교.",
+      "title": "최고의 파일 공유 앱, 2026",
+      "sub": "6가지 테스트로 비교한 앱 10개",
+      "center": "10",
+      "platforms": "iPhone · Android · Windows · Mac · Linux"
+    },
+    "criteria": {
+      "alt": "순위에 쓴 여섯 가지 테스트: 플랫폼 간 호환, 같은 네트워크에서 즉시, 멀리 있는 사람에게 전달, 받는 쪽은 준비 불필요, 개인정보 보호, 실제 비용.",
+      "title": "앱을 평가한 방법",
+      "sub": "열 개 모두에 똑같이 적용한 여섯 가지 테스트",
+      "items": {
+        "0": {
+          "h": "플랫폼 간 호환",
+          "b": "iPhone, Android, Windows, Mac, Linux 어떤 조합이든"
+        },
+        "1": {
+          "h": "가까우면 즉시",
+          "b": "같은 Wi-Fi에서 직접, 업로드 없음"
+        },
+        "2": {
+          "h": "멀리 있는 사람까지",
+          "b": "다른 네트워크에서도 되는 링크나 코드"
+        },
+        "3": {
+          "h": "받는 쪽은 준비 불필요",
+          "b": "앱, 계정, 가입 모두 필요 없음"
+        },
+        "4": {
+          "h": "개인정보 보호",
+          "b": "종단 간 암호화, 광고와 추적기 없음"
+        },
+        "5": {
+          "h": "실제 비용",
+          "b": "공개된 무료 한도 그대로, 숨은 요금제 없음"
+        }
+      }
+    },
+    "quadrant": {
+      "alt": "비교표를 바탕으로 한 사분면 도표. BIShare와 PairDrop은 가까이에서 즉시 전송되고 멀리 있는 사람에게도 닿음. LocalSend, AirDrop, Quick Share는 가까이에서만. WeTransfer와 Wormhole은 멀리 닿지만 같은 Wi-Fi에서도 즉시가 아님.",
+      "title": "가까이, 멀리, 또는 둘 다",
+      "sub": "아래 비교표를 기준으로 배치",
+      "qBoth": "가까이와 멀리",
+      "qNearOnly": "가까이만",
+      "qFarOnly": "멀리만",
+      "qNeither": "둘 다 아님",
+      "none": "비교표의 앱 중 여기에 해당하는 것은 없음",
+      "xAxis": "다른 네트워크의 사람에게 전송 →",
+      "yTop": "같은 Wi-Fi에서 즉시",
+      "yBottom": "먼저 업로드"
+    },
+    "choose": {
+      "alt": "여섯 가지 상황과 맞는 앱: 노트북 두 대는 BIShare나 LocalSend, Android에서 Windows PC는 Quick Share나 BIShare, iPhone과 Android 사이는 BIShare, LocalSend 또는 지원 기종의 Quick Share, 휴대폰에서 PC는 로컬 도구나 핫스팟, 고객에게는 BIShare나 Wormhole 링크, 팀에는 클라우드 드라이브.",
+      "title": "작업별로 맞는 앱",
+      "sub": "자주 겪는 여섯 가지 상황",
+      "items": {
+        "0": {
+          "q": "노트북 두 대, 운영체제 무관",
+          "a": "BIShare나 LocalSend, 설치가 불가하면 PairDrop"
+        },
+        "1": {
+          "q": "Android 휴대폰에서 Windows PC로",
+          "a": "Google 계정이 있으면 Quick Share, 없으면 BIShare"
+        },
+        "2": {
+          "q": "iPhone에서 Android로, 또는 반대로",
+          "a": "BIShare나 LocalSend, 지원되는 Pixel·Galaxy는 Quick Share"
+        },
+        "3": {
+          "q": "케이블 없이 휴대폰에서 PC로",
+          "a": "같은 Wi-Fi의 로컬 도구 또는 휴대폰 핫스팟"
+        },
+        "4": {
+          "q": "고객에게 보낼 큰 파일",
+          "a": "BIShare 링크(100 GB) 또는 Wormhole 링크(10 GB)"
+        },
+        "5": {
+          "q": "일주일 내내 파일을 공유하는 팀",
+          "a": "Google Drive, Dropbox, OneDrive"
+        }
+      }
+    }
   }
 }

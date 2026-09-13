@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
+import { LandingArt } from "@/components/site/landing-art";
+import { ImageLightbox } from "@/components/site/image-lightbox";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { ArticleToc } from "@/components/site/article-toc";
@@ -26,6 +28,8 @@ const LAST_UPDATED = "2026-09-12";
 const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
+const SLUG = "/best-file-sharing-app";
+
 export async function generateMetadata({
   params,
 }: {
@@ -39,7 +43,7 @@ export async function generateMetadata({
     title: { absolute: title },
     description,
     alternates: buildAlternates(locale, "/best-file-sharing-app"),
-    ...sharedOpenGraph(title, description, "/best-file-sharing-app"),
+    ...sharedOpenGraph(title, description, SLUG, locale),
   };
 }
 
@@ -97,30 +101,6 @@ function H2({ id, children }: { id: string; children: React.ReactNode }) {
 const strong = (chunks: React.ReactNode) => (
   <strong className="text-foreground">{chunks}</strong>
 );
-
-function Shot({
-  src,
-  alt,
-  width = 1400,
-  height = 787,
-}: {
-  src: string;
-  alt: string;
-  /** Intrinsic size, so the browser reserves the right box before load. */
-  width?: number;
-  height?: number;
-}) {
-  return (
-    <figure className="overflow-hidden rounded-xl border border-border bg-card">
-      <picture>
-        <source srcSet={`${src}.webp`} type="image/webp" />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${src}.jpg`} alt={alt} width={width} height={height} loading="lazy" decoding="async" className="h-auto w-full" />
-      </picture>
-      <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">{alt}</figcaption>
-    </figure>
-  );
-}
 
 export default async function BestFileSharingAppPage({
   params,
@@ -222,11 +202,30 @@ export default async function BestFileSharingAppPage({
           <StoreButtons />
         </div>
 
-        <Shot src="/img/best-file-sharing-app/route" alt={chrome("figureCaption")} width={1400} height={700} />
+        <LandingArt
+          slug={SLUG}
+          name="hero"
+          locale={locale}
+          alt={t("art.hero.alt")}
+          width={1200}
+          height={630}
+          zoomHint={chrome("imageZoom")}
+          className="mt-8"
+        />
 
         {/* How we judged */}
         <section className="mt-14">
           <H2 id="criteria">{t("criteria.title")}</H2>
+              <LandingArt
+                slug={SLUG}
+                name="criteria"
+                locale={locale}
+                alt={t("art.criteria.alt")}
+                width={1200}
+                height={640}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
           <div className="mt-6 space-y-7">
             {CRITERIA_ITEMS.map((i) => (
               <div key={i} >
@@ -240,6 +239,16 @@ export default async function BestFileSharingAppPage({
         {/* At a glance */}
         <section className="mt-14">
           <H2 id="glance">{t("table.title")}</H2>
+              <LandingArt
+                slug={SLUG}
+                name="quadrant"
+                locale={locale}
+                alt={t("art.quadrant.alt")}
+                width={1200}
+                height={760}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
           <div className="mt-5 overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[820px] text-sm">
               <thead>
@@ -296,6 +305,16 @@ export default async function BestFileSharingAppPage({
         {/* Which app for which situation */}
         <section className="mt-14">
           <H2 id="situations">{t("useCases.title")}</H2>
+              <LandingArt
+                slug={SLUG}
+                name="choose"
+                locale={locale}
+                alt={t("art.choose.alt")}
+                width={1200}
+                height={860}
+                zoomHint={chrome("imageZoom")}
+                className="mt-6"
+              />
           <div className="mt-6 space-y-7">
             {USE_CASE_ITEMS.map((i) => (
               <div key={i} >
@@ -310,10 +329,6 @@ export default async function BestFileSharingAppPage({
         <section className="mt-14">
           <H2 id="why">{t("why.title")}</H2>
           <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("why.body", { strong })}</p>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <Shot src="/img/airdrop-windows/devices" alt={t("shots.devices")} />
-            <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} width={1280} height={800} />
-          </div>
         </section>
 
         {/* FAQ */}
@@ -354,6 +369,7 @@ export default async function BestFileSharingAppPage({
         </div>
       </main>
       <SiteFooter />
+      <ImageLightbox closeLabel={chrome("imageClose")} />
     </div>
   );
 }

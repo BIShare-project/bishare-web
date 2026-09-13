@@ -28,7 +28,6 @@ const FIGURES = {
   "airdrop-for-android": { left: "iPhone", right: "Android", title: "iPhone to Android, both directions" },
   "airdrop-for-windows": { left: "iPhone · Mac", right: "Windows PC", title: "Apple to Windows, no cable" },
   "airdrop-not-working": { left: "iPhone", right: "iPhone · Mac", title: "When AirDrop will not connect, ordinary Wi-Fi still will" },
-  "best-file-sharing-app": { left: "iPhone · Android", right: "Windows · Mac · Linux", title: "One app across every platform" },
   "encrypted-file-transfer": { left: "Any device", right: "Any device", title: "Encrypted before it leaves, on both routes" },
   "firefox-send-alternative": { left: "Browser", right: "Anyone, any browser", title: "The Firefox Send idea, still running" },
   "localsend-alternative": { left: "Mac", right: "Windows PC", title: "Same network like LocalSend, plus a link when you need one" },

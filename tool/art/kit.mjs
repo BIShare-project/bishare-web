@@ -161,10 +161,16 @@ export const FIT_SCRIPT = `
       const probe = document.createElementNS(NS, "tspan");
       t.appendChild(probe);
       const lines = []; let cur = "";
+      const OPEN = "（「『【(", CLOSE = "、。，．）」』】)！？：；";
       for (const tok of tokens) {
         const next = cur ? cur + joiner + tok : tok;
         probe.textContent = next;
-        if (probe.getComputedTextLength() > max && cur) { lines.push(cur); cur = tok; } else cur = next;
+        if (probe.getComputedTextLength() > max && cur) {
+          if (cjk && CLOSE.includes(tok)) { cur = next; continue; } // closers never start a line
+          let carry = tok;
+          while (cjk && cur.length > 1 && OPEN.includes(cur[cur.length - 1])) { carry = cur[cur.length - 1] + carry; cur = cur.slice(0, -1); } // openers never end one
+          lines.push(cur); cur = carry;
+        } else cur = next;
       }
       if (cur) lines.push(cur);
       t.textContent = "";
