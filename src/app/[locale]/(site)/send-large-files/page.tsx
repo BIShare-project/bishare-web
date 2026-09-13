@@ -236,6 +236,25 @@ export default async function SendLargeFilesPage({
           <StoreButtons />
         </div>
 
+        <figure className="mt-10 overflow-hidden rounded-xl border border-border bg-card">
+          <picture>
+            <source srcSet="/img/send-large-files/route.webp" type="image/webp" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/img/send-large-files/route.jpg"
+              alt={chrome("figureCaption")}
+              width={1400}
+              height={700}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full"
+            />
+          </picture>
+          <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">
+            {chrome("figureCaption")}
+          </figcaption>
+        </figure>
+
         {/* Why it is still a pain */}
         <section className="mt-14">
           <H2 id="why">{t("why.title")}</H2>

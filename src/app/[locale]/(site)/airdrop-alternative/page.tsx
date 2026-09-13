@@ -268,6 +268,8 @@ export default async function AirdropAlternativePage({
               <StoreButtons />
             </div>
 
+            <Shot src="/img/airdrop-alternative/route" alt={chrome("figureCaption")} />
+
             {/* Why AirDrop stops */}
             <section className="mt-14">
               <H2 id="why">{t("why.title")}</H2>

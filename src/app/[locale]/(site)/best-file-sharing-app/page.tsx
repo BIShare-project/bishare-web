@@ -211,6 +211,8 @@ export default async function BestFileSharingAppPage({
           <StoreButtons />
         </div>
 
+        <Shot src="/img/best-file-sharing-app/route" alt={chrome("figureCaption")} />
+
         {/* How we judged */}
         <section className="mt-14">
           <H2 id="criteria">{t("criteria.title")}</H2>

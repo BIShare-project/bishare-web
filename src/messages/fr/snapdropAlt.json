@@ -1,79 +1,284 @@
 {
   "meta": {
-    "title": "La Meilleure Alternative à Snapdrop, Tout Réseau | BIShare",
-    "description": "Une alternative à Snapdrop qui marche aussi hors réseau : envoyez des fichiers en local comme Snapdrop, ou partagez un lien + code quand les appareils ne sont pas sur le même Wi-Fi. Gratuit, sans compte."
+    "title": "Alternative à Snapdrop (2026) : 7 testées, gratuites",
+    "description": "Ce qui est vraiment arrivé à Snapdrop après le rachat par LimeWire, vérifié en septembre 2026, et sept alternatives qui gardent l'habitude du navigateur et suppriment la limite du même réseau."
   },
   "hero": {
-    "eyebrow": "Transfert local et hors réseau",
-    "title": "Une alternative à Snapdrop pour tout réseau",
-    "body": "Snapdrop et PairDrop sont parfaits pour un envoi rapide entre deux navigateurs — jusqu'à ce que les appareils ne soient plus sur le même réseau, ou que vous vouliez une vraie appli. <strong>BIShare</strong> garde la simplicité locale sans compte, mais ajoute <strong>l'envoi hors réseau</strong> via un lien de navigateur, plus des applis natives pour chaque plateforme. <highlight>Même Wi-Fi ou non, ça marche, tout simplement.</highlight>",
+    "eyebrow": "En local et hors réseau",
+    "title": "Une alternative à Snapdrop pour n'importe quel réseau",
+    "body": "Ouvrir une page sur deux appareils, faire glisser un fichier, terminé. C'est cette habitude qui poussait les gens vers Snapdrop, et c'est elle qui les pousse aujourd'hui à chercher un remplaçant. Cette page dit ce qui a réellement changé après le rachat par LimeWire, et présente sept alternatives qui gardent la bonne partie. <strong>BIShare</strong> arrive en tête parce qu'il fait le geste Snapdrop sur un Wi-Fi partagé et atteint aussi quelqu'un qui n'est pas près de vous. <highlight>Gratuit, open source, sans compte.</highlight>",
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
-  "why": {
-    "title": "Là où Snapdrop s'arrête",
-    "body": "Snapdrop — et son successeur PairDrop — relie deux navigateurs via votre <strong>réseau local</strong> : les deux appareils doivent donc être sur le même Wi-Fi, et aucune appli en arrière-plan ne reprend un gros transfert. Dès que vous passez en données mobiles, sur un réseau invité ou à l'autre bout de la ville, il ne peut plus rien. BIShare comble ce vide : transfert direct quand vous êtes ensemble, et un <strong>lien de navigateur avec un code à 6 caractères</strong> quand vous ne l'êtes pas."
+  "updated": "Mis à jour en septembre 2026 · Chaque service ci-dessous a été ouvert et vérifié à la main ce mois-ci",
+  "disclosure": "BIShare est notre produit, pondérez le classement en conséquence. Tout ce qui suit se vérifie dans les dépôts et sur les pages des projets, et quand un autre outil est la meilleure réponse, nous le nommons.",
+  "quick": {
+    "title": "Réponse rapide",
+    "items": [
+      "<strong>Snapdrop n'est pas mort.</strong> LimeWire l'a racheté et snapdrop.net sert toujours une page de transfert à la marque Snapdrop. Ce qui a changé, c'est que le code derrière le site en service n'est plus publié : personne à l'extérieur ne peut donc vérifier ce que la version actuelle fait de vos fichiers.",
+      "<strong>Le remplaçant le plus proche, même geste :</strong> PairDrop. Un fork communautaire de Snapdrop, en GPL-3.0, toujours un simple onglet de navigateur, et il ajoute ce que Snapdrop n'a jamais eu : un code d'appairage à 6 chiffres, pour que deux appareils sur des réseaux différents se trouvent.",
+      "<strong>Meilleure dans l'ensemble :</strong> BIShare. Des applis natives sur cinq plateformes pour des transferts locaux à pleine vitesse, plus un lien navigateur de 100 Go pour quiconque n'est pas dans la pièce. Gratuit, open source, aucune inscription des deux côtés.",
+      "<strong>Si vous voulez une appli et ne transférez qu'à la maison :</strong> LocalSend. Open source, même réseau uniquement, rien dans le cloud.",
+      "<strong>Vous pouvez aussi héberger Snapdrop vous-même.</strong> Le code classique est toujours sur GitHub sous la licence d'origine, et un conteneur Docker le pose sur votre propre machine, seul moyen d'être certain que rien n'a changé à votre insu.",
+      "<strong>Pour un fichier destiné à quelqu'un de loin :</strong> un lien BIShare (100 Go, chiffré, expirant en une journée) ou Wormhole (10 Go, chiffré)."
+    ]
   },
-  "how": {
-    "title": "Comment BIShare envoie, de près ou de loin",
+  "status": {
+    "title": "Ce qui est réellement arrivé à Snapdrop",
+    "body": "Les résultats de recherche sur le sujet regorgent de nécrologies, et la plupart exagèrent. Voici ce que nous avons pu vérifier en ouvrant les sites et en lisant le dépôt en septembre 2026.",
     "items": {
       "0": {
-        "h": "Sur le même réseau",
-        "b": "Choisissez l'appareil et envoyez — les fichiers passent en direct, chiffrés de bout en bout, sans rien stocker sur un serveur. Comme Snapdrop, mais plus rapide avec une appli native, et ça marche même via le partage de connexion du téléphone, sans internet."
+        "h": "LimeWire l'a racheté, et le dit dans le dépôt",
+        "b": "Le README du projet sur GitHub porte l'annonce : « Snapdrop has been acquired by LimeWire, a leading file sharing platform with integrated AI tools. » La même note ajoute que le dépôt reste en l'état et que vous pouvez toujours télécharger et faire tourner le Snapdrop classique sur votre propre infrastructure. ShareDrop, l'autre page WebRTC bien connue, a fini chez le même propriétaire."
       },
       "1": {
-        "h": "Sur des réseaux différents",
-        "b": "C'est ce que Snapdrop ne sait pas faire. Vous obtenez un lien, un QR code et un code à 6 caractères. L'autre personne ouvre le lien dans n'importe quel navigateur et télécharge — sans appli, sans inscription. Le lien expire tout seul au bout de 24 heures."
+        "h": "Le site est toujours debout, et ressemble toujours à Snapdrop",
+        "b": "Ouvrez snapdrop.net aujourd'hui et vous retrouvez la page familière : noms d'appareils, Upload Files, Upload Folder, Send a Message. Aucun mur d'inscription, aucun forfait de stockage sous le nez. Le logo est servi sous le nom snapdrop_by_lw.svg, le signe le plus clair du nouveau propriétaire. sharedrop.io reste lui aussi la page pair-à-pair classique. Si vous avez lu quelque part que les deux avaient disparu, ce n'était pas vrai ce mois-ci."
       },
       "2": {
-        "h": "De vraies applis, partout",
-        "b": "iPhone, Android, Windows, Mac et Linux — une appli native plutôt qu'un onglet de navigateur. Envoyez du téléphone au portable, ou à n'importe qui, dans les deux sens."
+        "h": "Ce qui a vraiment changé, c'est la transparence",
+        "b": "Ce qui se trouve sur GitHub est la version classique. Le code qui tourne sur le site en service n'est pas publié : personne hors de LimeWire ne peut donc confirmer comment un transfert est acheminé aujourd'hui, ni ce qui est journalisé. Pour un outil dont tout l'attrait tenait au fait que les fichiers passaient directement d'un navigateur à l'autre sans rien toucher, c'est une perte réelle, et c'est la raison honnête de partir, bien plus qu'une histoire de site disparu."
+      },
+      "3": {
+        "h": "Pourquoi les gens voulaient déjà une alternative avant ça",
+        "b": "Les deux appareils devaient être sur le même réseau, et sur un réseau d'hôtel ou de bureau qui isole les clients, ils ne se voyaient pas du tout. Il n'y avait pas d'appli, donc un gros transfert mourait avec l'onglet. Et rien n'atteignait une personne absente du bâtiment. Le rachat a donné un coup d'accélérateur à la recherche ; ces limites en ont toujours été le fond."
       }
     }
   },
-  "comparison": {
-    "title": "Snapdrop vs AirDrop vs BIShare",
+  "keep": {
+    "title": "Ce qu'il faut garder de Snapdrop",
+    "body": "Un remplaçant n'en est un que s'il conserve les quatre choses qui attachaient les gens à une simple page web.",
+    "items": {
+      "0": {
+        "h": "Rien à installer",
+        "b": "Ouvrez une URL sur les deux appareils et ils se voient. Sur un portable emprunté, ou une machine d'entreprise où installer un logiciel veut dire ouvrir un ticket, ce n'est pas un agrément : c'est toute la raison d'être de l'outil."
+      },
+      "1": {
+        "h": "Pas de compte, pas d'adresse e-mail",
+        "b": "Snapdrop n'a jamais demandé qui vous étiez. Tout remplaçant qui s'ouvre sur un formulaire d'inscription a déjà perdu la comparaison, quoi qu'il fasse ensuite."
+      },
+      "2": {
+        "h": "Les fichiers passent directement",
+        "b": "WebRTC déplace les données d'un navigateur à l'autre ; le serveur se contente de les présenter. Rien n'est téléversé, donc rien ne traîne sur le disque de quelqu'un en attendant d'être supprimé."
+      },
+      "3": {
+        "h": "N'importe quel appareil parle à n'importe quel autre",
+        "b": "Un iPhone avec un portable Windows, un Android avec un Mac, un poste Linux avec une tablette. Snapdrop les traitait tous de la même façon, ce qu'AirDrop et Quick Share refusent précisément de faire."
+      }
+    }
+  },
+  "alts": {
+    "title": "Les sept alternatives, classées",
+    "consLabel": "Ses limites :",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Meilleure dans l'ensemble : le geste Snapdrop plus une route vers les gens éloignés",
+        "facts": "iPhone, Android, Windows, Mac, Linux et tout navigateur · licence MIT, gratuit · aucune limite de taille à proximité, 100 Go par lien · chiffré de bout en bout · aucune inscription des deux côtés",
+        "body": "Mettez deux appareils sur un même Wi-Fi et l'expérience est celle dont vous vous souvenez, mais via une vraie appli : des noms dans une liste, vous en touchez un, la barre se remplit à la vitesse que permet le réseau, et rien n'atterrit sur un serveur. Là où il dépasse Snapdrop, c'est sur la distance. Quelqu'un dans une autre ville reçoit plutôt une adresse web, qu'il ouvre dans le navigateur déjà devant lui, sans installation ni inscription, jusqu'à 100 Go. Le scellage a lieu avant le début de l'envoi et la clé reste dans votre lien, la copie que nous détenons ne nous dit donc rien. Réglez-la pour qu'elle meure au bout d'un jour ou après le premier téléchargement. Pour un groupe, un code de salon permet à plusieurs personnes de déposer des fichiers les unes pour les autres sous la même protection.",
+        "cons": "La voie locale donne le meilleur via l'appli ; le côté navigateur sert à recevoir et aux envois ponctuels, pas de remplaçant permanent d'un client natif. Et rien n'est stocké : un lien expiré a réellement disparu."
+      },
+      "1": {
+        "name": "PairDrop",
+        "tag": "Le fork communautaire, ce qui se rapproche le plus de l'original",
+        "facts": "Tout navigateur · gratuit, GPL-3.0, auto-hébergeable avec Docker ou Node.js · même réseau, ou appairé entre réseaux par code · WebRTC · sans compte",
+        "body": "PairDrop est un fork de Snapdrop qui a gardé l'interface et corrigé la plainte principale. Les appareils d'un même réseau se trouvent toujours automatiquement, et deux appareils sur des réseaux différents s'appairent avec un code à 6 chiffres ou un QR code, ou se retrouvent dans un salon public temporaire via un code à 5 lettres. Les transferts restent pair à pair en WebRTC, le projet est réellement open source, et vous pouvez faire tourner votre propre instance dans un conteneur si vous préférez ne faire confiance au serveur de personne. Pour qui veut simplement retrouver Snapdrop, c'est la réponse.",
+        "cons": "Toujours un onglet de navigateur : vous devez être en ligne tous les deux en même temps avec la page ouverte, et il n'y a pas d'applis natives. Les réseaux qui isolent les clients vous obligent à passer par le code d'appairage."
+      },
+      "2": {
+        "name": "LocalSend",
+        "tag": "La meilleure appli installée pour transférer à la maison",
+        "facts": "iPhone, Android, Windows, Mac, Linux · gratuit, open source · même réseau uniquement · chiffré entre appareils · sans compte",
+        "body": "LocalSend est ce qu'on recommande quand l'exigence du navigateur n'est pas sacrée. Il pose une petite appli sur chaque appareil, trouve les autres sur votre réseau et envoie les fichiers directement, chiffrés, sans aucune composante cloud. Pour un gros dossier, c'est plus rapide et plus stable qu'un onglet, et c'est l'outil à prendre quand les deux machines concernées sont les vôtres.",
+        "cons": "Les deux extrémités ont besoin de l'appli, ce qui exclut un ordinateur emprunté ou verrouillé, et il n'existe aucun moyen d'atteindre quelqu'un sur un autre réseau."
+      },
+      "3": {
+        "name": "ShareDrop",
+        "tag": "L'autre page classique, le même nouveau propriétaire",
+        "facts": "Tout navigateur · gratuit · même réseau, ou un lien de salon · WebRTC · sans compte",
+        "body": "ShareDrop est antérieur à la popularité de Snapdrop et fonctionne pareil : ouvrez la page sur deux appareils, glissez, c'est fait. Il ajoute un lien de salon que vous pouvez envoyer à quelqu'un, ce qui assouplit un peu la contrainte du même réseau. Il marche encore aujourd'hui. À savoir avant de s'y installer : LimeWire a racheté celui-ci également, donc passer de Snapdrop à ShareDrop pour une raison de propriété ne vous déplace nulle part.",
+        "cons": "Même propriétaire que Snapdrop, pas d'applis, et la même contrainte d'onglet qui doit rester ouvert."
+      },
+      "4": {
+        "name": "Transfer.zip",
+        "tag": "Envoi par navigateur avec une offre gratuite étonnamment honnête",
+        "facts": "Tout navigateur · offre gratuite sans limite de taille · open source · chiffré · compte facultatif pour envoyer · offres payantes à partir de 9 $ par mois",
+        "body": "Transfer.zip couvre la moitié du problème que règlent les liens. Son offre gratuite annonce l'absence totale de limite de taille, ce qui tient parce qu'un transfert gratuit est vivant plutôt que stocké : le fichier circule tant que votre onglet reste ouvert, et le transfert se termine quand vous le fermez. Les offres payantes ajoutent un vrai stockage, 200 Go par transfert pendant 14 jours à l'entrée de gamme. Si votre besoin est d'envoyer maintenant un fichier énorme à une personne, l'offre gratuite est réellement utile.",
+        "cons": "L'offre gratuite ne garde rien, donc le destinataire doit récupérer pendant que vous patientez avec l'onglet ouvert. Tout ce qui est asynchrone se paie, et il n'y a pas de mode réseau local."
+      },
+      "5": {
+        "name": "Wormhole",
+        "tag": "Le meilleur lien chiffré quand l'autre personne est ailleurs",
+        "facts": "Navigateur uniquement · gratuit · s'arrête à 10 Go · scellé dans la page avant que quoi que ce soit ne parte · effacé au bout d'un jour · personne ne s'inscrit",
+        "body": "Wormhole n'a jamais cherché à être un outil de proximité, donc le comparer à Snapdrop n'a de sens que pour le cas que Snapdrop ne savait pas traiter. Le chiffrement a lieu d'abord dans votre navigateur et la clé voyage dans le texte du lien, laissant au service des octets qu'il ne peut pas ouvrir. Les fichiers sous 5 Go attendent une journée sur leurs serveurs ; les plus gros circulent en direct entre les deux navigateurs.",
+        "cons": "Dix gigaoctets et pas un de plus, rien pour deux appareils dans la même pièce, et un onglet bloqué tue un long transfert."
+      },
+      "6": {
+        "name": "Snapdrop auto-hébergé",
+        "tag": "Pour qui veut l'original, inchangé et sous son propre contrôle",
+        "facts": "Votre serveur ou votre NAS · gratuit, licence d'origine · même réseau par défaut · WebRTC · le serveur de signalisation est à vous",
+        "body": "Le code classique est toujours sur GitHub et le README invite explicitement à le faire tourner soi-même. Un conteneur Docker sur un serveur domestique, un NAS ou un petit VPS vous donne exactement la page dont vous vous souvenez, avec un serveur de signalisation que vous contrôlez et sans question sur qui possède quoi. PairDrop s'auto-héberge de la même façon et sa base de code est plus activement maintenue, donc la plupart de ceux qui prennent cette voie finissent par faire tourner celui-là.",
+        "cons": "Quelqu'un doit l'entretenir, garder le TLS valide et laisser une machine allumée. Sur internet, il vous faudra aussi un serveur TURN pour les connexions que WebRTC ne peut pas établir directement."
+      }
+    }
+  },
+  "table": {
+    "title": "En un coup d'œil",
     "cols": {
-      "airdrop": "Snapdrop",
-      "quick": "AirDrop",
-      "bishare": "BIShare"
+      "feature": "Critère",
+      "snapdrop": "Snapdrop",
+      "bishare": "BIShare",
+      "pairdrop": "PairDrop",
+      "localsend": "LocalSend",
+      "transferzip": "Transfer.zip",
+      "wormhole": "Wormhole"
     },
     "rows": {
-      "r0": "Fonctionne entre réseaux différents",
-      "r1": "Applis natives, pas qu'un onglet de navigateur",
-      "r2": "Gros fichiers jusqu'à 100 Go, reprise possible",
-      "r3": "Fonctionne entre iPhone et Android",
-      "r4": "Gratuit, sans compte"
+      "r0": "Fonctionne sans rien installer",
+      "r1": "Envoie entre appareils du même réseau",
+      "r2": "Envoie quand les appareils sont sur des réseaux différents",
+      "r3": "Applis natives en plus du navigateur",
+      "r4": "Le destinataire peut récupérer plus tard, sans attendre",
+      "r5": "Chiffré de bout en bout",
+      "r6": "Le code du service en fonctionnement est publié",
+      "r7": "Gratuit, sans offre payante derrière"
+    },
+    "note": "Vérifié en septembre 2026 en ouvrant chaque service. Snapdrop et ShareDrop appartiennent tous deux à LimeWire ; le code classique de Snapdrop sur GitHub est publié, celui qui tourne sur snapdrop.net ne l'est pas, d'où la croix sur cette ligne. PairDrop appaire entre réseaux avec un code à 6 chiffres et propose des salons publics temporaires via un code à 5 lettres. L'offre gratuite de Transfer.zip n'a pas de limite de taille parce que le transfert est vivant : il se termine quand votre onglet se ferme."
+  },
+  "situations": {
+    "title": "Quoi ouvrir, selon la situation",
+    "items": {
+      "0": {
+        "h": "Deux portables sur le même Wi-Fi, rien d'installable",
+        "b": "PairDrop dans les deux navigateurs. C'est ce qui ressemble le plus au Snapdrop dont vous vous souvenez, et sur un réseau partagé les appareils se trouvent sans aucune configuration."
+      },
+      "1": {
+        "h": "Votre propre téléphone et votre propre portable, tous les jours",
+        "b": "Installez quelque chose. BIShare ou LocalSend seront plus rapides et moins fragiles qu'un onglet, et BIShare garde la voie navigateur pour les jours où vous envoyez à quelqu'un d'autre."
+      },
+      "2": {
+        "h": "L'autre personne est sur un autre réseau",
+        "b": "Snapdrop n'a jamais su faire cela. Appairez-vous avec le code à 6 chiffres de PairDrop si vous restez tous les deux en ligne, ou envoyez un lien BIShare si elle doit pouvoir le récupérer plus tard, à son rythme."
+      },
+      "3": {
+        "h": "Un réseau d'hôtel, de café ou de bureau",
+        "b": "Ces réseaux isolent généralement les clients les uns des autres, donc la découverte locale échoue quel que soit l'outil. Un code appairé ou un lien de partage est le moyen de passer."
+      },
+      "4": {
+        "h": "Un très gros fichier, une seule fois",
+        "b": "Un lien BIShare porte 100 Go et les garde une journée. L'offre gratuite de Transfer.zip n'a aucun plafond tant que vous laissez l'onglet ouvert pendant que l'autre personne télécharge."
+      },
+      "5": {
+        "h": "Vous voulez la certitude que rien n'a changé à votre insu",
+        "b": "Auto-hébergez. PairDrop en Docker sur un serveur domestique ou un petit VPS, c'est le travail d'une soirée, et cela règle définitivement la question de la propriété."
+      }
+    }
+  },
+  "steps": {
+    "title": "Remplacer Snapdrop par BIShare, étape par étape",
+    "items": {
+      "0": {
+        "h": "Les deux appareils à proximité",
+        "b": "Prenez l'appli sur les deux machines, depuis la boutique qui convient, et assurez-vous qu'elles sont sur un même Wi-Fi. Les noms apparaissent presque aussitôt dans la liste de l'autre. Choisissez un fichier, choisissez la destination, acceptez en face, et les octets circulent entre les deux appareils sans serveur sur le trajet et chiffrés tout du long. Loin de tout routeur, transformez un téléphone en partage de connexion et la même chose fonctionne hors ligne."
+      },
+      "1": {
+        "h": "L'autre personne est ailleurs",
+        "b": "Faites glisser un fichier sur bishare.app/transfer, jusqu'à 100 Go. Trois façons de le transmettre reviennent : une adresse web, un carré QR pour l'appareil photo d'un téléphone, et six caractères assez courts pour être dictés. Le scellage se fait d'abord dans votre propre navigateur ; la clé voyage dans le fragment après le dièse, qui ne quitte jamais la barre d'adresse, donc la copie de notre côté ne signifie rien sans votre lien. Elle cesse de répondre au bout d'un jour, ou plus tôt si vous cochez l'option d'un téléchargement unique."
+      },
+      "2": {
+        "h": "Rien d'installé des deux côtés",
+        "b": "Tout ce qui précède fonctionne aussi sans aucune appli. bishare.app/transfer est une page web ordinaire, donc une machine verrouillée peut quand même envoyer, et la personne qui reçoit n'a jamais besoin que de l'adresse que vous lui transmettez. C'est la forme Snapdrop, sans la règle du même réseau."
+      }
+    }
+  },
+  "speed": {
+    "title": "Vitesse : onglet de navigateur contre appli native",
+    "body": "Pour quelques photos, la différence est invisible. Pour un dossier de vidéos, non, et il vaut la peine de savoir où part le temps.",
+    "items": {
+      "0": {
+        "h": "Sur votre réseau, c'est le réseau qui plafonne",
+        "b": "Mesuré sur du matériel courant, un transfert direct tourne autour de 40–50 Mo/s en Wi-Fi 5 et atteint 70–110 Mo/s en Wi-Fi 6 quand aucun des deux appareils n'est loin du routeur. Un client installé s'approche davantage de ce plafond qu'une page, parce que la page doit tamponner les données via JavaScript avant d'écrire quoi que ce soit sur le disque."
+      },
+      "1": {
+        "h": "Un transfert par navigateur s'arrête avec l'onglet",
+        "b": "C'est la limite pratique de tout outil façon Snapdrop, PairDrop compris. Refermez le capot, perdez la connexion, et un transfert de 30 Go repart de zéro. Une appli installée peut maintenir le transfert ouvert pendant que l'écran s'endort."
+      },
+      "2": {
+        "h": "Sur internet, votre débit montant décide de tout",
+        "b": "Tout ce qui sort vers internet est gouverné par la moitié la plus lente de votre connexion, l'envoi. Comptez environ trois minutes par gigaoctet à 50 Mbit/s, donc un fichier de dix gigaoctets, c'est une pause déjeuner. Aucun service n'y échappe, ce qui plaide pour la voie locale dès que les deux appareils sont à portée du même routeur."
+      }
+    }
+  },
+  "security": {
+    "title": "Une alternative à Snapdrop est-elle privée ?",
+    "body": "La promesse de l'original était que les fichiers n'atteignaient jamais un serveur. Certains remplaçants tiennent cette ligne, d'autres non, et la différence est facile à vérifier quand on sait où regarder.",
+    "items": {
+      "0": {
+        "h": "Pair à pair, rien de stocké",
+        "b": "PairDrop, ShareDrop et un Snapdrop auto-hébergé déplacent les données entre navigateurs sur du WebRTC chiffré ; le serveur ne fait que présenter les deux côtés. Les transferts locaux de BIShare se comportent pareil, et ses liens sont chiffrés de bout en bout avec la clé dans le fragment de l'URL, nous ne pouvons donc pas les lire non plus."
+      },
+      "1": {
+        "h": "Le code publié est ce qui rend la promesse vérifiable",
+        "b": "PairDrop, LocalSend, Transfer.zip et BIShare publient le code qu'ils exécutent. Le snapdrop.net actuel ne le fait pas, ce qui ne prouve rien de mal : cela signifie seulement qu'il faut croire sa promesse de confidentialité au lieu de pouvoir la lire."
+      },
+      "2": {
+        "h": "Regardez d'où une offre gratuite tire son argent",
+        "b": "Un service qui stocke vos fichiers a des coûts, et quelque chose doit les couvrir : une offre payante, la publicité ou vos données. Les outils qui ne stockent rien du tout ont la réponse la plus simple à cette question, et c'est en partie pour cela que le modèle Snapdrop plaisait autant."
+      }
     }
   },
   "faq": {
-    "title": "Alternatives à Snapdrop : FAQ",
+    "title": "Alternatives à Snapdrop : questions fréquentes",
     "items": {
       "0": {
         "q": "Quelle est la meilleure alternative à Snapdrop ?",
-        "a": "BIShare. Il garde ce qu'on aime chez Snapdrop — transferts locaux instantanés, sans compte, dans un navigateur — et ajoute ce que Snapdrop ne peut pas faire : envoyer quand les appareils sont sur des réseaux différents, des applis natives pour chaque plateforme, et le chiffrement de bout en bout sur chaque transfert."
+        "a": "Si vous voulez le même geste sans rien installer, PairDrop, parce que c'est un fork de Snapdrop qui a gardé l'interface et ajouté l'appairage entre réseaux. Si vous voulez un seul outil qui atteigne aussi les gens hors de votre réseau, BIShare, qui envoie d'appareil à appareil sur un Wi-Fi partagé et vous donne sinon un lien navigateur de 100 Go. Les deux sont gratuits et aucun ne demande de compte."
       },
       "1": {
-        "q": "Snapdrop fonctionne-t-il encore ? Que lui est-il arrivé ?",
-        "a": "Le Snapdrop d'origine a été arrêté après son rachat, et son domaine pointe désormais ailleurs. PairDrop est le successeur open source de la communauté que la plupart utilisent aujourd'hui. Les deux sont limités au même réseau — BIShare fonctionne pareil en local, mais gère aussi le cas hors réseau avec un lien de partage."
+        "q": "Snapdrop fonctionne-t-il encore en 2026 ?",
+        "a": "Oui. LimeWire a racheté le projet et snapdrop.net sert toujours une page de transfert Snapdrop qui fonctionne, tout comme sharedrop.io sous le même propriétaire. Le changement qui compte, c'est que le code du site en service n'est plus publié, son comportement n'est donc plus vérifiable de l'extérieur."
       },
       "2": {
-        "q": "Une appli type Snapdrop peut-elle marcher hors du même Wi-Fi ?",
-        "a": "Pas à la manière classique de Snapdrop — il apparie deux navigateurs sur le réseau local, donc les deux appareils doivent partager le même Wi-Fi. BIShare supprime cette limite : sur des réseaux différents, il vous donne un lien et un code à 6 caractères que l'autre ouvre dans n'importe quel navigateur pour télécharger."
+        "q": "Que s'est-il passé entre Snapdrop et LimeWire ?",
+        "a": "Le README de Snapdrop sur GitHub annonce le rachat directement : « Snapdrop has been acquired by LimeWire. » La même note précise que le dépôt reste en l'état et que chacun peut continuer à faire tourner la version classique sur sa propre infrastructure. ShareDrop est allé au même propriétaire."
       },
       "3": {
-        "q": "BIShare est-il plus sûr que Snapdrop ou PairDrop ?",
-        "a": "BIShare chiffre chaque transfert de bout en bout, et les transferts locaux ne touchent jamais aucun serveur. Snapdrop et PairDrop utilisent le WebRTC du navigateur, chiffré en transit mais dépendant d'un serveur de signalisation pour se connecter. Avec BIShare, les liens de partage expirent aussi automatiquement après 24 heures."
+        "q": "Snapdrop est-il sûr à utiliser aujourd'hui ?",
+        "a": "Nous n'avons rien trouvé qui dise le contraire, et la page se comporte toujours comme l'original. Ce que vous ne pouvez plus faire, c'est le vérifier, puisque le code derrière le site en service n'est pas publié. Si cela compte pour ce que vous envoyez, prenez un outil dont le code en exécution est ouvert, ou hébergez vous-même Snapdrop ou PairDrop."
       },
       "4": {
-        "q": "BIShare est-il gratuit comme Snapdrop ?",
-        "a": "Oui. BIShare est gratuit et sans compte, tout comme Snapdrop. Les transferts locaux sur votre propre réseau n'ont aucune limite de taille, les liens de partage acceptent des fichiers jusqu'à 100 Go, et le destinataire n'a jamais rien à installer ni à créer comme compte."
+        "q": "Existe-t-il une alternative à Snapdrop qui marche entre réseaux différents ?",
+        "a": "Deux approches. PairDrop appaire deux appareils avec un code à 6 chiffres, ou les place dans un salon public temporaire via un code à 5 lettres, puis transfère en pair à pair même entre réseaux. BIShare vous donne un lien que l'autre personne ouvre quand elle peut, jusqu'à 100 Go, sans exiger que vous soyez en ligne au même moment."
+      },
+      "5": {
+        "q": "Puis-je héberger Snapdrop moi-même ?",
+        "a": "Oui, et le projet y invite. Le code classique est toujours sur GitHub et tourne sous Docker ou Node.js. PairDrop s'auto-héberge de la même façon et reste l'option la plus activement maintenue. Sur internet, vous voudrez aussi un serveur TURN pour les connexions que WebRTC ne peut pas établir directement."
+      },
+      "6": {
+        "q": "Quelle différence entre Snapdrop, PairDrop et LocalSend ?",
+        "a": "Snapdrop et PairDrop sont des pages web : rien à installer, les deux appareils ouvrent une URL. PairDrop ajoute l'appairage entre réseaux et est activement maintenu. LocalSend est une appli installée sur cinq plateformes, plus rapide et plus stable pour de gros dossiers, mais elle ne fonctionne qu'à l'intérieur d'un réseau et les deux côtés en ont besoin."
+      },
+      "7": {
+        "q": "Une alternative à Snapdrop fonctionne-t-elle sans internet ?",
+        "a": "En local, oui. N'importe quel réseau partagé convient, y compris un téléphone en partage de connexion avec les données mobiles coupées, puisque rien ne part vers internet. Cela couvre le mode local de BIShare, LocalSend, et une instance PairDrop que vous faites tourner vous-même sur ce réseau. Une page publique PairDrop ou ShareDrop doit encore joindre son serveur de signalisation, celle-là demande donc une connexion."
+      },
+      "8": {
+        "q": "Quelle est la meilleure alternative à Snapdrop pour iPhone et Android ?",
+        "a": "PairDrop fonctionne dans Safari et Chrome sur les deux, sans installation. BIShare a des applis natives sur les deux et envoie dans les deux sens en Wi-Fi, ou par lien quand les téléphones sont séparés. AirDrop n'aide toujours pas ici, sauf si les deux appareils figurent sur la liste d'interopérabilité Quick Share de Google."
+      },
+      "9": {
+        "q": "Existe-t-il une alternative gratuite à Snapdrop sans limite de taille ?",
+        "a": "En local, oui : BIShare et LocalSend n'ont aucun plafond, donc un dossier de 200 Go est une affaire de patience côté Wi-Fi. Sur internet, l'offre gratuite de Transfer.zip n'annonce aucune limite tant que votre onglet reste ouvert, les liens BIShare portent 100 Go, et Wormhole s'arrête à 10 Go."
       }
     }
   },
+  "shots": {
+    "devices": "Deux téléphones et un portable listés ensemble sur un même réseau dans l'appli de bureau, chacun à un clic de l'acceptation.",
+    "transfer": "La page de transfert après y avoir déposé un fichier : une adresse web, un carré QR et six caractères, le compte à rebours avant expiration déjà lancé."
+  },
   "cta": {
-    "title": "Un Snapdrop qui vous suit hors du réseau",
-    "body": "Gratuit, sans compte. Gardez l'envoi local instantané, ajoutez des applis natives et un lien de partage pour la distance — et en face, un simple navigateur suffit.",
+    "title": "Gardez le geste Snapdrop, perdez la limite de réseau",
+    "body": "Gratuit, open source, sans compte. Envoyez à l'autre bout de la pièce avec l'appli, ou à l'autre bout du pays avec un lien que la personne ouvre dans n'importe quel navigateur.",
     "download": "Télécharger BIShare"
   },
   "a11y": {

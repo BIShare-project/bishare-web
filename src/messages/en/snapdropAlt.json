@@ -1,79 +1,284 @@
 {
   "meta": {
-    "title": "The Best Snapdrop Alternative for Any Network | BIShare",
-    "description": "A Snapdrop alternative that works off-network too: send files locally like Snapdrop, or share a browser link + code when devices aren't on the same Wi-Fi. Free, no account."
+    "title": "Snapdrop Alternative (2026): 7 Tested, Free, No Install",
+    "description": "What actually happened to Snapdrop after the LimeWire acquisition, checked in September 2026, plus seven alternatives that keep the browser-to-browser habit and fix the same-network limit."
   },
   "hero": {
     "eyebrow": "Local + off-network transfer",
     "title": "A Snapdrop alternative for any network",
-    "body": "Snapdrop and PairDrop are brilliant for a quick drop between two browsers — until the devices aren't on the same network, or you want a real app. <strong>BIShare</strong> keeps the local, no-account simplicity but adds <strong>off-network sending</strong> through a browser link, plus native apps for every platform. <highlight>Same Wi-Fi or not, it just works.</highlight>",
+    "body": "Open a page on two devices, drag a file across, done. That habit is why people looked for Snapdrop in the first place, and why they are looking for a replacement now. This page covers what really changed after LimeWire bought the project, and seven alternatives that keep the good part. <strong>BIShare</strong> leads because it does the Snapdrop thing on a shared Wi-Fi and also reaches a person who is nowhere near you. <highlight>Free, open source, no account.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
-  "why": {
-    "title": "Where Snapdrop stops",
-    "body": "Snapdrop — and its successor PairDrop — connects two browsers through your <strong>local network</strong>, so both devices have to sit on the same Wi-Fi, and there's no background app to resume a big transfer. The moment you're on mobile data, a guest network, or across town, it can't help. BIShare covers that gap: direct transfers when you're together, and a <strong>browser link with a 6-character code</strong> when you're not."
+  "updated": "Updated September 2026 · Every service below opened and checked by hand this month",
+  "disclosure": "BIShare is ours, so weigh the ranking accordingly. Everything below can be checked against the projects' own repositories and pages, and where another tool is the better answer, we name it.",
+  "quick": {
+    "title": "Quick answer",
+    "items": [
+      "<strong>Snapdrop is not dead.</strong> LimeWire acquired it and snapdrop.net still serves a Snapdrop-branded transfer page. What changed is that the code behind the live site is no longer published, so nobody outside can audit what today's version does with your files.",
+      "<strong>Closest replacement, same habit:</strong> PairDrop. A community fork of Snapdrop, GPL-3.0, still just a browser tab, and it adds the thing Snapdrop never had: a 6-digit pairing code, so two devices on different networks can find each other.",
+      "<strong>Best overall:</strong> BIShare. Native apps on five platforms for full-speed local transfers, plus a 100 GB browser link for anyone not in the room. Free, open source, no sign-in on either side.",
+      "<strong>Best if you want an app and only ever transfer at home:</strong> LocalSend. Open source, same network only, nothing in the cloud.",
+      "<strong>You can also run Snapdrop yourself.</strong> The classic code is still on GitHub under the original licence, and a Docker container puts it on your own machine, which is the only way to be certain nothing changed under you.",
+      "<strong>For one file to someone far away:</strong> a BIShare link (100 GB, encrypted, expires in a day) or Wormhole (10 GB, encrypted)."
+    ]
   },
-  "how": {
-    "title": "How BIShare sends, near or far",
+  "status": {
+    "title": "What actually happened to Snapdrop",
+    "body": "Search results on this topic are full of obituaries, and most of them overstate the case. Here is what we could verify by opening the sites and reading the repository in September 2026.",
     "items": {
       "0": {
-        "h": "On the same network",
-        "b": "Pick the device and send — files go straight across, end-to-end encrypted, with nothing stored on a server. Just like Snapdrop, but faster through a native app, and it even works over a phone hotspot with no internet."
+        "h": "LimeWire bought it, and says so in the repo",
+        "b": "The project's own GitHub README carries the announcement: \"Snapdrop has been acquired by LimeWire, a leading file sharing platform with integrated AI tools.\" The same note adds that the repository stays as-is and that you can still download and run the classic Snapdrop on your own infrastructure. ShareDrop, the other well-known WebRTC drop page, ended up under the same owner."
       },
       "1": {
-        "h": "On different networks",
-        "b": "This is the part Snapdrop can't do. You get a link, a QR code, and a 6-character code. The other person opens the link in any browser and downloads — no app, no sign-up. The link auto-expires in 24 hours."
+        "h": "The site is still up, and still looks like Snapdrop",
+        "b": "Load snapdrop.net today and you get the familiar page: device names, Upload Files, Upload Folder, Send a Message. No sign-in wall, no storage plan in your face. The logo file is served as snapdrop_by_lw.svg, which is the clearest sign of the new owner. sharedrop.io is likewise still the classic peer-to-peer page. If you read somewhere that both are gone, that was not true this month."
       },
       "2": {
-        "h": "Real apps, everywhere",
-        "b": "iPhone, Android, Windows, Mac, and Linux — one native app instead of a browser tab. Send from your phone to your laptop, or to anyone, in any direction."
+        "h": "The part that genuinely changed is transparency",
+        "b": "What sits on GitHub is the classic version. The code running on the live site is not published, so there is no way for anyone outside LimeWire to confirm how a transfer is routed now, or what is logged. For a tool whose entire appeal was that files went straight between two browsers and touched nothing, that is a real loss, and it is the honest reason to move rather than any story about the site disappearing."
+      },
+      "3": {
+        "h": "Why people wanted an alternative even before this",
+        "b": "Both devices had to be on the same network, and on a hotel or office network that isolates clients, they could not see each other at all. There was no app, so a big transfer died with the tab. And nothing reached a person who was not in the building. The acquisition gave the search a push; those limits were always the substance of it."
       }
     }
   },
-  "comparison": {
-    "title": "Snapdrop vs AirDrop vs BIShare",
+  "keep": {
+    "title": "What to keep from Snapdrop",
+    "body": "A replacement is only a replacement if it keeps the four things that made people loyal to a plain web page in the first place.",
+    "items": {
+      "0": {
+        "h": "Nothing to install",
+        "b": "Open a URL on both devices and they see each other. On a borrowed laptop, or a work machine where installing software means a ticket, that is not a nice-to-have, it is the whole reason the tool exists."
+      },
+      "1": {
+        "h": "No account, no email address",
+        "b": "Snapdrop never asked who you were. Any replacement that opens with a sign-up form has already lost the comparison, whatever it does afterwards."
+      },
+      "2": {
+        "h": "Files go straight across",
+        "b": "WebRTC moves the data between the two browsers; the server only introduces them. Nothing is uploaded, so nothing sits on anyone's disk waiting to be deleted."
+      },
+      "3": {
+        "h": "Any device talks to any device",
+        "b": "An iPhone to a Windows laptop, an Android to a Mac, a Linux desktop to a tablet. Snapdrop treated them all the same, which is exactly what AirDrop and Quick Share refuse to do."
+      }
+    }
+  },
+  "alts": {
+    "title": "The seven alternatives, ranked",
+    "consLabel": "Where it falls short:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Best overall — the Snapdrop habit plus a route to people who are far away",
+        "facts": "iPhone, Android, Windows, Mac, Linux, and any browser · MIT-licensed, free · no size limit nearby, 100 GB by link · end-to-end encrypted · no sign-in on either side",
+        "body": "Put two devices on one Wi-Fi and the experience is what you remember, except through a proper app: names in a list, tap one, watch the bar fill at whatever the network can do, with nothing landing on a server. Where it leaves Snapdrop behind is distance. Somebody in another city gets a web address instead, which they open in whatever browser is already on their screen, no install and no sign-up, carrying as much as 100 GB. The sealing happens before the upload starts and the key stays in your link, so the copy we hold is meaningless to us. Set it to die after a day or after the first download. For a group, one room code lets several people leave files for each other under the same protection.",
+        "cons": "The local route is at its best through the app; the browser side is for receiving and for one-off sends rather than a permanent replacement for a native client. And nothing is stored, so a link that expires is genuinely gone."
+      },
+      "1": {
+        "name": "PairDrop",
+        "tag": "The community fork, and the closest thing to the original",
+        "facts": "Any browser · free, GPL-3.0, self-hostable with Docker or Node.js · same network, or paired across networks by code · WebRTC · no account",
+        "body": "PairDrop is a fork of Snapdrop that kept the interface and fixed the biggest complaint. Devices on one network still find each other automatically, and two devices on different networks can be paired with a 6-digit code or a QR code, or meet in a temporary public room through a 5-letter code. Transfers stay peer to peer over WebRTC, the project is properly open source, and you can run your own instance in a container if you would rather not trust anyone's server at all. For somebody who only wants Snapdrop back, this is the answer.",
+        "cons": "Still a browser tab, so both people have to be online at the same time with the page open, and there are no native apps. Networks that isolate clients force you through the pairing code."
+      },
+      "2": {
+        "name": "LocalSend",
+        "tag": "Best installed app for transfers at home",
+        "facts": "iPhone, Android, Windows, Mac, Linux · free, open source · same network only · encrypted between devices · no account",
+        "body": "LocalSend is what people recommend when the browser requirement is not sacred. It puts a small app on each device, finds the others on your network, and sends files directly, encrypted, with no cloud component anywhere. It is faster and steadier than a browser tab for a large folder, and it is the tool to reach for when the two machines in question are both yours.",
+        "cons": "Both ends need the app installed, which rules out a borrowed or locked-down computer, and there is no way at all to reach someone on a different network."
+      },
+      "3": {
+        "name": "ShareDrop",
+        "tag": "The other classic page, same new owner",
+        "facts": "Any browser · free · same network, or a room link · WebRTC · no account",
+        "body": "ShareDrop predates Snapdrop's popularity and works the same way: open the page on two devices, drag, done. It adds a room link you can send to someone, which loosens the same-network requirement a little. It still works today. Worth knowing before you settle on it: LimeWire acquired this one as well, so switching from Snapdrop to ShareDrop for the ownership reason moves you nowhere.",
+        "cons": "Same owner as Snapdrop, no apps, and the same tab-must-stay-open constraint."
+      },
+      "4": {
+        "name": "Transfer.zip",
+        "tag": "Browser sending with an unusually honest free tier",
+        "facts": "Any browser · free tier with no size limit · open source · encrypted · account optional for sending · paid plans from $9/month",
+        "body": "Transfer.zip covers the link half of the problem. Its free tier advertises no size limit at all, which works because a free transfer is live rather than stored: the file streams while your tab stays open, and the transfer ends when you close it. Paid plans add real storage, 200 GB per transfer for 14 days on the entry tier. If your need is sending one enormous file to one person right now, the free tier is genuinely useful.",
+        "cons": "The free tier keeps nothing, so the recipient has to collect while you wait with the tab open. Anything asynchronous means paying, and there is no local-network mode."
+      },
+      "5": {
+        "name": "Wormhole",
+        "tag": "Best encrypted link when the other person is elsewhere",
+        "facts": "Browser only · free · stops at 10 GB · sealed in the page before anything leaves · gone after a day · nobody signs in",
+        "body": "Wormhole never tried to be a nearby-transfer tool, so comparing it to Snapdrop only makes sense for the case Snapdrop could not handle. Encryption happens in your browser first and the key rides in the link text, leaving the service with bytes it cannot open. Files under 5 GB wait a day on their servers; larger ones stream between the two browsers live.",
+        "cons": "Ten gigabytes and no further, nothing for two devices in the same room, and a stalled tab kills a long transfer."
+      },
+      "6": {
+        "name": "Self-hosted Snapdrop",
+        "tag": "For anyone who wants the original, unchanged, under their own control",
+        "facts": "Your own server or NAS · free, original licence · same network by default · WebRTC · you own the signalling server",
+        "body": "The classic code is still on GitHub and the README explicitly invites you to run it yourself. A Docker container on a home server, a NAS, or a small VPS gives you the exact page you remember, with a signalling server you control and no question about who owns what. PairDrop can be self-hosted the same way and is the more actively maintained codebase, so most people choosing this route end up running that instead.",
+        "cons": "Somebody has to maintain it, keep TLS valid and leave a machine switched on. Over the internet you will also need a TURN server for the connections WebRTC cannot make directly."
+      }
+    }
+  },
+  "table": {
+    "title": "At a glance",
     "cols": {
-      "airdrop": "Snapdrop",
-      "quick": "AirDrop",
-      "bishare": "BIShare"
+      "feature": "Feature",
+      "snapdrop": "Snapdrop",
+      "bishare": "BIShare",
+      "pairdrop": "PairDrop",
+      "localsend": "LocalSend",
+      "transferzip": "Transfer.zip",
+      "wormhole": "Wormhole"
     },
     "rows": {
-      "r0": "Works across different networks",
-      "r1": "Native apps, not just a browser tab",
-      "r2": "Resumable large files up to 100 GB",
-      "r3": "Works between iPhone and Android",
-      "r4": "Free, no account"
+      "r0": "Works with nothing installed",
+      "r1": "Sends between devices on the same network",
+      "r2": "Sends when the devices are on different networks",
+      "r3": "Native apps as well as a browser",
+      "r4": "Receiver can collect later, without waiting",
+      "r5": "End-to-end encrypted",
+      "r6": "Source of the running service is published",
+      "r7": "Free with no paid tier behind it"
+    },
+    "note": "Checked in September 2026 by opening each service. Snapdrop and ShareDrop are both owned by LimeWire; the classic Snapdrop code on GitHub is published, the code running snapdrop.net is not, which is why that row is a cross. PairDrop pairs across networks with a 6-digit code and offers temporary public rooms under a 5-letter code. Transfer.zip's free tier has no size limit because the transfer is live: it ends when your tab closes."
+  },
+  "situations": {
+    "title": "Which one to open, by situation",
+    "items": {
+      "0": {
+        "h": "Two laptops on the same Wi-Fi, nothing installable",
+        "b": "PairDrop in both browsers. It is the closest thing to the Snapdrop you remember, and on a shared network the devices find each other with no setup at all."
+      },
+      "1": {
+        "h": "Your own phone and your own laptop, every day",
+        "b": "Install something. BIShare or LocalSend will be faster and less fragile than a tab, and BIShare keeps the browser route for the days when you are sending to someone else."
+      },
+      "2": {
+        "h": "The other person is on a different network",
+        "b": "Snapdrop never did this. Pair through PairDrop's 6-digit code if you both stay online, or send a BIShare link if they should be able to collect it later at their own pace."
+      },
+      "3": {
+        "h": "A hotel, café or office network",
+        "b": "These usually isolate clients from each other, so local discovery fails no matter which tool you use. A paired code or a share link is the way through."
+      },
+      "4": {
+        "h": "One very large file, once",
+        "b": "A BIShare link carries 100 GB and holds it for a day. Transfer.zip's free tier has no ceiling at all as long as you keep the tab open while the other person downloads."
+      },
+      "5": {
+        "h": "You want to be certain nothing changed under you",
+        "b": "Self-host. PairDrop in Docker on a home server or a small VPS is a short evening's work and answers the ownership question permanently."
+      }
+    }
+  },
+  "steps": {
+    "title": "Replacing Snapdrop with BIShare, step by step",
+    "items": {
+      "0": {
+        "h": "Both devices nearby",
+        "b": "Grab the app on both machines, from whichever store fits, and make sure they sit on one Wi-Fi. Names appear in each other's list almost immediately. Choose a file, choose where it goes, tap accept at the far end, and the bytes move between the two devices with no server in the path and encryption applied the whole way. Away from any router, turn a phone into a hotspot and the same thing works offline."
+      },
+      "1": {
+        "h": "The other person is elsewhere",
+        "b": "Drag a file onto bishare.app/transfer, anything up to 100 GB. You get back three ways to hand it over: a web address, a QR square for a phone camera, and six characters short enough to read out loud. Sealing happens in your own browser first; the key travels in the fragment after the hash, which never leaves the address bar, so the copy on our side is meaningless without your link. It stops answering after a day, or sooner if you tick the single-download option."
+      },
+      "2": {
+        "h": "Nothing installed on either side",
+        "b": "Everything above also works with no app at all. bishare.app/transfer is a plain web page, so a locked-down machine can still send, and the person receiving only ever needs the address you send them. That is the Snapdrop shape with the same-network rule taken out."
+      }
+    }
+  },
+  "speed": {
+    "title": "Speed: browser tab versus native app",
+    "body": "For a handful of photos the difference is invisible. For a folder of video it is not, and it is worth knowing where the time goes.",
+    "items": {
+      "0": {
+        "h": "On your own network, the network is the ceiling",
+        "b": "Measured on ordinary hardware, a direct transfer sits around 40–50 MB/s on Wi-Fi 5 and reaches 70–110 MB/s on Wi-Fi 6 when neither device is far from the router. An installed client gets nearer that ceiling than a page does, because the page has to buffer through JavaScript before anything is written to disk."
+      },
+      "1": {
+        "h": "A browser transfer ends when the tab does",
+        "b": "This is the practical limit of every Snapdrop-style tool, PairDrop included. Close the lid, lose the connection, and a 30 GB transfer starts again. An installed app can hold the transfer open while the screen sleeps."
+      },
+      "2": {
+        "h": "Over the internet, your upload decides everything",
+        "b": "Anything that goes out to the internet is governed by the slower half of your connection, the upload. Reckon on roughly three minutes per gigabyte at 50 Mbps, so a ten-gigabyte file is a lunch break. No service escapes this, which is the argument for using the local path whenever the two devices are within reach of the same router."
+      }
+    }
+  },
+  "security": {
+    "title": "Is a Snapdrop alternative private?",
+    "body": "The original's pitch was that files never reached a server. Some replacements hold that line and some do not, and the difference is easy to check once you know what to look at.",
+    "items": {
+      "0": {
+        "h": "Peer to peer, nothing stored",
+        "b": "PairDrop, ShareDrop and self-hosted Snapdrop move data between browsers over encrypted WebRTC; the server only introduces the two sides. BIShare's local transfers behave the same way, and its links are end-to-end encrypted with the key in the URL fragment, so we cannot read them either."
+      },
+      "1": {
+        "h": "Published source is what makes the claim checkable",
+        "b": "PairDrop, LocalSend, Transfer.zip and BIShare publish the code that runs. The current snapdrop.net does not, which does not prove anything bad about it, only that its privacy claim has to be taken on trust rather than read."
+      },
+      "2": {
+        "h": "Watch where a free tier gets its money",
+        "b": "A service that stores your files has costs, and something has to cover them: a paid tier, advertising, or your data. Tools that store nothing at all have the easiest answer to that question, which is part of why the Snapdrop model was so well liked."
+      }
     }
   },
   "faq": {
     "title": "Snapdrop alternatives: FAQ",
     "items": {
       "0": {
-        "q": "What's the best Snapdrop alternative?",
-        "a": "BIShare. It keeps what people love about Snapdrop — instant local transfers, no account, works in a browser — and adds what Snapdrop can't do: sending when devices are on different networks, native apps for every platform, and end-to-end encryption on every transfer."
+        "q": "What is the best Snapdrop alternative?",
+        "a": "If you want the same habit with nothing installed, PairDrop, because it is a fork of Snapdrop that kept the interface and added cross-network pairing. If you want one tool that also reaches people who are not on your network, BIShare, which sends device to device on a shared Wi-Fi and gives you a 100 GB browser link otherwise. Both are free and neither asks for an account."
       },
       "1": {
-        "q": "Is Snapdrop still working? What happened to it?",
-        "a": "The original Snapdrop was discontinued after being acquired, and its domain now points elsewhere. PairDrop is the open-source community successor most people use today. Both are same-network only — BIShare works the same way locally but also handles the off-network case with a share link."
+        "q": "Is Snapdrop still working in 2026?",
+        "a": "Yes. LimeWire acquired the project and snapdrop.net still serves a working Snapdrop-branded transfer page, as does sharedrop.io under the same owner. The meaningful change is that the source of the live site is no longer published, so its behaviour cannot be audited from outside."
       },
       "2": {
-        "q": "Can a Snapdrop-style app work when devices aren't on the same Wi-Fi?",
-        "a": "Not the classic Snapdrop way — it pairs two browsers over the local network, so both devices must share the same Wi-Fi. BIShare removes that limit: when you're on different networks, it gives you a link and a 6-character code the other person opens in any browser to download."
+        "q": "What happened to Snapdrop and LimeWire?",
+        "a": "Snapdrop's GitHub README announces the acquisition directly: \"Snapdrop has been acquired by LimeWire.\" The same notice says the repository stays as-is and that anyone can keep running the classic version on their own infrastructure. ShareDrop went to the same owner."
       },
       "3": {
-        "q": "Is BIShare more secure than Snapdrop or PairDrop?",
-        "a": "BIShare encrypts every transfer end-to-end, and local transfers never touch a server at all. Snapdrop and PairDrop use browser WebRTC, which is encrypted in transit but relies on a signaling server to connect. With BIShare, share links also expire automatically after 24 hours."
+        "q": "Is Snapdrop safe to use now?",
+        "a": "Nothing we found says otherwise, and the page still behaves like the original. What you cannot do any more is verify it, because the code behind the live site is not published. If that matters for what you are sending, use a tool whose running code is open, or host Snapdrop or PairDrop yourself."
       },
       "4": {
-        "q": "Is BIShare free like Snapdrop?",
-        "a": "Yes. BIShare is free with no account, just like Snapdrop. Local transfers over your own network have no size caps, share links handle files up to 100 GB, and the person receiving never has to install or sign up for anything."
+        "q": "Is there a Snapdrop alternative that works across different networks?",
+        "a": "Two approaches. PairDrop pairs two devices with a 6-digit code, or puts them in a temporary public room with a 5-letter code, and then transfers peer to peer even across networks. BIShare hands you a link the other person opens whenever they get to it, up to 100 GB, which does not require both of you to be online at the same moment."
+      },
+      "5": {
+        "q": "Can I self-host Snapdrop?",
+        "a": "Yes, and the project invites it. The classic code is still on GitHub and runs in Docker or Node.js. PairDrop can be self-hosted the same way and is the more actively maintained option. Over the internet you will also want a TURN server for the connections that WebRTC cannot establish directly."
+      },
+      "6": {
+        "q": "What is the difference between Snapdrop, PairDrop and LocalSend?",
+        "a": "Snapdrop and PairDrop are web pages: nothing to install, both devices open a URL. PairDrop adds pairing across networks and is actively maintained. LocalSend is an installed app on five platforms, faster and steadier for large folders, but it works only within one network and both ends need it."
+      },
+      "7": {
+        "q": "Does a Snapdrop alternative work without internet?",
+        "a": "Locally, yes. Any shared network works, and a phone acting as a hotspot with mobile data switched off counts as one, because nothing leaves for the internet. That covers BIShare's local mode, LocalSend, and a PairDrop instance you run yourself on that same network. A public PairDrop or ShareDrop page still needs to reach its signalling server, so that one does want a connection."
+      },
+      "8": {
+        "q": "What is the best Snapdrop alternative for iPhone and Android?",
+        "a": "PairDrop works in Safari and Chrome on both, with no install. BIShare has native apps on both and sends in either direction over Wi-Fi, or by link when the phones are apart. AirDrop remains no help here unless both handsets are on Google's Quick Share interoperability list."
+      },
+      "9": {
+        "q": "Is there a free Snapdrop alternative with no size limit?",
+        "a": "On your own network there is no cap worth worrying about: BIShare and LocalSend will push a 200 GB folder across and the only limit is how long the Wi-Fi takes. Going over the internet, Transfer.zip's free tier states no ceiling while your tab stays open, a BIShare link holds 100 GB for a day, and Wormhole stops at 10 GB."
       }
     }
   },
+  "shots": {
+    "devices": "Two phones and a laptop listed together on one network inside the desktop app, each one a click from accepting.",
+    "transfer": "The transfer page after a file lands on it: a web address, a QR square, and six characters, with the countdown to expiry already running."
+  },
   "cta": {
-    "title": "A Snapdrop that follows you off the network",
-    "body": "Free, no account. Keep the instant local drop, add native apps and a share link for when you're apart — and the other side still needs nothing but a browser.",
+    "title": "Keep the Snapdrop habit, lose the network limit",
+    "body": "Free, open source, no account. Send across the room through the app, or across the country with a link the other person opens in any browser.",
     "download": "Download BIShare"
   },
   "a11y": {

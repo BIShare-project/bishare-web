@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
@@ -43,6 +44,28 @@ function H2({ id, children }: { id: string; children: React.ReactNode }) {
     >
       {children}
     </h2>
+  );
+}
+
+/** Route figure — one per landing, drawn by tool/landing-figures.mjs. */
+function RouteFigure({ slug, caption }: { slug: string; caption: string }) {
+  const src = `/img${slug}/route`;
+  return (
+    <figure className="mt-10 overflow-hidden rounded-xl border border-border bg-card">
+      <picture>
+        <source srcSet={`${src}.webp`} type="image/webp" />
+        <Image
+          src={`${src}.jpg`}
+          alt={caption}
+          width={1400}
+          height={700}
+          className="h-auto w-full"
+        />
+      </picture>
+      <figcaption className="border-t border-border px-4 py-3 text-[13px] leading-relaxed text-muted-foreground">
+        {caption}
+      </figcaption>
+    </figure>
   );
 }
 
@@ -132,6 +155,8 @@ export async function ArticleLanding({
             <div className="mt-6">
               <StoreButtons />
             </div>
+
+            <RouteFigure slug={slug} caption={chrome("figureCaption")} />
 
             {/* Page-specific prose sections (e.g. the seven fixes) */}
             {leadSections.map((sec) => (

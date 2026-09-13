@@ -198,6 +198,25 @@ export default async function AirdropForWindowsPage({
           <StoreButtons />
         </div>
 
+        <figure className="mt-10 overflow-hidden rounded-xl border border-border bg-card">
+          <picture>
+            <source srcSet="/img/airdrop-for-windows/route.webp" type="image/webp" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/img/airdrop-for-windows/route.jpg"
+              alt={chrome("figureCaption")}
+              width={1400}
+              height={700}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full"
+            />
+          </picture>
+          <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">
+            {chrome("figureCaption")}
+          </figcaption>
+        </figure>
+
         {/* Why AirDrop can't reach Windows */}
         <section className="mt-14">
           <H2 id="why">{t("why.title")}</H2>
