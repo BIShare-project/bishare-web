@@ -146,6 +146,8 @@ export class RoomConnection {
   private ws: WebSocket | null = null;
   private stopped = false;
   private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
+  /** Connection attempts in a row that never opened. */
+  private failures = 0;
 
   constructor(
     private readonly code: string,
@@ -163,8 +165,11 @@ export class RoomConnection {
     this.onStatus("connecting");
     const ws = new WebSocket(`${WS_URL}/api/v1/rooms/${this.code}/ws`);
     this.ws = ws;
+    let opened = false;
 
     ws.onopen = () => {
+      opened = true;
+      this.failures = 0;
       ws.send(
         JSON.stringify({
           type: "join",
@@ -192,12 +197,36 @@ export class RoomConnection {
       this.ws = null;
       if (this.stopped) return;
       this.onStatus("closed");
-      // Reconnect after a short backoff (server drops the socket on room close;
-      // if the room is truly gone, the rejoin gets an "error" event and the UI
-      // ends the session).
-      this.reconnectTimer = setTimeout(() => this.connect(), 2500);
+      if (!opened) this.failures++;
+      void this.scheduleReconnect();
     };
     ws.onerror = () => ws.close();
+  }
+
+  /**
+   * Reconnect with a growing delay: 2.5 s after a drop, doubling for each
+   * attempt that fails to open, up to 30 s. A room that has expired refuses the
+   * upgrade before any "error" frame can be sent, so after a few failures ask
+   * the REST API whether it still exists and end the session if not — instead
+   * of knocking on a closed door every few seconds for as long as the tab stays
+   * open.
+   */
+  private async scheduleReconnect(): Promise<void> {
+    if (this.failures >= 3) {
+      try {
+        const res = await fetch(`${API_URL}/api/v1/rooms/${this.code}/info`);
+        if (res.status === 404 && !this.stopped) {
+          this.stopped = true;
+          this.onEvent({ type: "error", data: { message: "ROOM_NOT_FOUND" } });
+          return;
+        }
+      } catch {
+        /* offline — keep retrying */
+      }
+    }
+    if (this.stopped) return;
+    const delay = Math.min(2500 * 2 ** this.failures, 30_000);
+    this.reconnectTimer = setTimeout(() => this.connect(), delay);
   }
 
   /** Send a client → room message (key_request / key_grant). Dropped while

@@ -81,114 +81,77 @@ async function fetchJSON<T>(url: string, init?: RequestInit): Promise<APIRespons
   }
 }
 
-// ── Cloud config (tier limits) ──
+// ── Cloud config (tier limits + feature flags) ──
 
-let cloudConfigLimitPromise: Promise<number> | null = null;
+interface CloudConfigData {
+  flags?: Record<string, unknown>;
+  limits?: { transfer_max_file_size_free?: number };
+}
+
+let cloudConfigPromise: Promise<CloudConfigData | null> | null = null;
+
+/**
+ * GET /api/v1/config, fetched once per page load and shared by every reader
+ * below — the flags and the limit used to fetch it separately, so one page
+ * could ask for the same document up to four times. Null when unreachable or
+ * not OK; each reader keeps its own fallback for that case.
+ */
+function cloudConfig(): Promise<CloudConfigData | null> {
+  if (!cloudConfigPromise) {
+    cloudConfigPromise = (async () => {
+      try {
+        const res = await doFetch(`${API_URL}/api/v1/config`, { cache: "no-store" });
+        if (!res.ok) return null;
+        const body = (await res.json()) as { data?: CloudConfigData };
+        return body?.data ?? null;
+      } catch {
+        return null;
+      }
+    })();
+  }
+  return cloudConfigPromise;
+}
 
 /**
  * Free-tier transfer size limit from GET /api/v1/config
  * (`data.limits.transfer_max_file_size_free`). The web is an anonymous client,
- * so the free limit is its effective ceiling. Cached module-level (one fetch
- * per page load); falls back to 1 GiB when the endpoint is unreachable or the
- * shape is unexpected. Mirrors Flutter's CloudConfigService.
+ * so the free limit is its effective ceiling. Falls back to 1 GiB when the
+ * endpoint is unreachable or the shape is unexpected. Mirrors Flutter's
+ * CloudConfigService.
  */
 export async function getTransferMaxFileSizeFree(): Promise<number> {
-  if (!cloudConfigLimitPromise) {
-    cloudConfigLimitPromise = (async () => {
-      try {
-        const res = await doFetch(`${API_URL}/api/v1/config`, { cache: "no-store" });
-        if (!res.ok) return TRANSFER_MAX_FILE_SIZE_FREE_FALLBACK;
-        const body = (await res.json()) as {
-          data?: { limits?: { transfer_max_file_size_free?: number } };
-        };
-        const limit = body?.data?.limits?.transfer_max_file_size_free;
-        return typeof limit === "number" && limit > 0
-          ? limit
-          : TRANSFER_MAX_FILE_SIZE_FREE_FALLBACK;
-      } catch {
-        return TRANSFER_MAX_FILE_SIZE_FREE_FALLBACK;
-      }
-    })();
-  }
-  return cloudConfigLimitPromise;
+  const limit = (await cloudConfig())?.limits?.transfer_max_file_size_free;
+  return typeof limit === "number" && limit > 0 ? limit : TRANSFER_MAX_FILE_SIZE_FREE_FALLBACK;
 }
 
 /**
  * Feature flag `web_nearby_enabled` from GET /api/v1/config (`data.flags`).
- * Gates the Nearby tab on the web transfer tool. Cached module-level (one fetch
- * per page load); defaults to false when the endpoint is unreachable or the flag
- * is unset, so nearby stays hidden until an admin flips it on.
+ * Gates the Nearby tab on the web transfer tool. Defaults to false when the
+ * endpoint is unreachable or the flag is unset, so nearby stays hidden until an
+ * admin flips it on.
  */
-let webNearbyFlagPromise: Promise<boolean> | null = null;
-
 export async function getWebNearbyEnabled(): Promise<boolean> {
-  if (!webNearbyFlagPromise) {
-    webNearbyFlagPromise = (async () => {
-      try {
-        const res = await doFetch(`${API_URL}/api/v1/config`, { cache: "no-store" });
-        if (!res.ok) return false;
-        const body = (await res.json()) as {
-          data?: { flags?: { web_nearby_enabled?: unknown } };
-        };
-        return body?.data?.flags?.web_nearby_enabled === true;
-      } catch {
-        return false;
-      }
-    })();
-  }
-  return webNearbyFlagPromise;
+  return (await cloudConfig())?.flags?.web_nearby_enabled === true;
 }
 
 /**
  * Feature flag `web_stream_enabled` from GET /api/v1/config — gates play/preview
  * of an encrypted transfer straight from its link (streaming service worker).
- * Cached module-level; defaults false when unreachable/unset, so a bad deploy or
- * an unreachable config leaves recipients with the plain download they always
- * had rather than a half-working player.
+ * Defaults false when unreachable/unset, so a bad deploy or an unreachable
+ * config leaves recipients with the plain download they always had rather than
+ * a half-working player.
  */
-let webStreamFlagPromise: Promise<boolean> | null = null;
-
 export async function getWebStreamEnabled(): Promise<boolean> {
-  if (!webStreamFlagPromise) {
-    webStreamFlagPromise = (async () => {
-      try {
-        const res = await doFetch(`${API_URL}/api/v1/config`, { cache: "no-store" });
-        if (!res.ok) return false;
-        const body = (await res.json()) as {
-          data?: { flags?: { web_stream_enabled?: unknown } };
-        };
-        return body?.data?.flags?.web_stream_enabled === true;
-      } catch {
-        return false;
-      }
-    })();
-  }
-  return webStreamFlagPromise;
+  return (await cloudConfig())?.flags?.web_stream_enabled === true;
 }
 
 /**
  * Feature flag `web_qr_beam_enabled` from GET /api/v1/config — gates the QR Beam
- * tab (offline QR-stream transfer) on the web transfer tool. Cached module-level;
- * defaults false when unreachable/unset so it stays hidden until an admin flips it.
+ * tab (offline QR-stream transfer) on the web transfer tool. Defaults false when
+ * unreachable/unset so it stays hidden until an admin flips it.
  */
-let webQrBeamFlagPromise: Promise<boolean> | null = null;
-
 export async function getWebQrBeamEnabled(): Promise<boolean> {
-  if (!webQrBeamFlagPromise) {
-    webQrBeamFlagPromise = (async () => {
-      try {
-        const res = await doFetch(`${API_URL}/api/v1/config`, { cache: "no-store" });
-        if (!res.ok) return false;
-        const body = (await res.json()) as {
-          data?: { flags?: { web_qr_beam_enabled?: unknown } };
-        };
-        return body?.data?.flags?.web_qr_beam_enabled === true;
-      } catch {
-        return false;
-      }
-    })();
-  }
-  return webQrBeamFlagPromise;
+  return (await cloudConfig())?.flags?.web_qr_beam_enabled === true;
 }
 
 // ── Shares (public /s API) ──

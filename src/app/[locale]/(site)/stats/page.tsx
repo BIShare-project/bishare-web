@@ -13,7 +13,7 @@ import {
   Wifi,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { reportBundle } from "@/lib/admin/report";
+import { publicReportBundle } from "@/lib/admin/report";
 import { formatBytes } from "@/lib/admin/format";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
@@ -80,7 +80,7 @@ export default async function StatsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("stats");
-  const r = await reportBundle();
+  const r = await publicReportBundle();
 
   const model = [
     t("model.noAccount"),

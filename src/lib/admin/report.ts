@@ -25,6 +25,9 @@ export type ReportBundle = {
   dailyUploads: { date: string; value: number }[];
 };
 
+/** Set when a query in the current bundle failed and read as 0. */
+let lastBundleFailed = false;
+
 async function scalar(sql: string, ...binds: unknown[]): Promise<number> {
   try {
     const row = await adminBindings()
@@ -33,6 +36,7 @@ async function scalar(sql: string, ...binds: unknown[]): Promise<number> {
       .first<{ n: number }>();
     return Number(row?.n ?? 0);
   } catch {
+    lastBundleFailed = true;
     return 0;
   }
 }
@@ -40,6 +44,51 @@ async function scalar(sql: string, ...binds: unknown[]): Promise<number> {
 /** Sum of a durable daily counter across all recorded days. */
 const counterTotal = (metric: string) =>
   scalar("SELECT COALESCE(SUM(value), 0) AS n FROM stats_daily WHERE metric = ?", metric);
+
+/** How long the public /stats numbers are shared between viewers. Kept short:
+ *  the live socket polls every 15 s and viewers refresh just after this expires,
+ *  so a change reaches the page within ~30 s. */
+export const REPORT_CACHE_SECONDS = 10;
+const REPORT_CACHE_KEY = "https://report-cache.internal/stats/v1";
+
+/**
+ * reportBundle() for the public /stats page, shared by every viewer in a data
+ * center for REPORT_CACHE_SECONDS. The bundle runs ~15 queries, several of them
+ * full scans, and the page re-renders for every open tab each time the live
+ * socket says the numbers moved — uncached, a few hundred viewers would queue
+ * behind each other on D1 and slow uploads down with them. Without the Cache
+ * API (next dev on Node) it simply reads D1 every time.
+ */
+export async function publicReportBundle(): Promise<ReportBundle> {
+  const cache = (globalThis as { caches?: { default?: Cache } }).caches?.default;
+  if (cache) {
+    try {
+      const hit = await cache.match(REPORT_CACHE_KEY);
+      if (hit) return (await hit.json()) as ReportBundle;
+    } catch {
+      // fall through to a live read
+    }
+  }
+  lastBundleFailed = false;
+  const bundle = await reportBundle();
+  // A failed query reads as 0; never share a bundle built from one.
+  if (cache && !lastBundleFailed) {
+    try {
+      await cache.put(
+        REPORT_CACHE_KEY,
+        new Response(JSON.stringify(bundle), {
+          headers: {
+            "Content-Type": "application/json",
+            "Cache-Control": `public, max-age=${REPORT_CACHE_SECONDS}`,
+          },
+        })
+      );
+    } catch {
+      // serving the live read is enough
+    }
+  }
+  return bundle;
+}
 
 export async function reportBundle(): Promise<ReportBundle> {
   const db = adminBindings().DB;

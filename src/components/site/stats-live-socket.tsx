@@ -12,13 +12,21 @@ import { useRouter } from "next/navigation";
  *
  * A slow interval is kept as a fallback for environments where the WS is blocked
  * (corporate proxies, etc.), and the socket auto-reconnects on drop.
+ *
+ * On "changed" each tab waits until the server's shared stats cache (10 s) has
+ * expired — refreshing sooner would redraw the numbers from before the change —
+ * plus a random moment, so every open tab doesn't re-render at the same instant.
  */
-export function StatsLiveSocket({ fallbackMs = 20000 }: { fallbackMs?: number }) {
+const REFRESH_MIN_DELAY_MS = 11_000;
+const REFRESH_JITTER_MS = 5000;
+
+export function StatsLiveSocket({ fallbackMs = 60000 }: { fallbackMs?: number }) {
   const router = useRouter();
   useEffect(() => {
     let stopped = false;
     let ws: WebSocket | null = null;
     let retry: ReturnType<typeof setTimeout> | undefined;
+    let pending: ReturnType<typeof setTimeout> | undefined;
 
     const connect = () => {
       if (stopped) return;
@@ -26,7 +34,12 @@ export function StatsLiveSocket({ fallbackMs = 20000 }: { fallbackMs?: number })
         const proto = location.protocol === "https:" ? "wss" : "ws";
         ws = new WebSocket(`${proto}://${location.host}/stats-live`);
         ws.onmessage = (e) => {
-          if (e.data === "changed") router.refresh();
+          if (e.data === "changed" && pending === undefined) {
+            pending = setTimeout(() => {
+              pending = undefined;
+              router.refresh();
+            }, REFRESH_MIN_DELAY_MS + Math.random() * REFRESH_JITTER_MS);
+          }
         };
         ws.onclose = () => {
           ws = null;
@@ -52,6 +65,7 @@ export function StatsLiveSocket({ fallbackMs = 20000 }: { fallbackMs?: number })
     return () => {
       stopped = true;
       clearTimeout(retry);
+      clearTimeout(pending);
       clearInterval(fb);
       try {
         ws?.close();
