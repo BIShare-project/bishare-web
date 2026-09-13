@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { APP_STORE_URL, PLAY_STORE_URL } from "./store-buttons";
+import { APP_STORE_URL, MICROSOFT_STORE_URL, PLAY_STORE_URL } from "./store-buttons";
 
 const SUPPORT_EMAIL = "support@billiongroup.net";
 const GITHUB_URL = "https://github.com/BIShare-project/bishare-web";
@@ -24,27 +24,55 @@ const COLUMNS: Array<{
       headingKey: "product",
       links: [
         { labelKey: "transfer", href: "/transfer" },
+        { labelKey: "rooms", href: "/rooms" },
         { labelKey: "download", href: "/download" },
         { labelKey: "features", href: "/features" },
         { labelKey: "pricing", href: "/pricing" },
         { labelKey: "howItWorks", href: "/how-it-works" },
         { labelKey: "security", href: "/security" },
         { labelKey: "faq", href: "/faq" },
+        { labelKey: "blog", href: "/blog" },
+        { labelKey: "stats", href: "/stats" },
         { labelKey: "appStore", href: APP_STORE_URL, external: true },
         { labelKey: "googlePlay", href: PLAY_STORE_URL, external: true },
+        { label: "Microsoft Store", href: MICROSOFT_STORE_URL, external: true },
       ],
     },
     {
       headingKey: "useCases",
       links: [
         { labelKey: "ucWindows", href: "/airdrop-for-windows" },
-        { labelKey: "ucAlternative", href: "/airdrop-alternative" },
         { labelKey: "ucIphoneAndroid", href: "/send-files-iphone-to-android" },
         { labelKey: "ucAndroidIphone", href: "/send-files-android-to-iphone" },
         { labelKey: "ucPcToPhone", href: "/transfer-files-pc-to-phone" },
+        { labelKey: "ucPhoneToPc", href: "/transfer-files-phone-to-pc" },
         { labelKey: "ucMacWindows", href: "/share-files-mac-to-windows" },
+        { labelKey: "ucPcToPc", href: "/transfer-files-between-computers" },
+        { labelKey: "ucPhotos", href: "/transfer-photos-from-iphone-to-pc" },
         { labelKey: "ucLargeFiles", href: "/send-large-files" },
+        { labelKey: "ucOffline", href: "/send-files-without-internet" },
+        { labelKey: "ucNoAccount", href: "/share-files-without-account" },
+        { labelKey: "ucEncrypted", href: "/encrypted-file-transfer" },
+        { labelKey: "ucAirdropFix", href: "/airdrop-not-working" },
+        { labelKey: "ucAirdropAndroid", href: "/airdrop-for-android" },
+      ],
+    },
+    {
+      headingKey: "alternatives",
+      links: [
+        { labelKey: "ucBestApps", href: "/best-file-sharing-app" },
+        { labelKey: "ucAlternative", href: "/airdrop-alternative" },
         { labelKey: "ucWetransfer", href: "/wetransfer-alternative" },
+        // Brand names below are proper nouns — same string in every locale.
+        { label: "LocalSend", href: "/localsend-alternative" },
+        { label: "Snapdrop", href: "/snapdrop-alternative" },
+        { label: "ShareDrop", href: "/sharedrop-alternative" },
+        { label: "SHAREit", href: "/shareit-alternative" },
+        { label: "Send Anywhere", href: "/send-anywhere-alternative" },
+        { label: "Smash", href: "/smash-alternative" },
+        { label: "Wormhole", href: "/wormhole-alternative" },
+        { label: "Firefox Send", href: "/firefox-send-alternative" },
+        { label: "Nearby Share", href: "/nearby-share-alternative" },
       ],
     },
     {
@@ -101,7 +129,7 @@ export async function SiteFooter() {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto max-w-7xl px-6 pt-14 pb-10">
-        <div className="mb-12 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+        <div className="mb-12 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="mb-3 flex items-center gap-2">
               <Image
