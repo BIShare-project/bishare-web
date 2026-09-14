@@ -21,7 +21,7 @@ const ROUTE_FIGURES = new Set([
   "/firefox-send-alternative", "/nearby-share-alternative",
   "/send-anywhere-alternative",
   "/send-files-without-internet",
-  "/share-files-without-account", "/sharedrop-alternative", "/shareit-alternative",
+  "/share-files-without-account", "/sharedrop-alternative",
   "/smash-alternative",
   "/wormhole-alternative",
 ]);

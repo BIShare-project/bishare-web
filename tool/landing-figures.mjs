@@ -32,7 +32,6 @@ const FIGURES = {
   "send-files-without-internet": { left: "Phone hotspot", right: "Laptop", title: "No router, no internet, still a network" },
   "share-files-without-account": { left: "Any device", right: "Anyone, any browser", title: "Nobody signs in, on either side" },
   "sharedrop-alternative": { left: "Browser", right: "Browser", title: "Drag between two tabs, or send a link" },
-  "shareit-alternative": { left: "Android", right: "Windows PC", title: "Same speed, no ads and no permissions" },
   "smash-alternative": { left: "Laptop", right: "Client, any browser", title: "No queue, no size tier" },
   "wormhole-alternative": { left: "Browser", right: "Anyone, any browser", title: "Encrypted links, and a local route Wormhole has never had" },
 };
