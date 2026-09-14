@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Troubleshooting",
     "title": "AirDrop not working? Find the cause first",
-    "body": "AirDrop fails in a handful of recognisable ways: the other device never appears, the transfer sits on Waiting, a six-digit code pops up that nobody expected, or the files arrive and then vanish into an app you did not check. Each symptom points to a different cause, and several of them are not faults at all but deliberate changes Apple made in iOS 16.2, iOS 17 and iOS 26.2. This guide starts from what you are seeing, lists what AirDrop actually requires according to Apple, walks through the fixes on iPhone, iPad and Mac, explains the recent changes that look like bugs, and covers the case where the other device is an Android phone or a Windows PC. <strong>BIShare</strong> is the fallback we built for the times AirDrop cannot help: <strong>it sends between iPhone, Android, Windows, Mac and Linux</strong>, directly on a shared network or through a link. <highlight>Free, open source, no account.</highlight>",
+    "body": "AirDrop fails in a handful of recognisable ways: the other device never appears, the transfer sits on Waiting, a six-digit code pops up that nobody expected, or the files arrive and then vanish into an app you did not check. Each symptom points to a different cause, and several of them are not faults at all but deliberate changes Apple made in iOS 16.2, iOS 17 and iOS 26.2. This guide starts from what you are seeing, lists what AirDrop actually requires according to Apple, walks through the fixes on iPhone, iPad and Mac, explains the recent changes that look like bugs, and covers the case where the other device is an Android phone or a Windows PC. <strong>BIShare</strong> is the fallback we built for the times AirDrop cannot help: <strong>it sends between iPhone, Android, Windows, Mac and Linux</strong>, directly on a shared network or through a link. <highlight>Free, open source, <goNoAccount>no account</goNoAccount>.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
@@ -41,7 +41,7 @@
       },
       "3": {
         "h": "The transfer starts and fails",
-        "b": "Large videos over a weak link, a Personal Hotspot in use, or a VPN or security app interfering with local traffic are common causes. Restart both devices and retry with them side by side."
+        "b": "<goLargeFiles>Large videos</goLargeFiles> over a weak link, a Personal Hotspot in use, or a VPN or security app interfering with local traffic are common causes. Restart both devices and retry with them side by side."
       },
       "4": {
         "h": "It worked, but the files are nowhere",
@@ -171,28 +171,28 @@
     "items": {
       "0": {
         "h": "An Android phone",
-        "b": "When the phone appears on Google's list for Quick Share with AirDrop, it can swap files with an iPhone provided the iPhone allows Everyone for 10 Minutes and, on a Galaxy, the Apple sharing switch is on. Older or unlisted Android phones cannot receive AirDrop in any form."
+        "b": "When the phone appears on <goAirdropAndroid>Google's list for Quick Share with AirDrop</goAirdropAndroid>, it can swap files with an iPhone provided the iPhone allows Everyone for 10 Minutes and, on a Galaxy, the Apple sharing switch is on. Older or unlisted Android phones cannot receive AirDrop in any form."
       },
       "1": {
         "h": "A Windows PC or Chromebook",
-        "b": "Apple has never made AirDrop for Windows, and Quick Share on a PC or Chromebook does not reach Apple devices. No setting on either side changes this, so use a cable, a cloud link or a cross-platform app."
+        "b": "<goAirdropWindows>Apple has never made AirDrop for Windows</goAirdropWindows>, and Quick Share on a PC or Chromebook does not reach Apple devices. No setting on either side changes this, so use a cable, a cloud link or <goBestApps>a cross-platform app</goBestApps>."
       },
       "2": {
         "h": "A Linux computer",
-        "b": "There is no AirDrop client for Linux either. Open-source tools such as LocalSend and browser-based ones such as BIShare links or PairDrop are the practical options."
+        "b": "There is no AirDrop client for Linux either. Open-source tools such as LocalSend and browser-based ones such as BIShare links or <goSnapdrop>PairDrop</goSnapdrop> are the practical options."
       }
     }
   },
   "methods": {
     "title": "Plan B: five ways to send when AirDrop will not",
-    "body": "When the fixes run out, or the other device is not Apple, pick a route by where the recipient is and what they use.",
+    "body": "When the fixes run out, or <goAirdropAlt>the other device is not Apple</goAirdropAlt>, pick a route by where the recipient is and what they use.",
     "consLabel": "Keep in mind:",
     "items": {
       "0": {
         "name": "BIShare",
         "tag": "Best when the recipient uses Android, Windows or Linux, or is somewhere else",
         "facts": "Apps for iPhone, Android, Windows, macOS and Linux · MIT licence · device to device over a common Wi-Fi or a phone's hotspot, any file size · encrypted links hold up to 100 GB and last 24 hours in a browser · group rooms · no sign-up",
-        "body": "Install BIShare on both devices and they see one another over a common Wi-Fi or a phone's hotspot, with no visibility window to run out and no contact card to match. Files cross directly in either direction without touching the internet. For a recipient who is not close by, make a link: the files are sealed on your device before they upload, and the other person downloads them in a browser.",
+        "body": "Install BIShare on both devices and they see one another over a common Wi-Fi or <goOffline>a phone's hotspot</goOffline>, with no visibility window to run out and no contact card to match. Files cross directly in either direction without touching the internet. For a recipient who is not close by, make a link: the files are <goEncrypted>sealed on your device before they upload</goEncrypted>, and the other person downloads them in a browser.",
         "cons": "Close-range sending requires BIShare on each device, and a link needs a data connection on both sides."
       },
       "1": {
@@ -213,14 +213,14 @@
         "name": "LocalSend",
         "tag": "Best open-source option on a home or office network",
         "facts": "iPhone, Android, Windows, macOS, Linux · Apache 2.0 · same local network · HTTPS, no account",
-        "body": "LocalSend lists every device where it is open on the local Wi-Fi and sends with a tap, with no server or account in between. It makes a good permanent replacement if you regularly move files between an iPhone and a Windows or Linux computer at home.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> lists every device where it is open on the local Wi-Fi and sends with a tap, with no server or account in between. It makes a good permanent replacement if you regularly move files between an iPhone and a Windows or Linux computer at home.",
         "cons": "The app has to be on both devices, anything on a different network is out of reach, and routers that isolate devices can hide them from each other."
       },
       "4": {
         "name": "USB cable",
         "tag": "Best for a whole camera roll onto a computer",
         "facts": "Photos app on a Mac, Apple Devices app on Windows · no network needed · full-resolution originals when they are stored on the iPhone",
-        "body": "Connect the iPhone, unlock it and trust the computer, then import from the Photos app on a Mac or through the Apple Devices app on Windows. For thousands of photos it is often faster and more predictable than any wireless route.",
+        "body": "Connect the iPhone, unlock it and trust the computer, then import from the Photos app on a Mac or through the Apple Devices app on Windows. <goIphonePhotos>For thousands of photos</goIphonePhotos> it is often faster and more predictable than any wireless route.",
         "cons": "You need the right cable and the computer in front of you, and photos kept only in iCloud have to be downloaded to the iPhone first."
       }
     }

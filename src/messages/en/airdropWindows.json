@@ -6,20 +6,20 @@
   "hero": {
     "eyebrow": "Cross-platform transfer",
     "title": "AirDrop for Windows",
-    "body": "AirDrop only works between Apple devices; Windows has never had it. <strong>BIShare</strong> is the free, open-source app that does the same job between an <strong>iPhone or Mac and a Windows PC</strong> — plus Android and Linux — over your own Wi-Fi, or with a link the other side opens in any browser. <highlight>Free, no account, and nothing to install on the receiving end.</highlight>",
+    "body": "AirDrop only works between Apple devices; Windows has never had it. <strong>BIShare</strong> is the free, open-source app that does the same job between an <strong>iPhone or Mac and a Windows PC</strong> — plus Android and Linux — over your own Wi-Fi, or with a link the other side opens in any browser. <highlight>Free, <goNoAccount>no account</goNoAccount>, and nothing to install on the receiving end.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
   "why": {
     "title": "Why AirDrop can’t reach Windows",
-    "body": "AirDrop runs on Apple-only protocols, so it works between iPhones, iPads and Macs — never a Windows PC, and Apple has never published the protocol for anyone else to implement. Windows 11's Nearby Sharing only talks to other Windows PCs. Microsoft's Phone Link added iPhone file sharing in December 2024, but only on Windows Insider builds and only for the phone — a Mac still has no path to a PC. That everyday case, pulling a photo or a document from an iPhone or a Mac onto a Windows laptop, is exactly what BIShare covers."
+    "body": "AirDrop runs on Apple-only protocols, so it works between iPhones, iPads and Macs — never a Windows PC, and Apple has never published the protocol for anyone else to implement. Windows 11's Nearby Sharing only talks to other Windows PCs. Microsoft's Phone Link added iPhone file sharing in December 2024, but only on Windows Insider builds and only for the phone — <goMacWindows>a Mac still has no path to a PC</goMacWindows>. That everyday case, <blogIphoneWindows>pulling a photo or a document from an iPhone or a Mac onto a Windows laptop</blogIphoneWindows>, is exactly what BIShare covers."
   },
   "how": {
     "title": "How BIShare sends iPhone / Mac ↔ Windows",
     "items": {
       "0": {
         "h": "On the same Wi-Fi",
-        "b": "Files go straight from device to device, end-to-end encrypted — nothing is stored on a server. It’s fast, and it even works over a phone hotspot with no internet at all."
+        "b": "Files go straight from device to device, end-to-end encrypted — nothing is stored on a server. It’s fast, and it even <goOffline>works over a phone hotspot with no internet at all</goOffline>."
       },
       "1": {
         "h": "When you’re apart",
@@ -154,11 +154,11 @@
     "title": "Both directions, not just one",
     "toPc": {
       "h": "iPhone or Mac → Windows PC",
-      "b": "The common case: photos, videos and documents off the phone and onto the computer at local Wi-Fi speed, with the original file intact — no recompression, no 25 MB email ceiling, and nothing uploaded to a server on the way."
+      "b": "The common case: <goPhonePc>photos, videos and documents off the phone and onto the computer</goPhonePc> at local Wi-Fi speed, with the original file intact — no recompression, no 25 MB email ceiling, and nothing uploaded to a server on the way."
     },
     "toPhone": {
       "h": "Windows PC → iPhone or Mac",
-      "b": "The same route in reverse, which AirDrop has never offered at all. Drag files onto the PC app and send them to the phone; large videos and folders work the same way as small ones, because the limit is disk space rather than an upload quota."
+      "b": "The same route in reverse, which AirDrop has never offered at all. Drag files onto the PC app and <goPcPhone>send them to the phone</goPcPhone>; <goLargeFiles>large videos and folders</goLargeFiles> work the same way as small ones, because the limit is disk space rather than an upload quota."
     }
   },
   "fixes": {
@@ -184,7 +184,7 @@
     "items": [
       "<strong>AirDrop does not exist on Windows.</strong> It runs on Apple-only protocols, so no download called \"AirDrop for Windows\" is real — treat any .exe with that name as unsafe.",
       "<strong>Closest thing that works today:</strong> BIShare — free on the Microsoft Store for Windows 10 and 11, with matching apps for iPhone, Mac, Android and Linux. Send in both directions over Wi-Fi, no account.",
-      "<strong>Nothing to install?</strong> Open bishare.app/transfer in any browser on the PC and drop the file from the phone — same Wi-Fi or a link, encrypted before it leaves the device.",
+      "<strong>Nothing to install?</strong> Open <goTransfer>bishare.app/transfer</goTransfer> in any browser on the PC and drop the file from the phone — same Wi-Fi or a link, encrypted before it leaves the device.",
       "<strong>Microsoft's own option:</strong> Phone Link can share files with an iPhone on Windows Insider builds (iOS 16+, Bluetooth pairing, Microsoft account). It does not cover a Mac, and it is not on stable Windows for everyone yet."
     ]
   },
@@ -251,7 +251,7 @@
       },
       {
         "h": "LocalSend",
-        "b": "Free, open source and good on a shared Wi-Fi — every device needs the app, and there is no link route when the other person is on a different network or cannot install anything."
+        "b": "<goLocalsend>Free, open source and good on a shared Wi-Fi</goLocalsend> — every device needs the app, and there is no link route when the other person is on a different network or cannot install anything."
       },
       {
         "h": "Snapdrop / PairDrop",
@@ -259,7 +259,7 @@
       },
       {
         "h": "SHAREit, Xender and similar",
-        "b": "Fast on paper, but ad-supported, heavy on permissions, and repeatedly flagged for security problems. Not a tool to put on a work PC."
+        "b": "Fast on paper, but <goShareit>ad-supported, heavy on permissions</goShareit>, and repeatedly flagged for security problems. Not a tool to put on a work PC."
       },
       {
         "h": "iCloud, Google Drive, Dropbox",
@@ -267,7 +267,7 @@
       },
       {
         "h": "A cable, iTunes or the Windows Photos app",
-        "b": "Reliable for photos from an iPhone, with a cable and a driver install. Nothing for a Mac to PC, nothing for the reverse direction, and nothing for sending to another person."
+        "b": "<goIphonePhotos>Reliable for photos from an iPhone</goIphonePhotos>, with a cable and a driver install. Nothing for a Mac to PC, nothing for the reverse direction, and nothing for sending to another person."
       },
       {
         "h": "Email or a chat app",
@@ -317,7 +317,7 @@
     "title": "What leaves your device, and what doesn't",
     "items": [
       "On the same network the file goes straight from one device to the other, encrypted for that transfer. No server sees it and nothing is stored anywhere but on the receiving PC.",
-      "On the link route the file is encrypted in your browser or app before upload. The key travels in the link after the # sign, which browsers never send to a server, so what our storage holds is ciphertext it cannot open. Links expire in 24 hours; you can also make one that self-destructs after the first download.",
+      "On the link route <goEncrypted>the file is encrypted in your browser or app before upload</goEncrypted>. The key travels in the link after the # sign, which browsers never send to a server, so what our storage holds is ciphertext it cannot open. Links expire in 24 hours; you can also make one that self-destructs after the first download.",
       "There is no account, no contact upload and no ad SDK. The Windows app is signed and published by us on the Microsoft Store; the source code for every platform is public."
     ]
   },

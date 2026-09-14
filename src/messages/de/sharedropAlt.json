@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "ShareDrop-Alternative",
     "title": "Die besten Alternativen zu ShareDrop",
-    "body": "ShareDrop war eine der ersten Webseiten, die AirDrop im Browser nachbauten: sharedrop.io auf zwei Geräten öffnen, die Avatare des anderen sehen, eine Datei ablegen, und sie wandert per WebRTC direkt hinüber. 2026 ist die Seite noch online, gehört aber nicht mehr ihrem Schöpfer. LimeWire hat sie Anfang 2025 gekauft, und heute lädt die Seite LimeWire-Skripte für fünf Werbeflächen und einen Button „Upload Files“, der Dateien an die Server von LimeWire schickt statt an das Gerät neben Ihnen. Viele wollen jetzt das alte Verhalten ohne den neuen Eigentümer, und manche wollten schon immer mehr, als ein einzelner Tab leisten kann. Dieser Ratgeber erklärt, was sich geändert hat, wie ShareDrop tatsächlich entschied, welche Geräte Sie sehen, wo es hakt, bewertet sieben Alternativen einschließlich eines selbst gehosteten ShareDrop Classic und zeigt, wie Sie jemanden in einem anderen Netz erreichen. Unser eigenes <strong>BIShare</strong> steht auf der Liste: <strong>kostenlos und MIT-lizenziert, läuft im Browser unter bishare.app und als App für Android, iPhone, Windows, macOS und Linux</strong>. <highlight>Auf keiner Seite ein Konto.</highlight>",
+    "body": "ShareDrop war eine der ersten Webseiten, die <goAirdropAlt>AirDrop</goAirdropAlt> im Browser nachbauten: sharedrop.io auf zwei Geräten öffnen, die Avatare des anderen sehen, eine Datei ablegen, und sie wandert per WebRTC direkt hinüber. 2026 ist die Seite noch online, gehört aber nicht mehr ihrem Schöpfer. LimeWire hat sie Anfang 2025 gekauft, und heute lädt die Seite LimeWire-Skripte für fünf Werbeflächen und einen Button „Upload Files“, der Dateien an die Server von LimeWire schickt statt an das Gerät neben Ihnen. Viele wollen jetzt das alte Verhalten ohne den neuen Eigentümer, und manche wollten schon immer mehr, als ein einzelner Tab leisten kann. Dieser Ratgeber erklärt, was sich geändert hat, wie ShareDrop tatsächlich entschied, welche Geräte Sie sehen, wo es hakt, bewertet sieben Alternativen einschließlich eines selbst gehosteten ShareDrop Classic und zeigt, wie Sie jemanden in einem anderen Netz erreichen. Unser eigenes <strong>BIShare</strong> steht auf der Liste: <strong>kostenlos und MIT-lizenziert, läuft im Browser unter bishare.app und als App für Android, iPhone, Windows, macOS und Linux</strong>. <highlight><goNoAccount>Auf keiner Seite ein Konto</goNoAccount>.</highlight>",
     "ctaPrimary": "BIShare kostenlos laden",
     "ctaSecondary": "So funktioniert es"
   },
@@ -16,9 +16,9 @@
     "title": "Kurze Antwort",
     "items": [
       "<strong>Am nächsten am klassischen ShareDrop:</strong> PairDrop. Gleiche Idee, Open Source, Geräte im selben Netz finden sich, und Kopplung deckt andere Netze ab.",
-      "<strong>Der Absender soll nach dem Senden offline gehen:</strong> Ein BIShare-Link speichert bis zu 100 GB verschlüsselt für einen Tag und öffnet sich in jedem Browser, kein Tab muss offen bleiben.",
+      "<strong>Der Absender soll nach dem Senden offline gehen:</strong> Ein BIShare-Link speichert bis zu 100 GB verschlüsselt für einen Tag und <goTransfer>öffnet sich in jedem Browser</goTransfer>, kein Tab muss offen bleiben.",
       "<strong>Eine Datei, ein Empfänger, nirgends gespeichert:</strong> FilePizza oder ToffeeShare, solange Ihr Tab offen bleibt, bis der Download fertig ist.",
-      "<strong>Große Ordner zwischen eigenen Computern und Handys:</strong> Eine App schlägt den Tab. BIShare oder LocalSend am selben Router, oder Taildrop, wenn Sie Tailscale schon nutzen.",
+      "<strong><goLargeFiles>Große Ordner</goLargeFiles> zwischen eigenen Computern und Handys:</strong> Eine App schlägt den Tab. BIShare oder LocalSend am selben Router, oder Taildrop, wenn Sie Tailscale schon nutzen.",
       "<strong>ShareDrop gefiel Ihnen genau so, wie es war:</strong> Der ursprüngliche MIT-lizenzierte Code liegt unverändert auf GitHub und lässt sich hosten, braucht aber eine Firebase-Datenbank.",
       "<strong>Sie nutzen sharedrop.io trotzdem:</strong> Legen Sie Dateien auf dem Avatar einer Person ab, dann läuft die Übertragung direkt. Der Bereich „Upload Files“ schickt sie stattdessen zu LimeWire."
     ]
@@ -113,7 +113,7 @@
         "name": "PairDrop",
         "tag": "Bester gleichwertiger Ersatz im Browser",
         "facts": "Jeder moderne Browser, als PWA installierbar · GPL-3.0 · Erkennung im selben Netz · dauerhafte Kopplung per 6-stelligem Code oder QR · temporäre öffentliche Räume · TURN-Relay hinter NAT · Docker-Images zum Selbsthosten",
-        "body": "PairDrop ist aus Snapdrop hervorgegangen und verhält sich so, wie man ShareDrop in Erinnerung hat, mit Extras. Geräte im selben Netz erscheinen automatisch; gekoppelte Geräte finden sich überall; und ein temporärer öffentlicher Raum funktioniert wie der Plus-Button von ShareDrop. Die FAQ ist beim Routing deutlich: Im selben Netz erreichen Dateien nie einen Server, und gekoppelte Geräte hinter NAT weichen auf den TURN-Server von PairDrop aus.",
+        "body": "PairDrop ist aus <goSnapdrop>Snapdrop</goSnapdrop> hervorgegangen und verhält sich so, wie man ShareDrop in Erinnerung hat, mit Extras. Geräte im selben Netz erscheinen automatisch; gekoppelte Geräte finden sich überall; und ein temporärer öffentlicher Raum funktioniert wie der Plus-Button von ShareDrop. Die FAQ ist beim Routing deutlich: Im selben Netz erreichen Dateien nie einen Server, und gekoppelte Geräte hinter NAT weichen auf den TURN-Server von PairDrop aus.",
         "cons": "Wie bei ShareDrop müssen beide Geräte gleichzeitig mit offenem Tab online sein, und eine über TURN geleitete Übertragung ist langsamer als eine direkte."
       },
       "2": {
@@ -134,7 +134,7 @@
         "name": "LocalSend",
         "tag": "Beste App-Lösung in einem Netz",
         "facts": "Apache 2.0 · Apps für Android, iOS, Desktop und Fire OS · ein lokales Netz, Internet optional · HTTPS zwischen Geräten · Winget, Homebrew, Flathub, F-Droid",
-        "body": "Wenn ShareDrop vor allem Dateien zwischen Ihrem eigenen Handy und Computer bewegte, beseitigt eine App die Tab-Probleme ganz. LocalSend-Geräte am selben Router listen sich ohne Server gegenseitig auf, daher funktioniert es auch an einem Router ohne Internetverbindung. Im September 2026 führte es die Liste der Open-Source-Empfehlungen auf der ShareDrop-Seite von AlternativeTo an.",
+        "body": "Wenn ShareDrop vor allem Dateien zwischen Ihrem eigenen Handy und Computer bewegte, beseitigt eine App die Tab-Probleme ganz. <goLocalsend>LocalSend</goLocalsend>-Geräte am selben Router listen sich ohne Server gegenseitig auf, daher funktioniert es auch an einem Router ohne Internetverbindung. Im September 2026 führte es die Liste der Open-Source-Empfehlungen auf der ShareDrop-Seite von AlternativeTo an.",
         "cons": "Jedes Gerät braucht die App, und niemand außerhalb Ihres lokalen Netzes ist erreichbar."
       },
       "5": {
@@ -188,7 +188,7 @@
       },
       "2": {
         "h": "Gespeicherte Links: niemand muss warten",
-        "b": "Ein BIShare-Link verschlüsselt die Datei in Ihrem Browser, lädt sie hoch und hält sie 24 Stunden bereit. Sie können sofort offline gehen, und der Empfänger lädt aus jedem Browser herunter. Dieses Modell passt zu Zeitzonen und vollen Terminkalendern, auf Kosten einer verschlüsselten Kopie, die einen Tag auf einem Server liegt."
+        "b": "<goEncrypted>Ein BIShare-Link verschlüsselt die Datei in Ihrem Browser</goEncrypted>, lädt sie hoch und hält sie 24 Stunden bereit. Sie können sofort offline gehen, und der Empfänger lädt aus jedem Browser herunter. Dieses Modell passt zu Zeitzonen und vollen Terminkalendern, auf Kosten einer verschlüsselten Kopie, die einen Tag auf einem Server liegt."
       },
       "3": {
         "h": "Gekoppelte Geräte: eigene Technik überall",
@@ -236,7 +236,7 @@
       },
       "3": {
         "h": "Klassenzimmer oder Besprechung",
-        "b": "Ein BIShare-Raum mit Kurzcode, im lokalen Modus, wenn alle im selben WLAN sind, und im Cloud-Modus, wenn einige aus der Ferne dabei sind."
+        "b": "<goRooms>Ein BIShare-Raum mit Kurzcode</goRooms>, im lokalen Modus, wenn alle im selben WLAN sind, und im Cloud-Modus, wenn einige aus der Ferne dabei sind."
       },
       "4": {
         "h": "Ihr eigener Gerätepark",

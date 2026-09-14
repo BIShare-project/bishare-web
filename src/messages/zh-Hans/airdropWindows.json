@@ -6,20 +6,20 @@
   "hero": {
     "eyebrow": "跨平台传输",
     "title": "Windows 版 AirDrop",
-    "body": "AirDrop 只能在 Apple 设备之间使用，Windows 从来没有过。<strong>BIShare</strong> 是一款免费开源应用，在 <strong>iPhone 或 Mac 与 Windows 电脑</strong>之间做同样的事——还支持 Android 和 Linux——通过你自己的 Wi-Fi，或用一个对方在任何浏览器都能打开的链接。<highlight>免费、无需账号，接收方什么都不用装。</highlight>",
+    "body": "AirDrop 只能在 Apple 设备之间使用，Windows 从来没有过。<strong>BIShare</strong> 是一款免费开源应用，在 <strong>iPhone 或 Mac 与 Windows 电脑</strong>之间做同样的事——还支持 Android 和 Linux——通过你自己的 Wi-Fi，或用一个对方在任何浏览器都能打开的链接。<highlight>免费、<goNoAccount>无需账号</goNoAccount>，接收方什么都不用装。</highlight>",
     "ctaPrimary": "免费获取 BIShare",
     "ctaSecondary": "工作原理"
   },
   "why": {
     "title": "为什么 AirDrop 到不了 Windows",
-    "body": "AirDrop 基于 Apple 私有协议，只在 iPhone、iPad 和 Mac 之间工作，永远连不上 Windows 电脑，Apple 也从未公开协议供他人实现。Windows 11 的“就近共享”只能和其他 Windows 电脑通信。微软的 Phone Link 在 2024 年 12 月加入了 iPhone 文件共享，但仅限 Windows Insider 预览版，且只针对手机——Mac 到电脑依然没有路。把照片或文档从 iPhone 或 Mac 传到 Windows 笔记本这件每天都在做的事，正是 BIShare 解决的。"
+    "body": "AirDrop 基于 Apple 私有协议，只在 iPhone、iPad 和 Mac 之间工作，永远连不上 Windows 电脑，Apple 也从未公开协议供他人实现。Windows 11 的“就近共享”只能和其他 Windows 电脑通信。微软的 Phone Link 在 2024 年 12 月加入了 iPhone 文件共享，但仅限 Windows Insider 预览版，且只针对手机——<goMacWindows>Mac 到电脑依然没有路</goMacWindows>。<blogIphoneWindows>把照片或文档从 iPhone 或 Mac 传到 Windows 笔记本</blogIphoneWindows>这件每天都在做的事，正是 BIShare 解决的。"
   },
   "how": {
     "title": "BIShare 如何在 iPhone / Mac ↔ Windows 之间传输",
     "items": {
       "0": {
         "h": "在同一 Wi-Fi 下",
-        "b": "文件在设备之间直接传输，端到端加密——不会存放在任何服务器上。速度快，甚至在完全没有网络时也能通过手机热点使用。"
+        "b": "文件在设备之间直接传输，端到端加密——不会存放在任何服务器上。速度快，甚至<goOffline>在完全没有网络时也能通过手机热点使用</goOffline>。"
       },
       "1": {
         "h": "当彼此不在一处时",
@@ -154,11 +154,11 @@
     "title": "双向，而不是单向",
     "toPc": {
       "h": "iPhone 或 Mac → Windows 电脑",
-      "b": "最常见的场景：照片、视频和文档从手机到电脑，以局域网速度传输，原始文件完好——没有二次压缩，没有邮件 25 MB 的天花板，途中也不会上传到任何服务器。"
+      "b": "最常见的场景：<goPhonePc>照片、视频和文档从手机到电脑</goPhonePc>，以局域网速度传输，原始文件完好——没有二次压缩，没有邮件 25 MB 的天花板，途中也不会上传到任何服务器。"
     },
     "toPhone": {
       "h": "Windows 电脑 → iPhone 或 Mac",
-      "b": "同一条路的反方向，而这正是 AirDrop 从未提供过的。把文件拖进电脑端应用再发给手机；大视频和整个文件夹与小文件表现一致，因为限制是磁盘空间而不是上传配额。"
+      "b": "同一条路的反方向，而这正是 AirDrop 从未提供过的。把文件拖进电脑端应用<goPcPhone>再发给手机</goPcPhone>；<goLargeFiles>大视频和整个文件夹</goLargeFiles>与小文件表现一致，因为限制是磁盘空间而不是上传配额。"
     }
   },
   "fixes": {
@@ -184,7 +184,7 @@
     "items": [
       "<strong>Windows 上没有 AirDrop。</strong>它基于 Apple 私有协议，所以任何名为“Windows 版 AirDrop”的下载都不是真的——把这种名字的 .exe 当作不安全处理。",
       "<strong>今天最接近且能用的：</strong>BIShare——Windows 10/11 版在 Microsoft Store 免费提供，并有配套的 iPhone、Mac、Android、Linux 版。通过 Wi-Fi 双向传输，无需账号。",
-      "<strong>不想安装？</strong>在电脑的任意浏览器打开 bishare.app/transfer，从手机把文件传过去——同一 Wi-Fi 或通过链接，离开设备前就已加密。",
+      "<strong>不想安装？</strong>在电脑的任意浏览器打开 <goTransfer>bishare.app/transfer</goTransfer>，从手机把文件传过去——同一 Wi-Fi 或通过链接，离开设备前就已加密。",
       "<strong>微软自家的方案：</strong>Phone Link（手机连接）在 Windows Insider 预览版上可与 iPhone 共享文件（需 iOS 16+、蓝牙配对、Microsoft 账户）。它不支持 Mac，正式版 Windows 也还没向所有人开放。"
     ]
   },
@@ -251,7 +251,7 @@
       },
       {
         "h": "LocalSend",
-        "b": "免费开源，在同一 Wi-Fi 下表现不错——但每台设备都要装应用，当对方在另一个网络或装不了任何东西时，没有链接路径可走。"
+        "b": "<goLocalsend>免费开源，在同一 Wi-Fi 下表现不错</goLocalsend>——但每台设备都要装应用，当对方在另一个网络或装不了任何东西时，没有链接路径可走。"
       },
       {
         "h": "Snapdrop / PairDrop",
@@ -259,7 +259,7 @@
       },
       {
         "h": "SHAREit、Xender 之类",
-        "b": "纸面上快，但靠广告盈利、索要大量权限，还屡次因安全问题被点名。不该装在工作电脑上。"
+        "b": "纸面上快，但<goShareit>靠广告盈利、索要大量权限</goShareit>，还屡次因安全问题被点名。不该装在工作电脑上。"
       },
       {
         "h": "iCloud、Google Drive、Dropbox",
@@ -267,7 +267,7 @@
       },
       {
         "h": "数据线、iTunes 或 Windows 照片应用",
-        "b": "从 iPhone 导照片很可靠，需要数据线和安装驱动。Mac 到电脑不行，反方向不行，发给别人也不行。"
+        "b": "<goIphonePhotos>从 iPhone 导照片很可靠</goIphonePhotos>，需要数据线和安装驱动。Mac 到电脑不行，反方向不行，发给别人也不行。"
       },
       {
         "h": "邮件或聊天应用",
@@ -317,7 +317,7 @@
     "title": "什么会离开你的设备，什么不会",
     "items": [
       "同一网络下，文件为这次传输加密后直接从一台设备到另一台。没有服务器看得到它，除接收电脑外不存放在任何地方。",
-      "链接路径下，文件在上传前就在你的浏览器或应用里加密。密钥放在链接 # 号之后，浏览器从不把这部分发给服务器，所以我们的存储里只有打不开的密文。链接 24 小时失效；你也可以生成首次下载后即自毁的链接。",
+      "链接路径下，<goEncrypted>文件在上传前就在你的浏览器或应用里加密</goEncrypted>。密钥放在链接 # 号之后，浏览器从不把这部分发给服务器，所以我们的存储里只有打不开的密文。链接 24 小时失效；你也可以生成首次下载后即自毁的链接。",
       "没有账号，不上传通讯录，没有广告 SDK。Windows 应用已签名并由我们发布在 Microsoft Store；各平台源代码公开。"
     ]
   },

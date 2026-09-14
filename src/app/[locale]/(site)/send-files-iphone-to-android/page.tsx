@@ -13,6 +13,7 @@ import { breadcrumbLd } from "@/lib/breadcrumb-ld";
 import { LandingArt } from "@/components/site/landing-art";
 import { ImageLightbox } from "@/components/site/image-lightbox";
 import { ArrowRight, Check, X } from "lucide-react";
+import { guideLinks } from "@/components/site/guide-links";
 
 /**
  * "Send files from iPhone to Android" — a how-to query whose SERP (EaseUS,
@@ -112,7 +113,7 @@ function ProseList({
 }: {
   items: readonly string[];
   head: (i: string) => string;
-  body: (i: string) => string;
+  body: (i: string) => React.ReactNode;
 }) {
   return (
     <div className="mt-6 space-y-7">
@@ -136,6 +137,7 @@ export default async function IphoneToAndroidPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations(NS);
+  const links = guideLinks();
   const chrome = await getTranslations("chrome");
 
   const yes = t("a11y.yes");
@@ -202,7 +204,7 @@ export default async function IphoneToAndroidPage({
               <time dateTime={LAST_UPDATED}>{t("updated")}</time>
             </p>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight })}
+              {t.rich("hero.body", { strong, highlight, ...links })}
             </p>
             <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
               {t("disclosure")}
@@ -229,7 +231,7 @@ export default async function IphoneToAndroidPage({
                       className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue"
                       aria-hidden
                     />
-                    <span>{t.rich(`quick.items.${i}`, { strong })}</span>
+                    <span>{t.rich(`quick.items.${i}`, { strong, ...links })}</span>
                   </li>
                 ))}
               </ul>
@@ -262,7 +264,7 @@ export default async function IphoneToAndroidPage({
               <ProseList
                 items={CHANGED_ITEMS}
                 head={(i) => t(`changed.items.${i}.h`)}
-                body={(i) => t(`changed.items.${i}.b`)}
+                body={(i) => t.rich(`changed.items.${i}.b`, links)}
               />
             </section>
 
@@ -300,7 +302,7 @@ export default async function IphoneToAndroidPage({
                           {t(`methods.items.${i}.facts`)}
                         </p>
                         <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                          {t(`methods.items.${i}.body`)}
+                          {t.rich(`methods.items.${i}.body`, links)}
                         </p>
                         <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
                           <span className="font-medium text-foreground">
@@ -365,7 +367,7 @@ export default async function IphoneToAndroidPage({
             <section className="mt-14">
               <H2 id="switching">{t("switching.title")}</H2>
               <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("switching.body")}
+                {t.rich("switching.body", links)}
               </p>
               <LandingArt
                 slug={SLUG}
@@ -413,7 +415,7 @@ export default async function IphoneToAndroidPage({
               <ProseList
                 items={PHOTO_ITEMS}
                 head={(i) => t(`photos.items.${i}.h`)}
-                body={(i) => t(`photos.items.${i}.b`)}
+                body={(i) => t.rich(`photos.items.${i}.b`, links)}
               />
             </section>
 
@@ -426,7 +428,7 @@ export default async function IphoneToAndroidPage({
               <ProseList
                 items={SPEED_ITEMS}
                 head={(i) => t(`speed.items.${i}.h`)}
-                body={(i) => t(`speed.items.${i}.b`)}
+                body={(i) => t.rich(`speed.items.${i}.b`, links)}
               />
             </section>
 
@@ -436,7 +438,7 @@ export default async function IphoneToAndroidPage({
               <ProseList
                 items={FIX_ITEMS}
                 head={(i) => t(`fixes.items.${i}.h`)}
-                body={(i) => t(`fixes.items.${i}.b`)}
+                body={(i) => t.rich(`fixes.items.${i}.b`, links)}
               />
             </section>
 
@@ -449,7 +451,7 @@ export default async function IphoneToAndroidPage({
               <ProseList
                 items={SECURITY_ITEMS}
                 head={(i) => t(`security.items.${i}.h`)}
-                body={(i) => t(`security.items.${i}.b`)}
+                body={(i) => t.rich(`security.items.${i}.b`, links)}
               />
             </section>
 

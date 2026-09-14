@@ -13,7 +13,7 @@
   },
   "why": {
     "title": "Por que enviar arquivos grandes ainda é um sofrimento em 2026",
-    "body": "O e-mail engasga acima de 20–25 MB. Os sites de transferência populares travam o plano grátis — 3 GB no WeTransfer, 2 GB antes de o Smash colocar você numa fila, 5 GB no Filemail, SendBig e TransferNow — e depois limitam a velocidade, enchem a página de download de anúncios ou pedem uma conta. As nuvens funcionam, mas cada byte sobe, ocupa sua cota e desce de novo. O BIShare segue outro caminho: no mesmo Wi-Fi o arquivo vai <strong>direto de um aparelho ao outro</strong>, sem teto de tamanho e sem nada estacionado em servidor; em qualquer outro lugar, um <strong>link de 100 GB</strong> grátis, sem conta e criptografado de ponta a ponta."
+    "body": "O e-mail engasga acima de 20–25 MB. Os sites de transferência populares travam o plano grátis — 3 GB no <goWetransfer>WeTransfer</goWetransfer>, 2 GB antes de o <goSmash>Smash</goSmash> colocar você numa fila, 5 GB no Filemail, SendBig e TransferNow — e depois limitam a velocidade, enchem a página de download de anúncios ou pedem uma conta. As nuvens funcionam, mas cada byte sobe, ocupa sua cota e desce de novo. O BIShare segue outro caminho: no mesmo Wi-Fi o arquivo vai <strong>direto de um aparelho ao outro</strong>, sem teto de tamanho e sem nada estacionado em servidor; em qualquer outro lugar, um <strong>link de 100 GB</strong> grátis, sem conta e criptografado de ponta a ponta."
   },
   "how": {
     "title": "Duas formas de enviar, ambas grátis",
@@ -115,8 +115,8 @@
   "quick": {
     "title": "Resposta rápida",
     "items": [
-      "<strong>Para enviar um arquivo grande grátis:</strong> abra bishare.app/transfer, solte o arquivo e compartilhe o link, o QR code ou o código de 6 caracteres. Até 100 GB por transferência, sem conta de nenhum lado, nada para instalar.",
-      "<strong>Mais de 100 GB, ou uma pasta inteira de vídeo bruto?</strong> Coloque os dois aparelhos no mesmo Wi-Fi (ou num hotspot do celular) e envie de aparelho a aparelho — sem limite de tamanho, sem upload nenhum.",
+      "<strong>Para enviar um arquivo grande grátis:</strong> abra <goTransfer>bishare.app/transfer</goTransfer>, solte o arquivo e compartilhe o link, o QR code ou o código de 6 caracteres. Até 100 GB por transferência, <goNoAccount>sem conta de nenhum lado</goNoAccount>, nada para instalar.",
+      "<strong>Mais de 100 GB, ou uma pasta inteira de vídeo bruto?</strong> Coloque os dois aparelhos no mesmo Wi-Fi (ou <goOffline>num hotspot do celular</goOffline>) e envie de aparelho a aparelho — sem limite de tamanho, sem upload nenhum.",
       "<strong>O que muda em relação ao WeTransfer e aos outros:</strong> o arquivo é criptografado no seu navegador antes de subir e a chave nunca chega ao nosso servidor; não há anúncios nem plano pago, e o link se apaga sozinho depois de 24 horas — ou depois do primeiro download, se você quiser.",
       "<strong>Velocidade:</strong> por link, o que sua velocidade de upload permitir (1 GB ≈ 3 minutos a 50 Mbps); perto, 40–110 MB/s em Wi-Fi moderno, ou seja, um gigabyte em bem menos de um minuto."
     ]
@@ -313,15 +313,15 @@
     "items": [
       {
         "h": "Um link do BIShare (até 100 GB)",
-        "b": "O padrão para quem não está do seu lado. Criptografado antes do upload, sem conta, sem anúncios, expira em 24 horas. Melhor para: um vídeo para um cliente, uma pasta de fotos para a família, um backup para o seu outro computador."
+        "b": "O padrão para quem não está do seu lado. Criptografado antes do upload, sem conta, sem anúncios, expira em 24 horas. Melhor para: <blogClientVideo>um vídeo para um cliente</blogClientVideo>, <blogPhotos>uma pasta de fotos para a família</blogPhotos>, um backup para o seu outro computador."
       },
       {
         "h": "BIShare de aparelho a aparelho (qualquer tamanho)",
-        "b": "Mesmo Wi-Fi ou hotspot do celular; o arquivo nunca toca a internet. Sem limite de tamanho, velocidade de rede local, funciona com dados móveis desligados. Melhor para: material bruto de uma filmagem, um projeto de 200 GB, tudo que iria num pen drive."
+        "b": "Mesmo Wi-Fi ou hotspot do celular; o arquivo nunca toca a internet. Sem limite de tamanho, velocidade de rede local, funciona com dados móveis desligados. Melhor para: material bruto de uma filmagem, <goPcPc>um projeto de 200 GB</goPcPc>, tudo que iria num pen drive."
       },
       {
         "h": "Uma nuvem (Google Drive, OneDrive, iCloud, Dropbox)",
-        "b": "Boa quando o arquivo precisa morar em algum lugar permanentemente e a outra pessoa usa o mesmo serviço. Gasta cota, exige contas, e upload mais download dobra o tempo. Sem criptografia de ponta a ponta."
+        "b": "Boa quando o arquivo precisa morar em algum lugar permanentemente e a outra pessoa usa o mesmo serviço. <blogCloudLimits>Gasta cota, exige contas</blogCloudLimits>, e upload mais download dobra o tempo. Sem criptografia de ponta a ponta."
       },
       {
         "h": "Compactar ou dividir o arquivo",
@@ -340,7 +340,7 @@
   "security": {
     "title": "O que acontece com o seu arquivo",
     "items": [
-      "Por link: o arquivo é criptografado no seu navegador com uma chave gerada no seu aparelho. A chave viaja no link depois do sinal #, que os navegadores nunca enviam ao servidor, então nosso armazenamento guarda só um texto cifrado que não consegue abrir — e esse armazenamento fica na região mais próxima de você.",
+      "Por link: <goEncrypted>o arquivo é criptografado no seu navegador com uma chave gerada no seu aparelho</goEncrypted>. A chave viaja no link depois do sinal #, que os navegadores nunca enviam ao servidor, então nosso armazenamento guarda só um texto cifrado que não consegue abrir — e esse armazenamento fica na região mais próxima de você.",
       "Os links expiram 24 horas depois de criados e o arquivo é apagado junto. Ative o uso único e o arquivo é apagado assim que o primeiro download termina.",
       "Perto: o arquivo vai direto de um aparelho ao outro, criptografado para aquela transferência, e não fica guardado em lugar nenhum além do aparelho que recebe.",
       "Sem conta, sem e-mail, sem SDK de anúncios, sem plano pago. Os apps e o cliente web são de código aberto; o formato de criptografia é público e o mesmo em todas as plataformas."

@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Nearby Share替代方案",
     "title": "最好的Nearby Share替代方案",
-    "body": "Nearby Share是Google对AirDrop的回应：在安卓手机上点分享，选一台附近的设备，文件就通过蓝牙和Wi-Fi无线送达。从2024年起它换了名字，叫Quick Share，因为Google把它并入了三星的同名功能，这也是为什么很多人搜Nearby Share，最后看到的设置界面里已经找不到这个词。服务本身也在扩大：推出了Windows应用，从2025年底起部分手机还能和AirDrop互通。但它仍然没有Mac或Linux的官方应用，不支持没有Google服务的手机，也没法把文件送给不在同一个房间的人。本指南理清几个名字，列出2026年Quick Share能到哪里，给7个替代方案排名（包括两个非官方Quick Share客户端），并说明在替换之前怎样修好自带功能。<strong>BIShare</strong>也在名单上：<strong>免费，MIT许可，支持Android、iPhone、Windows、macOS和Linux</strong>。<highlight>不需要Google账号。</highlight>",
+    "body": "Nearby Share是Google对AirDrop的回应：在安卓手机上点分享，选一台附近的设备，文件就通过蓝牙和Wi-Fi无线送达。从2024年起它换了名字，叫Quick Share，因为Google把它并入了三星的同名功能，这也是为什么很多人搜Nearby Share，最后看到的设置界面里已经找不到这个词。服务本身也在扩大：推出了Windows应用，从2025年底起部分手机还能和AirDrop互通。但它仍然没有Mac或Linux的官方应用，不支持没有Google服务的手机，也没法把文件送给不在同一个房间的人。本指南理清几个名字，列出2026年Quick Share能到哪里，给7个替代方案排名（包括两个非官方Quick Share客户端），并说明在替换之前怎样修好自带功能。<strong>BIShare</strong>也在名单上：<strong>免费，MIT许可，支持Android、iPhone、Windows、macOS和Linux</strong>。<highlight><goNoAccount>不需要Google账号</goNoAccount>。</highlight>",
     "ctaPrimary": "免费获取BIShare",
     "ctaSecondary": "工作原理"
   },
@@ -16,7 +16,7 @@
     "title": "快速回答",
     "items": [
       "<strong>在手机上找Nearby Share：</strong>它现在叫Quick Share，就在安卓的分享菜单里，设置中也有单独的Quick Share入口。",
-      "<strong>安卓到Mac或Linux电脑：</strong>两端都装BIShare或LocalSend；如果想让手机自带的Quick Share来发，就用非官方的NearDrop（Mac）和RQuickShare（Linux和Mac）。",
+      "<strong><blogAndroidMac>安卓到Mac</blogAndroidMac>或Linux电脑：</strong>两端都装BIShare或LocalSend；如果想让手机自带的Quick Share来发，就用非官方的NearDrop（Mac）和RQuickShare（Linux和Mac）。",
       "<strong>安卓到iPhone：</strong>只有Google名单里的手机能用Quick Share发到AirDrop。BIShare、LocalSend和PairDrop在任何安卓手机上都能用。",
       "<strong>没有蓝牙或装着32位Windows的电脑：</strong>Google的应用在上面跑不起来，改用BIShare或LocalSend通过网络发送。",
       "<strong>没有Google服务的手机：</strong>Quick Share随Google Play服务提供，所以要选能单独安装的应用，比如BIShare、LocalSend或KDE Connect。",
@@ -45,7 +45,7 @@
       },
       "4": {
         "h": "2025年11月起：与AirDrop互通",
-        "b": "Google让Quick Share学会了AirDrop的协议，2025年底先在Pixel 10上推出，2026年扩展到更多Pixel、Galaxy旗舰和几家中国品牌。接收的iPhone、iPad或Mac需要把AirDrop设为“所有人（10分钟）”。不在Google名单里的手机仍然用不了。"
+        "b": "<goAirdropAndroid>Google让Quick Share学会了AirDrop的协议</goAirdropAndroid>，2025年底先在Pixel 10上推出，2026年扩展到更多Pixel、Galaxy旗舰和几家中国品牌。接收的iPhone、iPad或Mac需要把AirDrop设为“所有人（10分钟）”。不在Google名单里的手机仍然用不了。"
       }
     }
   },
@@ -81,7 +81,7 @@
       },
       "2": {
         "h": "iPhone、iPad和Mac",
-        "b": "有两条路，而且都比新闻标题给人的印象窄。Google AirDrop名单上的手机可以发给AirDrop对所有人开放的苹果设备。Google还加了一个供iPhone扫描的二维码，每天上限10 GB、每次会话1,000个文件，并且需要Wi-Fi。Google没有推出iOS或macOS版的Quick Share应用。"
+        "b": "有两条路，而且都比新闻标题给人的印象窄。<goAndroidIphone>Google AirDrop名单上的手机可以发给AirDrop对所有人开放的苹果设备</goAndroidIphone>。Google还加了一个供iPhone扫描的二维码，每天上限10 GB、每次会话1,000个文件，并且需要Wi-Fi。Google没有推出iOS或macOS版的Quick Share应用。"
       },
       "3": {
         "h": "Linux",
@@ -113,7 +113,7 @@
         "name": "LocalSend",
         "tag": "共享网络下最好的开源选择",
         "facts": "Android、iOS、Windows、macOS、Linux、Fire OS · Apache 2.0 · 同一局域网 · 加密HTTPS，每台设备各有证书 · Winget、Homebrew、Flathub、F-Droid",
-        "body": "在讨论Mac或Linux上用Nearby Share的帖子里，LocalSend是被推荐最多的应用。每台设备都装上，连在同一个路由器下，它们就会以名称和图标互相显示，和Quick Share的设备列表很像。没有账号、没有服务器、没有大小限制，电脑上用平时的包管理器就能装。",
+        "body": "在讨论Mac或Linux上用Nearby Share的帖子里，<goLocalsend>LocalSend</goLocalsend>是被推荐最多的应用。每台设备都装上，连在同一个路由器下，它们就会以名称和图标互相显示，和Quick Share的设备列表很像。没有账号、没有服务器、没有大小限制，电脑上用平时的包管理器就能装。",
         "cons": "两台设备必须保持在同一个本地网络里，也没有给异地的人用的链接功能。"
       },
       "2": {
@@ -127,7 +127,7 @@
         "name": "PairDrop",
         "tag": "什么都不装、偶尔发一次时最合适",
         "facts": "任何现代浏览器 · GPL-3.0 · 同一网络的设备自动发现 · 跨网络用配对码或二维码 · 备用TURN中继 · 可自行部署",
-        "body": "在没有Nearby Share的设备上，PairDrop最接近那种免设置的便利。在同一网络的手机和电脑上打开pairdrop.net，它们就能互相看到；不同网络就用配对码连接。借来的笔记本、禁止安装软件的公司电脑、iPhone，一个浏览器标签页就能搞定。",
+        "body": "在没有Nearby Share的设备上，<goSnapdrop>PairDrop</goSnapdrop>最接近那种免设置的便利。在同一网络的手机和电脑上打开pairdrop.net，它们就能互相看到；不同网络就用配对码连接。借来的笔记本、禁止安装软件的公司电脑、iPhone，一个浏览器标签页就能搞定。",
         "cons": "需要联网才能让设备互相认识，标签页必须保持打开，超大文件会吃紧浏览器内存。"
       },
       "4": {
@@ -209,7 +209,7 @@
       },
       "1": {
         "h": "安卓手机到Linux电脑",
-        "b": "想让手机分享菜单直接列出电脑，就用RQuickShare或Packet。如果还想在桌面上看手机通知、共享剪贴板，就选KDE Connect。"
+        "b": "想让<goPhonePc>手机分享菜单直接列出电脑</goPhonePc>，就用RQuickShare或Packet。如果还想在桌面上看手机通知、共享剪贴板，就选KDE Connect。"
       },
       "2": {
         "h": "任意安卓手机到iPhone",
@@ -217,7 +217,7 @@
       },
       "3": {
         "h": "Google应用装不上的Windows电脑",
-        "b": "32位版本、没有蓝牙的台式机，或仍在用Windows 10的Arm笔记本：装BIShare或LocalSend，它们只依赖网络。"
+        "b": "32位版本、没有蓝牙的台式机，或仍在用Windows 10的Arm笔记本：装BIShare或LocalSend，<goOffline>它们只依赖网络</goOffline>。"
       },
       "4": {
         "h": "没有Google Play服务的手机",
@@ -225,7 +225,7 @@
       },
       "5": {
         "h": "远方的人",
-        "b": "生成一个BIShare链接：能装100 GB，一天后过期，接收方只要有浏览器。PairDrop也能在两个标签页都开着时，把不同网络中的两台设备配对。"
+        "b": "生成一个BIShare链接：能装100 GB，一天后过期，<goTransfer>接收方只要有浏览器</goTransfer>。PairDrop也能在两个标签页都开着时，把不同网络中的两台设备配对。"
       }
     }
   },
@@ -255,7 +255,7 @@
       },
       "5": {
         "h": "你所在的国家不在支持范围",
-        "b": "Google不在古巴、伊朗、朝鲜和叙利亚提供Windows应用，在这些地方，从手机到电脑的无线途径只剩跨平台应用。"
+        "b": "Google不在古巴、伊朗、朝鲜和叙利亚提供Windows应用，在这些地方，从手机到电脑的无线途径只剩<goBestApps>跨平台应用</goBestApps>。"
       }
     }
   },

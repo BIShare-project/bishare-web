@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Ordinateur → téléphone",
     "title": "Transférer des fichiers du PC au téléphone",
-    "body": "La méthode la plus simple dépend de deux choses : l'ordinateur et le téléphone. Un PC Windows et un téléphone Android disposent de deux outils gratuits pour ça, l'un de Microsoft, l'autre de Google. Un Mac et un iPhone ont AirDrop. Toutes les autres combinaisons, un PC Windows avec un iPhone, un Mac avec la plupart des Android, tout ce qui touche à Linux, tombent dans un trou où la réponse intégrée est un câble, un envoi dans le cloud ou rien du tout. Ce guide trie d'abord les six combinaisons, puis classe huit méthodes, explique ce qu'un câble USB peut et ne peut pas faire avec un iPhone sous Windows, montre où le fichier arrive sur le téléphone et récapitule les limites de taille. <strong>BIShare</strong> fait partie des huit, et c'est la seule ici qui fonctionne <strong>depuis Windows, Mac et Linux vers l'iPhone comme vers Android</strong>. <highlight>Gratuit, open source, sans compte.</highlight>",
+    "body": "La méthode la plus simple dépend de deux choses : l'ordinateur et le téléphone. Un PC Windows et un téléphone Android disposent de deux outils gratuits pour ça, l'un de Microsoft, l'autre de Google. Un Mac et un iPhone ont AirDrop. Toutes les autres combinaisons, <goAirdropWindows>un PC Windows avec un iPhone</goAirdropWindows>, un Mac avec la plupart des Android, tout ce qui touche à Linux, tombent dans un trou où la réponse intégrée est un câble, un envoi dans le cloud ou rien du tout. Ce guide trie d'abord les six combinaisons, puis classe huit méthodes, explique ce qu'un câble USB peut et ne peut pas faire avec un iPhone sous Windows, montre où le fichier arrive sur le téléphone et récapitule les limites de taille. <strong>BIShare</strong> fait partie des huit, et c'est la seule ici qui fonctionne <strong>depuis Windows, Mac et Linux vers l'iPhone comme vers Android</strong>. <highlight>Gratuit, open source, sans compte.</highlight>",
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
@@ -16,7 +16,7 @@
     "title": "Réponse rapide",
     "items": [
       "<strong>D'un PC Windows vers un Android :</strong> installez Quick Share pour Windows de Google, faites un clic droit sur le fichier et choisissez Envoyer avec Quick Share. Mobile connecté marche aussi, avec un plafond de 512 Mo par fichier en glisser-déposer.",
-      "<strong>D'un PC Windows vers un iPhone :</strong> il n'existe aucune méthode sans fil intégrée. Placez le fichier dans iCloud Drive avec iCloud pour Windows, ou envoyez-le avec une app présente sur les deux, comme BIShare.",
+      "<strong>D'un PC Windows vers un iPhone :</strong> <blogIphoneWindows>il n'existe aucune méthode sans fil intégrée</blogIphoneWindows>. Placez le fichier dans iCloud Drive avec iCloud pour Windows, ou envoyez-le avec une app présente sur les deux, comme BIShare.",
       "<strong>D'un Mac vers un iPhone :</strong> AirDrop. Du Mac vers un Pixel 9 ou plus récent ou un Galaxy récent, AirDrop fonctionne aussi désormais, une fois le téléphone réglé pour recevoir de tout le monde.",
       "<strong>De Linux vers Android :</strong> KDE Connect ou GSConnect. De Linux vers un iPhone, c'est le duo le plus difficile ; une app multiplateforme ou un lien dans le navigateur reste la réponse réaliste.",
       "<strong>N'importe quel ordinateur, n'importe quel téléphone, même Wi-Fi :</strong> BIShare sur les deux envoie le fichier original en direct et chiffré, sans limite de taille.",
@@ -29,11 +29,11 @@
     "items": {
       "0": {
         "h": "Depuis Windows",
-        "b": "Les téléphones Android sont bien servis : Quick Share pour Windows et Mobile connecté viennent des entreprises qui font le logiciel du téléphone. Les iPhone, non. Windows peut importer les photos d'un iPhone par câble, mais pas y déposer de fichiers ; restent donc iCloud Drive, l'app Appareils Apple pour des fichiers dans certaines apps, ou une app tierce."
+        "b": "Les téléphones Android sont bien servis : Quick Share pour Windows et Mobile connecté viennent des entreprises qui font le logiciel du téléphone. Les iPhone, non. Windows peut <goIphonePhotos>importer les photos d'un iPhone par câble</goIphonePhotos>, mais pas y déposer de fichiers ; restent donc iCloud Drive, l'app Appareils Apple pour des fichiers dans certaines apps, ou une app tierce."
       },
       "1": {
         "h": "Depuis un Mac",
-        "b": "AirDrop couvre l'iPhone et, depuis que Google a appris à Quick Share à parler AirDrop, aussi le Pixel 9 et plus récents ainsi qu'une liste croissante de modèles Galaxy, Xiaomi, OnePlus et autres. Les Android plus anciens ou non pris en charge n'ont aucune méthode sans fil depuis un Mac, et Google ne propose plus Android File Transfer pour macOS depuis 2024."
+        "b": "AirDrop couvre l'iPhone et, depuis que Google a appris <goAirdropAndroid>à Quick Share à parler AirDrop</goAirdropAndroid>, aussi le Pixel 9 et plus récents ainsi qu'une liste croissante de modèles Galaxy, Xiaomi, OnePlus et autres. Les Android plus anciens ou non pris en charge n'ont aucune méthode sans fil depuis un Mac, et Google ne propose plus Android File Transfer pour macOS depuis 2024."
       },
       "2": {
         "h": "Depuis Linux",
@@ -56,7 +56,7 @@
         "name": "Quick Share pour Windows",
         "tag": "La meilleure méthode intégrée d'un PC Windows vers un Android",
         "facts": "Windows 10 ou plus récent en 64 bits (Windows 11 sur Arm) · Android 6.0 ou plus récent · à environ 5 mètres · Bluetooth plus Wi-Fi ou Ethernet · gratuit, de Google",
-        "body": "L'app Windows de Google parle le même protocole que le menu Partager de n'importe quel Android récent. Glissez des fichiers dans sa fenêtre, ou faites un clic droit dans l'Explorateur de fichiers, choisissez Envoyer avec Quick Share, puis le téléphone. Le téléphone doit être proche et visible, par tout le monde ou par vos appareils si les deux utilisent le même compte Google. Google n'indique aucune limite de taille, et le transfert ne passe pas par un serveur. Les PC Samsung ont la version de Samsung dans le Microsoft Store, qui fait la même chose.",
+        "body": "L'app Windows de Google parle le même protocole que le menu Partager de n'importe quel Android récent. Glissez des fichiers dans sa fenêtre, ou faites un clic droit dans l'Explorateur de fichiers, choisissez Envoyer avec <goNearby>Quick Share</goNearby>, puis le téléphone. Le téléphone doit être proche et visible, par tout le monde ou par vos appareils si les deux utilisent le même compte Google. Google n'indique aucune limite de taille, et le transfert ne passe pas par un serveur. Les PC Samsung ont la version de Samsung dans le Microsoft Store, qui fait la même chose.",
         "cons": "Android uniquement, et les deux appareils doivent être proches. Les réseaux qui bloquent le trafic entre appareils, comme beaucoup de réseaux de bureau et d'hôtel, l'empêchent ; Google conseille alors le partage de connexion du téléphone."
       },
       "2": {
@@ -77,7 +77,7 @@
         "name": "Un câble USB",
         "tag": "Le meilleur pour un gros lot vers un Android, le plus faible pour un iPhone",
         "facts": "Android : mode Transfert de fichiers, apparaît dans l'Explorateur sous Windows · iPhone : app Appareils Apple sous Windows ou Finder sur Mac, les fichiers vont dans des apps compatibles avec le partage de fichiers · du Mac vers Android, une app tierce est nécessaire",
-        "body": "Branchez un Android sur un PC Windows, déroulez la notification qui indique la recharge, choisissez Transfert de fichiers, et le téléphone apparaît dans Ce PC. Copiez des dossiers dessus comme sur une clé USB. Un iPhone, c'est différent : Windows n'affiche que sa pellicule, pour importer les photos du téléphone. Pour mettre des fichiers sur un iPhone par câble, on passe par Appareils Apple sous Windows ou le Finder sur Mac, on choisit une app compatible avec le partage de fichiers, comme VLC ou Documents, et on ajoute les fichiers à cette app. Les photos peuvent aussi être synchronisées depuis un dossier du PC vers l'app Photos de l'iPhone, tant que Photos iCloud est désactivé.",
+        "body": "Branchez un Android sur un PC Windows, déroulez la notification qui indique la recharge, choisissez Transfert de fichiers, et le téléphone apparaît dans Ce PC. Copiez des dossiers dessus comme sur une clé USB. Un iPhone, c'est différent : Windows n'affiche que sa pellicule, <goPhonePc>pour importer les photos du téléphone</goPhonePc>. Pour mettre des fichiers sur un iPhone par câble, on passe par Appareils Apple sous Windows ou le Finder sur Mac, on choisit une app compatible avec le partage de fichiers, comme VLC ou Documents, et on ajoute les fichiers à cette app. Les photos peuvent aussi être synchronisées depuis un dossier du PC vers l'app Photos de l'iPhone, tant que Photos iCloud est désactivé.",
         "cons": "Beaucoup de câbles de téléphone ne tournent qu'en USB 2.0, des milliers de petits fichiers rampent via MTP, et le Mac n'a plus d'outil Google pour Android depuis le retrait d'Android File Transfer ; OpenMTP est le remplaçant gratuit habituel."
       },
       "5": {
@@ -98,7 +98,7 @@
         "name": "LocalSend",
         "tag": "App gratuite et open source pour le cas du même réseau",
         "facts": "Windows, macOS, Linux, Android, iOS · open source · réseau local uniquement · chiffré · gratuit",
-        "body": "LocalSend est un outil solide et honnête : installez-le sur l'ordinateur et le téléphone, et sur un même réseau ils se trouvent et s'envoient des fichiers sans aucun serveur. Si vos transferts ont toujours lieu au même bureau, il fait très bien l'affaire.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> est un outil solide et honnête : installez-le sur l'ordinateur et le téléphone, et sur un même réseau ils se trouvent et s'envoient des fichiers sans aucun serveur. Si vos transferts ont toujours lieu au même bureau, il fait très bien l'affaire.",
         "cons": "Il ne peut pas atteindre un téléphone sur un autre réseau. Son option de partage par lien s'ouvre dans un navigateur, mais le téléphone doit tout de même être sur le même réseau que l'ordinateur."
       }
     }
@@ -202,7 +202,7 @@
     "items": {
       "0": {
         "h": "Plafonds fixes par fichier",
-        "b": "Les pièces jointes s'arrêtent vers 20 à 25 Mo. Le glisser-déposer de Mobile connecté s'arrête à 512 Mo. Telegram et WhatsApp s'arrêtent à 2 Go, ou 4 Go avec Telegram Premium. iCloud pour Windows accepte des fichiers jusqu'à 50 Go, et un lien BIShare transporte jusqu'à 100 Go."
+        "b": "<goLargeFiles>Les pièces jointes</goLargeFiles> s'arrêtent vers 20 à 25 Mo. Le glisser-déposer de Mobile connecté s'arrête à 512 Mo. Telegram et WhatsApp s'arrêtent à 2 Go, ou 4 Go avec Telegram Premium. iCloud pour Windows accepte des fichiers jusqu'à 50 Go, et un lien BIShare transporte jusqu'à 100 Go."
       },
       "1": {
         "h": "Le stockage s'épuise en premier",
@@ -227,17 +227,17 @@
       },
       "2": {
         "h": "Ou créer un lien",
-        "b": "Si le téléphone est ailleurs, choisissez Lien dans l'app ou ouvrez bishare.app/transfer dans n'importe quel navigateur de bureau et ajoutez-y les fichiers. Envoyez l'adresse, montrez le code QR ou dictez le code à 6 caractères ; Safari ou Chrome sur le téléphone peuvent récupérer jusqu'à 100 Go pendant les 24 heures suivantes."
+        "b": "Si le téléphone est ailleurs, choisissez Lien dans l'app ou ouvrez <goTransfer>bishare.app/transfer</goTransfer> dans n'importe quel navigateur de bureau et ajoutez-y les fichiers. Envoyez l'adresse, montrez le code QR ou dictez le code à 6 caractères ; Safari ou Chrome sur le téléphone peuvent récupérer jusqu'à 100 Go pendant les 24 heures suivantes."
       }
     }
   },
   "speed": {
     "title": "Combien de temps ça prend",
-    "body": "Pour les méthodes sans fil, le goulet d'étranglement est le Wi-Fi du téléphone, pas l'ordinateur. Pour tout ce qui passe par un serveur, c'est le débit montant de votre connexion qui donne le rythme.",
+    "body": "Pour <blogWireless>les méthodes sans fil</blogWireless>, le goulet d'étranglement est le Wi-Fi du téléphone, pas l'ordinateur. Pour tout ce qui passe par un serveur, c'est le débit montant de votre connexion qui donne le rythme.",
     "items": {
       "0": {
         "h": "Même Wi-Fi",
-        "b": "Comptez environ 40–50 Mo/s d'un téléphone récent en Wi-Fi 5 près du routeur, et 70–110 Mo/s en Wi-Fi 6 ; un gigaoctet est passé avant que vous ayez pris le téléphone. Un ordinateur en Ethernet aide peu, car la radio du téléphone est la moitié la plus lente. Un partage de connexion donne en général 10 à 30 Mo/s."
+        "b": "Comptez environ 40–50 Mo/s d'un téléphone récent en Wi-Fi 5 près du routeur, et 70–110 Mo/s en Wi-Fi 6 ; un gigaoctet est passé avant que vous ayez pris le téléphone. Un ordinateur en Ethernet aide peu, car la radio du téléphone est la moitié la plus lente. <goOffline>Un partage de connexion</goOffline> donne en général 10 à 30 Mo/s."
       },
       "1": {
         "h": "Câble USB",
@@ -284,7 +284,7 @@
       },
       "1": {
         "h": "Via un serveur, scellé",
-        "b": "Les liens BIShare chiffrent le fichier sur l'ordinateur avant l'envoi, donc le serveur détient des données qu'il ne peut pas lire. WhatsApp chiffre aussi les fichiers de bout en bout, mais ils restent dans l'historique de discussion sur les deux appareils."
+        "b": "Les liens BIShare <goEncrypted>chiffrent le fichier sur l'ordinateur avant l'envoi</goEncrypted>, donc le serveur détient des données qu'il ne peut pas lire. WhatsApp chiffre aussi les fichiers de bout en bout, mais ils restent dans l'historique de discussion sur les deux appareils."
       },
       "2": {
         "h": "Via un serveur, lisible par le fournisseur",

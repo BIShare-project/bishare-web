@@ -6,20 +6,20 @@
   "hero": {
     "eyebrow": "크로스플랫폼 전송",
     "title": "Windows용 AirDrop",
-    "body": "AirDrop은 Apple 기기끼리만 작동하고, Windows에는 한 번도 나온 적이 없습니다. <strong>BIShare</strong>는 <strong>iPhone이나 Mac과 Windows PC</strong> 사이에서 같은 일을 해 주는 무료 오픈소스 앱입니다. Android와 Linux까지 지원하고, 내 Wi-Fi로 보내거나 상대가 아무 브라우저에서나 여는 링크로 보낼 수 있어요. <highlight>무료, 계정 불필요, 받는 쪽은 아무것도 설치하지 않습니다.</highlight>",
+    "body": "AirDrop은 Apple 기기끼리만 작동하고, Windows에는 한 번도 나온 적이 없습니다. <strong>BIShare</strong>는 <strong>iPhone이나 Mac과 Windows PC</strong> 사이에서 같은 일을 해 주는 무료 오픈소스 앱입니다. Android와 Linux까지 지원하고, 내 Wi-Fi로 보내거나 상대가 아무 브라우저에서나 여는 링크로 보낼 수 있어요. <highlight>무료, <goNoAccount>계정 불필요</goNoAccount>, 받는 쪽은 아무것도 설치하지 않습니다.</highlight>",
     "ctaPrimary": "BIShare 무료로 받기",
     "ctaSecondary": "사용 방법"
   },
   "why": {
     "title": "AirDrop이 Windows에 닿지 못하는 이유",
-    "body": "AirDrop은 Apple 전용 프로토콜로 동작해서 iPhone, iPad, Mac 사이에서만 작동하고 Windows PC와는 절대 연결되지 않습니다. Apple은 다른 회사가 구현할 수 있도록 프로토콜을 공개한 적이 없어요. Windows 11의 근거리 공유는 다른 Windows PC하고만 통신합니다. Microsoft의 Phone Link는 2024년 12월에 iPhone 파일 공유를 추가했지만 Windows Insider 빌드에서만, 그것도 휴대폰만 대상입니다. Mac에서 PC로 가는 길은 여전히 없어요. iPhone이나 Mac에서 Windows 노트북으로 사진이나 문서를 옮기는 그 일상적인 작업이 바로 BIShare가 맡는 부분입니다."
+    "body": "AirDrop은 Apple 전용 프로토콜로 동작해서 iPhone, iPad, Mac 사이에서만 작동하고 Windows PC와는 절대 연결되지 않습니다. Apple은 다른 회사가 구현할 수 있도록 프로토콜을 공개한 적이 없어요. Windows 11의 근거리 공유는 다른 Windows PC하고만 통신합니다. Microsoft의 Phone Link는 2024년 12월에 iPhone 파일 공유를 추가했지만 Windows Insider 빌드에서만, 그것도 휴대폰만 대상입니다. <goMacWindows>Mac에서 PC로 가는 길은 여전히 없어요</goMacWindows>. <blogIphoneWindows>iPhone이나 Mac에서 Windows 노트북으로 사진이나 문서를 옮기는</blogIphoneWindows> 그 일상적인 작업이 바로 BIShare가 맡는 부분입니다."
   },
   "how": {
     "title": "BIShare가 iPhone / Mac ↔ Windows를 보내는 방식",
     "items": {
       "0": {
         "h": "같은 Wi-Fi에서",
-        "b": "파일은 기기에서 기기로 바로, 종단 간 암호화되어 전송되며 서버에는 아무것도 저장되지 않습니다. 빠르고, 인터넷이 전혀 없어도 휴대폰 핫스팟으로도 작동합니다."
+        "b": "파일은 기기에서 기기로 바로, 종단 간 암호화되어 전송되며 서버에는 아무것도 저장되지 않습니다. 빠르고, <goOffline>인터넷이 전혀 없어도 휴대폰 핫스팟으로도 작동합니다</goOffline>."
       },
       "1": {
         "h": "멀리 떨어져 있을 때",
@@ -154,11 +154,11 @@
     "title": "한 방향이 아니라 양방향",
     "toPc": {
       "h": "아이폰·맥 → Windows PC",
-      "b": "흔한 경우: 사진·영상·문서를 휴대폰에서 컴퓨터로, 로컬 Wi-Fi 속도로, 원본 파일 그대로. 재압축도, 메일의 25MB 한도도, 중간에 서버로 올라가는 일도 없습니다."
+      "b": "흔한 경우: <goPhonePc>사진·영상·문서를 휴대폰에서 컴퓨터로</goPhonePc>, 로컬 Wi-Fi 속도로, 원본 파일 그대로. 재압축도, 메일의 25MB 한도도, 중간에 서버로 올라가는 일도 없습니다."
     },
     "toPhone": {
       "h": "Windows PC → 아이폰·맥",
-      "b": "같은 경로의 반대 방향 — AirDrop이 한 번도 제공한 적 없는 방향입니다. PC 앱에 파일을 끌어다 놓고 휴대폰으로 보내세요. 큰 영상이나 폴더도 작은 파일과 똑같이 동작하는데, 한계가 업로드 할당량이 아니라 디스크 여유 공간이기 때문입니다."
+      "b": "같은 경로의 반대 방향 — AirDrop이 한 번도 제공한 적 없는 방향입니다. PC 앱에 파일을 끌어다 놓고 <goPcPhone>휴대폰으로 보내세요</goPcPhone>. <goLargeFiles>큰 영상이나 폴더</goLargeFiles>도 작은 파일과 똑같이 동작하는데, 한계가 업로드 할당량이 아니라 디스크 여유 공간이기 때문입니다."
     }
   },
   "fixes": {
@@ -184,7 +184,7 @@
     "items": [
       "<strong>Windows에 AirDrop은 없습니다.</strong> Apple 전용 프로토콜로 동작하므로 \"AirDrop for Windows\"라는 이름의 다운로드는 가짜입니다. 그 이름의 .exe는 안전하지 않다고 보세요.",
       "<strong>지금 쓸 수 있는 가장 가까운 대안:</strong> BIShare — Windows 10·11용으로 Microsoft Store에서 무료, iPhone·Mac·Android·Linux 앱도 있습니다. Wi-Fi로 양방향 전송, 계정 불필요.",
-      "<strong>설치가 싫다면?</strong> PC의 아무 브라우저에서 bishare.app/transfer를 열고 휴대폰에서 파일을 보내세요. 같은 Wi-Fi든 링크든, 기기를 떠나기 전에 암호화됩니다.",
+      "<strong>설치가 싫다면?</strong> PC의 아무 브라우저에서 <goTransfer>bishare.app/transfer</goTransfer>를 열고 휴대폰에서 파일을 보내세요. 같은 Wi-Fi든 링크든, 기기를 떠나기 전에 암호화됩니다.",
       "<strong>Microsoft의 공식 선택지:</strong> Phone Link(휴대폰과 연결)는 Windows Insider 빌드에서만 iPhone과 파일을 공유할 수 있습니다(iOS 16 이상, Bluetooth 페어링, Microsoft 계정). Mac은 지원하지 않고, 정식 Windows에는 아직 모두에게 제공되지 않습니다."
     ]
   },
@@ -251,7 +251,7 @@
       },
       {
         "h": "LocalSend",
-        "b": "무료 오픈소스이고 공유 Wi-Fi에서는 좋습니다. 다만 모든 기기에 앱이 필요하고, 상대가 다른 네트워크에 있거나 아무것도 설치할 수 없을 때 쓸 링크 경로가 없어요."
+        "b": "<goLocalsend>무료 오픈소스이고 공유 Wi-Fi에서는 좋습니다</goLocalsend>. 다만 모든 기기에 앱이 필요하고, 상대가 다른 네트워크에 있거나 아무것도 설치할 수 없을 때 쓸 링크 경로가 없어요."
       },
       {
         "h": "Snapdrop / PairDrop",
@@ -259,7 +259,7 @@
       },
       {
         "h": "SHAREit, Xender 등",
-        "b": "겉보기엔 빠르지만 광고가 붙고 권한 요구가 많으며 보안 문제로 거듭 지적받았습니다. 업무용 PC에 넣을 도구는 아니에요."
+        "b": "겉보기엔 빠르지만 <goShareit>광고가 붙고 권한 요구가 많으며</goShareit> 보안 문제로 거듭 지적받았습니다. 업무용 PC에 넣을 도구는 아니에요."
       },
       {
         "h": "iCloud, Google Drive, Dropbox",
@@ -267,7 +267,7 @@
       },
       {
         "h": "케이블, iTunes, Windows 사진 앱",
-        "b": "케이블과 드라이버 설치만 하면 iPhone 사진에는 믿을 만합니다. Mac에서 PC로는 안 되고, 반대 방향도, 다른 사람에게 보내기도 안 돼요."
+        "b": "케이블과 드라이버 설치만 하면 <goIphonePhotos>iPhone 사진에는 믿을 만합니다</goIphonePhotos>. Mac에서 PC로는 안 되고, 반대 방향도, 다른 사람에게 보내기도 안 돼요."
       },
       {
         "h": "이메일이나 채팅 앱",
@@ -317,7 +317,7 @@
     "title": "기기 밖으로 나가는 것과 나가지 않는 것",
     "items": [
       "같은 네트워크에서는 파일이 그 전송용으로 암호화되어 기기에서 기기로 곧장 갑니다. 어떤 서버도 보지 못하고, 받는 PC 말고는 어디에도 저장되지 않아요.",
-      "링크 경로에서는 업로드 전에 브라우저나 앱 안에서 파일이 암호화됩니다. 키는 링크의 # 뒤에 실리는데, 브라우저는 이 부분을 서버로 보내지 않으므로 저희 저장소에는 열 수 없는 암호문만 남습니다. 링크는 24시간 뒤 만료되고, 첫 다운로드 후 스스로 사라지는 링크도 만들 수 있어요.",
+      "링크 경로에서는 <goEncrypted>업로드 전에 브라우저나 앱 안에서 파일이 암호화됩니다</goEncrypted>. 키는 링크의 # 뒤에 실리는데, 브라우저는 이 부분을 서버로 보내지 않으므로 저희 저장소에는 열 수 없는 암호문만 남습니다. 링크는 24시간 뒤 만료되고, 첫 다운로드 후 스스로 사라지는 링크도 만들 수 있어요.",
       "계정 없음, 연락처 업로드 없음, 광고 SDK 없음. Windows 앱은 서명되어 저희가 Microsoft Store에 게시했고, 모든 플랫폼의 소스 코드가 공개되어 있습니다."
     ]
   },

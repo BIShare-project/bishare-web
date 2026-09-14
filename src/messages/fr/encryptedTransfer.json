@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Transfert de fichiers chiffré",
     "title": "Le transfert de fichiers chiffré, bien expliqué",
-    "body": "Presque tous les services d'envoi de fichiers se disent aujourd'hui chiffrés, et presque tous disent vrai sur quelque chose. Reste à savoir quoi. Un lien peut être protégé par HTTPS jusqu'au serveur, dormir chiffré sur un disque que le fournisseur sait ouvrir, ou être verrouillé sur votre appareil avec une clé que le fournisseur ne voit jamais. Seule la dernière option tient à l'écart de votre fichier l'entreprise elle-même, quiconque la pirate et quiconque peut la contraindre à le livrer. Ce guide distingue les trois types de chiffrement, vous donne un test pour les reconnaître sur n'importe quel service en une minute, classe sept façons d'envoyer un fichier que l'intermédiaire ne peut pas lire, et dit honnêtement ce que le chiffrement ne cache pas, y compris pour notre propre produit. Notre <strong>BIShare</strong> fait partie des sept : <strong>gratuit et sous licence MIT, il chiffre les liens dans votre navigateur avec AES-256-GCM et envoie d'appareil à appareil avec des clés négociées entre les deux appareils</strong>. <highlight>Aucun compte requis.</highlight>",
+    "body": "Presque tous les services d'envoi de fichiers se disent aujourd'hui chiffrés, et presque tous disent vrai sur quelque chose. Reste à savoir quoi. Un lien peut être protégé par HTTPS jusqu'au serveur, dormir chiffré sur un disque que le fournisseur sait ouvrir, ou être verrouillé sur votre appareil avec une clé que le fournisseur ne voit jamais. Seule la dernière option tient à l'écart de votre fichier l'entreprise elle-même, quiconque la pirate et quiconque peut la contraindre à le livrer. Ce guide distingue les trois types de chiffrement, vous donne un test pour les reconnaître sur n'importe quel service en une minute, classe sept façons d'envoyer un fichier que l'intermédiaire ne peut pas lire, et dit honnêtement ce que le chiffrement ne cache pas, y compris pour notre propre produit. Notre <strong>BIShare</strong> fait partie des sept : <strong>gratuit et sous licence MIT, il chiffre les liens dans votre navigateur avec AES-256-GCM et envoie d'appareil à appareil avec des clés négociées entre les deux appareils</strong>. <highlight><goNoAccount>Aucun compte requis</goNoAccount>.</highlight>",
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
@@ -17,7 +17,7 @@
     "items": [
       "<strong>Cherchez « de bout en bout », pas seulement « chiffré » :</strong> HTTPS et le chiffrement au repos laissent le fournisseur ouvrir votre fichier. De bout en bout signifie que seuls l'expéditeur et le destinataire détiennent la clé.",
       "<strong>Un test d'une minute :</strong> si le service affiche un aperçu de votre fichier dans son application web ou peut vous rendre l'accès quand vous perdez le lien, il n'est pas de bout en bout.",
-      "<strong>Le plus simple depuis un navigateur :</strong> BIShare ou Wormhole chiffrent avant l'envoi et placent la clé dans le lien ; le destinataire n'a qu'à cliquer.",
+      "<strong>Le plus simple depuis un navigateur :</strong> <goTransfer>BIShare</goTransfer> ou Wormhole chiffrent avant l'envoi et placent la clé dans le lien ; le destinataire n'a qu'à cliquer.",
       "<strong>Des fichiers qui doivent rester en ligne des semaines :</strong> Proton Drive conserve des fichiers chiffrés de bout en bout dans votre compte et les partage par lien avec mot de passe facultatif.",
       "<strong>Vous devez aussi cacher qui envoie :</strong> OnionShare sert le fichier depuis votre propre ordinateur via Tor.",
       "<strong>N'importe quel canal, même un e-mail classique :</strong> placez le fichier dans une archive 7-Zip en AES-256 avec un mot de passe solide, et transmettez le mot de passe par un autre moyen."
@@ -37,7 +37,7 @@
       },
       "2": {
         "h": "Chiffrement de bout en bout",
-        "b": "Le fichier est chiffré sur l'appareil de l'expéditeur avant de partir, et seul l'appareil du destinataire peut le déchiffrer. Le service stocke ou relaie des octets illisibles et n'a jamais la clé. Si l'entreprise est piratée ou sommée de livrer des fichiers, elle n'a rien de lisible à fournir. C'est le seul type qui vous protège de l'intermédiaire lui-même."
+        "b": "Le fichier est chiffré sur l'appareil de l'expéditeur avant de partir, et <blogE2e>seul l'appareil du destinataire peut le déchiffrer</blogE2e>. Le service stocke ou relaie des octets illisibles et n'a jamais la clé. Si l'entreprise est piratée ou sommée de livrer des fichiers, elle n'a rien de lisible à fournir. C'est le seul type qui vous protège de l'intermédiaire lui-même."
       },
       "3": {
         "h": "Pourquoi le marketing les confond",
@@ -87,7 +87,7 @@
         "name": "Wormhole",
         "tag": "Meilleur lien chiffré rapide depuis n'importe quel navigateur",
         "facts": "Navigateur · gratuit · jusqu'à 10 Go · AES-GCM avec clés de 128 bits selon la RFC 8188, chiffré avant l'envoi · fichiers jusqu'à 5 Go stockés 24 heures, plus gros en pair à pair · bibliothèque de chiffrement open source",
-        "body": "Wormhole chiffre dans le navigateur avant que quoi que ce soit ne parte, ses serveurs ne gardent donc du texte chiffré qu'une journée au plus. Il s'utilise vite sur un ordinateur prêté et ne demande rien à installer d'un côté comme de l'autre. Sa FAQ détaille le schéma et publie la bibliothèque de chiffrement en flux, mais pas le service complet.",
+        "body": "<goWormhole>Wormhole</goWormhole> chiffre dans le navigateur avant que quoi que ce soit ne parte, ses serveurs ne gardent donc du texte chiffré qu'une journée au plus. Il s'utilise vite sur un ordinateur prêté et ne demande rien à installer d'un côté comme de l'autre. Sa FAQ détaille le schéma et publie la bibliothèque de chiffrement en flux, mais pas le service complet.",
         "cons": "Le code complet du client et du serveur n'est pas publié, le plafond est de 10 Go, et les envois de plus de 5 Go exigent votre onglet ouvert."
       },
       "2": {
@@ -108,15 +108,14 @@
         "name": "magic-wormhole",
         "tag": "Idéal pour les utilisateurs techniques qui déplacent des fichiers entre ordinateurs",
         "facts": "Ligne de commande sous macOS, Linux, Windows · MIT · codes courts à usage unique · chiffré de bout en bout par échange de clés authentifié par mot de passe · serveur mailbox et relais de transit · toute taille, fichiers et dossiers",
-        "body": "Tapez wormhole send et un nom de fichier, lisez le code court affiché, et l'autre personne tape wormhole receive et le code. Les deux machines utilisent ce code pour s'accorder sur une clé, le relais au milieu ne transporte donc que des données chiffrées. Il gère fichiers et répertoires de toute taille et sert souvent à déplacer des données entre serveurs.",
+        "body": "Tapez wormhole send et un nom de fichier, lisez le code court affiché, et l'autre personne tape wormhole receive et le code. Les deux machines utilisent ce code pour s'accorder sur une clé, le relais au milieu ne transporte donc que des données chiffrées. Il gère <goLargeFiles>fichiers et répertoires de toute taille</goLargeFiles> et sert souvent à déplacer des données entre serveurs.",
         "cons": "Les deux côtés doivent avoir l'outil installé et un terminal, et il n'est pas conçu pour envoyer à des personnes non techniques."
       },
       "5": {
         "name": "LocalSend",
         "tag": "Idéal pour des appareils sur le même réseau, sans internet",
         "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS entre appareils avec un certificat par appareil · réseau local uniquement · aucun serveur",
-        "body": "Quand l'expéditeur et le destinataire partagent un Wi-Fi, LocalSend fait passer les fichiers directement entre les appareils en HTTPS chiffré, sans serveur au milieu. Rien n'est envoyé nulle part, la question de ce qu'un fournisseur peut lire ne se pose donc pas."
-        ,
+        "body": "Quand l'expéditeur et le destinataire partagent un Wi-Fi, <goLocalsend>LocalSend</goLocalsend> fait passer les fichiers directement entre les appareils en HTTPS chiffré, sans serveur au milieu. Rien n'est envoyé nulle part, la question de ce qu'un fournisseur peut lire ne se pose donc pas.",
         "cons": "Il ne joint que les appareils du même réseau local, et chaque appareil doit avoir l'application."
       },
       "6": {
@@ -221,7 +220,7 @@
     "items": {
       "0": {
         "h": "Un contrat, une pièce d'identité ou un courrier médical pour une personne",
-        "b": "Un lien BIShare ou Wormhole en téléchargement unique ou à courte expiration, envoyé par une messagerie privée."
+        "b": "Un lien BIShare ou Wormhole en <blogConfidential>téléchargement unique ou à courte expiration</blogConfidential>, envoyé par une messagerie privée."
       },
       "1": {
         "h": "Des documents dont un client aura besoin pendant des semaines",
@@ -233,7 +232,7 @@
       },
       "3": {
         "h": "De gros dossiers entre vos propres appareils",
-        "b": "Un transfert direct BIShare ou LocalSend sur le même réseau, pour que rien ne soit envoyé ailleurs."
+        "b": "Un transfert direct BIShare ou LocalSend <goOffline>sur le même réseau</goOffline>, pour que rien ne soit envoyé ailleurs."
       },
       "4": {
         "h": "Des données entre serveurs ou terminaux",
@@ -247,7 +246,7 @@
   },
   "mistakes": {
     "title": "Erreurs courantes qui annulent le chiffrement",
-    "body": "La plupart des fuites de fichiers chiffrés ne cassent pas l'algorithme. Elles le contournent.",
+    "body": "<blogLeaks>La plupart des fuites de fichiers chiffrés</blogLeaks> ne cassent pas l'algorithme. Elles le contournent.",
     "items": {
       "0": {
         "h": "Le mot de passe dans le même message",

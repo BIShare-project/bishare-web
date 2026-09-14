@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Pemecahan masalah",
     "title": "AirDrop tidak berfungsi? Cari penyebabnya dulu",
-    "body": "AirDrop gagal dengan beberapa pola yang mudah dikenali: perangkat lain tidak pernah muncul, transfer tertahan di Menunggu, muncul kode enam digit yang tidak diduga siapa pun, atau file sampai lalu hilang di aplikasi yang tidak dicek. Tiap gejala mengarah ke penyebab berbeda, dan beberapa bahkan bukan kerusakan, melainkan perubahan yang sengaja dibuat Apple di iOS 16.2, iOS 17, dan iOS 26.2. Panduan ini dimulai dari apa yang Anda lihat, merinci apa yang sebenarnya dibutuhkan AirDrop menurut Apple, membahas perbaikan di iPhone, iPad, dan Mac, menjelaskan perubahan terbaru yang terlihat seperti bug, dan membahas kasus ketika perangkat lain adalah HP Android atau PC Windows. <strong>BIShare</strong> adalah cadangan yang kami buat untuk saat AirDrop tidak bisa membantu: <strong>mengirim antara iPhone, Android, Windows, Mac, dan Linux</strong>, langsung di jaringan yang sama atau lewat tautan. <highlight>Gratis, open source, tanpa akun.</highlight>",
+    "body": "AirDrop gagal dengan beberapa pola yang mudah dikenali: perangkat lain tidak pernah muncul, transfer tertahan di Menunggu, muncul kode enam digit yang tidak diduga siapa pun, atau file sampai lalu hilang di aplikasi yang tidak dicek. Tiap gejala mengarah ke penyebab berbeda, dan beberapa bahkan bukan kerusakan, melainkan perubahan yang sengaja dibuat Apple di iOS 16.2, iOS 17, dan iOS 26.2. Panduan ini dimulai dari apa yang Anda lihat, merinci apa yang sebenarnya dibutuhkan AirDrop menurut Apple, membahas perbaikan di iPhone, iPad, dan Mac, menjelaskan perubahan terbaru yang terlihat seperti bug, dan membahas kasus ketika perangkat lain adalah HP Android atau PC Windows. <strong>BIShare</strong> adalah cadangan yang kami buat untuk saat AirDrop tidak bisa membantu: <strong>mengirim antara iPhone, Android, Windows, Mac, dan Linux</strong>, langsung di jaringan yang sama atau lewat tautan. <highlight>Gratis, open source, <goNoAccount>tanpa akun</goNoAccount>.</highlight>",
     "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
@@ -41,7 +41,7 @@
       },
       "3": {
         "h": "Transfer mulai lalu gagal",
-        "b": "Video besar di koneksi yang lemah, Hotspot Pribadi yang sedang dipakai, atau VPN maupun aplikasi keamanan yang mengganggu lalu lintas lokal adalah penyebab umum. Mulai ulang kedua perangkat dan coba lagi dengan keduanya berdampingan."
+        "b": "<goLargeFiles>Video besar</goLargeFiles> di koneksi yang lemah, Hotspot Pribadi yang sedang dipakai, atau VPN maupun aplikasi keamanan yang mengganggu lalu lintas lokal adalah penyebab umum. Mulai ulang kedua perangkat dan coba lagi dengan keduanya berdampingan."
       },
       "4": {
         "h": "Berhasil, tetapi file tidak ditemukan",
@@ -171,28 +171,28 @@
     "items": {
       "0": {
         "h": "HP Android",
-        "b": "Jika HP ada di daftar Google untuk Quick Share dengan AirDrop, HP itu bisa bertukar file dengan iPhone asalkan iPhone mengizinkan \"Semua Orang selama 10 Menit\" dan, di Galaxy, tombol berbagi dengan Apple menyala. HP Android lama atau yang tidak terdaftar tidak bisa menerima AirDrop dalam bentuk apa pun."
+        "b": "Jika HP ada di <goAirdropAndroid>daftar Google untuk Quick Share dengan AirDrop</goAirdropAndroid>, HP itu bisa bertukar file dengan iPhone asalkan iPhone mengizinkan \"Semua Orang selama 10 Menit\" dan, di Galaxy, tombol berbagi dengan Apple menyala. HP Android lama atau yang tidak terdaftar tidak bisa menerima AirDrop dalam bentuk apa pun."
       },
       "1": {
         "h": "PC Windows atau Chromebook",
-        "b": "Apple tidak pernah membuat AirDrop untuk Windows, dan Quick Share di PC atau Chromebook tidak menjangkau perangkat Apple. Tidak ada pengaturan di sisi mana pun yang mengubahnya, jadi pakai kabel, tautan cloud, atau aplikasi lintas platform."
+        "b": "<goAirdropWindows>Apple tidak pernah membuat AirDrop untuk Windows</goAirdropWindows>, dan Quick Share di PC atau Chromebook tidak menjangkau perangkat Apple. Tidak ada pengaturan di sisi mana pun yang mengubahnya, jadi pakai kabel, tautan cloud, atau <goBestApps>aplikasi lintas platform</goBestApps>."
       },
       "2": {
         "h": "Komputer Linux",
-        "b": "Linux juga tidak punya klien AirDrop. Alat open source seperti LocalSend dan cara berbasis browser seperti tautan BIShare atau PairDrop adalah pilihan yang praktis."
+        "b": "Linux juga tidak punya klien AirDrop. Alat open source seperti LocalSend dan cara berbasis browser seperti tautan BIShare atau <goSnapdrop>PairDrop</goSnapdrop> adalah pilihan yang praktis."
       }
     }
   },
   "methods": {
     "title": "Rencana B: lima cara mengirim saat AirDrop menolak",
-    "body": "Saat perbaikan sudah habis, atau perangkat lain bukan Apple, pilih cara berdasarkan lokasi penerima dan perangkat yang dipakainya.",
+    "body": "Saat perbaikan sudah habis, atau <goAirdropAlt>perangkat lain bukan Apple</goAirdropAlt>, pilih cara berdasarkan lokasi penerima dan perangkat yang dipakainya.",
     "consLabel": "Perlu diingat:",
     "items": {
       "0": {
         "name": "BIShare",
         "tag": "Terbaik jika penerima memakai Android, Windows, atau Linux, atau berada di tempat lain",
         "facts": "Aplikasi untuk iPhone, Android, Windows, macOS, dan Linux · lisensi MIT · antarperangkat lewat Wi-Fi yang sama atau hotspot HP, ukuran file berapa pun · tautan terenkripsi hingga 100 GB yang bertahan 24 jam di browser · room grup · tanpa daftar",
-        "body": "Pasang BIShare di kedua perangkat, dan keduanya saling terlihat di Wi-Fi yang sama atau hotspot HP, tanpa jendela visibilitas yang habis dan tanpa kartu kontak yang harus cocok. File berpindah langsung ke dua arah tanpa menyentuh internet. Untuk penerima yang tidak berada di dekat Anda, buat tautan: file dikunci di perangkat Anda sebelum diunggah, dan penerima mengunduhnya di browser.",
+        "body": "Pasang BIShare di kedua perangkat, dan keduanya saling terlihat di Wi-Fi yang sama atau <goOffline>hotspot HP</goOffline>, tanpa jendela visibilitas yang habis dan tanpa kartu kontak yang harus cocok. File berpindah langsung ke dua arah tanpa menyentuh internet. Untuk penerima yang tidak berada di dekat Anda, buat tautan: file <goEncrypted>dikunci di perangkat Anda sebelum diunggah</goEncrypted>, dan penerima mengunduhnya di browser.",
         "cons": "Mengirim dari dekat butuh BIShare di tiap perangkat, dan tautan butuh koneksi data di kedua sisi."
       },
       "1": {
@@ -213,14 +213,14 @@
         "name": "LocalSend",
         "tag": "Pilihan open source terbaik di jaringan rumah atau kantor",
         "facts": "iPhone, Android, Windows, macOS, Linux · Apache 2.0 · jaringan lokal yang sama · HTTPS, tanpa akun",
-        "body": "LocalSend menampilkan setiap perangkat yang sedang membukanya di Wi-Fi lokal dan mengirim dengan sekali ketuk, tanpa server atau akun di tengah. Ini pengganti permanen yang baik jika Anda sering memindahkan file antara iPhone dan komputer Windows atau Linux di rumah.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> menampilkan setiap perangkat yang sedang membukanya di Wi-Fi lokal dan mengirim dengan sekali ketuk, tanpa server atau akun di tengah. Ini pengganti permanen yang baik jika Anda sering memindahkan file antara iPhone dan komputer Windows atau Linux di rumah.",
         "cons": "Aplikasinya harus ada di kedua perangkat, apa pun di jaringan lain tidak terjangkau, dan router yang mengisolasi perangkat bisa menyembunyikan mereka satu sama lain."
       },
       "4": {
         "name": "Kabel USB",
         "tag": "Terbaik untuk memindahkan seluruh galeri ke komputer",
         "facts": "App Foto di Mac, app Perangkat Apple di Windows · tanpa jaringan · file asli resolusi penuh bila tersimpan di iPhone",
-        "body": "Sambungkan iPhone, buka kuncinya dan percayai komputernya, lalu impor lewat app Foto di Mac atau app Perangkat Apple di Windows. Untuk ribuan foto, cara ini sering lebih cepat dan lebih bisa diandalkan daripada cara nirkabel mana pun.",
+        "body": "Sambungkan iPhone, buka kuncinya dan percayai komputernya, lalu impor lewat app Foto di Mac atau app Perangkat Apple di Windows. <goIphonePhotos>Untuk ribuan foto</goIphonePhotos>, cara ini sering lebih cepat dan lebih bisa diandalkan daripada cara nirkabel mana pun.",
         "cons": "Anda butuh kabel yang tepat dan komputernya ada di depan Anda, dan foto yang hanya ada di iCloud harus diunduh dulu ke iPhone."
       }
     }

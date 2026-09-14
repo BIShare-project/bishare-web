@@ -13,7 +13,7 @@
   },
   "why": {
     "title": "Warum große Dateien 2026 immer noch nerven",
-    "body": "E-Mail bricht ab 20–25 MB ab. Die bekannten Transferdienste deckeln den Gratis-Tarif — 3 GB bei WeTransfer, 2 GB bevor Smash dich in eine Warteschlange stellt, 5 GB bei Filemail, SendBig und TransferNow — drosseln dann das Tempo, packen die Download-Seite in Werbung oder verlangen ein Konto. Cloud-Speicher geht, aber jedes Byte geht hoch, belegt dein Kontingent und kommt wieder runter. BIShare nimmt einen anderen Weg: Im selben WLAN geht die Datei <strong>direkt von Gerät zu Gerät</strong>, ohne Größenlimit und ohne dass etwas auf einem Server liegt; überall sonst ein <strong>100-GB-Link</strong>, kostenlos, ohne Konto und Ende-zu-Ende verschlüsselt."
+    "body": "E-Mail bricht ab 20–25 MB ab. Die bekannten Transferdienste deckeln den Gratis-Tarif — 3 GB bei <goWetransfer>WeTransfer</goWetransfer>, 2 GB bevor <goSmash>Smash</goSmash> dich in eine Warteschlange stellt, 5 GB bei Filemail, SendBig und TransferNow — drosseln dann das Tempo, packen die Download-Seite in Werbung oder verlangen ein Konto. Cloud-Speicher geht, aber jedes Byte geht hoch, belegt dein Kontingent und kommt wieder runter. BIShare nimmt einen anderen Weg: Im selben WLAN geht die Datei <strong>direkt von Gerät zu Gerät</strong>, ohne Größenlimit und ohne dass etwas auf einem Server liegt; überall sonst ein <strong>100-GB-Link</strong>, kostenlos, ohne Konto und Ende-zu-Ende verschlüsselt."
   },
   "how": {
     "title": "Zwei Wege zu senden, beide kostenlos",
@@ -115,8 +115,8 @@
   "quick": {
     "title": "Kurze Antwort",
     "items": [
-      "<strong>Große Datei kostenlos versenden:</strong> bishare.app/transfer öffnen, Datei hineinziehen, Link, QR-Code oder 6-stelligen Code teilen. Bis 100 GB pro Transfer, kein Konto auf beiden Seiten, nichts zu installieren.",
-      "<strong>Größer als 100 GB, oder ein ganzer Ordner Rohvideo?</strong> Beide Geräte ins selbe WLAN (oder einen Handy-Hotspot) und von Gerät zu Gerät senden — ohne Größenlimit, ohne Upload.",
+      "<strong>Große Datei kostenlos versenden:</strong> <goTransfer>bishare.app/transfer</goTransfer> öffnen, Datei hineinziehen, Link, QR-Code oder 6-stelligen Code teilen. Bis 100 GB pro Transfer, <goNoAccount>kein Konto auf beiden Seiten</goNoAccount>, nichts zu installieren.",
+      "<strong>Größer als 100 GB, oder ein ganzer Ordner Rohvideo?</strong> Beide Geräte ins selbe WLAN (oder <goOffline>einen Handy-Hotspot</goOffline>) und von Gerät zu Gerät senden — ohne Größenlimit, ohne Upload.",
       "<strong>Was anders ist als bei WeTransfer und Co.:</strong> Die Datei wird im Browser verschlüsselt, bevor sie hochgeladen wird, und der Schlüssel erreicht unseren Server nie; keine Werbung, kein Bezahltarif, und der Link löscht sich nach 24 Stunden selbst — oder nach dem ersten Download, wenn du willst.",
       "<strong>Tempo:</strong> per Link so schnell, wie dein Internet-Upload erlaubt (1 GB ≈ 3 Minuten bei 50 Mbit/s); in der Nähe 40–110 MB/s über modernes WLAN, also ein Gigabyte in deutlich unter einer Minute."
     ]
@@ -313,15 +313,15 @@
     "items": [
       {
         "h": "Ein BIShare-Link (bis 100 GB)",
-        "b": "Der Standard für alle, die nicht neben dir sitzen. Vor dem Upload verschlüsselt, kein Konto, keine Werbung, läuft nach 24 Stunden ab. Am besten für: ein Video für den Kunden, einen Ordner Fotos für die Familie, ein Backup auf deinen anderen Rechner."
+        "b": "Der Standard für alle, die nicht neben dir sitzen. Vor dem Upload verschlüsselt, kein Konto, keine Werbung, läuft nach 24 Stunden ab. Am besten für: <blogClientVideo>ein Video für den Kunden</blogClientVideo>, <blogPhotos>einen Ordner Fotos für die Familie</blogPhotos>, ein Backup auf deinen anderen Rechner."
       },
       {
         "h": "BIShare von Gerät zu Gerät (jede Größe)",
-        "b": "Selbes WLAN oder Handy-Hotspot; die Datei berührt das Internet nie. Kein Größenlimit, lokales Netzwerktempo, läuft mit ausgeschalteten mobilen Daten. Am besten für: Rohmaterial vom Dreh, ein 200-GB-Projekt, alles, was sonst auf den USB-Stick käme."
+        "b": "Selbes WLAN oder Handy-Hotspot; die Datei berührt das Internet nie. Kein Größenlimit, lokales Netzwerktempo, läuft mit ausgeschalteten mobilen Daten. Am besten für: Rohmaterial vom Dreh, <goPcPc>ein 200-GB-Projekt</goPcPc>, alles, was sonst auf den USB-Stick käme."
       },
       {
         "h": "Ein Cloud-Speicher (Google Drive, OneDrive, iCloud, Dropbox)",
-        "b": "Gut, wenn die Datei dauerhaft irgendwo liegen soll und die andere Person denselben Dienst hat. Kostet Kontingent, braucht Konten, und Upload plus Download verdoppelt die Zeit. Nicht Ende-zu-Ende verschlüsselt."
+        "b": "Gut, wenn die Datei dauerhaft irgendwo liegen soll und die andere Person denselben Dienst hat. <blogCloudLimits>Kostet Kontingent, braucht Konten</blogCloudLimits>, und Upload plus Download verdoppelt die Zeit. Nicht Ende-zu-Ende verschlüsselt."
       },
       {
         "h": "Komprimieren oder Aufteilen",
@@ -340,7 +340,7 @@
   "security": {
     "title": "Was mit deiner Datei passiert",
     "items": [
-      "Per Link: Die Datei wird im Browser mit einem auf deinem Gerät erzeugten Schlüssel verschlüsselt. Der Schlüssel steckt im Link hinter dem #-Zeichen, das Browser nie an einen Server senden — unser Speicher hält also nur Chiffretext, den er nicht öffnen kann, und zwar in der Region, die dir am nächsten ist.",
+      "Per Link: <goEncrypted>Die Datei wird im Browser mit einem auf deinem Gerät erzeugten Schlüssel verschlüsselt</goEncrypted>. Der Schlüssel steckt im Link hinter dem #-Zeichen, das Browser nie an einen Server senden — unser Speicher hält also nur Chiffretext, den er nicht öffnen kann, und zwar in der Region, die dir am nächsten ist.",
       "Links laufen 24 Stunden nach dem Erstellen ab, die Datei wird mit ihnen gelöscht. Mit der Einmal-Option wird die Datei gelöscht, sobald der erste Download abgeschlossen ist.",
       "In der Nähe: Die Datei geht direkt von Gerät zu Gerät, für diese Übertragung verschlüsselt, und liegt nirgends außer auf dem Empfangsgerät.",
       "Kein Konto, keine E-Mail-Adresse, kein Werbe-SDK, kein Bezahltarif. Apps und Web-Client sind Open Source; das Verschlüsselungsformat ist veröffentlicht und auf jeder Plattform dasselbe."

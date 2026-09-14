@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "疑難排解",
     "title": "AirDrop不能用？先找出原因",
-    "body": "AirDrop失敗的樣子就那幾種：對方裝置始終不出現，傳輸一直停在「等待中」，突然跳出一組誰都沒料到的六位數代碼，或是檔案明明收到了，卻躲進沒人打開的App裡。每種症狀對應不同原因，其中好幾種根本不是故障，而是Apple在iOS 16.2、iOS 17和iOS 26.2中刻意做的改變。這份指南從你看到的症狀出發，列出Apple所說AirDrop真正需要的條件，逐一說明iPhone、iPad和Mac上的解決方法，解釋那些看起來像bug的近期變化，並說明對方是Android手機或Windows電腦時該怎麼辦。<strong>BIShare</strong>是我們為AirDrop幫不上忙的時候準備的替代方案：<strong>它能在iPhone、Android、Windows、Mac和Linux之間傳檔案</strong>，同一個網路下直接傳，不在一起就用連結。<highlight>免費、開源、不需帳號。</highlight>",
+    "body": "AirDrop失敗的樣子就那幾種：對方裝置始終不出現，傳輸一直停在「等待中」，突然跳出一組誰都沒料到的六位數代碼，或是檔案明明收到了，卻躲進沒人打開的App裡。每種症狀對應不同原因，其中好幾種根本不是故障，而是Apple在iOS 16.2、iOS 17和iOS 26.2中刻意做的改變。這份指南從你看到的症狀出發，列出Apple所說AirDrop真正需要的條件，逐一說明iPhone、iPad和Mac上的解決方法，解釋那些看起來像bug的近期變化，並說明對方是Android手機或Windows電腦時該怎麼辦。<strong>BIShare</strong>是我們為AirDrop幫不上忙的時候準備的替代方案：<strong>它能在iPhone、Android、Windows、Mac和Linux之間傳檔案</strong>，同一個網路下直接傳，不在一起就用連結。<highlight>免費、開源、<goNoAccount>不需帳號</goNoAccount>。</highlight>",
     "ctaPrimary": "免費取得BIShare",
     "ctaSecondary": "運作方式"
   },
@@ -41,7 +41,7 @@
       },
       "3": {
         "h": "傳輸開始後失敗",
-        "b": "常見原因包括：在微弱連線下傳大型影片、個人熱點正在使用，或VPN、安全類App干擾了本機流量。重新開機兩台裝置，把它們並排放好再試一次。"
+        "b": "常見原因包括：在微弱連線下<goLargeFiles>傳大型影片</goLargeFiles>、個人熱點正在使用，或VPN、安全類App干擾了本機流量。重新開機兩台裝置，把它們並排放好再試一次。"
       },
       "4": {
         "h": "傳完了，檔案卻找不到",
@@ -171,28 +171,28 @@
     "items": {
       "0": {
         "h": "Android手機",
-        "b": "如果這支手機在Google的Quick Share與AirDrop互通清單上，只要iPhone允許「所有人（10分鐘）」，且Galaxy上開啟了與Apple裝置分享的開關，就能和iPhone互傳檔案。較舊或不在清單上的Android手機無論如何都收不到AirDrop。"
+        "b": "如果這支手機在<goAirdropAndroid>Google的Quick Share與AirDrop互通清單</goAirdropAndroid>上，只要iPhone允許「所有人（10分鐘）」，且Galaxy上開啟了與Apple裝置分享的開關，就能和iPhone互傳檔案。較舊或不在清單上的Android手機無論如何都收不到AirDrop。"
       },
       "1": {
         "h": "Windows電腦或Chromebook",
-        "b": "Apple從未替Windows推出AirDrop，電腦或Chromebook上的Quick Share也連不到Apple裝置。不管改哪一端的設定都沒用，請改用傳輸線、雲端連結或跨平台App。"
+        "b": "<goAirdropWindows>Apple從未替Windows推出AirDrop</goAirdropWindows>，電腦或Chromebook上的Quick Share也連不到Apple裝置。不管改哪一端的設定都沒用，請改用傳輸線、雲端連結或<goBestApps>跨平台App</goBestApps>。"
       },
       "2": {
         "h": "Linux電腦",
-        "b": "Linux同樣沒有AirDrop用戶端。LocalSend這類開源工具，以及BIShare連結或PairDrop這類瀏覽器方案，是比較實際的選擇。"
+        "b": "Linux同樣沒有AirDrop用戶端。LocalSend這類開源工具，以及BIShare連結或<goSnapdrop>PairDrop</goSnapdrop>這類瀏覽器方案，是比較實際的選擇。"
       }
     }
   },
   "methods": {
     "title": "B計畫：AirDrop不配合時的五種傳送方式",
-    "body": "方法用盡，或對方不是Apple裝置時，就依接收方在哪裡、用什麼裝置來選方式。",
+    "body": "方法用盡，或<goAirdropAlt>對方不是Apple裝置時</goAirdropAlt>，就依接收方在哪裡、用什麼裝置來選方式。",
     "consLabel": "注意：",
     "items": {
       "0": {
         "name": "BIShare",
         "tag": "最適合接收方用Android、Windows或Linux，或人在別處",
         "facts": "提供iPhone、Android、Windows、macOS和Linux App · MIT授權 · 透過同一個Wi-Fi或手機熱點裝置直傳，檔案大小不限 · 最大100 GB的加密連結在瀏覽器中保留24小時 · 群組房間 · 不必註冊",
-        "body": "在兩台裝置上安裝BIShare，它們就能在同一個Wi-Fi或手機熱點中看到彼此，沒有會過期的能見時間，也不需要對上聯絡人名片。檔案不經過網際網路，任何方向都能直接傳過去。對不在身邊的人，就建立連結：檔案在上傳前就在你的裝置上封好，對方用瀏覽器下載。",
+        "body": "在兩台裝置上安裝BIShare，它們就能在同一個Wi-Fi或<goOffline>手機熱點</goOffline>中看到彼此，沒有會過期的能見時間，也不需要對上聯絡人名片。檔案不經過網際網路，任何方向都能直接傳過去。對不在身邊的人，就建立連結：檔案<goEncrypted>在上傳前就在你的裝置上封好</goEncrypted>，對方用瀏覽器下載。",
         "cons": "近距離傳送需要每台裝置都裝BIShare，連結則需要雙方都有數據連線。"
       },
       "1": {
@@ -213,14 +213,14 @@
         "name": "LocalSend",
         "tag": "家用或辦公室網路中的最佳開源選擇",
         "facts": "iPhone、Android、Windows、macOS、Linux · Apache 2.0 · 同一個區域網路 · HTTPS，不需帳號",
-        "body": "LocalSend會列出本機Wi-Fi中每台開著它的裝置，點一下就能傳送，中間沒有伺服器也沒有帳號。如果你在家常在iPhone和Windows或Linux電腦之間傳檔案，它是很好的長期替代方案。",
+        "body": "<goLocalsend>LocalSend</goLocalsend>會列出本機Wi-Fi中每台開著它的裝置，點一下就能傳送，中間沒有伺服器也沒有帳號。如果你在家常在iPhone和Windows或Linux電腦之間傳檔案，它是很好的長期替代方案。",
         "cons": "兩台裝置都要安裝App，其他網路中的裝置一律到不了，而隔離裝置的路由器會讓它們彼此看不見。"
       },
       "4": {
         "name": "USB傳輸線",
         "tag": "最適合把整個相機膠卷匯入電腦",
         "facts": "Mac用「照片」App，Windows用Apple裝置App · 不需網路 · 若原始檔存在iPhone上即為完整解析度",
-        "body": "接上iPhone，解鎖並信任電腦，然後在Mac上用「照片」App、在Windows上用Apple裝置App匯入。照片有好幾千張時，這往往比任何無線方式都快，結果也更好預期。",
+        "body": "接上iPhone，解鎖並信任電腦，然後在Mac上用「照片」App、在Windows上用Apple裝置App匯入。<goIphonePhotos>照片有好幾千張時</goIphonePhotos>，這往往比任何無線方式都快，結果也更好預期。",
         "cons": "需要合適的傳輸線和手邊的電腦，只存在iCloud的照片要先下載到iPhone。"
       }
     }

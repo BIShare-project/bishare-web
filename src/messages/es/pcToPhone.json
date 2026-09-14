@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Ordenador → móvil",
     "title": "Pasar archivos del PC al móvil",
-    "body": "La vía más fácil depende de dos cosas: el ordenador y el móvil. Un PC con Windows y un Android tienen dos herramientas gratuitas para esto, una de Microsoft y otra de Google. Un Mac y un iPhone tienen AirDrop. Cualquier otra combinación, un PC con Windows y un iPhone, un Mac con la mayoría de los Android, cualquier cosa con Linux, cae en un hueco donde la respuesta integrada es un cable, una subida a la nube o nada. Esta guía ordena primero las seis combinaciones, luego clasifica ocho vías, explica lo que un cable USB puede y no puede hacer con un iPhone en Windows, muestra dónde acaba el archivo en el móvil y resume los límites de tamaño. <strong>BIShare</strong> es una de las ocho, y la única de aquí que funciona <strong>desde Windows, Mac y Linux hacia iPhone y Android</strong>. <highlight>Gratis, de código abierto y sin cuenta.</highlight>",
+    "body": "La vía más fácil depende de dos cosas: el ordenador y el móvil. Un PC con Windows y un Android tienen dos herramientas gratuitas para esto, una de Microsoft y otra de Google. Un Mac y un iPhone tienen AirDrop. Cualquier otra combinación, <goAirdropWindows>un PC con Windows y un iPhone</goAirdropWindows>, un Mac con la mayoría de los Android, cualquier cosa con Linux, cae en un hueco donde la respuesta integrada es un cable, una subida a la nube o nada. Esta guía ordena primero las seis combinaciones, luego clasifica ocho vías, explica lo que un cable USB puede y no puede hacer con un iPhone en Windows, muestra dónde acaba el archivo en el móvil y resume los límites de tamaño. <strong>BIShare</strong> es una de las ocho, y la única de aquí que funciona <strong>desde Windows, Mac y Linux hacia iPhone y Android</strong>. <highlight>Gratis, de código abierto y sin cuenta.</highlight>",
     "ctaPrimary": "Descargar BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
@@ -16,7 +16,7 @@
     "title": "Respuesta rápida",
     "items": [
       "<strong>De un PC con Windows a un Android:</strong> instala Quick Share para Windows de Google, haz clic derecho en el archivo y elige Enviar con Quick Share. Enlace Móvil también sirve, con un tope de 512 MB por archivo al arrastrar y soltar.",
-      "<strong>De un PC con Windows a un iPhone:</strong> no hay vía inalámbrica integrada. Guarda el archivo en iCloud Drive con iCloud para Windows o envíalo con una app que funcione en ambos, como BIShare.",
+      "<strong>De un PC con Windows a un iPhone:</strong> <blogIphoneWindows>no hay vía inalámbrica integrada</blogIphoneWindows>. Guarda el archivo en iCloud Drive con iCloud para Windows o envíalo con una app que funcione en ambos, como BIShare.",
       "<strong>De un Mac a un iPhone:</strong> AirDrop. Del Mac a un Pixel 9 o posterior o a un Galaxy reciente también funciona ya con AirDrop, cuando el móvil acepta recibir de todos.",
       "<strong>De Linux a Android:</strong> KDE Connect o GSConnect. De Linux a iPhone es la pareja más difícil; lo realista es una app multiplataforma o un enlace en el navegador.",
       "<strong>Cualquier ordenador, cualquier móvil, misma Wi-Fi:</strong> BIShare en ambos envía el archivo original directo y cifrado, sin límite de tamaño.",
@@ -27,125 +27,314 @@
     "title": "Empieza por tu ordenador y tu móvil",
     "body": "Tres ordenadores y dos móviles dan seis combinaciones, y las opciones integradas cambian muchísimo entre ellas. Busca primero tu fila; el resto de la página explica cada vía en detalle.",
     "items": {
-      "0": { "h": "Desde Windows", "b": "Los Android están bien cubiertos: Quick Share para Windows y Enlace Móvil vienen de las empresas que hacen el software del móvil. Los iPhone no. Windows puede importar fotos de un iPhone por cable, pero no puede meter archivos en él, así que quedan iCloud Drive, la app Dispositivos Apple para archivos dentro de apps concretas o una app de terceros." },
-      "1": { "h": "Desde un Mac", "b": "AirDrop cubre el iPhone y, desde que Google enseñó a Quick Share a hablar AirDrop, también el Pixel 9 y posteriores y una lista creciente de modelos Galaxy, Xiaomi, OnePlus y otros. Los Android antiguos o no compatibles no tienen ninguna vía inalámbrica desde un Mac, y Google dejó de ofrecer Android File Transfer para macOS en 2024." },
-      "2": { "h": "Desde Linux", "b": "KDE Connect, o GSConnect en GNOME, se empareja con móviles Android y envía archivos en ambos sentidos por la red local. KDE Connect tiene app para iPhone, pero hace mucho menos que la versión Android, así que para un iPhone lo fiable es una app multiplataforma o un enlace abierto en Safari." }
+      "0": {
+        "h": "Desde Windows",
+        "b": "Los Android están bien cubiertos: Quick Share para Windows y Enlace Móvil vienen de las empresas que hacen el software del móvil. Los iPhone no. Windows puede <goIphonePhotos>importar fotos de un iPhone por cable</goIphonePhotos>, pero no puede meter archivos en él, así que quedan iCloud Drive, la app Dispositivos Apple para archivos dentro de apps concretas o una app de terceros."
+      },
+      "1": {
+        "h": "Desde un Mac",
+        "b": "AirDrop cubre el iPhone y, desde que Google enseñó <goAirdropAndroid>a Quick Share a hablar AirDrop</goAirdropAndroid>, también el Pixel 9 y posteriores y una lista creciente de modelos Galaxy, Xiaomi, OnePlus y otros. Los Android antiguos o no compatibles no tienen ninguna vía inalámbrica desde un Mac, y Google dejó de ofrecer Android File Transfer para macOS en 2024."
+      },
+      "2": {
+        "h": "Desde Linux",
+        "b": "KDE Connect, o GSConnect en GNOME, se empareja con móviles Android y envía archivos en ambos sentidos por la red local. KDE Connect tiene app para iPhone, pero hace mucho menos que la versión Android, así que para un iPhone lo fiable es una app multiplataforma o un enlace abierto en Safari."
+      }
     }
   },
   "methods": {
     "title": "Ocho formas de llevar un archivo al móvil, por orden",
     "consLabel": "Ojo con:",
     "items": {
-      "0": { "name": "BIShare", "tag": "La mejor en general: la única vía que cubre las seis combinaciones", "facts": "Windows, macOS, Linux, iPhone, Android · código abierto (MIT) · tamaño ilimitado en una red · enlaces de hasta 100 GB · cifrado de extremo a extremo · nadie se registra", "body": "Instálala en el ordenador y en el móvil, conecta ambos a una misma Wi-Fi o al punto de acceso del móvil, y el móvil aparece en la lista de dispositivos del ordenador. Elige archivos, elige el móvil, acepta en el móvil y la transferencia va directa por la red local a tamaño completo. Funciona igual si el ordenador es un portátil con Windows, un iMac viejo o un escritorio Linux, y si el móvil es un iPhone o cualquier Android. Para un móvil que está lejos, cambia a enlace: el ordenador muestra la dirección, un código QR y un código corto de 6 caracteres. Safari o Chrome en el móvil descargan hasta 100 GB sin app instalada, el archivo se cifró en el ordenador antes de subirse y, pasado un día, el enlace deja de existir.", "cons": "Enviar directo implica instalarla también en el móvil. Los enlaces caducan a las 24 horas a propósito: son una entrega, no un sitio donde guardar archivos." },
-      "1": { "name": "Quick Share para Windows", "tag": "La mejor vía integrada de un PC con Windows a un Android", "facts": "Windows 10 o posterior de 64 bits (Windows 11 en Arm) · Android 6.0 o posterior · a unos 5 metros · Bluetooth más Wi-Fi o Ethernet · gratis, de Google", "body": "La app de Google para Windows habla el mismo protocolo que el menú Compartir de cualquier Android actual. Arrastra archivos a su ventana o haz clic derecho en el Explorador de archivos, elige Enviar con Quick Share y selecciona el móvil. El móvil tiene que estar cerca y visible, para todos o para tus dispositivos si ambos usan la misma cuenta de Google. Google no indica límite de tamaño y la transferencia no pasa por un servidor. Los PC de Samsung tienen la versión de Samsung en Microsoft Store, que hace lo mismo.", "cons": "Solo Android, y los dos dispositivos deben estar cerca. Las redes que bloquean el tráfico entre dispositivos, como muchas de oficina y hotel, lo impiden; Google sugiere usar el punto de acceso del móvil." },
-      "2": { "name": "Enlace Móvil", "tag": "Buena si ya lo usas para mensajes y notificaciones", "facts": "Windows 10 u 11 · Android 10 o posterior con Vincular a Windows · cuenta Microsoft · misma Wi-Fi · arrastrar y soltar: 512 MB por archivo, 100 archivos, sin carpetas", "body": "Enlace Móvil es el puente de Microsoft para SMS, llamadas y fotos, y también mueve archivos. Haz clic derecho en un archivo local del Explorador, elige Compartir y luego Enlace Móvil, y el archivo llega a la carpeta Descargas del móvil. En móviles Samsung, OPPO, HONOR, ASUS, vivo y Xiaomi con Vincular a Windows preinstalado, además puedes arrastrar archivos a la pantalla duplicada del móvil. Windows 11 con Android 11 o posterior puede mostrar también el móvil como unidad en el Explorador, donde recorres sus carpetas y copias archivos.", "cons": "El tope de 512 MB por archivo al arrastrar deja fuera casi todos los vídeos, los archivos que solo están en la nube no se comparten, y la versión para iPhone se ocupa de mensajes y llamadas; el uso compartido de archivos para iPhone solo se ha desplegado a través del programa Windows Insider." },
-      "3": { "name": "AirDrop", "tag": "La mejor vía integrada de un Mac a un iPhone, y ya a algunos Android", "facts": "Mac e iPhone, iPad · Pixel 9 y posteriores, ciertos Galaxy, Xiaomi, OnePlus, Oppo, vivo, Honor y otros vía Quick Share · solo cerca · sin límite de tamaño publicado", "body": "En un Mac, haz clic con Control en un archivo, elige Compartir, luego AirDrop, y selecciona el móvil. Un iPhone con la misma cuenta de Apple acepta solo; el iPhone de otra persona pregunta antes. Un Android compatible también puede ser el destino: abre Quick Share en el móvil y hazlo visible para todos, pon el AirDrop del Mac en «Todos durante 10 minutos» y el móvil aparece en la ventana de AirDrop del Mac. La conexión es directa entre los dos dispositivos, sin pasar por un servidor.", "cons": "En el lado del ordenador, solo Mac. La mayoría de los Android en uso aún no están en la lista de AirDrop de Google, y el ajuste para todos deja tus dispositivos visibles a desconocidos cercanos mientras dura." },
-      "4": { "name": "Un cable USB", "tag": "La mejor para una tanda grande a un Android, la más floja para iPhone", "facts": "Android: modo Transferencia de archivos, aparece en el Explorador de Windows · iPhone: app Dispositivos Apple en Windows o Finder en Mac, los archivos van a apps con Compartir archivos · de Mac a Android hace falta una app de terceros", "body": "Conecta un Android a un PC con Windows, baja la notificación que dice que se está cargando, elige Transferencia de archivos y el móvil aparece en Este equipo. Copia carpetas como en un pendrive. Con un iPhone es distinto: Windows solo muestra su carrete, para importar fotos del móvil. Para meter archivos en un iPhone por cable usas Dispositivos Apple en Windows o Finder en un Mac, eliges una app que admita Compartir archivos, como VLC o Documents, y añades los archivos a esa app. También puedes sincronizar fotos desde una carpeta del PC a la app Fotos del iPhone, siempre que Fotos en iCloud esté desactivado.", "cons": "Muchos cables de móvil solo van a velocidad USB 2.0, miles de archivos pequeños se arrastran por MTP y en Mac no hay herramienta de Google para Android desde que se retiró Android File Transfer; OpenMTP es el sustituto gratuito habitual." },
-      "5": { "name": "Una nube: iCloud Drive, Google Drive u OneDrive", "tag": "La mejor si el archivo debe seguir disponible en ambos, y la opción por defecto de Windows a iPhone", "facts": "iCloud para Windows: hasta 50 GB por archivo, 5 GB gratis · Google Drive: 15 GB gratis, compartidos con Gmail y Fotos · OneDrive: 5 GB gratis · cuenta e internet en ambos lados", "body": "Guarda un archivo en la carpeta iCloud Drive que iCloud para Windows añade al Explorador y aparecerá poco después en la app Archivos del iPhone, dentro de iCloud Drive. Google Drive y OneDrive hacen lo mismo con cualquier móvil desde sus apps. Es la vía menos ingeniosa y a menudo la más práctica: nada tiene que estar cerca, el archivo se mantiene sincronizado si lo editas y, de un PC con Windows a un iPhone, es la única opción inalámbrica integrada.", "cons": "Todo se sube antes de bajarse, así que los vídeos grandes tardan lo que permita tu subida, el almacenamiento gratis se acaba pronto y la copia queda en la nube hasta que la borres." },
-      "6": { "name": "Escribirte a ti mismo en Telegram o WhatsApp", "tag": "Vale para un documento que necesitas ya en el móvil", "facts": "Telegram Mensajes guardados: 2 GB por archivo, 4 GB con Premium · WhatsApp Mensaje a ti mismo: 2 GB por documento · app de escritorio o web en el ordenador · cuenta necesaria", "body": "Las dos apps tienen un chat contigo mismo: Mensajes guardados en Telegram y el mensaje a ti mismo en WhatsApp. Suelta un archivo en él desde la app de escritorio y aparece en el móvil al momento. Enviada como archivo o documento en vez de como foto, una imagen conserva su tamaño original. Es rápido para una tarjeta de embarque, un PDF o un contrato que tienes que firmar en el móvil.", "cons": "Los archivos pasan por el servicio de chat y se quedan en el historial, las fotos enviadas de forma normal se comprimen y 2 GB es el techo para casi todos." },
-      "7": { "name": "LocalSend", "tag": "App gratuita de código abierto para el caso de una misma red", "facts": "Windows, macOS, Linux, Android, iOS · código abierto · solo red local · cifrado · gratis", "body": "LocalSend es una herramienta sólida y honesta: instálala en el ordenador y en el móvil, y en la misma red se encuentran y envían archivos sin ningún servidor. Si tus transferencias siempre ocurren en el mismo escritorio, cumple bien.", "cons": "No llega a un móvil en otra red. Su opción de compartir por enlace se abre en un navegador, pero el móvil sigue teniendo que estar en la misma red que el ordenador." }
+      "0": {
+        "name": "BIShare",
+        "tag": "La mejor en general: la única vía que cubre las seis combinaciones",
+        "facts": "Windows, macOS, Linux, iPhone, Android · código abierto (MIT) · tamaño ilimitado en una red · enlaces de hasta 100 GB · cifrado de extremo a extremo · nadie se registra",
+        "body": "Instálala en el ordenador y en el móvil, conecta ambos a una misma Wi-Fi o al punto de acceso del móvil, y el móvil aparece en la lista de dispositivos del ordenador. Elige archivos, elige el móvil, acepta en el móvil y la transferencia va directa por la red local a tamaño completo. Funciona igual si el ordenador es un portátil con Windows, un iMac viejo o un escritorio Linux, y si el móvil es un iPhone o cualquier Android. Para un móvil que está lejos, cambia a enlace: el ordenador muestra la dirección, un código QR y un código corto de 6 caracteres. Safari o Chrome en el móvil descargan hasta 100 GB sin app instalada, el archivo se cifró en el ordenador antes de subirse y, pasado un día, el enlace deja de existir.",
+        "cons": "Enviar directo implica instalarla también en el móvil. Los enlaces caducan a las 24 horas a propósito: son una entrega, no un sitio donde guardar archivos."
+      },
+      "1": {
+        "name": "Quick Share para Windows",
+        "tag": "La mejor vía integrada de un PC con Windows a un Android",
+        "facts": "Windows 10 o posterior de 64 bits (Windows 11 en Arm) · Android 6.0 o posterior · a unos 5 metros · Bluetooth más Wi-Fi o Ethernet · gratis, de Google",
+        "body": "La app de Google para Windows habla el mismo protocolo que el menú Compartir de cualquier Android actual. Arrastra archivos a su ventana o haz clic derecho en el Explorador de archivos, elige Enviar con <goNearby>Quick Share</goNearby> y selecciona el móvil. El móvil tiene que estar cerca y visible, para todos o para tus dispositivos si ambos usan la misma cuenta de Google. Google no indica límite de tamaño y la transferencia no pasa por un servidor. Los PC de Samsung tienen la versión de Samsung en Microsoft Store, que hace lo mismo.",
+        "cons": "Solo Android, y los dos dispositivos deben estar cerca. Las redes que bloquean el tráfico entre dispositivos, como muchas de oficina y hotel, lo impiden; Google sugiere usar el punto de acceso del móvil."
+      },
+      "2": {
+        "name": "Enlace Móvil",
+        "tag": "Buena si ya lo usas para mensajes y notificaciones",
+        "facts": "Windows 10 u 11 · Android 10 o posterior con Vincular a Windows · cuenta Microsoft · misma Wi-Fi · arrastrar y soltar: 512 MB por archivo, 100 archivos, sin carpetas",
+        "body": "Enlace Móvil es el puente de Microsoft para SMS, llamadas y fotos, y también mueve archivos. Haz clic derecho en un archivo local del Explorador, elige Compartir y luego Enlace Móvil, y el archivo llega a la carpeta Descargas del móvil. En móviles Samsung, OPPO, HONOR, ASUS, vivo y Xiaomi con Vincular a Windows preinstalado, además puedes arrastrar archivos a la pantalla duplicada del móvil. Windows 11 con Android 11 o posterior puede mostrar también el móvil como unidad en el Explorador, donde recorres sus carpetas y copias archivos.",
+        "cons": "El tope de 512 MB por archivo al arrastrar deja fuera casi todos los vídeos, los archivos que solo están en la nube no se comparten, y la versión para iPhone se ocupa de mensajes y llamadas; el uso compartido de archivos para iPhone solo se ha desplegado a través del programa Windows Insider."
+      },
+      "3": {
+        "name": "AirDrop",
+        "tag": "La mejor vía integrada de un Mac a un iPhone, y ya a algunos Android",
+        "facts": "Mac e iPhone, iPad · Pixel 9 y posteriores, ciertos Galaxy, Xiaomi, OnePlus, Oppo, vivo, Honor y otros vía Quick Share · solo cerca · sin límite de tamaño publicado",
+        "body": "En un Mac, haz clic con Control en un archivo, elige Compartir, luego AirDrop, y selecciona el móvil. Un iPhone con la misma cuenta de Apple acepta solo; el iPhone de otra persona pregunta antes. Un Android compatible también puede ser el destino: abre Quick Share en el móvil y hazlo visible para todos, pon el AirDrop del Mac en «Todos durante 10 minutos» y el móvil aparece en la ventana de AirDrop del Mac. La conexión es directa entre los dos dispositivos, sin pasar por un servidor.",
+        "cons": "En el lado del ordenador, solo Mac. La mayoría de los Android en uso aún no están en la lista de AirDrop de Google, y el ajuste para todos deja tus dispositivos visibles a desconocidos cercanos mientras dura."
+      },
+      "4": {
+        "name": "Un cable USB",
+        "tag": "La mejor para una tanda grande a un Android, la más floja para iPhone",
+        "facts": "Android: modo Transferencia de archivos, aparece en el Explorador de Windows · iPhone: app Dispositivos Apple en Windows o Finder en Mac, los archivos van a apps con Compartir archivos · de Mac a Android hace falta una app de terceros",
+        "body": "Conecta un Android a un PC con Windows, baja la notificación que dice que se está cargando, elige Transferencia de archivos y el móvil aparece en Este equipo. Copia carpetas como en un pendrive. Con un iPhone es distinto: Windows solo muestra su carrete, <goPhonePc>para importar fotos del móvil</goPhonePc>. Para meter archivos en un iPhone por cable usas Dispositivos Apple en Windows o Finder en un Mac, eliges una app que admita Compartir archivos, como VLC o Documents, y añades los archivos a esa app. También puedes sincronizar fotos desde una carpeta del PC a la app Fotos del iPhone, siempre que Fotos en iCloud esté desactivado.",
+        "cons": "Muchos cables de móvil solo van a velocidad USB 2.0, miles de archivos pequeños se arrastran por MTP y en Mac no hay herramienta de Google para Android desde que se retiró Android File Transfer; OpenMTP es el sustituto gratuito habitual."
+      },
+      "5": {
+        "name": "Una nube: iCloud Drive, Google Drive u OneDrive",
+        "tag": "La mejor si el archivo debe seguir disponible en ambos, y la opción por defecto de Windows a iPhone",
+        "facts": "iCloud para Windows: hasta 50 GB por archivo, 5 GB gratis · Google Drive: 15 GB gratis, compartidos con Gmail y Fotos · OneDrive: 5 GB gratis · cuenta e internet en ambos lados",
+        "body": "Guarda un archivo en la carpeta iCloud Drive que iCloud para Windows añade al Explorador y aparecerá poco después en la app Archivos del iPhone, dentro de iCloud Drive. Google Drive y OneDrive hacen lo mismo con cualquier móvil desde sus apps. Es la vía menos ingeniosa y a menudo la más práctica: nada tiene que estar cerca, el archivo se mantiene sincronizado si lo editas y, de un PC con Windows a un iPhone, es la única opción inalámbrica integrada.",
+        "cons": "Todo se sube antes de bajarse, así que los vídeos grandes tardan lo que permita tu subida, el almacenamiento gratis se acaba pronto y la copia queda en la nube hasta que la borres."
+      },
+      "6": {
+        "name": "Escribirte a ti mismo en Telegram o WhatsApp",
+        "tag": "Vale para un documento que necesitas ya en el móvil",
+        "facts": "Telegram Mensajes guardados: 2 GB por archivo, 4 GB con Premium · WhatsApp Mensaje a ti mismo: 2 GB por documento · app de escritorio o web en el ordenador · cuenta necesaria",
+        "body": "Las dos apps tienen un chat contigo mismo: Mensajes guardados en Telegram y el mensaje a ti mismo en WhatsApp. Suelta un archivo en él desde la app de escritorio y aparece en el móvil al momento. Enviada como archivo o documento en vez de como foto, una imagen conserva su tamaño original. Es rápido para una tarjeta de embarque, un PDF o un contrato que tienes que firmar en el móvil.",
+        "cons": "Los archivos pasan por el servicio de chat y se quedan en el historial, las fotos enviadas de forma normal se comprimen y 2 GB es el techo para casi todos."
+      },
+      "7": {
+        "name": "LocalSend",
+        "tag": "App gratuita de código abierto para el caso de una misma red",
+        "facts": "Windows, macOS, Linux, Android, iOS · código abierto · solo red local · cifrado · gratis",
+        "body": "<goLocalsend>LocalSend</goLocalsend> es una herramienta sólida y honesta: instálala en el ordenador y en el móvil, y en la misma red se encuentran y envían archivos sin ningún servidor. Si tus transferencias siempre ocurren en el mismo escritorio, cumple bien.",
+        "cons": "No llega a un móvil en otra red. Su opción de compartir por enlace se abre en un navegador, pero el móvil sigue teniendo que estar en la misma red que el ordenador."
+      }
     }
   },
   "table": {
     "title": "De un vistazo",
-    "cols": { "feature": "Característica", "bishare": "BIShare", "quickshare": "Quick Share para Windows", "phonelink": "Enlace Móvil", "airdrop": "AirDrop", "usb": "Cable USB", "cloud": "Nube" },
-    "rows": { "r0": "Funciona desde Windows, Mac y Linux", "r1": "Llega a iPhone y a Android", "r2": "Sin cable", "r3": "Funciona con el móvil en otro sitio", "r4": "Sin tope de tamaño por archivo", "r5": "Gratis y sin cuota de almacenamiento" },
+    "cols": {
+      "feature": "Característica",
+      "bishare": "BIShare",
+      "quickshare": "Quick Share para Windows",
+      "phonelink": "Enlace Móvil",
+      "airdrop": "AirDrop",
+      "usb": "Cable USB",
+      "cloud": "Nube"
+    },
+    "rows": {
+      "r0": "Funciona desde Windows, Mac y Linux",
+      "r1": "Llega a iPhone y a Android",
+      "r2": "Sin cable",
+      "r3": "Funciona con el móvil en otro sitio",
+      "r4": "Sin tope de tamaño por archivo",
+      "r5": "Gratis y sin cuota de almacenamiento"
+    },
     "note": "Revisado en septiembre de 2026. La casilla de tamaño de BIShare se refiere a la vía directa en una red; los enlaces admiten hasta 100 GB. Quick Share para Windows solo envía a Android, desde Windows 10 de 64 bits o posterior. Las funciones de archivos de Enlace Móvil son para Android; arrastrar y soltar tiene un tope de 512 MB por archivo y requiere la misma Wi-Fi, y hace falta cuenta Microsoft. AirDrop funciona desde un Mac y solo llega a los Android que Google incluye en su lista de AirDrop. Un cable USB pone archivos directamente en el almacenamiento de Android, pero en un iPhone solo dentro de apps con Compartir archivos, y un Mac necesita una app de terceros para Android. Las nubes consumen almacenamiento gratuito (iCloud 5 GB, Google 15 GB, OneDrive 5 GB) e iCloud para Windows acepta archivos de hasta 50 GB."
   },
   "windows": {
     "title": "De Windows a Android: ¿Quick Share o Enlace Móvil?",
     "body": "Los dos son gratis y los dos vienen de las empresas que hay detrás del software de tu móvil, así que la elección depende del tamaño del archivo y de qué más quieres de la conexión.",
     "items": {
-      "0": { "h": "Quick Share para archivos", "b": "Está hecho justo para esto. No tiene límite de tamaño publicado, funciona con cualquier Android desde 6.0 y el móvil no necesita emparejarse antes; solo tiene que estar cerca y visible. Los archivos recibidos van a la carpeta Descargas del móvil, dentro de una carpeta Quick Share en los Galaxy." },
-      "1": { "h": "Enlace Móvil si ya vives en él", "b": "Si ya lees SMS y contestas llamadas en el PC, compartir un archivo por la misma conexión te ahorra instalar otra app. Ten en cuenta los límites: arrastrar y soltar admite 100 archivos a la vez, de 512 MB cada uno, sin carpetas, y solo en las seis marcas con Vincular a Windows preinstalado. La vía del menú Compartir funciona en otros móviles y envía a la carpeta Descargas." },
-      "2": { "h": "El móvil dentro del Explorador de archivos", "b": "Windows 11 puede mostrar un móvil vinculado con Android 11 o posterior en el panel de navegación del Explorador, de modo que sus carpetas se abren como una unidad. Solo aparece un móvil a la vez, y los archivos borrados ahí van a una papelera en el móvil durante 30 días. Es lo más cerca que llega Windows a tratar un móvil como almacenamiento sin cable." }
+      "0": {
+        "h": "Quick Share para archivos",
+        "b": "Está hecho justo para esto. No tiene límite de tamaño publicado, funciona con cualquier Android desde 6.0 y el móvil no necesita emparejarse antes; solo tiene que estar cerca y visible. Los archivos recibidos van a la carpeta Descargas del móvil, dentro de una carpeta Quick Share en los Galaxy."
+      },
+      "1": {
+        "h": "Enlace Móvil si ya vives en él",
+        "b": "Si ya lees SMS y contestas llamadas en el PC, compartir un archivo por la misma conexión te ahorra instalar otra app. Ten en cuenta los límites: arrastrar y soltar admite 100 archivos a la vez, de 512 MB cada uno, sin carpetas, y solo en las seis marcas con Vincular a Windows preinstalado. La vía del menú Compartir funciona en otros móviles y envía a la carpeta Descargas."
+      },
+      "2": {
+        "h": "El móvil dentro del Explorador de archivos",
+        "b": "Windows 11 puede mostrar un móvil vinculado con Android 11 o posterior en el panel de navegación del Explorador, de modo que sus carpetas se abren como una unidad. Solo aparece un móvil a la vez, y los archivos borrados ahí van a una papelera en el móvil durante 30 días. Es lo más cerca que llega Windows a tratar un móvil como almacenamiento sin cable."
+      }
     }
   },
   "iphone": {
     "title": "De Windows a iPhone: lo que de verdad funciona",
     "body": "Es la pareja en la que más guías se equivocan. Conectar un iPhone a un PC con Windows no te deja copiar archivos en él desde el Explorador, por mucho que las capturas de algunos artículos lo sugieran.",
     "items": {
-      "0": { "h": "El Explorador solo lee el carrete", "b": "Con el iPhone desbloqueado y tras confiar en el ordenador, aparece en el Explorador con una carpeta Internal Storage que contiene DCIM, las fotos y vídeos hechos con el móvil. Esa vista existe para importar fotos desde el iPhone. No hay ningún sitio donde pegar un PDF o una película para que el móvil los use." },
-      "1": { "h": "Dispositivos Apple mete archivos dentro de apps", "b": "La app Dispositivos Apple para Windows 10 y posterior, de Microsoft Store, tiene una sección Archivos que lista las apps del iPhone compatibles con Compartir archivos. Elige una, haz clic en Añadir archivo y los archivos se copian a los documentos de esa app, donde la app y normalmente Archivos pueden abrirlos. La sección Fotos sincroniza una carpeta del PC con la fototeca del iPhone, pero solo mientras Fotos en iCloud esté desactivado." },
-      "2": { "h": "iCloud Drive es la opción inalámbrica por defecto", "b": "iCloud para Windows añade una carpeta iCloud Drive al Explorador. Lo que guardes ahí, hasta 50 GB por archivo y dentro de tu almacenamiento de iCloud, aparece en la app Archivos del iPhone. Las cuentas gratuitas tienen 5 GB, que un par de vídeos llenan, así que para envíos grandes u ocasionales una app directa o un enlace evitan pagar almacenamiento que solo necesitabas una tarde." }
+      "0": {
+        "h": "El Explorador solo lee el carrete",
+        "b": "Con el iPhone desbloqueado y tras confiar en el ordenador, aparece en el Explorador con una carpeta Internal Storage que contiene DCIM, las fotos y vídeos hechos con el móvil. Esa vista existe para importar fotos desde el iPhone. No hay ningún sitio donde pegar un PDF o una película para que el móvil los use."
+      },
+      "1": {
+        "h": "Dispositivos Apple mete archivos dentro de apps",
+        "b": "La app Dispositivos Apple para Windows 10 y posterior, de Microsoft Store, tiene una sección Archivos que lista las apps del iPhone compatibles con Compartir archivos. Elige una, haz clic en Añadir archivo y los archivos se copian a los documentos de esa app, donde la app y normalmente Archivos pueden abrirlos. La sección Fotos sincroniza una carpeta del PC con la fototeca del iPhone, pero solo mientras Fotos en iCloud esté desactivado."
+      },
+      "2": {
+        "h": "iCloud Drive es la opción inalámbrica por defecto",
+        "b": "iCloud para Windows añade una carpeta iCloud Drive al Explorador. Lo que guardes ahí, hasta 50 GB por archivo y dentro de tu almacenamiento de iCloud, aparece en la app Archivos del iPhone. Las cuentas gratuitas tienen 5 GB, que un par de vídeos llenan, así que para envíos grandes u ocasionales una app directa o un enlace evitan pagar almacenamiento que solo necesitabas una tarde."
+      }
     }
   },
   "maclinux": {
     "title": "Desde un Mac o un PC con Linux",
     "body": "Los ordenadores de Apple y los de Linux tienen cada uno un móvil con el que se entienden y otro al que casi ignoran.",
     "items": {
-      "0": { "h": "De Mac a iPhone: AirDrop o Finder", "b": "AirDrop es la vía de cada día. Para una tanda grande, conecta el iPhone por cable, selecciónalo en la barra lateral del Finder, abre la pestaña Archivos y arrastra los archivos a una app con Compartir archivos. Igual que en Windows, los archivos van a esa app y no a una carpeta libre." },
-      "1": { "h": "De Mac a Android: un puente nuevo y un hueco viejo", "b": "Si el móvil está en la lista de AirDrop de Google, pon Quick Share en el móvil para recibir de todos y usa AirDrop desde el Mac como siempre. Los demás Android no tienen vía inalámbrica desde macOS y, desde que se retiró Android File Transfer, un cable necesita una herramienta de terceros como OpenMTP. Una app multiplataforma evita ambos problemas." },
-      "2": { "h": "Linux: KDE Connect para Android", "b": "KDE Connect en Plasma, o GSConnect en GNOME, se empareja con la app KDE Connect de un Android y envía archivos desde el menú contextual del gestor de archivos. También comparte el portapapeles y las notificaciones. Con un iPhone, su app de iOS hace mucho menos, así que cuenta con una app multiplataforma o un enlace." }
+      "0": {
+        "h": "De Mac a iPhone: AirDrop o Finder",
+        "b": "AirDrop es la vía de cada día. Para una tanda grande, conecta el iPhone por cable, selecciónalo en la barra lateral del Finder, abre la pestaña Archivos y arrastra los archivos a una app con Compartir archivos. Igual que en Windows, los archivos van a esa app y no a una carpeta libre."
+      },
+      "1": {
+        "h": "De Mac a Android: un puente nuevo y un hueco viejo",
+        "b": "Si el móvil está en la lista de AirDrop de Google, pon Quick Share en el móvil para recibir de todos y usa AirDrop desde el Mac como siempre. Los demás Android no tienen vía inalámbrica desde macOS y, desde que se retiró Android File Transfer, un cable necesita una herramienta de terceros como OpenMTP. Una app multiplataforma evita ambos problemas."
+      },
+      "2": {
+        "h": "Linux: KDE Connect para Android",
+        "b": "KDE Connect en Plasma, o GSConnect en GNOME, se empareja con la app KDE Connect de un Android y envía archivos desde el menú contextual del gestor de archivos. También comparte el portapapeles y las notificaciones. Con un iPhone, su app de iOS hace mucho menos, así que cuenta con una app multiplataforma o un enlace."
+      }
     }
   },
   "landing": {
     "title": "Dónde acaba el archivo en el móvil",
     "body": "Una transferencia que salió bien puede parecer fallida si luego abres la app equivocada. Estos son los sitios donde llegan los archivos, según la vía.",
     "items": {
-      "0": { "h": "Android: casi siempre Descargas", "b": "Quick Share, la vía Compartir de Enlace Móvil y las descargas del navegador guardan en la carpeta Descargas, visible en Files de Google o en el gestor de archivos del fabricante. Los Galaxy ponen los archivos de Quick Share en una carpeta Quick Share dentro de ella, y las fotos aparecen en la galería cuando el escáner multimedia las encuentra. Las transferencias por Bluetooth varían según la marca, así que fíjate en la notificación que confirma la llegada." },
-      "1": { "h": "iPhone desde un navegador o iCloud: la app Archivos", "b": "Safari guarda por defecto en la carpeta Descargas de iCloud Drive; cambia Ajustes, Apps, Safari, Descargas a «En mi iPhone» para no llenar iCloud con archivos grandes. Los archivos de iCloud Drive están en Archivos, dentro de iCloud Drive. Una foto o vídeo descargado así solo llega a Fotos si lo abres en Archivos y usas Compartir, luego «Guardar imagen» o «Guardar vídeo»." },
-      "2": { "h": "iPhone desde AirDrop, un cable o una app", "b": "AirDrop mete fotos y vídeos directamente en Fotos y ofrece los demás archivos a una app adecuada. Los archivos añadidos con Dispositivos Apple o Finder viven dentro de la app que elegiste. BIShare guarda lo que llega en su propia bandeja hasta que lo mueves: lo multimedia a la fototeca y el resto a Archivos u otra app." }
+      "0": {
+        "h": "Android: casi siempre Descargas",
+        "b": "Quick Share, la vía Compartir de Enlace Móvil y las descargas del navegador guardan en la carpeta Descargas, visible en Files de Google o en el gestor de archivos del fabricante. Los Galaxy ponen los archivos de Quick Share en una carpeta Quick Share dentro de ella, y las fotos aparecen en la galería cuando el escáner multimedia las encuentra. Las transferencias por Bluetooth varían según la marca, así que fíjate en la notificación que confirma la llegada."
+      },
+      "1": {
+        "h": "iPhone desde un navegador o iCloud: la app Archivos",
+        "b": "Safari guarda por defecto en la carpeta Descargas de iCloud Drive; cambia Ajustes, Apps, Safari, Descargas a «En mi iPhone» para no llenar iCloud con archivos grandes. Los archivos de iCloud Drive están en Archivos, dentro de iCloud Drive. Una foto o vídeo descargado así solo llega a Fotos si lo abres en Archivos y usas Compartir, luego «Guardar imagen» o «Guardar vídeo»."
+      },
+      "2": {
+        "h": "iPhone desde AirDrop, un cable o una app",
+        "b": "AirDrop mete fotos y vídeos directamente en Fotos y ofrece los demás archivos a una app adecuada. Los archivos añadidos con Dispositivos Apple o Finder viven dentro de la app que elegiste. BIShare guarda lo que llega en su propia bandeja hasta que lo mueves: lo multimedia a la fototeca y el resto a Archivos u otra app."
+      }
     }
   },
   "limits": {
     "title": "Límites de tamaño, vía por vía",
     "body": "Casi toda la frustración al mandar un archivo grande al móvil viene de un límite que nadie mencionó. Aquí están juntos.",
     "items": {
-      "0": { "h": "Topes fijos por archivo", "b": "Los adjuntos de correo se quedan en unos 20 a 25 MB. Arrastrar y soltar en Enlace Móvil se queda en 512 MB. Telegram y WhatsApp se quedan en 2 GB, o 4 GB con Telegram Premium. iCloud para Windows acepta archivos de hasta 50 GB, y un enlace de BIShare lleva hasta 100 GB." },
-      "1": { "h": "El almacenamiento se acaba antes", "b": "Las vías en la nube chocan antes con el plan gratuito que con el tope por archivo: 5 GB en iCloud, 15 GB en Google repartidos entre Gmail, Drive y Fotos, 5 GB en OneDrive. Un solo vídeo 4K puede ocupar casi toda una cuenta gratuita de iCloud." },
-      "2": { "h": "Sin tope", "b": "Las vías directas solo están limitadas por el espacio libre del móvil: BIShare en una red, Quick Share para Windows, AirDrop, LocalSend y un cable USB. Lo que cabe lo decide el almacenamiento del móvil, no la herramienta." }
+      "0": {
+        "h": "Topes fijos por archivo",
+        "b": "<goLargeFiles>Los adjuntos de correo</goLargeFiles> se quedan en unos 20 a 25 MB. Arrastrar y soltar en Enlace Móvil se queda en 512 MB. Telegram y WhatsApp se quedan en 2 GB, o 4 GB con Telegram Premium. iCloud para Windows acepta archivos de hasta 50 GB, y un enlace de BIShare lleva hasta 100 GB."
+      },
+      "1": {
+        "h": "El almacenamiento se acaba antes",
+        "b": "Las vías en la nube chocan antes con el plan gratuito que con el tope por archivo: 5 GB en iCloud, 15 GB en Google repartidos entre Gmail, Drive y Fotos, 5 GB en OneDrive. Un solo vídeo 4K puede ocupar casi toda una cuenta gratuita de iCloud."
+      },
+      "2": {
+        "h": "Sin tope",
+        "b": "Las vías directas solo están limitadas por el espacio libre del móvil: BIShare en una red, Quick Share para Windows, AirDrop, LocalSend y un cable USB. Lo que cabe lo decide el almacenamiento del móvil, no la herramienta."
+      }
     }
   },
   "steps": {
     "title": "Del PC al móvil con BIShare",
     "items": {
-      "0": { "h": "Instálala en el ordenador y en el móvil", "b": "Consigue BIShare para Windows en Microsoft Store, para Mac en App Store o para Linux como descarga, y en el móvil desde App Store o Google Play. Conecta ambos a una misma Wi-Fi o une el ordenador al punto de acceso del móvil. La primera vez que la abras en un iPhone, iOS pregunta si puede buscar dispositivos cercanos; di que sí." },
-      "1": { "h": "Envía desde el ordenador", "b": "Suelta archivos en la app, elige el móvil de la lista de dispositivos y acepta en el móvil. Nada se recomprime por el camino. Los archivos esperan en la bandeja de la app del móvil; fotos y vídeos pasan a la fototeca con un toque." },
-      "2": { "h": "O crea un enlace", "b": "Si el móvil está en otro sitio, elige Enlace en la app o abre bishare.app/transfer en cualquier navegador de escritorio y añade allí los archivos. Envía la dirección, muestra el código QR o dicta el código de 6 caracteres; Safari o Chrome en el móvil pueden recoger hasta 100 GB durante las 24 horas siguientes." }
+      "0": {
+        "h": "Instálala en el ordenador y en el móvil",
+        "b": "Consigue BIShare para Windows en Microsoft Store, para Mac en App Store o para Linux como descarga, y en el móvil desde App Store o Google Play. Conecta ambos a una misma Wi-Fi o une el ordenador al punto de acceso del móvil. La primera vez que la abras en un iPhone, iOS pregunta si puede buscar dispositivos cercanos; di que sí."
+      },
+      "1": {
+        "h": "Envía desde el ordenador",
+        "b": "Suelta archivos en la app, elige el móvil de la lista de dispositivos y acepta en el móvil. Nada se recomprime por el camino. Los archivos esperan en la bandeja de la app del móvil; fotos y vídeos pasan a la fototeca con un toque."
+      },
+      "2": {
+        "h": "O crea un enlace",
+        "b": "Si el móvil está en otro sitio, elige Enlace en la app o abre <goTransfer>bishare.app/transfer</goTransfer> en cualquier navegador de escritorio y añade allí los archivos. Envía la dirección, muestra el código QR o dicta el código de 6 caracteres; Safari o Chrome en el móvil pueden recoger hasta 100 GB durante las 24 horas siguientes."
+      }
     }
   },
   "speed": {
     "title": "Cuánto tarda",
-    "body": "En las vías inalámbricas, el cuello de botella es la Wi-Fi del móvil, no el ordenador. En todo lo que pasa por un servidor, marca el ritmo la velocidad de subida de tu conexión.",
+    "body": "En <blogWireless>las vías inalámbricas</blogWireless>, el cuello de botella es la Wi-Fi del móvil, no el ordenador. En todo lo que pasa por un servidor, marca el ritmo la velocidad de subida de tu conexión.",
     "items": {
-      "0": { "h": "Misma Wi-Fi", "b": "Cuenta con unos 40–50 MB/s de un móvil actual con Wi-Fi 5 cerca del router y 70–110 MB/s con Wi-Fi 6; un gigabyte termina antes de que cojas el móvil. Un ordenador por Ethernet ayuda poco, porque la radio del móvil es la mitad lenta. Un punto de acceso del móvil suele dar de 10 a 30 MB/s." },
-      "1": { "h": "Cable USB", "b": "Muchos cables que vienen con los móviles son USB 2.0, con un máximo de 480 Mbit/s, y los archivos grandes sueltos suelen ir a unos 30 a 40 MB/s. Una carpeta con miles de fotos pequeñas va mucho más lenta, porque MTP trata cada archivo por separado." },
-      "2": { "h": "Nubes y enlaces", "b": "Con 50 Mbit/s de subida, cada gigabyte tarda unos tres minutos en salir del ordenador antes de que el móvil vea un solo byte, lo que pone una carpeta de 10 GB por encima de la media hora. Las transferencias directas se ahorran esa espera." }
+      "0": {
+        "h": "Misma Wi-Fi",
+        "b": "Cuenta con unos 40–50 MB/s de un móvil actual con Wi-Fi 5 cerca del router y 70–110 MB/s con Wi-Fi 6; un gigabyte termina antes de que cojas el móvil. Un ordenador por Ethernet ayuda poco, porque la radio del móvil es la mitad lenta. <goOffline>Un punto de acceso del móvil</goOffline> suele dar de 10 a 30 MB/s."
+      },
+      "1": {
+        "h": "Cable USB",
+        "b": "Muchos cables que vienen con los móviles son USB 2.0, con un máximo de 480 Mbit/s, y los archivos grandes sueltos suelen ir a unos 30 a 40 MB/s. Una carpeta con miles de fotos pequeñas va mucho más lenta, porque MTP trata cada archivo por separado."
+      },
+      "2": {
+        "h": "Nubes y enlaces",
+        "b": "Con 50 Mbit/s de subida, cada gigabyte tarda unos tres minutos en salir del ordenador antes de que el móvil vea un solo byte, lo que pone una carpeta de 10 GB por encima de la media hora. Las transferencias directas se ahorran esa espera."
+      }
     }
   },
   "fixes": {
     "title": "Cuando el móvil no aparece",
     "items": {
-      "0": { "h": "Quick Share para Windows no ve el móvil", "b": "Activa Bluetooth y Wi-Fi en ambos, acerca el móvil a pocos metros y pon de momento su visibilidad de Quick Share en Todos. Si el PC está en una red de oficina o de invitados que bloquea el tráfico entre dispositivos, conéctalo al punto de acceso del móvil." },
-      "1": { "h": "El Android carga pero no aparece en el Explorador", "b": "Desbloquea el móvil, abre la notificación de USB y cambia de Solo carga a Transferencia de archivos. Si esa opción nunca sale, prueba otro cable; muchos cables baratos llevan corriente pero no datos." },
-      "2": { "h": "Un iPhone solo muestra una carpeta DCIM", "b": "Es lo normal. Windows puede leer el carrete pero no escribir archivos en un iPhone. Usa Dispositivos Apple para añadir archivos a una app, iCloud Drive o una app de transferencia directa." },
-      "3": { "h": "Los dos están en la misma Wi-Fi, pero la app no lista nada", "b": "En un iPhone, revisa Ajustes, Privacidad y seguridad, Red local y permite la app. En Windows, comprueba que la red está como Privada, porque el perfil Público bloquea la detección. Una VPN en cualquiera de los dos también puede ocultar al otro." },
-      "4": { "h": "Enlace Móvil rechaza un archivo", "b": "Arrastrar y soltar rechaza carpetas, archivos de más de 512 MB y archivos que solo existen en OneDrive. Comprime la carpeta, haz primero el archivo disponible sin conexión o usa Quick Share para lo grande." }
+      "0": {
+        "h": "Quick Share para Windows no ve el móvil",
+        "b": "Activa Bluetooth y Wi-Fi en ambos, acerca el móvil a pocos metros y pon de momento su visibilidad de Quick Share en Todos. Si el PC está en una red de oficina o de invitados que bloquea el tráfico entre dispositivos, conéctalo al punto de acceso del móvil."
+      },
+      "1": {
+        "h": "El Android carga pero no aparece en el Explorador",
+        "b": "Desbloquea el móvil, abre la notificación de USB y cambia de Solo carga a Transferencia de archivos. Si esa opción nunca sale, prueba otro cable; muchos cables baratos llevan corriente pero no datos."
+      },
+      "2": {
+        "h": "Un iPhone solo muestra una carpeta DCIM",
+        "b": "Es lo normal. Windows puede leer el carrete pero no escribir archivos en un iPhone. Usa Dispositivos Apple para añadir archivos a una app, iCloud Drive o una app de transferencia directa."
+      },
+      "3": {
+        "h": "Los dos están en la misma Wi-Fi, pero la app no lista nada",
+        "b": "En un iPhone, revisa Ajustes, Privacidad y seguridad, Red local y permite la app. En Windows, comprueba que la red está como Privada, porque el perfil Público bloquea la detección. Una VPN en cualquiera de los dos también puede ocultar al otro."
+      },
+      "4": {
+        "h": "Enlace Móvil rechaza un archivo",
+        "b": "Arrastrar y soltar rechaza carpetas, archivos de más de 512 MB y archivos que solo existen en OneDrive. Comprime la carpeta, haz primero el archivo disponible sin conexión o usa Quick Share para lo grande."
+      }
     }
   },
   "security": {
     "title": "Mantener la transferencia privada",
     "body": "Los archivos que van al móvil suelen ser de los delicados: escaneos del pasaporte, nóminas, entradas con código de barras. Las vías se diferencian en quién más acaba con una copia.",
     "items": {
-      "0": { "h": "Nada sale de la habitación", "b": "Un cable USB, Quick Share para Windows, AirDrop, LocalSend y BIShare en una red mueven el archivo directamente entre los dos dispositivos, y los inalámbricos cifran la conexión." },
-      "1": { "h": "Por un servidor, sellado", "b": "Los enlaces de BIShare cifran el archivo en el ordenador antes de subirlo, así que el servidor guarda datos que no puede leer. WhatsApp también cifra los archivos de extremo a extremo, aunque se quedan en el historial del chat en ambos dispositivos." },
-      "2": { "h": "Por un servidor, legible para el proveedor", "b": "iCloud Drive con la protección de datos estándar, Google Drive, OneDrive, los chats en la nube de Telegram, Mensajes guardados incluidos, y el correo protegen los archivos en tránsito, mientras la empresa que gestiona el servicio conserva la capacidad de abrir lo que almacena. La protección de datos avanzada de Apple cambia eso para iCloud Drive si la activas." }
+      "0": {
+        "h": "Nada sale de la habitación",
+        "b": "Un cable USB, Quick Share para Windows, AirDrop, LocalSend y BIShare en una red mueven el archivo directamente entre los dos dispositivos, y los inalámbricos cifran la conexión."
+      },
+      "1": {
+        "h": "Por un servidor, sellado",
+        "b": "Los enlaces de BIShare <goEncrypted>cifran el archivo en el ordenador antes de subirlo</goEncrypted>, así que el servidor guarda datos que no puede leer. WhatsApp también cifra los archivos de extremo a extremo, aunque se quedan en el historial del chat en ambos dispositivos."
+      },
+      "2": {
+        "h": "Por un servidor, legible para el proveedor",
+        "b": "iCloud Drive con la protección de datos estándar, Google Drive, OneDrive, los chats en la nube de Telegram, Mensajes guardados incluidos, y el correo protegen los archivos en tránsito, mientras la empresa que gestiona el servicio conserva la capacidad de abrir lo que almacena. La protección de datos avanzada de Apple cambia eso para iCloud Drive si la activas."
+      }
     }
   },
   "faq": {
     "title": "Del PC al móvil: preguntas frecuentes",
     "items": {
-      "0": { "q": "¿Cómo paso archivos del PC al móvil sin cable USB?", "a": "De Windows a Android, con Quick Share para Windows o Enlace Móvil. Desde un Mac, con AirDrop a un iPhone o a un Android compatible. Para cualquier ordenador y cualquier móvil, pon BIShare en ambos y envía por tu Wi-Fi, o abre en el navegador del móvil un enlace creado en el ordenador." },
-      "1": { "q": "¿Cómo paso archivos de un PC con Windows a un iPhone?", "a": "Sin cable, guarda el archivo en iCloud Drive con iCloud para Windows o usa una app multiplataforma como BIShare. Con cable, usa la app Dispositivos Apple para añadir archivos a una app compatible con Compartir archivos. El Explorador de archivos no puede copiar archivos a un iPhone." },
-      "2": { "q": "¿Puedo usar Quick Share para enviar archivos del PC a un iPhone?", "a": "No. Quick Share para Windows solo envía a móviles Android. La compatibilidad con AirDrop que Google añadió a Quick Share funciona entre Android compatibles y dispositivos Apple, no desde un PC con Windows." },
-      "3": { "q": "¿Enlace Móvil sirve con iPhone para pasar archivos?", "a": "Enlace Móvil para iPhone gestiona mensajes, llamadas y notificaciones por Bluetooth. Microsoft ha ido desplegando el uso compartido de archivos para iPhone a través del programa Windows Insider, así que la mayoría de los PC aún no lo tienen." },
-      "4": { "q": "¿Cuál es el límite de tamaño de Enlace Móvil?", "a": "Arrastrar y soltar en la pantalla del móvil está limitado a 512 MB por archivo y 100 archivos a la vez, y no acepta carpetas ni archivos que solo estén en la nube." },
-      "5": { "q": "¿Cuál es la mejor forma de pasar un vídeo grande del ordenador al móvil?", "a": "Usa una vía directa, que no tiene tope de tamaño: BIShare en la misma Wi-Fi, Quick Share para Windows a Android, AirDrop desde un Mac o un cable USB a Android. Si el móvil está en otro sitio, un enlace de BIShare admite archivos de hasta 100 GB." },
-      "6": { "q": "¿Por qué mi Android no aparece en el PC por USB?", "a": "Seguramente el móvil está en modo carga. Desbloquéalo, toca la notificación de USB y elige Transferencia de archivos. Si falta la opción, puede que el cable solo sirva para cargar." },
-      "7": { "q": "¿Cómo paso archivos de un Mac a un Android?", "a": "Si el móvil admite la compatibilidad con AirDrop de Quick Share, como un Pixel 9 o posterior, hazlo visible para todos y usa AirDrop desde el Mac. Si no, usa una app multiplataforma como BIShare o LocalSend, o un cable USB con OpenMTP." },
-      "8": { "q": "¿Dónde van los archivos del PC en mi móvil?", "a": "En Android, normalmente a la carpeta Descargas. En un iPhone, las descargas de Safari y los archivos de iCloud Drive aparecen en la app Archivos, las fotos de AirDrop van a Fotos y los archivos añadidos con Dispositivos Apple se quedan dentro de la app elegida." },
-      "9": { "q": "¿Es gratis pasar archivos de un PC a un móvil?", "a": "Sí. BIShare, Quick Share para Windows, Enlace Móvil, AirDrop, LocalSend y un cable USB no cuestan nada. Las nubes son gratis hasta que superas su almacenamiento gratuito." }
+      "0": {
+        "q": "¿Cómo paso archivos del PC al móvil sin cable USB?",
+        "a": "De Windows a Android, con Quick Share para Windows o Enlace Móvil. Desde un Mac, con AirDrop a un iPhone o a un Android compatible. Para cualquier ordenador y cualquier móvil, pon BIShare en ambos y envía por tu Wi-Fi, o abre en el navegador del móvil un enlace creado en el ordenador."
+      },
+      "1": {
+        "q": "¿Cómo paso archivos de un PC con Windows a un iPhone?",
+        "a": "Sin cable, guarda el archivo en iCloud Drive con iCloud para Windows o usa una app multiplataforma como BIShare. Con cable, usa la app Dispositivos Apple para añadir archivos a una app compatible con Compartir archivos. El Explorador de archivos no puede copiar archivos a un iPhone."
+      },
+      "2": {
+        "q": "¿Puedo usar Quick Share para enviar archivos del PC a un iPhone?",
+        "a": "No. Quick Share para Windows solo envía a móviles Android. La compatibilidad con AirDrop que Google añadió a Quick Share funciona entre Android compatibles y dispositivos Apple, no desde un PC con Windows."
+      },
+      "3": {
+        "q": "¿Enlace Móvil sirve con iPhone para pasar archivos?",
+        "a": "Enlace Móvil para iPhone gestiona mensajes, llamadas y notificaciones por Bluetooth. Microsoft ha ido desplegando el uso compartido de archivos para iPhone a través del programa Windows Insider, así que la mayoría de los PC aún no lo tienen."
+      },
+      "4": {
+        "q": "¿Cuál es el límite de tamaño de Enlace Móvil?",
+        "a": "Arrastrar y soltar en la pantalla del móvil está limitado a 512 MB por archivo y 100 archivos a la vez, y no acepta carpetas ni archivos que solo estén en la nube."
+      },
+      "5": {
+        "q": "¿Cuál es la mejor forma de pasar un vídeo grande del ordenador al móvil?",
+        "a": "Usa una vía directa, que no tiene tope de tamaño: BIShare en la misma Wi-Fi, Quick Share para Windows a Android, AirDrop desde un Mac o un cable USB a Android. Si el móvil está en otro sitio, un enlace de BIShare admite archivos de hasta 100 GB."
+      },
+      "6": {
+        "q": "¿Por qué mi Android no aparece en el PC por USB?",
+        "a": "Seguramente el móvil está en modo carga. Desbloquéalo, toca la notificación de USB y elige Transferencia de archivos. Si falta la opción, puede que el cable solo sirva para cargar."
+      },
+      "7": {
+        "q": "¿Cómo paso archivos de un Mac a un Android?",
+        "a": "Si el móvil admite la compatibilidad con AirDrop de Quick Share, como un Pixel 9 o posterior, hazlo visible para todos y usa AirDrop desde el Mac. Si no, usa una app multiplataforma como BIShare o LocalSend, o un cable USB con OpenMTP."
+      },
+      "8": {
+        "q": "¿Dónde van los archivos del PC en mi móvil?",
+        "a": "En Android, normalmente a la carpeta Descargas. En un iPhone, las descargas de Safari y los archivos de iCloud Drive aparecen en la app Archivos, las fotos de AirDrop van a Fotos y los archivos añadidos con Dispositivos Apple se quedan dentro de la app elegida."
+      },
+      "9": {
+        "q": "¿Es gratis pasar archivos de un PC a un móvil?",
+        "a": "Sí. BIShare, Quick Share para Windows, Enlace Móvil, AirDrop, LocalSend y un cable USB no cuestan nada. Las nubes son gratis hasta que superas su almacenamiento gratuito."
+      }
     }
   },
   "cta": {
@@ -153,11 +342,73 @@
     "body": "De código abierto y gratis, sin cuenta en ninguno de los dos dispositivos. Envía de una punta a otra de la habitación por Wi-Fi, o manda un enlace cuando el móvil está en el bolsillo de otra persona.",
     "download": "Descargar BIShare"
   },
-  "a11y": { "yes": "Sí", "no": "No" },
+  "a11y": {
+    "yes": "Sí",
+    "no": "No"
+  },
   "art": {
-    "hero": { "alt": "Un portátil envía archivos a un móvil, con el título Pasar archivos del PC al móvil, ocho formas sin cable en 2026.", "title": "Pasar archivos del PC al móvil", "sub": "8 formas sin cable, 2026", "left": "Ordenador", "right": "Móvil" },
-    "matrix": { "alt": "Vías integradas por combinación: de Windows a Android, Quick Share o Enlace Móvil; de Windows a iPhone, iCloud Drive o la app Dispositivos Apple; de Mac a iPhone, AirDrop; de Mac a Android, AirDrop solo en móviles compatibles; de Linux a Android, KDE Connect; de Linux a iPhone, ninguna vía integrada. BIShare cubre las seis.", "title": "Vías integradas por ordenador y móvil", "sub": "Lo que ofrece cada combinación sin instalar apps de terceros", "android": "Android", "iphone": "iPhone", "windows": "Windows", "mac": "Mac", "linux": "Linux", "wa": "Quick Share · Enlace Móvil", "wi": "iCloud Drive · Dispositivos Apple (cable)", "ma": "AirDrop en móviles compatibles", "mi": "AirDrop", "la": "KDE Connect · GSConnect", "li": "Sin vía integrada", "good": "Buena", "partial": "Parcial", "none": "Ninguna", "foot": "BIShare funciona en las seis casillas: misma Wi-Fi o un enlace abierto en el navegador del móvil" },
-    "caps": { "alt": "Archivo más grande que acepta cada vía, en escala logarítmica: correo unos 25 MB, arrastrar y soltar de Enlace Móvil 512 MB, Telegram y WhatsApp 2 GB, iCloud para Windows 50 GB, un enlace de BIShare 100 GB; BIShare en la misma red, Quick Share, AirDrop y un cable USB no tienen más tope que el espacio libre del móvil.", "title": "El archivo más grande que acepta cada vía", "sub": "Límites por archivo, septiembre de 2026 (escala logarítmica)", "email": "Adjunto de correo", "phonelink": "Enlace Móvil, arrastrar y soltar", "chat": "Telegram · WhatsApp", "icloud": "iCloud para Windows", "link": "Enlace de BIShare", "direct": "BIShare cerca · Quick Share · AirDrop · USB", "noCap": "Espacio del móvil", "foot": "La nube gratuita se acaba antes: iCloud 5 GB, OneDrive 5 GB, Google 15 GB" },
-    "landing": { "alt": "Dónde llegan al móvil los archivos del ordenador: en Android, Quick Share, Enlace Móvil y las descargas del navegador van a la carpeta Descargas y una copia por USB queda en la carpeta que elijas; en un iPhone, las descargas de Safari y los archivos de iCloud Drive están en la app Archivos, las fotos de AirDrop van a Fotos, los archivos añadidos con Dispositivos Apple quedan dentro de la app elegida y BIShare guarda los archivos en su bandeja.", "title": "Dónde acaba el archivo en el móvil", "sub": "Abre esta app cuando termine la transferencia", "androidTitle": "Android", "iphoneTitle": "iPhone", "a0": "Quick Share · Enlace Móvil · navegador", "a0p": "Carpeta Descargas", "a1": "Quick Share en un Galaxy", "a1p": "Descargas › Quick Share", "a2": "BIShare", "a2p": "Bandeja de la app, luego Guardar en Fotos", "a3": "Cable USB en Transferencia de archivos", "a3p": "La carpeta donde copies", "i0": "Enlace en Safari · iCloud Drive", "i0p": "App Archivos", "i1": "AirDrop", "i1p": "Fotos, o una app para documentos", "i2": "Dispositivos Apple · cable con Finder", "i2p": "Dentro de la app elegida", "i3": "BIShare", "i3p": "Bandeja de la app, luego Guardar en Fotos" }
+    "hero": {
+      "alt": "Un portátil envía archivos a un móvil, con el título Pasar archivos del PC al móvil, ocho formas sin cable en 2026.",
+      "title": "Pasar archivos del PC al móvil",
+      "sub": "8 formas sin cable, 2026",
+      "left": "Ordenador",
+      "right": "Móvil"
+    },
+    "matrix": {
+      "alt": "Vías integradas por combinación: de Windows a Android, Quick Share o Enlace Móvil; de Windows a iPhone, iCloud Drive o la app Dispositivos Apple; de Mac a iPhone, AirDrop; de Mac a Android, AirDrop solo en móviles compatibles; de Linux a Android, KDE Connect; de Linux a iPhone, ninguna vía integrada. BIShare cubre las seis.",
+      "title": "Vías integradas por ordenador y móvil",
+      "sub": "Lo que ofrece cada combinación sin instalar apps de terceros",
+      "android": "Android",
+      "iphone": "iPhone",
+      "windows": "Windows",
+      "mac": "Mac",
+      "linux": "Linux",
+      "wa": "Quick Share · Enlace Móvil",
+      "wi": "iCloud Drive · Dispositivos Apple (cable)",
+      "ma": "AirDrop en móviles compatibles",
+      "mi": "AirDrop",
+      "la": "KDE Connect · GSConnect",
+      "li": "Sin vía integrada",
+      "good": "Buena",
+      "partial": "Parcial",
+      "none": "Ninguna",
+      "foot": "BIShare funciona en las seis casillas: misma Wi-Fi o un enlace abierto en el navegador del móvil"
+    },
+    "caps": {
+      "alt": "Archivo más grande que acepta cada vía, en escala logarítmica: correo unos 25 MB, arrastrar y soltar de Enlace Móvil 512 MB, Telegram y WhatsApp 2 GB, iCloud para Windows 50 GB, un enlace de BIShare 100 GB; BIShare en la misma red, Quick Share, AirDrop y un cable USB no tienen más tope que el espacio libre del móvil.",
+      "title": "El archivo más grande que acepta cada vía",
+      "sub": "Límites por archivo, septiembre de 2026 (escala logarítmica)",
+      "email": "Adjunto de correo",
+      "phonelink": "Enlace Móvil, arrastrar y soltar",
+      "chat": "Telegram · WhatsApp",
+      "icloud": "iCloud para Windows",
+      "link": "Enlace de BIShare",
+      "direct": "BIShare cerca · Quick Share · AirDrop · USB",
+      "noCap": "Espacio del móvil",
+      "foot": "La nube gratuita se acaba antes: iCloud 5 GB, OneDrive 5 GB, Google 15 GB"
+    },
+    "landing": {
+      "alt": "Dónde llegan al móvil los archivos del ordenador: en Android, Quick Share, Enlace Móvil y las descargas del navegador van a la carpeta Descargas y una copia por USB queda en la carpeta que elijas; en un iPhone, las descargas de Safari y los archivos de iCloud Drive están en la app Archivos, las fotos de AirDrop van a Fotos, los archivos añadidos con Dispositivos Apple quedan dentro de la app elegida y BIShare guarda los archivos en su bandeja.",
+      "title": "Dónde acaba el archivo en el móvil",
+      "sub": "Abre esta app cuando termine la transferencia",
+      "androidTitle": "Android",
+      "iphoneTitle": "iPhone",
+      "a0": "Quick Share · Enlace Móvil · navegador",
+      "a0p": "Carpeta Descargas",
+      "a1": "Quick Share en un Galaxy",
+      "a1p": "Descargas › Quick Share",
+      "a2": "BIShare",
+      "a2p": "Bandeja de la app, luego Guardar en Fotos",
+      "a3": "Cable USB en Transferencia de archivos",
+      "a3p": "La carpeta donde copies",
+      "i0": "Enlace en Safari · iCloud Drive",
+      "i0p": "App Archivos",
+      "i1": "AirDrop",
+      "i1p": "Fotos, o una app para documentos",
+      "i2": "Dispositivos Apple · cable con Finder",
+      "i2p": "Dentro de la app elegida",
+      "i3": "BIShare",
+      "i3p": "Bandeja de la app, luego Guardar en Fotos"
+    }
   }
 }

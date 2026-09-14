@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Alternative à Nearby Share",
     "title": "Les meilleures alternatives à Nearby Share",
-    "body": "Nearby Share était la réponse de Google à AirDrop : on touche Partager sur un téléphone Android, on choisit un appareil proche, et le fichier arrive par Bluetooth et Wi-Fi, sans câble. Depuis 2024, la fonction porte un autre nom, Quick Share, car Google l'a fondue dans la fonction homonyme de Samsung, ce qui explique pourquoi tant de recherches sur Nearby Share aboutissent à un écran de réglages où ces mots n'apparaissent plus. Le service a aussi grandi : une application Windows et, depuis fin 2025, un pont vers AirDrop sur certains téléphones. Il manque toujours une application officielle pour Mac ou Linux, la prise en charge des téléphones sans services Google et tout moyen de joindre quelqu'un qui n'est pas dans la pièce. Ce guide démêle les noms, montre jusqu'où va Quick Share en 2026, classe sept alternatives dont deux clients Quick Share non officiels, et explique comment réparer la fonction intégrée avant de la remplacer. <strong>BIShare</strong> figure dans la liste : <strong>gratuit, sous licence MIT et disponible pour Android, iPhone, Windows, macOS et Linux</strong>. <highlight>Aucun compte Google requis.</highlight>",
+    "body": "Nearby Share était la réponse de Google à AirDrop : on touche Partager sur un téléphone Android, on choisit un appareil proche, et le fichier arrive par Bluetooth et Wi-Fi, sans câble. Depuis 2024, la fonction porte un autre nom, Quick Share, car Google l'a fondue dans la fonction homonyme de Samsung, ce qui explique pourquoi tant de recherches sur Nearby Share aboutissent à un écran de réglages où ces mots n'apparaissent plus. Le service a aussi grandi : une application Windows et, depuis fin 2025, un pont vers AirDrop sur certains téléphones. Il manque toujours une application officielle pour Mac ou Linux, la prise en charge des téléphones sans services Google et tout moyen de joindre quelqu'un qui n'est pas dans la pièce. Ce guide démêle les noms, montre jusqu'où va Quick Share en 2026, classe sept alternatives dont deux clients Quick Share non officiels, et explique comment réparer la fonction intégrée avant de la remplacer. <strong>BIShare</strong> figure dans la liste : <strong>gratuit, sous licence MIT et disponible pour Android, iPhone, Windows, macOS et Linux</strong>. <highlight><goNoAccount>Aucun compte Google requis</goNoAccount>.</highlight>",
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
@@ -16,7 +16,7 @@
     "title": "Réponse rapide",
     "items": [
       "<strong>Vous cherchez Nearby Share sur votre téléphone :</strong> il s'appelle maintenant Quick Share. Il se trouve dans le menu de partage d'Android, et les paramètres ont leur propre entrée Quick Share.",
-      "<strong>D'Android vers un Mac ou un PC Linux :</strong> BIShare ou LocalSend des deux côtés, ou les clients non officiels NearDrop (Mac) et RQuickShare (Linux et Mac) si vous voulez que le Quick Share intégré du téléphone fasse l'envoi.",
+      "<strong><blogAndroidMac>D'Android vers un Mac</blogAndroidMac> ou un PC Linux :</strong> BIShare ou LocalSend des deux côtés, ou les clients non officiels NearDrop (Mac) et RQuickShare (Linux et Mac) si vous voulez que le Quick Share intégré du téléphone fasse l'envoi.",
       "<strong>D'Android vers iPhone :</strong> Quick Share n'atteint AirDrop que depuis les téléphones de la liste de Google. BIShare, LocalSend et PairDrop fonctionnent depuis n'importe quel Android.",
       "<strong>Un PC sans Bluetooth ou sous Windows 32 bits :</strong> l'application de Google n'y fonctionne pas, envoyez donc par le réseau avec BIShare ou LocalSend.",
       "<strong>Un téléphone sans services Google :</strong> Quick Share est livré avec les services Google Play, choisissez donc une application qui s'installe seule, comme BIShare, LocalSend ou KDE Connect.",
@@ -45,7 +45,7 @@
       },
       "4": {
         "h": "Depuis novembre 2025 : dialogue avec AirDrop",
-        "b": "Google a appris à Quick Share à parler AirDrop, d'abord sur le Pixel 10 fin 2025, puis en 2026 sur d'autres Pixel, les Galaxy haut de gamme et plusieurs marques chinoises. L'iPhone, l'iPad ou le Mac qui reçoit doit régler AirDrop sur « Tout le monde pendant 10 minutes ». Les téléphones absents de la liste de Google ne le peuvent toujours pas."
+        "b": "<goAirdropAndroid>Google a appris à Quick Share à parler AirDrop</goAirdropAndroid>, d'abord sur le Pixel 10 fin 2025, puis en 2026 sur d'autres Pixel, les Galaxy haut de gamme et plusieurs marques chinoises. L'iPhone, l'iPad ou le Mac qui reçoit doit régler AirDrop sur « Tout le monde pendant 10 minutes ». Les téléphones absents de la liste de Google ne le peuvent toujours pas."
       }
     }
   },
@@ -81,7 +81,7 @@
       },
       "2": {
         "h": "iPhone, iPad et Mac",
-        "b": "Il existe deux voies, toutes deux plus étroites que ne le laissent croire les titres. Les téléphones de la liste AirDrop de Google peuvent envoyer vers les appareils Apple dont AirDrop accepte tout le monde. Google a aussi ajouté un code QR que l'iPhone scanne, limité à 10 Go par jour et mille fichiers par session, et qui nécessite le Wi-Fi. Google ne propose aucune application Quick Share pour iOS ou macOS."
+        "b": "Il existe deux voies, toutes deux plus étroites que ne le laissent croire les titres. <goAndroidIphone>Les téléphones de la liste AirDrop de Google peuvent envoyer vers les appareils Apple</goAndroidIphone> dont AirDrop accepte tout le monde. Google a aussi ajouté un code QR que l'iPhone scanne, limité à 10 Go par jour et mille fichiers par session, et qui nécessite le Wi-Fi. Google ne propose aucune application Quick Share pour iOS ou macOS."
       },
       "3": {
         "h": "Linux",
@@ -113,7 +113,7 @@
         "name": "LocalSend",
         "tag": "Meilleure option open source sur un réseau partagé",
         "facts": "Android, iOS, Windows, macOS, Linux, Fire OS · Apache 2.0 · un seul réseau local · HTTPS chiffré, certificat propre à chaque appareil · Winget, Homebrew, Flathub, F-Droid",
-        "body": "LocalSend est l'application la plus souvent recommandée dans les discussions sur Nearby Share pour Mac ou Linux. Installez-la sur chaque appareil, gardez-les sur la même box, et ils s'affichent mutuellement avec nom et icône, un peu comme le sélecteur d'appareils de Quick Share. Pas de compte, pas de serveur, pas de limite de taille, et sur ordinateur elle s'installe avec le gestionnaire de paquets que vous utilisez déjà.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> est l'application la plus souvent recommandée dans les discussions sur Nearby Share pour Mac ou Linux. Installez-la sur chaque appareil, gardez-les sur la même box, et ils s'affichent mutuellement avec nom et icône, un peu comme le sélecteur d'appareils de Quick Share. Pas de compte, pas de serveur, pas de limite de taille, et sur ordinateur elle s'installe avec le gestionnaire de paquets que vous utilisez déjà.",
         "cons": "Les deux appareils doivent rester sur le même réseau local, et il n'y a pas d'option de lien pour quelqu'un d'ailleurs."
       },
       "2": {
@@ -127,7 +127,7 @@
         "name": "PairDrop",
         "tag": "Idéal pour un envoi ponctuel sans rien installer",
         "facts": "Tout navigateur récent · GPL-3.0 · les appareils d'un même réseau se trouvent seuls · code d'association ou QR entre réseaux · relais TURN de secours · auto-hébergeable",
-        "body": "PairDrop est ce qui se rapproche le plus de la simplicité sans réglage de Nearby Share sur les appareils qui ne l'ont pas. Ouvrez pairdrop.net sur un téléphone et un ordinateur du même réseau et ils se voient ; sur des réseaux différents, associez-les avec un code. Cela couvre les portables prêtés, les PC de bureau qui bloquent les installations et les iPhone, le tout depuis un onglet.",
+        "body": "<goSnapdrop>PairDrop</goSnapdrop> est ce qui se rapproche le plus de la simplicité sans réglage de Nearby Share sur les appareils qui ne l'ont pas. Ouvrez pairdrop.net sur un téléphone et un ordinateur du même réseau et ils se voient ; sur des réseaux différents, associez-les avec un code. Cela couvre les portables prêtés, les PC de bureau qui bloquent les installations et les iPhone, le tout depuis un onglet.",
         "cons": "Il faut internet pour présenter les appareils, l'onglet doit rester ouvert, et les très gros fichiers pèsent sur la mémoire du navigateur."
       },
       "4": {
@@ -209,7 +209,7 @@
       },
       "1": {
         "h": "D'un téléphone Android vers un PC Linux",
-        "b": "RQuickShare ou Packet si vous voulez que le menu de partage du téléphone liste le PC. KDE Connect si les notifications du téléphone et un presse-papiers partagé sur le bureau vous tentent aussi."
+        "b": "RQuickShare ou Packet si vous voulez que <goPhonePc>le menu de partage du téléphone liste le PC</goPhonePc>. KDE Connect si les notifications du téléphone et un presse-papiers partagé sur le bureau vous tentent aussi."
       },
       "2": {
         "h": "De n'importe quel Android vers un iPhone",
@@ -217,7 +217,7 @@
       },
       "3": {
         "h": "Un PC Windows que l'application de Google refuse",
-        "b": "Une édition 32 bits, une tour sans Bluetooth ou un portable Arm resté sous Windows 10 : installez BIShare ou LocalSend, qui ne dépendent que du réseau."
+        "b": "Une édition 32 bits, une tour sans Bluetooth ou un portable Arm resté sous Windows 10 : installez BIShare ou LocalSend, <goOffline>qui ne dépendent que du réseau</goOffline>."
       },
       "4": {
         "h": "Un téléphone sans services Google Play",
@@ -225,7 +225,7 @@
       },
       "5": {
         "h": "Quelqu'un au loin",
-        "b": "Créez un lien BIShare : 100 Go y tiennent, il expire un jour plus tard et le destinataire n'a besoin que d'un navigateur. PairDrop peut aussi associer deux appareils sur des réseaux différents tant que les deux onglets restent ouverts."
+        "b": "Créez un lien BIShare : 100 Go y tiennent, il expire un jour plus tard et <goTransfer>le destinataire n'a besoin que d'un navigateur</goTransfer>. PairDrop peut aussi associer deux appareils sur des réseaux différents tant que les deux onglets restent ouverts."
       }
     }
   },
@@ -255,7 +255,7 @@
       },
       "5": {
         "h": "Votre pays n'est pas couvert",
-        "b": "Google ne propose pas l'application Windows à Cuba, en Iran, en Corée du Nord ni en Syrie ; là-bas, une application multiplateforme est la seule voie sans fil du téléphone au PC."
+        "b": "Google ne propose pas l'application Windows à Cuba, en Iran, en Corée du Nord ni en Syrie ; là-bas, <goBestApps>une application multiplateforme</goBestApps> est la seule voie sans fil du téléphone au PC."
       }
     }
   },

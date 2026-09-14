@@ -6,20 +6,20 @@
   "hero": {
     "eyebrow": "Transferência multiplataforma",
     "title": "AirDrop para Windows",
-    "body": "O AirDrop só funciona entre dispositivos Apple; o Windows nunca o teve. O <strong>BIShare</strong> é o app gratuito e de código aberto que faz o mesmo trabalho entre um <strong>iPhone ou Mac e um PC com Windows</strong> — além de Android e Linux — pelo seu próprio Wi-Fi, ou com um link que o outro lado abre em qualquer navegador. <highlight>Grátis, sem conta e sem instalar nada em quem recebe.</highlight>",
+    "body": "O AirDrop só funciona entre dispositivos Apple; o Windows nunca o teve. O <strong>BIShare</strong> é o app gratuito e de código aberto que faz o mesmo trabalho entre um <strong>iPhone ou Mac e um PC com Windows</strong> — além de Android e Linux — pelo seu próprio Wi-Fi, ou com um link que o outro lado abre em qualquer navegador. <highlight>Grátis, <goNoAccount>sem conta</goNoAccount> e sem instalar nada em quem recebe.</highlight>",
     "ctaPrimary": "Baixar o BIShare grátis",
     "ctaSecondary": "Como funciona"
   },
   "why": {
     "title": "Por que o AirDrop não chega ao Windows",
-    "body": "O AirDrop roda em protocolos exclusivos da Apple, então funciona entre iPhones, iPads e Macs — nunca com um PC com Windows, e a Apple nunca publicou o protocolo para outros implementarem. O Compartilhamento por proximidade do Windows 11 só conversa com outros PCs com Windows. O Phone Link da Microsoft ganhou compartilhamento de arquivos com iPhone em dezembro de 2024, mas só em builds do Windows Insider e só para o celular — um Mac continua sem caminho até o PC. Esse caso do dia a dia, tirar uma foto ou um documento do iPhone ou do Mac para um notebook com Windows, é exatamente o que o BIShare cobre."
+    "body": "O AirDrop roda em protocolos exclusivos da Apple, então funciona entre iPhones, iPads e Macs — nunca com um PC com Windows, e a Apple nunca publicou o protocolo para outros implementarem. O Compartilhamento por proximidade do Windows 11 só conversa com outros PCs com Windows. O Phone Link da Microsoft ganhou compartilhamento de arquivos com iPhone em dezembro de 2024, mas só em builds do Windows Insider e só para o celular — <goMacWindows>um Mac continua sem caminho até o PC</goMacWindows>. Esse caso do dia a dia, <blogIphoneWindows>tirar uma foto ou um documento do iPhone ou do Mac para um notebook com Windows</blogIphoneWindows>, é exatamente o que o BIShare cobre."
   },
   "how": {
     "title": "Como o BIShare envia iPhone / Mac ↔ Windows",
     "items": {
       "0": {
         "h": "No mesmo Wi-Fi",
-        "b": "Os arquivos vão direto de um dispositivo para o outro, com criptografia de ponta a ponta — nada fica armazenado em servidor. É rápido e funciona até pelo roteador do celular, sem internet nenhuma."
+        "b": "Os arquivos vão direto de um dispositivo para o outro, com criptografia de ponta a ponta — nada fica armazenado em servidor. É rápido e <goOffline>funciona até pelo roteador do celular, sem internet nenhuma</goOffline>."
       },
       "1": {
         "h": "Quando vocês estão longe",
@@ -154,11 +154,11 @@
     "title": "Nos dois sentidos, não só num",
     "toPc": {
       "h": "iPhone ou Mac → PC com Windows",
-      "b": "O caso comum: fotos, vídeos e documentos do celular para o computador na velocidade do Wi-Fi local, com o arquivo original intacto — sem recompressão, sem o teto de 25 MB do e-mail e sem nada subindo para servidor no caminho."
+      "b": "O caso comum: <goPhonePc>fotos, vídeos e documentos do celular para o computador</goPhonePc> na velocidade do Wi-Fi local, com o arquivo original intacto — sem recompressão, sem o teto de 25 MB do e-mail e sem nada subindo para servidor no caminho."
     },
     "toPhone": {
       "h": "PC com Windows → iPhone ou Mac",
-      "b": "A mesma rota ao contrário, algo que o AirDrop nunca ofereceu. Arraste arquivos para o app do PC e mande para o celular; vídeos grandes e pastas se comportam como arquivos pequenos, porque o limite é o espaço em disco, não uma cota de upload."
+      "b": "A mesma rota ao contrário, algo que o AirDrop nunca ofereceu. Arraste arquivos para o app do PC e <goPcPhone>mande para o celular</goPcPhone>; <goLargeFiles>vídeos grandes e pastas</goLargeFiles> se comportam como arquivos pequenos, porque o limite é o espaço em disco, não uma cota de upload."
     }
   },
   "fixes": {
@@ -184,7 +184,7 @@
     "items": [
       "<strong>O AirDrop não existe no Windows.</strong> Ele roda em protocolos exclusivos da Apple, então nenhum download chamado \"AirDrop para Windows\" é real — trate qualquer .exe com esse nome como inseguro.",
       "<strong>O mais próximo que funciona hoje:</strong> BIShare — grátis na Microsoft Store para Windows 10 e 11, com apps para iPhone, Mac, Android e Linux. Envia nos dois sentidos pelo Wi-Fi, sem conta.",
-      "<strong>Sem instalar nada?</strong> Abra bishare.app/transfer em qualquer navegador no PC e solte o arquivo a partir do celular — no mesmo Wi-Fi ou por link, criptografado antes de sair do aparelho.",
+      "<strong>Sem instalar nada?</strong> Abra <goTransfer>bishare.app/transfer</goTransfer> em qualquer navegador no PC e solte o arquivo a partir do celular — no mesmo Wi-Fi ou por link, criptografado antes de sair do aparelho.",
       "<strong>A opção da Microsoft:</strong> o Phone Link (Vínculo com o Celular) compartilha arquivos com um iPhone em builds do Windows Insider (iOS 16+, pareamento Bluetooth, conta Microsoft). Não cobre Mac e ainda não está no Windows estável para todos."
     ]
   },
@@ -251,7 +251,7 @@
       },
       {
         "h": "LocalSend",
-        "b": "Grátis, de código aberto e bom num Wi-Fi compartilhado — cada aparelho precisa do app, e não há caminho por link quando a outra pessoa está em outra rede ou não pode instalar nada."
+        "b": "<goLocalsend>Grátis, de código aberto e bom num Wi-Fi compartilhado</goLocalsend> — cada aparelho precisa do app, e não há caminho por link quando a outra pessoa está em outra rede ou não pode instalar nada."
       },
       {
         "h": "Snapdrop / PairDrop",
@@ -259,7 +259,7 @@
       },
       {
         "h": "SHAREit, Xender e similares",
-        "b": "Rápidos no papel, mas cheios de anúncios, pesados em permissões e apontados repetidas vezes por problemas de segurança. Não é coisa para colocar num PC de trabalho."
+        "b": "Rápidos no papel, mas <goShareit>cheios de anúncios, pesados em permissões</goShareit> e apontados repetidas vezes por problemas de segurança. Não é coisa para colocar num PC de trabalho."
       },
       {
         "h": "iCloud, Google Drive, Dropbox",
@@ -267,7 +267,7 @@
       },
       {
         "h": "Cabo, iTunes ou o app Fotos do Windows",
-        "b": "Confiável para fotos do iPhone, com cabo e instalação de driver. Nada de Mac para PC, nada no sentido inverso, nada para enviar a outra pessoa."
+        "b": "<goIphonePhotos>Confiável para fotos do iPhone</goIphonePhotos>, com cabo e instalação de driver. Nada de Mac para PC, nada no sentido inverso, nada para enviar a outra pessoa."
       },
       {
         "h": "E-mail ou app de mensagens",
@@ -317,7 +317,7 @@
     "title": "O que sai do seu aparelho, e o que não sai",
     "items": [
       "Na mesma rede o arquivo vai direto de um aparelho ao outro, criptografado para aquela transferência. Nenhum servidor o vê e nada fica guardado em lugar algum além do PC que recebe.",
-      "No caminho do link o arquivo é criptografado no seu navegador ou app antes do upload. A chave viaja no link depois do sinal #, que os navegadores nunca enviam ao servidor, então o que nosso armazenamento guarda é um texto cifrado que ele não consegue abrir. Os links expiram em 24 horas; você também pode criar um que se autodestrói após o primeiro download.",
+      "No caminho do link <goEncrypted>o arquivo é criptografado no seu navegador ou app antes do upload</goEncrypted>. A chave viaja no link depois do sinal #, que os navegadores nunca enviam ao servidor, então o que nosso armazenamento guarda é um texto cifrado que ele não consegue abrir. Os links expiram em 24 horas; você também pode criar um que se autodestrói após o primeiro download.",
       "Não há conta, nem envio de contatos, nem SDK de anúncios. O app para Windows é assinado e publicado por nós na Microsoft Store; o código-fonte de todas as plataformas é público."
     ]
   },

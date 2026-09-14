@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Alternativa a ShareDrop",
     "title": "Las mejores alternativas a ShareDrop",
-    "body": "ShareDrop fue una de las primeras webs en copiar AirDrop dentro del navegador: abres sharedrop.io en dos dispositivos, ves el avatar del otro, sueltas un archivo y viaja directo por WebRTC. En 2026 sigue en línea, pero ya no pertenece a su creador. LimeWire la compró a principios de 2025 y hoy la página carga scripts de LimeWire para cinco espacios publicitarios y un botón Upload Files que envía los archivos a los servidores de LimeWire en vez de al dispositivo que tienes al lado. Mucha gente quiere ahora el comportamiento de siempre sin el nuevo dueño, y algunos siempre quisieron más de lo que una sola pestaña puede hacer. Esta guía explica qué cambió, cómo decidía ShareDrop qué dispositivos veías, dónde se queda corto, clasifica siete alternativas, incluido ShareDrop Classic autoalojado, y muestra cómo enviar a alguien en otra red. Nuestro <strong>BIShare</strong> está en la lista: <strong>gratis y con licencia MIT, funciona en el navegador en bishare.app y como app para Android, iPhone, Windows, macOS y Linux</strong>. <highlight>Sin cuenta en ninguno de los dos lados.</highlight>",
+    "body": "ShareDrop fue una de las primeras webs en copiar <goAirdropAlt>AirDrop</goAirdropAlt> dentro del navegador: abres sharedrop.io en dos dispositivos, ves el avatar del otro, sueltas un archivo y viaja directo por WebRTC. En 2026 sigue en línea, pero ya no pertenece a su creador. LimeWire la compró a principios de 2025 y hoy la página carga scripts de LimeWire para cinco espacios publicitarios y un botón Upload Files que envía los archivos a los servidores de LimeWire en vez de al dispositivo que tienes al lado. Mucha gente quiere ahora el comportamiento de siempre sin el nuevo dueño, y algunos siempre quisieron más de lo que una sola pestaña puede hacer. Esta guía explica qué cambió, cómo decidía ShareDrop qué dispositivos veías, dónde se queda corto, clasifica siete alternativas, incluido ShareDrop Classic autoalojado, y muestra cómo enviar a alguien en otra red. Nuestro <strong>BIShare</strong> está en la lista: <strong>gratis y con licencia MIT, funciona en el navegador en bishare.app y como app para Android, iPhone, Windows, macOS y Linux</strong>. <highlight><goNoAccount>Sin cuenta en ninguno de los dos lados</goNoAccount>.</highlight>",
     "ctaPrimary": "Consigue BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
@@ -16,9 +16,9 @@
     "title": "Respuesta rápida",
     "items": [
       "<strong>Lo más parecido al ShareDrop clásico:</strong> PairDrop. Misma idea, código abierto, los dispositivos de una misma red se encuentran y el emparejamiento cubre otras redes.",
-      "<strong>Quieres que el remitente se desconecte tras enviar:</strong> un enlace de BIShare guarda hasta 100 GB cifrados durante un día y se abre en cualquier navegador, sin pestañas abiertas.",
+      "<strong>Quieres que el remitente se desconecte tras enviar:</strong> un enlace de BIShare guarda hasta 100 GB cifrados durante un día y <goTransfer>se abre en cualquier navegador</goTransfer>, sin pestañas abiertas.",
       "<strong>Un archivo, un destinatario, nada guardado en ningún sitio:</strong> FilePizza o ToffeeShare, siempre que mantengas tu pestaña abierta hasta que termine la descarga.",
-      "<strong>Carpetas grandes entre tus propios ordenadores y móviles:</strong> una app gana a una pestaña. BIShare o LocalSend en el mismo router, o Taildrop si ya usas Tailscale.",
+      "<strong><goLargeFiles>Carpetas grandes</goLargeFiles> entre tus propios ordenadores y móviles:</strong> una app gana a una pestaña. BIShare o LocalSend en el mismo router, o Taildrop si ya usas Tailscale.",
       "<strong>Te gustaba ShareDrop tal como era:</strong> el código original con licencia MIT sigue intacto en GitHub, listo para alojar, aunque necesita una base de datos de Firebase.",
       "<strong>Si usas sharedrop.io de todos modos:</strong> suelta los archivos sobre el avatar de una persona para una transferencia directa. La zona Upload Files los manda a LimeWire."
     ]
@@ -113,7 +113,7 @@
         "name": "PairDrop",
         "tag": "El mejor sustituto equivalente en el navegador",
         "facts": "Cualquier navegador moderno, instalable como PWA · GPL-3.0 · descubrimiento en la misma red · emparejamiento permanente con código de 6 dígitos o QR · salas públicas temporales · relé TURN tras NAT · imágenes Docker para autoalojar",
-        "body": "PairDrop nació de Snapdrop y se comporta como la gente recuerda ShareDrop, con extras. Los dispositivos de una misma red aparecen solos; los emparejados se encuentran estén donde estén; y una sala pública temporal funciona como el botón + de ShareDrop. Su FAQ es clara con el enrutamiento: en la misma red los archivos nunca llegan a un servidor, y los dispositivos emparejados tras NAT recurren al servidor TURN de PairDrop.",
+        "body": "PairDrop nació de <goSnapdrop>Snapdrop</goSnapdrop> y se comporta como la gente recuerda ShareDrop, con extras. Los dispositivos de una misma red aparecen solos; los emparejados se encuentran estén donde estén; y una sala pública temporal funciona como el botón + de ShareDrop. Su FAQ es clara con el enrutamiento: en la misma red los archivos nunca llegan a un servidor, y los dispositivos emparejados tras NAT recurren al servidor TURN de PairDrop.",
         "cons": "Como en ShareDrop, los dos dispositivos deben estar conectados a la vez con la pestaña abierta, y una transferencia por TURN es más lenta que una directa."
       },
       "2": {
@@ -134,7 +134,7 @@
         "name": "LocalSend",
         "tag": "La mejor opción con app en una misma red",
         "facts": "Apache 2.0 · apps para Android, iOS, escritorio y Fire OS · una red local, internet opcional · HTTPS entre dispositivos · Winget, Homebrew, Flathub, F-Droid",
-        "body": "Si ShareDrop te servía sobre todo para mover archivos entre tu móvil y tu ordenador, una app elimina por completo los problemas de la pestaña. Los dispositivos con LocalSend en el mismo router se listan sin ningún servidor, así que sigue funcionando en un router sin conexión a internet. En septiembre de 2026 encabezaba las opciones de código abierto en la página de ShareDrop de AlternativeTo.",
+        "body": "Si ShareDrop te servía sobre todo para mover archivos entre tu móvil y tu ordenador, una app elimina por completo los problemas de la pestaña. Los dispositivos con <goLocalsend>LocalSend</goLocalsend> en el mismo router se listan sin ningún servidor, así que sigue funcionando en un router sin conexión a internet. En septiembre de 2026 encabezaba las opciones de código abierto en la página de ShareDrop de AlternativeTo.",
         "cons": "Todos los dispositivos necesitan la app y no llega a nadie fuera de tu red local."
       },
       "5": {
@@ -188,7 +188,7 @@
       },
       "2": {
         "h": "Enlaces guardados: nadie tiene que esperar",
-        "b": "Un enlace de BIShare cifra el archivo en tu navegador, lo sube y lo conserva 24 horas. Puedes desconectarte enseguida y el destinatario descarga desde cualquier navegador. Es el modelo que encaja con husos horarios y agendas llenas, a cambio de que una copia cifrada pase un día en un servidor."
+        "b": "<goEncrypted>Un enlace de BIShare cifra el archivo en tu navegador</goEncrypted>, lo sube y lo conserva 24 horas. Puedes desconectarte enseguida y el destinatario descarga desde cualquier navegador. Es el modelo que encaja con husos horarios y agendas llenas, a cambio de que una copia cifrada pase un día en un servidor."
       },
       "3": {
         "h": "Dispositivos emparejados: tu equipo en cualquier red",
@@ -236,7 +236,7 @@
       },
       "3": {
         "h": "Una clase o una reunión",
-        "b": "Una sala de BIShare con código corto, en modo local si todos comparten la Wi-Fi y en modo nube si algunos se conectan en remoto."
+        "b": "<goRooms>Una sala de BIShare con código corto</goRooms>, en modo local si todos comparten la Wi-Fi y en modo nube si algunos se conectan en remoto."
       },
       "4": {
         "h": "Tu propia flota de equipos",

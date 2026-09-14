@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "De computador para computador",
     "title": "Como transferir arquivos entre dois computadores",
-    "body": "Levar arquivos de um computador para outro parece uma tarefa só, mas uma pasta para a colega do outro lado do escritório, um notebook novo que precisa de tudo do antigo e um Mac trocando projetos com um PC com Windows são três trabalhos diferentes, com três melhores caminhos diferentes. O Windows agora tem uma transferência de PC para PC na configuração, os Macs têm o Assistente de Migração há anos, e os dois conseguem compartilhar pastas na rede se você souber quais opções ligar. Este guia parte da dupla de computadores à sua frente, classifica oito jeitos de mover os arquivos, explica o que uma migração completa leva e o que deixa para trás, e trata dos formatos de disco, velocidades e ajustes que causam a maioria das cópias com falha. Um dos oito é o <strong>BIShare</strong>, que envia <strong>arquivos e pastas direto entre Windows, Mac e Linux</strong> na mesma rede, sem limite de tamanho e sem upload. <highlight>Grátis e de código aberto, sem cadastro.</highlight>",
+    "body": "Levar arquivos de um computador para outro parece uma tarefa só, mas uma pasta para a colega do outro lado do escritório, um notebook novo que precisa de tudo do antigo e um Mac trocando projetos com um PC com Windows são três trabalhos diferentes, com três melhores caminhos diferentes. O Windows agora tem uma transferência de PC para PC na configuração, os Macs têm o Assistente de Migração há anos, e os dois conseguem compartilhar pastas na rede se você souber quais opções ligar. Este guia parte da dupla de computadores à sua frente, classifica oito jeitos de mover os arquivos, explica o que uma migração completa leva e o que deixa para trás, e trata dos formatos de disco, velocidades e ajustes que causam a maioria das cópias com falha. Um dos oito é o <strong>BIShare</strong>, que envia <strong>arquivos e pastas direto entre Windows, Mac e Linux</strong> na mesma rede, sem limite de tamanho e sem upload. <highlight>Grátis e de código aberto, <goNoAccount>sem cadastro</goNoAccount>.</highlight>",
     "ctaPrimary": "Baixe o BIShare grátis",
     "ctaSecondary": "Como funciona"
   },
@@ -27,102 +27,275 @@
     "title": "Comece pela dupla: quais são os dois computadores?",
     "body": "O melhor caminho depende menos dos arquivos e mais dos dois sistemas operacionais. As ferramentas nativas são ótimas dentro de uma plataforma e fracas entre plataformas.",
     "items": {
-      "0": { "h": "Windows para Windows", "b": "O Windows tem as opções nativas mais completas: a transferência do Backup do Windows para um PC novo, o compartilhamento por proximidade para envios rápidos entre PCs próximos e o compartilhamento de rede para pastas abertas pelas duas máquinas. Sem uma rede privada em comum, o compartilhamento por proximidade usa Bluetooth, que serve para um documento e é lento para um vídeo." },
-      "1": { "h": "Mac para Mac", "b": "O AirDrop resolve envios rápidos, o Assistente de Migração leva uma conta de usuário inteira para um Mac novo por Wi-Fi, Ethernet ou cabo Thunderbolt, e o Compartilhamento de Arquivos nos Ajustes do Sistema deixa um Mac abrir pastas do outro. Entre dois Macs raramente é preciso outra coisa." },
-      "2": { "h": "Windows e Mac", "b": "O Assistente de Migração do Windows, da Apple, leva arquivos e ajustes de um PC para um Mac novo, mas não há nada nativo no sentido contrário. No dia a dia, uma pasta compartilhada do Windows aberta pelo Finder do Mac, um disco exFAT, uma pasta na nuvem ou um app multiplataforma como o BIShare cobrem a lacuna." },
-      "3": { "h": "Linux na mistura", "b": "Os desktops Linux falam SMB, então abrem compartilhamentos do Windows e do Mac, e o Linux Mint traz o Warpinator para transferências na rede local. Apps multiplataforma como LocalSend e BIShare evitam montar compartilhamentos, e o rsync via SSH combina com quem se sente em casa no terminal." }
+      "0": {
+        "h": "Windows para Windows",
+        "b": "O Windows tem as opções nativas mais completas: a transferência do Backup do Windows para um PC novo, o compartilhamento por proximidade para envios rápidos entre PCs próximos e o compartilhamento de rede para pastas abertas pelas duas máquinas. Sem uma rede privada em comum, o compartilhamento por proximidade usa Bluetooth, que serve para um documento e é lento para um vídeo."
+      },
+      "1": {
+        "h": "Mac para Mac",
+        "b": "O <goAirdropAlt>AirDrop</goAirdropAlt> resolve envios rápidos, o Assistente de Migração leva uma conta de usuário inteira para um Mac novo por Wi-Fi, Ethernet ou cabo Thunderbolt, e o Compartilhamento de Arquivos nos Ajustes do Sistema deixa um Mac abrir pastas do outro. Entre dois Macs raramente é preciso outra coisa."
+      },
+      "2": {
+        "h": "Windows e Mac",
+        "b": "O Assistente de Migração do Windows, da Apple, leva arquivos e ajustes de um PC para um Mac novo, mas não há nada nativo no sentido contrário. No dia a dia, <goMacWindows>uma pasta compartilhada do Windows aberta pelo Finder do Mac</goMacWindows>, um disco exFAT, uma pasta na nuvem ou um app multiplataforma como o BIShare cobrem a lacuna."
+      },
+      "3": {
+        "h": "Linux na mistura",
+        "b": "Os desktops Linux falam SMB, então abrem compartilhamentos do Windows e do Mac, e o Linux Mint traz o Warpinator para transferências na rede local. Apps multiplataforma como LocalSend e BIShare evitam montar compartilhamentos, e o rsync via SSH combina com quem se sente em casa no terminal."
+      }
     }
   },
   "methods": {
     "title": "Oito jeitos de transferir arquivos entre dois computadores, em ordem",
     "consLabel": "Fique de olho:",
     "items": {
-      "0": { "name": "BIShare", "tag": "Melhor no geral para o dia a dia entre Windows, Mac e Linux", "facts": "Windows (Microsoft Store), Mac App Store, Linux · código aberto com licença MIT · direto em uma rede compartilhada, sem limite de tamanho · um link comporta até 100 GB e vale por um dia · criptografia de ponta a ponta · sem cadastro", "body": "Instale o BIShare nos dois computadores, arraste arquivos ou uma pasta para a janela do app e escolha o outro computador na lista de aparelhos próximos; o lado que recebe confirma e os arquivos são gravados na pasta do BIShare. Como nada é enviado para a internet, um projeto de 40 GB anda na velocidade da rede local, e os passos são os mesmos em qualquer combinação de Windows, macOS e Linux. Sem roteador por perto, o hotspot de um celular faz o papel da rede. Se o outro computador estiver em outro prédio, crie um link, que ele pode abrir em qualquer navegador nas próximas 24 horas.", "cons": "Ele move arquivos, não apps instalados nem configurações, então não substitui uma ferramenta de migração para um computador novo. Uma pasta viaja empacotada em um único arquivo zip, e os dois computadores precisam do app para uma transferência direta." },
-      "1": { "name": "Backup do Windows: transferir para um PC novo", "tag": "Melhor para estrear um PC com Windows 11", "facts": "PC antigo: Windows 10 ou 11 · PC novo: Windows 11 24H2 ou mais recente, durante a configuração · conta Microsoft · mesmo Wi-Fi ou rede cabeada · código de pareamento de uso único · arquivos e configurações", "body": "Enquanto o PC novo ainda está na configuração inicial, entre com uma conta Microsoft e escolha restaurar de outro PC. Abra o Backup do Windows no PC antigo, selecione a opção de transferir para um PC novo e confirme o código que o PC novo mostra. Documentos, fotos, vídeos e outros arquivos vêm pela rede junto com papel de parede, temas e outras configurações pessoais, e o Windows retoma sozinho se a conexão cair.", "cons": "Só aparece na configuração, então um PC já configurado não consegue usar. Apps instalados, senhas salvas, arquivos do OneDrive e unidades criptografadas com BitLocker não são transferidos, e os dois PCs devem ficar na tomada até terminar." },
-      "2": { "name": "Compartilhamento por proximidade no Windows", "tag": "Melhor para alguns arquivos entre dois PCs com Windows na mesma sala", "facts": "Windows 11, ou Windows 10 versão 1803 em diante · Bluetooth LE · Wi-Fi quando os dois PCs estão na mesma rede privada · Somente meus dispositivos ou Todos nas proximidades · salva em Downloads", "body": "Ative o compartilhamento por proximidade nas Configurações dos dois PCs, escolha Todos nas proximidades se usarem contas Microsoft diferentes, clique com o botão direito em um arquivo no Explorador de Arquivos, escolha Compartilhar e selecione o outro PC. Quem recebe aceita uma notificação e o arquivo cai em Downloads, ou em outra pasta escolhida nas Configurações. Não há nada para instalar, e funciona até quando os PCs não estão na mesma rede, via Bluetooth.", "cons": "É só para Windows. Sem uma rede privada em comum ele vai por Bluetooth, lento demais para arquivos grandes, e Todos nas proximidades deixa o nome e o endereço Bluetooth do PC visíveis para quem estiver por perto." },
-      "3": { "name": "Compartilhamento de rede (SMB)", "tag": "Melhor para uma pasta que os dois computadores continuam usando", "facts": "Nativo no Windows, no macOS e na maioria dos desktops Linux · mesma rede local · perfil de rede privada no Windows · permissões por pasta · sem limite de tamanho", "body": "No Windows, ative a descoberta de rede e o compartilhamento de arquivos e impressoras para redes privadas e compartilhe uma pasta pelas propriedades; os outros computadores abrem pela Rede no Explorador de Arquivos, por Conectar ao Servidor no Finder de um Mac ou por um gerenciador de arquivos do Linux. No Mac, o Compartilhamento de Arquivos em Geral, Compartilhamento dos Ajustes do Sistema faz o mesmo. Depois de configurada, a pasta se comporta como parte do disco do outro computador, ótimo para pastas de projeto e bibliotecas de mídia compartilhadas.", "cons": "A configuração pede mais passos que qualquer outro caminho, e permissões, contas e avisos do firewall derrubam muitas primeiras tentativas. Deixar compartilhamentos abertos em um notebook que entra em Wi-Fi públicos é um risco, então desligue o compartilhamento quando não precisar." },
-      "4": { "name": "Assistente de Migração (Mac)", "tag": "Melhor para levar uma conta inteira para um Mac novo", "facts": "Nativo no macOS · de Mac para Mac por Wi-Fi, Ethernet ou cabo Thunderbolt, ou a partir de um backup do Time Machine · Assistente de Migração do Windows 3 para PC para Mac, Windows 10 ou mais recente, macOS Sonoma 14.4 ou mais recente", "body": "Abra o Assistente de Migração na pasta Utilitários, ou durante a configuração do Mac novo, e escolha como origem o Mac antigo, um backup do Time Machine ou um PC com Windows. A partir de um Mac, ele copia apps, contas de usuário, ajustes e documentos sem mexer no Mac antigo, e um cabo Thunderbolt ou Ethernet costuma ser mais rápido que o Wi-Fi. A partir de um PC, instale antes o Assistente de Migração do Windows da Apple e deixe Wi-Fi e Bluetooth ligados nos dois computadores.", "cons": "Só leva dados para um Mac; a Apple não oferece nada para migrar de Mac para PC com Windows. Antivírus, firewall e VPN podem bloquear o processo até serem desligados, e uma conta grande pelo Wi-Fi pode levar horas." },
-      "5": { "name": "Disco externo ou pendrive", "tag": "Melhor quando os computadores não compartilham nenhuma rede", "facts": "Qualquer disco USB ou SSD · exFAT lê e grava no Windows e no Mac · NTFS é somente leitura no Mac · FAT32 limita cada arquivo a 4 GB · sem conta, sem internet", "body": "Copie os arquivos para o disco, leve até o outro computador e copie de volta. Para um disco que vai e volta entre Windows e Mac, formate em exFAT no Utilitário de Disco ou no Explorador de Arquivos para que os dois possam gravar nele. Um SSD USB 3 rápido muitas vezes vence o Wi-Fi com dezenas de gigas, e um disco continua sendo a resposta mais simples para um computador sem internet ou um local com rede travada.", "cons": "Formatar apaga o disco, então confira antes o que tem nele. Levar um pendrive de um lado para o outro cansa rápido quando as transferências se repetem, e um disco sem criptografia perdido expõe tudo o que está nele." },
-      "6": { "name": "Pasta na nuvem: OneDrive, iCloud Drive ou Google Drive", "tag": "Melhor quando os dois computadores raramente estão no mesmo lugar", "facts": "OneDrive: 5 GB sem custo, arquivos de até 250 GB · iCloud Drive: 5 GB sem custo · Google Drive: 15 GB sem custo, divididos com Gmail e Google Fotos · mesma conta nos dois computadores", "body": "Coloque os arquivos em uma pasta sincronizada em um computador e eles aparecem no outro quando ele sincronizar, esteja do outro lado da rua ou em outro estado. Para quem já trabalha no OneDrive ou no iCloud Drive, não há nada a transferir, porque os arquivos acompanham a conta. De quebra, fica uma cópia de backup na nuvem.", "cons": "Tudo é enviado primeiro e baixado depois, então a velocidade de upload de casa dita o ritmo, e o espaço gratuito enche rápido. Dois computadores na mesma sala ainda mandam os dados para um data center e de volta." },
-      "7": { "name": "LocalSend ou Warpinator", "tag": "Alternativas de código aberto na rede local para envios ocasionais", "facts": "LocalSend: Windows, macOS, Linux, Android, iPhone, Apache 2.0 · Warpinator: padrão no Linux Mint, no Flathub, versões não oficiais para Windows · mesma rede local · sem conta", "body": "O LocalSend encontra os computadores que dividem a rede com ele e passa os arquivos escolhidos direto, em todas as grandes plataformas. O Warpinator, criado pela equipe do Linux Mint, faz o mesmo entre máquinas Linux e, por meio de versões da comunidade, com PCs com Windows. Os dois são gratuitos, sem anúncios e simples, boas escolhas para quem prefere ferramentas mantidas pela comunidade.", "cons": "Nenhum funciona fora da rede local, e achar o outro computador costuma falhar em redes de hotel, de visitantes ou corporativas que isolam os aparelhos. As versões do Warpinator para Windows não são oficiais." }
+      "0": {
+        "name": "BIShare",
+        "tag": "Melhor no geral para o dia a dia entre Windows, Mac e Linux",
+        "facts": "Windows (Microsoft Store), Mac App Store, Linux · código aberto com licença MIT · direto em uma rede compartilhada, sem limite de tamanho · um link comporta até 100 GB e vale por um dia · criptografia de ponta a ponta · sem cadastro",
+        "body": "Instale o BIShare nos dois computadores, arraste arquivos ou uma pasta para a janela do app e escolha o outro computador na lista de aparelhos próximos; o lado que recebe confirma e os arquivos são gravados na pasta do BIShare. Como nada é enviado para a internet, um projeto de 40 GB anda na velocidade da rede local, e os passos são os mesmos em qualquer combinação de Windows, macOS e Linux. Sem roteador por perto, <goOffline>o hotspot de um celular faz o papel da rede</goOffline>. Se o outro computador estiver em outro prédio, crie um link, que ele pode <goTransfer>abrir em qualquer navegador</goTransfer> nas próximas 24 horas.",
+        "cons": "Ele move arquivos, não apps instalados nem configurações, então não substitui uma ferramenta de migração para um computador novo. Uma pasta viaja empacotada em um único arquivo zip, e os dois computadores precisam do app para uma transferência direta."
+      },
+      "1": {
+        "name": "Backup do Windows: transferir para um PC novo",
+        "tag": "Melhor para estrear um PC com Windows 11",
+        "facts": "PC antigo: Windows 10 ou 11 · PC novo: Windows 11 24H2 ou mais recente, durante a configuração · conta Microsoft · mesmo Wi-Fi ou rede cabeada · código de pareamento de uso único · arquivos e configurações",
+        "body": "Enquanto o PC novo ainda está na configuração inicial, entre com uma conta Microsoft e escolha restaurar de outro PC. Abra o Backup do Windows no PC antigo, selecione a opção de transferir para um PC novo e confirme o código que o PC novo mostra. Documentos, fotos, vídeos e outros arquivos vêm pela rede junto com papel de parede, temas e outras configurações pessoais, e o Windows retoma sozinho se a conexão cair.",
+        "cons": "Só aparece na configuração, então um PC já configurado não consegue usar. Apps instalados, senhas salvas, arquivos do OneDrive e unidades criptografadas com BitLocker não são transferidos, e os dois PCs devem ficar na tomada até terminar."
+      },
+      "2": {
+        "name": "Compartilhamento por proximidade no Windows",
+        "tag": "Melhor para alguns arquivos entre dois PCs com Windows na mesma sala",
+        "facts": "Windows 11, ou Windows 10 versão 1803 em diante · Bluetooth LE · Wi-Fi quando os dois PCs estão na mesma rede privada · Somente meus dispositivos ou Todos nas proximidades · salva em Downloads",
+        "body": "Ative o compartilhamento por proximidade nas Configurações dos dois PCs, escolha Todos nas proximidades se usarem contas Microsoft diferentes, clique com o botão direito em um arquivo no Explorador de Arquivos, escolha Compartilhar e selecione o outro PC. Quem recebe aceita uma notificação e o arquivo cai em Downloads, ou em outra pasta escolhida nas Configurações. Não há nada para instalar, e funciona até quando os PCs não estão na mesma rede, via Bluetooth.",
+        "cons": "É só para Windows. Sem uma rede privada em comum ele vai por Bluetooth, lento demais para arquivos grandes, e Todos nas proximidades deixa o nome e o endereço Bluetooth do PC visíveis para quem estiver por perto."
+      },
+      "3": {
+        "name": "Compartilhamento de rede (SMB)",
+        "tag": "Melhor para uma pasta que os dois computadores continuam usando",
+        "facts": "Nativo no Windows, no macOS e na maioria dos desktops Linux · mesma rede local · perfil de rede privada no Windows · permissões por pasta · sem limite de tamanho",
+        "body": "No Windows, ative a descoberta de rede e o compartilhamento de arquivos e impressoras para redes privadas e compartilhe uma pasta pelas propriedades; os outros computadores abrem pela Rede no Explorador de Arquivos, por Conectar ao Servidor no Finder de um Mac ou por um gerenciador de arquivos do Linux. No Mac, o Compartilhamento de Arquivos em Geral, Compartilhamento dos Ajustes do Sistema faz o mesmo. Depois de configurada, a pasta se comporta como parte do disco do outro computador, ótimo para pastas de projeto e bibliotecas de mídia compartilhadas.",
+        "cons": "A configuração pede mais passos que qualquer outro caminho, e permissões, contas e avisos do firewall derrubam muitas primeiras tentativas. Deixar compartilhamentos abertos em um notebook que entra em Wi-Fi públicos é um risco, então desligue o compartilhamento quando não precisar."
+      },
+      "4": {
+        "name": "Assistente de Migração (Mac)",
+        "tag": "Melhor para levar uma conta inteira para um Mac novo",
+        "facts": "Nativo no macOS · de Mac para Mac por Wi-Fi, Ethernet ou cabo Thunderbolt, ou a partir de um backup do Time Machine · Assistente de Migração do Windows 3 para PC para Mac, Windows 10 ou mais recente, macOS Sonoma 14.4 ou mais recente",
+        "body": "Abra o Assistente de Migração na pasta Utilitários, ou durante a configuração do Mac novo, e escolha como origem o Mac antigo, um backup do Time Machine ou um PC com Windows. A partir de um Mac, ele copia apps, contas de usuário, ajustes e documentos sem mexer no Mac antigo, e um cabo Thunderbolt ou Ethernet costuma ser mais rápido que o Wi-Fi. A partir de um PC, instale antes o Assistente de Migração do Windows da Apple e deixe Wi-Fi e Bluetooth ligados nos dois computadores.",
+        "cons": "Só leva dados para um Mac; a Apple não oferece nada para migrar de Mac para PC com Windows. Antivírus, firewall e VPN podem bloquear o processo até serem desligados, e uma conta grande pelo Wi-Fi pode levar horas."
+      },
+      "5": {
+        "name": "Disco externo ou pendrive",
+        "tag": "Melhor quando os computadores não compartilham nenhuma rede",
+        "facts": "Qualquer disco USB ou SSD · exFAT lê e grava no Windows e no Mac · NTFS é somente leitura no Mac · FAT32 limita cada arquivo a 4 GB · sem conta, sem internet",
+        "body": "Copie os arquivos para o disco, leve até o outro computador e copie de volta. Para um disco que vai e volta entre Windows e Mac, formate em exFAT no Utilitário de Disco ou no Explorador de Arquivos para que os dois possam gravar nele. Um SSD USB 3 rápido muitas vezes vence o Wi-Fi com dezenas de gigas, e um disco continua sendo a resposta mais simples para um computador sem internet ou um local com rede travada.",
+        "cons": "Formatar apaga o disco, então confira antes o que tem nele. Levar um pendrive de um lado para o outro cansa rápido quando as transferências se repetem, e um disco sem criptografia perdido expõe tudo o que está nele."
+      },
+      "6": {
+        "name": "Pasta na nuvem: OneDrive, iCloud Drive ou Google Drive",
+        "tag": "Melhor quando os dois computadores raramente estão no mesmo lugar",
+        "facts": "OneDrive: 5 GB sem custo, arquivos de até 250 GB · iCloud Drive: 5 GB sem custo · Google Drive: 15 GB sem custo, divididos com Gmail e Google Fotos · mesma conta nos dois computadores",
+        "body": "Coloque os arquivos em uma pasta sincronizada em um computador e eles aparecem no outro quando ele sincronizar, esteja do outro lado da rua ou em outro estado. Para quem já trabalha no OneDrive ou no iCloud Drive, não há nada a transferir, porque os arquivos acompanham a conta. De quebra, fica uma cópia de backup na nuvem.",
+        "cons": "Tudo é enviado primeiro e baixado depois, então a velocidade de upload de casa dita o ritmo, e o espaço gratuito enche rápido. Dois computadores na mesma sala ainda mandam os dados para um data center e de volta."
+      },
+      "7": {
+        "name": "LocalSend ou Warpinator",
+        "tag": "Alternativas de código aberto na rede local para envios ocasionais",
+        "facts": "LocalSend: Windows, macOS, Linux, Android, iPhone, Apache 2.0 · Warpinator: padrão no Linux Mint, no Flathub, versões não oficiais para Windows · mesma rede local · sem conta",
+        "body": "O <goLocalsend>LocalSend</goLocalsend> encontra os computadores que dividem a rede com ele e passa os arquivos escolhidos direto, em todas as grandes plataformas. O Warpinator, criado pela equipe do Linux Mint, faz o mesmo entre máquinas Linux e, por meio de versões da comunidade, com PCs com Windows. Os dois são gratuitos, sem anúncios e simples, boas escolhas para quem prefere ferramentas mantidas pela comunidade.",
+        "cons": "Nenhum funciona fora da rede local, e achar o outro computador costuma falhar em redes de hotel, de visitantes ou corporativas que isolam os aparelhos. As versões do Warpinator para Windows não são oficiais."
+      }
     }
   },
   "table": {
     "title": "Resumo rápido",
-    "cols": { "feature": "Recurso", "bishare": "BIShare", "backup": "Backup do Windows", "nearby": "Por proximidade", "smb": "Rede (SMB)", "drive": "Disco externo", "cloud": "Pasta na nuvem" },
-    "rows": { "r0": "Funciona entre Windows e Mac", "r1": "Leva configurações além dos arquivos", "r2": "Nada é enviado para a internet", "r3": "Dá para usar a qualquer hora, não só na configuração", "r4": "Sem hardware extra nem plano de armazenamento" },
+    "cols": {
+      "feature": "Recurso",
+      "bishare": "BIShare",
+      "backup": "Backup do Windows",
+      "nearby": "Por proximidade",
+      "smb": "Rede (SMB)",
+      "drive": "Disco externo",
+      "cloud": "Pasta na nuvem"
+    },
+    "rows": {
+      "r0": "Funciona entre Windows e Mac",
+      "r1": "Leva configurações além dos arquivos",
+      "r2": "Nada é enviado para a internet",
+      "r3": "Dá para usar a qualquer hora, não só na configuração",
+      "r4": "Sem hardware extra nem plano de armazenamento"
+    },
     "note": "Situação em setembro de 2026. O BIShare precisa do app nos dois computadores para uma transferência direta e não tem limite de tamanho na mesma rede; um link do BIShare vai até 100 GB e expira em um dia. A transferência do Backup do Windows acontece durante a configuração do PC novo e exige Windows 11 24H2 ou mais recente nele. O compartilhamento por proximidade é só para Windows e usa Bluetooth sem uma rede privada em comum. O compartilhamento de rede funciona entre Windows, Mac e Linux depois de configurado. Um disco externo usado também no Mac deve estar em exFAT. Pastas na nuvem exigem conta e espaço para os arquivos."
   },
   "migrate": {
     "title": "Levar tudo para um computador novo",
     "body": "Um computador novo é uma migração, não uma transferência. O objetivo é ter a área de trabalho, os documentos e as configurações de sempre na máquina nova sem perder nada, e as ferramentas diferem em quanto disso elas levam.",
     "items": {
-      "0": { "h": "Windows para Windows: o que vem e o que fica", "b": "A transferência de PC para PC do Backup do Windows traz arquivos e configurações pessoais, e os apps da Microsoft Store ficam prontos para reinstalar. Programas instalados pela web, senhas do navegador salvas fora de uma conta sincronizada e licenças presas ao hardware antigo precisam ser resolvidos um a um. O Laplink PCmover, uma ferramenta paga, é a escolha comum quando os apps instalados precisam vir junto." },
-      "1": { "h": "Mac para Mac: a conta inteira", "b": "O Assistente de Migração copia contas de usuário, apps e ajustes além dos arquivos, então o Mac novo costuma ficar igual ao antigo no primeiro login. Escolher um cabo e deixar rodando durante a noite é o jeito mais tranquilo de mover uma conta grande." },
-      "2": { "h": "Antes de apagar o computador antigo", "b": "Abra alguns arquivos de pastas diferentes na máquina nova, confira se e-mail, favoritos do navegador e gerenciador de senhas estão conectados e desautorize licenças de software com ativações limitadas. Guarde o computador antigo, ou um backup completo dele, por algumas semanas; o arquivo que falta só costuma aparecer quando alguém precisa dele." },
-      "3": { "h": "O Windows 10 não tem mais suporte", "b": "A Microsoft encerrou o suporte ao Windows 10 em 14 de outubro de 2025, o que levou muita gente a comprar PC novo neste ano. O PC antigo ainda consegue enviar os arquivos pelo Backup do Windows, pelo compartilhamento por proximidade, por uma pasta de rede, por um disco ou pelo BIShare, mesmo sem receber atualizações de segurança." }
+      "0": {
+        "h": "Windows para Windows: o que vem e o que fica",
+        "b": "A transferência de PC para PC do Backup do Windows traz arquivos e configurações pessoais, e os apps da Microsoft Store ficam prontos para reinstalar. Programas instalados pela web, senhas do navegador salvas fora de uma conta sincronizada e licenças presas ao hardware antigo precisam ser resolvidos um a um. O Laplink PCmover, uma ferramenta paga, é a escolha comum quando os apps instalados precisam vir junto."
+      },
+      "1": {
+        "h": "Mac para Mac: a conta inteira",
+        "b": "O Assistente de Migração copia contas de usuário, apps e ajustes além dos arquivos, então o Mac novo costuma ficar igual ao antigo no primeiro login. Escolher um cabo e deixar rodando durante a noite é o jeito mais tranquilo de mover uma conta grande."
+      },
+      "2": {
+        "h": "Antes de apagar o computador antigo",
+        "b": "Abra alguns arquivos de pastas diferentes na máquina nova, confira se e-mail, favoritos do navegador e gerenciador de senhas estão conectados e desautorize licenças de software com ativações limitadas. Guarde o computador antigo, ou um backup completo dele, por algumas semanas; o arquivo que falta só costuma aparecer quando alguém precisa dele."
+      },
+      "3": {
+        "h": "O Windows 10 não tem mais suporte",
+        "b": "A Microsoft encerrou o suporte ao Windows 10 em 14 de outubro de 2025, o que levou muita gente a comprar PC novo neste ano. O PC antigo ainda consegue enviar os arquivos pelo Backup do Windows, pelo compartilhamento por proximidade, por uma pasta de rede, por um disco ou pelo BIShare, mesmo sem receber atualizações de segurança."
+      }
     }
   },
   "formats": {
     "title": "Discos, formatos e nomes de arquivo que quebram cópias entre plataformas",
     "body": "Quando uma cópia entre Windows e Mac falha no meio, a causa costuma estar no destino, e não no caminho.",
     "items": {
-      "0": { "h": "exFAT, NTFS e APFS", "b": "O Windows formata discos em NTFS por padrão, que o Mac lê mas não grava. Os Macs usam APFS, que o Windows não lê sem software extra. O exFAT é o meio-termo: os dois sistemas leem e gravam, e ele não tem limite prático de tamanho de arquivo." },
-      "1": { "h": "A barreira de 4 GB do FAT32", "b": "Pendrives antigos costumam vir em FAT32, que recusa qualquer arquivo acima de 4 GB. A cópia de um filme longo ou de uma imagem ISO para com um erro pouco claro, mesmo com espaço de sobra no pendrive. Formatar de novo em exFAT resolve." },
-      "2": { "h": "Nomes que o Windows não aceita", "b": "O macOS e o Linux permitem em nomes de arquivo caracteres que o Windows rejeita, como dois-pontos, pontos de interrogação, asteriscos, aspas e barras verticais, e o Windows também recusa nomes que terminam em espaço ou ponto. Renomeie esses arquivos, ou envie a pasta compactada, antes de copiar para um PC com Windows." },
-      "3": { "h": "Arquivos ocultos que vão de carona", "b": "Copiar de um Mac para um disco que não é de Mac pode deixar arquivinhos começando com ._ ao lado de cada documento, além de arquivos .DS_Store nas pastas. São metadados inofensivos, que podem ser apagados sem problema no Windows." }
+      "0": {
+        "h": "exFAT, NTFS e APFS",
+        "b": "O Windows formata discos em NTFS por padrão, que o Mac lê mas não grava. Os Macs usam APFS, que o Windows não lê sem software extra. O exFAT é o meio-termo: os dois sistemas leem e gravam, e ele não tem limite prático de tamanho de arquivo."
+      },
+      "1": {
+        "h": "A barreira de 4 GB do FAT32",
+        "b": "Pendrives antigos costumam vir em FAT32, que recusa qualquer arquivo acima de 4 GB. A cópia de um filme longo ou de uma imagem ISO para com um erro pouco claro, mesmo com espaço de sobra no pendrive. Formatar de novo em exFAT resolve."
+      },
+      "2": {
+        "h": "Nomes que o Windows não aceita",
+        "b": "O macOS e o Linux permitem em nomes de arquivo caracteres que o Windows rejeita, como dois-pontos, pontos de interrogação, asteriscos, aspas e barras verticais, e o Windows também recusa nomes que terminam em espaço ou ponto. Renomeie esses arquivos, ou envie a pasta compactada, antes de copiar para um PC com Windows."
+      },
+      "3": {
+        "h": "Arquivos ocultos que vão de carona",
+        "b": "Copiar de um Mac para um disco que não é de Mac pode deixar arquivinhos começando com ._ ao lado de cada documento, além de arquivos .DS_Store nas pastas. São metadados inofensivos, que podem ser apagados sem problema no Windows."
+      }
     }
   },
   "steps": {
     "title": "Transferir arquivos entre computadores com o BIShare",
     "items": {
-      "0": { "h": "Instale nos dois computadores", "b": "Baixe o BIShare na Microsoft Store no Windows, na Mac App Store no Mac ou pelo download para Linux. Ligue os dois no mesmo Wi-Fi ou rede cabeada, ou conecte os dois ao hotspot de um celular." },
-      "1": { "h": "Arraste arquivos ou uma pasta", "b": "Solte arquivos ou uma pasta inteira na janela do app, ou use Arquivos para procurar. Não há limite de tamanho quando os dois computadores dividem uma rede." },
-      "2": { "h": "Escolha o outro computador", "b": "Selecione-o entre os aparelhos próximos e aceite no lado que recebe. Os arquivos ficam na pasta definida no BIShare, que começa como Downloads. Se as duas máquinas estiverem em redes separadas, gere um link e abra no navegador do outro computador em até um dia." }
+      "0": {
+        "h": "Instale nos dois computadores",
+        "b": "Baixe o BIShare na Microsoft Store no Windows, na Mac App Store no Mac ou pelo download para Linux. Ligue os dois no mesmo Wi-Fi ou rede cabeada, ou conecte os dois ao hotspot de um celular."
+      },
+      "1": {
+        "h": "Arraste arquivos ou uma pasta",
+        "b": "Solte arquivos ou uma pasta inteira na janela do app, ou use Arquivos para procurar. Não há limite de tamanho quando os dois computadores dividem uma rede."
+      },
+      "2": {
+        "h": "Escolha o outro computador",
+        "b": "Selecione-o entre os aparelhos próximos e aceite no lado que recebe. Os arquivos ficam na pasta definida no BIShare, que começa como Downloads. Se as duas máquinas estiverem em redes separadas, gere um link e abra no navegador do outro computador em até um dia."
+      }
     }
   },
   "speed": {
     "title": "Qual velocidade cada caminho alcança",
     "body": "A conexão define o teto, e o mais lento dos dois discos define a velocidade real. As velocidades de link nominais abaixo são máximos; cópias reais ficam abaixo disso.",
     "items": {
-      "0": { "h": "Wi-Fi ou cabo", "b": "A velocidade do Wi-Fi varia com distância, paredes e roteador, então um cabo Ethernet gigabit costuma ser mais rápido e sempre mais estável para pastas grandes. Ligar só um dos dois computadores no roteador por cabo já ajuda uma transferência sem fio." },
-      "1": { "h": "Discos USB e Thunderbolt", "b": "Um SSD externo USB 3 copia dezenas de gigas com rapidez, e o limite muitas vezes é a porta do computador ou o próprio disco. Dois PCs com portas Thunderbolt 4 ou 5 também podem se ligar direto com o Thunderbolt Share da Intel a até 20 ou 40 Gb/s, mas um deles, ou o acessório, precisa ter licença do fabricante." },
-      "2": { "h": "Bluetooth e nuvem", "b": "O Bluetooth, que o compartilhamento por proximidade usa sem uma rede em comum, serve para documentos e não é prático para vídeo. Pastas na nuvem dependem da velocidade de upload de quem envia, que em conexões residenciais costuma ser uma fração da de download." }
+      "0": {
+        "h": "Wi-Fi ou cabo",
+        "b": "A velocidade do Wi-Fi varia com distância, paredes e roteador, então um cabo Ethernet gigabit costuma ser mais rápido e sempre mais estável para <goLargeFiles>pastas grandes</goLargeFiles>. Ligar só um dos dois computadores no roteador por cabo já ajuda uma transferência sem fio."
+      },
+      "1": {
+        "h": "Discos USB e Thunderbolt",
+        "b": "Um SSD externo USB 3 copia dezenas de gigas com rapidez, e o limite muitas vezes é a porta do computador ou o próprio disco. Dois PCs com portas Thunderbolt 4 ou 5 também podem se ligar direto com o Thunderbolt Share da Intel a até 20 ou 40 Gb/s, mas um deles, ou o acessório, precisa ter licença do fabricante."
+      },
+      "2": {
+        "h": "Bluetooth e nuvem",
+        "b": "O Bluetooth, que o compartilhamento por proximidade usa sem uma rede em comum, serve para documentos e não é prático para vídeo. <blogCloudLimits>Pastas na nuvem dependem da velocidade de upload de quem envia</blogCloudLimits>, que em conexões residenciais costuma ser uma fração da de download."
+      }
     }
   },
   "fixes": {
     "title": "Quando a transferência entre computadores falha",
     "items": {
-      "0": { "h": "O outro PC não aparece em Rede", "b": "Deixe o perfil de rede como Privada nos dois PCs, habilite Descoberta de rede e Compartilhamento de arquivos e impressoras nas configurações avançadas de compartilhamento e confira se os dois estão no mesmo roteador, e não numa rede de visitantes. Digitar o endereço do outro PC, como \\\\NOMEDOPC, no Explorador de Arquivos costuma funcionar quando a navegação não acha." },
-      "1": { "h": "O compartilhamento por proximidade não acha o PC", "b": "Ligue o Bluetooth nos dois PCs, deixe o compartilhamento por proximidade em Todos nas proximidades e mantenha os dois a poucos metros. Se um deles usa Windows 10, confira se é a versão 1803 ou mais recente." },
-      "2": { "h": "A opção de transferência não aparece no PC novo", "b": "A transferência de PC para PC do Backup do Windows só é oferecida na configuração inicial do Windows 11 24H2 ou mais recente. Em um PC já configurado, use uma pasta de rede, um disco, uma pasta na nuvem ou um app." },
-      "3": { "h": "O Mac não consegue copiar para o disco", "b": "Discos formatados em NTFS abrem no Mac apenas para leitura. Leve os arquivos para um lugar seguro e depois apague o disco em exFAT se ele for continuar indo e voltando entre Windows e Mac." },
-      "4": { "h": "Um arquivo grande não copia para o pendrive", "b": "Um pendrive formatado em FAT32 recusa arquivos acima de 4 GB. Formate de novo em exFAT ou envie o arquivo pela rede." },
-      "5": { "h": "Transferências longas param no meio", "b": "Impeça os dois computadores de entrar em suspensão, deixe notebooks na tomada e pause VPN ou firewall que derrubem conexões locais. Mover um projeto enorme em alguns lotes faz uma interrupção custar minutos, e não horas." }
+      "0": {
+        "h": "O outro PC não aparece em Rede",
+        "b": "Deixe o perfil de rede como Privada nos dois PCs, habilite Descoberta de rede e Compartilhamento de arquivos e impressoras nas configurações avançadas de compartilhamento e confira se os dois estão no mesmo roteador, e não numa rede de visitantes. Digitar o endereço do outro PC, como \\\\NOMEDOPC, no Explorador de Arquivos costuma funcionar quando a navegação não acha."
+      },
+      "1": {
+        "h": "O compartilhamento por proximidade não acha o PC",
+        "b": "Ligue o Bluetooth nos dois PCs, deixe o compartilhamento por proximidade em Todos nas proximidades e mantenha os dois a poucos metros. Se um deles usa Windows 10, confira se é a versão 1803 ou mais recente."
+      },
+      "2": {
+        "h": "A opção de transferência não aparece no PC novo",
+        "b": "A transferência de PC para PC do Backup do Windows só é oferecida na configuração inicial do Windows 11 24H2 ou mais recente. Em um PC já configurado, use uma pasta de rede, um disco, uma pasta na nuvem ou um app."
+      },
+      "3": {
+        "h": "O Mac não consegue copiar para o disco",
+        "b": "Discos formatados em NTFS abrem no Mac apenas para leitura. Leve os arquivos para um lugar seguro e depois apague o disco em exFAT se ele for continuar indo e voltando entre Windows e Mac."
+      },
+      "4": {
+        "h": "Um arquivo grande não copia para o pendrive",
+        "b": "Um pendrive formatado em FAT32 recusa arquivos acima de 4 GB. Formate de novo em exFAT ou envie o arquivo pela rede."
+      },
+      "5": {
+        "h": "Transferências longas param no meio",
+        "b": "Impeça os dois computadores de entrar em suspensão, deixe notebooks na tomada e pause VPN ou firewall que derrubem conexões locais. Mover um projeto enorme em alguns lotes faz uma interrupção custar minutos, e não horas."
+      }
     }
   },
   "security": {
     "title": "Mantendo privadas as transferências entre computadores",
     "body": "Transferências locais já são privadas, mas alguns hábitos garantem que continuem assim.",
     "items": {
-      "0": { "h": "Compartilhe pastas só em redes privadas", "b": "O compartilhamento de rede e o compartilhamento por proximidade em Todos nas proximidades deixam um computador visível. Restrinja o compartilhamento ao perfil de rede privada, desligue em notebooks que viajam e use compartilhamentos com senha quando houver outras pessoas na rede." },
-      "1": { "h": "Criptografe discos que saem de casa", "b": "Um pendrive ou SSD externo com arquivos pessoais deve ser criptografado, com o BitLocker To Go no Windows ou um volume APFS criptografado no Mac, porque senão qualquer um lê um disco perdido." },
-      "2": { "h": "Saiba onde as cópias vão parar", "b": "Pastas na nuvem deixam uma cópia com o provedor. Uma transferência direta com BIShare, LocalSend, compartilhamento por proximidade ou pasta de rede move os arquivos só entre os dois computadores, e um link do BIShare é criptografado antes do upload e apagado depois de 24 horas." }
+      "0": {
+        "h": "Compartilhe pastas só em redes privadas",
+        "b": "O compartilhamento de rede e o compartilhamento por proximidade em Todos nas proximidades deixam um computador visível. Restrinja o compartilhamento ao perfil de rede privada, desligue em notebooks que viajam e use compartilhamentos com senha quando houver outras pessoas na rede."
+      },
+      "1": {
+        "h": "Criptografe discos que saem de casa",
+        "b": "Um pendrive ou SSD externo com arquivos pessoais deve ser criptografado, com o BitLocker To Go no Windows ou um volume APFS criptografado no Mac, porque senão qualquer um lê um disco perdido."
+      },
+      "2": {
+        "h": "Saiba onde as cópias vão parar",
+        "b": "Pastas na nuvem deixam uma cópia com o provedor. Uma transferência direta com BIShare, LocalSend, compartilhamento por proximidade ou pasta de rede move os arquivos só entre os dois computadores, e <goEncrypted>um link do BIShare é criptografado antes do upload</goEncrypted> e apagado depois de 24 horas."
+      }
     }
   },
   "faq": {
     "title": "Transferir arquivos entre computadores: perguntas frequentes",
     "items": {
-      "0": { "q": "Qual é o jeito mais simples de mover arquivos de um computador para outro?", "a": "Para um PC novo com Windows 11, a transferência do Backup do Windows na configuração; para um Mac novo, o Assistente de Migração. Para arquivos do dia a dia entre dois computadores quaisquer na mesma rede, um app direto como BIShare ou LocalSend é o que pede menos configuração." },
-      "1": { "q": "Qual é a melhor forma de mandar arquivos de PC para PC pelo Wi-Fi?", "a": "O compartilhamento por proximidade para poucos arquivos, o compartilhamento de rede para pastas abertas pelos dois PCs ou um app de transferência direta para pastas grandes. Todos mantêm os dados na sua rede local." },
-      "2": { "q": "Dá para transferir arquivos entre computadores com cabo USB?", "a": "Um cabo USB comum não liga dois PCs para trocar arquivos. Use um pendrive, um cabo Ethernet entre os computadores, cabos especiais de PC para PC que vêm com software próprio ou o Thunderbolt Share em PCs compatíveis." },
-      "3": { "q": "Como passo tudo do PC antigo para o novo?", "a": "Em um PC novo com Windows 11, escolha restaurar de outro PC na configuração e emparelhe com o Backup do Windows no antigo. Arquivos e configurações vêm junto; apps instalados e senhas salvas precisam ser configurados de novo." },
-      "4": { "q": "Dá para passar arquivos de um PC com Windows para um Mac sem software extra?", "a": "Sim, para um Mac novo: o Assistente de Migração do Windows, da Apple, copia arquivos e ajustes do PC. Para arquivos do dia a dia, abra uma pasta compartilhada do Windows pelo Finder do Mac ou use um disco exFAT ou uma pasta na nuvem; um app multiplataforma como o BIShare também funciona." },
-      "5": { "q": "Como transferir arquivos do Mac para o Windows?", "a": "Ative o Compartilhamento de Arquivos no Mac e abra pelo PC, copie para um disco exFAT, use uma pasta na nuvem ou envie com um app multiplataforma. A Apple não tem ferramenta de migração de Mac para Windows." },
-      "6": { "q": "Meu Mac mostra o disco externo mas não copia para ele. Por quê?", "a": "O disco está em NTFS, que o macOS lê mas não grava. Para usar com Windows e Mac, formate em exFAT depois de colocar os arquivos dele em segurança." },
-      "7": { "q": "Os dois computadores precisam estar na mesma rede?", "a": "Para compartilhamento de rede, LocalSend e transferência direta do BIShare, sim, e o hotspot de um celular conta. O compartilhamento por proximidade pode usar Bluetooth, e uma pasta na nuvem ou um link do BIShare funciona de qualquer lugar." },
-      "8": { "q": "Qual é o jeito mais rápido de passar uma pasta grande entre computadores?", "a": "Um cabo: conexão Ethernet para transferências pela rede, um SSD USB rápido ou o Thunderbolt Share em PCs compatíveis. No Wi-Fi, uma transferência direta na mesma rede vence o upload para a nuvem." },
-      "9": { "q": "O BIShare é grátis para transferências entre computadores?", "a": "Sim. O BIShare não custa nada: o código tem licença MIT, não há anúncios nem cadastro, e transferências diretas entre computadores da mesma rede não têm limite de tamanho." }
+      "0": {
+        "q": "Qual é o jeito mais simples de mover arquivos de um computador para outro?",
+        "a": "Para um PC novo com Windows 11, a transferência do Backup do Windows na configuração; para um Mac novo, o Assistente de Migração. Para arquivos do dia a dia entre dois computadores quaisquer na mesma rede, um app direto como BIShare ou LocalSend é o que pede menos configuração."
+      },
+      "1": {
+        "q": "Qual é a melhor forma de mandar arquivos de PC para PC pelo Wi-Fi?",
+        "a": "O compartilhamento por proximidade para poucos arquivos, o compartilhamento de rede para pastas abertas pelos dois PCs ou um app de transferência direta para pastas grandes. Todos mantêm os dados na sua rede local."
+      },
+      "2": {
+        "q": "Dá para transferir arquivos entre computadores com cabo USB?",
+        "a": "Um cabo USB comum não liga dois PCs para trocar arquivos. Use um pendrive, um cabo Ethernet entre os computadores, cabos especiais de PC para PC que vêm com software próprio ou o Thunderbolt Share em PCs compatíveis."
+      },
+      "3": {
+        "q": "Como passo tudo do PC antigo para o novo?",
+        "a": "Em um PC novo com Windows 11, escolha restaurar de outro PC na configuração e emparelhe com o Backup do Windows no antigo. Arquivos e configurações vêm junto; apps instalados e senhas salvas precisam ser configurados de novo."
+      },
+      "4": {
+        "q": "Dá para passar arquivos de um PC com Windows para um Mac sem software extra?",
+        "a": "Sim, para um Mac novo: o Assistente de Migração do Windows, da Apple, copia arquivos e ajustes do PC. Para arquivos do dia a dia, abra uma pasta compartilhada do Windows pelo Finder do Mac ou use um disco exFAT ou uma pasta na nuvem; um app multiplataforma como o BIShare também funciona."
+      },
+      "5": {
+        "q": "Como transferir arquivos do Mac para o Windows?",
+        "a": "Ative o Compartilhamento de Arquivos no Mac e abra pelo PC, copie para um disco exFAT, use uma pasta na nuvem ou envie com um app multiplataforma. A Apple não tem ferramenta de migração de Mac para Windows."
+      },
+      "6": {
+        "q": "Meu Mac mostra o disco externo mas não copia para ele. Por quê?",
+        "a": "O disco está em NTFS, que o macOS lê mas não grava. Para usar com Windows e Mac, formate em exFAT depois de colocar os arquivos dele em segurança."
+      },
+      "7": {
+        "q": "Os dois computadores precisam estar na mesma rede?",
+        "a": "Para compartilhamento de rede, LocalSend e transferência direta do BIShare, sim, e o hotspot de um celular conta. O compartilhamento por proximidade pode usar Bluetooth, e uma pasta na nuvem ou um link do BIShare funciona de qualquer lugar."
+      },
+      "8": {
+        "q": "Qual é o jeito mais rápido de passar uma pasta grande entre computadores?",
+        "a": "Um cabo: conexão Ethernet para transferências pela rede, um SSD USB rápido ou o Thunderbolt Share em PCs compatíveis. No Wi-Fi, uma transferência direta na mesma rede vence o upload para a nuvem."
+      },
+      "9": {
+        "q": "O BIShare é grátis para transferências entre computadores?",
+        "a": "Sim. O BIShare não custa nada: o código tem licença MIT, não há anúncios nem cadastro, e transferências diretas entre computadores da mesma rede não têm limite de tamanho."
+      }
     }
   },
   "cta": {
@@ -130,11 +303,69 @@
     "body": "Código aberto e grátis. Envie arquivos e pastas entre Windows, Mac e Linux pela sua própria rede, sem limite de tamanho e sem upload.",
     "download": "Baixar o BIShare"
   },
-  "a11y": { "yes": "Sim", "no": "Não" },
+  "a11y": {
+    "yes": "Sim",
+    "no": "Não"
+  },
   "art": {
-    "hero": { "alt": "Um notebook com Windows enviando uma pasta direto para um Mac, com o título como transferir arquivos entre dois computadores, oito jeitos para 2026.", "title": "Transferir arquivos entre dois computadores", "sub": "8 jeitos para Windows, Mac e Linux em 2026", "left": "PC com Windows", "right": "Mac" },
-    "pairs": { "alt": "Os melhores caminhos nativos para cada dupla de computadores: Windows para Windows com transferência do Backup do Windows, compartilhamento por proximidade e compartilhamento de rede; Mac para Mac com AirDrop, Assistente de Migração e Compartilhamento de Arquivos; Windows para Mac com Assistente de Migração do Windows para um Mac novo e pasta SMB ou disco exFAT; com Linux, pastas SMB, Warpinator ou um app multiplataforma.", "title": "Caminhos nativos por dupla de computadores", "sub": "Fortes dentro de uma plataforma, fracos entre plataformas", "builtLabel": "Nativo", "anyLabel": "Também serve", "a": { "pair": "Windows ↔ Windows", "built": "Backup do Windows · por proximidade · pasta de rede", "any": "Disco · nuvem · BIShare" }, "b": { "pair": "Mac ↔ Mac", "built": "AirDrop · Assistente de Migração · Compartilhamento de Arquivos", "any": "Disco · nuvem · BIShare" }, "c": { "pair": "Windows ↔ Mac", "built": "Assistente de Migração do Windows · pasta SMB", "any": "Disco exFAT · nuvem · BIShare" }, "d": { "pair": "Linux ↔ qualquer", "built": "Pasta SMB · Warpinator no Linux Mint", "any": "LocalSend · BIShare · rsync" } },
-    "moves": { "alt": "O que cada ferramenta leva para um computador novo: a transferência do Backup do Windows leva arquivos e configurações, mas não apps instalados, e só na configuração inicial; o Assistente de Migração leva arquivos, ajustes e apps, na configuração ou depois; o BIShare leva arquivos e pastas a qualquer hora, mas não configurações nem apps.", "title": "O que vai para o computador novo", "sub": "Uma ferramenta de migração leva mais que uma transferência de arquivos", "backup": "Backup do Windows", "migration": "Assistente de Migração", "bishare": "BIShare", "files": "Arquivos e pastas", "settings": "Configurações", "apps": "Apps instalados", "anytime": "Transferência após configurar", "foot": "O Backup do Windows também deixa de fora senhas salvas, arquivos do OneDrive e unidades BitLocker" },
-    "speed": { "alt": "Velocidade máxima de link por conexão, em escala logarítmica: Bluetooth LE 2 Mb/s, Ethernet gigabit 1 Gb/s, Ethernet de 2,5 gigabits 2,5 Gb/s, USB 3.2 Gen 1 5 Gb/s, rede Thunderbolt 4 20 Gb/s, rede Thunderbolt 5 40 Gb/s. Cópias reais são mais lentas e o Wi-Fi varia.", "title": "Velocidade máxima de link por conexão", "sub": "Máximos nominais; o disco mais lento e as condições decidem a velocidade real", "r0": "Bluetooth LE", "r1": "Ethernet gigabit", "r2": "Ethernet de 2,5 gigabits", "r3": "USB 3.2 Gen 1", "r4": "Rede Thunderbolt 4", "r5": "Rede Thunderbolt 5", "foot": "O Wi-Fi ficou de fora porque a velocidade real varia muito com distância, paredes e roteador" }
+    "hero": {
+      "alt": "Um notebook com Windows enviando uma pasta direto para um Mac, com o título como transferir arquivos entre dois computadores, oito jeitos para 2026.",
+      "title": "Transferir arquivos entre dois computadores",
+      "sub": "8 jeitos para Windows, Mac e Linux em 2026",
+      "left": "PC com Windows",
+      "right": "Mac"
+    },
+    "pairs": {
+      "alt": "Os melhores caminhos nativos para cada dupla de computadores: Windows para Windows com transferência do Backup do Windows, compartilhamento por proximidade e compartilhamento de rede; Mac para Mac com AirDrop, Assistente de Migração e Compartilhamento de Arquivos; Windows para Mac com Assistente de Migração do Windows para um Mac novo e pasta SMB ou disco exFAT; com Linux, pastas SMB, Warpinator ou um app multiplataforma.",
+      "title": "Caminhos nativos por dupla de computadores",
+      "sub": "Fortes dentro de uma plataforma, fracos entre plataformas",
+      "builtLabel": "Nativo",
+      "anyLabel": "Também serve",
+      "a": {
+        "pair": "Windows ↔ Windows",
+        "built": "Backup do Windows · por proximidade · pasta de rede",
+        "any": "Disco · nuvem · BIShare"
+      },
+      "b": {
+        "pair": "Mac ↔ Mac",
+        "built": "AirDrop · Assistente de Migração · Compartilhamento de Arquivos",
+        "any": "Disco · nuvem · BIShare"
+      },
+      "c": {
+        "pair": "Windows ↔ Mac",
+        "built": "Assistente de Migração do Windows · pasta SMB",
+        "any": "Disco exFAT · nuvem · BIShare"
+      },
+      "d": {
+        "pair": "Linux ↔ qualquer",
+        "built": "Pasta SMB · Warpinator no Linux Mint",
+        "any": "LocalSend · BIShare · rsync"
+      }
+    },
+    "moves": {
+      "alt": "O que cada ferramenta leva para um computador novo: a transferência do Backup do Windows leva arquivos e configurações, mas não apps instalados, e só na configuração inicial; o Assistente de Migração leva arquivos, ajustes e apps, na configuração ou depois; o BIShare leva arquivos e pastas a qualquer hora, mas não configurações nem apps.",
+      "title": "O que vai para o computador novo",
+      "sub": "Uma ferramenta de migração leva mais que uma transferência de arquivos",
+      "backup": "Backup do Windows",
+      "migration": "Assistente de Migração",
+      "bishare": "BIShare",
+      "files": "Arquivos e pastas",
+      "settings": "Configurações",
+      "apps": "Apps instalados",
+      "anytime": "Transferência após configurar",
+      "foot": "O Backup do Windows também deixa de fora senhas salvas, arquivos do OneDrive e unidades BitLocker"
+    },
+    "speed": {
+      "alt": "Velocidade máxima de link por conexão, em escala logarítmica: Bluetooth LE 2 Mb/s, Ethernet gigabit 1 Gb/s, Ethernet de 2,5 gigabits 2,5 Gb/s, USB 3.2 Gen 1 5 Gb/s, rede Thunderbolt 4 20 Gb/s, rede Thunderbolt 5 40 Gb/s. Cópias reais são mais lentas e o Wi-Fi varia.",
+      "title": "Velocidade máxima de link por conexão",
+      "sub": "Máximos nominais; o disco mais lento e as condições decidem a velocidade real",
+      "r0": "Bluetooth LE",
+      "r1": "Ethernet gigabit",
+      "r2": "Ethernet de 2,5 gigabits",
+      "r3": "USB 3.2 Gen 1",
+      "r4": "Rede Thunderbolt 4",
+      "r5": "Rede Thunderbolt 5",
+      "foot": "O Wi-Fi ficou de fora porque a velocidade real varia muito com distância, paredes e roteador"
+    }
   }
 }

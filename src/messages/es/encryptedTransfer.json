@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Transferencia de archivos cifrada",
     "title": "Transferencia de archivos cifrada, bien explicada",
-    "body": "Casi todos los servicios de envío de archivos dicen ahora que están cifrados, y casi todos dicen la verdad sobre algo. La pregunta es sobre qué. Un enlace puede ir protegido por HTTPS de camino al servidor, quedarse cifrado en un disco que el proveedor puede abrir o cerrarse en tu dispositivo con una clave que el proveedor nunca ve. Solo lo último mantiene fuera de tu archivo a la propia empresa, a quien la vulnere y a quien pueda obligarla a entregarlo. Esta guía separa los tres tipos de cifrado, te da una prueba para distinguirlos en cualquier servicio en un minuto, clasifica siete formas de enviar un archivo que el intermediario no puede leer y cuenta con honestidad lo que el cifrado no oculta, también en nuestro producto. Nuestro <strong>BIShare</strong> está entre los siete: <strong>gratis y con licencia MIT, cifra los enlaces en tu navegador con AES-256-GCM y envía de dispositivo a dispositivo con claves que acuerdan los dos dispositivos</strong>. <highlight>Sin cuenta.</highlight>",
+    "body": "Casi todos los servicios de envío de archivos dicen ahora que están cifrados, y casi todos dicen la verdad sobre algo. La pregunta es sobre qué. Un enlace puede ir protegido por HTTPS de camino al servidor, quedarse cifrado en un disco que el proveedor puede abrir o cerrarse en tu dispositivo con una clave que el proveedor nunca ve. Solo lo último mantiene fuera de tu archivo a la propia empresa, a quien la vulnere y a quien pueda obligarla a entregarlo. Esta guía separa los tres tipos de cifrado, te da una prueba para distinguirlos en cualquier servicio en un minuto, clasifica siete formas de enviar un archivo que el intermediario no puede leer y cuenta con honestidad lo que el cifrado no oculta, también en nuestro producto. Nuestro <strong>BIShare</strong> está entre los siete: <strong>gratis y con licencia MIT, cifra los enlaces en tu navegador con AES-256-GCM y envía de dispositivo a dispositivo con claves que acuerdan los dos dispositivos</strong>. <highlight><goNoAccount>Sin cuenta</goNoAccount>.</highlight>",
     "ctaPrimary": "Consigue BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
@@ -17,7 +17,7 @@
     "items": [
       "<strong>Busca extremo a extremo, no solo «cifrado»:</strong> HTTPS y el cifrado en reposo siguen permitiendo al proveedor abrir tu archivo. Extremo a extremo significa que solo quien envía y quien recibe tienen la clave.",
       "<strong>Una prueba de un minuto:</strong> si el servicio muestra una vista previa de tu archivo en su web o recupera el acceso cuando pierdes el enlace, no es de extremo a extremo.",
-      "<strong>Lo más fácil desde el navegador:</strong> BIShare o Wormhole cifran antes de subir y ponen la clave en el enlace, así que el destinatario solo tiene que hacer clic.",
+      "<strong>Lo más fácil desde el navegador:</strong> <goTransfer>BIShare</goTransfer> o Wormhole cifran antes de subir y ponen la clave en el enlace, así que el destinatario solo tiene que hacer clic.",
       "<strong>Archivos que deben seguir disponibles semanas:</strong> Proton Drive guarda archivos cifrados de extremo a extremo en tu cuenta y los comparte con un enlace y contraseña opcional.",
       "<strong>También necesitas ocultar quién envía:</strong> OnionShare sirve el archivo desde tu propio ordenador a través de Tor.",
       "<strong>Cualquier canal, incluso correo normal:</strong> mete el archivo en un archivo 7-Zip con AES-256 y una contraseña fuerte, y manda la contraseña por otra vía."
@@ -37,7 +37,7 @@
       },
       "2": {
         "h": "Cifrado de extremo a extremo",
-        "b": "El archivo se cifra en el dispositivo de quien envía antes de salir, y solo el dispositivo de quien recibe puede descifrarlo. El servicio guarda o retransmite bytes ilegibles y nunca tiene la clave. Si la empresa sufre un ataque o recibe una orden de entregar archivos, no tiene nada legible que dar. Es el único tipo que te protege del propio intermediario."
+        "b": "El archivo se cifra en el dispositivo de quien envía antes de salir, y <blogE2e>solo el dispositivo de quien recibe puede descifrarlo</blogE2e>. El servicio guarda o retransmite bytes ilegibles y nunca tiene la clave. Si la empresa sufre un ataque o recibe una orden de entregar archivos, no tiene nada legible que dar. Es el único tipo que te protege del propio intermediario."
       },
       "3": {
         "h": "Por qué el marketing los mezcla",
@@ -87,7 +87,7 @@
         "name": "Wormhole",
         "tag": "El mejor enlace cifrado rápido desde cualquier navegador",
         "facts": "Navegador · gratis · hasta 10 GB · AES-GCM con claves de 128 bits basado en RFC 8188, cifrado antes de subir · archivos de hasta 5 GB guardados 24 horas, los mayores entre pares · biblioteca de cifrado de código abierto",
-        "body": "Wormhole cifra en el navegador antes de que salga nada, así que sus servidores guardan texto cifrado como mucho un día. Se usa rápido en un ordenador prestado y no requiere instalar nada en ningún lado. Sus preguntas frecuentes detallan el esquema y publican la biblioteca de cifrado en streaming, aunque no el servicio completo.",
+        "body": "<goWormhole>Wormhole</goWormhole> cifra en el navegador antes de que salga nada, así que sus servidores guardan texto cifrado como mucho un día. Se usa rápido en un ordenador prestado y no requiere instalar nada en ningún lado. Sus preguntas frecuentes detallan el esquema y publican la biblioteca de cifrado en streaming, aunque no el servicio completo.",
         "cons": "El código completo de cliente y servidor no está publicado, el techo es de 10 GB y los envíos de más de 5 GB necesitan tu pestaña abierta."
       },
       "2": {
@@ -108,14 +108,14 @@
         "name": "magic-wormhole",
         "tag": "El mejor para usuarios técnicos que mueven archivos entre ordenadores",
         "facts": "Línea de comandos en macOS, Linux, Windows · MIT · códigos cortos de un solo uso · cifrado de extremo a extremo con intercambio de claves autenticado por contraseña · servidor mailbox más relé de tránsito · cualquier tamaño, archivos y carpetas",
-        "body": "Escribe wormhole send y un nombre de archivo, dicta el código corto que aparece, y la otra persona escribe wormhole receive y el código. Las dos máquinas usan ese código para acordar una clave, así que el relé intermedio solo transporta datos cifrados. Maneja archivos y directorios de cualquier tamaño y es muy usado para mover datos entre servidores.",
+        "body": "Escribe wormhole send y un nombre de archivo, dicta el código corto que aparece, y la otra persona escribe wormhole receive y el código. Las dos máquinas usan ese código para acordar una clave, así que el relé intermedio solo transporta datos cifrados. Maneja <goLargeFiles>archivos y directorios de cualquier tamaño</goLargeFiles> y es muy usado para mover datos entre servidores.",
         "cons": "Ambos lados necesitan la herramienta instalada y una terminal, y no está pensado para enviar a personas no técnicas."
       },
       "5": {
         "name": "LocalSend",
         "tag": "El mejor para dispositivos en la misma red, sin internet",
         "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS entre dispositivos con un certificado por dispositivo · solo red local · sin servidor",
-        "body": "Cuando quien envía y quien recibe comparten una Wi-Fi, LocalSend mueve los archivos directamente entre los dispositivos por HTTPS cifrado, sin ningún servidor en medio. No se sube nada a ninguna parte, así que la pregunta de qué puede leer un proveedor ni se plantea.",
+        "body": "Cuando quien envía y quien recibe comparten una Wi-Fi, <goLocalsend>LocalSend</goLocalsend> mueve los archivos directamente entre los dispositivos por HTTPS cifrado, sin ningún servidor en medio. No se sube nada a ninguna parte, así que la pregunta de qué puede leer un proveedor ni se plantea.",
         "cons": "Solo llega a dispositivos de la misma red local, y cada dispositivo necesita la app."
       },
       "6": {
@@ -220,7 +220,7 @@
     "items": {
       "0": {
         "h": "Un contrato, un DNI escaneado o un informe médico para una persona",
-        "b": "Un enlace de BIShare o Wormhole con descarga única o caducidad corta, enviado por un chat privado."
+        "b": "Un enlace de BIShare o Wormhole con <blogConfidential>descarga única o caducidad corta</blogConfidential>, enviado por un chat privado."
       },
       "1": {
         "h": "Documentos que un cliente necesitará durante semanas",
@@ -232,7 +232,7 @@
       },
       "3": {
         "h": "Carpetas grandes entre tus propios dispositivos",
-        "b": "Un envío directo con BIShare o LocalSend en la misma red, para no subir nada a ninguna parte."
+        "b": "Un envío directo con BIShare o LocalSend <goOffline>en la misma red</goOffline>, para no subir nada a ninguna parte."
       },
       "4": {
         "h": "Datos entre servidores o terminales",
@@ -246,7 +246,7 @@
   },
   "mistakes": {
     "title": "Errores habituales que anulan el cifrado",
-    "body": "La mayoría de las filtraciones de archivos cifrados no rompen el cifrado. Lo rodean.",
+    "body": "<blogLeaks>La mayoría de las filtraciones de archivos cifrados</blogLeaks> no rompen el cifrado. Lo rodean.",
     "items": {
       "0": {
         "h": "La contraseña en el mismo mensaje",

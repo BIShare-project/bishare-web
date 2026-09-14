@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Alternatif ShareDrop",
     "title": "Alternatif ShareDrop terbaik",
-    "body": "ShareDrop adalah salah satu halaman web pertama yang meniru AirDrop di browser: buka sharedrop.io di dua perangkat, lihat avatar masing-masing, jatuhkan file, dan file langsung menyeberang lewat WebRTC. Di 2026 situsnya masih aktif, tetapi bukan lagi milik pembuatnya. LimeWire membelinya pada awal 2025, dan kini halamannya memuat skrip LimeWire untuk lima slot iklan serta tombol Upload Files yang mengirim file ke server LimeWire, bukan ke perangkat di sebelah Anda. Banyak orang ingin perilaku lamanya tanpa pemilik baru, dan sebagian memang sejak dulu butuh lebih dari yang bisa dilakukan satu tab. Panduan ini menjelaskan apa yang berubah, bagaimana ShareDrop sebenarnya menentukan perangkat yang terlihat, di mana kekurangannya, memeringkat tujuh alternatif termasuk ShareDrop Classic yang di-host sendiri, dan menunjukkan cara mengirim ke orang di jaringan lain. <strong>BIShare</strong> buatan kami ikut masuk: <strong>gratis dan berlisensi MIT, berjalan di browser lewat bishare.app dan sebagai aplikasi untuk Android, iPhone, Windows, macOS, dan Linux</strong>. <highlight>Tanpa akun di kedua sisi.</highlight>",
+    "body": "ShareDrop adalah salah satu halaman web pertama yang meniru <goAirdropAlt>AirDrop</goAirdropAlt> di browser: buka sharedrop.io di dua perangkat, lihat avatar masing-masing, jatuhkan file, dan file langsung menyeberang lewat WebRTC. Di 2026 situsnya masih aktif, tetapi bukan lagi milik pembuatnya. LimeWire membelinya pada awal 2025, dan kini halamannya memuat skrip LimeWire untuk lima slot iklan serta tombol Upload Files yang mengirim file ke server LimeWire, bukan ke perangkat di sebelah Anda. Banyak orang ingin perilaku lamanya tanpa pemilik baru, dan sebagian memang sejak dulu butuh lebih dari yang bisa dilakukan satu tab. Panduan ini menjelaskan apa yang berubah, bagaimana ShareDrop sebenarnya menentukan perangkat yang terlihat, di mana kekurangannya, memeringkat tujuh alternatif termasuk ShareDrop Classic yang di-host sendiri, dan menunjukkan cara mengirim ke orang di jaringan lain. <strong>BIShare</strong> buatan kami ikut masuk: <strong>gratis dan berlisensi MIT, berjalan di browser lewat bishare.app dan sebagai aplikasi untuk Android, iPhone, Windows, macOS, dan Linux</strong>. <highlight><goNoAccount>Tanpa akun di kedua sisi</goNoAccount>.</highlight>",
     "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
@@ -16,9 +16,9 @@
     "title": "Jawaban singkat",
     "items": [
       "<strong>Paling mirip ShareDrop klasik:</strong> PairDrop. Idenya sama, open source, perangkat di satu jaringan saling menemukan, dan pemasangan menjangkau jaringan lain.",
-      "<strong>Pengirim ingin offline setelah mengirim:</strong> tautan BIShare menyimpan hingga 100 GB terenkripsi selama sehari dan terbuka di browser apa pun, tanpa perlu tab tetap terbuka.",
+      "<strong>Pengirim ingin offline setelah mengirim:</strong> tautan BIShare menyimpan hingga 100 GB terenkripsi selama sehari dan <goTransfer>terbuka di browser apa pun</goTransfer>, tanpa perlu tab tetap terbuka.",
       "<strong>Satu file, satu penerima, tidak disimpan di mana pun:</strong> FilePizza atau ToffeeShare, asalkan tab Anda tetap terbuka sampai unduhan selesai.",
-      "<strong>Folder besar antara komputer dan HP milik sendiri:</strong> aplikasi lebih andal daripada tab. BIShare atau LocalSend di satu router, atau Taildrop kalau Anda sudah memakai Tailscale.",
+      "<strong><goLargeFiles>Folder besar</goLargeFiles> antara komputer dan HP milik sendiri:</strong> aplikasi lebih andal daripada tab. BIShare atau LocalSend di satu router, atau Taildrop kalau Anda sudah memakai Tailscale.",
       "<strong>Anda suka ShareDrop persis seperti dulu:</strong> kode aslinya yang berlisensi MIT masih utuh di GitHub dan siap di-host, tetapi butuh database Firebase.",
       "<strong>Tetap memakai sharedrop.io:</strong> jatuhkan file ke avatar seseorang untuk transfer langsung. Area Upload Files justru mengirimnya ke LimeWire."
     ]
@@ -113,7 +113,7 @@
         "name": "PairDrop",
         "tag": "Pengganti setara terbaik di browser",
         "facts": "Browser modern apa pun, bisa dipasang sebagai PWA · GPL-3.0 · penemuan di jaringan yang sama · pemasangan permanen dengan kode 6 digit atau QR · room publik sementara · relay TURN di balik NAT · image Docker untuk self-hosting",
-        "body": "PairDrop berasal dari Snapdrop dan berperilaku seperti ShareDrop yang diingat orang, dengan tambahan. Perangkat di satu jaringan muncul otomatis; perangkat yang dipasangkan saling menemukan di mana pun; dan room publik sementara berfungsi seperti tombol + di ShareDrop. FAQ-nya jelas soal jalur data: di jaringan yang sama file tidak pernah menyentuh server, dan perangkat terpasang di balik NAT memakai server TURN PairDrop.",
+        "body": "PairDrop berasal dari <goSnapdrop>Snapdrop</goSnapdrop> dan berperilaku seperti ShareDrop yang diingat orang, dengan tambahan. Perangkat di satu jaringan muncul otomatis; perangkat yang dipasangkan saling menemukan di mana pun; dan room publik sementara berfungsi seperti tombol + di ShareDrop. FAQ-nya jelas soal jalur data: di jaringan yang sama file tidak pernah menyentuh server, dan perangkat terpasang di balik NAT memakai server TURN PairDrop.",
         "cons": "Seperti ShareDrop, kedua perangkat harus online bersamaan dengan tab terbuka, dan transfer lewat TURN lebih lambat daripada transfer langsung."
       },
       "2": {
@@ -134,7 +134,7 @@
         "name": "LocalSend",
         "tag": "Pilihan berbasis aplikasi terbaik di satu jaringan",
         "facts": "Apache 2.0 · aplikasi Android, iOS, desktop, dan Fire OS · satu jaringan lokal, internet opsional · HTTPS antarperangkat · Winget, Homebrew, Flathub, F-Droid",
-        "body": "Kalau ShareDrop dulu lebih sering memindahkan file antara HP dan komputer Anda sendiri, aplikasi menghilangkan masalah tab sepenuhnya. Perangkat LocalSend di satu router saling menampilkan tanpa server apa pun, jadi tetap berfungsi di router tanpa koneksi internet. Pada September 2026, aplikasi ini menduduki posisi teratas pilihan open source di halaman ShareDrop AlternativeTo.",
+        "body": "Kalau ShareDrop dulu lebih sering memindahkan file antara HP dan komputer Anda sendiri, aplikasi menghilangkan masalah tab sepenuhnya. Perangkat <goLocalsend>LocalSend</goLocalsend> di satu router saling menampilkan tanpa server apa pun, jadi tetap berfungsi di router tanpa koneksi internet. Pada September 2026, aplikasi ini menduduki posisi teratas pilihan open source di halaman ShareDrop AlternativeTo.",
         "cons": "Setiap perangkat butuh aplikasinya, dan tidak bisa menjangkau siapa pun di luar jaringan lokal Anda."
       },
       "5": {
@@ -188,7 +188,7 @@
       },
       "2": {
         "h": "Tautan tersimpan: tidak ada yang perlu menunggu",
-        "b": "Tautan BIShare mengenkripsi file di browser Anda, mengunggahnya, dan menyimpannya selama 24 jam. Anda bisa langsung offline, dan penerima mengunduh dari browser apa pun. Model ini cocok untuk beda zona waktu dan jadwal padat, dengan konsekuensi ada salinan terenkripsi di server selama sehari."
+        "b": "<goEncrypted>Tautan BIShare mengenkripsi file di browser Anda</goEncrypted>, mengunggahnya, dan menyimpannya selama 24 jam. Anda bisa langsung offline, dan penerima mengunduh dari browser apa pun. Model ini cocok untuk beda zona waktu dan jadwal padat, dengan konsekuensi ada salinan terenkripsi di server selama sehari."
       },
       "3": {
         "h": "Perangkat terpasang: peralatan sendiri di jaringan mana pun",
@@ -236,7 +236,7 @@
       },
       "3": {
         "h": "Kelas atau rapat",
-        "b": "Room BIShare dengan kode pendek, mode lokal saat semua di Wi-Fi yang sama dan mode cloud saat sebagian bergabung dari jauh."
+        "b": "<goRooms>Room BIShare dengan kode pendek</goRooms>, mode lokal saat semua di Wi-Fi yang sama dan mode cloud saat sebagian bergabung dari jauh."
       },
       "4": {
         "h": "Armada perangkat milik sendiri",

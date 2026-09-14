@@ -56,7 +56,7 @@
         "name": "Quick Share to AirDrop",
         "tag": "Best built-in option for a supported phone standing next to the iPhone",
         "facts": "Pixel 8a and later, certain Samsung, Oppo, OnePlus, Vivo, Xiaomi, Honor, Transsion, Motorola · every iPhone · nearby only · nothing to install",
-        "body": "On a supported Android phone this feels like AirDrop because, on the iPhone's side, it is. The iPhone owner opens Control Center and sets AirDrop to Everyone for 10 minutes; you choose the files in Quick Share and tap the iPhone. Photos and videos land in the iPhone's Photos app like any AirDrop, and other files offer to open in a matching app. No account, no upload, and it works with no internet because the two phones talk directly.",
+        "body": "On a supported Android phone <goAirdropAndroid>this feels like AirDrop because, on the iPhone's side, it is</goAirdropAndroid>. The iPhone owner opens Control Center and sets AirDrop to Everyone for 10 minutes; you choose the files in Quick Share and tap the iPhone. Photos and videos land in the iPhone's Photos app like any AirDrop, and other files offer to open in a matching app. No account, no upload, and it works with no internet because the two phones talk directly.",
         "cons": "The iPhone has to be visible to everyone nearby while it receives, since contact-only discovery does not work across platforms. Most Android phones in circulation are not on the supported list yet."
       },
       "2": {
@@ -77,7 +77,7 @@
         "name": "LocalSend",
         "tag": "Free open-source app for two phones on one network",
         "facts": "Android, iOS and desktop · open source · local network only · encrypted · no accounts",
-        "body": "LocalSend is a good, honest tool for the same-Wi-Fi case: both phones run it, they discover each other, and files go across without touching a server. If the Android phone and the iPhone live in the same house and only swap files in person, it covers the need.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> is a good, honest tool for the same-Wi-Fi case: both phones run it, they discover each other, and files go across without touching a server. If the Android phone and the iPhone live in the same house and only swap files in person, it covers the need.",
         "cons": "No way to reach an iPhone on another network, and both people have to install it."
       },
       "5": {
@@ -128,7 +128,7 @@
   },
   "switching": {
     "title": "Setting up a new iPhone from an Android phone",
-    "body": "If the iPhone is replacing the Android phone, a migration during setup moves far more than any file-sharing method, including your message history. Do it before you start using the iPhone.",
+    "body": "If the iPhone is replacing the Android phone, <blogIosAndroid>a migration during setup moves far more than any file-sharing method</blogIosAndroid>, including your message history. Do it before you start using the iPhone.",
     "items": {
       "0": {
         "h": "Android 17: no app needed",
@@ -175,7 +175,7 @@
       },
       "2": {
         "h": "Chat apps shrink what you send",
-        "b": "A photo sent through a messenger's gallery picker is resized for the network, which is why a detailed Android shot can look soft on the iPhone. Choose a direct transfer, a link or the messenger's file option and the full-size original survives."
+        "b": "A photo sent through a messenger's gallery picker is resized for the network, which is why <blogPhotos>a detailed Android shot can look soft on the iPhone</blogPhotos>. Choose a direct transfer, a link or the messenger's file option and the full-size original survives."
       }
     }
   },
@@ -202,7 +202,7 @@
     "items": {
       "0": {
         "h": "Same Wi-Fi",
-        "b": "Current phones within sight of the router reach something like 40–50 MB/s over Wi-Fi 5, or 70–110 MB/s over Wi-Fi 6; a one-gigabyte clip is done in seconds. An Android hotspot typically manages 10–30 MB/s."
+        "b": "Current phones within sight of the router reach something like 40–50 MB/s over Wi-Fi 5, or 70–110 MB/s over Wi-Fi 6; a one-gigabyte clip is done in seconds. <goOffline>An Android hotspot</goOffline> typically manages 10–30 MB/s."
       },
       "1": {
         "h": "Quick Share to AirDrop",
@@ -210,7 +210,7 @@
       },
       "2": {
         "h": "QR codes, links and cloud",
-        "b": "At a 50 Mbps upload, the Android phone needs about three minutes per gigabyte before the iPhone can start downloading, and a 10 GB batch takes over half an hour."
+        "b": "At a 50 Mbps upload, the Android phone needs about three minutes per gigabyte before the iPhone can start downloading, and <goLargeFiles>a 10 GB batch takes over half an hour</goLargeFiles>."
       }
     }
   },
@@ -219,7 +219,7 @@
     "items": {
       "0": {
         "h": "The iPhone isn't listed in Quick Share",
-        "b": "Confirm the Android model appears on Google's list and runs the latest update, that the iPhone's AirDrop is set to Everyone for 10 minutes, that on a Galaxy Share with Apple devices is on, and that both phones have Bluetooth and Wi-Fi on. If it still won't appear, use the QR code instead."
+        "b": "Confirm the Android model appears on Google's list and runs the latest update, that <goAirdropFix>the iPhone's AirDrop is set to Everyone for 10 minutes</goAirdropFix>, that on a Galaxy Share with Apple devices is on, and that both phones have Bluetooth and Wi-Fi on. If it still won't appear, use the QR code instead."
       },
       "1": {
         "h": "Both phones are online at home, yet the app lists nothing",
@@ -249,7 +249,7 @@
       },
       "1": {
         "h": "Through a server, sealed",
-        "b": "BIShare links and Google's Quick Share QR codes encrypt the files end to end before they upload, so the server in between holds data it cannot read. WhatsApp files are also end-to-end encrypted but remain in both chat histories."
+        "b": "BIShare links and Google's Quick Share QR codes <goEncrypted>encrypt the files end to end before they upload</goEncrypted>, so the server in between holds data it cannot read. WhatsApp files are also end-to-end encrypted but remain in both chat histories."
       },
       "2": {
         "h": "Through a server, readable",

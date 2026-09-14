@@ -30,11 +30,11 @@
     "items": {
       "0": {
         "h": "Jemand in der Gruppe nutzt Android",
-        "b": "Der mit Abstand häufigste Grund, und 2026 hat sich die Lage verschoben. Quick Share kann auf manchen Android-Handys inzwischen direkt mit AirDrop sprechen, das gilt aber für eine bestimmte Geräteliste und nicht für Android als Ganzes, wie der nächste Abschnitt zeigt. Eine Familie mit einem älteren oder günstigeren Android unter lauter iPhones hat weiterhin keinen eingebauten Weg, ein Video herumzureichen."
+        "b": "Der mit Abstand häufigste Grund, und 2026 hat sich die Lage verschoben. <goAirdropAndroid>Quick Share kann auf manchen Android-Handys inzwischen direkt mit AirDrop sprechen</goAirdropAndroid>, das gilt aber für eine bestimmte Geräteliste und nicht für Android als Ganzes, wie der nächste Abschnitt zeigt. Eine Familie mit einem älteren oder günstigeren Android unter lauter iPhones hat weiterhin keinen eingebauten Weg, ein Video herumzureichen."
       },
       "1": {
         "h": "Der andere Rechner läuft mit Windows oder Linux",
-        "b": "Ein Mac kann nicht per AirDrop an ein Windows-Notebook senden, und ein Windows-PC kann AirDrop überhaupt nicht. Microsofts „Übertragung in der Nähe“ funktioniert zwischen zwei Windows-PCs und sonst nirgends. Linux hatte nie etwas davon."
+        "b": "<goMacWindows>Ein Mac kann nicht per AirDrop an ein Windows-Notebook senden</goMacWindows>, und <goAirdropWindows>ein Windows-PC kann AirDrop überhaupt nicht</goAirdropWindows>. Microsofts „Übertragung in der Nähe“ funktioniert zwischen zwei Windows-PCs und sonst nirgends. Linux hatte nie etwas davon."
       },
       "2": {
         "h": "Die andere Person ist nicht im Raum",
@@ -42,7 +42,7 @@
       },
       "3": {
         "h": "AirDrop ist an, beide sind Apple, und es klappt trotzdem nicht",
-        "b": "Die Geräteerkennung bricht oft genug ab, dass „AirDrop funktioniert nicht“ eine eigene Suchanfrage ist. Persönlicher Hotspot an, WLAN oder Bluetooth aus, „Nur Kontakte“ mit einer nicht gespeicherten Nummer, gesperrter Bildschirm oder mehr als etwa 9 Meter Abstand: Jedes davon lässt das andere Gerät verschwinden. Eine Alternative über normales WLAN hängt von diesem Handschlag nicht ab."
+        "b": "Die Geräteerkennung bricht oft genug ab, dass „<goAirdropFix>AirDrop funktioniert nicht</goAirdropFix>“ eine eigene Suchanfrage ist. Persönlicher Hotspot an, WLAN oder Bluetooth aus, „Nur Kontakte“ mit einer nicht gespeicherten Nummer, gesperrter Bildschirm oder mehr als etwa 9 Meter Abstand: Jedes davon lässt das andere Gerät verschwinden. Eine Alternative über normales WLAN hängt von diesem Handschlag nicht ab."
       }
     }
   },
@@ -79,7 +79,7 @@
         "name": "LocalSend",
         "tag": "Beste Open-Source-Alternative im selben Netz",
         "facts": "Fünf Plattformen, App auf beiden Seiten · kostenlos, Open Source · nur dasselbe WLAN · zwischen Geräten verschlüsselt · keine Anmeldung",
-        "body": "Frag ein Open-Source-Forum, was AirDrop ersetzt, und LocalSend ist die erste Antwort. Zu Recht: Gerät aus der Liste wählen, senden, fertig, wobei die Datei direkt über das Netz geht und nichts auf irgendeinem Server landet. Es deckt genau das Paar ab, das AirDrop am häufigsten verweigert, einen Mac und ein Windows-Notebook in einem WLAN, und macht diese Arbeit so gut wie alles hier.",
+        "body": "Frag ein Open-Source-Forum, was AirDrop ersetzt, und <goLocalsend>LocalSend</goLocalsend> ist die erste Antwort. Zu Recht: Gerät aus der Liste wählen, senden, fertig, wobei die Datei direkt über das Netz geht und nichts auf irgendeinem Server landet. Es deckt genau das Paar ab, das AirDrop am häufigsten verweigert, einen Mac und ein Windows-Notebook in einem WLAN, und macht diese Arbeit so gut wie alles hier.",
         "cons": "Auf beiden Seiten muss Software installiert werden, was einen gesperrten Firmenrechner ausschließt, und einen Link-Modus gibt es nicht, also bleibt jeder außerhalb deines Netzes unerreichbar."
       },
       "2": {
@@ -93,7 +93,7 @@
         "name": "PairDrop (und Snapdrop)",
         "tag": "Beste Lösung ganz ohne Installation",
         "facts": "Browser-Tab auf beiden Seiten · kostenlos, Open Source · selbes Netz oder per Code über Netze gekoppelt · WebRTC, verschlüsselt · nichts wird gespeichert",
-        "body": "Snapdrop hat den Leuten beigebracht, dass eine Datei ohne Installation zwischen zwei Notebooks wandern kann; PairDrop ist der Fork, der die Idee am Leben hielt und erweiterte. Seite auf beiden Geräten öffnen, ziehen, und die Datei geht Peer-to-Peer hinüber. Geräte im selben Netz finden sich von allein, und ein 6-stelliger Code oder ein temporärer öffentlicher Raum verbindet zwei Geräte, die in völlig verschiedenen Netzen sitzen. Auf einem geliehenen Notebook oder einem Firmenrechner, bei dem jede Installation ein Ticket bedeutet, ist das meist der schnellste Ausweg.",
+        "body": "<goSnapdrop>Snapdrop</goSnapdrop> hat den Leuten beigebracht, dass eine Datei ohne Installation zwischen zwei Notebooks wandern kann; PairDrop ist der Fork, der die Idee am Leben hielt und erweiterte. Seite auf beiden Geräten öffnen, ziehen, und die Datei geht Peer-to-Peer hinüber. Geräte im selben Netz finden sich von allein, und ein 6-stelliger Code oder ein temporärer öffentlicher Raum verbindet zwei Geräte, die in völlig verschiedenen Netzen sitzen. Auf einem geliehenen Notebook oder einem Firmenrechner, bei dem jede Installation ein Ticket bedeutet, ist das meist der schnellste Ausweg.",
         "cons": "Es gibt keine App und keinen Link, der den Moment überdauert, also bleiben beide Tabs für die ganze Übertragung offen. Hotel- und Büronetze, die Geräte voneinander isolieren, zwingen dich zum Kopplungscode."
       },
       "4": {
@@ -107,7 +107,7 @@
         "name": "Wormhole",
         "tag": "Bester verschlüsselter Link, wenn die andere Person weit weg ist",
         "facts": "Nur Browser · kostenlos · Grenze bei 10 GB · im Browser verschlüsselt, bevor etwas hochgeht · nach 24 Stunden gelöscht · keine Anmeldung",
-        "body": "Nichts an Wormhole tritt im selben Raum gegen AirDrop an. Es beantwortet die andere Hälfte der Frage, zu der AirDrop nie eine Meinung hatte: eine Datei zu jemandem zu bringen, der nirgends in deiner Nähe ist. Die Verschlüsselung passiert zuerst im Browser, der Schlüssel reist im Linktext mit, und der Dienst bleibt mit Bytes zurück, die er nicht öffnen kann. Alles unter 5 GB wartet einen Tag auf den Servern; größere Dateien streamen live zwischen den beiden Browsern.",
+        "body": "Nichts an <goWormhole>Wormhole</goWormhole> tritt im selben Raum gegen AirDrop an. Es beantwortet die andere Hälfte der Frage, zu der AirDrop nie eine Meinung hatte: eine Datei zu jemandem zu bringen, der nirgends in deiner Nähe ist. Die Verschlüsselung passiert zuerst im Browser, der Schlüssel reist im Linktext mit, und der Dienst bleibt mit Bytes zurück, die er nicht öffnen kann. Alles unter 5 GB wartet einen Tag auf den Servern; größere Dateien streamen live zwischen den beiden Browsern.",
         "cons": "Zehn Gigabyte sind die Wand, einen lokalen Modus gibt es gar nicht, und eine große Übertragung bricht zusammen, sobald einer der Browser schließt."
       },
       "6": {
@@ -154,7 +154,7 @@
     "items": {
       "0": {
         "h": "iPhone zu Android oder Android zu iPhone",
-        "b": "Steht das Android-Handy auf Googles Kompatibilitätsliste, erledigt Quick Share das inzwischen selbst, in beide Richtungen. Stell AirDrop und Quick Share auf beiden Seiten auf „Jeder“. Für jedes andere Android-Handy und für ältere Geräte sieht AirDrop es weiterhin nicht: BIShare und LocalSend senden beide direkt über ein gemeinsames WLAN, und BIShare gibt dir zusätzlich einen Link, wenn die Handys getrennt sind. Kann niemand etwas installieren, öffnet ihr PairDrop in beiden Browsern."
+        "b": "Steht das Android-Handy auf Googles Kompatibilitätsliste, erledigt Quick Share das inzwischen selbst, in beide Richtungen. Stell AirDrop und Quick Share auf beiden Seiten auf „Jeder“. <goIphoneAndroid>Für jedes andere Android-Handy</goIphoneAndroid> und für ältere Geräte sieht AirDrop es weiterhin nicht: BIShare und LocalSend senden beide direkt über ein gemeinsames WLAN, und BIShare gibt dir zusätzlich einen Link, wenn die Handys getrennt sind. Kann niemand etwas installieren, öffnet ihr PairDrop in beiden Browsern."
       },
       "1": {
         "h": "Mac zu Windows oder Windows zu Mac",
@@ -162,7 +162,7 @@
       },
       "2": {
         "h": "iPhone zu einem Windows-PC",
-        "b": "BIShare sendet direkt über WLAN, ohne Kabel und ohne Konto. Phone Link kann es auch, wenn du im Windows-Insider-Kanal bist, mit iOS 16 oder neuer und einer Bluetooth-Kopplung. Kabel und Fotos-App funktionieren weiterhin für Fotos, in eine Richtung."
+        "b": "BIShare sendet direkt über WLAN, ohne Kabel und ohne Konto. Phone Link kann es auch, wenn du im Windows-Insider-Kanal bist, mit iOS 16 oder neuer und einer Bluetooth-Kopplung. <goIphonePhotos>Kabel und Fotos-App funktionieren weiterhin für Fotos</goIphonePhotos>, in eine Richtung."
       },
       "3": {
         "h": "Irgendein Handy zu einem Linux-Rechner",
@@ -170,11 +170,11 @@
       },
       "4": {
         "h": "An jemanden in einer anderen Stadt",
-        "b": "Hier hören Tools für die Nähe auf, relevant zu sein. Ein BIShare-Link trägt bis zu 100 GB, verschlüsselt, mit Ablauf nach 24 Stunden; ein Wormhole-Link trägt 10 GB auf dieselbe Weise. Keiner verlangt vom Empfänger eine Installation."
+        "b": "Hier hören Tools für die Nähe auf, relevant zu sein. <goLargeFiles>Ein BIShare-Link trägt bis zu 100 GB</goLargeFiles>, verschlüsselt, mit Ablauf nach 24 Stunden; ein Wormhole-Link trägt 10 GB auf dieselbe Weise. Keiner verlangt vom Empfänger eine Installation."
       },
       "5": {
         "h": "Zwischen zwei Geräten ganz ohne Internet",
-        "b": "Schalte den Hotspot eines Handys ein und verbinde beide Geräte damit. Dieser Hotspot ist ein Netz, auch mit ausgeschalteten mobilen Daten, und BIShare und LocalSend übertragen darüber mit voller Geschwindigkeit. AirDrop verweigert den Dienst, solange der persönliche Hotspot an ist, einer der häufigsten Gründe für sein Scheitern."
+        "b": "<goOffline>Schalte den Hotspot eines Handys ein und verbinde beide Geräte damit</goOffline>. Dieser Hotspot ist ein Netz, auch mit ausgeschalteten mobilen Daten, und BIShare und LocalSend übertragen darüber mit voller Geschwindigkeit. AirDrop verweigert den Dienst, solange der persönliche Hotspot an ist, einer der häufigsten Gründe für sein Scheitern."
       }
     }
   },
@@ -219,7 +219,7 @@
     "items": {
       "0": {
         "h": "Ende-zu-Ende verschlüsselt, nichts gespeichert",
-        "b": "BIShare verschlüsselt beide Wege Ende zu Ende. Beim Link steht der Schlüssel im URL-Fragment, dem einen Teil einer Webadresse, den ein Browser nie auf die Leitung gibt, weshalb wir das Gesendete nicht einmal im Prinzip öffnen können. AirDrop, LocalSend, PairDrops Browser-Übertragungen und Wormholes Links halten denselben Standard."
+        "b": "BIShare verschlüsselt beide Wege Ende zu Ende. Beim Link <goEncrypted>steht der Schlüssel im URL-Fragment</goEncrypted>, dem einen Teil einer Webadresse, den ein Browser nie auf die Leitung gibt, weshalb wir das Gesendete nicht einmal im Prinzip öffnen können. AirDrop, LocalSend, PairDrops Browser-Übertragungen und Wormholes Links halten denselben Standard."
       },
       "1": {
         "h": "Nur auf dem Transportweg verschlüsselt",

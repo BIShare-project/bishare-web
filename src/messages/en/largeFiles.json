@@ -13,7 +13,7 @@
   },
   "why": {
     "title": "Why sending big files is still a pain in 2026",
-    "body": "Email chokes past 20–25 MB. The popular transfer sites cap the free tier — 3 GB at WeTransfer, 2 GB before Smash puts you in a queue, 5 GB at Filemail, SendBig and TransferNow — then throttle the speed, wrap the download page in ads, or ask for an account. Cloud drives work, but every byte goes up, sits in your quota, and comes back down. BIShare takes a different route: on the same Wi-Fi the file goes <strong>straight from one device to the other</strong> with no size cap and nothing parked on a server; anywhere else, a <strong>100 GB link</strong> that is free, account-free and encrypted end to end."
+    "body": "Email chokes past 20–25 MB. The popular transfer sites cap the free tier — 3 GB at <goWetransfer>WeTransfer</goWetransfer>, 2 GB before <goSmash>Smash</goSmash> puts you in a queue, 5 GB at Filemail, SendBig and TransferNow — then throttle the speed, wrap the download page in ads, or ask for an account. Cloud drives work, but every byte goes up, sits in your quota, and comes back down. BIShare takes a different route: on the same Wi-Fi the file goes <strong>straight from one device to the other</strong> with no size cap and nothing parked on a server; anywhere else, a <strong>100 GB link</strong> that is free, account-free and encrypted end to end."
   },
   "how": {
     "title": "Two ways to send, both free",
@@ -115,8 +115,8 @@
   "quick": {
     "title": "Quick answer",
     "items": [
-      "<strong>To send a large file free:</strong> open bishare.app/transfer, drop the file in, and share the link, QR code or 6-character code. Up to 100 GB per transfer, no account on either side, nothing to install.",
-      "<strong>Bigger than 100 GB, or a whole folder of raw video?</strong> Put both devices on the same Wi-Fi (or a phone hotspot) and send device to device — no size limit, no upload at all.",
+      "<strong>To send a large file free:</strong> open <goTransfer>bishare.app/transfer</goTransfer>, drop the file in, and share the link, QR code or 6-character code. Up to 100 GB per transfer, <goNoAccount>no account on either side</goNoAccount>, nothing to install.",
+      "<strong>Bigger than 100 GB, or a whole folder of raw video?</strong> Put both devices on the same Wi-Fi (or <goOffline>a phone hotspot</goOffline>) and send device to device — no size limit, no upload at all.",
       "<strong>What is different from WeTransfer and the rest:</strong> the file is encrypted in your browser before it uploads and the key never reaches our server; there are no ads, no paid tier, and the link deletes itself after 24 hours — or after the first download, if you choose.",
       "<strong>Speed:</strong> by link, whatever your internet upload speed allows (1 GB ≈ 3 minutes at 50 Mbps); nearby, 40–110 MB/s on modern Wi-Fi, so a gigabyte in well under a minute."
     ]
@@ -313,15 +313,15 @@
     "items": [
       {
         "h": "A BIShare link (up to 100 GB)",
-        "b": "The default for anyone who is not next to you. Encrypted before upload, no account, no ads, expires in 24 hours. Resumes an interrupted upload. Best for: a video for a client, a folder of photos for family, a backup to your own other computer."
+        "b": "The default for anyone who is not next to you. Encrypted before upload, no account, no ads, expires in 24 hours. Resumes an interrupted upload. Best for: <blogClientVideo>a video for a client</blogClientVideo>, <blogPhotos>a folder of photos for family</blogPhotos>, a backup to your own other computer."
       },
       {
         "h": "BIShare device to device (any size)",
-        "b": "Same Wi-Fi or a phone hotspot; the file never touches the internet. No size limit, local-network speed, works with mobile data off. Best for: a shoot's raw footage, a 200 GB project, anything you would otherwise put on a USB stick."
+        "b": "Same Wi-Fi or a phone hotspot; the file never touches the internet. No size limit, local-network speed, works with mobile data off. Best for: a shoot's raw footage, <goPcPc>a 200 GB project</goPcPc>, anything you would otherwise put on a USB stick."
       },
       {
         "h": "A cloud drive (Google Drive, OneDrive, iCloud, Dropbox)",
-        "b": "Fine when the file should live somewhere permanently and the other person has the same service. Costs quota, needs accounts, and the upload plus download doubles the time. Not encrypted end to end."
+        "b": "Fine when the file should live somewhere permanently and the other person has the same service. <blogCloudLimits>Costs quota, needs accounts</blogCloudLimits>, and the upload plus download doubles the time. Not encrypted end to end."
       },
       {
         "h": "Compressing or splitting the file",
@@ -340,7 +340,7 @@
   "security": {
     "title": "What happens to your file",
     "items": [
-      "By link: the file is encrypted in your browser with a key generated on your device. The key travels in the link after the # sign, which browsers never send to a server, so our storage holds only ciphertext it cannot open — and the storage is in the region nearest you.",
+      "By link: <goEncrypted>the file is encrypted in your browser with a key generated on your device</goEncrypted>. The key travels in the link after the # sign, which browsers never send to a server, so our storage holds only ciphertext it cannot open — and the storage is in the region nearest you.",
       "Links expire 24 hours after creation and the file is deleted with them. Turn on one-time and the file is deleted the moment the first download completes.",
       "Nearby: the file goes directly from one device to the other, encrypted for that transfer, and is stored nowhere but on the receiving device.",
       "No account, no email address, no ad SDK, no paid tier. The apps and the web client are open source; the encryption format is published and the same on every platform."

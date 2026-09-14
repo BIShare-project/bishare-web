@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "LocalSend alternative",
     "title": "The best LocalSend alternatives",
-    "body": "LocalSend earned its reputation honestly: it is free, open source, runs on almost everything and moves files across a Wi-Fi network without an account or a cloud server. People go looking for something else for a handful of specific reasons. The other person is in a different building, the phone never appears on the laptop's screen because the router isolates devices, a group needs the same files at once, or an iPhone has to reach a Linux desktop without any fiddling. This guide explains what LocalSend does and where it stops, compares it side by side with BIShare, ranks seven alternatives by what each is best at, and fixes the discovery problems that send most people searching. <strong>BIShare</strong> is one of the seven: it works like LocalSend on a shared network, and adds <strong>an encrypted link of up to 100 GB for anyone who is not</strong>. <highlight>Free, open source, no account.</highlight>",
+    "body": "LocalSend earned its reputation honestly: it is free, open source, runs on almost everything and moves files across a Wi-Fi network without an account or a cloud server. People go looking for something else for a handful of specific reasons. The other person is in a different building, the phone never appears on the laptop's screen because the router isolates devices, a group needs the same files at once, or an iPhone has to reach a Linux desktop without any fiddling. This guide explains what LocalSend does and where it stops, compares it side by side with BIShare, ranks seven alternatives by what each is best at, and fixes the discovery problems that send most people searching. <strong>BIShare</strong> is one of the seven: it works like LocalSend on a shared network, and adds <strong>an encrypted link of up to 100 GB for anyone who is not</strong>. <highlight>Free, open source, <goNoAccount>no account</goNoAccount>.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
@@ -18,14 +18,14 @@
       "<strong>Same experience, plus reach beyond your Wi-Fi:</strong> BIShare transfers device to device when you share a network, and turns into an encrypted 100 GB link for anyone who does not.",
       "<strong>Nothing to install on either side:</strong> PairDrop runs in the browser, and a 6-digit pairing code connects devices on different networks.",
       "<strong>Your phone as a remote for a Linux or Windows desktop:</strong> KDE Connect adds clipboard sync, notifications and media controls on top of file transfer.",
-      "<strong>Huge files between your own devices across the internet:</strong> Blip sends any size directly and resumes after interruptions, free for non-commercial use with an account.",
+      "<strong><goLargeFiles>Huge files between your own devices across the internet</goLargeFiles>:</strong> Blip sends any size directly and resumes after interruptions, free for non-commercial use with an account.",
       "<strong>Linux Mint machines on a home network:</strong> Warpinator is already installed and needs no setup.",
-      "<strong>Apple-only or Android-and-Windows households:</strong> the built-in AirDrop and Quick Share are the least effort."
+      "<strong>Apple-only or Android-and-Windows households:</strong> the built-in AirDrop and <goNearby>Quick Share</goNearby> are the least effort."
     ]
   },
   "limits": {
     "title": "What LocalSend does well, and where it stops",
-    "body": "LocalSend is built around one idea: devices on the same local network find each other and talk directly over HTTPS, with no internet connection involved. That design is its strength and its boundary.",
+    "body": "LocalSend is built around one idea: devices on the same local network find each other and talk directly over HTTPS, <blogLocal>with no internet connection involved</blogLocal>. That design is its strength and its boundary.",
     "items": {
       "0": {
         "h": "Where it shines",
@@ -47,15 +47,15 @@
     "items": {
       "0": {
         "h": "On the same network",
-        "b": "Both move files straight between devices as fast as your router allows, and both keep working on a phone's hotspot when there is no internet. LocalSend lets you pick single recipient, multiple recipients or a share link; BIShare sends to one nearby device or to several people through a room code."
+        "b": "Both move files straight between devices as fast as your router allows, and both keep working on <goOffline>a phone's hotspot when there is no internet</goOffline>. LocalSend lets you pick single recipient, multiple recipients or a share link; BIShare sends to one nearby device or to several people through a room code."
       },
       "1": {
         "h": "When the other person is elsewhere",
-        "b": "This is where BIShare adds something. A BIShare link is encrypted on the sending device, holds up to 100 GB and opens in any browser for 24 hours, wherever the recipient is. LocalSend has no route off the local network."
+        "b": "This is where BIShare adds something. <goEncrypted>A BIShare link is encrypted on the sending device</goEncrypted>, holds up to 100 GB and opens in any browser for 24 hours, wherever the recipient is. LocalSend has no route off the local network."
       },
       "2": {
         "h": "Groups",
-        "b": "BIShare rooms let several people join with a short code, from the app or a browser, and drop or grab files together; files in a room expire within 24 hours. LocalSend's multiple recipients mode covers a group only when everyone is on the same Wi-Fi."
+        "b": "<goRooms>BIShare rooms</goRooms> let several people join with a short code, from the app or a browser, and drop or grab files together; files in a room expire within 24 hours. LocalSend's multiple recipients mode covers a group only when everyone is on the same Wi-Fi."
       },
       "3": {
         "h": "Where LocalSend wins",
@@ -78,14 +78,14 @@
         "name": "PairDrop",
         "tag": "Best when nobody wants to install anything",
         "facts": "Any modern browser, installable as a web app · open source (GPL-3.0) · 6-digit or QR pairing across networks · 5-letter public rooms · peer to peer, relayed through a TURN server when needed · no account",
-        "body": "Open PairDrop in a browser on both devices and anything on the same network shows up automatically, much like LocalSend without the app. Pair two devices once with a 6-digit code or QR code and they keep finding each other on different networks, with the connection relayed through PairDrop's TURN server when a direct path is blocked. Files stay end-to-end encrypted either way, and the project can be self-hosted.",
+        "body": "Open <goSnapdrop>PairDrop</goSnapdrop> in a browser on both devices and anything on the same network shows up automatically, much like LocalSend without the app. Pair two devices once with a 6-digit code or QR code and they keep finding each other on different networks, with the connection relayed through PairDrop's TURN server when a direct path is blocked. Files stay end-to-end encrypted either way, and the project can be self-hosted.",
         "cons": "Both browser tabs must stay open during a transfer, very large files depend on the browser's memory handling, and the public service needs an internet connection for devices to find each other."
       },
       "2": {
         "name": "KDE Connect",
         "tag": "Best when you want more than file transfer between phone and desktop",
         "facts": "Linux, Windows, macOS, Android, iOS · open source (GPL) · same local network · file sending, clipboard sync, notifications, media and remote input · no account",
-        "body": "KDE Connect pairs a phone with a computer on the same network and turns them into a team: send files either way, share the clipboard, answer notifications from the desktop and use the phone as a touchpad or media remote. On Linux desktops it is often already available, and on Android it is the most capable of the local tools.",
+        "body": "KDE Connect <goPcPhone>pairs a phone with a computer</goPcPhone> on the same network and turns them into a team: send files either way, share the clipboard, answer notifications from the desktop and use the phone as a touchpad or media remote. On Linux desktops it is often already available, and on Android it is the most capable of the local tools.",
         "cons": "The iOS app does much less than the Android one because of Apple's restrictions, pairing is per device, and like LocalSend it cannot reach a device on another network."
       },
       "3": {
@@ -106,7 +106,7 @@
         "name": "AirDrop and Quick Share",
         "tag": "Best when your devices all come from one ecosystem",
         "facts": "AirDrop: iPhone, iPad, Mac, and Android phones with AirDrop support in Quick Share · Quick Share: Android, Chromebooks, Windows PCs · built in · nearby, Bluetooth and Wi-Fi",
-        "body": "If every device is Apple, AirDrop is already in the share sheet and needs no setup at all; the same goes for Quick Share between Android phones and Windows PCs. Both work when the devices are close together even without a shared Wi-Fi network, and recent Pixel and Galaxy models can also send to Apple devices through AirDrop.",
+        "body": "If every device is Apple, <goAirdropAlt>AirDrop</goAirdropAlt> is already in the share sheet and needs no setup at all; the same goes for Quick Share between Android phones and Windows PCs. Both work when the devices are close together even without a shared Wi-Fi network, and recent Pixel and Galaxy models can also send to Apple devices through AirDrop.",
         "cons": "They are closed and tied to their platforms, need the devices to be physically close, and do not reach Linux at all."
       },
       "6": {
@@ -149,7 +149,7 @@
       },
       "1": {
         "h": "The other person is somewhere else",
-        "b": "A BIShare link opens in any browser for 24 hours with up to 100 GB. PairDrop works once both devices are paired, and Blip suits huge files between accounts you own."
+        "b": "<goTransfer>A BIShare link opens in any browser</goTransfer> for 24 hours with up to 100 GB. PairDrop works once both devices are paired, and Blip suits huge files between accounts you own."
       },
       "2": {
         "h": "A guest or locked-down computer",

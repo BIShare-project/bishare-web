@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Verschlüsselte Dateiübertragung",
     "title": "Verschlüsselte Dateiübertragung, richtig erklärt",
-    "body": "Fast jeder Dateiübertragungsdienst nennt sich inzwischen verschlüsselt, und fast alle sagen damit über irgendetwas die Wahrheit. Die Frage ist, worüber. Ein Link kann auf dem Weg zum Server per HTTPS geschützt sein, verschlüsselt auf einer Festplatte liegen, die der Anbieter öffnen kann, oder auf Ihrem Gerät mit einem Schlüssel verschlossen werden, den der Anbieter nie sieht. Nur die letzte Variante hält das Unternehmen selbst, jeden, der es hackt, und jeden, der es zur Herausgabe zwingen kann, von Ihrer Datei fern. Dieser Ratgeber trennt die drei Arten der Verschlüsselung, gibt Ihnen einen Test, mit dem Sie sie bei jedem Dienst in einer Minute unterscheiden, bewertet sieben Wege, eine Datei zu senden, die der Transporteur nicht lesen kann, und sagt ehrlich, was Verschlüsselung nicht verbirgt, auch bei unserem eigenen Produkt. Unser eigenes <strong>BIShare</strong> ist unter den sieben: <strong>kostenlos und MIT-lizenziert, verschlüsselt es Links im Browser mit AES-256-GCM und sendet von Gerät zu Gerät mit Schlüsseln, die die beiden Geräte untereinander aushandeln</strong>. <highlight>Kein Konto nötig.</highlight>",
+    "body": "Fast jeder Dateiübertragungsdienst nennt sich inzwischen verschlüsselt, und fast alle sagen damit über irgendetwas die Wahrheit. Die Frage ist, worüber. Ein Link kann auf dem Weg zum Server per HTTPS geschützt sein, verschlüsselt auf einer Festplatte liegen, die der Anbieter öffnen kann, oder auf Ihrem Gerät mit einem Schlüssel verschlossen werden, den der Anbieter nie sieht. Nur die letzte Variante hält das Unternehmen selbst, jeden, der es hackt, und jeden, der es zur Herausgabe zwingen kann, von Ihrer Datei fern. Dieser Ratgeber trennt die drei Arten der Verschlüsselung, gibt Ihnen einen Test, mit dem Sie sie bei jedem Dienst in einer Minute unterscheiden, bewertet sieben Wege, eine Datei zu senden, die der Transporteur nicht lesen kann, und sagt ehrlich, was Verschlüsselung nicht verbirgt, auch bei unserem eigenen Produkt. Unser eigenes <strong>BIShare</strong> ist unter den sieben: <strong>kostenlos und MIT-lizenziert, verschlüsselt es Links im Browser mit AES-256-GCM und sendet von Gerät zu Gerät mit Schlüsseln, die die beiden Geräte untereinander aushandeln</strong>. <highlight><goNoAccount>Kein Konto nötig</goNoAccount>.</highlight>",
     "ctaPrimary": "BIShare kostenlos laden",
     "ctaSecondary": "So funktioniert es"
   },
@@ -17,7 +17,7 @@
     "items": [
       "<strong>Achten Sie auf Ende-zu-Ende, nicht nur auf „verschlüsselt“:</strong> HTTPS und Verschlüsselung im Speicher lassen den Anbieter Ihre Datei trotzdem öffnen. Ende-zu-Ende heißt, nur Absender und Empfänger halten den Schlüssel.",
       "<strong>Ein Test in einer Minute:</strong> Kann der Dienst in seiner Web-App eine Vorschau Ihrer Datei zeigen oder den Zugriff wiederherstellen, wenn Sie den Link verlieren, ist er nicht Ende-zu-Ende.",
-      "<strong>Am einfachsten aus dem Browser:</strong> BIShare oder Wormhole verschlüsseln vor dem Hochladen und legen den Schlüssel in den Link, der Empfänger muss nur klicken.",
+      "<strong>Am einfachsten aus dem Browser:</strong> <goTransfer>BIShare</goTransfer> oder Wormhole verschlüsseln vor dem Hochladen und legen den Schlüssel in den Link, der Empfänger muss nur klicken.",
       "<strong>Dateien, die wochenlang online bleiben müssen:</strong> Proton Drive hält Ende-zu-Ende-verschlüsselte Dateien in Ihrem Konto und teilt sie per Link mit optionalem Passwort.",
       "<strong>Sie müssen auch verbergen, wer sendet:</strong> OnionShare stellt die Datei von Ihrem eigenen Computer über Tor bereit.",
       "<strong>Jeder beliebige Kanal, sogar normale E-Mail:</strong> Packen Sie die Datei in ein 7-Zip-Archiv mit AES-256 und starkem Passwort, und schicken Sie das Passwort auf anderem Weg."
@@ -37,7 +37,7 @@
       },
       "2": {
         "h": "Ende-zu-Ende-Verschlüsselung",
-        "b": "Die Datei wird auf dem Gerät des Absenders verschlüsselt, bevor sie es verlässt, und nur das Gerät des Empfängers kann sie entschlüsseln. Der Dienst speichert oder leitet unlesbare Bytes weiter und hat den Schlüssel nie. Wird das Unternehmen gehackt oder zur Herausgabe verpflichtet, hat es nichts Lesbares. Nur diese Art schützt Sie vor dem Transporteur selbst."
+        "b": "Die Datei wird auf dem Gerät des Absenders verschlüsselt, bevor sie es verlässt, und <blogE2e>nur das Gerät des Empfängers kann sie entschlüsseln</blogE2e>. Der Dienst speichert oder leitet unlesbare Bytes weiter und hat den Schlüssel nie. Wird das Unternehmen gehackt oder zur Herausgabe verpflichtet, hat es nichts Lesbares. Nur diese Art schützt Sie vor dem Transporteur selbst."
       },
       "3": {
         "h": "Warum Werbung sie verwischt",
@@ -87,7 +87,7 @@
         "name": "Wormhole",
         "tag": "Bester schneller verschlüsselter Link aus jedem Browser",
         "facts": "Browser · kostenlos · bis 10 GB · AES-GCM mit 128-Bit-Schlüsseln nach RFC 8188, vor dem Hochladen verschlüsselt · Dateien bis 5 GB 24 Stunden gespeichert, größere Peer-to-Peer · Verschlüsselungsbibliothek quelloffen",
-        "body": "Wormhole verschlüsselt im Browser, bevor etwas das Gerät verlässt, seine Server halten also höchstens einen Tag lang Chiffretext. Auf einem geliehenen Computer ist es schnell benutzt, auf keiner Seite muss etwas installiert werden. Die FAQ nennt das Verfahren konkret und veröffentlicht die Streaming-Verschlüsselungsbibliothek, wenn auch nicht den ganzen Dienst.",
+        "body": "<goWormhole>Wormhole</goWormhole> verschlüsselt im Browser, bevor etwas das Gerät verlässt, seine Server halten also höchstens einen Tag lang Chiffretext. Auf einem geliehenen Computer ist es schnell benutzt, auf keiner Seite muss etwas installiert werden. Die FAQ nennt das Verfahren konkret und veröffentlicht die Streaming-Verschlüsselungsbibliothek, wenn auch nicht den ganzen Dienst.",
         "cons": "Der vollständige Client- und Servercode ist nicht veröffentlicht, die Obergrenze liegt bei 10 GB, und Übertragungen über 5 GB brauchen Ihren offenen Tab."
       },
       "2": {
@@ -108,14 +108,14 @@
         "name": "magic-wormhole",
         "tag": "Am besten für Technikaffine, die Dateien zwischen Computern bewegen",
         "facts": "Kommandozeile unter macOS, Linux, Windows · MIT · kurze Einmalcodes · Ende-zu-Ende-verschlüsselt mit passwortgestütztem Schlüsselaustausch · Mailbox-Server plus Transit-Relay · beliebige Größe, Dateien und Ordner",
-        "body": "Tippen Sie wormhole send und einen Dateinamen, lesen Sie den ausgegebenen kurzen Code vor, und die andere Person tippt wormhole receive und den Code. Die beiden Rechner einigen sich über diesen Code auf einen Schlüssel, das Relay in der Mitte transportiert also nur verschlüsselte Daten. Es verarbeitet Dateien und Verzeichnisse jeder Größe und ist beliebt, um Daten zwischen Servern zu verschieben.",
+        "body": "Tippen Sie wormhole send und einen Dateinamen, lesen Sie den ausgegebenen kurzen Code vor, und die andere Person tippt wormhole receive und den Code. Die beiden Rechner einigen sich über diesen Code auf einen Schlüssel, das Relay in der Mitte transportiert also nur verschlüsselte Daten. Es verarbeitet <goLargeFiles>Dateien und Verzeichnisse jeder Größe</goLargeFiles> und ist beliebt, um Daten zwischen Servern zu verschieben.",
         "cons": "Beide Seiten brauchen das installierte Werkzeug und ein Terminal, und für das Senden an Nicht-Techniker ist es nicht gedacht."
       },
       "5": {
         "name": "LocalSend",
         "tag": "Am besten für Geräte im selben Netz, ganz ohne Internet",
         "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS zwischen Geräten mit Zertifikat pro Gerät · nur lokales Netz · kein Server",
-        "body": "Wenn Absender und Empfänger ein WLAN teilen, überträgt LocalSend Dateien über verschlüsseltes HTTPS direkt zwischen den Geräten, ohne Server dazwischen. Nichts wird irgendwohin hochgeladen, die Frage, was ein Anbieter lesen kann, stellt sich also gar nicht.",
+        "body": "Wenn Absender und Empfänger ein WLAN teilen, überträgt <goLocalsend>LocalSend</goLocalsend> Dateien über verschlüsseltes HTTPS direkt zwischen den Geräten, ohne Server dazwischen. Nichts wird irgendwohin hochgeladen, die Frage, was ein Anbieter lesen kann, stellt sich also gar nicht.",
         "cons": "Es erreicht nur Geräte im selben lokalen Netz, und jedes Gerät braucht die App."
       },
       "6": {
@@ -220,7 +220,7 @@
     "items": {
       "0": {
         "h": "Vertrag, Ausweisscan oder Arztbrief für eine Person",
-        "b": "Ein BIShare- oder Wormhole-Link mit Einmal-Download oder kurzem Ablauf, und den Link über einen privaten Chat verschickt."
+        "b": "Ein BIShare- oder Wormhole-Link mit <blogConfidential>Einmal-Download oder kurzem Ablauf</blogConfidential>, und den Link über einen privaten Chat verschickt."
       },
       "1": {
         "h": "Unterlagen, die ein Kunde wochenlang braucht",
@@ -232,7 +232,7 @@
       },
       "3": {
         "h": "Große Ordner zwischen eigenen Geräten",
-        "b": "Eine direkte BIShare-Übertragung oder LocalSend im selben Netz, damit nichts irgendwo hochgeladen wird."
+        "b": "Eine direkte BIShare-Übertragung oder LocalSend <goOffline>im selben Netz</goOffline>, damit nichts irgendwo hochgeladen wird."
       },
       "4": {
         "h": "Daten zwischen Servern oder Terminals",
@@ -246,7 +246,7 @@
   },
   "mistakes": {
     "title": "Häufige Fehler, die Verschlüsselung aushebeln",
-    "body": "Die meisten Lecks verschlüsselter Dateien knacken nicht das Verfahren. Sie gehen darum herum.",
+    "body": "<blogLeaks>Die meisten Lecks verschlüsselter Dateien</blogLeaks> knacken nicht das Verfahren. Sie gehen darum herum.",
     "items": {
       "0": {
         "h": "Passwort in derselben Nachricht",

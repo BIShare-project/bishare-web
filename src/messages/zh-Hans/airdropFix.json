@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "故障排除",
     "title": "AirDrop用不了？先找出原因",
-    "body": "AirDrop失败的样子就那么几种：对方设备始终不出现，传输一直停在“等待中”，突然冒出一个谁都没料到的六位数代码，或者文件明明收到了，却躲进了没人打开的应用里。每种症状对应不同的原因，其中好几种根本不是故障，而是Apple在iOS 16.2、iOS 17和iOS 26.2中有意做出的改动。本指南从你看到的症状出发，列出Apple所说的AirDrop真正需要的条件，逐一讲解iPhone、iPad和Mac上的解决办法，说明那些看起来像bug的近期变化，并介绍对方是安卓手机或Windows电脑时该怎么办。<strong>BIShare</strong>是我们为AirDrop帮不上忙的时候准备的替代方案：<strong>它能在iPhone、安卓、Windows、Mac和Linux之间传文件</strong>，同一网络下直接传，不在一起就用链接。<highlight>免费、开源、无需账号。</highlight>",
+    "body": "AirDrop失败的样子就那么几种：对方设备始终不出现，传输一直停在“等待中”，突然冒出一个谁都没料到的六位数代码，或者文件明明收到了，却躲进了没人打开的应用里。每种症状对应不同的原因，其中好几种根本不是故障，而是Apple在iOS 16.2、iOS 17和iOS 26.2中有意做出的改动。本指南从你看到的症状出发，列出Apple所说的AirDrop真正需要的条件，逐一讲解iPhone、iPad和Mac上的解决办法，说明那些看起来像bug的近期变化，并介绍对方是安卓手机或Windows电脑时该怎么办。<strong>BIShare</strong>是我们为AirDrop帮不上忙的时候准备的替代方案：<strong>它能在iPhone、安卓、Windows、Mac和Linux之间传文件</strong>，同一网络下直接传，不在一起就用链接。<highlight>免费、开源、<goNoAccount>无需账号</goNoAccount>。</highlight>",
     "ctaPrimary": "免费获取BIShare",
     "ctaSecondary": "工作原理"
   },
@@ -41,7 +41,7 @@
       },
       "3": {
         "h": "传输开始后失败",
-        "b": "常见原因有：弱连接下传大视频、个人热点正在使用，或者VPN、安全类应用干扰了本地流量。重启两台设备，把它们并排放好再试一次。"
+        "b": "常见原因有：弱连接下<goLargeFiles>传大视频</goLargeFiles>、个人热点正在使用，或者VPN、安全类应用干扰了本地流量。重启两台设备，把它们并排放好再试一次。"
       },
       "4": {
         "h": "传完了，文件却找不到",
@@ -171,28 +171,28 @@
     "items": {
       "0": {
         "h": "安卓手机",
-        "b": "如果这部手机在Google的Quick Share与AirDrop互通列表中，只要iPhone允许“所有人（10分钟）”，且Galaxy上打开了与Apple设备共享的开关，它就能和iPhone互传文件。较旧或不在列表中的安卓手机无论如何都收不到AirDrop。"
+        "b": "如果这部手机在<goAirdropAndroid>Google的Quick Share与AirDrop互通列表</goAirdropAndroid>中，只要iPhone允许“所有人（10分钟）”，且Galaxy上打开了与Apple设备共享的开关，它就能和iPhone互传文件。较旧或不在列表中的安卓手机无论如何都收不到AirDrop。"
       },
       "1": {
         "h": "Windows电脑或Chromebook",
-        "b": "Apple从未为Windows推出AirDrop，电脑或Chromebook上的Quick Share也连不到Apple设备。无论改哪一端的设置都没用，请改用数据线、云端链接或跨平台应用。"
+        "b": "<goAirdropWindows>Apple从未为Windows推出AirDrop</goAirdropWindows>，电脑或Chromebook上的Quick Share也连不到Apple设备。无论改哪一端的设置都没用，请改用数据线、云端链接或<goBestApps>跨平台应用</goBestApps>。"
       },
       "2": {
         "h": "Linux电脑",
-        "b": "Linux同样没有AirDrop客户端。LocalSend这样的开源工具，以及BIShare链接或PairDrop这类浏览器方案，是比较实际的选择。"
+        "b": "Linux同样没有AirDrop客户端。LocalSend这样的开源工具，以及BIShare链接或<goSnapdrop>PairDrop</goSnapdrop>这类浏览器方案，是比较实际的选择。"
       }
     }
   },
   "methods": {
     "title": "B计划：AirDrop不配合时的五种发送方式",
-    "body": "办法用尽，或者对方不是Apple设备时，就按接收方在哪里、用什么设备来选方式。",
+    "body": "办法用尽，或者<goAirdropAlt>对方不是Apple设备时</goAirdropAlt>，就按接收方在哪里、用什么设备来选方式。",
     "consLabel": "注意：",
     "items": {
       "0": {
         "name": "BIShare",
         "tag": "最适合接收方用安卓、Windows或Linux，或者人在别处",
         "facts": "提供iPhone、Android、Windows、macOS和Linux应用 · MIT许可 · 通过同一Wi-Fi或手机热点设备直传，文件大小不限 · 最大100 GB的加密链接在浏览器中保留24小时 · 群组房间 · 无需注册",
-        "body": "在两台设备上安装BIShare，它们就能在同一Wi-Fi或手机热点中互相看到，没有会过期的可见时间，也不需要匹配联系人名片。文件不经过互联网，任意方向直接传过去。对不在身边的人，就创建链接：文件在上传前就在你的设备上封好，对方用浏览器下载。",
+        "body": "在两台设备上安装BIShare，它们就能在同一Wi-Fi或<goOffline>手机热点</goOffline>中互相看到，没有会过期的可见时间，也不需要匹配联系人名片。文件不经过互联网，任意方向直接传过去。对不在身边的人，就创建链接：文件<goEncrypted>在上传前就在你的设备上封好</goEncrypted>，对方用浏览器下载。",
         "cons": "近距离发送需要每台设备都装BIShare，链接则需要双方都有数据连接。"
       },
       "1": {
@@ -213,14 +213,14 @@
         "name": "LocalSend",
         "tag": "家庭或办公网络中的最佳开源选择",
         "facts": "iPhone、Android、Windows、macOS、Linux · Apache 2.0 · 同一局域网 · HTTPS，无需账号",
-        "body": "LocalSend会列出本地Wi-Fi中每台打开了它的设备，点一下就能发送，中间没有服务器也没有账号。如果你在家经常在iPhone和Windows或Linux电脑之间传文件，它是很好的长期替代品。",
+        "body": "<goLocalsend>LocalSend</goLocalsend>会列出本地Wi-Fi中每台打开了它的设备，点一下就能发送，中间没有服务器也没有账号。如果你在家经常在iPhone和Windows或Linux电脑之间传文件，它是很好的长期替代品。",
         "cons": "两台设备都要装应用，其他网络中的设备一概够不着，而隔离设备的路由器会让它们互相看不见。"
       },
       "4": {
         "name": "USB数据线",
         "tag": "最适合把整个相机胶卷导入电脑",
         "facts": "Mac用“照片”应用，Windows用Apple设备应用 · 无需网络 · 若原图存在iPhone上即为完整分辨率",
-        "body": "连接iPhone，解锁并信任电脑，然后在Mac上用“照片”应用、在Windows上用Apple设备应用导入。几千张照片时，这往往比任何无线方式都快，结果也更可预期。",
+        "body": "连接iPhone，解锁并信任电脑，然后在Mac上用“照片”应用、在Windows上用Apple设备应用导入。<goIphonePhotos>几千张照片时</goIphonePhotos>，这往往比任何无线方式都快，结果也更可预期。",
         "cons": "需要合适的数据线和手边的电脑，只存在iCloud里的照片要先下载到iPhone。"
       }
     }

@@ -13,6 +13,7 @@ import { VButton } from "@/components/site/vbutton";
 import { HeroCta } from "@/components/site/hero-cta";
 import { StoreButtons } from "@/components/site/store-buttons";
 import { ArrowRight, Check, X } from "lucide-react";
+import { guideLinks } from "@/components/site/guide-links";
 
 /**
  * "Best file sharing apps" buyer's guide — the page AI answers cite most and
@@ -110,6 +111,7 @@ export default async function BestFileSharingAppPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("bestApps");
+  const links = guideLinks();
   const chrome = await getTranslations("chrome");
   const tocLabel = chrome("toc.onThisPage");
   const yes = t("a11y.yes");
@@ -174,7 +176,7 @@ export default async function BestFileSharingAppPage({
           <time dateTime={LAST_UPDATED}>{t("updated")}</time>
         </p>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-          {t.rich("hero.body", { strong })}
+          {t.rich("hero.body", { strong, ...links })}
         </p>
         <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
           {t("disclosure")}
@@ -189,7 +191,7 @@ export default async function BestFileSharingAppPage({
             {QUICK_ITEMS.map((i) => (
               <li key={i} className="flex items-start gap-3 text-[15px] leading-relaxed text-muted-foreground">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" aria-hidden />
-                <span>{t.rich(`quick.items.${i}`, { strong })}</span>
+                <span>{t.rich(`quick.items.${i}`, { strong, ...links })}</span>
               </li>
             ))}
           </ul>
@@ -230,7 +232,7 @@ export default async function BestFileSharingAppPage({
             {CRITERIA_ITEMS.map((i) => (
               <div key={i} >
                 <h3 className="font-semibold">{t(`criteria.items.${i}.h`)}</h3>
-                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t(`criteria.items.${i}.b`)}</p>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`criteria.items.${i}.b`, links)}</p>
               </div>
             ))}
           </div>
@@ -290,7 +292,7 @@ export default async function BestFileSharingAppPage({
                     <h3 className="text-lg font-semibold">{t(`list.items.${i}.name`)}</h3>
                     <p className="mt-0.5 text-sm font-medium text-accent-blue">{t(`list.items.${i}.tag`)}</p>
                     <p className="mt-3 font-mono text-[12px] leading-relaxed text-muted-foreground">{t(`list.items.${i}.facts`)}</p>
-                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{t(`list.items.${i}.body`)}</p>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{t.rich(`list.items.${i}.body`, links)}</p>
                     <p className="mt-3 text-[15px] leading-relaxed text-foreground">{t(`list.items.${i}.best`)}</p>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                       <span className="font-medium text-foreground">{t("list.consLabel")}</span> {t(`list.items.${i}.cons`)}
@@ -319,7 +321,7 @@ export default async function BestFileSharingAppPage({
             {USE_CASE_ITEMS.map((i) => (
               <div key={i} >
                 <h3 className="font-semibold">{t(`useCases.items.${i}.h`)}</h3>
-                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t(`useCases.items.${i}.b`)}</p>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`useCases.items.${i}.b`, links)}</p>
               </div>
             ))}
           </div>
@@ -328,7 +330,7 @@ export default async function BestFileSharingAppPage({
         {/* Why BIShare */}
         <section className="mt-14">
           <H2 id="why">{t("why.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("why.body", { strong })}</p>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("why.body", { strong, ...links })}</p>
         </section>
 
         {/* FAQ */}

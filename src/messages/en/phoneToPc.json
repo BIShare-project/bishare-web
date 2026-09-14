@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Phone → computer",
     "title": "Transfer files from phone to PC",
-    "body": "Pulling files off a phone sounds like one job, but it is really four: grabbing a couple of photos, emptying a camera roll, moving a video too big for chat apps, or saving a document you downloaded on the go. Each has a different best route, and the phone brand matters as much as the computer. Android phones reach Windows easily through Google and Microsoft, iPhones reach Macs through AirDrop, and the other combinations lean on cables, cloud libraries or a third-party app. Below are eight routes ranked, what each computer does with what arrives, the HEIC and Live Photo surprises Windows users hit, and where to look for the file afterwards. <strong>BIShare</strong> is one of the eight and the only one that sends <strong>from both iPhone and Android to any Windows, Mac or Linux machine</strong> across your Wi-Fi. <highlight>Free, open source, no account.</highlight>",
+    "body": "Pulling files off a phone sounds like one job, but it is really four: grabbing a couple of photos, emptying a camera roll, moving a video too big for chat apps, or saving a document you downloaded on the go. Each has a different best route, and the phone brand matters as much as the computer. Android phones reach Windows easily through Google and Microsoft, iPhones reach Macs through AirDrop, and the other combinations lean on cables, cloud libraries or a third-party app. Below are eight routes ranked, what each computer does with what arrives, the HEIC and Live Photo surprises Windows users hit, and where to look for the file afterwards. <strong>BIShare</strong> is one of the eight and the only one that sends <strong>from both iPhone and Android to any Windows, Mac or Linux machine</strong> across your Wi-Fi. <highlight>Free, open source, <goNoAccount>no account</goNoAccount>.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "See how it works"
   },
@@ -16,8 +16,8 @@
     "title": "Quick answer",
     "items": [
       "<strong>Android phone to a Windows PC:</strong> share the file to Quick Share and pick the PC running Google's Quick Share app. It lands in Downloads, in a Quick Share folder.",
-      "<strong>iPhone to a Windows PC, photos:</strong> connect the cable, tap Trust, and import in the Windows Photos app, with Apple Devices installed. With iCloud Photos on, download the originals to the iPhone first.",
-      "<strong>iPhone to a Windows PC, other files:</strong> there is no general built-in wireless route yet. Use iCloud Drive or an app on both, such as BIShare.",
+      "<strong>iPhone to a Windows PC, photos:</strong> connect the cable, tap Trust, and <goIphonePhotos>import in the Windows Photos app</goIphonePhotos>, with Apple Devices installed. With iCloud Photos on, download the originals to the iPhone first.",
+      "<strong>iPhone to a Windows PC, other files:</strong> <blogIphoneWindows>there is no general built-in wireless route yet</blogIphoneWindows>. Use iCloud Drive or an app on both, such as BIShare.",
       "<strong>iPhone, Pixel 9 or recent Galaxy to a Mac:</strong> AirDrop, with the Mac set to receive from everyone for Android. Files go to the Mac's Downloads folder.",
       "<strong>Any phone to any computer on one Wi-Fi:</strong> BIShare on both moves originals directly, encrypted, whatever their size.",
       "<strong>You are away from the computer:</strong> make a BIShare link on the phone and open it later in the computer's browser, within 24 hours, up to 100 GB."
@@ -37,7 +37,7 @@
       },
       "2": {
         "h": "One long video",
-        "b": "Size caps decide it. Chat apps stop at 2 GB, Phone Link's drag and drop at 512 MB, and cloud libraries count against free storage. Direct routes, meaning Quick Share, AirDrop, a cable or BIShare on Wi-Fi, have no limit beyond free disk space."
+        "b": "<goLargeFiles>Size caps decide it</goLargeFiles>. Chat apps stop at 2 GB, Phone Link's drag and drop at 512 MB, and cloud libraries count against free storage. Direct routes, meaning Quick Share, AirDrop, a cable or BIShare on Wi-Fi, have no limit beyond free disk space."
       },
       "3": {
         "h": "Documents and downloads",
@@ -53,14 +53,14 @@
         "name": "BIShare",
         "tag": "Best overall: iPhone or Android to Windows, Mac or Linux",
         "facts": "iPhone, Android, Windows, macOS, Linux · open source (MIT) · direct on one network, no size limit · links up to 100 GB for 24 hours · encrypted end to end · no sign-up",
-        "body": "Open the app on the phone, choose photos, videos or files from any folder it can read, and pick the computer from the list of nearby devices; the computer accepts and the originals arrive at full size. Nothing about it changes between an iPhone and a Galaxy, or between a Windows tower and a Linux laptop, and it runs on a phone's own hotspot when there is no router. Leaving the house before the transfer is done is fine too: turn the selection into a link instead, and the computer downloads it in any browser later that day, with the file encrypted on the phone before it went anywhere.",
+        "body": "Open the app on the phone, choose photos, videos or files from any folder it can read, and pick the computer from the list of nearby devices; the computer accepts and the originals arrive at full size. Nothing about it changes between an iPhone and a Galaxy, or between a Windows tower and a Linux laptop, and it runs on a phone's own hotspot when there is no router. Leaving the house before the transfer is done is fine too: turn the selection into a link instead, and the computer downloads it <goTransfer>in any browser</goTransfer> later that day, with the file encrypted on the phone before it went anywhere.",
         "cons": "The direct route needs the desktop app installed. Links are gone after 24 hours, so they suit hand-overs, not archives."
       },
       "1": {
         "name": "Quick Share for Windows",
         "tag": "Best built-in route from an Android phone to a Windows PC",
         "facts": "Android 6.0 or later · a 64-bit PC with Windows 10 or newer, or Windows 11 on an Arm laptop · Bluetooth and Wi-Fi on both, within about 5 metres · files saved to Downloads › Quick Share",
-        "body": "Once Google's Quick Share app is on the PC, it appears in the phone's normal Share menu under Quick Share. Tap it, accept on the PC if it is not set to your own devices, and the file is written to a Quick Share folder inside Downloads. It moves any file type the share sheet can hand over, including videos straight from the gallery, and Google publishes no size limit. Galaxy owners with a Samsung PC can use Samsung's version from the Microsoft Store instead.",
+        "body": "Once Google's <goNearby>Quick Share</goNearby> app is on the PC, it appears in the phone's normal Share menu under Quick Share. Tap it, accept on the PC if it is not set to your own devices, and the file is written to a Quick Share folder inside Downloads. It moves any file type the share sheet can hand over, including videos straight from the gallery, and Google publishes no size limit. Galaxy owners with a Samsung PC can use Samsung's version from the Microsoft Store instead.",
         "cons": "Android only. The two devices have to be near each other, and networks that block device-to-device traffic stop it; Google's advice is to join the PC to the phone's hotspot."
       },
       "2": {
@@ -95,7 +95,7 @@
         "name": "PairDrop",
         "tag": "Good when nothing can be installed on the computer",
         "facts": "Runs in any modern browser · open source (GPL-3.0) · finds devices on the same network · links devices on different networks through a 6-digit pairing code or a QR code · relays through a TURN server when a direct path fails",
-        "body": "Open pairdrop.net in the phone's browser and on the computer, and on a shared network each shows the other straight away. Tap the computer, pick files, and they go peer to peer. It is handy on a work PC where you cannot install software, or on a friend's laptop for a one-off transfer, and paired devices remember each other.",
+        "body": "Open <goSnapdrop>pairdrop.net</goSnapdrop> in the phone's browser and on the computer, and on a shared network each shows the other straight away. Tap the computer, pick files, and they go peer to peer. It is handy on a work PC where you cannot install software, or on a friend's laptop for a one-off transfer, and paired devices remember each other.",
         "cons": "Both browser tabs must stay open while the transfer runs, large files depend on the phone not sleeping the browser, and there is no background transfer."
       },
       "7": {
@@ -174,11 +174,11 @@
       },
       "1": {
         "h": "Android to Mac",
-        "b": "On a Pixel 9 or newer, or another phone on Google's AirDrop list, AirDrop to the Mac from Quick Share. Image Capture can also import photos from an Android phone connected in PTP mode. For other folders over a cable, a Mac needs OpenMTP or a similar tool, since Google no longer offers Android File Transfer."
+        "b": "On a Pixel 9 or newer, or another phone on <goAirdropAndroid>Google's AirDrop list</goAirdropAndroid>, AirDrop to the Mac from Quick Share. Image Capture can also import photos from an Android phone connected in PTP mode. For other folders over a cable, a Mac needs OpenMTP or a similar tool, since Google no longer offers Android File Transfer."
       },
       "2": {
         "h": "Phones to Linux",
-        "b": "KDE Connect or GSConnect is the everyday route from Android, and most desktop file managers mount an Android phone in File transfer mode over USB. iPhones are harder: file managers built on libimobiledevice can read the camera roll over a cable, and anything else is best sent with a cross-platform app or a browser link."
+        "b": "KDE Connect or GSConnect is the everyday route from Android, and most desktop file managers mount an Android phone in File transfer mode over USB. iPhones are harder: file managers built on libimobiledevice can read the camera roll over a cable, and anything else is best sent with <goBestApps>a cross-platform app</goBestApps> or a browser link."
       }
     }
   },
@@ -241,7 +241,7 @@
     "items": {
       "0": {
         "h": "Direct over Wi-Fi",
-        "b": "A current phone a room away from the router usually pushes somewhere between 40 and 50 MB/s over Wi-Fi 5, or 70 to 110 MB/s over Wi-Fi 6, which gets a 5 GB clip across in a minute or two. A phone hotspot is slower, often 10–30 MB/s."
+        "b": "A current phone a room away from the router usually pushes somewhere between 40 and 50 MB/s over Wi-Fi 5, or 70 to 110 MB/s over Wi-Fi 6, which gets a 5 GB clip across in a minute or two. <goOffline>A phone hotspot</goOffline> is slower, often 10–30 MB/s."
       },
       "1": {
         "h": "USB",
@@ -288,7 +288,7 @@
       },
       "1": {
         "h": "Relayed but sealed",
-        "b": "A BIShare link is sealed on the phone before it uploads, leaving the server with ciphertext it has no key for. PairDrop's WebRTC connections are encrypted too, even when a TURN server relays them."
+        "b": "A BIShare link is <goEncrypted>sealed on the phone before it uploads</goEncrypted>, leaving the server with ciphertext it has no key for. PairDrop's WebRTC connections are encrypted too, even when a TURN server relays them."
       },
       "2": {
         "h": "Stored by a provider",

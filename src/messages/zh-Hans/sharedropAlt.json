@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "ShareDrop替代方案",
     "title": "最好的ShareDrop替代方案",
-    "body": "ShareDrop是最早在浏览器里模仿AirDrop的网页之一：在两台设备上打开sharedrop.io，互相看到对方的头像，把文件拖上去，它就通过WebRTC直接传过去。2026年这个网站还在运行，但已经不属于它的作者。LimeWire在2025年初收购了它，如今页面会加载LimeWire的脚本，用于五个广告位，以及一个Upload Files按钮，把文件发到LimeWire的服务器，而不是你身边的设备。很多人想要以前的体验却不想要新东家，也有人一直嫌一个标签页能做的事太少。本指南讲清发生了什么变化、ShareDrop实际上如何决定你能看到哪些设备、它有哪些短板，给7个替代方案排名（包括自行托管的ShareDrop Classic），并说明如何发给另一个网络里的人。我们的<strong>BIShare</strong>也在名单里：<strong>免费、MIT许可，既能在bishare.app的浏览器里用，也有Android、iPhone、Windows、macOS和Linux应用</strong>。<highlight>发送方和接收方都不需要账号。</highlight>",
+    "body": "ShareDrop是最早在浏览器里模仿<goAirdropAlt>AirDrop</goAirdropAlt>的网页之一：在两台设备上打开sharedrop.io，互相看到对方的头像，把文件拖上去，它就通过WebRTC直接传过去。2026年这个网站还在运行，但已经不属于它的作者。LimeWire在2025年初收购了它，如今页面会加载LimeWire的脚本，用于五个广告位，以及一个Upload Files按钮，把文件发到LimeWire的服务器，而不是你身边的设备。很多人想要以前的体验却不想要新东家，也有人一直嫌一个标签页能做的事太少。本指南讲清发生了什么变化、ShareDrop实际上如何决定你能看到哪些设备、它有哪些短板，给7个替代方案排名（包括自行托管的ShareDrop Classic），并说明如何发给另一个网络里的人。我们的<strong>BIShare</strong>也在名单里：<strong>免费、MIT许可，既能在bishare.app的浏览器里用，也有Android、iPhone、Windows、macOS和Linux应用</strong>。<highlight><goNoAccount>发送方和接收方都不需要账号</goNoAccount>。</highlight>",
     "ctaPrimary": "免费获取BIShare",
     "ctaSecondary": "工作原理"
   },
@@ -16,9 +16,9 @@
     "title": "快速回答",
     "items": [
       "<strong>最接近经典ShareDrop的：</strong>PairDrop。思路相同，开源，同一网络的设备会互相发现，配对还能跨网络。",
-      "<strong>希望发送方发完就能下线：</strong>BIShare链接把最多100 GB加密保存一天，任何浏览器都能打开，不用一直开着标签页。",
+      "<strong>希望发送方发完就能下线：</strong>BIShare链接把最多100 GB加密保存一天，<goTransfer>任何浏览器都能打开</goTransfer>，不用一直开着标签页。",
       "<strong>一个文件、一个接收人、哪里都不存：</strong>FilePizza或ToffeeShare，前提是下载完成前你的标签页一直开着。",
-      "<strong>自己的电脑和手机之间传大文件夹：</strong>应用比标签页可靠。同一路由器下用BIShare或LocalSend，已经在用Tailscale就用Taildrop。",
+      "<strong>自己的电脑和手机之间<goLargeFiles>传大文件夹</goLargeFiles>：</strong>应用比标签页可靠。同一路由器下用BIShare或LocalSend，已经在用Tailscale就用Taildrop。",
       "<strong>就喜欢原汁原味的ShareDrop：</strong>MIT许可的原始代码原封不动地留在GitHub上，可以自己托管，但需要Firebase数据库。",
       "<strong>如果还是要用sharedrop.io：</strong>把文件拖到对方的头像上才是直接传输。Upload Files区域会把文件交给LimeWire。"
     ]
@@ -113,7 +113,7 @@
         "name": "PairDrop",
         "tag": "浏览器里最对等的替代品",
         "facts": "任何现代浏览器，可安装为PWA · GPL-3.0 · 同一网络自动发现 · 用6位数字代码或二维码永久配对 · 临时公共房间 · NAT后走TURN中继 · 提供自托管用的Docker镜像",
-        "body": "PairDrop源自Snapdrop，用起来就像大家记忆里的ShareDrop，还多了些功能。同一网络的设备自动出现，配对过的设备在哪都能互相找到，临时公共房间就相当于ShareDrop的+按钮。它的FAQ把路径说得很清楚：同一网络下文件从不经过服务器，NAT之后的配对设备则走PairDrop的TURN服务器。",
+        "body": "PairDrop源自<goSnapdrop>Snapdrop</goSnapdrop>，用起来就像大家记忆里的ShareDrop，还多了些功能。同一网络的设备自动出现，配对过的设备在哪都能互相找到，临时公共房间就相当于ShareDrop的+按钮。它的FAQ把路径说得很清楚：同一网络下文件从不经过服务器，NAT之后的配对设备则走PairDrop的TURN服务器。",
         "cons": "和ShareDrop一样，两台设备必须同时在线并开着标签页，经TURN中继的传输比直连慢。"
       },
       "2": {
@@ -134,7 +134,7 @@
         "name": "LocalSend",
         "tag": "同一网络里用应用的最佳选择",
         "facts": "Apache 2.0 · Android、iOS、桌面和Fire OS应用 · 一个局域网，互联网可有可无 · 设备间HTTPS · Winget、Homebrew、Flathub、F-Droid",
-        "body": "如果你以前主要用ShareDrop在自己的手机和电脑之间传文件，换成应用能彻底摆脱标签页的问题。同一路由器下的LocalSend设备不经任何服务器就能互相列出，所以在不通外网的路由器上也能用。2026年9月，它在AlternativeTo的ShareDrop页面上位列开源推荐第一。",
+        "body": "如果你以前主要用ShareDrop在自己的手机和电脑之间传文件，换成应用能彻底摆脱标签页的问题。同一路由器下的<goLocalsend>LocalSend</goLocalsend>设备不经任何服务器就能互相列出，所以在不通外网的路由器上也能用。2026年9月，它在AlternativeTo的ShareDrop页面上位列开源推荐第一。",
         "cons": "每台设备都要装应用，也够不到局域网之外的人。"
       },
       "5": {
@@ -188,7 +188,7 @@
       },
       "2": {
         "h": "保存的链接：谁都不用等",
-        "b": "BIShare链接在你的浏览器里加密文件、上传并保存24小时。你可以立刻下线，接收方用任何浏览器下载。这种模式适合时差和忙碌的人，代价是一份加密副本要在服务器上放一天。"
+        "b": "<goEncrypted>BIShare链接在你的浏览器里加密文件</goEncrypted>、上传并保存24小时。你可以立刻下线，接收方用任何浏览器下载。这种模式适合时差和忙碌的人，代价是一份加密副本要在服务器上放一天。"
       },
       "3": {
         "h": "配对设备：自己的设备在哪个网络都行",
@@ -236,7 +236,7 @@
       },
       "3": {
         "h": "课堂或会议",
-        "b": "用短代码加入的BIShare房间，大家在同一Wi-Fi就用本地模式，有人远程加入就用云端模式。"
+        "b": "<goRooms>用短代码加入的BIShare房间</goRooms>，大家在同一Wi-Fi就用本地模式，有人远程加入就用云端模式。"
       },
       "4": {
         "h": "你自己管理的一批机器",

@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "ShareDrop 대안",
     "title": "ShareDrop의 가장 좋은 대안",
-    "body": "ShareDrop은 브라우저에서 AirDrop을 흉내 낸 초기 웹페이지 중 하나였습니다. 두 기기에서 sharedrop.io를 열면 서로의 아바타가 보이고, 파일을 떨어뜨리면 WebRTC로 바로 건너갑니다. 2026년에도 사이트는 살아 있지만 더는 만든 사람의 것이 아닙니다. LimeWire가 2025년 초에 인수했고, 지금 페이지는 광고 영역 다섯 곳을 위한 LimeWire 스크립트와, 옆에 있는 기기가 아니라 LimeWire 서버로 파일을 보내는 Upload Files 버튼을 불러옵니다. 새 주인 없이 예전 방식을 원하는 사람이 많고, 탭 하나로는 부족하다고 느껴 온 사람도 있습니다. 이 가이드는 무엇이 바뀌었는지, ShareDrop이 실제로 어떻게 보이는 기기를 정했는지, 어디가 약한지 설명하고, 직접 호스팅하는 ShareDrop Classic을 포함한 대안 7가지의 순위를 매기며, 다른 네트워크에 있는 사람에게 보내는 방법을 보여 줍니다. 저희 <strong>BIShare</strong>도 목록에 있습니다. <strong>무료이고 MIT 라이선스이며, bishare.app 브라우저 버전과 Android, iPhone, Windows, macOS, Linux 앱으로 쓸 수 있습니다</strong>. <highlight>보내는 쪽도 받는 쪽도 계정이 필요 없습니다.</highlight>",
+    "body": "ShareDrop은 브라우저에서 <goAirdropAlt>AirDrop</goAirdropAlt>을 흉내 낸 초기 웹페이지 중 하나였습니다. 두 기기에서 sharedrop.io를 열면 서로의 아바타가 보이고, 파일을 떨어뜨리면 WebRTC로 바로 건너갑니다. 2026년에도 사이트는 살아 있지만 더는 만든 사람의 것이 아닙니다. LimeWire가 2025년 초에 인수했고, 지금 페이지는 광고 영역 다섯 곳을 위한 LimeWire 스크립트와, 옆에 있는 기기가 아니라 LimeWire 서버로 파일을 보내는 Upload Files 버튼을 불러옵니다. 새 주인 없이 예전 방식을 원하는 사람이 많고, 탭 하나로는 부족하다고 느껴 온 사람도 있습니다. 이 가이드는 무엇이 바뀌었는지, ShareDrop이 실제로 어떻게 보이는 기기를 정했는지, 어디가 약한지 설명하고, 직접 호스팅하는 ShareDrop Classic을 포함한 대안 7가지의 순위를 매기며, 다른 네트워크에 있는 사람에게 보내는 방법을 보여 줍니다. 저희 <strong>BIShare</strong>도 목록에 있습니다. <strong>무료이고 MIT 라이선스이며, bishare.app 브라우저 버전과 Android, iPhone, Windows, macOS, Linux 앱으로 쓸 수 있습니다</strong>. <highlight><goNoAccount>보내는 쪽도 받는 쪽도 계정이 필요 없습니다</goNoAccount>.</highlight>",
     "ctaPrimary": "BIShare 무료로 받기",
     "ctaSecondary": "작동 방식"
   },
@@ -16,9 +16,9 @@
     "title": "요약",
     "items": [
       "<strong>예전 ShareDrop과 가장 비슷한 것:</strong> PairDrop. 같은 발상의 오픈 소스이고, 같은 네트워크의 기기는 서로 찾으며, 페어링으로 다른 네트워크도 됩니다.",
-      "<strong>보낸 뒤 보내는 사람이 오프라인이 되고 싶다면:</strong> BIShare 링크는 최대 100GB를 암호화해 하루 보관하고 어떤 브라우저에서든 열리므로 탭을 켜 둘 필요가 없습니다.",
+      "<strong>보낸 뒤 보내는 사람이 오프라인이 되고 싶다면:</strong> BIShare 링크는 최대 100GB를 암호화해 하루 보관하고 <goTransfer>어떤 브라우저에서든 열리므로</goTransfer> 탭을 켜 둘 필요가 없습니다.",
       "<strong>파일 하나를 한 명에게, 어디에도 저장하지 않고:</strong> 다운로드가 끝날 때까지 탭을 열어 둘 수 있다면 FilePizza나 ToffeeShare.",
-      "<strong>내 컴퓨터와 폰 사이의 큰 폴더:</strong> 탭보다 앱. 같은 공유기에서 BIShare나 LocalSend, Tailscale을 이미 쓴다면 Taildrop.",
+      "<strong>내 컴퓨터와 폰 사이의 <goLargeFiles>큰 폴더</goLargeFiles>:</strong> 탭보다 앱. 같은 공유기에서 BIShare나 LocalSend, Tailscale을 이미 쓴다면 Taildrop.",
       "<strong>ShareDrop을 예전 모습 그대로 쓰고 싶다면:</strong> MIT 라이선스 원본 코드가 GitHub에 그대로 있어 호스팅할 수 있지만 Firebase 데이터베이스가 필요합니다.",
       "<strong>그래도 sharedrop.io를 쓴다면:</strong> 상대 아바타에 파일을 떨어뜨려야 직접 전송됩니다. Upload Files 영역은 LimeWire로 보냅니다."
     ]
@@ -113,7 +113,7 @@
         "name": "PairDrop",
         "tag": "브라우저에서 그대로 바꿔 쓰기 좋은 대안",
         "facts": "최신 브라우저라면 무엇이든, PWA로 설치 가능 · GPL-3.0 · 같은 네트워크 자동 발견 · 6자리 코드나 QR로 영구 페어링 · 임시 공개 방 · NAT 뒤에서는 TURN 릴레이 · 셀프 호스팅용 Docker 이미지",
-        "body": "PairDrop은 Snapdrop에서 갈라져 나왔고, 사람들이 기억하는 ShareDrop처럼 동작하면서 기능이 더 있습니다. 같은 네트워크 기기는 자동으로 뜨고, 페어링한 기기는 어디서든 서로를 찾으며, 임시 공개 방이 ShareDrop의 + 버튼 역할을 합니다. FAQ는 경로를 분명히 밝힙니다. 같은 네트워크에서는 파일이 서버에 닿지 않고, NAT 뒤의 페어링 기기는 PairDrop의 TURN 서버를 거칩니다.",
+        "body": "PairDrop은 <goSnapdrop>Snapdrop</goSnapdrop>에서 갈라져 나왔고, 사람들이 기억하는 ShareDrop처럼 동작하면서 기능이 더 있습니다. 같은 네트워크 기기는 자동으로 뜨고, 페어링한 기기는 어디서든 서로를 찾으며, 임시 공개 방이 ShareDrop의 + 버튼 역할을 합니다. FAQ는 경로를 분명히 밝힙니다. 같은 네트워크에서는 파일이 서버에 닿지 않고, NAT 뒤의 페어링 기기는 PairDrop의 TURN 서버를 거칩니다.",
         "cons": "ShareDrop처럼 두 기기가 탭을 연 채 동시에 온라인이어야 하고, TURN을 거친 전송은 직접 전송보다 느립니다."
       },
       "2": {
@@ -134,7 +134,7 @@
         "name": "LocalSend",
         "tag": "같은 네트워크에서 앱으로 쓰기 좋은 선택",
         "facts": "Apache 2.0 · Android, iOS, 데스크톱, Fire OS 앱 · 로컬 네트워크 하나, 인터넷은 선택 · 기기 간 HTTPS · Winget, Homebrew, Flathub, F-Droid",
-        "body": "ShareDrop을 주로 내 폰과 컴퓨터 사이에서 썼다면, 앱으로 바꾸면 탭 문제는 완전히 사라집니다. 같은 공유기의 LocalSend 기기는 서버 없이 서로를 목록에 띄우므로 인터넷이 끊긴 공유기에서도 동작합니다. 2026년 9월 AlternativeTo의 ShareDrop 페이지에서는 오픈 소스 추천 1순위였습니다.",
+        "body": "ShareDrop을 주로 내 폰과 컴퓨터 사이에서 썼다면, 앱으로 바꾸면 탭 문제는 완전히 사라집니다. 같은 공유기의 <goLocalsend>LocalSend</goLocalsend> 기기는 서버 없이 서로를 목록에 띄우므로 인터넷이 끊긴 공유기에서도 동작합니다. 2026년 9월 AlternativeTo의 ShareDrop 페이지에서는 오픈 소스 추천 1순위였습니다.",
         "cons": "모든 기기에 앱이 필요하고, 로컬 네트워크 밖의 사람에게는 닿지 않습니다."
       },
       "5": {
@@ -188,7 +188,7 @@
       },
       "2": {
         "h": "저장 링크: 아무도 기다리지 않는다",
-        "b": "BIShare 링크는 브라우저에서 파일을 암호화해 업로드하고 24시간 보관합니다. 바로 오프라인이 돼도 되고, 받는 사람은 어떤 브라우저에서든 내려받습니다. 시차가 있거나 바쁜 상대에게 맞는 방식이며, 대신 암호화된 사본이 하루 동안 서버에 남습니다."
+        "b": "<goEncrypted>BIShare 링크는 브라우저에서 파일을 암호화해</goEncrypted> 업로드하고 24시간 보관합니다. 바로 오프라인이 돼도 되고, 받는 사람은 어떤 브라우저에서든 내려받습니다. 시차가 있거나 바쁜 상대에게 맞는 방식이며, 대신 암호화된 사본이 하루 동안 서버에 남습니다."
       },
       "3": {
         "h": "페어링한 기기: 내 장비는 어느 네트워크에서나",
@@ -236,7 +236,7 @@
       },
       "3": {
         "h": "수업이나 회의",
-        "b": "짧은 코드로 들어가는 BIShare 방. 모두 같은 Wi-Fi면 로컬 모드, 원격 참가자가 있으면 클라우드 모드."
+        "b": "<goRooms>짧은 코드로 들어가는 BIShare 방</goRooms>. 모두 같은 Wi-Fi면 로컬 모드, 원격 참가자가 있으면 클라우드 모드."
       },
       "4": {
         "h": "내가 관리하는 여러 대의 기기",

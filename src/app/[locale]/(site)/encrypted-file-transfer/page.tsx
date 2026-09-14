@@ -13,6 +13,7 @@ import { breadcrumbLd } from "@/lib/breadcrumb-ld";
 import { LandingArt } from "@/components/site/landing-art";
 import { ImageLightbox } from "@/components/site/image-lightbox";
 import { ArrowRight, Check, X } from "lucide-react";
+import { guideLinks } from "@/components/site/guide-links";
 
 /**
  * "Encrypted file transfer" — the SERP is patent PDFs, vendor pages
@@ -130,9 +131,10 @@ export default async function EncryptedTransferPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations(NS);
+  const links = guideLinks();
   const chrome = await getTranslations("chrome");
 
-  const tags = { strong, highlight };
+  const tags = { strong, highlight, ...links };
   const yes = t("a11y.yes");
   const no = t("a11y.no");
 
@@ -197,7 +199,7 @@ export default async function EncryptedTransferPage({
               <time dateTime={LAST_UPDATED}>{t("updated")}</time>
             </p>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight })}
+              {t.rich("hero.body", { strong, highlight, ...links })}
             </p>
             <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
               {t("disclosure")}
@@ -224,7 +226,7 @@ export default async function EncryptedTransferPage({
                       className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue"
                       aria-hidden
                     />
-                    <span>{t.rich(`quick.items.${i}`, { strong })}</span>
+                    <span>{t.rich(`quick.items.${i}`, { strong, ...links })}</span>
                   </li>
                 ))}
               </ul>

@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "トラブルシューティング",
     "title": "AirDropが使えない？まず原因を見極める",
-    "body": "AirDropの失敗にはいくつか見分けやすいパターンがあります。相手の端末がいつまでも表示されない、転送が「待機中」のまま進まない、誰も予想していなかった6桁のコードが出てくる、あるいはファイルは届いたのに誰も開かないアプリに紛れ込んでしまう、といったものです。症状ごとに原因は異なり、しかもそのいくつかは故障ではなく、AppleがiOS 16.2、iOS 17、iOS 26.2で意図的に加えた変更です。このガイドでは、目の前の症状から出発し、Appleが示すAirDropの本当の必要条件を挙げ、iPhone、iPad、Macでの対処法を順に説明し、バグに見える最近の変更点を解説したうえで、相手がAndroidスマホやWindows PCの場合も取り上げます。<strong>BIShare</strong>は、AirDropではどうにもならない場面のために私たちが作った代替手段です。<strong>iPhone、Android、Windows、Mac、Linuxの間で送れて</strong>、同じネットワークなら直接、そうでなければリンクで届けられます。<highlight>無料、オープンソース、アカウント不要。</highlight>",
+    "body": "AirDropの失敗にはいくつか見分けやすいパターンがあります。相手の端末がいつまでも表示されない、転送が「待機中」のまま進まない、誰も予想していなかった6桁のコードが出てくる、あるいはファイルは届いたのに誰も開かないアプリに紛れ込んでしまう、といったものです。症状ごとに原因は異なり、しかもそのいくつかは故障ではなく、AppleがiOS 16.2、iOS 17、iOS 26.2で意図的に加えた変更です。このガイドでは、目の前の症状から出発し、Appleが示すAirDropの本当の必要条件を挙げ、iPhone、iPad、Macでの対処法を順に説明し、バグに見える最近の変更点を解説したうえで、相手がAndroidスマホやWindows PCの場合も取り上げます。<strong>BIShare</strong>は、AirDropではどうにもならない場面のために私たちが作った代替手段です。<strong>iPhone、Android、Windows、Mac、Linuxの間で送れて</strong>、同じネットワークなら直接、そうでなければリンクで届けられます。<highlight>無料、オープンソース、<goNoAccount>アカウント不要</goNoAccount>。</highlight>",
     "ctaPrimary": "BIShareを無料で入手",
     "ctaSecondary": "仕組みを見る"
   },
@@ -41,7 +41,7 @@
       },
       "3": {
         "h": "転送が始まってから失敗する",
-        "b": "弱い接続での大きな動画、使用中のインターネット共有、ローカル通信を妨げるVPNやセキュリティアプリがよくある原因です。2台とも再起動し、並べて置いた状態でもう一度試してください。"
+        "b": "弱い接続での<goLargeFiles>大きな動画</goLargeFiles>、使用中のインターネット共有、ローカル通信を妨げるVPNやセキュリティアプリがよくある原因です。2台とも再起動し、並べて置いた状態でもう一度試してください。"
       },
       "4": {
         "h": "送れたはずなのにファイルが見つからない",
@@ -171,28 +171,28 @@
     "items": {
       "0": {
         "h": "Androidスマホ",
-        "b": "そのスマホがQuick ShareとAirDropの連携についてGoogleのリストに入っていれば、iPhoneが「すべての人（10分間のみ）」を許可し、GalaxyではApple製品との共有スイッチがオンになっている限り、iPhoneとファイルをやり取りできます。古い機種やリストにないAndroidは、どんな形でもAirDropを受け取れません。"
+        "b": "そのスマホが<goAirdropAndroid>Quick ShareとAirDropの連携についてGoogleのリスト</goAirdropAndroid>に入っていれば、iPhoneが「すべての人（10分間のみ）」を許可し、GalaxyではApple製品との共有スイッチがオンになっている限り、iPhoneとファイルをやり取りできます。古い機種やリストにないAndroidは、どんな形でもAirDropを受け取れません。"
       },
       "1": {
         "h": "Windows PCやChromebook",
-        "b": "AppleはWindows向けのAirDropを作ったことがなく、PCやChromebookのQuick ShareもApple製品には届きません。どちらの側の設定を変えても変わらないので、ケーブル、クラウドのリンク、クロスプラットフォームのアプリを使いましょう。"
+        "b": "<goAirdropWindows>AppleはWindows向けのAirDropを作ったことがなく</goAirdropWindows>、PCやChromebookのQuick ShareもApple製品には届きません。どちらの側の設定を変えても変わらないので、ケーブル、クラウドのリンク、<goBestApps>クロスプラットフォームのアプリ</goBestApps>を使いましょう。"
       },
       "2": {
         "h": "Linuxのパソコン",
-        "b": "Linux向けのAirDropクライアントもありません。LocalSendのようなオープンソースのツールや、BIShareのリンクやPairDropのようなブラウザで使える方法が現実的な選択肢です。"
+        "b": "Linux向けのAirDropクライアントもありません。LocalSendのようなオープンソースのツールや、BIShareのリンクや<goSnapdrop>PairDrop</goSnapdrop>のようなブラウザで使える方法が現実的な選択肢です。"
       }
     }
   },
   "methods": {
     "title": "プランB:AirDropが動かないときの5つの送り方",
-    "body": "対処法が尽きたとき、または相手がApple製品でないときは、相手がどこにいて何を使っているかで方法を選びましょう。",
+    "body": "対処法が尽きたとき、または<goAirdropAlt>相手がApple製品でないとき</goAirdropAlt>は、相手がどこにいて何を使っているかで方法を選びましょう。",
     "consLabel": "注意点:",
     "items": {
       "0": {
         "name": "BIShare",
         "tag": "相手がAndroid、Windows、Linuxを使っている、または離れた場所にいるときに最適",
         "facts": "iPhone、Android、Windows、macOS、Linux向けアプリ · MITライセンス · 共通のWi-Fiやスマホのテザリングで端末から端末へ、ファイルサイズ問わず · 最大100 GBの暗号化リンクはブラウザで24時間有効 · グループ用ルーム · 登録不要",
-        "body": "両方の端末にBIShareを入れれば、共通のWi-Fiやスマホのテザリングで互いが見えます。時間切れになる公開範囲も、一致させる必要がある連絡先カードもありません。ファイルはインターネットを使わずにどちらの方向にも直接送られます。近くにいない相手にはリンクを作りましょう。ファイルはアップロード前に端末上で封じられ、相手はブラウザでダウンロードします。",
+        "body": "両方の端末にBIShareを入れれば、共通のWi-Fiや<goOffline>スマホのテザリング</goOffline>で互いが見えます。時間切れになる公開範囲も、一致させる必要がある連絡先カードもありません。ファイルはインターネットを使わずにどちらの方向にも直接送られます。近くにいない相手にはリンクを作りましょう。ファイルは<goEncrypted>アップロード前に端末上で封じられ</goEncrypted>、相手はブラウザでダウンロードします。",
         "cons": "近距離の送信には各端末にBIShareが必要で、リンクには両側でデータ通信が必要です。"
       },
       "1": {
@@ -213,14 +213,14 @@
         "name": "LocalSend",
         "tag": "自宅やオフィスのネットワークで使うオープンソースの最有力候補",
         "facts": "iPhone、Android、Windows、macOS、Linux · Apache 2.0 · 同じローカルネットワーク · HTTPS、アカウント不要",
-        "body": "LocalSendは、ローカルのWi-Fiで起動している端末をすべて一覧にし、タップ1回で送ります。間にサーバーもアカウントも挟みません。自宅でiPhoneとWindowsやLinuxのパソコンの間でよくファイルを移すなら、常用の代替手段として優秀です。",
+        "body": "<goLocalsend>LocalSend</goLocalsend>は、ローカルのWi-Fiで起動している端末をすべて一覧にし、タップ1回で送ります。間にサーバーもアカウントも挟みません。自宅でiPhoneとWindowsやLinuxのパソコンの間でよくファイルを移すなら、常用の代替手段として優秀です。",
         "cons": "両方の端末にアプリが必要で、別のネットワークにあるものには届かず、端末を隔離するルーターでは互いが見えなくなることがあります。"
       },
       "4": {
         "name": "USBケーブル",
         "tag": "カメラロール全体をパソコンに移すのに最適",
         "facts": "Macは写真アプリ、WindowsはApple Devicesアプリ · ネットワーク不要 · iPhoneに保存されていればフル解像度のオリジナル",
-        "body": "iPhoneをつないでロックを解除し、パソコンを信頼してから、Macなら写真アプリ、WindowsならApple Devicesアプリで読み込みます。何千枚もの写真なら、どの無線の方法より速く、結果も読みやすいことが多いです。",
+        "body": "iPhoneをつないでロックを解除し、パソコンを信頼してから、Macなら写真アプリ、WindowsならApple Devicesアプリで読み込みます。<goIphonePhotos>何千枚もの写真なら</goIphonePhotos>、どの無線の方法より速く、結果も読みやすいことが多いです。",
         "cons": "合ったケーブルと目の前のパソコンが必要で、iCloudにしかない写真は先にiPhoneへダウンロードしておく必要があります。"
       }
     }

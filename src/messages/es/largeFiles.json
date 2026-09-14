@@ -13,7 +13,7 @@
   },
   "why": {
     "title": "Por qué enviar archivos grandes sigue siendo un suplicio en 2026",
-    "body": "El correo se atasca pasados los 20–25 MB. Los sitios de transferencia populares limitan el plan gratuito — 3 GB en WeTransfer, 2 GB antes de que Smash te ponga en cola, 5 GB en Filemail, SendBig y TransferNow — y luego frenan la velocidad, llenan de anuncios la página de descarga o piden una cuenta. Las nubes funcionan, pero cada byte sube, ocupa tu cuota y vuelve a bajar. BIShare va por otro camino: en la misma Wi-Fi el archivo va <strong>directo de un dispositivo al otro</strong>, sin tope de tamaño y sin nada aparcado en un servidor; en cualquier otro sitio, un <strong>enlace de 100 GB</strong> gratis, sin cuenta y cifrado de extremo a extremo."
+    "body": "El correo se atasca pasados los 20–25 MB. Los sitios de transferencia populares limitan el plan gratuito — 3 GB en <goWetransfer>WeTransfer</goWetransfer>, 2 GB antes de que <goSmash>Smash</goSmash> te ponga en cola, 5 GB en Filemail, SendBig y TransferNow — y luego frenan la velocidad, llenan de anuncios la página de descarga o piden una cuenta. Las nubes funcionan, pero cada byte sube, ocupa tu cuota y vuelve a bajar. BIShare va por otro camino: en la misma Wi-Fi el archivo va <strong>directo de un dispositivo al otro</strong>, sin tope de tamaño y sin nada aparcado en un servidor; en cualquier otro sitio, un <strong>enlace de 100 GB</strong> gratis, sin cuenta y cifrado de extremo a extremo."
   },
   "how": {
     "title": "Dos formas de enviar, ambas gratis",
@@ -115,8 +115,8 @@
   "quick": {
     "title": "Respuesta rápida",
     "items": [
-      "<strong>Para enviar un archivo grande gratis:</strong> abre bishare.app/transfer, suelta el archivo y comparte el enlace, el código QR o el código de 6 caracteres. Hasta 100 GB por transferencia, sin cuenta en ningún lado, nada que instalar.",
-      "<strong>¿Más de 100 GB, o una carpeta entera de vídeo en bruto?</strong> Pon ambos dispositivos en la misma Wi-Fi (o un punto de acceso del móvil) y envía de dispositivo a dispositivo — sin límite de tamaño, sin subir nada.",
+      "<strong>Para enviar un archivo grande gratis:</strong> abre <goTransfer>bishare.app/transfer</goTransfer>, suelta el archivo y comparte el enlace, el código QR o el código de 6 caracteres. Hasta 100 GB por transferencia, <goNoAccount>sin cuenta en ningún lado</goNoAccount>, nada que instalar.",
+      "<strong>¿Más de 100 GB, o una carpeta entera de vídeo en bruto?</strong> Pon ambos dispositivos en la misma Wi-Fi (o <goOffline>un punto de acceso del móvil</goOffline>) y envía de dispositivo a dispositivo — sin límite de tamaño, sin subir nada.",
       "<strong>Qué cambia respecto a WeTransfer y los demás:</strong> el archivo se cifra en tu navegador antes de subirse y la clave nunca llega a nuestro servidor; no hay anuncios ni plan de pago, y el enlace se borra solo a las 24 horas — o tras la primera descarga, si lo eliges.",
       "<strong>Velocidad:</strong> por enlace, la que permita tu velocidad de subida (1 GB ≈ 3 minutos a 50 Mbps); cerca, 40–110 MB/s por Wi-Fi moderna, así que un gigabyte en bastante menos de un minuto."
     ]
@@ -313,15 +313,15 @@
     "items": [
       {
         "h": "Un enlace de BIShare (hasta 100 GB)",
-        "b": "La opción por defecto para quien no está a tu lado. Cifrado antes de subir, sin cuenta, sin anuncios, caduca en 24 horas. Ideal para: un vídeo para un cliente, una carpeta de fotos para la familia, una copia a tu otro ordenador."
+        "b": "La opción por defecto para quien no está a tu lado. Cifrado antes de subir, sin cuenta, sin anuncios, caduca en 24 horas. Ideal para: <blogClientVideo>un vídeo para un cliente</blogClientVideo>, <blogPhotos>una carpeta de fotos para la familia</blogPhotos>, una copia a tu otro ordenador."
       },
       {
         "h": "BIShare de dispositivo a dispositivo (cualquier tamaño)",
-        "b": "Misma Wi-Fi o un punto de acceso del móvil; el archivo nunca toca internet. Sin límite de tamaño, velocidad de red local, funciona con los datos móviles apagados. Ideal para: el material en bruto de un rodaje, un proyecto de 200 GB, todo lo que antes iba en un pendrive."
+        "b": "Misma Wi-Fi o un punto de acceso del móvil; el archivo nunca toca internet. Sin límite de tamaño, velocidad de red local, funciona con los datos móviles apagados. Ideal para: el material en bruto de un rodaje, <goPcPc>un proyecto de 200 GB</goPcPc>, todo lo que antes iba en un pendrive."
       },
       {
         "h": "Una nube (Google Drive, OneDrive, iCloud, Dropbox)",
-        "b": "Bien cuando el archivo debe vivir en algún sitio de forma permanente y la otra persona usa el mismo servicio. Gasta cuota, necesita cuentas, y subir más bajar duplica el tiempo. No cifrado de extremo a extremo."
+        "b": "Bien cuando el archivo debe vivir en algún sitio de forma permanente y la otra persona usa el mismo servicio. <blogCloudLimits>Gasta cuota, necesita cuentas</blogCloudLimits>, y subir más bajar duplica el tiempo. No cifrado de extremo a extremo."
       },
       {
         "h": "Comprimir o dividir el archivo",
@@ -340,7 +340,7 @@
   "security": {
     "title": "Qué pasa con tu archivo",
     "items": [
-      "Por enlace: el archivo se cifra en tu navegador con una clave generada en tu dispositivo. La clave viaja en el enlace tras el signo #, que los navegadores nunca envían a un servidor, así que nuestro almacenamiento solo guarda un cifrado que no puede abrir — y ese almacenamiento está en la región más cercana a ti.",
+      "Por enlace: <goEncrypted>el archivo se cifra en tu navegador con una clave generada en tu dispositivo</goEncrypted>. La clave viaja en el enlace tras el signo #, que los navegadores nunca envían a un servidor, así que nuestro almacenamiento solo guarda un cifrado que no puede abrir — y ese almacenamiento está en la región más cercana a ti.",
       "Los enlaces caducan 24 horas después de crearse y el archivo se borra con ellos. Activa el uso único y el archivo se borra en cuanto termina la primera descarga.",
       "Cerca: el archivo va directo de un dispositivo al otro, cifrado para esa transferencia, y no se guarda en ningún sitio salvo en el dispositivo que recibe.",
       "Sin cuenta, sin correo electrónico, sin SDK de anuncios, sin plan de pago. Las apps y el cliente web son de código abierto; el formato de cifrado está publicado y es el mismo en todas las plataformas."

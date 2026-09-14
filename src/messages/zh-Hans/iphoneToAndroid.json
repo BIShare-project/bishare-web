@@ -27,99 +27,266 @@
     "title": "2026年变了什么，没变什么",
     "body": "Apple和Google的两项变化在几个月内改变了这个问题。但两者都没有让所有iPhone和Android组合做到一键互传，所以值得弄清各自能覆盖到哪里。",
     "items": {
-      "0": { "h": "AirDrop现在能传到部分Android手机", "b": "Google让Quick Share与AirDrop互通，从2025年11月的Pixel 10开始。随后是Pixel 9系列和Pixel 8a，再往后是三星旗舰（Galaxy S24、S25、S26，以及升级到One UI 8.5的第六、七代Fold和Flip）。到2026年6月，名单上还有OnePlus 15、Xiaomi 17T Pro、Honor Magic V6、Oppo的Find N6和Find X9系列，以及Vivo的X300系列。所有iPhone都可以参与。中端的Galaxy A、旧款Pixel和大多数低价手机则不行。" },
-      "1": { "h": "iOS有了离开的出口", "b": "iOS 26.3在“设置”>“通用”>“传输或还原iPhone”中加入了“转移到Android”。它通过二维码与运行Android 17的手机配对，迁移照片、通讯录、日历、通话记录和信息，在支持的运营商下还能迁移eSIM号码。它是为离开iPhone设计的，而不是把一个文件交给继续用iPhone的朋友。" },
-      "2": { "h": "仍然缺少的", "b": "给不在Google列表中的Android手机发文件的内置方法。给不在同一个房间的Android手机发文件的内置方法。以及iPhone上任何形式的蓝牙文件传输。本页其余部分正是为了这三件事而写。" }
+      "0": {
+        "h": "AirDrop现在能传到部分Android手机",
+        "b": "<goAirdropAndroid>Google让Quick Share与AirDrop互通</goAirdropAndroid>，从2025年11月的Pixel 10开始。随后是Pixel 9系列和Pixel 8a，再往后是三星旗舰（Galaxy S24、S25、S26，以及升级到One UI 8.5的第六、七代Fold和Flip）。到2026年6月，名单上还有OnePlus 15、Xiaomi 17T Pro、Honor Magic V6、Oppo的Find N6和Find X9系列，以及Vivo的X300系列。所有iPhone都可以参与。中端的Galaxy A、旧款Pixel和大多数低价手机则不行。"
+      },
+      "1": {
+        "h": "iOS有了离开的出口",
+        "b": "iOS 26.3在“设置”>“通用”>“传输或还原iPhone”中加入了“转移到Android”。它通过二维码与运行Android 17的手机配对，迁移照片、通讯录、日历、通话记录和信息，在支持的运营商下还能迁移eSIM号码。它是为离开iPhone设计的，而不是把一个文件交给继续用iPhone的朋友。"
+      },
+      "2": {
+        "h": "仍然缺少的",
+        "b": "给不在Google列表中的Android手机发文件的内置方法。<goTransfer>给不在同一个房间的Android手机发文件的内置方法</goTransfer>。以及iPhone上任何形式的蓝牙文件传输。本页其余部分正是为了这三件事而写。"
+      }
     }
   },
   "methods": {
     "title": "八种方法排名",
     "consLabel": "不足：",
     "items": {
-      "0": { "name": "BIShare", "tag": "综合最佳：近在身边或远在他处，所有Android都能收", "facts": "iOS和Android应用，也有桌面版 · MIT许可，免费 · 同一网络的手机之间不限大小 · 链接最多100 GB · 端到端加密 · 无需注册", "body": "手机型号无所谓。两部手机都装好应用并连同一Wi-Fi后，Android会出现在iPhone的设备列表里，选中它，对方点接受，原始文件就以你的网络速度直接过去，不经过任何服务器。照片保持原始分辨率，视频不会重新编码。如果对方在别处，或者不想安装任何东西，应用会改用可分享的链接（也可用二维码或6位短代码）；接收方在Chrome、Samsung Internet或手机上的任何浏览器中打开，最多下载100 GB。文件在上传前就在iPhone上加密，链接24小时后失效。", "cons": "Wi-Fi直连同样需要Android装应用。链接用来交付文件而非保存，链接失效后文件就没了。" },
-      "1": { "name": "AirDrop互通Quick Share", "tag": "Android在列表中时最好的内置方案", "facts": "所有iPhone · Pixel 10、9、8a，Galaxy S24–S26，Z Fold/Flip 6和7，部分Xiaomi、OnePlus、Oppo、Vivo、Honor · 仅限近距离 · 无需应用 · 未公布大小上限", "body": "在支持的手机上，这最接近两部iPhone之间的AirDrop。打开iPhone的控制中心，把AirDrop设为“所有人（10分钟）”，并在Android的Quick Share设置中设为对所有人可见。三星手机还要打开与Apple设备共享。之后Android会像其他Apple设备一样出现在iPhone的共享菜单中，反方向也可以。两部手机都需要打开蓝牙和Wi-Fi，并在几米范围内。", "cons": "“仅限联系人”模式无法跨平台，发送时双方都对附近所有人开放。而且名单漏掉了如今在用的大多数Android手机。" },
-      "2": { "name": "iCloud链接或Mail Drop", "tag": "iPhone自带，任何浏览器都能打开", "facts": "所有iPhone · 照片和视频的iCloud链接，30天后失效 · Mail Drop最多5 GB，30天后失效 · 发送方需要iCloud", "body": "有两个Apple功能很容易被忽略。在“照片”里选中照片或视频，点共享，选择“拷贝iCloud链接”；链接可在Android浏览器中打开，保留30天。如果是照片以外的文件，在“邮件”应用中添加附件，发到对方的Gmail地址。普通附件放不下的文件会改用Mail Drop发送，最多5 GB，不占用你的iCloud空间。", "cons": "所有数据都以你的上传速度经过Apple服务器。iCloud链接需要开启“iCloud照片”，Mail Drop链接30天后失效。" },
-      "3": { "name": "Google 云端硬盘或Google 相册", "tag": "文件需要留在云端时最合适", "facts": "iPhone有应用，多数Android预装 · 免费15 GB，由Gmail、云端硬盘和相册共用 · 需要Google账号", "body": "大多数Android用户早有Google账号以及相册和云端硬盘应用。从iPhone上传后，把相册或文件分享给对方邮箱，或者发链接。适合不断增加的家庭相册，或者双方会反复打开的文件夹。在意原始分辨率的话，请确认Google 相册的备份画质设为“原图画质”。", "cons": "先上传再下载，大视频很慢，会占用免费的15 GB，而且iPhone上也需要Google账号。" },
-      "4": { "name": "LocalSend", "tag": "同一Wi-Fi下的开源应用", "facts": "iOS、Android和桌面应用 · 开源，免费 · 仅限局域网 · 加密 · 无需注册", "body": "LocalSend完成的是BIShare在同一网络里的那部分工作，而且做得不错：两部手机都装上，互相发现，文件直接传过去。如果是住在一起的两个人只当面互传文件，这是可靠的免费选择。", "cons": "无法把文件交给在别处的手机，对方不愿安装时也帮不上忙。" },
-      "5": { "name": "用WhatsApp或Telegram以文件形式发送", "tag": "已有聊天时很方便", "facts": "两部手机都需要应用和账号 · 文件最多2 GB · 按普通方式发送的照片会被压缩", "body": "如果你们本来就在WhatsApp或Telegram上聊天，这是最省事的路。关键在于附件方式。从相册直接发的照片会被缩小并重新压缩；同一张照片以文件形式发送，就能保留原始大小和画质。在WhatsApp中点附件按钮，选择“文件”，再从“文件”或“照片”中选取。", "cons": "每个文件上限2 GB，聊天记录里留有副本，而且很容易忘记以文件形式发送，结果发出模糊的版本。" },
-      "6": { "name": "USB-C U盘", "tag": "完全不需要网络，适用于iPhone 15及以后机型", "facts": "带USB-C的iPhone 15或更新机型 · 带USB-C的Android手机 · exFAT格式U盘 · 两边都有文件应用", "body": "带USB-C接口的iPhone可以在“文件”应用中读写外部存储，还能直接在里面格式化。把文件拷到U盘，插到Android手机上，打开它的文件应用即可。请把U盘格式化为exFAT，才能放下超过4 GB的单个文件。目前大多数Android手机都能读exFAT，Pixel从Android 13开始支持；如果你的手机不行，FAT32哪里都能用，但放不下4 GB及以上的文件。", "cons": "U盘得在手边，Lightning接口的iPhone还需要转接头，而且并非每个U盘都兼容，另外还要先把照片从“照片”拷到“文件”。" },
-      "7": { "name": "用电脑中转", "tag": "老办法，依然可用", "facts": "Windows电脑或Mac · 两根数据线 · 无需联网 · 准备麻烦", "body": "把iPhone接到Windows电脑，在文件资源管理器中从DCIM文件夹复制照片，再接上Android手机粘贴到它的存储里。用Mac的话，先用“照片”应用导入，再通过文件管理应用拷到Android手机。", "cons": "两根线、一台电脑、两部手机上的信任提示，而且在Mac上还要额外装应用才能看到Android存储。只有别无选择时才值得。" }
+      "0": {
+        "name": "BIShare",
+        "tag": "综合最佳：近在身边或远在他处，所有Android都能收",
+        "facts": "iOS和Android应用，也有桌面版 · MIT许可，免费 · 同一网络的手机之间不限大小 · 链接最多100 GB · 端到端加密 · 无需注册",
+        "body": "手机型号无所谓。两部手机都装好应用并连同一Wi-Fi后，Android会出现在iPhone的设备列表里，选中它，对方点接受，原始文件就以你的网络速度直接过去，不经过任何服务器。照片保持原始分辨率，视频不会重新编码。如果对方在别处，或者不想安装任何东西，应用会改用可分享的链接（也可用二维码或6位短代码）；接收方在Chrome、Samsung Internet或手机上的任何浏览器中打开，最多下载100 GB。文件在上传前就在iPhone上加密，链接24小时后失效。",
+        "cons": "Wi-Fi直连同样需要Android装应用。链接用来交付文件而非保存，链接失效后文件就没了。"
+      },
+      "1": {
+        "name": "AirDrop互通Quick Share",
+        "tag": "Android在列表中时最好的内置方案",
+        "facts": "所有iPhone · Pixel 10、9、8a，Galaxy S24–S26，Z Fold/Flip 6和7，部分Xiaomi、OnePlus、Oppo、Vivo、Honor · 仅限近距离 · 无需应用 · 未公布大小上限",
+        "body": "在支持的手机上，这最接近两部iPhone之间的AirDrop。打开iPhone的控制中心，把AirDrop设为“所有人（10分钟）”，并在Android的Quick Share设置中设为对所有人可见。三星手机还要打开与Apple设备共享。之后Android会像其他Apple设备一样出现在iPhone的共享菜单中，反方向也可以。两部手机都需要打开蓝牙和Wi-Fi，并在几米范围内。",
+        "cons": "“仅限联系人”模式无法跨平台，发送时双方都对附近所有人开放。而且名单漏掉了如今在用的大多数Android手机。"
+      },
+      "2": {
+        "name": "iCloud链接或Mail Drop",
+        "tag": "iPhone自带，任何浏览器都能打开",
+        "facts": "所有iPhone · 照片和视频的iCloud链接，30天后失效 · Mail Drop最多5 GB，30天后失效 · 发送方需要iCloud",
+        "body": "有两个Apple功能很容易被忽略。在“照片”里选中照片或视频，点共享，选择“拷贝iCloud链接”；链接可在Android浏览器中打开，保留30天。如果是照片以外的文件，在“邮件”应用中添加附件，发到对方的Gmail地址。普通附件放不下的文件会改用Mail Drop发送，最多5 GB，不占用你的iCloud空间。",
+        "cons": "所有数据都以你的上传速度经过Apple服务器。iCloud链接需要开启“iCloud照片”，Mail Drop链接30天后失效。"
+      },
+      "3": {
+        "name": "Google 云端硬盘或Google 相册",
+        "tag": "文件需要留在云端时最合适",
+        "facts": "iPhone有应用，多数Android预装 · 免费15 GB，由Gmail、云端硬盘和相册共用 · 需要Google账号",
+        "body": "大多数Android用户早有Google账号以及相册和云端硬盘应用。从iPhone上传后，把相册或文件分享给对方邮箱，或者发链接。适合不断增加的家庭相册，或者双方会反复打开的文件夹。在意原始分辨率的话，请确认Google 相册的备份画质设为“原图画质”。",
+        "cons": "先上传再下载，大视频很慢，会占用免费的15 GB，而且iPhone上也需要Google账号。"
+      },
+      "4": {
+        "name": "LocalSend",
+        "tag": "同一Wi-Fi下的开源应用",
+        "facts": "iOS、Android和桌面应用 · 开源，免费 · 仅限局域网 · 加密 · 无需注册",
+        "body": "<goLocalsend>LocalSend</goLocalsend>完成的是BIShare在同一网络里的那部分工作，而且做得不错：两部手机都装上，互相发现，文件直接传过去。如果是住在一起的两个人只当面互传文件，这是可靠的免费选择。",
+        "cons": "无法把文件交给在别处的手机，对方不愿安装时也帮不上忙。"
+      },
+      "5": {
+        "name": "用WhatsApp或Telegram以文件形式发送",
+        "tag": "已有聊天时很方便",
+        "facts": "两部手机都需要应用和账号 · 文件最多2 GB · 按普通方式发送的照片会被压缩",
+        "body": "如果你们本来就在WhatsApp或Telegram上聊天，这是最省事的路。关键在于附件方式。从相册直接发的照片会被缩小并重新压缩；同一张照片以文件形式发送，就能保留原始大小和画质。在WhatsApp中点附件按钮，选择“文件”，再从“文件”或“照片”中选取。",
+        "cons": "每个文件上限2 GB，聊天记录里留有副本，而且很容易忘记以文件形式发送，结果发出模糊的版本。"
+      },
+      "6": {
+        "name": "USB-C U盘",
+        "tag": "完全不需要网络，适用于iPhone 15及以后机型",
+        "facts": "带USB-C的iPhone 15或更新机型 · 带USB-C的Android手机 · exFAT格式U盘 · 两边都有文件应用",
+        "body": "带USB-C接口的iPhone可以在“文件”应用中读写外部存储，还能直接在里面格式化。把文件拷到U盘，插到Android手机上，打开它的文件应用即可。请把U盘格式化为exFAT，才能放下超过4 GB的单个文件。目前大多数Android手机都能读exFAT，Pixel从Android 13开始支持；如果你的手机不行，FAT32哪里都能用，但放不下4 GB及以上的文件。",
+        "cons": "U盘得在手边，Lightning接口的iPhone还需要转接头，而且并非每个U盘都兼容，另外还要先把照片从“照片”拷到“文件”。"
+      },
+      "7": {
+        "name": "用电脑中转",
+        "tag": "老办法，依然可用",
+        "facts": "Windows电脑或Mac · 两根数据线 · 无需联网 · 准备麻烦",
+        "body": "把iPhone接到Windows电脑，在文件资源管理器中从DCIM文件夹复制照片，再接上Android手机粘贴到它的存储里。用Mac的话，先用“照片”应用导入，再通过文件管理应用拷到Android手机。",
+        "cons": "两根线、一台电脑、两部手机上的信任提示，而且在Mac上还要额外装应用才能看到Android存储。只有别无选择时才值得。"
+      }
     }
   },
   "table": {
     "title": "一览对比",
-    "cols": { "feature": "项目", "bishare": "BIShare", "quickshare": "AirDrop + Quick Share", "icloud": "iCloud链接 / Mail Drop", "drive": "Google 云端硬盘", "whatsapp": "WhatsApp文件", "usb": "USB-C U盘" },
-    "rows": { "r0": "适用于任何Android手机", "r1": "适用于任何iPhone", "r2": "Android上无需安装", "r3": "能传到不在身边的手机", "r4": "保持原始画质", "r5": "无需云端或聊天账号", "r6": "单个文件超过5 GB", "r7": "端到端加密" },
+    "cols": {
+      "feature": "项目",
+      "bishare": "BIShare",
+      "quickshare": "AirDrop + Quick Share",
+      "icloud": "iCloud链接 / Mail Drop",
+      "drive": "Google 云端硬盘",
+      "whatsapp": "WhatsApp文件",
+      "usb": "USB-C U盘"
+    },
+    "rows": {
+      "r0": "适用于任何Android手机",
+      "r1": "适用于任何iPhone",
+      "r2": "Android上无需安装",
+      "r3": "能传到不在身边的手机",
+      "r4": "保持原始画质",
+      "r5": "无需云端或聊天账号",
+      "r6": "单个文件超过5 GB",
+      "r7": "端到端加密"
+    },
     "note": "截至2026年9月。BIShare的“无需安装”指浏览器链接（100 GB）；Wi-Fi直连需要两部手机都装应用，且不限大小。AirDrop互通Quick Share需要支持的Android手机、双方对所有人可见，并打开蓝牙和Wi-Fi；Google未公布大小上限，手机之间的连接是加密的。iCloud链接需要“iCloud照片”，30天后失效；Mail Drop附件上限5 GB。Google 云端硬盘免费方案共15 GB。WhatsApp文件是端到端加密，上限2 GB。USB-C U盘需要iPhone 15或更新机型，超过4 GB的文件需要exFAT。"
   },
   "switching": {
     "title": "把所有内容迁移到新Android手机",
-    "body": "发几个文件和换手机是两回事。如果Android手机要取代iPhone，请用迁移工具，而不是一批一批地拖文件。",
+    "body": "<blogIosAndroid>发几个文件和换手机是两回事</blogIosAndroid>。如果Android手机要取代iPhone，请用迁移工具，而不是一批一批地拖文件。",
     "items": {
-      "0": { "h": "“转移到Android”，iOS 26.3内置", "b": "iPhone需要iOS 26.3或更高版本，Android手机需要Android 17。开始设置Android手机，或者在iPhone上进入“设置”>“通用”>“传输或还原iPhone”>“转移到Android”。打开蓝牙并让两部手机靠近，用iPhone相机扫描Android屏幕上的二维码，选择要迁移的内容并确认。照片、通讯录、日历、通话记录和信息会迁移过去，辅助功能设置、主屏幕布局和墙纸也一样。" },
-      "1": { "h": "部分运营商还能迁移eSIM", "b": "Apple列出的有美国的AT&T、FirstNet、T-Mobile和Verizon，日本的KDDI，德国的Deutsche Telekom，法国的SFR，以及英国的EE。号码迁移后，在iPhone上就不能再用。健康数据不在迁移范围内，第三方应用数据只有开发者提供支持时才会迁移。" },
-      "2": { "h": "较旧的Android手机", "b": "还没升级到Android 17的手机，在设置时仍可使用Google自带的迁移，从iPhone复制联系人、日历活动、照片和视频。它不迁移eSIM，至于迁移工具带不走的内容，比如“文件”应用里的文档，之后可以用上面列表中的方法补上。" }
+      "0": {
+        "h": "“转移到Android”，iOS 26.3内置",
+        "b": "iPhone需要iOS 26.3或更高版本，Android手机需要Android 17。开始设置Android手机，或者在iPhone上进入“设置”>“通用”>“传输或还原iPhone”>“转移到Android”。打开蓝牙并让两部手机靠近，用iPhone相机扫描Android屏幕上的二维码，选择要迁移的内容并确认。照片、通讯录、日历、通话记录和信息会迁移过去，辅助功能设置、主屏幕布局和墙纸也一样。"
+      },
+      "1": {
+        "h": "部分运营商还能迁移eSIM",
+        "b": "Apple列出的有美国的AT&T、FirstNet、T-Mobile和Verizon，日本的KDDI，德国的Deutsche Telekom，法国的SFR，以及英国的EE。号码迁移后，在iPhone上就不能再用。健康数据不在迁移范围内，第三方应用数据只有开发者提供支持时才会迁移。"
+      },
+      "2": {
+        "h": "较旧的Android手机",
+        "b": "还没升级到Android 17的手机，在设置时仍可使用Google自带的迁移，从iPhone复制联系人、日历活动、照片和视频。它不迁移eSIM，至于迁移工具带不走的内容，比如“文件”应用里的文档，之后可以用上面列表中的方法补上。"
+      }
     }
   },
   "steps": {
     "title": "用BIShare从iPhone传到Android：分步说明",
     "items": {
-      "0": { "h": "两部手机都安装并连同一Wi-Fi", "b": "在iPhone上从App Store、在Android手机上从Google Play安装BIShare，再把两部手机连到同一个Wi-Fi。当iOS询问是否允许BIShare查找本地网络上的设备时，请点允许，否则Android手机永远不会出现。附近没有Wi-Fi时，可以用手机热点作为共享网络。" },
-      "1": { "h": "选择文件和手机", "b": "点发送，选择照片、视频或“文件”里的任何内容，再从列表中选中Android手机。对方接受后，文件会以原始画质、途中加密地保存到对方的相册或下载文件夹。" },
-      "2": { "h": "或者改发链接", "b": "不在同一个地方，或者对方不想装应用？选择链接选项，或在Safari中打开 bishare.app/transfer 并拖入文件。通过任意消息发送链接或6位代码；它会在Android手机的浏览器中打开，最多下载100 GB，24小时后失效。" }
+      "0": {
+        "h": "两部手机都安装并连同一Wi-Fi",
+        "b": "在iPhone上从App Store、在Android手机上从Google Play安装BIShare，再把两部手机连到同一个Wi-Fi。当iOS询问是否允许BIShare查找本地网络上的设备时，请点允许，否则Android手机永远不会出现。附近没有Wi-Fi时，可以用手机热点作为共享网络。"
+      },
+      "1": {
+        "h": "选择文件和手机",
+        "b": "点发送，选择照片、视频或“文件”里的任何内容，再从列表中选中Android手机。对方接受后，文件会以原始画质、途中加密地保存到对方的相册或下载文件夹。"
+      },
+      "2": {
+        "h": "或者改发链接",
+        "b": "不在同一个地方，或者对方不想装应用？选择链接选项，或在Safari中打开 bishare.app/transfer 并拖入文件。通过任意消息发送链接或6位代码；它会在Android手机的浏览器中打开，最多下载100 GB，24小时后失效。"
+      }
     }
   },
   "photos": {
     "title": "为什么照片在Android上有时显示不对，以及怎么避免",
     "body": "iPhone和Android之间的照片画质问题，通常来自格式和压缩，而不是传输本身。",
     "items": {
-      "0": { "h": "HEIC文件", "b": "iPhone默认用HEIC保存照片。Android从Android 8.0起就能解码HEIC，Google 相册也能打开，但一些旧的相册应用、编辑器和网站仍然不支持。如果接收方需要JPEG，拍照前把iPhone设为“设置”>“相机”>“格式”>“兼容性最佳”。" },
-      "1": { "h": "实况照片", "b": "实况照片是一张静态照片加一段短视频，而Android没有能同时播放两者的格式。收到的会是静态照片。如果那一刻很重要，打开实况照片，点共享，选择“存储为视频”，再发送这段视频。" },
-      "2": { "h": "聊天应用的压缩", "b": "聊天应用会缩小并重新压缩按普通方式发送的照片和视频，所以iPhone拍的清晰照片可能变糊。请通过直传、链接或以文件形式发送原始文件。" },
-      "3": { "h": "视频", "b": "iPhone视频通常是HEVC，Android从Android 5.0起就能播放，几乎所有手机都没问题。传输方式最关键的是超大的4K或ProRes片段：通过Wi-Fi直传只需几秒到几分钟，而走云端要先把整个文件上传。" }
+      "0": {
+        "h": "HEIC文件",
+        "b": "iPhone默认用HEIC保存照片。Android从Android 8.0起就能解码HEIC，Google 相册也能打开，但一些旧的相册应用、编辑器和网站仍然不支持。如果接收方需要JPEG，拍照前把iPhone设为“设置”>“相机”>“格式”>“兼容性最佳”。"
+      },
+      "1": {
+        "h": "实况照片",
+        "b": "实况照片是一张静态照片加一段短视频，而Android没有能同时播放两者的格式。收到的会是静态照片。如果那一刻很重要，打开实况照片，点共享，选择“存储为视频”，再发送这段视频。"
+      },
+      "2": {
+        "h": "聊天应用的压缩",
+        "b": "聊天应用会缩小并重新压缩按普通方式发送的照片和视频，所以<blogPhotos>iPhone拍的清晰照片可能变糊</blogPhotos>。请通过直传、链接或以文件形式发送原始文件。"
+      },
+      "3": {
+        "h": "视频",
+        "b": "iPhone视频通常是HEVC，Android从Android 5.0起就能播放，几乎所有手机都没问题。传输方式最关键的是<goLargeFiles>超大的4K或ProRes片段</goLargeFiles>：通过Wi-Fi直传只需几秒到几分钟，而走云端要先把整个文件上传。"
+      }
     }
   },
   "speed": {
     "title": "传输需要多久",
     "body": "同一个房间里的手机，速度取决于Wi-Fi而不是应用。经过互联网的一切都受你的上传速度限制。",
     "items": {
-      "0": { "h": "Wi-Fi直连", "b": "两部手机都靠近Wi-Fi 5路由器时，大约40–50 MB/s；换成Wi-Fi 6路由器可达约70–110 MB/s。1 GB的视频远不到半分钟。用手机热点的话，大约10–30 MB/s。" },
-      "1": { "h": "AirDrop互通Quick Share", "b": "两部手机会建立自己的近距离连接，所以路由器慢甚至没有都不是问题。适合几张照片或几段视频；传大批文件时，让两块屏幕保持亮着，手机靠在一起。" },
-      "2": { "h": "链接、iCloud、云端硬盘和聊天应用", "b": "文件上传一次、下载一次。上传速度50 Mbps时，1 GB大约要三分钟Android手机才能开始下载，10 GB要半小时以上。" }
+      "0": {
+        "h": "Wi-Fi直连",
+        "b": "两部手机都靠近Wi-Fi 5路由器时，大约40–50 MB/s；换成Wi-Fi 6路由器可达约70–110 MB/s。1 GB的视频远不到半分钟。<goOffline>用手机热点的话</goOffline>，大约10–30 MB/s。"
+      },
+      "1": {
+        "h": "AirDrop互通Quick Share",
+        "b": "两部手机会建立自己的近距离连接，所以路由器慢甚至没有都不是问题。适合几张照片或几段视频；传大批文件时，让两块屏幕保持亮着，手机靠在一起。"
+      },
+      "2": {
+        "h": "链接、iCloud、云端硬盘和聊天应用",
+        "b": "文件上传一次、下载一次。上传速度50 Mbps时，1 GB大约要三分钟Android手机才能开始下载，10 GB要半小时以上。"
+      }
     }
   },
   "fixes": {
     "title": "Android手机不出现时",
     "items": {
-      "0": { "h": "AirDrop界面里没有Android手机", "b": "确认它在支持列表中且已更新，iPhone设为“所有人（10分钟）”而不是“仅限联系人”，Android对所有人可见，三星手机还要打开与Apple设备共享。两边都要打开蓝牙和Wi-Fi，并解锁屏幕。" },
-      "1": { "h": "同一Wi-Fi，但在应用里互相看不到", "b": "在iPhone上打开“设置”>“隐私与安全性”>“本地网络”，确认已允许该应用。访客网络和一些办公室或酒店Wi-Fi会隔离设备，改用手机热点即可。任何一部手机上的VPN也可能阻止本地发现。" },
-      "2": { "h": "蓝牙配对了却发不出东西", "b": "这很正常。iPhone只与其他Apple设备互传文件，所以通过蓝牙与Android配对时从不会出现文件传输选项。请用Wi-Fi或链接。" },
-      "3": { "h": "照片在Android上打不开", "b": "几乎可以肯定是HEIC，而正在用的应用读不了。用Google 相册打开，或者从设为“兼容性最佳”的iPhone重新发送，新照片会存为JPEG。" },
-      "4": { "h": "链接下载慢得像蜗牛", "b": "链接速度受发送方上传速度限制。如果两部手机其实在同一个地方，改用完全不经过互联网的Wi-Fi直连。" }
+      "0": {
+        "h": "AirDrop界面里没有Android手机",
+        "b": "确认它在支持列表中且已更新，iPhone<goAirdropFix>设为“所有人（10分钟）”而不是“仅限联系人”</goAirdropFix>，Android对所有人可见，三星手机还要打开与Apple设备共享。两边都要打开蓝牙和Wi-Fi，并解锁屏幕。"
+      },
+      "1": {
+        "h": "同一Wi-Fi，但在应用里互相看不到",
+        "b": "在iPhone上打开“设置”>“隐私与安全性”>“本地网络”，确认已允许该应用。访客网络和一些办公室或酒店Wi-Fi会隔离设备，改用手机热点即可。任何一部手机上的VPN也可能阻止本地发现。"
+      },
+      "2": {
+        "h": "蓝牙配对了却发不出东西",
+        "b": "这很正常。<goAirdropAlt>iPhone只与其他Apple设备互传文件</goAirdropAlt>，所以通过蓝牙与Android配对时从不会出现文件传输选项。请用Wi-Fi或链接。"
+      },
+      "3": {
+        "h": "照片在Android上打不开",
+        "b": "几乎可以肯定是HEIC，而正在用的应用读不了。用Google 相册打开，或者从设为“兼容性最佳”的iPhone重新发送，新照片会存为JPEG。"
+      },
+      "4": {
+        "h": "链接下载慢得像蜗牛",
+        "b": "链接速度受发送方上传速度限制。如果两部手机其实在同一个地方，改用完全不经过互联网的Wi-Fi直连。"
+      }
     }
   },
   "security": {
     "title": "传输途中谁能看到文件",
     "body": "家庭照片、证件扫描件和文件，值得走一条不留副本的路径。各选项对比如下。",
     "items": {
-      "0": { "h": "手机到手机，不存储", "b": "BIShare直连、LocalSend和AirDrop互通Quick Share都在两部手机之间传输并加密连接。服务器上不留副本。" },
-      "1": { "h": "经过读不了内容的服务器", "b": "BIShare链接在上传前就在iPhone上加密文件，并把解密密钥放在地址的#之后。浏览器不会发送这一部分，所以服务器只存着无法读取的数据。WhatsApp文件也是端到端加密，但会留在双方的聊天记录中。" },
-      "2": { "h": "经过能读内容的服务器", "b": "iCloud链接、Mail Drop和Google 云端硬盘在传输中和服务器上都会加密，但在标准设置下密钥由服务商掌握。旅行照片没问题，护照和合同就值得再想想。" }
+      "0": {
+        "h": "手机到手机，不存储",
+        "b": "BIShare直连、LocalSend和AirDrop互通Quick Share都在两部手机之间传输并加密连接。服务器上不留副本。"
+      },
+      "1": {
+        "h": "经过读不了内容的服务器",
+        "b": "<goEncrypted>BIShare链接在上传前就在iPhone上加密文件</goEncrypted>，并把解密密钥放在地址的#之后。浏览器不会发送这一部分，所以服务器只存着无法读取的数据。WhatsApp文件也是端到端加密，但会留在双方的聊天记录中。"
+      },
+      "2": {
+        "h": "经过能读内容的服务器",
+        "b": "iCloud链接、Mail Drop和Google 云端硬盘在传输中和服务器上都会加密，但在标准设置下密钥由服务商掌握。旅行照片没问题，护照和合同就值得再想想。"
+      }
     }
   },
   "faq": {
     "title": "iPhone传Android：常见问题",
     "items": {
-      "0": { "q": "iPhone能用AirDrop传给Android手机吗？", "a": "可以，前提是Android手机支持Quick Share的AirDrop互通：Pixel 10、9和8a，Galaxy S24、S25、S26系列和Z Fold/Flip 6和7，以及部分Xiaomi、OnePlus、Oppo、Vivo和Honor机型。把iPhone的AirDrop设为“所有人（10分钟）”。其他Android手机无法接收AirDrop。" },
-      "1": { "q": "从iPhone传文件到Android最简单的方法是什么？", "a": "如果Android手机在Google的支持列表中，就用AirDrop并让双方对所有人可见。否则在两部手机上都装BIShare，通过同一Wi-Fi发送，或者发一个在Android浏览器中打开的BIShare链接。" },
-      "2": { "q": "能通过蓝牙从iPhone传文件到Android吗？", "a": "不能。即使已配对，iPhone也不会通过蓝牙向非Apple设备传文件。请用Wi-Fi应用、AirDrop到支持的Android手机，或者链接。" },
-      "3": { "q": "从iPhone发到Android时怎样保持照片原画质？", "a": "通过直传、BIShare或iCloud链接、Google 云端硬盘，或在WhatsApp中以文件形式发送原始文件。不要在聊天应用里当普通照片发送，那样会被压缩。如果接收方需要JPEG，把iPhone设为“兼容性最佳”。" },
-      "4": { "q": "怎样从iPhone发大视频到Android？", "a": "在同一Wi-Fi下，BIShare这类直传应用不限大小。不在一起时，BIShare链接最多100 GB，Mail Drop最多5 GB。WhatsApp文件上限是2 GB。" },
-      "5": { "q": "不装应用能从iPhone传文件到Android吗？", "a": "能。使用“照片”中的“拷贝iCloud链接”、“邮件”中的Mail Drop，或在Safari中打开 bishare.app/transfer；Android手机都能在浏览器中打开。支持的Android手机也能直接接收AirDrop。" },
-      "6": { "q": "iOS 26.3能转移到Android吗？", "a": "可以，用于换手机。“设置”中的“转移到Android”会把照片、信息、联系人、日历和通话记录迁移到运行Android 17的手机，在支持的运营商下还会迁移eSIM。它不是用来发单个文件的。" },
-      "7": { "q": "为什么Android手机打不开iPhone发来的照片？", "a": "多半是HEIC格式。Android能解码HEIC，Google 相册也能打开，但有些应用不行。把iPhone相机格式设为“兼容性最佳”，以后的照片就会存为JPEG。" },
-      "8": { "q": "iPhone和Android必须连同一个Wi-Fi吗？", "a": "只有直连方式需要，也就是BIShare手机互传或LocalSend。AirDrop互通Quick Share需要两部手机靠近并打开蓝牙和Wi-Fi。链接、iCloud、云端硬盘和聊天应用在哪里都能用。" },
-      "9": { "q": "从iPhone传文件到Android免费吗？", "a": "免费。BIShare、LocalSend、AirDrop互通Quick Share、iCloud链接、Mail Drop以及Google 云端硬盘的免费15 GB都不花钱。只有超大或长期的云端存储才需要付费方案。" }
+      "0": {
+        "q": "iPhone能用AirDrop传给Android手机吗？",
+        "a": "可以，前提是Android手机支持Quick Share的AirDrop互通：Pixel 10、9和8a，Galaxy S24、S25、S26系列和Z Fold/Flip 6和7，以及部分Xiaomi、OnePlus、Oppo、Vivo和Honor机型。把iPhone的AirDrop设为“所有人（10分钟）”。其他Android手机无法接收AirDrop。"
+      },
+      "1": {
+        "q": "从iPhone传文件到Android最简单的方法是什么？",
+        "a": "如果Android手机在Google的支持列表中，就用AirDrop并让双方对所有人可见。否则在两部手机上都装BIShare，通过同一Wi-Fi发送，或者发一个在Android浏览器中打开的BIShare链接。"
+      },
+      "2": {
+        "q": "能通过蓝牙从iPhone传文件到Android吗？",
+        "a": "不能。即使已配对，iPhone也不会通过蓝牙向非Apple设备传文件。请用Wi-Fi应用、AirDrop到支持的Android手机，或者链接。"
+      },
+      "3": {
+        "q": "从iPhone发到Android时怎样保持照片原画质？",
+        "a": "通过直传、BIShare或iCloud链接、Google 云端硬盘，或在WhatsApp中以文件形式发送原始文件。不要在聊天应用里当普通照片发送，那样会被压缩。如果接收方需要JPEG，把iPhone设为“兼容性最佳”。"
+      },
+      "4": {
+        "q": "怎样从iPhone发大视频到Android？",
+        "a": "在同一Wi-Fi下，BIShare这类直传应用不限大小。不在一起时，BIShare链接最多100 GB，Mail Drop最多5 GB。WhatsApp文件上限是2 GB。"
+      },
+      "5": {
+        "q": "不装应用能从iPhone传文件到Android吗？",
+        "a": "能。使用“照片”中的“拷贝iCloud链接”、“邮件”中的Mail Drop，或在Safari中打开 bishare.app/transfer；Android手机都能在浏览器中打开。支持的Android手机也能直接接收AirDrop。"
+      },
+      "6": {
+        "q": "iOS 26.3能转移到Android吗？",
+        "a": "可以，用于换手机。“设置”中的“转移到Android”会把照片、信息、联系人、日历和通话记录迁移到运行Android 17的手机，在支持的运营商下还会迁移eSIM。它不是用来发单个文件的。"
+      },
+      "7": {
+        "q": "为什么Android手机打不开iPhone发来的照片？",
+        "a": "多半是HEIC格式。Android能解码HEIC，Google 相册也能打开，但有些应用不行。把iPhone相机格式设为“兼容性最佳”，以后的照片就会存为JPEG。"
+      },
+      "8": {
+        "q": "iPhone和Android必须连同一个Wi-Fi吗？",
+        "a": "只有直连方式需要，也就是BIShare手机互传或LocalSend。AirDrop互通Quick Share需要两部手机靠近并打开蓝牙和Wi-Fi。链接、iCloud、云端硬盘和聊天应用在哪里都能用。"
+      },
+      "9": {
+        "q": "从iPhone传文件到Android免费吗？",
+        "a": "免费。BIShare、LocalSend、AirDrop互通Quick Share、iCloud链接、Mail Drop以及Google 云端硬盘的免费15 GB都不花钱。只有超大或长期的云端存储才需要付费方案。"
+      }
     }
   },
   "cta": {
@@ -127,11 +294,76 @@
     "body": "免费、无需注册、代码在GitHub。在房间里用Wi-Fi直传，跨越千里就发一个在Android浏览器中打开的链接。",
     "download": "下载BIShare"
   },
-  "a11y": { "yes": "是", "no": "否" },
+  "a11y": {
+    "yes": "是",
+    "no": "否"
+  },
   "art": {
-    "hero": { "alt": "一部iPhone向Android手机发送文件的插图，标题：从iPhone传文件到Android，2026年可行的八种方法。", "title": "从iPhone传文件到Android", "sub": "2026年可行的8种方法", "left": "iPhone", "right": "Android" },
-    "decide": { "alt": "决策图：如果要彻底换成Android，用“转移到Android”；否则如果Android手机在Google的Quick Share列表中，双方设为所有人后用AirDrop；否则如果两部手机在同一个地方，通过Wi-Fi用BIShare或LocalSend；再不然就发BIShare链接或iCloud链接。", "title": "该用哪种方法", "sub": "按这个顺序回答三个问题", "yes": "是", "no": "否", "q1": "要彻底换成Android手机吗？", "a1": "iOS 26.3的“转移到Android”", "q2": "Android手机在Google的Quick Share列表中吗？", "a2": "AirDrop，双方设为所有人", "q3": "两部手机在同一个地方吗？", "a3": "通过Wi-Fi用BIShare或LocalSend", "a4": "不在一起：最多100 GB的BIShare链接，或照片用iCloud链接（30天）" },
-    "switchTo": { "alt": "“转移到Android”一览：需要iOS 26.3或更高版本、运行Android 17的手机、蓝牙和Wi-Fi，以及扫描二维码；迁移照片、视频、信息、联系人、日历、通话记录，以及支持运营商下的eSIM；健康数据留在原处，第三方应用数据仅在开发者支持时迁移。", "title": "换手机：转移到Android", "sub": "iOS 26.3内置，用于离开iPhone，而不是发送单个文件", "needTitle": "需要什么", "need0": "iOS 26.3或更高版本的iPhone", "need1": "运行Android 17的手机", "need2": "打开蓝牙，iPhone连Wi-Fi", "need3": "扫描Android屏幕上的二维码", "movesTitle": "迁移什么", "moves0": "照片和视频", "moves1": "信息、联系人、日历", "moves2": "通话记录、主屏幕、墙纸", "moves3": "支持运营商下的eSIM", "staysTitle": "留下什么", "stays0": "健康数据", "stays1": "开发者未支持的第三方应用数据", "stays2": "eSIM迁移后iPhone上的号码", "foot": "依据Apple关于iOS 26.3的支持文章；eSIM支持的运营商仅限少数国家" },
-    "photos": { "alt": "iPhone照片在Android上显示不对的四个原因：HEIC文件，Android从8.0起可解码，设为“兼容性最佳”即可避免；实况照片，除非存储为视频否则只收到静态图；聊天应用会压缩照片，除非以文件形式发送；HEVC视频，Android从5.0起可播放。", "title": "照片在Android上为什么显示不对", "sub": "通常是格式或应用的问题，不是传输", "heic": { "name": "HEIC照片", "what": "Android从8.0起能解码HEIC，但有些应用不支持", "fix": "相机、格式、兼容性最佳" }, "live": { "name": "实况照片", "what": "Android没有同时容纳照片和视频的格式", "fix": "共享、存储为视频，再发送" }, "chat": { "name": "聊天应用压缩", "what": "按普通方式发的照片会被缩小", "fix": "以文件、链接或直传方式发送" }, "video": { "name": "HEVC视频", "what": "Android从5.0起可播放HEVC", "fix": "大的4K视频：用Wi-Fi直传" } }
+    "hero": {
+      "alt": "一部iPhone向Android手机发送文件的插图，标题：从iPhone传文件到Android，2026年可行的八种方法。",
+      "title": "从iPhone传文件到Android",
+      "sub": "2026年可行的8种方法",
+      "left": "iPhone",
+      "right": "Android"
+    },
+    "decide": {
+      "alt": "决策图：如果要彻底换成Android，用“转移到Android”；否则如果Android手机在Google的Quick Share列表中，双方设为所有人后用AirDrop；否则如果两部手机在同一个地方，通过Wi-Fi用BIShare或LocalSend；再不然就发BIShare链接或iCloud链接。",
+      "title": "该用哪种方法",
+      "sub": "按这个顺序回答三个问题",
+      "yes": "是",
+      "no": "否",
+      "q1": "要彻底换成Android手机吗？",
+      "a1": "iOS 26.3的“转移到Android”",
+      "q2": "Android手机在Google的Quick Share列表中吗？",
+      "a2": "AirDrop，双方设为所有人",
+      "q3": "两部手机在同一个地方吗？",
+      "a3": "通过Wi-Fi用BIShare或LocalSend",
+      "a4": "不在一起：最多100 GB的BIShare链接，或照片用iCloud链接（30天）"
+    },
+    "switchTo": {
+      "alt": "“转移到Android”一览：需要iOS 26.3或更高版本、运行Android 17的手机、蓝牙和Wi-Fi，以及扫描二维码；迁移照片、视频、信息、联系人、日历、通话记录，以及支持运营商下的eSIM；健康数据留在原处，第三方应用数据仅在开发者支持时迁移。",
+      "title": "换手机：转移到Android",
+      "sub": "iOS 26.3内置，用于离开iPhone，而不是发送单个文件",
+      "needTitle": "需要什么",
+      "need0": "iOS 26.3或更高版本的iPhone",
+      "need1": "运行Android 17的手机",
+      "need2": "打开蓝牙，iPhone连Wi-Fi",
+      "need3": "扫描Android屏幕上的二维码",
+      "movesTitle": "迁移什么",
+      "moves0": "照片和视频",
+      "moves1": "信息、联系人、日历",
+      "moves2": "通话记录、主屏幕、墙纸",
+      "moves3": "支持运营商下的eSIM",
+      "staysTitle": "留下什么",
+      "stays0": "健康数据",
+      "stays1": "开发者未支持的第三方应用数据",
+      "stays2": "eSIM迁移后iPhone上的号码",
+      "foot": "依据Apple关于iOS 26.3的支持文章；eSIM支持的运营商仅限少数国家"
+    },
+    "photos": {
+      "alt": "iPhone照片在Android上显示不对的四个原因：HEIC文件，Android从8.0起可解码，设为“兼容性最佳”即可避免；实况照片，除非存储为视频否则只收到静态图；聊天应用会压缩照片，除非以文件形式发送；HEVC视频，Android从5.0起可播放。",
+      "title": "照片在Android上为什么显示不对",
+      "sub": "通常是格式或应用的问题，不是传输",
+      "heic": {
+        "name": "HEIC照片",
+        "what": "Android从8.0起能解码HEIC，但有些应用不支持",
+        "fix": "相机、格式、兼容性最佳"
+      },
+      "live": {
+        "name": "实况照片",
+        "what": "Android没有同时容纳照片和视频的格式",
+        "fix": "共享、存储为视频，再发送"
+      },
+      "chat": {
+        "name": "聊天应用压缩",
+        "what": "按普通方式发的照片会被缩小",
+        "fix": "以文件、链接或直传方式发送"
+      },
+      "video": {
+        "name": "HEVC视频",
+        "what": "Android从5.0起可播放HEVC",
+        "fix": "大的4K视频：用Wi-Fi直传"
+      }
+    }
   }
 }

@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Encrypted file transfer",
     "title": "Encrypted file transfer, explained properly",
-    "body": "Almost every file transfer service now calls itself encrypted, and almost all of them are telling the truth about something. The question is what. A link can be protected by HTTPS on the way to the server, sit encrypted on a disk the provider can unlock, or be locked on your device with a key the provider never sees. Only the last one keeps the company itself, anyone who breaches it, and anyone who can compel it out of your file. This guide separates the three kinds of encryption, gives you a test to tell them apart on any service in a minute, ranks seven ways to send a file that the carrier cannot read, and is honest about what encryption does not hide, including on our own product. Our own <strong>BIShare</strong> is among the seven: <strong>free and MIT-licensed, it encrypts links in your browser with AES-256-GCM and sends device to device with keys agreed between the two devices</strong>. <highlight>No account needed.</highlight>",
+    "body": "Almost every file transfer service now calls itself encrypted, and almost all of them are telling the truth about something. The question is what. A link can be protected by HTTPS on the way to the server, sit encrypted on a disk the provider can unlock, or be locked on your device with a key the provider never sees. Only the last one keeps the company itself, anyone who breaches it, and anyone who can compel it out of your file. This guide separates the three kinds of encryption, gives you a test to tell them apart on any service in a minute, ranks seven ways to send a file that the carrier cannot read, and is honest about what encryption does not hide, including on our own product. Our own <strong>BIShare</strong> is among the seven: <strong>free and MIT-licensed, it encrypts links in your browser with AES-256-GCM and sends device to device with keys agreed between the two devices</strong>. <highlight><goNoAccount>No account needed</goNoAccount>.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
@@ -17,7 +17,7 @@
     "items": [
       "<strong>Look for end-to-end, not just \"encrypted\":</strong> HTTPS and encryption at rest still let the provider open your file. End-to-end means only the sender and recipient hold the key.",
       "<strong>A one-minute test:</strong> if the service can show a preview of your file in its web app, or reset access when you lose the link, it is not end-to-end.",
-      "<strong>Easiest from a browser:</strong> BIShare or Wormhole encrypt before upload and put the key in the link, so the recipient only needs to click.",
+      "<strong>Easiest from a browser:</strong> <goTransfer>BIShare</goTransfer> or Wormhole encrypt before upload and put the key in the link, so the recipient only needs to click.",
       "<strong>Files that must stay online for weeks:</strong> Proton Drive keeps end-to-end encrypted files in your account and shares them with a link and optional password.",
       "<strong>You also need to hide who is sending:</strong> OnionShare serves the file from your own computer over Tor.",
       "<strong>Any channel at all, even plain email:</strong> put the file in a 7-Zip archive with AES-256 and a strong password, and send the password another way."
@@ -37,7 +37,7 @@
       },
       "2": {
         "h": "End-to-end encryption",
-        "b": "The file is encrypted on the sender's device before it leaves, and only the recipient's device can decrypt it. The service stores or relays scrambled bytes and never has the key. If the company is breached or ordered to hand files over, it has nothing readable to give. This is the only kind that protects you from the carrier itself."
+        "b": "The file is encrypted on the sender's device before it leaves, and <blogE2e>only the recipient's device can decrypt it</blogE2e>. The service stores or relays scrambled bytes and never has the key. If the company is breached or ordered to hand files over, it has nothing readable to give. This is the only kind that protects you from the carrier itself."
       },
       "3": {
         "h": "Why marketing blurs them",
@@ -87,7 +87,7 @@
         "name": "Wormhole",
         "tag": "Best quick encrypted link from any browser",
         "facts": "Browser · free · up to 10 GB · AES-GCM with 128-bit keys based on RFC 8188, encrypted before upload · files up to 5 GB stored 24 hours, larger ones peer to peer · encryption library open source",
-        "body": "Wormhole encrypts in the browser before anything leaves, so its servers hold ciphertext for at most a day. It is fast to use on a borrowed computer and needs nothing installed on either side. Its FAQ is specific about the scheme and publishes the streaming encryption library, though not the full service.",
+        "body": "<goWormhole>Wormhole</goWormhole> encrypts in the browser before anything leaves, so its servers hold ciphertext for at most a day. It is fast to use on a borrowed computer and needs nothing installed on either side. Its FAQ is specific about the scheme and publishes the streaming encryption library, though not the full service.",
         "cons": "The full client and server code is not published, the ceiling is 10 GB, and transfers over 5 GB need your tab open."
       },
       "2": {
@@ -108,14 +108,14 @@
         "name": "magic-wormhole",
         "tag": "Best for technical users moving files between computers",
         "facts": "Command line on macOS, Linux, Windows · MIT · short single-use codes · end-to-end encrypted with a password-authenticated key exchange · mailbox server plus transit relay · any size, files and folders",
-        "body": "Type wormhole send and a file name, read out the short code it prints, and the other person types wormhole receive and the code. The two machines use that code to agree on a key, so the relay in the middle only ever carries encrypted data. It handles files and directories of any size and is a favourite for moving data between servers.",
+        "body": "Type wormhole send and a file name, read out the short code it prints, and the other person types wormhole receive and the code. The two machines use that code to agree on a key, so the relay in the middle only ever carries encrypted data. It handles <goLargeFiles>files and directories of any size</goLargeFiles> and is a favourite for moving data between servers.",
         "cons": "Both sides need the tool installed and a terminal, and it is not designed for sending to non-technical people."
       },
       "5": {
         "name": "LocalSend",
         "tag": "Best for devices on the same network, no internet at all",
         "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS between devices with a certificate per device · local network only · no server",
-        "body": "When sender and recipient share a Wi-Fi network, LocalSend moves files directly between the devices over encrypted HTTPS without any server in between. Nothing is uploaded anywhere, so the question of what a provider can read never arises.",
+        "body": "When sender and recipient share a Wi-Fi network, <goLocalsend>LocalSend</goLocalsend> moves files directly between the devices over encrypted HTTPS without any server in between. Nothing is uploaded anywhere, so the question of what a provider can read never arises.",
         "cons": "It only reaches devices on the same local network, and every device needs the app."
       },
       "6": {
@@ -220,7 +220,7 @@
     "items": {
       "0": {
         "h": "A contract, ID scan or medical letter for one person",
-        "b": "A BIShare or Wormhole link with one-time download or a short expiry, and the link sent through a private chat."
+        "b": "A BIShare or Wormhole link with <blogConfidential>one-time download or a short expiry</blogConfidential>, and the link sent through a private chat."
       },
       "1": {
         "h": "Documents a client will need for weeks",
@@ -232,7 +232,7 @@
       },
       "3": {
         "h": "Large folders between your own devices",
-        "b": "A direct BIShare transfer or LocalSend on the same network, so nothing is uploaded anywhere."
+        "b": "A direct BIShare transfer or LocalSend <goOffline>on the same network</goOffline>, so nothing is uploaded anywhere."
       },
       "4": {
         "h": "Data between servers or terminals",
@@ -246,7 +246,7 @@
   },
   "mistakes": {
     "title": "Common mistakes that undo encryption",
-    "body": "Most leaks of encrypted files do not break the cipher. They go around it.",
+    "body": "<blogLeaks>Most leaks of encrypted files</blogLeaks> do not break the cipher. They go around it.",
     "items": {
       "0": {
         "h": "Password in the same message",

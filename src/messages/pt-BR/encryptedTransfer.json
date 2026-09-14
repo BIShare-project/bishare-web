@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Transferência de arquivos criptografada",
     "title": "Transferência de arquivos criptografada, bem explicada",
-    "body": "Quase todo serviço de envio de arquivos diz hoje que é criptografado, e quase todos falam a verdade sobre alguma coisa. A questão é sobre o quê. Um link pode estar protegido por HTTPS até o servidor, ficar criptografado num disco que o provedor consegue abrir ou ser trancado no seu aparelho com uma chave que o provedor nunca vê. Só a última opção mantém longe do seu arquivo a própria empresa, quem a invadir e quem puder obrigá-la a entregar. Este guia separa os três tipos de criptografia, dá um teste para diferenciá-los em qualquer serviço em um minuto, classifica sete formas de enviar um arquivo que o intermediário não consegue ler e é honesto sobre o que a criptografia não esconde, inclusive no nosso produto. O nosso <strong>BIShare</strong> está entre os sete: <strong>gratuito e com licença MIT, criptografa links no navegador com AES-256-GCM e envia de aparelho a aparelho com chaves combinadas entre os dois aparelhos</strong>. <highlight>Sem conta.</highlight>",
+    "body": "Quase todo serviço de envio de arquivos diz hoje que é criptografado, e quase todos falam a verdade sobre alguma coisa. A questão é sobre o quê. Um link pode estar protegido por HTTPS até o servidor, ficar criptografado num disco que o provedor consegue abrir ou ser trancado no seu aparelho com uma chave que o provedor nunca vê. Só a última opção mantém longe do seu arquivo a própria empresa, quem a invadir e quem puder obrigá-la a entregar. Este guia separa os três tipos de criptografia, dá um teste para diferenciá-los em qualquer serviço em um minuto, classifica sete formas de enviar um arquivo que o intermediário não consegue ler e é honesto sobre o que a criptografia não esconde, inclusive no nosso produto. O nosso <strong>BIShare</strong> está entre os sete: <strong>gratuito e com licença MIT, criptografa links no navegador com AES-256-GCM e envia de aparelho a aparelho com chaves combinadas entre os dois aparelhos</strong>. <highlight><goNoAccount>Sem conta</goNoAccount>.</highlight>",
     "ctaPrimary": "Baixe o BIShare grátis",
     "ctaSecondary": "Como funciona"
   },
@@ -17,7 +17,7 @@
     "items": [
       "<strong>Procure ponta a ponta, não só \"criptografado\":</strong> HTTPS e criptografia em repouso ainda deixam o provedor abrir seu arquivo. Ponta a ponta significa que só quem envia e quem recebe têm a chave.",
       "<strong>Um teste de um minuto:</strong> se o serviço mostra uma prévia do seu arquivo no app web ou recupera o acesso quando você perde o link, ele não é de ponta a ponta.",
-      "<strong>O mais fácil pelo navegador:</strong> BIShare ou Wormhole criptografam antes do upload e colocam a chave no link, então quem recebe só precisa clicar.",
+      "<strong>O mais fácil pelo navegador:</strong> <goTransfer>BIShare</goTransfer> ou Wormhole criptografam antes do upload e colocam a chave no link, então quem recebe só precisa clicar.",
       "<strong>Arquivos que precisam ficar no ar por semanas:</strong> o Proton Drive guarda arquivos criptografados de ponta a ponta na sua conta e compartilha por link com senha opcional.",
       "<strong>Você também precisa esconder quem envia:</strong> o OnionShare serve o arquivo do seu próprio computador pela rede Tor.",
       "<strong>Qualquer canal, até e-mail comum:</strong> coloque o arquivo num arquivo 7-Zip com AES-256 e uma senha forte, e mande a senha por outro caminho."
@@ -37,7 +37,7 @@
       },
       "2": {
         "h": "Criptografia de ponta a ponta",
-        "b": "O arquivo é criptografado no aparelho de quem envia antes de sair, e só o aparelho de quem recebe consegue descriptografar. O serviço guarda ou repassa bytes ilegíveis e nunca tem a chave. Se a empresa for invadida ou obrigada a entregar arquivos, não tem nada legível para dar. É o único tipo que protege você do próprio intermediário."
+        "b": "O arquivo é criptografado no aparelho de quem envia antes de sair, e <blogE2e>só o aparelho de quem recebe consegue descriptografar</blogE2e>. O serviço guarda ou repassa bytes ilegíveis e nunca tem a chave. Se a empresa for invadida ou obrigada a entregar arquivos, não tem nada legível para dar. É o único tipo que protege você do próprio intermediário."
       },
       "3": {
         "h": "Por que o marketing mistura tudo",
@@ -87,7 +87,7 @@
         "name": "Wormhole",
         "tag": "Melhor link criptografado rápido em qualquer navegador",
         "facts": "Navegador · grátis · até 10 GB · AES-GCM com chaves de 128 bits baseado na RFC 8188, criptografado antes do upload · arquivos de até 5 GB guardados 24 horas, maiores ponto a ponto · biblioteca de criptografia de código aberto",
-        "body": "O Wormhole criptografa no navegador antes de qualquer coisa sair, então os servidores guardam texto cifrado por no máximo um dia. É rápido de usar num computador emprestado e não exige instalar nada em nenhum lado. O FAQ detalha o esquema e publica a biblioteca de criptografia em streaming, mas não o serviço inteiro.",
+        "body": "O <goWormhole>Wormhole</goWormhole> criptografa no navegador antes de qualquer coisa sair, então os servidores guardam texto cifrado por no máximo um dia. É rápido de usar num computador emprestado e não exige instalar nada em nenhum lado. O FAQ detalha o esquema e publica a biblioteca de criptografia em streaming, mas não o serviço inteiro.",
         "cons": "O código completo de cliente e servidor não é publicado, o teto é 10 GB e envios acima de 5 GB exigem sua aba aberta."
       },
       "2": {
@@ -108,14 +108,14 @@
         "name": "magic-wormhole",
         "tag": "Melhor para usuários técnicos que movem arquivos entre computadores",
         "facts": "Linha de comando no macOS, Linux, Windows · MIT · códigos curtos de uso único · criptografia de ponta a ponta com troca de chaves autenticada por senha · servidor mailbox mais relay de trânsito · qualquer tamanho, arquivos e pastas",
-        "body": "Digite wormhole send e o nome do arquivo, leia o código curto que aparece, e a outra pessoa digita wormhole receive e o código. As duas máquinas usam esse código para combinar uma chave, então o relay no meio só carrega dados criptografados. Ele lida com arquivos e diretórios de qualquer tamanho e é muito usado para mover dados entre servidores.",
+        "body": "Digite wormhole send e o nome do arquivo, leia o código curto que aparece, e a outra pessoa digita wormhole receive e o código. As duas máquinas usam esse código para combinar uma chave, então o relay no meio só carrega dados criptografados. Ele lida com <goLargeFiles>arquivos e diretórios de qualquer tamanho</goLargeFiles> e é muito usado para mover dados entre servidores.",
         "cons": "Os dois lados precisam da ferramenta instalada e de um terminal, e ela não foi feita para enviar a pessoas leigas."
       },
       "5": {
         "name": "LocalSend",
         "tag": "Melhor para aparelhos na mesma rede, sem internet",
         "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS entre aparelhos com certificado por aparelho · só rede local · sem servidor",
-        "body": "Quando quem envia e quem recebe estão no mesmo Wi-Fi, o LocalSend move os arquivos direto entre os aparelhos por HTTPS criptografado, sem servidor no meio. Nada é enviado para lugar nenhum, então a pergunta sobre o que um provedor consegue ler nem aparece.",
+        "body": "Quando quem envia e quem recebe estão no mesmo Wi-Fi, o <goLocalsend>LocalSend</goLocalsend> move os arquivos direto entre os aparelhos por HTTPS criptografado, sem servidor no meio. Nada é enviado para lugar nenhum, então a pergunta sobre o que um provedor consegue ler nem aparece.",
         "cons": "Só alcança aparelhos da mesma rede local, e todo aparelho precisa do app."
       },
       "6": {
@@ -220,7 +220,7 @@
     "items": {
       "0": {
         "h": "Um contrato, documento de identidade ou laudo médico para uma pessoa",
-        "b": "Um link do BIShare ou do Wormhole com download único ou validade curta, enviado por um chat privado."
+        "b": "Um link do BIShare ou do Wormhole com <blogConfidential>download único ou validade curta</blogConfidential>, enviado por um chat privado."
       },
       "1": {
         "h": "Documentos de que um cliente vai precisar por semanas",
@@ -232,7 +232,7 @@
       },
       "3": {
         "h": "Pastas grandes entre seus próprios aparelhos",
-        "b": "Um envio direto com BIShare ou LocalSend na mesma rede, para que nada seja enviado a lugar nenhum."
+        "b": "Um envio direto com BIShare ou LocalSend <goOffline>na mesma rede</goOffline>, para que nada seja enviado a lugar nenhum."
       },
       "4": {
         "h": "Dados entre servidores ou terminais",
@@ -246,7 +246,7 @@
   },
   "mistakes": {
     "title": "Erros comuns que anulam a criptografia",
-    "body": "A maioria dos vazamentos de arquivos criptografados não quebra o algoritmo. Eles passam por fora.",
+    "body": "<blogLeaks>A maioria dos vazamentos de arquivos criptografados</blogLeaks> não quebra o algoritmo. Eles passam por fora.",
     "items": {
       "0": {
         "h": "Senha na mesma mensagem",

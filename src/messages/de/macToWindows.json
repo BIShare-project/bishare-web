@@ -31,7 +31,7 @@
         "name": "BIShare",
         "tag": "Beste insgesamt: der Komfort von AirDrop zwischen Mac und PC",
         "facts": "macOS, Windows, dazu iPhone, Android, Linux · kostenlos, Open Source (MIT) · im selben WLAN ohne Limit, 100 GB per Link · Ende-zu-Ende verschlüsselt · ohne Konto",
-        "body": "Auf beiden Rechnern installieren, und jeder erscheint in der Geräteliste des anderen, sobald sie ein Netz teilen. Dateien wählen, den PC wählen, drüben annehmen, und die Übertragung geht von Rechner zu Rechner mit dem Tempo, das WLAN oder Ethernet hergeben, durchgehend verschlüsselt und ohne Server. Sie funktioniert in beide Richtungen, ohne dass an einem der beiden Rechner eine Einstellung geändert wird, und auch dann, wenn das Netz ein Handy-Hotspot ohne Internet ist. Steht der PC nicht in der Nähe, erzeugt dieselbe App einen Link, einen QR-Code und einen kurzen Code; Windows öffnet ihn in jedem Browser und lädt bis zu 100 GB herunter, ohne etwas zu installieren. Links laufen nach 24 Stunden ab oder nach einem Download.",
+        "body": "Auf beiden Rechnern installieren, und jeder erscheint in der Geräteliste des anderen, sobald sie ein Netz teilen. Dateien wählen, den PC wählen, drüben annehmen, und <goPcPc>die Übertragung geht von Rechner zu Rechner</goPcPc> mit dem Tempo, das WLAN oder Ethernet hergeben, durchgehend verschlüsselt und ohne Server. Sie funktioniert in beide Richtungen, ohne dass an einem der beiden Rechner eine Einstellung geändert wird, und auch dann, wenn das Netz ein Handy-Hotspot ohne Internet ist. Steht der PC nicht in der Nähe, erzeugt dieselbe App einen Link, einen QR-Code und einen kurzen Code; Windows öffnet ihn in jedem Browser und lädt bis zu 100 GB herunter, ohne etwas zu installieren. Links laufen nach 24 Stunden ab oder nach einem Download.",
         "cons": "Für den direkten Weg brauchen beide Rechner die App. Sie überträgt Dateien, gibt dem PC aber keinen Ordner, den er auf dem Mac durchstöbern kann, wie es SMB tut."
       },
       "1": {
@@ -45,14 +45,14 @@
         "name": "LocalSend",
         "tag": "Open-Source-App für Übertragungen im selben Netz",
         "facts": "macOS, Windows, iPhone, Android, Linux · kostenlos, Open Source · nur im selben Netz · verschlüsselt · ohne Konto",
-        "body": "LocalSend ist eine angesehene Open-Source-App, die die Hälfte von BIShare im selben Netz erledigt: auf Mac und PC installieren, sich sehen, senden. Keine Systemeinstellung muss geändert werden, und es ist schnell. Für zwei Rechner im selben Haus, die nur untereinander Dateien tauschen, ist das eine saubere Wahl.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> ist eine angesehene Open-Source-App, die die Hälfte von BIShare im selben Netz erledigt: auf Mac und PC installieren, sich sehen, senden. Keine Systemeinstellung muss geändert werden, und es ist schnell. Für zwei Rechner im selben Haus, die nur untereinander Dateien tauschen, ist das eine saubere Wahl.",
         "cons": "Überhaupt kein Weg zu einem PC in einem anderen Netz und nichts für einen Empfänger, der die App nicht installieren kann."
       },
       "3": {
         "name": "Ein Cloud-Laufwerk: OneDrive, Google Drive, iCloud für Windows, Dropbox",
         "tag": "Am besten, wenn die Datei auf beiden Rechnern liegen soll",
         "facts": "Apps für macOS und Windows · kostenlos: OneDrive 5 GB, Google Drive 15 GB, iCloud 5 GB, Dropbox 2 GB · Konto nötig · standardmäßig nicht Ende-zu-Ende verschlüsselt",
-        "body": "Wenn derselbe Ordner jeden Tag auf Mac und PC aktuell sein muss, ist ein synchronisierter Cloud-Ordner das richtige Werkzeug, und iCloud für Windows aus dem Microsoft Store bringt sogar iCloud Drive und Fotos auf den PC. Um eine große Datei einmal zu verschieben, ist es der Umweg: Die Datei lädt mit deinem Upload-Tempo vom Mac hoch, dann auf den PC herunter, und sie belegt die ganze Zeit Speicherkontingent.",
+        "body": "Wenn derselbe Ordner jeden Tag auf Mac und PC aktuell sein muss, ist ein synchronisierter Cloud-Ordner das richtige Werkzeug, und iCloud für Windows aus dem Microsoft Store <goIphonePhotos>bringt sogar iCloud Drive und Fotos auf den PC</goIphonePhotos>. Um eine große Datei einmal zu verschieben, ist es der Umweg: Die Datei lädt mit deinem Upload-Tempo vom Mac hoch, dann auf den PC herunter, und sie belegt die ganze Zeit Speicherkontingent.",
         "cons": "Tempo hängt am Upload, ein Kontingent, ein Konto auf beiden Rechnern, und der Anbieter kann lesen, was du speicherst, sofern du nicht selbst verschlüsselst."
       },
       "4": {
@@ -66,7 +66,7 @@
         "name": "Ein Browser-Link-Dienst: Wormhole, WeTransfer",
         "tag": "Ohne Installation, wenn der PC woanders ist",
         "facts": "Jeder Browser · Wormhole 10 GB, Ende-zu-Ende verschlüsselt · WeTransfer kostenlos 3 GB, 3 Tage, nicht Ende-zu-Ende verschlüsselt",
-        "body": "Am Mac hochladen, Link schicken, am PC herunterladen. Nichts zu installieren und keine Netzeinrichtung, deshalb die einfache Option für eine einmalige Sendung an das Windows-Notebook eines Kollegen. Wormhole verschlüsselt im Browser vor dem Upload; der Gratis-Tarif von WeTransfer ist der bekannte, endet aber bei 3 GB und hält Dateien drei Tage.",
+        "body": "Am Mac hochladen, Link schicken, am PC herunterladen. Nichts zu installieren und keine Netzeinrichtung, deshalb die einfache Option für eine einmalige Sendung an das Windows-Notebook eines Kollegen. <goWormhole>Wormhole</goWormhole> verschlüsselt im Browser vor dem Upload; der Gratis-Tarif von WeTransfer ist der bekannte, endet aber bei 3 GB und hält Dateien drei Tage.",
         "cons": "Alles geht mit Internettempo hoch und wieder herunter, mit Größengrenze, selbst wenn beide Rechner auf demselben Schreibtisch stehen."
       },
       "6": {
@@ -189,7 +189,7 @@
     "items": {
       "0": {
         "h": "WLAN",
-        "b": "Direkte Übertragungen, ob über BIShare, LocalSend oder eine SMB-Freigabe, liegen bei etwa 40–50 MB/s in Wi-Fi 5 und 70–110 MB/s in Wi-Fi 6, wenn beide Rechner nahe am Router stehen. Ein 10-GB-Ordner braucht grob zwei bis vier Minuten."
+        "b": "Direkte Übertragungen, ob über BIShare, LocalSend oder eine SMB-Freigabe, liegen bei etwa 40–50 MB/s in Wi-Fi 5 und 70–110 MB/s in Wi-Fi 6, wenn beide Rechner nahe am Router stehen. <goLargeFiles>Ein 10-GB-Ordner</goLargeFiles> braucht grob zwei bis vier Minuten."
       },
       "1": {
         "h": "Ethernet",
@@ -197,7 +197,7 @@
       },
       "2": {
         "h": "USB-Laufwerke und die Cloud",
-        "b": "Eine USB-3-SSD kann beides übertreffen, ein billiger Stick schreibt aber oft nur 10–30 MB/s, sobald sein Cache voll ist. Jeder Cloud- oder Link-Dienst hängt an deinem Upload: Bei 50 Mbit/s dauert 1 GB etwa drei Minuten, bevor der PC überhaupt mit dem Download beginnen kann."
+        "b": "Eine USB-3-SSD kann beides übertreffen, ein billiger Stick schreibt aber oft nur 10–30 MB/s, sobald sein Cache voll ist. <blogCloudLimits>Jeder Cloud- oder Link-Dienst hängt an deinem Upload</blogCloudLimits>: Bei 50 Mbit/s dauert 1 GB etwa drei Minuten, bevor der PC überhaupt mit dem Download beginnen kann."
       }
     }
   },
@@ -218,7 +218,7 @@
       },
       "3": {
         "h": "In Hotel-, Büro- oder Café-Netzen geht gar nichts",
-        "b": "Viele davon isolieren Geräte voneinander, sodass keine lokale Methode verbinden kann. Einen Handy-Hotspot nutzen, dem beide Rechner beitreten, ein Ethernet-Kabel, oder einen Link, der übers Internet geht."
+        "b": "Viele davon isolieren Geräte voneinander, sodass keine lokale Methode verbinden kann. <goOffline>Einen Handy-Hotspot nutzen, dem beide Rechner beitreten</goOffline>, ein Ethernet-Kabel, oder einen Link, der übers Internet geht."
       },
       "4": {
         "h": "Eine Kopie auf USB scheitert bei einer großen Datei",
@@ -236,11 +236,11 @@
       },
       "1": {
         "h": "Verlässt dein Netz, aber versiegelt",
-        "b": "BIShare-Links und Wormhole verschlüsseln die Datei am Mac vor dem Upload und behalten den Schlüssel im Link, sodass der Dienst dazwischen Daten hält, die er nicht öffnen kann."
+        "b": "BIShare-Links und Wormhole <goEncrypted>verschlüsseln die Datei am Mac vor dem Upload</goEncrypted> und behalten den Schlüssel im Link, sodass der Dienst dazwischen Daten hält, die er nicht öffnen kann."
       },
       "2": {
         "h": "Verlässt dein Netz, für den Anbieter lesbar",
-        "b": "OneDrive, Google Drive, Dropbox, WeTransfer und E-Mail schützen die Datei unterwegs, können sie gespeichert aber lesen. Für Alltagsdateien ist das oft in Ordnung, für Verträge oder Ausweis-Scans weniger."
+        "b": "OneDrive, Google Drive, Dropbox, <goWetransfer>WeTransfer</goWetransfer> und E-Mail schützen die Datei unterwegs, können sie gespeichert aber lesen. Für Alltagsdateien ist das oft in Ordnung, für Verträge oder Ausweis-Scans weniger."
       }
     }
   },

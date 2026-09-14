@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Fehlerbehebung",
     "title": "AirDrop funktioniert nicht? Erst die Ursache finden",
-    "body": "AirDrop scheitert auf eine Handvoll erkennbarer Arten: Das andere Gerät taucht nie auf, die Übertragung bleibt bei „Warten“ stehen, ein sechsstelliger Code erscheint, mit dem niemand gerechnet hat, oder die Dateien kommen an und verschwinden in einer App, in die niemand geschaut hat. Jedes Symptom deutet auf eine andere Ursache, und mehrere davon sind gar keine Fehler, sondern bewusste Änderungen, die Apple mit iOS 16.2, iOS 17 und iOS 26.2 eingeführt hat. Dieser Ratgeber beginnt bei dem, was Sie sehen, listet auf, was AirDrop laut Apple tatsächlich braucht, geht die Lösungen auf iPhone, iPad und Mac durch, erklärt die jüngsten Änderungen, die wie Fehler wirken, und behandelt den Fall, dass das andere Gerät ein Android-Handy oder ein Windows-PC ist. <strong>BIShare</strong> ist die Ausweichlösung, die wir für die Fälle gebaut haben, in denen AirDrop nicht helfen kann: <strong>Es sendet zwischen iPhone, Android, Windows, Mac und Linux</strong>, direkt im gemeinsamen Netz oder per Link. <highlight>Kostenlos, Open Source, ohne Konto.</highlight>",
+    "body": "AirDrop scheitert auf eine Handvoll erkennbarer Arten: Das andere Gerät taucht nie auf, die Übertragung bleibt bei „Warten“ stehen, ein sechsstelliger Code erscheint, mit dem niemand gerechnet hat, oder die Dateien kommen an und verschwinden in einer App, in die niemand geschaut hat. Jedes Symptom deutet auf eine andere Ursache, und mehrere davon sind gar keine Fehler, sondern bewusste Änderungen, die Apple mit iOS 16.2, iOS 17 und iOS 26.2 eingeführt hat. Dieser Ratgeber beginnt bei dem, was Sie sehen, listet auf, was AirDrop laut Apple tatsächlich braucht, geht die Lösungen auf iPhone, iPad und Mac durch, erklärt die jüngsten Änderungen, die wie Fehler wirken, und behandelt den Fall, dass das andere Gerät ein Android-Handy oder ein Windows-PC ist. <strong>BIShare</strong> ist die Ausweichlösung, die wir für die Fälle gebaut haben, in denen AirDrop nicht helfen kann: <strong>Es sendet zwischen iPhone, Android, Windows, Mac und Linux</strong>, direkt im gemeinsamen Netz oder per Link. <highlight>Kostenlos, Open Source, <goNoAccount>ohne Konto</goNoAccount>.</highlight>",
     "ctaPrimary": "BIShare kostenlos holen",
     "ctaSecondary": "So funktioniert es"
   },
@@ -41,7 +41,7 @@
       },
       "3": {
         "h": "Die Übertragung beginnt und bricht ab",
-        "b": "Große Videos über eine schwache Verbindung, ein aktiver Persönlicher Hotspot oder ein VPN beziehungsweise eine Sicherheits-App, die den lokalen Datenverkehr stört, sind häufige Ursachen. Starten Sie beide Geräte neu und versuchen Sie es mit den Geräten direkt nebeneinander."
+        "b": "<goLargeFiles>Große Videos</goLargeFiles> über eine schwache Verbindung, ein aktiver Persönlicher Hotspot oder ein VPN beziehungsweise eine Sicherheits-App, die den lokalen Datenverkehr stört, sind häufige Ursachen. Starten Sie beide Geräte neu und versuchen Sie es mit den Geräten direkt nebeneinander."
       },
       "4": {
         "h": "Es hat geklappt, aber die Dateien sind weg",
@@ -171,28 +171,28 @@
     "items": {
       "0": {
         "h": "Ein Android-Handy",
-        "b": "Steht das Handy auf Googles Liste für Quick Share mit AirDrop, kann es Dateien mit einem iPhone tauschen, sofern das iPhone „Für alle für 10 Minuten“ erlaubt und auf einem Galaxy der Schalter zum Teilen mit Apple-Geräten an ist. Ältere oder nicht gelistete Android-Handys können AirDrop in keiner Form empfangen."
+        "b": "Steht das Handy auf <goAirdropAndroid>Googles Liste für Quick Share mit AirDrop</goAirdropAndroid>, kann es Dateien mit einem iPhone tauschen, sofern das iPhone „Für alle für 10 Minuten“ erlaubt und auf einem Galaxy der Schalter zum Teilen mit Apple-Geräten an ist. Ältere oder nicht gelistete Android-Handys können AirDrop in keiner Form empfangen."
       },
       "1": {
         "h": "Ein Windows-PC oder Chromebook",
-        "b": "Apple hat AirDrop nie für Windows gebaut, und Quick Share auf PC oder Chromebook erreicht keine Apple-Geräte. Keine Einstellung auf irgendeiner Seite ändert das, also nehmen Sie ein Kabel, einen Cloud-Link oder eine plattformübergreifende App."
+        "b": "<goAirdropWindows>Apple hat AirDrop nie für Windows gebaut</goAirdropWindows>, und Quick Share auf PC oder Chromebook erreicht keine Apple-Geräte. Keine Einstellung auf irgendeiner Seite ändert das, also nehmen Sie ein Kabel, einen Cloud-Link oder <goBestApps>eine plattformübergreifende App</goBestApps>."
       },
       "2": {
         "h": "Ein Linux-Rechner",
-        "b": "Auch für Linux gibt es keinen AirDrop-Client. Open-Source-Werkzeuge wie LocalSend und browserbasierte Wege wie BIShare-Links oder PairDrop sind die praktikablen Optionen."
+        "b": "Auch für Linux gibt es keinen AirDrop-Client. Open-Source-Werkzeuge wie LocalSend und browserbasierte Wege wie BIShare-Links oder <goSnapdrop>PairDrop</goSnapdrop> sind die praktikablen Optionen."
       }
     }
   },
   "methods": {
     "title": "Plan B: fünf Wege, wenn AirDrop nicht will",
-    "body": "Wenn die Lösungen ausgehen oder das andere Gerät nicht von Apple ist, wählen Sie den Weg danach, wo der Empfänger ist und was er nutzt.",
+    "body": "Wenn die Lösungen ausgehen oder <goAirdropAlt>das andere Gerät nicht von Apple ist</goAirdropAlt>, wählen Sie den Weg danach, wo der Empfänger ist und was er nutzt.",
     "consLabel": "Zu beachten:",
     "items": {
       "0": {
         "name": "BIShare",
         "tag": "Am besten, wenn der Empfänger Android, Windows oder Linux nutzt oder woanders ist",
         "facts": "Apps für iPhone, Android, Windows, macOS und Linux · MIT-Lizenz · von Gerät zu Gerät über ein gemeinsames WLAN oder den Hotspot eines Handys, jede Dateigröße · verschlüsselte Links fassen bis 100 GB und halten 24 Stunden im Browser · Gruppenräume · ohne Anmeldung",
-        "body": "Installieren Sie BIShare auf beiden Geräten, und sie sehen sich im gemeinsamen WLAN oder am Hotspot eines Handys, ohne ablaufendes Sichtbarkeitsfenster und ohne Kontaktkarte, die passen muss. Dateien wechseln direkt in beide Richtungen, ohne das Internet zu berühren. Für jemanden, der nicht in der Nähe ist, erstellen Sie einen Link: Die Dateien werden auf Ihrem Gerät versiegelt, bevor sie hochgeladen werden, und die andere Person lädt sie im Browser herunter.",
+        "body": "Installieren Sie BIShare auf beiden Geräten, und sie sehen sich im gemeinsamen WLAN oder <goOffline>am Hotspot eines Handys</goOffline>, ohne ablaufendes Sichtbarkeitsfenster und ohne Kontaktkarte, die passen muss. Dateien wechseln direkt in beide Richtungen, ohne das Internet zu berühren. Für jemanden, der nicht in der Nähe ist, erstellen Sie einen Link: Die Dateien werden <goEncrypted>auf Ihrem Gerät versiegelt, bevor sie hochgeladen werden</goEncrypted>, und die andere Person lädt sie im Browser herunter.",
         "cons": "Senden aus der Nähe setzt BIShare auf jedem Gerät voraus, und ein Link braucht auf beiden Seiten eine Datenverbindung."
       },
       "1": {
@@ -213,14 +213,14 @@
         "name": "LocalSend",
         "tag": "Beste Open-Source-Wahl im Heim- oder Büronetz",
         "facts": "iPhone, Android, Windows, macOS, Linux · Apache 2.0 · dasselbe lokale Netz · HTTPS, kein Konto",
-        "body": "LocalSend listet jedes Gerät, auf dem es im lokalen WLAN geöffnet ist, und sendet mit einem Tipp, ohne Server oder Konto dazwischen. Es ist ein guter dauerhafter Ersatz, wenn Sie regelmäßig Dateien zwischen einem iPhone und einem Windows- oder Linux-Rechner zu Hause verschieben.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> listet jedes Gerät, auf dem es im lokalen WLAN geöffnet ist, und sendet mit einem Tipp, ohne Server oder Konto dazwischen. Es ist ein guter dauerhafter Ersatz, wenn Sie regelmäßig Dateien zwischen einem iPhone und einem Windows- oder Linux-Rechner zu Hause verschieben.",
         "cons": "Die App muss auf beiden Geräten sein, alles in einem anderen Netz bleibt unerreichbar, und Router, die Geräte isolieren, können sie voreinander verstecken."
       },
       "4": {
         "name": "USB-Kabel",
         "tag": "Am besten, um eine ganze Mediathek auf einen Computer zu bringen",
         "facts": "Fotos-App auf dem Mac, Apple Geräte-App unter Windows · kein Netzwerk nötig · Originale in voller Auflösung, sofern sie auf dem iPhone liegen",
-        "body": "Schließen Sie das iPhone an, entsperren Sie es und vertrauen Sie dem Computer, dann importieren Sie über die Fotos-App auf dem Mac oder die Apple Geräte-App unter Windows. Bei Tausenden Fotos ist das oft schneller und berechenbarer als jeder drahtlose Weg.",
+        "body": "Schließen Sie das iPhone an, entsperren Sie es und vertrauen Sie dem Computer, dann importieren Sie über die Fotos-App auf dem Mac oder die Apple Geräte-App unter Windows. <goIphonePhotos>Bei Tausenden Fotos</goIphonePhotos> ist das oft schneller und berechenbarer als jeder drahtlose Weg.",
         "cons": "Sie brauchen das passende Kabel und den Computer vor sich, und Fotos, die nur in iCloud liegen, müssen zuerst aufs iPhone geladen werden."
       }
     }

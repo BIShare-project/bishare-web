@@ -6,20 +6,20 @@
   "hero": {
     "eyebrow": "Transfer lintas-platform",
     "title": "AirDrop untuk Windows",
-    "body": "AirDrop hanya bekerja antar perangkat Apple; Windows tidak pernah memilikinya. <strong>BIShare</strong> adalah aplikasi gratis dan open source yang melakukan hal yang sama antara <strong>iPhone atau Mac dan PC Windows</strong> — plus Android dan Linux — lewat Wi-Fi Anda sendiri, atau dengan tautan yang dibuka pihak lain di browser apa pun. <highlight>Gratis, tanpa akun, dan tidak perlu instal apa pun di sisi penerima.</highlight>",
+    "body": "AirDrop hanya bekerja antar perangkat Apple; Windows tidak pernah memilikinya. <strong>BIShare</strong> adalah aplikasi gratis dan open source yang melakukan hal yang sama antara <strong>iPhone atau Mac dan PC Windows</strong> — plus Android dan Linux — lewat Wi-Fi Anda sendiri, atau dengan tautan yang dibuka pihak lain di browser apa pun. <highlight>Gratis, <goNoAccount>tanpa akun</goNoAccount>, dan tidak perlu instal apa pun di sisi penerima.</highlight>",
     "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
   "why": {
     "title": "Mengapa AirDrop tak bisa menjangkau Windows",
-    "body": "AirDrop berjalan di protokol khusus Apple, jadi hanya bekerja antara iPhone, iPad, dan Mac — tidak pernah dengan PC Windows, dan Apple tidak pernah membuka protokolnya untuk pihak lain. Nearby Sharing di Windows 11 hanya bicara dengan PC Windows lain. Phone Link dari Microsoft menambahkan berbagi file dengan iPhone pada Desember 2024, tapi hanya di build Windows Insider dan hanya untuk ponsel — Mac tetap tidak punya jalur ke PC. Kasus sehari-hari itu, menarik foto atau dokumen dari iPhone atau Mac ke laptop Windows, persis yang dicakup BIShare."
+    "body": "AirDrop berjalan di protokol khusus Apple, jadi hanya bekerja antara iPhone, iPad, dan Mac — tidak pernah dengan PC Windows, dan Apple tidak pernah membuka protokolnya untuk pihak lain. Nearby Sharing di Windows 11 hanya bicara dengan PC Windows lain. Phone Link dari Microsoft menambahkan berbagi file dengan iPhone pada Desember 2024, tapi hanya di build Windows Insider dan hanya untuk ponsel — <goMacWindows>Mac tetap tidak punya jalur ke PC</goMacWindows>. Kasus sehari-hari itu, <blogIphoneWindows>menarik foto atau dokumen dari iPhone atau Mac ke laptop Windows</blogIphoneWindows>, persis yang dicakup BIShare."
   },
   "how": {
     "title": "Cara BIShare mengirim iPhone / Mac ↔ Windows",
     "items": {
       "0": {
         "h": "Di Wi-Fi yang sama",
-        "b": "File dikirim langsung dari perangkat ke perangkat, terenkripsi ujung-ke-ujung — tak ada yang disimpan di server. Cepat, dan bahkan bekerja lewat hotspot ponsel tanpa internet sama sekali."
+        "b": "File dikirim langsung dari perangkat ke perangkat, terenkripsi ujung-ke-ujung — tak ada yang disimpan di server. Cepat, dan bahkan <goOffline>bekerja lewat hotspot ponsel tanpa internet sama sekali</goOffline>."
       },
       "1": {
         "h": "Saat Anda berjauhan",
@@ -154,11 +154,11 @@
     "title": "Dua arah, bukan satu",
     "toPc": {
       "h": "iPhone atau Mac → PC Windows",
-      "b": "Kasus paling umum: foto, video, dan dokumen dari ponsel ke komputer dengan kecepatan Wi-Fi lokal, file aslinya utuh — tanpa kompresi ulang, tanpa plafon email 25 MB, dan tanpa apa pun diunggah ke server di tengah jalan."
+      "b": "Kasus paling umum: <goPhonePc>foto, video, dan dokumen dari ponsel ke komputer</goPhonePc> dengan kecepatan Wi-Fi lokal, file aslinya utuh — tanpa kompresi ulang, tanpa plafon email 25 MB, dan tanpa apa pun diunggah ke server di tengah jalan."
     },
     "toPhone": {
       "h": "PC Windows → iPhone atau Mac",
-      "b": "Rute yang sama secara terbalik, yang justru tak pernah ditawarkan AirDrop sama sekali. Seret file ke aplikasi PC lalu kirim ke ponsel; video besar dan folder berperilaku sama seperti file kecil, karena batasnya ruang disk, bukan kuota unggah."
+      "b": "Rute yang sama secara terbalik, yang justru tak pernah ditawarkan AirDrop sama sekali. Seret file ke aplikasi PC lalu <goPcPhone>kirim ke ponsel</goPcPhone>; <goLargeFiles>video besar dan folder</goLargeFiles> berperilaku sama seperti file kecil, karena batasnya ruang disk, bukan kuota unggah."
     }
   },
   "fixes": {
@@ -184,7 +184,7 @@
     "items": [
       "<strong>AirDrop tidak ada di Windows.</strong> Ia berjalan di protokol khusus Apple, jadi tidak ada unduhan bernama \"AirDrop for Windows\" yang asli — anggap .exe dengan nama itu tidak aman.",
       "<strong>Yang paling mendekati dan bekerja hari ini:</strong> BIShare — gratis di Microsoft Store untuk Windows 10 dan 11, dengan aplikasi pasangan untuk iPhone, Mac, Android, dan Linux. Kirim dua arah lewat Wi-Fi, tanpa akun.",
-      "<strong>Tidak mau instal?</strong> Buka bishare.app/transfer di browser apa pun di PC dan kirim file dari ponsel — Wi-Fi yang sama atau lewat tautan, terenkripsi sebelum meninggalkan perangkat.",
+      "<strong>Tidak mau instal?</strong> Buka <goTransfer>bishare.app/transfer</goTransfer> di browser apa pun di PC dan kirim file dari ponsel — Wi-Fi yang sama atau lewat tautan, terenkripsi sebelum meninggalkan perangkat.",
       "<strong>Opsi resmi Microsoft:</strong> Phone Link bisa berbagi file dengan iPhone di build Windows Insider (iOS 16+, pemasangan Bluetooth, akun Microsoft). Tidak mencakup Mac, dan belum tersedia di Windows stabil untuk semua orang."
     ]
   },
@@ -251,7 +251,7 @@
       },
       {
         "h": "LocalSend",
-        "b": "Gratis, open source, dan bagus di Wi-Fi bersama — tiap perangkat butuh aplikasinya, dan tidak ada jalur tautan saat orang lain di jaringan berbeda atau tidak bisa memasang apa pun."
+        "b": "<goLocalsend>Gratis, open source, dan bagus di Wi-Fi bersama</goLocalsend> — tiap perangkat butuh aplikasinya, dan tidak ada jalur tautan saat orang lain di jaringan berbeda atau tidak bisa memasang apa pun."
       },
       {
         "h": "Snapdrop / PairDrop",
@@ -259,7 +259,7 @@
       },
       {
         "h": "SHAREit, Xender, dan sejenisnya",
-        "b": "Cepat di atas kertas, tapi penuh iklan, rakus izin, dan berulang kali ditandai karena masalah keamanan. Bukan alat untuk dipasang di PC kantor."
+        "b": "Cepat di atas kertas, tapi <goShareit>penuh iklan, rakus izin</goShareit>, dan berulang kali ditandai karena masalah keamanan. Bukan alat untuk dipasang di PC kantor."
       },
       {
         "h": "iCloud, Google Drive, Dropbox",
@@ -267,7 +267,7 @@
       },
       {
         "h": "Kabel, iTunes, atau aplikasi Foto Windows",
-        "b": "Andal untuk foto dari iPhone, dengan kabel dan pemasangan driver. Tidak ada untuk Mac ke PC, tidak ada untuk arah sebaliknya, tidak ada untuk mengirim ke orang lain."
+        "b": "<goIphonePhotos>Andal untuk foto dari iPhone</goIphonePhotos>, dengan kabel dan pemasangan driver. Tidak ada untuk Mac ke PC, tidak ada untuk arah sebaliknya, tidak ada untuk mengirim ke orang lain."
       },
       {
         "h": "Email atau aplikasi chat",
@@ -317,7 +317,7 @@
     "title": "Apa yang keluar dari perangkat Anda, dan apa yang tidak",
     "items": [
       "Di jaringan yang sama, file langsung berpindah dari satu perangkat ke perangkat lain, terenkripsi untuk transfer itu. Tidak ada server yang melihatnya dan tidak tersimpan di mana pun selain di PC penerima.",
-      "Di jalur tautan, file dienkripsi di browser atau aplikasi Anda sebelum diunggah. Kuncinya ada di tautan setelah tanda #, yang tidak pernah dikirim browser ke server, jadi yang disimpan di penyimpanan kami hanya ciphertext yang tidak bisa dibuka. Tautan kedaluwarsa dalam 24 jam; Anda juga bisa membuat yang hancur sendiri setelah unduhan pertama.",
+      "Di jalur tautan, <goEncrypted>file dienkripsi di browser atau aplikasi Anda sebelum diunggah</goEncrypted>. Kuncinya ada di tautan setelah tanda #, yang tidak pernah dikirim browser ke server, jadi yang disimpan di penyimpanan kami hanya ciphertext yang tidak bisa dibuka. Tautan kedaluwarsa dalam 24 jam; Anda juga bisa membuat yang hancur sendiri setelah unduhan pertama.",
       "Tidak ada akun, tidak ada unggah kontak, tidak ada SDK iklan. Aplikasi Windows bertanda tangan dan kami terbitkan di Microsoft Store; kode sumber untuk semua platform terbuka."
     ]
   },

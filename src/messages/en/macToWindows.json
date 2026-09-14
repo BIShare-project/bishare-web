@@ -31,7 +31,7 @@
         "name": "BIShare",
         "tag": "Best overall: AirDrop's convenience between a Mac and a PC",
         "facts": "macOS, Windows, plus iPhone, Android, Linux · free, open source (MIT) · no limit on the same Wi-Fi, 100 GB by link · end-to-end encrypted · no account",
-        "body": "Install it on both machines and each appears in the other's device list as soon as they share a network. Choose files, choose the PC, accept on the other side, and the transfer goes machine to machine at whatever your Wi-Fi or Ethernet allows, encrypted the whole way and never touching a server. It works in both directions without any setting changed on either computer, and it keeps working when the network is a phone hotspot with no internet. When the PC is not nearby, the same app produces a link, a QR code and a short code; the Windows side opens it in any browser and downloads up to 100 GB without installing anything. Links expire after 24 hours, or after one download.",
+        "body": "Install it on both machines and each appears in the other's device list as soon as they share a network. Choose files, choose the PC, accept on the other side, and <goPcPc>the transfer goes machine to machine</goPcPc> at whatever your Wi-Fi or Ethernet allows, encrypted the whole way and never touching a server. It works in both directions without any setting changed on either computer, and it keeps working when the network is a phone hotspot with no internet. When the PC is not nearby, the same app produces a link, a QR code and a short code; the Windows side opens it in any browser and downloads up to 100 GB without installing anything. Links expire after 24 hours, or after one download.",
         "cons": "Both machines need the app for the direct route. It moves files; it does not give the PC a folder it can browse on the Mac the way SMB does."
       },
       "1": {
@@ -45,14 +45,14 @@
         "name": "LocalSend",
         "tag": "Open-source app for same-network transfers",
         "facts": "macOS, Windows, iPhone, Android, Linux · free, open source · same network only · encrypted · no account",
-        "body": "LocalSend is a well-regarded open-source app that does the same-network half of what BIShare does: install on the Mac and the PC, see each other, send. It needs no system settings changed and it is quick. For two computers in the same house that only ever swap files with each other, it is a clean choice.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> is a well-regarded open-source app that does the same-network half of what BIShare does: install on the Mac and the PC, see each other, send. It needs no system settings changed and it is quick. For two computers in the same house that only ever swap files with each other, it is a clean choice.",
         "cons": "No route at all to a PC on another network, and nothing for a recipient who cannot install the app."
       },
       "3": {
         "name": "A cloud drive: OneDrive, Google Drive, iCloud for Windows, Dropbox",
         "tag": "Best when the file should live on both machines",
         "facts": "Apps for macOS and Windows · free tiers: OneDrive 5 GB, Google Drive 15 GB, iCloud 5 GB, Dropbox 2 GB · account required · not end-to-end encrypted by default",
-        "body": "If the same folder needs to be current on the Mac and the PC every day, a synced cloud folder is the right tool, and iCloud for Windows from the Microsoft Store even brings iCloud Drive and Photos to the PC. For moving one large file once, it is the slow way round: the file uploads from the Mac at your upload speed, then downloads to the PC, and it counts against a storage quota the whole time.",
+        "body": "If the same folder needs to be current on the Mac and the PC every day, a synced cloud folder is the right tool, and iCloud for Windows from the Microsoft Store even <goIphonePhotos>brings iCloud Drive and Photos to the PC</goIphonePhotos>. For moving one large file once, it is the slow way round: the file uploads from the Mac at your upload speed, then downloads to the PC, and it counts against a storage quota the whole time.",
         "cons": "Upload-bound speed, a quota, an account on both machines, and the provider can read what you store unless you add your own encryption."
       },
       "4": {
@@ -66,7 +66,7 @@
         "name": "A browser link service: Wormhole, WeTransfer",
         "tag": "No install, when the PC is somewhere else",
         "facts": "Any browser · Wormhole 10 GB, end-to-end encrypted · WeTransfer free 3 GB, 3 days, not end-to-end encrypted",
-        "body": "Upload on the Mac, send a link, download on the PC. Nothing to install on either machine and no network setup, which makes these the easy option for a one-off to a colleague's Windows laptop. Wormhole encrypts in the browser before upload; WeTransfer's free plan is the familiar one but stops at 3 GB and holds files for three days.",
+        "body": "Upload on the Mac, send a link, download on the PC. Nothing to install on either machine and no network setup, which makes these the easy option for a one-off to a colleague's Windows laptop. <goWormhole>Wormhole</goWormhole> encrypts in the browser before upload; WeTransfer's free plan is the familiar one but stops at 3 GB and holds files for three days.",
         "cons": "Everything goes up and comes back down at internet speed, with a size ceiling, even when the two computers are on the same desk."
       },
       "6": {
@@ -189,7 +189,7 @@
     "items": {
       "0": {
         "h": "Wi-Fi",
-        "b": "Direct transfers, whether through BIShare, LocalSend or an SMB share, land around 40–50 MB/s on Wi-Fi 5 and 70–110 MB/s on Wi-Fi 6 when both machines are near the router. A 10 GB folder takes roughly two to four minutes."
+        "b": "Direct transfers, whether through BIShare, LocalSend or an SMB share, land around 40–50 MB/s on Wi-Fi 5 and 70–110 MB/s on Wi-Fi 6 when both machines are near the router. <goLargeFiles>A 10 GB folder</goLargeFiles> takes roughly two to four minutes."
       },
       "1": {
         "h": "Ethernet",
@@ -197,7 +197,7 @@
       },
       "2": {
         "h": "USB drives and the cloud",
-        "b": "A USB 3 SSD can beat both, but a cheap flash stick often writes at 10–30 MB/s once its cache fills. Any cloud or link service is limited by your upload: at 50 Mbps, 1 GB takes about three minutes before the PC can even start downloading."
+        "b": "A USB 3 SSD can beat both, but a cheap flash stick often writes at 10–30 MB/s once its cache fills. <blogCloudLimits>Any cloud or link service is limited by your upload</blogCloudLimits>: at 50 Mbps, 1 GB takes about three minutes before the PC can even start downloading."
       }
     }
   },
@@ -218,7 +218,7 @@
       },
       "3": {
         "h": "Nothing works on a hotel, office or café network",
-        "b": "Many of these isolate devices from one another, so no local method can connect. Use a phone hotspot both machines join, an Ethernet cable, or a link that goes over the internet instead."
+        "b": "Many of these isolate devices from one another, so no local method can connect. Use <goOffline>a phone hotspot both machines join</goOffline>, an Ethernet cable, or a link that goes over the internet instead."
       },
       "4": {
         "h": "A copy to USB fails on a big file",
@@ -236,11 +236,11 @@
       },
       "1": {
         "h": "Leaves your network, but sealed",
-        "b": "BIShare links and Wormhole encrypt the file on the Mac before upload and keep the key in the link, so the service in the middle holds data it cannot open."
+        "b": "BIShare links and Wormhole <goEncrypted>encrypt the file on the Mac before upload</goEncrypted> and keep the key in the link, so the service in the middle holds data it cannot open."
       },
       "2": {
         "h": "Leaves your network, readable by the provider",
-        "b": "OneDrive, Google Drive, Dropbox, WeTransfer and email protect the file in transit but can read it at rest. That is often acceptable for everyday files, less so for contracts or ID scans."
+        "b": "OneDrive, Google Drive, Dropbox, <goWetransfer>WeTransfer</goWetransfer> and email protect the file in transit but can read it at rest. That is often acceptable for everyday files, less so for contracts or ID scans."
       }
     }
   },

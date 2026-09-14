@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "ShareDrop替代方案",
     "title": "最好的ShareDrop替代方案",
-    "body": "ShareDrop是最早在瀏覽器裡模仿AirDrop的網頁之一：在兩台裝置上開啟sharedrop.io，互相看到對方的頭像，把檔案拖上去，它就透過WebRTC直接傳過去。2026年這個網站還在運作，但已經不屬於原作者。LimeWire在2025年初收購了它，如今頁面會載入LimeWire的腳本，用於五個廣告版位，以及一個Upload Files按鈕，把檔案送到LimeWire的伺服器，而不是你身邊的裝置。很多人想要以前的體驗卻不想要新東家，也有人一直嫌一個分頁能做的事太少。本指南說明發生了什麼變化、ShareDrop實際上如何決定你能看到哪些裝置、它有哪些弱點，為7個替代方案排名（包括自行架設的ShareDrop Classic），並說明如何傳給另一個網路裡的人。我們的<strong>BIShare</strong>也在名單上：<strong>免費、MIT授權，既能在bishare.app的瀏覽器裡用，也有Android、iPhone、Windows、macOS和Linux應用程式</strong>。<highlight>傳送方和接收方都不需要帳戶。</highlight>",
+    "body": "ShareDrop是最早在瀏覽器裡模仿<goAirdropAlt>AirDrop</goAirdropAlt>的網頁之一：在兩台裝置上開啟sharedrop.io，互相看到對方的頭像，把檔案拖上去，它就透過WebRTC直接傳過去。2026年這個網站還在運作，但已經不屬於原作者。LimeWire在2025年初收購了它，如今頁面會載入LimeWire的腳本，用於五個廣告版位，以及一個Upload Files按鈕，把檔案送到LimeWire的伺服器，而不是你身邊的裝置。很多人想要以前的體驗卻不想要新東家，也有人一直嫌一個分頁能做的事太少。本指南說明發生了什麼變化、ShareDrop實際上如何決定你能看到哪些裝置、它有哪些弱點，為7個替代方案排名（包括自行架設的ShareDrop Classic），並說明如何傳給另一個網路裡的人。我們的<strong>BIShare</strong>也在名單上：<strong>免費、MIT授權，既能在bishare.app的瀏覽器裡用，也有Android、iPhone、Windows、macOS和Linux應用程式</strong>。<highlight><goNoAccount>傳送方和接收方都不需要帳戶</goNoAccount>。</highlight>",
     "ctaPrimary": "免費取得BIShare",
     "ctaSecondary": "運作方式"
   },
@@ -16,9 +16,9 @@
     "title": "快速回答",
     "items": [
       "<strong>最接近經典ShareDrop的：</strong>PairDrop。思路相同，開源，同一網路的裝置會互相發現，配對還能跨網路。",
-      "<strong>希望傳送方傳完就能離線：</strong>BIShare連結把最多100 GB加密保存一天，任何瀏覽器都能開啟，不必一直開著分頁。",
+      "<strong>希望傳送方傳完就能離線：</strong>BIShare連結把最多100 GB加密保存一天，<goTransfer>任何瀏覽器都能開啟</goTransfer>，不必一直開著分頁。",
       "<strong>一個檔案、一位接收者、哪裡都不存：</strong>FilePizza或ToffeeShare，前提是下載完成前你的分頁一直開著。",
-      "<strong>自己的電腦和手機之間傳大型資料夾：</strong>應用程式比分頁可靠。同一台路由器下用BIShare或LocalSend，已經在用Tailscale就用Taildrop。",
+      "<strong>自己的電腦和手機之間<goLargeFiles>傳大型資料夾</goLargeFiles>：</strong>應用程式比分頁可靠。同一台路由器下用BIShare或LocalSend，已經在用Tailscale就用Taildrop。",
       "<strong>就喜歡原汁原味的ShareDrop：</strong>MIT授權的原始程式碼原封不動地留在GitHub上，可以自行架設，但需要Firebase資料庫。",
       "<strong>如果還是要用sharedrop.io：</strong>把檔案拖到對方的頭像上才是直接傳輸。Upload Files區域會把檔案交給LimeWire。"
     ]
@@ -113,7 +113,7 @@
         "name": "PairDrop",
         "tag": "瀏覽器裡最對等的替代品",
         "facts": "任何新式瀏覽器，可安裝為PWA · GPL-3.0 · 同一網路自動探索 · 用6位數代碼或QR碼永久配對 · 臨時公開房間 · NAT後走TURN中繼 · 提供自行架設用的Docker映像檔",
-        "body": "PairDrop源自Snapdrop，用起來就像大家記憶中的ShareDrop，還多了些功能。同一網路的裝置自動出現，配對過的裝置在哪都能互相找到，臨時公開房間就相當於ShareDrop的+按鈕。它的FAQ把路徑說得很清楚：同一網路下檔案從不經過伺服器，NAT之後的配對裝置則走PairDrop的TURN伺服器。",
+        "body": "PairDrop源自<goSnapdrop>Snapdrop</goSnapdrop>，用起來就像大家記憶中的ShareDrop，還多了些功能。同一網路的裝置自動出現，配對過的裝置在哪都能互相找到，臨時公開房間就相當於ShareDrop的+按鈕。它的FAQ把路徑說得很清楚：同一網路下檔案從不經過伺服器，NAT之後的配對裝置則走PairDrop的TURN伺服器。",
         "cons": "和ShareDrop一樣，兩台裝置必須同時在線並開著分頁，經TURN中繼的傳輸比直連慢。"
       },
       "2": {
@@ -134,7 +134,7 @@
         "name": "LocalSend",
         "tag": "同一網路裡用應用程式的最佳選擇",
         "facts": "Apache 2.0 · Android、iOS、桌面和Fire OS應用程式 · 一個區域網路，網際網路可有可無 · 裝置間HTTPS · Winget、Homebrew、Flathub、F-Droid",
-        "body": "如果你以前主要用ShareDrop在自己的手機和電腦之間傳檔案，換成應用程式能徹底擺脫分頁的問題。同一台路由器下的LocalSend裝置不經任何伺服器就能互相列出，所以在沒有對外連線的路由器上也能用。2026年9月，它在AlternativeTo的ShareDrop頁面上位列開源推薦第一。",
+        "body": "如果你以前主要用ShareDrop在自己的手機和電腦之間傳檔案，換成應用程式能徹底擺脫分頁的問題。同一台路由器下的<goLocalsend>LocalSend</goLocalsend>裝置不經任何伺服器就能互相列出，所以在沒有對外連線的路由器上也能用。2026年9月，它在AlternativeTo的ShareDrop頁面上位列開源推薦第一。",
         "cons": "每台裝置都要安裝應用程式，也碰不到區域網路之外的人。"
       },
       "5": {
@@ -188,7 +188,7 @@
       },
       "2": {
         "h": "保存的連結：誰都不用等",
-        "b": "BIShare連結在你的瀏覽器裡加密檔案、上傳並保存24小時。你可以馬上離線，接收方用任何瀏覽器下載。這種模式適合有時差和忙碌的人，代價是一份加密副本要在伺服器上放一天。"
+        "b": "<goEncrypted>BIShare連結在你的瀏覽器裡加密檔案</goEncrypted>、上傳並保存24小時。你可以馬上離線，接收方用任何瀏覽器下載。這種模式適合有時差和忙碌的人，代價是一份加密副本要在伺服器上放一天。"
       },
       "3": {
         "h": "配對裝置：自己的裝置在哪個網路都行",
@@ -236,7 +236,7 @@
       },
       "3": {
         "h": "課堂或會議",
-        "b": "用短代碼加入的BIShare房間，大家在同一個Wi-Fi就用本地模式，有人遠端加入就用雲端模式。"
+        "b": "<goRooms>用短代碼加入的BIShare房間</goRooms>，大家在同一個Wi-Fi就用本地模式，有人遠端加入就用雲端模式。"
       },
       "4": {
         "h": "你自己管理的一批機器",

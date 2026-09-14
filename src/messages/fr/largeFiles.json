@@ -13,7 +13,7 @@
   },
   "why": {
     "title": "Pourquoi envoyer de gros fichiers reste pénible en 2026",
-    "body": "L'e-mail cale passé 20–25 Mo. Les sites de transfert connus plafonnent l'offre gratuite — 3 Go chez WeTransfer, 2 Go avant que Smash vous mette en file d'attente, 5 Go chez Filemail, SendBig et TransferNow — puis brident la vitesse, noient la page de téléchargement sous la publicité ou réclament un compte. Le cloud fonctionne, mais chaque octet monte, occupe votre quota et redescend. BIShare prend un autre chemin : sur le même Wi-Fi, le fichier va <strong>directement d'un appareil à l'autre</strong>, sans plafond et sans rien garer sur un serveur ; partout ailleurs, un <strong>lien de 100 Go</strong> gratuit, sans compte et chiffré de bout en bout."
+    "body": "L'e-mail cale passé 20–25 Mo. Les sites de transfert connus plafonnent l'offre gratuite — 3 Go chez <goWetransfer>WeTransfer</goWetransfer>, 2 Go avant que <goSmash>Smash</goSmash> vous mette en file d'attente, 5 Go chez Filemail, SendBig et TransferNow — puis brident la vitesse, noient la page de téléchargement sous la publicité ou réclament un compte. Le cloud fonctionne, mais chaque octet monte, occupe votre quota et redescend. BIShare prend un autre chemin : sur le même Wi-Fi, le fichier va <strong>directement d'un appareil à l'autre</strong>, sans plafond et sans rien garer sur un serveur ; partout ailleurs, un <strong>lien de 100 Go</strong> gratuit, sans compte et chiffré de bout en bout."
   },
   "how": {
     "title": "Deux façons d'envoyer, toutes deux gratuites",
@@ -115,8 +115,8 @@
   "quick": {
     "title": "Réponse rapide",
     "items": [
-      "<strong>Pour envoyer un gros fichier gratuitement :</strong> ouvrez bishare.app/transfer, déposez le fichier et partagez le lien, le QR code ou le code à 6 caractères. Jusqu'à 100 Go par transfert, aucun compte d'aucun côté, rien à installer.",
-      "<strong>Plus de 100 Go, ou un dossier entier de vidéo brute ?</strong> Mettez les deux appareils sur le même Wi-Fi (ou un partage de connexion) et envoyez d'appareil à appareil — sans limite de taille, sans aucun envoi vers le cloud.",
+      "<strong>Pour envoyer un gros fichier gratuitement :</strong> ouvrez <goTransfer>bishare.app/transfer</goTransfer>, déposez le fichier et partagez le lien, le QR code ou le code à 6 caractères. Jusqu'à 100 Go par transfert, <goNoAccount>aucun compte d'aucun côté</goNoAccount>, rien à installer.",
+      "<strong>Plus de 100 Go, ou un dossier entier de vidéo brute ?</strong> Mettez les deux appareils sur le même Wi-Fi (ou <goOffline>un partage de connexion</goOffline>) et envoyez d'appareil à appareil — sans limite de taille, sans aucun envoi vers le cloud.",
       "<strong>Ce qui change par rapport à WeTransfer et aux autres :</strong> le fichier est chiffré dans votre navigateur avant l'envoi et la clé n'atteint jamais notre serveur ; pas de publicité, pas d'offre payante, et le lien s'efface seul après 24 heures — ou après le premier téléchargement, si vous le choisissez.",
       "<strong>Vitesse :</strong> par lien, celle que permet votre débit montant (1 Go ≈ 3 minutes à 50 Mbit/s) ; à proximité, 40–110 Mo/s en Wi-Fi moderne, donc un gigaoctet en bien moins d'une minute."
     ]
@@ -313,15 +313,15 @@
     "items": [
       {
         "h": "Un lien BIShare (jusqu'à 100 Go)",
-        "b": "Le réflexe pour quiconque n'est pas à côté de vous. Chiffré avant l'envoi, sans compte, sans publicité, expire en 24 heures. Idéal pour : une vidéo pour un client, un dossier de photos pour la famille, une sauvegarde vers votre autre ordinateur."
+        "b": "Le réflexe pour quiconque n'est pas à côté de vous. Chiffré avant l'envoi, sans compte, sans publicité, expire en 24 heures. Idéal pour : <blogClientVideo>une vidéo pour un client</blogClientVideo>, <blogPhotos>un dossier de photos pour la famille</blogPhotos>, une sauvegarde vers votre autre ordinateur."
       },
       {
         "h": "BIShare d'appareil à appareil (toute taille)",
-        "b": "Même Wi-Fi ou partage de connexion ; le fichier ne touche jamais internet. Sans limite de taille, à la vitesse du réseau local, données mobiles coupées. Idéal pour : les rushes d'un tournage, un projet de 200 Go, tout ce qui finirait sinon sur une clé USB."
+        "b": "Même Wi-Fi ou partage de connexion ; le fichier ne touche jamais internet. Sans limite de taille, à la vitesse du réseau local, données mobiles coupées. Idéal pour : les rushes d'un tournage, <goPcPc>un projet de 200 Go</goPcPc>, tout ce qui finirait sinon sur une clé USB."
       },
       {
         "h": "Un cloud (Google Drive, OneDrive, iCloud, Dropbox)",
-        "b": "Bien quand le fichier doit vivre quelque part durablement et que l'autre personne a le même service. Consomme du quota, exige des comptes, et l'envoi plus le téléchargement double le temps. Pas chiffré de bout en bout."
+        "b": "Bien quand le fichier doit vivre quelque part durablement et que l'autre personne a le même service. <blogCloudLimits>Consomme du quota, exige des comptes</blogCloudLimits>, et l'envoi plus le téléchargement double le temps. Pas chiffré de bout en bout."
       },
       {
         "h": "Compresser ou découper le fichier",
@@ -340,7 +340,7 @@
   "security": {
     "title": "Ce qu'il advient de votre fichier",
     "items": [
-      "Par lien : le fichier est chiffré dans votre navigateur avec une clé générée sur votre appareil. La clé voyage dans le lien après le signe #, que les navigateurs n'envoient jamais à un serveur ; notre stockage ne détient donc qu'un chiffré qu'il ne peut pas ouvrir — et ce stockage est dans la région la plus proche de vous.",
+      "Par lien : <goEncrypted>le fichier est chiffré dans votre navigateur avec une clé générée sur votre appareil</goEncrypted>. La clé voyage dans le lien après le signe #, que les navigateurs n'envoient jamais à un serveur ; notre stockage ne détient donc qu'un chiffré qu'il ne peut pas ouvrir — et ce stockage est dans la région la plus proche de vous.",
       "Les liens expirent 24 heures après leur création et le fichier est supprimé avec eux. Activez l'usage unique et le fichier est supprimé dès la fin du premier téléchargement.",
       "À proximité : le fichier va directement d'un appareil à l'autre, chiffré pour ce transfert, et n'est stocké nulle part ailleurs que sur l'appareil qui reçoit.",
       "Pas de compte, pas d'adresse e-mail, pas de SDK publicitaire, pas d'offre payante. Les applis et le client web sont open source ; le format de chiffrement est publié et identique sur chaque plateforme."

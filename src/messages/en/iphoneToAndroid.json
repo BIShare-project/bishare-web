@@ -29,7 +29,7 @@
     "items": {
       "0": {
         "h": "AirDrop can now reach some Android phones",
-        "b": "Google made Quick Share interoperable with AirDrop, starting with the Pixel 10 in November 2025. Pixel 9 models and the 8a followed, then Samsung flagships (Galaxy S24, S25, S26, and the sixth and seventh generation Fold and Flip once updated to One UI 8.5). By June 2026 the list also named the OnePlus 15, Xiaomi 17T Pro, Honor Magic V6, Oppo's Find N6 and Find X9 range, and Vivo's X300 range. Every iPhone can take part. A mid-range Galaxy A, an older Pixel or most budget phones cannot."
+        "b": "<goAirdropAndroid>Google made Quick Share interoperable with AirDrop</goAirdropAndroid>, starting with the Pixel 10 in November 2025. Pixel 9 models and the 8a followed, then Samsung flagships (Galaxy S24, S25, S26, and the sixth and seventh generation Fold and Flip once updated to One UI 8.5). By June 2026 the list also named the OnePlus 15, Xiaomi 17T Pro, Honor Magic V6, Oppo's Find N6 and Find X9 range, and Vivo's X300 range. Every iPhone can take part. A mid-range Galaxy A, an older Pixel or most budget phones cannot."
       },
       "1": {
         "h": "iOS gained a way out",
@@ -37,7 +37,7 @@
       },
       "2": {
         "h": "What is still missing",
-        "b": "A built-in way to send a file to an Android phone that is not on Google's list. A built-in way to reach an Android phone that is not in the same room. And any Bluetooth file transfer from an iPhone at all. Those three are why the rest of this page exists."
+        "b": "A built-in way to send a file to an Android phone that is not on Google's list. <goTransfer>A built-in way to reach an Android phone that is not in the same room</goTransfer>. And any Bluetooth file transfer from an iPhone at all. Those three are why the rest of this page exists."
       }
     }
   },
@@ -77,7 +77,7 @@
         "name": "LocalSend",
         "tag": "Open-source app for the same Wi-Fi",
         "facts": "iOS, Android and desktop apps · open source, free · local network only · encrypted · nobody signs up",
-        "body": "LocalSend does the same-network part of what BIShare does, and does it well: install it on both phones, they find each other, and files go across directly. For two people in one house who only ever swap files in person, it is a solid free choice.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> does the same-network part of what BIShare does, and does it well: install it on both phones, they find each other, and files go across directly. For two people in one house who only ever swap files in person, it is a solid free choice.",
         "cons": "It cannot hand a file to a phone somewhere else, and it is no help if the other person won't install anything."
       },
       "5": {
@@ -128,7 +128,7 @@
   },
   "switching": {
     "title": "Moving everything to a new Android phone",
-    "body": "Sending some files and switching phones are different jobs. If the Android phone is replacing the iPhone, use a migration tool rather than dragging files across one batch at a time.",
+    "body": "<blogIosAndroid>Sending some files and switching phones are different jobs</blogIosAndroid>. If the Android phone is replacing the iPhone, use a migration tool rather than dragging files across one batch at a time.",
     "items": {
       "0": {
         "h": "Transfer to Android, built into iOS 26.3",
@@ -175,11 +175,11 @@
       },
       "2": {
         "h": "Compression by chat apps",
-        "b": "Messaging apps resize and recompress photos and videos sent the normal way, which is why a crisp iPhone shot can arrive soft. Send the original file through a direct transfer, a link, or as a document."
+        "b": "Messaging apps resize and recompress photos and videos sent the normal way, which is why <blogPhotos>a crisp iPhone shot can arrive soft</blogPhotos>. Send the original file through a direct transfer, a link, or as a document."
       },
       "3": {
         "h": "Video",
-        "b": "iPhone video is usually HEVC, which Android has played since Android 5.0, so nearly every phone handles it. Very large 4K or ProRes clips are where transfer choice matters most: a direct Wi-Fi route moves them in seconds to minutes, while a cloud route has to upload the whole file first."
+        "b": "iPhone video is usually HEVC, which Android has played since Android 5.0, so nearly every phone handles it. <goLargeFiles>Very large 4K or ProRes clips</goLargeFiles> are where transfer choice matters most: a direct Wi-Fi route moves them in seconds to minutes, while a cloud route has to upload the whole file first."
       }
     }
   },
@@ -189,7 +189,7 @@
     "items": {
       "0": {
         "h": "Direct over Wi-Fi",
-        "b": "With both phones close to a Wi-Fi 5 router, expect somewhere near 40–50 MB/s; a Wi-Fi 6 router lifts that to roughly 70–110 MB/s. A 1 GB video takes well under half a minute. Over a phone hotspot, expect roughly 10–30 MB/s."
+        "b": "With both phones close to a Wi-Fi 5 router, expect somewhere near 40–50 MB/s; a Wi-Fi 6 router lifts that to roughly 70–110 MB/s. A 1 GB video takes well under half a minute. <goOffline>Over a phone hotspot</goOffline>, expect roughly 10–30 MB/s."
       },
       "1": {
         "h": "AirDrop to Quick Share",
@@ -206,7 +206,7 @@
     "items": {
       "0": {
         "h": "The Android phone isn't in the AirDrop sheet",
-        "b": "Check it is on the supported list and up to date, that the iPhone is set to Everyone for 10 minutes rather than Contacts Only, that the Android phone is visible to everyone, and on Samsung that Share with Apple devices is on. Both need Bluetooth and Wi-Fi on and the screens unlocked."
+        "b": "Check it is on the supported list and up to date, that the iPhone is <goAirdropFix>set to Everyone for 10 minutes rather than Contacts Only</goAirdropFix>, that the Android phone is visible to everyone, and on Samsung that Share with Apple devices is on. Both need Bluetooth and Wi-Fi on and the screens unlocked."
       },
       "1": {
         "h": "The phones share a Wi-Fi but can't see each other in an app",
@@ -214,7 +214,7 @@
       },
       "2": {
         "h": "Bluetooth pairs but nothing sends",
-        "b": "That is expected. iPhones only exchange files with other Apple devices, so pairing with an Android phone over Bluetooth never offers file transfer. Use Wi-Fi or a link."
+        "b": "That is expected. <goAirdropAlt>iPhones only exchange files with other Apple devices</goAirdropAlt>, so pairing with an Android phone over Bluetooth never offers file transfer. Use Wi-Fi or a link."
       },
       "3": {
         "h": "Photos won't open on the Android phone",
@@ -236,7 +236,7 @@
       },
       "1": {
         "h": "Through a server that cannot read it",
-        "b": "BIShare links encrypt the file on the iPhone before upload and put the decryption key after the # in the address. Browsers do not transmit that fragment, so the server only ever stores scrambled data. WhatsApp documents are end-to-end encrypted too, but stay in both chat histories."
+        "b": "<goEncrypted>BIShare links encrypt the file on the iPhone before upload</goEncrypted> and put the decryption key after the # in the address. Browsers do not transmit that fragment, so the server only ever stores scrambled data. WhatsApp documents are end-to-end encrypted too, but stay in both chat histories."
       },
       "2": {
         "h": "Through a server that can",

@@ -55,7 +55,7 @@
       },
       "1": {
         "h": "No account, no email address",
-        "b": "Snapdrop never asked who you were. Any replacement that opens with a sign-up form has already lost the comparison, whatever it does afterwards."
+        "b": "<goNoAccount>Snapdrop never asked who you were</goNoAccount>. Any replacement that opens with a sign-up form has already lost the comparison, whatever it does afterwards."
       },
       "2": {
         "h": "Files go straight across",
@@ -63,7 +63,7 @@
       },
       "3": {
         "h": "Any device talks to any device",
-        "b": "An iPhone to a Windows laptop, an Android to a Mac, a Linux desktop to a tablet. Snapdrop treated them all the same, which is exactly what AirDrop and Quick Share refuse to do."
+        "b": "An iPhone to a Windows laptop, an Android to a Mac, a Linux desktop to a tablet. Snapdrop treated them all the same, which is exactly what <goAirdropAlt>AirDrop</goAirdropAlt> and <goNearby>Quick Share</goNearby> refuse to do."
       }
     }
   },
@@ -89,14 +89,14 @@
         "name": "LocalSend",
         "tag": "Best installed app for transfers at home",
         "facts": "iPhone, Android, Windows, Mac, Linux · free, open source · same network only · encrypted between devices · no account",
-        "body": "LocalSend is what people recommend when the browser requirement is not sacred. It puts a small app on each device, finds the others on your network, and sends files directly, encrypted, with no cloud component anywhere. It is faster and steadier than a browser tab for a large folder, and it is the tool to reach for when the two machines in question are both yours.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> is what people recommend when the browser requirement is not sacred. It puts a small app on each device, finds the others on your network, and sends files directly, encrypted, with no cloud component anywhere. It is faster and steadier than a browser tab for a large folder, and it is the tool to reach for when the two machines in question are both yours.",
         "cons": "Both ends need the app installed, which rules out a borrowed or locked-down computer, and there is no way at all to reach someone on a different network."
       },
       "3": {
         "name": "ShareDrop",
         "tag": "The other classic page, same new owner",
         "facts": "Any browser · free · same network, or a room link · WebRTC · no account",
-        "body": "ShareDrop predates Snapdrop's popularity and works the same way: open the page on two devices, drag, done. It adds a room link you can send to someone, which loosens the same-network requirement a little. It still works today. Worth knowing before you settle on it: LimeWire acquired this one as well, so switching from Snapdrop to ShareDrop for the ownership reason moves you nowhere.",
+        "body": "<goSharedrop>ShareDrop</goSharedrop> predates Snapdrop's popularity and works the same way: open the page on two devices, drag, done. It adds a room link you can send to someone, which loosens the same-network requirement a little. It still works today. Worth knowing before you settle on it: LimeWire acquired this one as well, so switching from Snapdrop to ShareDrop for the ownership reason moves you nowhere.",
         "cons": "Same owner as Snapdrop, no apps, and the same tab-must-stay-open constraint."
       },
       "4": {
@@ -110,7 +110,7 @@
         "name": "Wormhole",
         "tag": "Best encrypted link when the other person is elsewhere",
         "facts": "Browser only · free · stops at 10 GB · sealed in the page before anything leaves · gone after a day · nobody signs in",
-        "body": "Wormhole never tried to be a nearby-transfer tool, so comparing it to Snapdrop only makes sense for the case Snapdrop could not handle. Encryption happens in your browser first and the key rides in the link text, leaving the service with bytes it cannot open. Files under 5 GB wait a day on their servers; larger ones stream between the two browsers live.",
+        "body": "<goWormhole>Wormhole</goWormhole> never tried to be a nearby-transfer tool, so comparing it to Snapdrop only makes sense for the case Snapdrop could not handle. Encryption happens in your browser first and the key rides in the link text, leaving the service with bytes it cannot open. Files under 5 GB wait a day on their servers; larger ones stream between the two browsers live.",
         "cons": "Ten gigabytes and no further, nothing for two devices in the same room, and a stalled tab kills a long transfer."
       },
       "6": {
@@ -154,11 +154,11 @@
       },
       "1": {
         "h": "Your own phone and your own laptop, every day",
-        "b": "Install something. BIShare or LocalSend will be faster and less fragile than a tab, and BIShare keeps the browser route for the days when you are sending to someone else."
+        "b": "Install something. <goPcPhone>BIShare or LocalSend will be faster and less fragile than a tab</goPcPhone>, and BIShare keeps the browser route for the days when you are sending to someone else."
       },
       "2": {
         "h": "The other person is on a different network",
-        "b": "Snapdrop never did this. Pair through PairDrop's 6-digit code if you both stay online, or send a BIShare link if they should be able to collect it later at their own pace."
+        "b": "Snapdrop never did this. Pair through PairDrop's 6-digit code if you both stay online, or <goTransfer>send a BIShare link</goTransfer> if they should be able to collect it later at their own pace."
       },
       "3": {
         "h": "A hotel, café or office network",
@@ -166,7 +166,7 @@
       },
       "4": {
         "h": "One very large file, once",
-        "b": "A BIShare link carries 100 GB and holds it for a day. Transfer.zip's free tier has no ceiling at all as long as you keep the tab open while the other person downloads."
+        "b": "<goLargeFiles>A BIShare link carries 100 GB</goLargeFiles> and holds it for a day. Transfer.zip's free tier has no ceiling at all as long as you keep the tab open while the other person downloads."
       },
       "5": {
         "h": "You want to be certain nothing changed under you",
@@ -205,7 +205,7 @@
       },
       "2": {
         "h": "Over the internet, your upload decides everything",
-        "b": "Anything that goes out to the internet is governed by the slower half of your connection, the upload. Reckon on roughly three minutes per gigabyte at 50 Mbps, so a ten-gigabyte file is a lunch break. No service escapes this, which is the argument for using the local path whenever the two devices are within reach of the same router."
+        "b": "Anything that goes out to the internet is governed by the slower half of your connection, the upload. Reckon on roughly three minutes per gigabyte at 50 Mbps, so <blog10gb>a ten-gigabyte file is a lunch break</blog10gb>. No service escapes this, which is the argument for using the local path whenever the two devices are within reach of the same router."
       }
     }
   },
@@ -215,7 +215,7 @@
     "items": {
       "0": {
         "h": "Peer to peer, nothing stored",
-        "b": "PairDrop, ShareDrop and self-hosted Snapdrop move data between browsers over encrypted WebRTC; the server only introduces the two sides. BIShare's local transfers behave the same way, and its links are end-to-end encrypted with the key in the URL fragment, so we cannot read them either."
+        "b": "PairDrop, ShareDrop and self-hosted Snapdrop move data between browsers over encrypted WebRTC; the server only introduces the two sides. BIShare's local transfers behave the same way, and <goEncrypted>its links are end-to-end encrypted</goEncrypted> with the key in the URL fragment, so we cannot read them either."
       },
       "1": {
         "h": "Published source is what makes the claim checkable",

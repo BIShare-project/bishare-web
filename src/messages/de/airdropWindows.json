@@ -6,20 +6,20 @@
   "hero": {
     "eyebrow": "Plattformübergreifende Übertragung",
     "title": "AirDrop für Windows",
-    "body": "AirDrop funktioniert nur zwischen Apple-Geräten; Windows hatte es nie. <strong>BIShare</strong> ist die kostenlose Open-Source-App, die dieselbe Aufgabe zwischen <strong>iPhone oder Mac und einem Windows-PC</strong> erledigt — plus Android und Linux — über dein eigenes WLAN oder per Link, den die Gegenseite in jedem Browser öffnet. <highlight>Kostenlos, ohne Konto, und beim Empfänger muss nichts installiert werden.</highlight>",
+    "body": "AirDrop funktioniert nur zwischen Apple-Geräten; Windows hatte es nie. <strong>BIShare</strong> ist die kostenlose Open-Source-App, die dieselbe Aufgabe zwischen <strong>iPhone oder Mac und einem Windows-PC</strong> erledigt — plus Android und Linux — über dein eigenes WLAN oder per Link, den die Gegenseite in jedem Browser öffnet. <highlight>Kostenlos, <goNoAccount>ohne Konto</goNoAccount>, und beim Empfänger muss nichts installiert werden.</highlight>",
     "ctaPrimary": "BIShare kostenlos holen",
     "ctaSecondary": "So funktioniert’s"
   },
   "why": {
     "title": "Warum AirDrop Windows nicht erreicht",
-    "body": "AirDrop läuft auf Apple-eigenen Protokollen und funktioniert daher zwischen iPhones, iPads und Macs — nie mit einem Windows-PC; Apple hat das Protokoll nie für andere veröffentlicht. Die Umgebungsfreigabe von Windows 11 spricht nur mit anderen Windows-PCs. Microsofts Phone Link hat im Dezember 2024 die Dateifreigabe fürs iPhone bekommen, aber nur auf Windows-Insider-Builds und nur fürs Handy — ein Mac hat weiterhin keinen Weg zum PC. Genau diesen Alltagsfall, ein Foto oder Dokument vom iPhone oder Mac auf ein Windows-Notebook zu holen, deckt BIShare ab."
+    "body": "AirDrop läuft auf Apple-eigenen Protokollen und funktioniert daher zwischen iPhones, iPads und Macs — nie mit einem Windows-PC; Apple hat das Protokoll nie für andere veröffentlicht. Die Umgebungsfreigabe von Windows 11 spricht nur mit anderen Windows-PCs. Microsofts Phone Link hat im Dezember 2024 die Dateifreigabe fürs iPhone bekommen, aber nur auf Windows-Insider-Builds und nur fürs Handy — <goMacWindows>ein Mac hat weiterhin keinen Weg zum PC</goMacWindows>. Genau diesen Alltagsfall, <blogIphoneWindows>ein Foto oder Dokument vom iPhone oder Mac auf ein Windows-Notebook zu holen</blogIphoneWindows>, deckt BIShare ab."
   },
   "how": {
     "title": "So sendet BIShare iPhone / Mac ↔ Windows",
     "items": {
       "0": {
         "h": "Im selben WLAN",
-        "b": "Dateien gehen direkt von Gerät zu Gerät, Ende-zu-Ende verschlüsselt — nichts wird auf einem Server gespeichert. Das ist schnell und funktioniert sogar über den Hotspot des Telefons ganz ohne Internet."
+        "b": "Dateien gehen direkt von Gerät zu Gerät, Ende-zu-Ende verschlüsselt — nichts wird auf einem Server gespeichert. Das ist schnell und funktioniert sogar <goOffline>über den Hotspot des Telefons ganz ohne Internet</goOffline>."
       },
       "1": {
         "h": "Wenn ihr getrennt seid",
@@ -154,11 +154,11 @@
     "title": "In beide Richtungen, nicht nur in eine",
     "toPc": {
       "h": "iPhone oder Mac → Windows-PC",
-      "b": "Der übliche Fall: Fotos, Videos und Dokumente vom Handy auf den Rechner mit lokaler WLAN-Geschwindigkeit, Originaldatei unangetastet — ohne Neukompression, ohne 25-MB-Mailgrenze und ohne dass unterwegs etwas auf einem Server landet."
+      "b": "Der übliche Fall: <goPhonePc>Fotos, Videos und Dokumente vom Handy auf den Rechner</goPhonePc> mit lokaler WLAN-Geschwindigkeit, Originaldatei unangetastet — ohne Neukompression, ohne 25-MB-Mailgrenze und ohne dass unterwegs etwas auf einem Server landet."
     },
     "toPhone": {
       "h": "Windows-PC → iPhone oder Mac",
-      "b": "Derselbe Weg rückwärts — etwas, das AirDrop nie angeboten hat. Zieh Dateien in die PC-App und schick sie ans Handy; große Videos und Ordner verhalten sich wie kleine Dateien, denn die Grenze ist der Speicherplatz, nicht ein Upload-Kontingent."
+      "b": "Derselbe Weg rückwärts — etwas, das AirDrop nie angeboten hat. Zieh Dateien in die PC-App und <goPcPhone>schick sie ans Handy</goPcPhone>; <goLargeFiles>große Videos und Ordner</goLargeFiles> verhalten sich wie kleine Dateien, denn die Grenze ist der Speicherplatz, nicht ein Upload-Kontingent."
     }
   },
   "fixes": {
@@ -184,7 +184,7 @@
     "items": [
       "<strong>AirDrop existiert unter Windows nicht.</strong> Es läuft auf Apple-eigenen Protokollen — ein Download namens „AirDrop für Windows“ ist nie echt; eine .exe mit diesem Namen gilt als unsicher.",
       "<strong>Was heute am nächsten kommt:</strong> BIShare — kostenlos im Microsoft Store für Windows 10 und 11, mit passenden Apps für iPhone, Mac, Android und Linux. Sendet in beide Richtungen über WLAN, ohne Konto.",
-      "<strong>Nichts installieren?</strong> Öffne bishare.app/transfer in einem beliebigen Browser auf dem PC und ziehe die Datei vom Handy hinein — im selben WLAN oder per Link, verschlüsselt bevor sie das Gerät verlässt.",
+      "<strong>Nichts installieren?</strong> Öffne <goTransfer>bishare.app/transfer</goTransfer> in einem beliebigen Browser auf dem PC und ziehe die Datei vom Handy hinein — im selben WLAN oder per Link, verschlüsselt bevor sie das Gerät verlässt.",
       "<strong>Microsofts eigene Option:</strong> Phone Link kann auf Windows-Insider-Builds Dateien mit einem iPhone teilen (iOS 16+, Bluetooth-Kopplung, Microsoft-Konto). Einen Mac deckt es nicht ab, und auf dem stabilen Windows ist es noch nicht für alle da."
     ]
   },
@@ -251,7 +251,7 @@
       },
       {
         "h": "LocalSend",
-        "b": "Kostenlos, Open Source und gut im gemeinsamen WLAN — jedes Gerät braucht die App, und es gibt keinen Link-Weg, wenn die andere Person in einem anderen Netz ist oder nichts installieren kann."
+        "b": "<goLocalsend>Kostenlos, Open Source und gut im gemeinsamen WLAN</goLocalsend> — jedes Gerät braucht die App, und es gibt keinen Link-Weg, wenn die andere Person in einem anderen Netz ist oder nichts installieren kann."
       },
       {
         "h": "Snapdrop / PairDrop",
@@ -259,7 +259,7 @@
       },
       {
         "h": "SHAREit, Xender und Ähnliche",
-        "b": "Auf dem Papier schnell, aber werbefinanziert, berechtigungshungrig und wiederholt wegen Sicherheitsproblemen aufgefallen. Nichts für einen Arbeits-PC."
+        "b": "Auf dem Papier schnell, aber <goShareit>werbefinanziert, berechtigungshungrig</goShareit> und wiederholt wegen Sicherheitsproblemen aufgefallen. Nichts für einen Arbeits-PC."
       },
       {
         "h": "iCloud, Google Drive, Dropbox",
@@ -267,7 +267,7 @@
       },
       {
         "h": "Kabel, iTunes oder die Windows-Fotos-App",
-        "b": "Zuverlässig für Fotos vom iPhone, mit Kabel und Treiberinstallation. Nichts für Mac zu PC, nichts für die Gegenrichtung, nichts fürs Senden an eine andere Person."
+        "b": "<goIphonePhotos>Zuverlässig für Fotos vom iPhone</goIphonePhotos>, mit Kabel und Treiberinstallation. Nichts für Mac zu PC, nichts für die Gegenrichtung, nichts fürs Senden an eine andere Person."
       },
       {
         "h": "E-Mail oder Chat-App",
@@ -317,7 +317,7 @@
     "title": "Was dein Gerät verlässt — und was nicht",
     "items": [
       "Im selben Netz geht die Datei direkt von Gerät zu Gerät, für diese Übertragung verschlüsselt. Kein Server sieht sie, und gespeichert wird sie nur auf dem empfangenden PC.",
-      "Auf dem Link-Weg wird die Datei vor dem Upload im Browser oder in der App verschlüsselt. Der Schlüssel steckt im Link hinter dem #-Zeichen, das Browser nie an einen Server senden — unser Speicher hält also Chiffretext, den er nicht öffnen kann. Links laufen nach 24 Stunden ab; auf Wunsch zerstört sich einer nach dem ersten Download selbst.",
+      "Auf dem Link-Weg <goEncrypted>wird die Datei vor dem Upload im Browser oder in der App verschlüsselt</goEncrypted>. Der Schlüssel steckt im Link hinter dem #-Zeichen, das Browser nie an einen Server senden — unser Speicher hält also Chiffretext, den er nicht öffnen kann. Links laufen nach 24 Stunden ab; auf Wunsch zerstört sich einer nach dem ersten Download selbst.",
       "Kein Konto, kein Kontakte-Upload, kein Werbe-SDK. Die Windows-App ist signiert und von uns im Microsoft Store veröffentlicht; der Quellcode für jede Plattform ist öffentlich."
     ]
   },

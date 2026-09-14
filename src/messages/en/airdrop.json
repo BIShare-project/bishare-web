@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "AirDrop for Android",
     "title": "AirDrop for Android",
-    "body": "Search for AirDrop on an Android phone and you get two very different answers. Google's Quick Share has long been Android's own AirDrop, moving files between Android phones, Chromebooks and Windows PCs. Since November 2025 it has also learned to speak AirDrop itself: on a growing list of Pixel, Galaxy and other recent phones, an iPhone, iPad or Mac now appears right inside the Quick Share sheet. This guide checks whether your phone is on that list, walks through the settings on both devices, explains what the bridge still cannot do, and ranks six ways to get the same result on every other Android phone. <strong>BIShare</strong> is one of the six: it runs on any Android phone and any iPhone, <strong>sends in both directions without internet when you share a network, and makes a link when you do not</strong>. <highlight>Free, open source, no account.</highlight>",
+    "body": "Search for AirDrop on an Android phone and you get two very different answers. Google's Quick Share has long been Android's own AirDrop, moving files between Android phones, Chromebooks and Windows PCs. Since November 2025 it has also learned to speak AirDrop itself: on a growing list of Pixel, Galaxy and other recent phones, an iPhone, iPad or Mac now appears right inside the Quick Share sheet. This guide checks whether your phone is on that list, walks through the settings on both devices, explains what the bridge still cannot do, and ranks six ways to get the same result on every other Android phone. <strong>BIShare</strong> is one of the six: it runs on any Android phone and any iPhone, <strong>sends in both directions without internet when you share a network, and makes a link when you do not</strong>. <highlight>Free, open source, <goNoAccount>no account</goNoAccount>.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
@@ -29,7 +29,7 @@
     "items": {
       "0": {
         "h": "Quick Share, Android's own AirDrop",
-        "b": "Google's Nearby Share and Samsung's Quick Share became a single Quick Share in 2024. It moves photos, videos and files between Android phones and tablets, Chromebooks and Windows PCs over Bluetooth and Wi-Fi, and it ships on Android phones with Google services, so for most people it is the AirDrop they already have."
+        "b": "Google's <goNearby>Nearby Share</goNearby> and Samsung's Quick Share became a single Quick Share in 2024. It moves photos, videos and files between Android phones and tablets, Chromebooks and Windows PCs over Bluetooth and Wi-Fi, and it ships on Android phones with Google services, so for most people it is the AirDrop they already have."
       },
       "1": {
         "h": "Quick Share that talks to AirDrop",
@@ -37,7 +37,7 @@
       },
       "2": {
         "h": "Apps that act like AirDrop everywhere",
-        "b": "For phones Google has not added, for Windows and Linux computers, and for people who are not in the same room, a cross-platform app does the job. The useful ones run on the Android phone and the iPhone alike, or need nothing more than a browser at the other end."
+        "b": "For phones Google has not added, for Windows and Linux computers, and for people who are not in the same room, <goBestApps>a cross-platform app does the job</goBestApps>. The useful ones run on the Android phone and the iPhone alike, or need nothing more than a browser at the other end."
       }
     }
   },
@@ -107,7 +107,7 @@
       },
       "2": {
         "h": "Windows PCs and Chromebooks",
-        "b": "Chromebooks have Quick Share built in, and Google's Quick Share app for Windows, for 64-bit Windows 10 and later and Arm-based Windows 11 PCs, sends and receives with Android phones. Neither one reaches AirDrop: Google lists the Apple bridge for phones only."
+        "b": "Chromebooks have Quick Share built in, and Google's <goAirdropWindows>Quick Share app for Windows</goAirdropWindows>, for 64-bit Windows 10 and later and Arm-based Windows 11 PCs, sends and receives with Android phones. Neither one reaches AirDrop: Google lists the Apple bridge for phones only."
       }
     }
   },
@@ -121,7 +121,7 @@
       },
       "1": {
         "h": "Both devices have to be close",
-        "b": "Google asks for the devices to be within Bluetooth range with Wi-Fi switched on. There is no way to AirDrop to a friend in another city, and no link to fall back on when you are apart."
+        "b": "Google asks for the devices to be within Bluetooth range with Wi-Fi switched on. There is no way to AirDrop to a friend in another city, and <blogIosAndroid>no link to fall back on when you are apart</blogIosAndroid>."
       },
       "2": {
         "h": "Listed phones only",
@@ -156,21 +156,21 @@
         "name": "BIShare",
         "tag": "Best for any Android phone, both directions, with or without internet",
         "facts": "Android, iPhone, Windows, macOS, Linux · MIT-licensed · direct on a shared Wi-Fi or hotspot, no size limit · encrypted links up to 100 GB that open in any browser for 24 hours · rooms with a short code · listed in the Android share sheet · no account",
-        "body": "BIShare covers the ground the bridge leaves. Any Android phone and any iPhone running the app find each other on the same Wi-Fi or on a phone's hotspot, listed model or not, and files cross directly in either direction without using the internet. A Windows PC or a Linux laptop joins in the same way. When the other person is somewhere else, share a link: it is encrypted on your phone before upload and opens in any browser for a day.",
+        "body": "BIShare covers the ground the bridge leaves. Any Android phone and any iPhone running the app find each other on the same Wi-Fi or on a phone's hotspot, listed model or not, and files cross directly in either direction <goOffline>without using the internet</goOffline>. A Windows PC or a Linux laptop joins in the same way. When the other person is somewhere else, share a link: it is encrypted on your phone before upload and <goTransfer>opens in any browser for a day</goTransfer>.",
         "cons": "Nearby transfers need the app on both devices, and links need a connection at each end."
       },
       "3": {
         "name": "LocalSend",
         "tag": "Best open-source choice for devices on one home network",
         "facts": "Android, iPhone, Windows, macOS, Linux · Apache 2.0 · one local network · HTTPS with a certificate per device · no account",
-        "body": "LocalSend behaves like a network-wide AirDrop. Every device running it on the same Wi-Fi shows up under a friendly name, and one tap sends. iPhone to Android is as easy as Android to a Linux desktop, and no server is ever involved.",
+        "body": "<goLocalsend>LocalSend</goLocalsend> behaves like a network-wide AirDrop. Every device running it on the same Wi-Fi shows up under a friendly name, and one tap sends. iPhone to Android is as easy as Android to a Linux desktop, and no server is ever involved.",
         "cons": "Both devices need the app, and it cannot reach anything on another network, a phone on mobile data included."
       },
       "4": {
         "name": "PairDrop",
         "tag": "Best when the other person refuses to install anything",
         "facts": "Runs in a current browser, can be added as a web app · GPL-3.0 · spots devices on one network, pairs them across networks · peer to peer with a TURN relay as backup · no account",
-        "body": "Open pairdrop.net on the Android phone and in Safari on the iPhone, and on the same network the two appear to each other straight away. It suits a one-off exchange with someone you have just met, and pairing lets two devices find each other again later on different networks.",
+        "body": "Open <goSnapdrop>pairdrop.net</goSnapdrop> on the Android phone and in Safari on the iPhone, and on the same network the two appear to each other straight away. It suits a one-off exchange with someone you have just met, and pairing lets two devices find each other again later on different networks.",
         "cons": "Both browser tabs must stay open, it needs internet to introduce the devices, and long videos can push a phone browser's memory."
       },
       "5": {
@@ -212,7 +212,7 @@
       },
       "1": {
         "h": "Personal Hotspot is on",
-        "b": "Apple tells both people to switch off Personal Hotspot before using AirDrop. An iPhone sharing its mobile connection with a laptop can drop out of discovery for Android and Apple devices alike."
+        "b": "Apple tells both people to <goAirdropFix>switch off Personal Hotspot before using AirDrop</goAirdropFix>. An iPhone sharing its mobile connection with a laptop can drop out of discovery for Android and Apple devices alike."
       },
       "2": {
         "h": "The Galaxy switch is missing",
@@ -228,7 +228,7 @@
       },
       "5": {
         "h": "Your model is simply not supported",
-        "b": "No setting adds a phone that is missing from Google's list. Send to an iPhone with the Quick Share QR code, or install a cross-platform app on both devices for transfers in both directions."
+        "b": "No setting adds a phone that is missing from Google's list. Send to an iPhone with the Quick Share QR code, or install a cross-platform app on both devices for <goAndroidIphone>transfers in both directions</goAndroidIphone>."
       }
     }
   },
@@ -246,7 +246,7 @@
       },
       "2": {
         "h": "Links and third-party apps",
-        "b": "The Quick Share QR code keeps files on Google's servers for 24 hours with end-to-end encryption. A BIShare link is encrypted on your phone, and its key travels inside the link rather than sitting on the server. Apps that merely borrow the AirDrop name deserve extra care before they get access to your files."
+        "b": "The Quick Share QR code keeps files on Google's servers for 24 hours with end-to-end encryption. <goEncrypted>A BIShare link is encrypted on your phone</goEncrypted>, and its key travels inside the link rather than sitting on the server. Apps that merely borrow the AirDrop name deserve extra care before they get access to your files."
       }
     }
   },

@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "LocalSend替代",
     "title": "最佳LocalSend替代工具",
-    "body": "LocalSend的口碑是实打实挣来的：它免费、开源，几乎能在所有系统上运行，不需要账号，也不经过云服务器，就能通过Wi-Fi网络传文件。人们另找工具，通常只是出于几个具体原因。对方在另一栋楼里；路由器把设备互相隔离，手机始终不出现在笔记本屏幕上；一群人需要同时拿到同一批文件；或者iPhone要毫不费劲地传到Linux电脑上。本指南会讲清LocalSend能做什么、在哪里止步，把它和BIShare并排比较，按各自最擅长的场景为七款替代工具排名，并解决让大多数人开始寻找替代品的设备发现问题。<strong>BIShare</strong>就是这七款之一：在同一网络中，它的用法和LocalSend一样；对不在这个网络里的人，它还能提供<strong>最大100 GB的加密链接</strong>。<highlight>免费、开源、无需账号。</highlight>",
+    "body": "LocalSend的口碑是实打实挣来的：它免费、开源，几乎能在所有系统上运行，不需要账号，也不经过云服务器，就能通过Wi-Fi网络传文件。人们另找工具，通常只是出于几个具体原因。对方在另一栋楼里；路由器把设备互相隔离，手机始终不出现在笔记本屏幕上；一群人需要同时拿到同一批文件；或者iPhone要毫不费劲地传到Linux电脑上。本指南会讲清LocalSend能做什么、在哪里止步，把它和BIShare并排比较，按各自最擅长的场景为七款替代工具排名，并解决让大多数人开始寻找替代品的设备发现问题。<strong>BIShare</strong>就是这七款之一：在同一网络中，它的用法和LocalSend一样；对不在这个网络里的人，它还能提供<strong>最大100 GB的加密链接</strong>。<highlight>免费、开源、<goNoAccount>无需账号</goNoAccount>。</highlight>",
     "ctaPrimary": "免费获取BIShare",
     "ctaSecondary": "工作原理"
   },
@@ -18,14 +18,14 @@
       "<strong>体验不变，还能传到Wi-Fi之外：</strong>在同一网络中，BIShare设备之间直接传输；对不在网络里的人，它会变成一个100 GB的加密链接。",
       "<strong>两边都不想装任何东西：</strong>PairDrop在浏览器里运行，用6位配对码就能连接不同网络里的设备。",
       "<strong>把手机当成Linux或Windows电脑的遥控器：</strong>KDE Connect在文件传输之外，还提供剪贴板同步、通知和媒体控制。",
-      "<strong>通过互联网在自己的设备之间传超大文件：</strong>Blip不限大小直接发送，中断后可续传，非商业用途免费，但需要账号。",
+      "<strong><goLargeFiles>通过互联网在自己的设备之间传超大文件</goLargeFiles>：</strong>Blip不限大小直接发送，中断后可续传，非商业用途免费，但需要账号。",
       "<strong>家庭网络里的Linux Mint电脑：</strong>Warpinator系统自带，无需设置。",
-      "<strong>全是Apple设备，或Android加Windows的家庭：</strong>系统自带的AirDrop和Quick Share最省事。"
+      "<strong>全是Apple设备，或Android加Windows的家庭：</strong>系统自带的AirDrop和<goNearby>Quick Share</goNearby>最省事。"
     ]
   },
   "limits": {
     "title": "LocalSend擅长什么，又在哪里止步",
-    "body": "LocalSend围绕一个思路设计：同一局域网里的设备互相发现，并通过HTTPS直接通信，全程不需要联网。这种设计既是它的长处，也是它的边界。",
+    "body": "LocalSend围绕一个思路设计：同一局域网里的设备互相发现，并通过HTTPS直接通信，<blogLocal>全程不需要联网</blogLocal>。这种设计既是它的长处，也是它的边界。",
     "items": {
       "0": {
         "h": "它的长处",
@@ -47,15 +47,15 @@
     "items": {
       "0": {
         "h": "在同一网络中",
-        "b": "两者都以路由器允许的最快速度在设备之间直接传文件，没有互联网时也都能通过手机热点继续工作。LocalSend可以选择单个接收者、多个接收者或分享链接；BIShare可以发给附近的一台设备，或通过房间码发给多个人。"
+        "b": "两者都以路由器允许的最快速度在设备之间直接传文件，<goOffline>没有互联网时也都能通过手机热点继续工作</goOffline>。LocalSend可以选择单个接收者、多个接收者或分享链接；BIShare可以发给附近的一台设备，或通过房间码发给多个人。"
       },
       "1": {
         "h": "对方在别处时",
-        "b": "这正是BIShare多出来的能力。BIShare链接在发送设备上完成加密，最多容纳100 GB，无论接收者身在何处，24小时内都能在任意浏览器中打开。LocalSend则没有办法走出局域网。"
+        "b": "这正是BIShare多出来的能力。<goEncrypted>BIShare链接在发送设备上完成加密</goEncrypted>，最多容纳100 GB，无论接收者身在何处，24小时内都能在任意浏览器中打开。LocalSend则没有办法走出局域网。"
       },
       "2": {
         "h": "群组",
-        "b": "BIShare房间允许多人通过短码从应用或浏览器加入，一起放入或取走文件；房间里的文件会在24小时内过期。LocalSend的多接收者模式只有在所有人都连着同一Wi-Fi时才适合群组。"
+        "b": "<goRooms>BIShare房间</goRooms>允许多人通过短码从应用或浏览器加入，一起放入或取走文件；房间里的文件会在24小时内过期。LocalSend的多接收者模式只有在所有人都连着同一Wi-Fi时才适合群组。"
       },
       "3": {
         "h": "LocalSend胜出的地方",
@@ -78,14 +78,14 @@
         "name": "PairDrop",
         "tag": "最适合谁都不想装软件的时候",
         "facts": "任意现代浏览器，也可安装为网页应用 · 开源（GPL-3.0） · 通过6位数字码或二维码跨网络配对 · 5个字母的公开房间 · 点对点，必要时经TURN服务器中继 · 无需账号",
-        "body": "在两台设备的浏览器里打开PairDrop，同一网络中的设备会自动出现，就像不用装应用的LocalSend。用6位数字码或二维码把两台设备配对一次，之后即使在不同网络里它们也能继续找到彼此；直连路径被挡住时，连接会经过PairDrop的TURN服务器中继。无论哪种情况，文件都保持端到端加密，项目本身也可以自行托管。",
+        "body": "在两台设备的浏览器里打开<goSnapdrop>PairDrop</goSnapdrop>，同一网络中的设备会自动出现，就像不用装应用的LocalSend。用6位数字码或二维码把两台设备配对一次，之后即使在不同网络里它们也能继续找到彼此；直连路径被挡住时，连接会经过PairDrop的TURN服务器中继。无论哪种情况，文件都保持端到端加密，项目本身也可以自行托管。",
         "cons": "传输期间两边的浏览器标签页都必须保持打开，超大文件受浏览器内存处理方式的限制，公共服务还需要联网，设备才能找到彼此。"
       },
       "2": {
         "name": "KDE Connect",
         "tag": "最适合手机和电脑之间不止要传文件的时候",
         "facts": "Linux、Windows、macOS、Android、iOS · 开源（GPL） · 同一局域网 · 发送文件、同步剪贴板、通知、媒体控制和远程输入 · 无需账号",
-        "body": "KDE Connect把同一网络中的手机和电脑配对，让它们协同工作：双向传文件、共享剪贴板、在电脑上回复通知，还能把手机当触控板或媒体遥控器。在Linux桌面上它往往已经自带，在Android上它是本地工具里功能最全的。",
+        "body": "KDE Connect把同一网络中的<goPcPhone>手机和电脑配对</goPcPhone>，让它们协同工作：双向传文件、共享剪贴板、在电脑上回复通知，还能把手机当触控板或媒体遥控器。在Linux桌面上它往往已经自带，在Android上它是本地工具里功能最全的。",
         "cons": "受Apple的限制，iOS版能做的事比Android版少得多，每台设备都要单独配对，而且和LocalSend一样，够不着另一个网络里的设备。"
       },
       "3": {
@@ -106,7 +106,7 @@
         "name": "AirDrop和Quick Share",
         "tag": "最适合所有设备都属于同一生态的时候",
         "facts": "AirDrop：iPhone、iPad、Mac，以及Quick Share中支持AirDrop的Android手机 · Quick Share：Android、Chromebook、Windows电脑 · 系统内置 · 近距离，通过蓝牙和Wi-Fi",
-        "body": "如果所有设备都是Apple的，AirDrop本来就在分享菜单里，完全不用设置；Android手机和Windows电脑之间的Quick Share也一样。设备离得近时，两者即使没有共同的Wi-Fi网络也能用，较新的Pixel和Galaxy机型还能通过AirDrop发送到Apple设备。",
+        "body": "如果所有设备都是Apple的，<goAirdropAlt>AirDrop</goAirdropAlt>本来就在分享菜单里，完全不用设置；Android手机和Windows电脑之间的Quick Share也一样。设备离得近时，两者即使没有共同的Wi-Fi网络也能用，较新的Pixel和Galaxy机型还能通过AirDrop发送到Apple设备。",
         "cons": "它们是封闭的，绑定各自平台，要求设备在物理上靠得很近，而且完全不支持Linux。"
       },
       "6": {
@@ -149,7 +149,7 @@
       },
       "1": {
         "h": "对方在别的地方",
-        "b": "BIShare链接可在任意浏览器中打开24小时，最多100 GB。PairDrop需要两台设备先配对，Blip适合在你自己的账号之间传超大文件。"
+        "b": "<goTransfer>BIShare链接可在任意浏览器中打开24小时</goTransfer>，最多100 GB。PairDrop需要两台设备先配对，Blip适合在你自己的账号之间传超大文件。"
       },
       "2": {
         "h": "访客电脑或受管控的电脑",

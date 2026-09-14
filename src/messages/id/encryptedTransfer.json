@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Transfer file terenkripsi",
     "title": "Transfer file terenkripsi, dijelaskan dengan benar",
-    "body": "Hampir semua layanan transfer file kini menyebut dirinya terenkripsi, dan hampir semuanya jujur tentang sesuatu. Pertanyaannya, tentang apa. Sebuah tautan bisa dilindungi HTTPS dalam perjalanan ke server, disimpan terenkripsi di disk yang bisa dibuka penyedia, atau dikunci di perangkat Anda dengan kunci yang tak pernah dilihat penyedia. Hanya yang terakhir yang menjauhkan file Anda dari perusahaan itu sendiri, dari siapa pun yang membobolnya, dan dari siapa pun yang bisa memaksanya menyerahkan data. Panduan ini memisahkan tiga jenis enkripsi, memberi tes untuk membedakannya di layanan mana pun dalam satu menit, memeringkat tujuh cara mengirim file yang tak bisa dibaca perantara, dan jujur soal apa yang tidak disembunyikan enkripsi, termasuk pada produk kami. <strong>BIShare</strong> buatan kami termasuk di antaranya: <strong>gratis dan berlisensi MIT, mengenkripsi tautan di browser dengan AES-256-GCM dan mengirim antarperangkat dengan kunci yang disepakati kedua perangkat</strong>. <highlight>Tanpa akun.</highlight>",
+    "body": "Hampir semua layanan transfer file kini menyebut dirinya terenkripsi, dan hampir semuanya jujur tentang sesuatu. Pertanyaannya, tentang apa. Sebuah tautan bisa dilindungi HTTPS dalam perjalanan ke server, disimpan terenkripsi di disk yang bisa dibuka penyedia, atau dikunci di perangkat Anda dengan kunci yang tak pernah dilihat penyedia. Hanya yang terakhir yang menjauhkan file Anda dari perusahaan itu sendiri, dari siapa pun yang membobolnya, dan dari siapa pun yang bisa memaksanya menyerahkan data. Panduan ini memisahkan tiga jenis enkripsi, memberi tes untuk membedakannya di layanan mana pun dalam satu menit, memeringkat tujuh cara mengirim file yang tak bisa dibaca perantara, dan jujur soal apa yang tidak disembunyikan enkripsi, termasuk pada produk kami. <strong>BIShare</strong> buatan kami termasuk di antaranya: <strong>gratis dan berlisensi MIT, mengenkripsi tautan di browser dengan AES-256-GCM dan mengirim antarperangkat dengan kunci yang disepakati kedua perangkat</strong>. <highlight><goNoAccount>Tanpa akun</goNoAccount>.</highlight>",
     "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
@@ -17,7 +17,7 @@
     "items": [
       "<strong>Cari end-to-end, bukan sekadar \"terenkripsi\":</strong> HTTPS dan enkripsi saat disimpan tetap membuat penyedia bisa membuka file Anda. End-to-end berarti hanya pengirim dan penerima yang memegang kunci.",
       "<strong>Tes satu menit:</strong> jika layanan bisa menampilkan pratinjau file di aplikasi webnya, atau memulihkan akses saat Anda kehilangan tautan, berarti bukan end-to-end.",
-      "<strong>Paling mudah dari browser:</strong> BIShare atau Wormhole mengenkripsi sebelum upload dan menaruh kunci di tautan, jadi penerima cukup mengklik.",
+      "<strong>Paling mudah dari browser:</strong> <goTransfer>BIShare</goTransfer> atau Wormhole mengenkripsi sebelum upload dan menaruh kunci di tautan, jadi penerima cukup mengklik.",
       "<strong>File yang harus tetap tersedia berminggu-minggu:</strong> Proton Drive menyimpan file terenkripsi end-to-end di akun Anda dan membagikannya lewat tautan dengan kata sandi opsional.",
       "<strong>Anda juga perlu menyembunyikan pengirim:</strong> OnionShare menyajikan file dari komputer Anda sendiri lewat Tor.",
       "<strong>Saluran apa pun, bahkan email biasa:</strong> masukkan file ke arsip 7-Zip dengan AES-256 dan kata sandi kuat, lalu kirim kata sandinya lewat jalur lain."
@@ -37,7 +37,7 @@
       },
       "2": {
         "h": "Enkripsi end-to-end",
-        "b": "File dienkripsi di perangkat pengirim sebelum pergi, dan hanya perangkat penerima yang bisa mendekripsinya. Layanan menyimpan atau meneruskan byte acak dan tidak pernah punya kuncinya. Jika perusahaan dibobol atau diperintahkan menyerahkan file, tak ada yang terbaca untuk diserahkan. Hanya jenis ini yang melindungi Anda dari perantara itu sendiri."
+        "b": "File dienkripsi di perangkat pengirim sebelum pergi, dan <blogE2e>hanya perangkat penerima yang bisa mendekripsinya</blogE2e>. Layanan menyimpan atau meneruskan byte acak dan tidak pernah punya kuncinya. Jika perusahaan dibobol atau diperintahkan menyerahkan file, tak ada yang terbaca untuk diserahkan. Hanya jenis ini yang melindungi Anda dari perantara itu sendiri."
       },
       "3": {
         "h": "Kenapa pemasaran mencampuradukkannya",
@@ -87,7 +87,7 @@
         "name": "Wormhole",
         "tag": "Tautan terenkripsi cepat terbaik dari browser apa pun",
         "facts": "Browser · gratis · hingga 10 GB · AES-GCM dengan kunci 128-bit berbasis RFC 8188, dienkripsi sebelum upload · file hingga 5 GB disimpan 24 jam, lebih besar peer-to-peer · pustaka enkripsi open source",
-        "body": "Wormhole mengenkripsi di browser sebelum apa pun keluar, jadi servernya menyimpan ciphertext paling lama sehari. Cepat dipakai di komputer pinjaman dan tidak perlu memasang apa pun di kedua sisi. FAQ-nya menjelaskan skemanya secara spesifik dan menerbitkan pustaka enkripsi streaming, meski bukan seluruh layanan.",
+        "body": "<goWormhole>Wormhole</goWormhole> mengenkripsi di browser sebelum apa pun keluar, jadi servernya menyimpan ciphertext paling lama sehari. Cepat dipakai di komputer pinjaman dan tidak perlu memasang apa pun di kedua sisi. FAQ-nya menjelaskan skemanya secara spesifik dan menerbitkan pustaka enkripsi streaming, meski bukan seluruh layanan.",
         "cons": "Kode klien dan server lengkap tidak diterbitkan, batasnya 10 GB, dan transfer di atas 5 GB butuh tab Anda tetap terbuka."
       },
       "2": {
@@ -108,14 +108,14 @@
         "name": "magic-wormhole",
         "tag": "Terbaik untuk pengguna teknis yang memindahkan file antarkomputer",
         "facts": "Baris perintah di macOS, Linux, Windows · MIT · kode pendek sekali pakai · terenkripsi end-to-end dengan pertukaran kunci terautentikasi kata sandi · server mailbox plus relay transit · ukuran berapa pun, file dan folder",
-        "body": "Ketik wormhole send dan nama file, bacakan kode pendek yang muncul, lalu pihak lain mengetik wormhole receive dan kode itu. Kedua mesin memakai kode tersebut untuk menyepakati kunci, sehingga relay di tengah hanya membawa data terenkripsi. Alat ini menangani file dan direktori berukuran berapa pun dan populer untuk memindahkan data antarserver.",
+        "body": "Ketik wormhole send dan nama file, bacakan kode pendek yang muncul, lalu pihak lain mengetik wormhole receive dan kode itu. Kedua mesin memakai kode tersebut untuk menyepakati kunci, sehingga relay di tengah hanya membawa data terenkripsi. Alat ini menangani <goLargeFiles>file dan direktori berukuran berapa pun</goLargeFiles> dan populer untuk memindahkan data antarserver.",
         "cons": "Kedua sisi perlu alat terpasang dan terminal, dan tidak dirancang untuk mengirim ke orang awam."
       },
       "5": {
         "name": "LocalSend",
         "tag": "Terbaik untuk perangkat di jaringan yang sama, tanpa internet sama sekali",
         "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS antarperangkat dengan sertifikat per perangkat · hanya jaringan lokal · tanpa server",
-        "body": "Ketika pengirim dan penerima berada di Wi-Fi yang sama, LocalSend memindahkan file langsung antarperangkat lewat HTTPS terenkripsi tanpa server di tengah. Tak ada yang diunggah ke mana pun, jadi pertanyaan soal apa yang bisa dibaca penyedia tak pernah muncul.",
+        "body": "Ketika pengirim dan penerima berada di Wi-Fi yang sama, <goLocalsend>LocalSend</goLocalsend> memindahkan file langsung antarperangkat lewat HTTPS terenkripsi tanpa server di tengah. Tak ada yang diunggah ke mana pun, jadi pertanyaan soal apa yang bisa dibaca penyedia tak pernah muncul.",
         "cons": "Hanya menjangkau perangkat di jaringan lokal yang sama, dan setiap perangkat butuh aplikasinya."
       },
       "6": {
@@ -220,7 +220,7 @@
     "items": {
       "0": {
         "h": "Kontrak, pindaian KTP, atau surat medis untuk satu orang",
-        "b": "Tautan BIShare atau Wormhole dengan unduhan sekali pakai atau masa berlaku singkat, dikirim lewat chat pribadi."
+        "b": "Tautan BIShare atau Wormhole dengan <blogConfidential>unduhan sekali pakai atau masa berlaku singkat</blogConfidential>, dikirim lewat chat pribadi."
       },
       "1": {
         "h": "Dokumen yang dibutuhkan klien selama berminggu-minggu",
@@ -232,7 +232,7 @@
       },
       "3": {
         "h": "Folder besar antarperangkat milik sendiri",
-        "b": "Transfer langsung BIShare atau LocalSend di jaringan yang sama, agar tak ada yang diunggah ke mana pun."
+        "b": "Transfer langsung BIShare atau LocalSend <goOffline>di jaringan yang sama</goOffline>, agar tak ada yang diunggah ke mana pun."
       },
       "4": {
         "h": "Data antarserver atau terminal",
@@ -246,7 +246,7 @@
   },
   "mistakes": {
     "title": "Kesalahan umum yang membatalkan enkripsi",
-    "body": "Sebagian besar kebocoran file terenkripsi tidak memecahkan sandinya. Kebocoran itu mengitarinya.",
+    "body": "<blogLeaks>Sebagian besar kebocoran file terenkripsi</blogLeaks> tidak memecahkan sandinya. Kebocoran itu mengitarinya.",
     "items": {
       "0": {
         "h": "Kata sandi di pesan yang sama",

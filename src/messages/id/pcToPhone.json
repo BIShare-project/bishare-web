@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Komputer → HP",
     "title": "Transfer file dari PC ke HP",
-    "body": "Cara termudah bergantung pada dua hal: komputernya dan HP-nya. PC Windows dan HP Android punya dua alat gratis untuk urusan ini, satu dari Microsoft dan satu dari Google. Mac dan iPhone punya AirDrop. Pasangan lainnya, PC Windows dengan iPhone, Mac dengan kebanyakan HP Android, apa pun yang memakai Linux, jatuh ke celah di mana jawaban bawaannya kabel, unggah ke cloud, atau tidak ada sama sekali. Panduan ini memilah enam pasangan dulu, lalu mengurutkan delapan cara, menjelaskan apa yang bisa dan tidak bisa dilakukan kabel USB dengan iPhone di Windows, menunjukkan di mana file mendarat di HP, dan merangkum batas ukurannya. <strong>BIShare</strong> adalah salah satu dari delapan itu, dan satu-satunya di sini yang jalan <strong>dari Windows, Mac, dan Linux ke iPhone maupun Android</strong>. <highlight>Gratis, open source, tanpa akun.</highlight>",
+    "body": "Cara termudah bergantung pada dua hal: komputernya dan HP-nya. PC Windows dan HP Android punya dua alat gratis untuk urusan ini, satu dari Microsoft dan satu dari Google. Mac dan iPhone punya AirDrop. Pasangan lainnya, <goAirdropWindows>PC Windows dengan iPhone</goAirdropWindows>, Mac dengan kebanyakan HP Android, apa pun yang memakai Linux, jatuh ke celah di mana jawaban bawaannya kabel, unggah ke cloud, atau tidak ada sama sekali. Panduan ini memilah enam pasangan dulu, lalu mengurutkan delapan cara, menjelaskan apa yang bisa dan tidak bisa dilakukan kabel USB dengan iPhone di Windows, menunjukkan di mana file mendarat di HP, dan merangkum batas ukurannya. <strong>BIShare</strong> adalah salah satu dari delapan itu, dan satu-satunya di sini yang jalan <strong>dari Windows, Mac, dan Linux ke iPhone maupun Android</strong>. <highlight>Gratis, open source, tanpa akun.</highlight>",
     "ctaPrimary": "Unduh BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
@@ -16,7 +16,7 @@
     "title": "Jawaban singkat",
     "items": [
       "<strong>PC Windows ke HP Android:</strong> pasang Quick Share untuk Windows dari Google, klik kanan file, lalu pilih Send with Quick Share. Phone Link juga bisa, dengan batas 512 MB per file saat seret dan lepas.",
-      "<strong>PC Windows ke iPhone:</strong> tidak ada jalur nirkabel bawaan. Taruh file di iCloud Drive lewat iCloud untuk Windows, atau kirim dengan aplikasi yang jalan di keduanya, seperti BIShare.",
+      "<strong>PC Windows ke iPhone:</strong> <blogIphoneWindows>tidak ada jalur nirkabel bawaan</blogIphoneWindows>. Taruh file di iCloud Drive lewat iCloud untuk Windows, atau kirim dengan aplikasi yang jalan di keduanya, seperti BIShare.",
       "<strong>Mac ke iPhone:</strong> AirDrop. Mac ke Pixel 9 ke atas atau Galaxy terbaru kini juga bisa lewat AirDrop, setelah HP diatur menerima dari semua orang.",
       "<strong>Linux ke Android:</strong> KDE Connect atau GSConnect. Linux ke iPhone adalah pasangan paling sulit; yang realistis aplikasi lintas platform atau tautan di browser.",
       "<strong>Komputer apa pun, HP apa pun, Wi-Fi yang sama:</strong> BIShare di keduanya mengirim file asli secara langsung dan terenkripsi, tanpa batas ukuran.",
@@ -27,125 +27,314 @@
     "title": "Mulai dari komputer dan HP Anda",
     "body": "Tiga komputer dan dua HP menghasilkan enam pasangan, dan pilihan bawaannya sangat berbeda di antara mereka. Temukan baris Anda dulu; sisa halaman menjelaskan tiap cara secara rinci.",
     "items": {
-      "0": { "h": "Dari Windows", "b": "HP Android terlayani dengan baik: Quick Share untuk Windows dan Phone Link dibuat oleh perusahaan yang membuat perangkat lunak HP-nya. iPhone tidak. Windows bisa mengimpor foto dari iPhone lewat kabel, tapi tidak bisa menaruh file ke dalamnya, jadi pilihannya iCloud Drive, aplikasi Apple Devices untuk file di dalam aplikasi tertentu, atau aplikasi pihak ketiga." },
-      "1": { "h": "Dari Mac", "b": "AirDrop menjangkau iPhone, dan sejak Google mengajari Quick Share berbicara dengan AirDrop, juga Pixel 9 ke atas serta daftar model Galaxy, Xiaomi, OnePlus, dan lainnya yang terus bertambah. HP Android lama atau yang tidak didukung sama sekali tidak punya jalur nirkabel dari Mac, dan Google berhenti menyediakan Android File Transfer untuk macOS pada 2024." },
-      "2": { "h": "Dari Linux", "b": "KDE Connect, atau GSConnect di GNOME, terhubung dengan HP Android dan mengirim file dua arah lewat jaringan lokal. KDE Connect juga punya aplikasi iPhone, tapi kemampuannya jauh di bawah versi Android, jadi untuk iPhone pilihan yang bisa diandalkan adalah aplikasi lintas platform atau tautan yang dibuka di Safari." }
+      "0": {
+        "h": "Dari Windows",
+        "b": "HP Android terlayani dengan baik: Quick Share untuk Windows dan Phone Link dibuat oleh perusahaan yang membuat perangkat lunak HP-nya. iPhone tidak. Windows bisa <goIphonePhotos>mengimpor foto dari iPhone lewat kabel</goIphonePhotos>, tapi tidak bisa menaruh file ke dalamnya, jadi pilihannya iCloud Drive, aplikasi Apple Devices untuk file di dalam aplikasi tertentu, atau aplikasi pihak ketiga."
+      },
+      "1": {
+        "h": "Dari Mac",
+        "b": "AirDrop menjangkau iPhone, dan sejak Google mengajari <goAirdropAndroid>Quick Share berbicara dengan AirDrop</goAirdropAndroid>, juga Pixel 9 ke atas serta daftar model Galaxy, Xiaomi, OnePlus, dan lainnya yang terus bertambah. HP Android lama atau yang tidak didukung sama sekali tidak punya jalur nirkabel dari Mac, dan Google berhenti menyediakan Android File Transfer untuk macOS pada 2024."
+      },
+      "2": {
+        "h": "Dari Linux",
+        "b": "KDE Connect, atau GSConnect di GNOME, terhubung dengan HP Android dan mengirim file dua arah lewat jaringan lokal. KDE Connect juga punya aplikasi iPhone, tapi kemampuannya jauh di bawah versi Android, jadi untuk iPhone pilihan yang bisa diandalkan adalah aplikasi lintas platform atau tautan yang dibuka di Safari."
+      }
     }
   },
   "methods": {
     "title": "Delapan cara memindahkan file ke HP, berurutan",
     "consLabel": "Perhatikan:",
     "items": {
-      "0": { "name": "BIShare", "tag": "Terbaik secara umum: satu-satunya cara untuk keenam pasangan", "facts": "Windows, macOS, Linux, iPhone, Android · open source (MIT) · ukuran tanpa batas di satu jaringan · tautan sampai 100 GB · enkripsi end-to-end · tanpa daftar", "body": "Pasang di komputer dan HP, sambungkan keduanya ke satu Wi-Fi atau ke hotspot HP, dan HP muncul di daftar perangkat komputer. Pilih file, pilih HP, terima di HP, dan transfer berjalan langsung di jaringan lokal dengan ukuran penuh. Perilakunya sama entah komputernya laptop Windows, iMac lama, atau desktop Linux, dan entah HP-nya iPhone atau Android mana pun. Untuk HP yang jauh, beralih ke tautan: komputer menampilkan alamat, kode QR, dan kode pendek 6 karakter. Safari atau Chrome di HP mengambil sampai 100 GB tanpa aplikasi terpasang, file sudah dienkripsi di komputer sebelum diunggah, dan setelah sehari tautannya mati.", "cons": "Kirim langsung berarti memasangnya di HP juga. Tautan sengaja kedaluwarsa setelah 24 jam; anggap sebagai pengiriman, bukan tempat menyimpan file." },
-      "1": { "name": "Quick Share untuk Windows", "tag": "Cara bawaan terbaik dari PC Windows ke HP Android", "facts": "Windows 10 64-bit atau lebih baru (Windows 11 di Arm) · Android 6.0 atau lebih baru · dalam jarak sekitar 5 meter · Bluetooth plus Wi-Fi atau Ethernet · gratis dari Google", "body": "Aplikasi Windows buatan Google ini memakai protokol yang sama dengan menu Bagikan di semua HP Android modern. Seret file ke jendelanya, atau klik kanan file di File Explorer dan pilih Send with Quick Share, lalu pilih HP-nya. HP harus dekat dan terlihat, oleh semua orang atau oleh perangkat Anda sendiri jika keduanya masuk ke akun Google yang sama. Google tidak mencantumkan batas ukuran file, dan transfer tidak lewat server. PC Samsung mendapat versi Samsung dari Microsoft Store, yang fungsinya sama.", "cons": "Hanya Android, dan kedua perangkat harus berdekatan. Jaringan yang memblokir lalu lintas antarperangkat, seperti banyak jaringan kantor dan hotel, menghalanginya; Google menyarankan hotspot HP sebagai jalan keluar." },
-      "2": { "name": "Phone Link", "tag": "Bagus kalau sudah dipakai untuk pesan dan notifikasi", "facts": "Windows 10 atau 11 · Android 10 atau lebih baru dengan Link to Windows · akun Microsoft · Wi-Fi yang sama · seret dan lepas: 512 MB per file, 100 file, tanpa folder", "body": "Phone Link adalah jembatan Microsoft untuk SMS, panggilan, dan foto, dan bisa juga memindahkan file. Klik kanan file lokal di File Explorer, pilih Bagikan, lalu Phone Link, dan file tiba di folder Download HP. Di HP Samsung, OPPO, HONOR, ASUS, vivo, dan Xiaomi dengan Link to Windows bawaan, Anda juga bisa menyeret file ke layar HP yang dicerminkan. Windows 11 dengan Android 11 atau lebih baru bahkan bisa menampilkan HP sebagai drive di File Explorer, tempat Anda menjelajahi folder dan menyalin file.", "cons": "Batas 512 MB per file saat seret dan lepas membuat kebanyakan video tidak masuk, file yang hanya ada di cloud tidak bisa dibagikan, dan versi iPhone mengurus pesan dan panggilan; berbagi file untuk iPhone baru diluncurkan lewat program Windows Insider." },
-      "3": { "name": "AirDrop", "tag": "Cara bawaan terbaik dari Mac ke iPhone, dan kini ke sebagian HP Android", "facts": "Mac dan iPhone, iPad · Pixel 9 ke atas, model Galaxy, Xiaomi, OnePlus, Oppo, vivo, Honor, dan lainnya tertentu lewat Quick Share · hanya jarak dekat · tidak ada batas ukuran yang dipublikasikan", "body": "Di Mac, Control-klik file, pilih Bagikan, lalu AirDrop, dan pilih HP-nya. iPhone yang masuk ke Akun Apple yang sama menerima otomatis; iPhone milik orang lain bertanya dulu. HP Android yang didukung juga bisa jadi tujuan: buka Quick Share di HP dan buat terlihat oleh semua orang, atur AirDrop di Mac ke \"Semua Orang selama 10 Menit\", dan HP muncul di jendela AirDrop Mac. Koneksinya langsung antara kedua perangkat, tanpa lewat server.", "cons": "Di sisi komputer hanya Mac. Kebanyakan HP Android yang beredar belum masuk daftar AirDrop Google, dan pengaturan Semua Orang membuat perangkat Anda terlihat oleh orang asing di sekitar selama aktif." },
-      "4": { "name": "Kabel USB", "tag": "Terbaik untuk satu kiriman besar ke HP Android, paling lemah untuk iPhone", "facts": "Android: mode Transfer file, muncul di File Explorer Windows · iPhone: aplikasi Apple Devices di Windows atau Finder di Mac, file masuk ke aplikasi yang mendukung Berbagi File · Mac ke Android butuh aplikasi pihak ketiga", "body": "Colokkan HP Android ke PC Windows, tarik notifikasi yang bilang HP sedang diisi daya, pilih Transfer file, dan HP muncul di This PC. Salin folder ke sana seperti ke flashdisk. iPhone lain cerita: Windows hanya menampilkan rol kameranya, untuk mengimpor foto dari HP. Untuk menaruh file ke iPhone dengan kabel, Anda memakai Apple Devices di Windows atau Finder di Mac, memilih aplikasi yang mendukung Berbagi File, seperti VLC atau Documents, lalu menambahkan file ke aplikasi itu. Foto juga bisa disinkronkan dari folder di PC ke aplikasi Foto iPhone, selama Foto iCloud dimatikan.", "cons": "Banyak kabel HP hanya berkecepatan USB 2.0, ribuan file kecil merayap lewat MTP, dan Mac tidak punya alat buatan Google untuk Android sejak Android File Transfer ditarik; OpenMTP adalah pengganti gratis yang umum." },
-      "5": { "name": "Cloud: iCloud Drive, Google Drive, atau OneDrive", "tag": "Terbaik kalau file harus tetap tersedia di keduanya, dan pilihan standar Windows ke iPhone", "facts": "iCloud untuk Windows: sampai 50 GB per file, 5 GB gratis · Google Drive: 15 GB gratis, dibagi dengan Gmail dan Foto · OneDrive: 5 GB gratis · akun dan internet di kedua sisi", "body": "Simpan file ke folder iCloud Drive yang ditambahkan iCloud untuk Windows ke File Explorer, dan sebentar kemudian file muncul di aplikasi File iPhone di bawah iCloud Drive. Google Drive dan OneDrive melakukan hal serupa untuk HP mana pun lewat aplikasinya. Ini cara paling tidak cerdik dan sering paling praktis: tidak ada yang perlu berdekatan, file tetap tersinkron kalau diedit, dan dari PC Windows ke iPhone ini satu-satunya pilihan nirkabel bawaan.", "cons": "Semua diunggah dulu baru diunduh, jadi video besar makan waktu sesuai kecepatan unggah Anda, penyimpanan gratis cepat habis, dan salinannya tetap di cloud sampai dihapus." },
-      "6": { "name": "Kirim ke diri sendiri di Telegram atau WhatsApp", "tag": "Oke untuk dokumen yang Anda butuhkan di HP sekarang juga", "facts": "Telegram Pesan Tersimpan: 2 GB per file, 4 GB dengan Premium · WhatsApp kirim pesan ke diri sendiri: 2 GB per dokumen · aplikasi desktop atau web di komputer · perlu akun", "body": "Kedua aplikasi chat punya obrolan dengan diri sendiri: Pesan Tersimpan di Telegram, dan obrolan dengan diri sendiri di WhatsApp. Taruh file di sana dari aplikasi desktop dan file muncul di HP sesaat kemudian. Dikirim sebagai file atau dokumen, bukan sebagai foto, gambar tetap berukuran asli. Cepat untuk boarding pass, PDF, atau kontrak yang harus ditandatangani di HP.", "cons": "File lewat layanan chat dan tersimpan di riwayat, foto yang dikirim biasa akan dikompresi, dan 2 GB adalah batas bagi kebanyakan orang." },
-      "7": { "name": "LocalSend", "tag": "Aplikasi gratis open source untuk kasus satu jaringan", "facts": "Windows, macOS, Linux, Android, iOS · open source · hanya jaringan lokal · terenkripsi · gratis", "body": "LocalSend alat yang solid dan jujur: pasang di komputer dan HP, dan di satu jaringan keduanya saling menemukan dan bertukar file tanpa server apa pun. Kalau transfer Anda selalu terjadi di meja yang sama, alat ini bekerja dengan baik.", "cons": "Tidak bisa menjangkau HP di jaringan lain. Opsi berbagi lewat tautan terbuka di browser, tapi HP tetap harus berada di jaringan yang sama dengan komputer." }
+      "0": {
+        "name": "BIShare",
+        "tag": "Terbaik secara umum: satu-satunya cara untuk keenam pasangan",
+        "facts": "Windows, macOS, Linux, iPhone, Android · open source (MIT) · ukuran tanpa batas di satu jaringan · tautan sampai 100 GB · enkripsi end-to-end · tanpa daftar",
+        "body": "Pasang di komputer dan HP, sambungkan keduanya ke satu Wi-Fi atau ke hotspot HP, dan HP muncul di daftar perangkat komputer. Pilih file, pilih HP, terima di HP, dan transfer berjalan langsung di jaringan lokal dengan ukuran penuh. Perilakunya sama entah komputernya laptop Windows, iMac lama, atau desktop Linux, dan entah HP-nya iPhone atau Android mana pun. Untuk HP yang jauh, beralih ke tautan: komputer menampilkan alamat, kode QR, dan kode pendek 6 karakter. Safari atau Chrome di HP mengambil sampai 100 GB tanpa aplikasi terpasang, file sudah dienkripsi di komputer sebelum diunggah, dan setelah sehari tautannya mati.",
+        "cons": "Kirim langsung berarti memasangnya di HP juga. Tautan sengaja kedaluwarsa setelah 24 jam; anggap sebagai pengiriman, bukan tempat menyimpan file."
+      },
+      "1": {
+        "name": "Quick Share untuk Windows",
+        "tag": "Cara bawaan terbaik dari PC Windows ke HP Android",
+        "facts": "Windows 10 64-bit atau lebih baru (Windows 11 di Arm) · Android 6.0 atau lebih baru · dalam jarak sekitar 5 meter · Bluetooth plus Wi-Fi atau Ethernet · gratis dari Google",
+        "body": "Aplikasi Windows buatan Google ini memakai protokol yang sama dengan menu Bagikan di semua HP Android modern. Seret file ke jendelanya, atau klik kanan file di File Explorer dan pilih Send with <goNearby>Quick Share</goNearby>, lalu pilih HP-nya. HP harus dekat dan terlihat, oleh semua orang atau oleh perangkat Anda sendiri jika keduanya masuk ke akun Google yang sama. Google tidak mencantumkan batas ukuran file, dan transfer tidak lewat server. PC Samsung mendapat versi Samsung dari Microsoft Store, yang fungsinya sama.",
+        "cons": "Hanya Android, dan kedua perangkat harus berdekatan. Jaringan yang memblokir lalu lintas antarperangkat, seperti banyak jaringan kantor dan hotel, menghalanginya; Google menyarankan hotspot HP sebagai jalan keluar."
+      },
+      "2": {
+        "name": "Phone Link",
+        "tag": "Bagus kalau sudah dipakai untuk pesan dan notifikasi",
+        "facts": "Windows 10 atau 11 · Android 10 atau lebih baru dengan Link to Windows · akun Microsoft · Wi-Fi yang sama · seret dan lepas: 512 MB per file, 100 file, tanpa folder",
+        "body": "Phone Link adalah jembatan Microsoft untuk SMS, panggilan, dan foto, dan bisa juga memindahkan file. Klik kanan file lokal di File Explorer, pilih Bagikan, lalu Phone Link, dan file tiba di folder Download HP. Di HP Samsung, OPPO, HONOR, ASUS, vivo, dan Xiaomi dengan Link to Windows bawaan, Anda juga bisa menyeret file ke layar HP yang dicerminkan. Windows 11 dengan Android 11 atau lebih baru bahkan bisa menampilkan HP sebagai drive di File Explorer, tempat Anda menjelajahi folder dan menyalin file.",
+        "cons": "Batas 512 MB per file saat seret dan lepas membuat kebanyakan video tidak masuk, file yang hanya ada di cloud tidak bisa dibagikan, dan versi iPhone mengurus pesan dan panggilan; berbagi file untuk iPhone baru diluncurkan lewat program Windows Insider."
+      },
+      "3": {
+        "name": "AirDrop",
+        "tag": "Cara bawaan terbaik dari Mac ke iPhone, dan kini ke sebagian HP Android",
+        "facts": "Mac dan iPhone, iPad · Pixel 9 ke atas, model Galaxy, Xiaomi, OnePlus, Oppo, vivo, Honor, dan lainnya tertentu lewat Quick Share · hanya jarak dekat · tidak ada batas ukuran yang dipublikasikan",
+        "body": "Di Mac, Control-klik file, pilih Bagikan, lalu AirDrop, dan pilih HP-nya. iPhone yang masuk ke Akun Apple yang sama menerima otomatis; iPhone milik orang lain bertanya dulu. HP Android yang didukung juga bisa jadi tujuan: buka Quick Share di HP dan buat terlihat oleh semua orang, atur AirDrop di Mac ke \"Semua Orang selama 10 Menit\", dan HP muncul di jendela AirDrop Mac. Koneksinya langsung antara kedua perangkat, tanpa lewat server.",
+        "cons": "Di sisi komputer hanya Mac. Kebanyakan HP Android yang beredar belum masuk daftar AirDrop Google, dan pengaturan Semua Orang membuat perangkat Anda terlihat oleh orang asing di sekitar selama aktif."
+      },
+      "4": {
+        "name": "Kabel USB",
+        "tag": "Terbaik untuk satu kiriman besar ke HP Android, paling lemah untuk iPhone",
+        "facts": "Android: mode Transfer file, muncul di File Explorer Windows · iPhone: aplikasi Apple Devices di Windows atau Finder di Mac, file masuk ke aplikasi yang mendukung Berbagi File · Mac ke Android butuh aplikasi pihak ketiga",
+        "body": "Colokkan HP Android ke PC Windows, tarik notifikasi yang bilang HP sedang diisi daya, pilih Transfer file, dan HP muncul di This PC. Salin folder ke sana seperti ke flashdisk. iPhone lain cerita: Windows hanya menampilkan rol kameranya, <goPhonePc>untuk mengimpor foto dari HP</goPhonePc>. Untuk menaruh file ke iPhone dengan kabel, Anda memakai Apple Devices di Windows atau Finder di Mac, memilih aplikasi yang mendukung Berbagi File, seperti VLC atau Documents, lalu menambahkan file ke aplikasi itu. Foto juga bisa disinkronkan dari folder di PC ke aplikasi Foto iPhone, selama Foto iCloud dimatikan.",
+        "cons": "Banyak kabel HP hanya berkecepatan USB 2.0, ribuan file kecil merayap lewat MTP, dan Mac tidak punya alat buatan Google untuk Android sejak Android File Transfer ditarik; OpenMTP adalah pengganti gratis yang umum."
+      },
+      "5": {
+        "name": "Cloud: iCloud Drive, Google Drive, atau OneDrive",
+        "tag": "Terbaik kalau file harus tetap tersedia di keduanya, dan pilihan standar Windows ke iPhone",
+        "facts": "iCloud untuk Windows: sampai 50 GB per file, 5 GB gratis · Google Drive: 15 GB gratis, dibagi dengan Gmail dan Foto · OneDrive: 5 GB gratis · akun dan internet di kedua sisi",
+        "body": "Simpan file ke folder iCloud Drive yang ditambahkan iCloud untuk Windows ke File Explorer, dan sebentar kemudian file muncul di aplikasi File iPhone di bawah iCloud Drive. Google Drive dan OneDrive melakukan hal serupa untuk HP mana pun lewat aplikasinya. Ini cara paling tidak cerdik dan sering paling praktis: tidak ada yang perlu berdekatan, file tetap tersinkron kalau diedit, dan dari PC Windows ke iPhone ini satu-satunya pilihan nirkabel bawaan.",
+        "cons": "Semua diunggah dulu baru diunduh, jadi video besar makan waktu sesuai kecepatan unggah Anda, penyimpanan gratis cepat habis, dan salinannya tetap di cloud sampai dihapus."
+      },
+      "6": {
+        "name": "Kirim ke diri sendiri di Telegram atau WhatsApp",
+        "tag": "Oke untuk dokumen yang Anda butuhkan di HP sekarang juga",
+        "facts": "Telegram Pesan Tersimpan: 2 GB per file, 4 GB dengan Premium · WhatsApp kirim pesan ke diri sendiri: 2 GB per dokumen · aplikasi desktop atau web di komputer · perlu akun",
+        "body": "Kedua aplikasi chat punya obrolan dengan diri sendiri: Pesan Tersimpan di Telegram, dan obrolan dengan diri sendiri di WhatsApp. Taruh file di sana dari aplikasi desktop dan file muncul di HP sesaat kemudian. Dikirim sebagai file atau dokumen, bukan sebagai foto, gambar tetap berukuran asli. Cepat untuk boarding pass, PDF, atau kontrak yang harus ditandatangani di HP.",
+        "cons": "File lewat layanan chat dan tersimpan di riwayat, foto yang dikirim biasa akan dikompresi, dan 2 GB adalah batas bagi kebanyakan orang."
+      },
+      "7": {
+        "name": "LocalSend",
+        "tag": "Aplikasi gratis open source untuk kasus satu jaringan",
+        "facts": "Windows, macOS, Linux, Android, iOS · open source · hanya jaringan lokal · terenkripsi · gratis",
+        "body": "<goLocalsend>LocalSend</goLocalsend> alat yang solid dan jujur: pasang di komputer dan HP, dan di satu jaringan keduanya saling menemukan dan bertukar file tanpa server apa pun. Kalau transfer Anda selalu terjadi di meja yang sama, alat ini bekerja dengan baik.",
+        "cons": "Tidak bisa menjangkau HP di jaringan lain. Opsi berbagi lewat tautan terbuka di browser, tapi HP tetap harus berada di jaringan yang sama dengan komputer."
+      }
     }
   },
   "table": {
     "title": "Sekilas",
-    "cols": { "feature": "Fitur", "bishare": "BIShare", "quickshare": "Quick Share untuk Windows", "phonelink": "Phone Link", "airdrop": "AirDrop", "usb": "Kabel USB", "cloud": "Cloud" },
-    "rows": { "r0": "Jalan dari Windows, Mac, dan Linux", "r1": "Menjangkau iPhone dan Android", "r2": "Tanpa kabel", "r3": "Jalan saat HP di tempat lain", "r4": "Tanpa batas ukuran per file", "r5": "Gratis tanpa kuota penyimpanan" },
+    "cols": {
+      "feature": "Fitur",
+      "bishare": "BIShare",
+      "quickshare": "Quick Share untuk Windows",
+      "phonelink": "Phone Link",
+      "airdrop": "AirDrop",
+      "usb": "Kabel USB",
+      "cloud": "Cloud"
+    },
+    "rows": {
+      "r0": "Jalan dari Windows, Mac, dan Linux",
+      "r1": "Menjangkau iPhone dan Android",
+      "r2": "Tanpa kabel",
+      "r3": "Jalan saat HP di tempat lain",
+      "r4": "Tanpa batas ukuran per file",
+      "r5": "Gratis tanpa kuota penyimpanan"
+    },
     "note": "Dicek September 2026. Sel ukuran BIShare mengacu pada jalur langsung di satu jaringan; tautan memuat sampai 100 GB. Quick Share untuk Windows hanya mengirim ke HP Android, dari Windows 10 64-bit atau lebih baru. Fitur file Phone Link untuk Android; seret dan lepas dibatasi 512 MB per file dan butuh Wi-Fi yang sama, serta perlu akun Microsoft. AirDrop berjalan dari Mac dan menjangkau Android hanya pada HP yang ada di daftar AirDrop Google. Kabel USB menaruh file langsung ke penyimpanan Android, tapi di iPhone hanya ke dalam aplikasi yang mendukung Berbagi File, dan Mac butuh aplikasi pihak ketiga untuk Android. Cloud memakai penyimpanan gratis (iCloud 5 GB, Google 15 GB, OneDrive 5 GB) dan iCloud untuk Windows menerima file sampai 50 GB."
   },
   "windows": {
     "title": "Windows ke Android: Quick Share atau Phone Link?",
     "body": "Keduanya gratis dan dibuat oleh perusahaan di balik perangkat lunak HP Anda, jadi pilihannya bergantung pada ukuran file dan apa lagi yang Anda inginkan dari koneksi itu.",
     "items": {
-      "0": { "h": "Pilih Quick Share untuk file", "b": "Alat ini memang dibuat untuk tugas ini. Tidak ada batas ukuran yang dipublikasikan, jalan dengan HP Android mana pun mulai 6.0, dan HP tidak perlu dipasangkan dulu; cukup dekat dan terlihat. File yang diterima masuk ke folder Download HP, di dalam folder Quick Share pada HP Galaxy." },
-      "1": { "h": "Pilih Phone Link kalau sudah hidup di dalamnya", "b": "Kalau Anda sudah membaca SMS dan menjawab panggilan di PC, berbagi file lewat koneksi yang sama menghemat satu aplikasi lagi. Ingat batasnya: seret dan lepas menerima 100 file sekaligus, masing-masing 512 MB, tanpa folder, dan hanya di enam merek dengan Link to Windows bawaan. Jalur menu Bagikan jalan di HP lain dan mengirim ke folder Download." },
-      "2": { "h": "HP di dalam File Explorer", "b": "Windows 11 bisa menampilkan HP tertaut dengan Android 11 atau lebih baru di panel navigasi File Explorer, sehingga foldernya terbuka seperti drive. Hanya satu HP yang tampil dalam satu waktu, dan file yang dihapus dari sana masuk ke tempat sampah di HP selama 30 hari. Inilah yang paling mendekati cara Windows memperlakukan HP sebagai penyimpanan tanpa kabel." }
+      "0": {
+        "h": "Pilih Quick Share untuk file",
+        "b": "Alat ini memang dibuat untuk tugas ini. Tidak ada batas ukuran yang dipublikasikan, jalan dengan HP Android mana pun mulai 6.0, dan HP tidak perlu dipasangkan dulu; cukup dekat dan terlihat. File yang diterima masuk ke folder Download HP, di dalam folder Quick Share pada HP Galaxy."
+      },
+      "1": {
+        "h": "Pilih Phone Link kalau sudah hidup di dalamnya",
+        "b": "Kalau Anda sudah membaca SMS dan menjawab panggilan di PC, berbagi file lewat koneksi yang sama menghemat satu aplikasi lagi. Ingat batasnya: seret dan lepas menerima 100 file sekaligus, masing-masing 512 MB, tanpa folder, dan hanya di enam merek dengan Link to Windows bawaan. Jalur menu Bagikan jalan di HP lain dan mengirim ke folder Download."
+      },
+      "2": {
+        "h": "HP di dalam File Explorer",
+        "b": "Windows 11 bisa menampilkan HP tertaut dengan Android 11 atau lebih baru di panel navigasi File Explorer, sehingga foldernya terbuka seperti drive. Hanya satu HP yang tampil dalam satu waktu, dan file yang dihapus dari sana masuk ke tempat sampah di HP selama 30 hari. Inilah yang paling mendekati cara Windows memperlakukan HP sebagai penyimpanan tanpa kabel."
+      }
     }
   },
   "iphone": {
     "title": "Windows ke iPhone: yang benar-benar jalan",
     "body": "Di pasangan inilah kebanyakan panduan keliru. Mencolokkan iPhone ke PC Windows tidak membuat Anda bisa menyalin file ke dalamnya lewat File Explorer, apa pun kesan dari tangkapan layar di sebagian artikel.",
     "items": {
-      "0": { "h": "File Explorer hanya membaca rol kamera", "b": "Dengan iPhone tidak terkunci dan komputer dipercaya, iPhone muncul di File Explorer dengan folder Internal Storage berisi DCIM, yaitu foto dan video yang diambil dengan HP. Tampilan itu ada untuk mengimpor gambar dari iPhone. Tidak ada tempat di sana untuk menempelkan PDF atau film agar dipakai HP." },
-      "1": { "h": "Apple Devices menaruh file ke dalam aplikasi", "b": "Aplikasi Apple Devices untuk Windows 10 ke atas, dari Microsoft Store, punya bagian Files yang mencantumkan aplikasi iPhone yang mendukung Berbagi File. Pilih satu, klik Add File, dan file disalin ke dokumen aplikasi itu, tempat aplikasinya dan biasanya aplikasi File bisa membukanya. Bagian Photos menyinkronkan folder PC ke perpustakaan foto iPhone, tapi hanya selama Foto iCloud dimatikan." },
-      "2": { "h": "iCloud Drive adalah pilihan nirkabel standar", "b": "iCloud untuk Windows menambahkan folder iCloud Drive ke File Explorer. Apa pun yang disimpan di sana, sampai 50 GB per file dan dalam kuota iCloud Anda, muncul di aplikasi File iPhone. Akun gratis dapat 5 GB, yang bisa penuh oleh dua video, jadi untuk transfer besar atau sesekali, aplikasi langsung atau tautan menghindarkan Anda membayar penyimpanan yang hanya dibutuhkan satu sore." }
+      "0": {
+        "h": "File Explorer hanya membaca rol kamera",
+        "b": "Dengan iPhone tidak terkunci dan komputer dipercaya, iPhone muncul di File Explorer dengan folder Internal Storage berisi DCIM, yaitu foto dan video yang diambil dengan HP. Tampilan itu ada untuk mengimpor gambar dari iPhone. Tidak ada tempat di sana untuk menempelkan PDF atau film agar dipakai HP."
+      },
+      "1": {
+        "h": "Apple Devices menaruh file ke dalam aplikasi",
+        "b": "Aplikasi Apple Devices untuk Windows 10 ke atas, dari Microsoft Store, punya bagian Files yang mencantumkan aplikasi iPhone yang mendukung Berbagi File. Pilih satu, klik Add File, dan file disalin ke dokumen aplikasi itu, tempat aplikasinya dan biasanya aplikasi File bisa membukanya. Bagian Photos menyinkronkan folder PC ke perpustakaan foto iPhone, tapi hanya selama Foto iCloud dimatikan."
+      },
+      "2": {
+        "h": "iCloud Drive adalah pilihan nirkabel standar",
+        "b": "iCloud untuk Windows menambahkan folder iCloud Drive ke File Explorer. Apa pun yang disimpan di sana, sampai 50 GB per file dan dalam kuota iCloud Anda, muncul di aplikasi File iPhone. Akun gratis dapat 5 GB, yang bisa penuh oleh dua video, jadi untuk transfer besar atau sesekali, aplikasi langsung atau tautan menghindarkan Anda membayar penyimpanan yang hanya dibutuhkan satu sore."
+      }
     }
   },
   "maclinux": {
     "title": "Dari Mac atau PC Linux",
     "body": "Komputer Apple dan Linux masing-masing punya satu HP yang akur dengan mereka dan satu yang nyaris diabaikan.",
     "items": {
-      "0": { "h": "Mac ke iPhone: AirDrop atau Finder", "b": "AirDrop adalah cara sehari-hari. Untuk kiriman besar, sambungkan iPhone dengan kabel, pilih di bilah samping Finder, buka tab Files, lalu seret file ke aplikasi yang mendukung Berbagi File. Sama seperti di Windows, file masuk ke aplikasi itu, bukan ke folder bebas." },
-      "1": { "h": "Mac ke Android: jembatan baru dan celah lama", "b": "Kalau HP ada di daftar AirDrop Google, atur Quick Share di HP agar menerima dari semua orang dan kirim lewat AirDrop dari Mac seperti biasa. HP Android lain tidak punya jalur nirkabel dari macOS, dan sejak Android File Transfer ditarik, kabel butuh alat pihak ketiga seperti OpenMTP. Aplikasi lintas platform menghindari kedua masalah itu." },
-      "2": { "h": "Linux: KDE Connect untuk Android", "b": "KDE Connect di Plasma, atau GSConnect di GNOME, terhubung dengan aplikasi KDE Connect di HP Android dan mengirim file dari menu konteks pengelola file. Alat ini juga berbagi clipboard dan notifikasi. Untuk iPhone, aplikasi iOS-nya jauh lebih terbatas, jadi siapkan aplikasi lintas platform atau tautan." }
+      "0": {
+        "h": "Mac ke iPhone: AirDrop atau Finder",
+        "b": "AirDrop adalah cara sehari-hari. Untuk kiriman besar, sambungkan iPhone dengan kabel, pilih di bilah samping Finder, buka tab Files, lalu seret file ke aplikasi yang mendukung Berbagi File. Sama seperti di Windows, file masuk ke aplikasi itu, bukan ke folder bebas."
+      },
+      "1": {
+        "h": "Mac ke Android: jembatan baru dan celah lama",
+        "b": "Kalau HP ada di daftar AirDrop Google, atur Quick Share di HP agar menerima dari semua orang dan kirim lewat AirDrop dari Mac seperti biasa. HP Android lain tidak punya jalur nirkabel dari macOS, dan sejak Android File Transfer ditarik, kabel butuh alat pihak ketiga seperti OpenMTP. Aplikasi lintas platform menghindari kedua masalah itu."
+      },
+      "2": {
+        "h": "Linux: KDE Connect untuk Android",
+        "b": "KDE Connect di Plasma, atau GSConnect di GNOME, terhubung dengan aplikasi KDE Connect di HP Android dan mengirim file dari menu konteks pengelola file. Alat ini juga berbagi clipboard dan notifikasi. Untuk iPhone, aplikasi iOS-nya jauh lebih terbatas, jadi siapkan aplikasi lintas platform atau tautan."
+      }
     }
   },
   "landing": {
     "title": "Di mana file mendarat di HP",
     "body": "Transfer yang berhasil bisa tetap terlihat gagal kalau setelahnya Anda membuka aplikasi yang salah. Inilah tempat file tiba, menurut caranya.",
     "items": {
-      "0": { "h": "Android: hampir selalu Download", "b": "Quick Share, jalur Bagikan di Phone Link, dan unduhan browser menyimpan ke folder Download, yang terlihat di aplikasi Files by Google atau pengelola file bawaan HP. HP Galaxy menaruh file Quick Share di folder Quick Share di dalamnya, dan foto muncul di galeri begitu pemindai media menemukannya. Transfer Bluetooth berbeda-beda per merek, jadi perhatikan notifikasi yang mengonfirmasi file sudah tiba." },
-      "1": { "h": "iPhone dari browser atau iCloud: aplikasi File", "b": "Safari secara bawaan menyimpan ke folder Unduhan di iCloud Drive; ubah Pengaturan, App, Safari, Unduhan ke \"Di iPhone Saya\" agar file besar tidak masuk iCloud. File iCloud Drive ada di File, di bawah iCloud Drive. Gambar atau video yang diunduh begini baru masuk Foto setelah Anda membukanya di File dan memakai Bagikan, lalu \"Simpan Gambar\" atau \"Simpan Video\"." },
-      "2": { "h": "iPhone dari AirDrop, kabel, atau aplikasi", "b": "AirDrop menaruh foto dan video langsung ke Foto dan menawarkan file lain ke aplikasi yang sesuai. File yang ditambahkan lewat Apple Devices atau Finder tinggal di dalam aplikasi yang Anda pilih. BIShare menyimpan file masuk di kotak masuknya sendiri sampai Anda memindahkannya: media ke perpustakaan foto, sisanya ke File atau aplikasi lain." }
+      "0": {
+        "h": "Android: hampir selalu Download",
+        "b": "Quick Share, jalur Bagikan di Phone Link, dan unduhan browser menyimpan ke folder Download, yang terlihat di aplikasi Files by Google atau pengelola file bawaan HP. HP Galaxy menaruh file Quick Share di folder Quick Share di dalamnya, dan foto muncul di galeri begitu pemindai media menemukannya. Transfer Bluetooth berbeda-beda per merek, jadi perhatikan notifikasi yang mengonfirmasi file sudah tiba."
+      },
+      "1": {
+        "h": "iPhone dari browser atau iCloud: aplikasi File",
+        "b": "Safari secara bawaan menyimpan ke folder Unduhan di iCloud Drive; ubah Pengaturan, App, Safari, Unduhan ke \"Di iPhone Saya\" agar file besar tidak masuk iCloud. File iCloud Drive ada di File, di bawah iCloud Drive. Gambar atau video yang diunduh begini baru masuk Foto setelah Anda membukanya di File dan memakai Bagikan, lalu \"Simpan Gambar\" atau \"Simpan Video\"."
+      },
+      "2": {
+        "h": "iPhone dari AirDrop, kabel, atau aplikasi",
+        "b": "AirDrop menaruh foto dan video langsung ke Foto dan menawarkan file lain ke aplikasi yang sesuai. File yang ditambahkan lewat Apple Devices atau Finder tinggal di dalam aplikasi yang Anda pilih. BIShare menyimpan file masuk di kotak masuknya sendiri sampai Anda memindahkannya: media ke perpustakaan foto, sisanya ke File atau aplikasi lain."
+      }
     }
   },
   "limits": {
     "title": "Batas ukuran, cara demi cara",
     "body": "Sebagian besar kekesalan saat mengirim file besar ke HP datang dari batas yang tidak disebut siapa pun. Ini dia berdampingan.",
     "items": {
-      "0": { "h": "Batas keras per file", "b": "Lampiran email berhenti di sekitar 20 sampai 25 MB. Seret dan lepas di Phone Link berhenti di 512 MB. Telegram dan WhatsApp berhenti di 2 GB, atau 4 GB dengan Telegram Premium. iCloud untuk Windows menerima file sampai 50 GB, dan tautan BIShare membawa sampai 100 GB." },
-      "1": { "h": "Penyimpanan habis lebih dulu", "b": "Jalur cloud mentok di paket gratis sebelum batas per file: 5 GB di iCloud, 15 GB di Google yang dibagi untuk Gmail, Drive, dan Foto, 5 GB di OneDrive. Satu video 4K bisa menghabiskan sebagian besar akun iCloud gratis." },
-      "2": { "h": "Tanpa batas", "b": "Jalur langsung hanya dibatasi ruang kosong di HP: BIShare di satu jaringan, Quick Share untuk Windows, AirDrop, LocalSend, dan kabel USB. Penyimpanan HP, bukan alatnya, yang menentukan seberapa banyak yang muat." }
+      "0": {
+        "h": "Batas keras per file",
+        "b": "<goLargeFiles>Lampiran email</goLargeFiles> berhenti di sekitar 20 sampai 25 MB. Seret dan lepas di Phone Link berhenti di 512 MB. Telegram dan WhatsApp berhenti di 2 GB, atau 4 GB dengan Telegram Premium. iCloud untuk Windows menerima file sampai 50 GB, dan tautan BIShare membawa sampai 100 GB."
+      },
+      "1": {
+        "h": "Penyimpanan habis lebih dulu",
+        "b": "Jalur cloud mentok di paket gratis sebelum batas per file: 5 GB di iCloud, 15 GB di Google yang dibagi untuk Gmail, Drive, dan Foto, 5 GB di OneDrive. Satu video 4K bisa menghabiskan sebagian besar akun iCloud gratis."
+      },
+      "2": {
+        "h": "Tanpa batas",
+        "b": "Jalur langsung hanya dibatasi ruang kosong di HP: BIShare di satu jaringan, Quick Share untuk Windows, AirDrop, LocalSend, dan kabel USB. Penyimpanan HP, bukan alatnya, yang menentukan seberapa banyak yang muat."
+      }
     }
   },
   "steps": {
     "title": "Dari PC ke HP dengan BIShare",
     "items": {
-      "0": { "h": "Pasang di komputer dan HP", "b": "Unduh BIShare untuk Windows dari Microsoft Store, untuk Mac dari App Store, atau untuk Linux sebagai unduhan, dan di HP dari App Store atau Google Play. Sambungkan keduanya ke satu Wi-Fi, atau sambungkan komputer ke hotspot HP. Saat pertama dibuka di iPhone, iOS menanyakan apakah aplikasi boleh mencari perangkat di sekitar; jawab ya." },
-      "1": { "h": "Kirim dari komputer", "b": "Taruh file di aplikasi, pilih HP dari daftar perangkat, lalu terima di HP. Tidak ada yang dikompresi ulang di perjalanan. File menunggu di kotak masuk aplikasi HP; foto dan video masuk ke perpustakaan foto dengan satu ketukan." },
-      "2": { "h": "Atau buat tautan", "b": "Kalau HP ada di tempat lain, pilih Tautan di aplikasi atau buka bishare.app/transfer di browser desktop mana pun dan tambahkan file di sana. Kirim alamatnya, tunjukkan kode QR, atau bacakan kode 6 karakter; Safari atau Chrome di HP bisa mengambil sampai 100 GB selama 24 jam berikutnya." }
+      "0": {
+        "h": "Pasang di komputer dan HP",
+        "b": "Unduh BIShare untuk Windows dari Microsoft Store, untuk Mac dari App Store, atau untuk Linux sebagai unduhan, dan di HP dari App Store atau Google Play. Sambungkan keduanya ke satu Wi-Fi, atau sambungkan komputer ke hotspot HP. Saat pertama dibuka di iPhone, iOS menanyakan apakah aplikasi boleh mencari perangkat di sekitar; jawab ya."
+      },
+      "1": {
+        "h": "Kirim dari komputer",
+        "b": "Taruh file di aplikasi, pilih HP dari daftar perangkat, lalu terima di HP. Tidak ada yang dikompresi ulang di perjalanan. File menunggu di kotak masuk aplikasi HP; foto dan video masuk ke perpustakaan foto dengan satu ketukan."
+      },
+      "2": {
+        "h": "Atau buat tautan",
+        "b": "Kalau HP ada di tempat lain, pilih Tautan di aplikasi atau buka <goTransfer>bishare.app/transfer</goTransfer> di browser desktop mana pun dan tambahkan file di sana. Kirim alamatnya, tunjukkan kode QR, atau bacakan kode 6 karakter; Safari atau Chrome di HP bisa mengambil sampai 100 GB selama 24 jam berikutnya."
+      }
     }
   },
   "speed": {
     "title": "Berapa lama waktunya",
-    "body": "Pada jalur nirkabel, yang jadi hambatan adalah Wi-Fi HP, bukan komputer. Untuk apa pun yang lewat server, kecepatan unggah internet Anda yang menentukan temponya.",
+    "body": "Pada <blogWireless>jalur nirkabel</blogWireless>, yang jadi hambatan adalah Wi-Fi HP, bukan komputer. Untuk apa pun yang lewat server, kecepatan unggah internet Anda yang menentukan temponya.",
     "items": {
-      "0": { "h": "Wi-Fi yang sama", "b": "Harapkan sekitar 40–50 MB/s dari HP keluaran terbaru di Wi-Fi 5 dekat router, dan 70–110 MB/s di Wi-Fi 6; satu gigabyte selesai sebelum Anda sempat mengambil HP. Komputer yang memakai kabel Ethernet hanya sedikit membantu, karena radio HP adalah bagian yang lebih lambat. Hotspot HP biasanya memberi 10 sampai 30 MB/s." },
-      "1": { "h": "Kabel USB", "b": "Banyak kabel bawaan HP berstandar USB 2.0, maksimal 480 Mbit/s, dan file besar tunggal sering berjalan sekitar 30 sampai 40 MB/s. Folder berisi ribuan foto kecil jauh lebih lambat, karena MTP menangani tiap file satu per satu." },
-      "2": { "h": "Cloud dan tautan", "b": "Dengan unggahan 50 Mbit/s, tiap gigabyte butuh sekitar tiga menit untuk keluar dari komputer sebelum HP melihat satu byte pun, sehingga folder 10 GB lewat dari setengah jam. Transfer langsung melewati penantian itu sepenuhnya." }
+      "0": {
+        "h": "Wi-Fi yang sama",
+        "b": "Harapkan sekitar 40–50 MB/s dari HP keluaran terbaru di Wi-Fi 5 dekat router, dan 70–110 MB/s di Wi-Fi 6; satu gigabyte selesai sebelum Anda sempat mengambil HP. Komputer yang memakai kabel Ethernet hanya sedikit membantu, karena radio HP adalah bagian yang lebih lambat. <goOffline>Hotspot HP</goOffline> biasanya memberi 10 sampai 30 MB/s."
+      },
+      "1": {
+        "h": "Kabel USB",
+        "b": "Banyak kabel bawaan HP berstandar USB 2.0, maksimal 480 Mbit/s, dan file besar tunggal sering berjalan sekitar 30 sampai 40 MB/s. Folder berisi ribuan foto kecil jauh lebih lambat, karena MTP menangani tiap file satu per satu."
+      },
+      "2": {
+        "h": "Cloud dan tautan",
+        "b": "Dengan unggahan 50 Mbit/s, tiap gigabyte butuh sekitar tiga menit untuk keluar dari komputer sebelum HP melihat satu byte pun, sehingga folder 10 GB lewat dari setengah jam. Transfer langsung melewati penantian itu sepenuhnya."
+      }
     }
   },
   "fixes": {
     "title": "Saat HP tidak muncul",
     "items": {
-      "0": { "h": "Quick Share untuk Windows tidak melihat HP", "b": "Nyalakan Bluetooth dan Wi-Fi di keduanya, dekatkan HP dalam beberapa meter, dan atur visibilitas Quick Share-nya ke Semua orang untuk sementara. Kalau PC ada di jaringan kantor atau tamu yang memblokir lalu lintas antarperangkat, sambungkan PC ke hotspot HP." },
-      "1": { "h": "HP Android mengisi daya tapi tidak muncul di File Explorer", "b": "Buka kunci HP, buka notifikasi USB, lalu ganti dari Hanya mengisi daya ke Transfer file. Kalau opsi itu tidak pernah muncul, coba kabel lain; banyak kabel murah hanya mengalirkan daya, bukan data." },
-      "2": { "h": "iPhone hanya menampilkan folder DCIM", "b": "Itu memang normal. Windows bisa membaca rol kamera tapi tidak bisa menulis file ke iPhone. Pakai Apple Devices untuk menambahkan file ke aplikasi, iCloud Drive, atau aplikasi transfer langsung." },
-      "3": { "h": "Keduanya di Wi-Fi yang sama, tapi aplikasi tidak menampilkan apa-apa", "b": "Di iPhone, periksa Pengaturan, Privasi & Keamanan, Jaringan Lokal dan izinkan aplikasinya. Di Windows, pastikan jaringan diatur sebagai Private, karena profil Public memblokir penemuan perangkat. VPN di salah satu perangkat juga bisa menyembunyikan yang lain." },
-      "4": { "h": "Phone Link menolak file", "b": "Seret dan lepas menolak folder, file di atas 512 MB, dan file yang hanya ada di OneDrive. Zip foldernya, buat file tersedia offline dulu, atau pakai Quick Share untuk yang besar." }
+      "0": {
+        "h": "Quick Share untuk Windows tidak melihat HP",
+        "b": "Nyalakan Bluetooth dan Wi-Fi di keduanya, dekatkan HP dalam beberapa meter, dan atur visibilitas Quick Share-nya ke Semua orang untuk sementara. Kalau PC ada di jaringan kantor atau tamu yang memblokir lalu lintas antarperangkat, sambungkan PC ke hotspot HP."
+      },
+      "1": {
+        "h": "HP Android mengisi daya tapi tidak muncul di File Explorer",
+        "b": "Buka kunci HP, buka notifikasi USB, lalu ganti dari Hanya mengisi daya ke Transfer file. Kalau opsi itu tidak pernah muncul, coba kabel lain; banyak kabel murah hanya mengalirkan daya, bukan data."
+      },
+      "2": {
+        "h": "iPhone hanya menampilkan folder DCIM",
+        "b": "Itu memang normal. Windows bisa membaca rol kamera tapi tidak bisa menulis file ke iPhone. Pakai Apple Devices untuk menambahkan file ke aplikasi, iCloud Drive, atau aplikasi transfer langsung."
+      },
+      "3": {
+        "h": "Keduanya di Wi-Fi yang sama, tapi aplikasi tidak menampilkan apa-apa",
+        "b": "Di iPhone, periksa Pengaturan, Privasi & Keamanan, Jaringan Lokal dan izinkan aplikasinya. Di Windows, pastikan jaringan diatur sebagai Private, karena profil Public memblokir penemuan perangkat. VPN di salah satu perangkat juga bisa menyembunyikan yang lain."
+      },
+      "4": {
+        "h": "Phone Link menolak file",
+        "b": "Seret dan lepas menolak folder, file di atas 512 MB, dan file yang hanya ada di OneDrive. Zip foldernya, buat file tersedia offline dulu, atau pakai Quick Share untuk yang besar."
+      }
     }
   },
   "security": {
     "title": "Menjaga transfer tetap privat",
     "body": "File yang dikirim ke HP sering kali yang sensitif: pindaian paspor, slip gaji, tiket berkode batang. Tiap cara berbeda dalam hal siapa lagi yang akhirnya memegang salinan.",
     "items": {
-      "0": { "h": "Tidak ada yang keluar ruangan", "b": "Kabel USB, Quick Share untuk Windows, AirDrop, LocalSend, dan BIShare di satu jaringan memindahkan file langsung antara kedua perangkat, dan yang nirkabel mengenkripsi koneksinya." },
-      "1": { "h": "Lewat server, tersegel", "b": "Tautan BIShare mengenkripsi file di komputer sebelum diunggah, jadi server menyimpan data yang tidak bisa dibacanya. WhatsApp juga mengenkripsi file end-to-end, meski file tetap ada di riwayat obrolan di kedua perangkat." },
-      "2": { "h": "Lewat server, bisa dibaca penyedia", "b": "iCloud Drive dengan perlindungan data standar, Google Drive, OneDrive, obrolan cloud Telegram termasuk Pesan Tersimpan, dan email melindungi file selama perjalanan, sementara perusahaan pengelola layanan tetap punya kemampuan membuka apa yang disimpannya. Perlindungan Data Lanjutan dari Apple mengubah hal itu untuk iCloud Drive jika Anda mengaktifkannya." }
+      "0": {
+        "h": "Tidak ada yang keluar ruangan",
+        "b": "Kabel USB, Quick Share untuk Windows, AirDrop, LocalSend, dan BIShare di satu jaringan memindahkan file langsung antara kedua perangkat, dan yang nirkabel mengenkripsi koneksinya."
+      },
+      "1": {
+        "h": "Lewat server, tersegel",
+        "b": "Tautan BIShare <goEncrypted>mengenkripsi file di komputer sebelum diunggah</goEncrypted>, jadi server menyimpan data yang tidak bisa dibacanya. WhatsApp juga mengenkripsi file end-to-end, meski file tetap ada di riwayat obrolan di kedua perangkat."
+      },
+      "2": {
+        "h": "Lewat server, bisa dibaca penyedia",
+        "b": "iCloud Drive dengan perlindungan data standar, Google Drive, OneDrive, obrolan cloud Telegram termasuk Pesan Tersimpan, dan email melindungi file selama perjalanan, sementara perusahaan pengelola layanan tetap punya kemampuan membuka apa yang disimpannya. Perlindungan Data Lanjutan dari Apple mengubah hal itu untuk iCloud Drive jika Anda mengaktifkannya."
+      }
     }
   },
   "faq": {
     "title": "PC ke HP: pertanyaan umum",
     "items": {
-      "0": { "q": "Bagaimana cara transfer file dari PC ke HP tanpa kabel USB?", "a": "Dari Windows ke Android, pakai Quick Share untuk Windows atau Phone Link. Dari Mac, pakai AirDrop ke iPhone atau HP Android yang didukung. Untuk komputer dan HP apa pun, pasang BIShare di keduanya dan kirim lewat Wi-Fi, atau buka tautan dari komputer di browser HP." },
-      "1": { "q": "Bagaimana cara transfer file dari PC Windows ke iPhone?", "a": "Tanpa kabel, simpan file ke iCloud Drive dengan iCloud untuk Windows atau pakai aplikasi lintas platform seperti BIShare. Dengan kabel, pakai aplikasi Apple Devices untuk menambahkan file ke aplikasi yang mendukung Berbagi File. File Explorer tidak bisa menyalin file ke iPhone." },
-      "2": { "q": "Bisakah Quick Share dipakai mengirim file dari PC ke iPhone?", "a": "Tidak. Quick Share untuk Windows hanya mengirim ke HP Android. Kompatibilitas AirDrop yang ditambahkan Google ke Quick Share berlaku antara HP Android yang didukung dan perangkat Apple, bukan dari PC Windows." },
-      "3": { "q": "Apakah Phone Link bisa transfer file dengan iPhone?", "a": "Phone Link untuk iPhone mengurus pesan, panggilan, dan notifikasi lewat Bluetooth. Microsoft baru meluncurkan berbagi file untuk iPhone lewat program Windows Insider, jadi kebanyakan PC belum memilikinya." },
-      "4": { "q": "Berapa batas ukuran file di Phone Link?", "a": "Seret dan lepas ke layar HP dibatasi 512 MB per file dan 100 file sekaligus, dan tidak menerima folder atau file yang hanya ada di cloud." },
-      "5": { "q": "Apa cara terbaik memindahkan video besar dari komputer ke HP?", "a": "Pakai jalur langsung yang tanpa batas ukuran: BIShare di Wi-Fi yang sama, Quick Share untuk Windows ke Android, AirDrop dari Mac, atau kabel USB ke Android. Kalau HP di tempat lain, tautan BIShare menerima file sampai 100 GB." },
-      "6": { "q": "Kenapa HP Android saya tidak muncul di PC lewat USB?", "a": "HP kemungkinan dalam mode pengisian daya. Buka kuncinya, ketuk notifikasi USB, dan pilih Transfer file. Kalau opsinya tidak ada, kabelnya mungkin hanya untuk mengisi daya." },
-      "7": { "q": "Bagaimana cara transfer file dari Mac ke HP Android?", "a": "Kalau HP mendukung kompatibilitas AirDrop di Quick Share, seperti Pixel 9 ke atas, buat terlihat oleh semua orang lalu kirim lewat AirDrop dari Mac. Kalau tidak, pakai aplikasi lintas platform seperti BIShare atau LocalSend, atau kabel USB dengan OpenMTP." },
-      "8": { "q": "Ke mana file dari PC masuk di HP saya?", "a": "Di Android, biasanya ke folder Download. Di iPhone, unduhan Safari dan file iCloud Drive muncul di aplikasi File, foto AirDrop masuk ke Foto, dan file yang ditambahkan lewat Apple Devices tetap di dalam aplikasi yang dipilih." },
-      "9": { "q": "Apakah transfer file dari PC ke HP gratis?", "a": "Ya. BIShare, Quick Share untuk Windows, Phone Link, AirDrop, LocalSend, dan kabel USB tidak memungut biaya. Cloud gratis sampai Anda melewati kuota penyimpanan gratisnya." }
+      "0": {
+        "q": "Bagaimana cara transfer file dari PC ke HP tanpa kabel USB?",
+        "a": "Dari Windows ke Android, pakai Quick Share untuk Windows atau Phone Link. Dari Mac, pakai AirDrop ke iPhone atau HP Android yang didukung. Untuk komputer dan HP apa pun, pasang BIShare di keduanya dan kirim lewat Wi-Fi, atau buka tautan dari komputer di browser HP."
+      },
+      "1": {
+        "q": "Bagaimana cara transfer file dari PC Windows ke iPhone?",
+        "a": "Tanpa kabel, simpan file ke iCloud Drive dengan iCloud untuk Windows atau pakai aplikasi lintas platform seperti BIShare. Dengan kabel, pakai aplikasi Apple Devices untuk menambahkan file ke aplikasi yang mendukung Berbagi File. File Explorer tidak bisa menyalin file ke iPhone."
+      },
+      "2": {
+        "q": "Bisakah Quick Share dipakai mengirim file dari PC ke iPhone?",
+        "a": "Tidak. Quick Share untuk Windows hanya mengirim ke HP Android. Kompatibilitas AirDrop yang ditambahkan Google ke Quick Share berlaku antara HP Android yang didukung dan perangkat Apple, bukan dari PC Windows."
+      },
+      "3": {
+        "q": "Apakah Phone Link bisa transfer file dengan iPhone?",
+        "a": "Phone Link untuk iPhone mengurus pesan, panggilan, dan notifikasi lewat Bluetooth. Microsoft baru meluncurkan berbagi file untuk iPhone lewat program Windows Insider, jadi kebanyakan PC belum memilikinya."
+      },
+      "4": {
+        "q": "Berapa batas ukuran file di Phone Link?",
+        "a": "Seret dan lepas ke layar HP dibatasi 512 MB per file dan 100 file sekaligus, dan tidak menerima folder atau file yang hanya ada di cloud."
+      },
+      "5": {
+        "q": "Apa cara terbaik memindahkan video besar dari komputer ke HP?",
+        "a": "Pakai jalur langsung yang tanpa batas ukuran: BIShare di Wi-Fi yang sama, Quick Share untuk Windows ke Android, AirDrop dari Mac, atau kabel USB ke Android. Kalau HP di tempat lain, tautan BIShare menerima file sampai 100 GB."
+      },
+      "6": {
+        "q": "Kenapa HP Android saya tidak muncul di PC lewat USB?",
+        "a": "HP kemungkinan dalam mode pengisian daya. Buka kuncinya, ketuk notifikasi USB, dan pilih Transfer file. Kalau opsinya tidak ada, kabelnya mungkin hanya untuk mengisi daya."
+      },
+      "7": {
+        "q": "Bagaimana cara transfer file dari Mac ke HP Android?",
+        "a": "Kalau HP mendukung kompatibilitas AirDrop di Quick Share, seperti Pixel 9 ke atas, buat terlihat oleh semua orang lalu kirim lewat AirDrop dari Mac. Kalau tidak, pakai aplikasi lintas platform seperti BIShare atau LocalSend, atau kabel USB dengan OpenMTP."
+      },
+      "8": {
+        "q": "Ke mana file dari PC masuk di HP saya?",
+        "a": "Di Android, biasanya ke folder Download. Di iPhone, unduhan Safari dan file iCloud Drive muncul di aplikasi File, foto AirDrop masuk ke Foto, dan file yang ditambahkan lewat Apple Devices tetap di dalam aplikasi yang dipilih."
+      },
+      "9": {
+        "q": "Apakah transfer file dari PC ke HP gratis?",
+        "a": "Ya. BIShare, Quick Share untuk Windows, Phone Link, AirDrop, LocalSend, dan kabel USB tidak memungut biaya. Cloud gratis sampai Anda melewati kuota penyimpanan gratisnya."
+      }
     }
   },
   "cta": {
@@ -153,11 +342,73 @@
     "body": "Open source dan gratis, tanpa akun di kedua perangkat. Kirim dari ujung ke ujung ruangan lewat Wi-Fi, atau kirim tautan saat HP-nya ada di saku orang lain.",
     "download": "Unduh BIShare"
   },
-  "a11y": { "yes": "Ya", "no": "Tidak" },
+  "a11y": {
+    "yes": "Ya",
+    "no": "Tidak"
+  },
   "art": {
-    "hero": { "alt": "Laptop mengirim file ke HP, berjudul transfer file dari PC ke HP, delapan cara tanpa kabel di 2026.", "title": "Transfer file dari PC ke HP", "sub": "8 cara tanpa kabel, 2026", "left": "Komputer", "right": "HP" },
-    "matrix": { "alt": "Jalur bawaan per pasangan: Windows ke Android memakai Quick Share atau Phone Link; Windows ke iPhone memakai iCloud Drive atau aplikasi Apple Devices; Mac ke iPhone memakai AirDrop; Mac ke Android memakai AirDrop hanya di HP yang didukung; Linux ke Android memakai KDE Connect; Linux ke iPhone tidak punya jalur bawaan. BIShare mencakup keenamnya.", "title": "Jalur bawaan menurut komputer dan HP", "sub": "Yang ditawarkan tiap pasangan tanpa aplikasi pihak ketiga", "android": "Android", "iphone": "iPhone", "windows": "Windows", "mac": "Mac", "linux": "Linux", "wa": "Quick Share · Phone Link", "wi": "iCloud Drive · Apple Devices (kabel)", "ma": "AirDrop di HP yang didukung", "mi": "AirDrop", "la": "KDE Connect · GSConnect", "li": "Tidak ada jalur bawaan", "good": "Bagus", "partial": "Sebagian", "none": "Tidak ada", "foot": "BIShare jalan di keenam sel: Wi-Fi yang sama, atau tautan yang dibuka di browser HP" },
-    "caps": { "alt": "File terbesar yang diterima tiap jalur, skala logaritmik: email sekitar 25 MB, seret dan lepas Phone Link 512 MB, Telegram dan WhatsApp 2 GB, iCloud untuk Windows 50 GB, tautan BIShare 100 GB; BIShare di jaringan yang sama, Quick Share, AirDrop, dan kabel USB tidak punya batas selain ruang kosong HP.", "title": "File tunggal terbesar yang diterima tiap jalur", "sub": "Batas per file, September 2026 (skala log)", "email": "Lampiran email", "phonelink": "Phone Link, seret dan lepas", "chat": "Telegram · WhatsApp", "icloud": "iCloud untuk Windows", "link": "Tautan BIShare", "direct": "BIShare dekat · Quick Share · AirDrop · USB", "noCap": "Penyimpanan HP", "foot": "Cloud gratis habis lebih cepat: iCloud 5 GB, OneDrive 5 GB, Google 15 GB" },
-    "landing": { "alt": "Tempat file dari komputer tiba di HP: di Android, Quick Share, Phone Link, dan unduhan browser masuk ke folder Download dan salinan USB masuk ke folder yang Anda pilih; di iPhone, unduhan Safari dan file iCloud Drive ada di aplikasi File, foto AirDrop masuk ke Foto, file yang ditambahkan lewat Apple Devices tetap di dalam aplikasi yang dipilih, dan BIShare menyimpan file di kotak masuknya.", "title": "Di mana file mendarat di HP", "sub": "Buka aplikasi ini setelah transfer selesai", "androidTitle": "Android", "iphoneTitle": "iPhone", "a0": "Quick Share · Phone Link · browser", "a0p": "Folder Download", "a1": "Quick Share di Galaxy", "a1p": "Download › Quick Share", "a2": "BIShare", "a2p": "Kotak masuk, lalu Simpan ke Foto", "a3": "Kabel USB mode Transfer file", "a3p": "Folder tempat Anda menyalin", "i0": "Tautan Safari · iCloud Drive", "i0p": "Aplikasi File", "i1": "AirDrop", "i1p": "Foto, atau aplikasi untuk dokumen", "i2": "Apple Devices · kabel dengan Finder", "i2p": "Di dalam aplikasi yang dipilih", "i3": "BIShare", "i3p": "Kotak masuk, lalu Simpan ke Foto" }
+    "hero": {
+      "alt": "Laptop mengirim file ke HP, berjudul transfer file dari PC ke HP, delapan cara tanpa kabel di 2026.",
+      "title": "Transfer file dari PC ke HP",
+      "sub": "8 cara tanpa kabel, 2026",
+      "left": "Komputer",
+      "right": "HP"
+    },
+    "matrix": {
+      "alt": "Jalur bawaan per pasangan: Windows ke Android memakai Quick Share atau Phone Link; Windows ke iPhone memakai iCloud Drive atau aplikasi Apple Devices; Mac ke iPhone memakai AirDrop; Mac ke Android memakai AirDrop hanya di HP yang didukung; Linux ke Android memakai KDE Connect; Linux ke iPhone tidak punya jalur bawaan. BIShare mencakup keenamnya.",
+      "title": "Jalur bawaan menurut komputer dan HP",
+      "sub": "Yang ditawarkan tiap pasangan tanpa aplikasi pihak ketiga",
+      "android": "Android",
+      "iphone": "iPhone",
+      "windows": "Windows",
+      "mac": "Mac",
+      "linux": "Linux",
+      "wa": "Quick Share · Phone Link",
+      "wi": "iCloud Drive · Apple Devices (kabel)",
+      "ma": "AirDrop di HP yang didukung",
+      "mi": "AirDrop",
+      "la": "KDE Connect · GSConnect",
+      "li": "Tidak ada jalur bawaan",
+      "good": "Bagus",
+      "partial": "Sebagian",
+      "none": "Tidak ada",
+      "foot": "BIShare jalan di keenam sel: Wi-Fi yang sama, atau tautan yang dibuka di browser HP"
+    },
+    "caps": {
+      "alt": "File terbesar yang diterima tiap jalur, skala logaritmik: email sekitar 25 MB, seret dan lepas Phone Link 512 MB, Telegram dan WhatsApp 2 GB, iCloud untuk Windows 50 GB, tautan BIShare 100 GB; BIShare di jaringan yang sama, Quick Share, AirDrop, dan kabel USB tidak punya batas selain ruang kosong HP.",
+      "title": "File tunggal terbesar yang diterima tiap jalur",
+      "sub": "Batas per file, September 2026 (skala log)",
+      "email": "Lampiran email",
+      "phonelink": "Phone Link, seret dan lepas",
+      "chat": "Telegram · WhatsApp",
+      "icloud": "iCloud untuk Windows",
+      "link": "Tautan BIShare",
+      "direct": "BIShare dekat · Quick Share · AirDrop · USB",
+      "noCap": "Penyimpanan HP",
+      "foot": "Cloud gratis habis lebih cepat: iCloud 5 GB, OneDrive 5 GB, Google 15 GB"
+    },
+    "landing": {
+      "alt": "Tempat file dari komputer tiba di HP: di Android, Quick Share, Phone Link, dan unduhan browser masuk ke folder Download dan salinan USB masuk ke folder yang Anda pilih; di iPhone, unduhan Safari dan file iCloud Drive ada di aplikasi File, foto AirDrop masuk ke Foto, file yang ditambahkan lewat Apple Devices tetap di dalam aplikasi yang dipilih, dan BIShare menyimpan file di kotak masuknya.",
+      "title": "Di mana file mendarat di HP",
+      "sub": "Buka aplikasi ini setelah transfer selesai",
+      "androidTitle": "Android",
+      "iphoneTitle": "iPhone",
+      "a0": "Quick Share · Phone Link · browser",
+      "a0p": "Folder Download",
+      "a1": "Quick Share di Galaxy",
+      "a1p": "Download › Quick Share",
+      "a2": "BIShare",
+      "a2p": "Kotak masuk, lalu Simpan ke Foto",
+      "a3": "Kabel USB mode Transfer file",
+      "a3p": "Folder tempat Anda menyalin",
+      "i0": "Tautan Safari · iCloud Drive",
+      "i0p": "Aplikasi File",
+      "i1": "AirDrop",
+      "i1p": "Foto, atau aplikasi untuk dokumen",
+      "i2": "Apple Devices · kabel dengan Finder",
+      "i2p": "Di dalam aplikasi yang dipilih",
+      "i3": "BIShare",
+      "i3p": "Kotak masuk, lalu Simpan ke Foto"
+    }
   }
 }

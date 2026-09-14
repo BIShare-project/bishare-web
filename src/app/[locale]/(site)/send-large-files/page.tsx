@@ -18,6 +18,7 @@ import { publishedSlugs } from "@/content/blog/registry";
 const SPEED_POST = "airdrop-for-windows-speeds";
 const SLUG = "/send-large-files";
 import { ArrowRight, Check, X } from "lucide-react";
+import { guideLinks } from "@/components/site/guide-links";
 
 /**
  * High-intent SEO landing for "send large files (free)" and its size
@@ -153,6 +154,7 @@ export default async function SendLargeFilesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("largeFiles");
+  const links = guideLinks();
   const chrome = await getTranslations("chrome");
   const tocLabel = chrome("toc.onThisPage");
   const yes = t("a11y.yes");
@@ -228,6 +230,7 @@ export default async function SendLargeFilesPage({
           {t.rich("hero.body", {
             strong,
             highlight: (chunks) => <span className="text-foreground">{chunks}</span>,
+            ...links,
           })}
         </p>
 
@@ -240,7 +243,7 @@ export default async function SendLargeFilesPage({
             {QUICK_ITEMS.map((i) => (
               <li key={i} className="flex items-start gap-3 text-[15px] leading-relaxed text-muted-foreground">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" aria-hidden />
-                <span>{t.rich(`quick.items.${i}`, { strong })}</span>
+                <span>{t.rich(`quick.items.${i}`, { strong, ...links })}</span>
               </li>
             ))}
           </ul>
@@ -267,7 +270,7 @@ export default async function SendLargeFilesPage({
         {/* Why it is still a pain */}
         <section className="mt-14">
           <H2 id="why">{t("why.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("why.body", { strong })}</p>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("why.body", { strong, ...links })}</p>
         </section>
 
         {/* Steps — the how-to, with the real screen */}
@@ -350,7 +353,7 @@ export default async function SendLargeFilesPage({
             {WAY_ITEMS.map((i) => (
               <li key={i} >
                 <h3 className="font-semibold">{t(`ways.items.${i}.h`)}</h3>
-                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t(`ways.items.${i}.b`)}</p>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`ways.items.${i}.b`, links)}</p>
               </li>
             ))}
           </ul>
@@ -384,7 +387,7 @@ export default async function SendLargeFilesPage({
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-border bg-background-raised text-foreground">
                   <Check className="h-3 w-3" />
                 </span>
-                <span>{t(`security.items.${i}`)}</span>
+                <span>{t.rich(`security.items.${i}`, links)}</span>
               </li>
             ))}
           </ul>

@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Handy → Computer",
     "title": "Dateien vom Handy auf den PC übertragen",
-    "body": "Dateien vom Handy holen klingt nach einer Aufgabe, sind aber eigentlich vier: ein paar Fotos rüberziehen, die Aufnahmen komplett leeren, ein Video verschieben, das für Messenger zu groß ist, oder ein unterwegs geladenes Dokument sichern. Jede hat einen anderen besten Weg, und die Handymarke zählt so viel wie der Computer. Android-Handys erreichen Windows leicht über Google und Microsoft, iPhones erreichen den Mac per AirDrop, und die übrigen Kombinationen stützen sich auf Kabel, Cloud-Mediatheken oder eine Drittanbieter-App. Unten stehen acht Wege nach Rang, was jeder Computer mit dem Ankommenden macht, die HEIC- und Live-Photo-Überraschungen unter Windows und wo Sie die Datei danach finden. <strong>BIShare</strong> ist einer der acht und der einzige, der <strong>von iPhone und Android auf jeden Windows-, Mac- oder Linux-Rechner</strong> über Ihr WLAN sendet. <highlight>Kostenlos, Open Source, ohne Konto.</highlight>",
+    "body": "Dateien vom Handy holen klingt nach einer Aufgabe, sind aber eigentlich vier: ein paar Fotos rüberziehen, die Aufnahmen komplett leeren, ein Video verschieben, das für Messenger zu groß ist, oder ein unterwegs geladenes Dokument sichern. Jede hat einen anderen besten Weg, und die Handymarke zählt so viel wie der Computer. Android-Handys erreichen Windows leicht über Google und Microsoft, iPhones erreichen den Mac per AirDrop, und die übrigen Kombinationen stützen sich auf Kabel, Cloud-Mediatheken oder eine Drittanbieter-App. Unten stehen acht Wege nach Rang, was jeder Computer mit dem Ankommenden macht, die HEIC- und Live-Photo-Überraschungen unter Windows und wo Sie die Datei danach finden. <strong>BIShare</strong> ist einer der acht und der einzige, der <strong>von iPhone und Android auf jeden Windows-, Mac- oder Linux-Rechner</strong> über Ihr WLAN sendet. <highlight>Kostenlos, Open Source, <goNoAccount>ohne Konto</goNoAccount>.</highlight>",
     "ctaPrimary": "BIShare kostenlos holen",
     "ctaSecondary": "So funktioniert es"
   },
@@ -16,8 +16,8 @@
     "title": "Kurze Antwort",
     "items": [
       "<strong>Android-Handy auf einen Windows-PC:</strong> Datei an Quick Share teilen und den PC mit Googles Quick-Share-App wählen. Sie landet in Downloads, in einem Ordner Quick Share.",
-      "<strong>iPhone auf einen Windows-PC, Fotos:</strong> Kabel anschließen, „Vertrauen“ tippen und in der Windows-App Fotos importieren, mit installiertem Apple Geräte. Bei aktiven iCloud-Fotos zuerst die Originale aufs iPhone laden.",
-      "<strong>iPhone auf einen Windows-PC, andere Dateien:</strong> Einen allgemeinen eingebauten Funkweg gibt es noch nicht. iCloud Drive oder eine App auf beiden Geräten wie BIShare nutzen.",
+      "<strong>iPhone auf einen Windows-PC, Fotos:</strong> Kabel anschließen, „Vertrauen“ tippen und <goIphonePhotos>in der Windows-App Fotos importieren</goIphonePhotos>, mit installiertem Apple Geräte. Bei aktiven iCloud-Fotos zuerst die Originale aufs iPhone laden.",
+      "<strong>iPhone auf einen Windows-PC, andere Dateien:</strong> <blogIphoneWindows>Einen allgemeinen eingebauten Funkweg gibt es noch nicht</blogIphoneWindows>. iCloud Drive oder eine App auf beiden Geräten wie BIShare nutzen.",
       "<strong>iPhone, Pixel 9 oder aktuelles Galaxy auf einen Mac:</strong> AirDrop, für Android mit dem Mac auf Empfang von allen. Dateien landen im Download-Ordner des Mac.",
       "<strong>Beliebiges Handy auf beliebigen Computer im selben WLAN:</strong> BIShare auf beiden überträgt Originale direkt und verschlüsselt, egal wie groß.",
       "<strong>Sie sind nicht am Computer:</strong> Auf dem Handy einen BIShare-Link erstellen und später im Browser des Computers öffnen, innerhalb von 24 Stunden, bis 100 GB."
@@ -27,126 +27,318 @@
     "title": "Was bewegen Sie? Das bestimmt den Weg",
     "body": "Dasselbe Handy kann an einem Nachmittag drei verschiedene Methoden brauchen. Erst die Aufgabe zuordnen, dann das Gerätepaar.",
     "items": {
-      "0": { "h": "Ein paar Fotos oder ein Screenshot", "b": "Tempo zählt mehr als Menge, also gewinnt das Teilen-Menü: Quick Share auf einen Windows-PC, AirDrop auf einen Mac, die Fotogalerie von Smartphone-Link, wenn sie schon eingerichtet ist, oder direkt mit BIShare. Messenger gehen auch, verkleinern Bilder aber, wenn Sie sie nicht als Datei anhängen." },
-      "1": { "h": "Die kompletten Aufnahmen", "b": "Tausende Elemente sprechen für ein Kabel oder eine Foto-Mediathek. Mit der Windows-App Fotos, Digitale Bilder oder Fotos am Mac importieren, oder iCloud-Fotos bzw. Google Fotos alles synchronisieren lassen und am Computer herunterladen. Das Teilen-Menü wird ab ein paar Hundert Dateien mühsam." },
-      "2": { "h": "Ein langes Video", "b": "Größenlimits entscheiden. Messenger enden bei 2 GB, Ziehen und Ablegen in Smartphone-Link bei 512 MB, und Cloud-Mediatheken zählen gegen den Gratisspeicher. Direkte Wege, also Quick Share, AirDrop, Kabel oder BIShare im WLAN, kennen keine Grenze außer freiem Speicherplatz." },
-      "3": { "h": "Dokumente und Downloads", "b": "PDFs, Rechnungen und aus Mails gespeicherte Dateien liegen nicht in den Aufnahmen, Foto-Werkzeuge sehen sie also nicht. Nutzen Sie die Dateien-App des Handys mit einem Teilen-Weg, einen Cloud-Speicher oder BIShare, das aus jedem Ordner liest, den das Handy freigibt." }
+      "0": {
+        "h": "Ein paar Fotos oder ein Screenshot",
+        "b": "Tempo zählt mehr als Menge, also gewinnt das Teilen-Menü: Quick Share auf einen Windows-PC, AirDrop auf einen Mac, die Fotogalerie von Smartphone-Link, wenn sie schon eingerichtet ist, oder direkt mit BIShare. Messenger gehen auch, verkleinern Bilder aber, wenn Sie sie nicht als Datei anhängen."
+      },
+      "1": {
+        "h": "Die kompletten Aufnahmen",
+        "b": "Tausende Elemente sprechen für ein Kabel oder eine Foto-Mediathek. Mit der Windows-App Fotos, Digitale Bilder oder Fotos am Mac importieren, oder iCloud-Fotos bzw. Google Fotos alles synchronisieren lassen und am Computer herunterladen. Das Teilen-Menü wird ab ein paar Hundert Dateien mühsam."
+      },
+      "2": {
+        "h": "Ein langes Video",
+        "b": "<goLargeFiles>Größenlimits entscheiden</goLargeFiles>. Messenger enden bei 2 GB, Ziehen und Ablegen in Smartphone-Link bei 512 MB, und Cloud-Mediatheken zählen gegen den Gratisspeicher. Direkte Wege, also Quick Share, AirDrop, Kabel oder BIShare im WLAN, kennen keine Grenze außer freiem Speicherplatz."
+      },
+      "3": {
+        "h": "Dokumente und Downloads",
+        "b": "PDFs, Rechnungen und aus Mails gespeicherte Dateien liegen nicht in den Aufnahmen, Foto-Werkzeuge sehen sie also nicht. Nutzen Sie die Dateien-App des Handys mit einem Teilen-Weg, einen Cloud-Speicher oder BIShare, das aus jedem Ordner liest, den das Handy freigibt."
+      }
     }
   },
   "methods": {
     "title": "Acht Wege, Dateien vom Handy zu holen, nach Rang",
     "consLabel": "Achtung:",
     "items": {
-      "0": { "name": "BIShare", "tag": "Beste insgesamt: iPhone oder Android auf Windows, Mac oder Linux", "facts": "iPhone, Android, Windows, macOS, Linux · Open Source (MIT) · direkt im selben Netz ohne Größenlimit · Links bis 100 GB für 24 Stunden · Ende-zu-Ende verschlüsselt · keine Anmeldung", "body": "App auf dem Handy öffnen, Fotos, Videos oder Dateien aus jedem lesbaren Ordner wählen und den Computer aus der Liste der Geräte in der Nähe antippen; der Computer nimmt an, und die Originale kommen in voller Größe an. Es ändert sich nichts zwischen iPhone und Galaxy oder zwischen Windows-Tower und Linux-Laptop, und es läuft auch über den Hotspot des Handys, wenn kein Router da ist. Das Haus zu verlassen, bevor alles übertragen ist, geht ebenfalls: Auswahl in einen Link umwandeln, und der Computer lädt ihn später am Tag in jedem Browser herunter, verschlüsselt auf dem Handy, bevor die Datei irgendwohin ging.", "cons": "Der direkte Weg braucht die Desktop-App. Links verschwinden nach 24 Stunden, sie taugen zur Übergabe, nicht als Archiv." },
-      "1": { "name": "Quick Share für Windows", "tag": "Bester eingebauter Weg von Android auf einen Windows-PC", "facts": "Android 6.0 oder neuer · 64-Bit-PC mit Windows 10 oder neuer, oder Windows 11 auf einem Arm-Laptop · Bluetooth und WLAN an beiden, im Umkreis von etwa 5 Metern · Dateien in Downloads › Quick Share", "body": "Sobald Googles Quick-Share-App auf dem PC ist, erscheint er im normalen Teilen-Menü des Handys unter Quick Share. Antippen, am PC annehmen, falls er nicht auf die eigenen Geräte eingestellt ist, und die Datei landet in einem Ordner Quick Share in Downloads. Es überträgt jeden Dateityp, den das Teilen-Menü weitergeben kann, auch Videos direkt aus der Galerie, und Google nennt kein Größenlimit. Galaxy-Besitzer mit Samsung-PC können stattdessen Samsungs Version aus dem Microsoft Store nutzen.", "cons": "Nur Android. Die beiden Geräte müssen nah beieinander sein, und Netze, die Verkehr zwischen Geräten blockieren, verhindern es; Google rät, den PC mit dem Hotspot des Handys zu verbinden." },
-      "2": { "name": "Smartphone-Link", "tag": "Am besten für aktuelle Fotos und Screenshots unter Windows", "facts": "Link zu Windows auf Android 10+ · Windows 10 oder 11 · mit Microsoft angemeldet · beide im selben WLAN · zeigt die 2.000 neuesten Fotos und Screenshots · Dateien in Downloads › Phone Link", "body": "Smartphone-Link erledigt hier zwei nützliche Dinge. Der Tab Fotos zeigt die neuesten 2.000 Bilder und Screenshots aus den Ordnern Kamera und Screenshots, und jedes lässt sich mit einem Klick kopieren oder auf dem PC speichern. Andere Dateien teilen Sie vom Handy an Link zu Windows, auf manchen Samsung- und Honor-Handys „An PC senden“ genannt, und sie kommen in einem Ordner Phone Link in Downloads an. Handys mit vorinstalliertem Link zu Windows können Dateien auch vom gespiegelten Bildschirm ziehen.", "cons": "Der Tab Fotos zeigt Bilder, keine Videos, und nur aus diesen zwei Ordnern. Ziehen und Ablegen endet bei 512 MB pro Datei. Die iPhone-Version kümmert sich um Nachrichten und Anrufe; Dateifreigabe fürs iPhone bietet Microsoft bisher nur Insider-Builds an." },
-      "3": { "name": "AirDrop", "tag": "Bester eingebauter Weg auf einen Mac, vom iPhone oder einem unterstützten Android", "facts": "iPhone, iPad auf Mac · Pixel 9 und neuer sowie ausgewählte Galaxy-, Xiaomi-, OnePlus- und andere Modelle über Quick Share · nur in der Nähe · Objekte landen im Download-Ordner des Mac", "body": "Vom iPhone auf Teilen, AirDrop und den Mac tippen; bei gleichem Apple Account nimmt er ohne Nachfrage an. Von einem Android-Handy auf Googles AirDrop-Liste das Kontrollzentrum am Mac öffnen, AirDrop zehn Minuten lang für jeden erlauben und dann den Mac in Quick Share wählen. So oder so ist die Verbindung direkt, die Originale behalten ihre Qualität, und was ankommt, liegt in Downloads auf dem Mac statt in der Fotos-Mediathek.", "cons": "Nur Mac. Bisher kommt nur eine Minderheit der Android-Modelle infrage, und das Zehn-Minuten-Fenster für jeden macht den Mac auch für Fremde in Reichweite sichtbar." },
-      "4": { "name": "Ein USB-Kabel", "tag": "Am besten für alle Aufnahmen auf einmal oder einen großen Android-Ordner", "facts": "Android: Modus Dateiübertragung, jeder Ordner, Datei-Explorer oder Linux-Dateimanager · iPhone: nur Aufnahmen, Windows-App Fotos mit installiertem Apple Geräte oder Fotos und Digitale Bilder am Mac · Mac zu Android-Speicher braucht eine Drittanbieter-App", "body": "Ein Android-Handy im Modus Dateiübertragung aus der USB-Mitteilung erscheint unter Windows und in den meisten Linux-Dateimanagern als Laufwerk, mit allen Ordnern zum Kopieren, nicht nur Bildern. Ein iPhone verhält sich wie eine Kamera: entsperren, „Vertrauen“ tippen, und die Windows-App Fotos oder Digitale Bilder am Mac importieren Fotos und Videos. Apples Hinweis ist hier wichtig: Bei aktiven iCloud-Fotos zuerst die Originale in voller Auflösung aufs iPhone laden, sonst sieht der Computer nur, was lokal gespeichert ist.", "cons": "Auf diesem Weg kommen vom iPhone nur Fotos und Videos. Große Importe über ein USB-2.0-Kabel sind langsam, und am Mac braucht ein Android-Handy ein Werkzeug wie OpenMTP, um den Speicher zu durchsuchen." },
-      "5": { "name": "iCloud-Fotos oder Google Fotos", "tag": "Am besten, wenn die ganze Mediathek auf den Computer soll und synchron bleibt", "facts": "iCloud: 5 GB gratis, iCloud für Windows zeigt iCloud-Fotos im Datei-Explorer und in Fotos · Google Fotos: 15 GB gratis, geteilt mit Gmail und Drive, Download über photos.google.com · Konto auf beiden Seiten", "body": "Sichert das Handy schon in eine Foto-Mediathek, sind die Bilder auf dem Computer, sobald Sie sich dort anmelden. iCloud für Windows bringt iCloud-Fotos in den Datei-Explorer und die Windows-App Fotos, ein Mac sieht sie in Fotos. Google Fotos funktioniert in jedem Desktop-Browser, wo Sie ein Bild, ein Album oder eine Auswahl als ZIP herunterladen. Für Dokumente leisten iCloud Drive und Google Drive dasselbe mit der Dateien-App des Handys.", "cons": "Erst Upload, dann Download, ein frischer Stapel 4K-Video wartet also auf Ihre Leitung. Gratisspeicher ist schnell voll, und Google Fotos behält volle Auflösung nur bei Sicherung in Originalqualität." },
-      "6": { "name": "PairDrop", "tag": "Gut, wenn auf dem Computer nichts installiert werden darf", "facts": "Läuft in jedem aktuellen Browser · Open Source (GPL-3.0) · findet Geräte im selben Netz · verbindet Geräte in verschiedenen Netzen per 6-stelligem Kopplungscode oder QR-Code · leitet über einen TURN-Server, wenn kein direkter Weg klappt", "body": "pairdrop.net im Browser des Handys und am Computer öffnen, und im gemeinsamen Netz sehen sich beide sofort. Computer antippen, Dateien wählen, und sie gehen Peer-to-Peer. Praktisch auf einem Arbeits-PC, auf dem Sie nichts installieren dürfen, oder am Laptop eines Freundes für eine einmalige Übertragung, und gekoppelte Geräte merken sich gegenseitig.", "cons": "Beide Browser-Tabs müssen während der Übertragung offen bleiben, große Dateien hängen davon ab, dass das Handy den Browser nicht schlafen legt, und es gibt keine Übertragung im Hintergrund." },
-      "7": { "name": "KDE Connect", "tag": "Bester eingebauter Weg von Android auf Linux", "facts": "Android-App mit KDE Plasma, GSConnect unter GNOME · auch für Windows und macOS · selbes Netz · synchronisiert auch Zwischenablage und Mitteilungen · Empfangenes landet standardmäßig in Downloads", "body": "Die KDE-Connect-App auf dem Handy einmal mit dem Desktop koppeln, und das Teilen einer Datei an KDE Connect aus jeder Android-App schickt sie in den Download-Ordner des Computers. Unter GNOME spricht die Erweiterung GSConnect dasselbe Protokoll. Die naheliegende Wahl für Linux-Nutzer, die Handy und Desktop den ganzen Tag verbunden haben wollen, nicht nur für Dateien.", "cons": "Die iPhone-App kann weit weniger als die Android-App. Die Erkennung kann in Netzen scheitern, die Geräte isolieren, und außerhalb des lokalen Netzes funktioniert es nicht." }
+      "0": {
+        "name": "BIShare",
+        "tag": "Beste insgesamt: iPhone oder Android auf Windows, Mac oder Linux",
+        "facts": "iPhone, Android, Windows, macOS, Linux · Open Source (MIT) · direkt im selben Netz ohne Größenlimit · Links bis 100 GB für 24 Stunden · Ende-zu-Ende verschlüsselt · keine Anmeldung",
+        "body": "App auf dem Handy öffnen, Fotos, Videos oder Dateien aus jedem lesbaren Ordner wählen und den Computer aus der Liste der Geräte in der Nähe antippen; der Computer nimmt an, und die Originale kommen in voller Größe an. Es ändert sich nichts zwischen iPhone und Galaxy oder zwischen Windows-Tower und Linux-Laptop, und es läuft auch über den Hotspot des Handys, wenn kein Router da ist. Das Haus zu verlassen, bevor alles übertragen ist, geht ebenfalls: Auswahl in einen Link umwandeln, und der Computer lädt ihn später am Tag <goTransfer>in jedem Browser</goTransfer> herunter, verschlüsselt auf dem Handy, bevor die Datei irgendwohin ging.",
+        "cons": "Der direkte Weg braucht die Desktop-App. Links verschwinden nach 24 Stunden, sie taugen zur Übergabe, nicht als Archiv."
+      },
+      "1": {
+        "name": "Quick Share für Windows",
+        "tag": "Bester eingebauter Weg von Android auf einen Windows-PC",
+        "facts": "Android 6.0 oder neuer · 64-Bit-PC mit Windows 10 oder neuer, oder Windows 11 auf einem Arm-Laptop · Bluetooth und WLAN an beiden, im Umkreis von etwa 5 Metern · Dateien in Downloads › Quick Share",
+        "body": "Sobald Googles Quick-Share-App auf dem PC ist, erscheint er im normalen Teilen-Menü des Handys unter <goNearby>Quick Share</goNearby>. Antippen, am PC annehmen, falls er nicht auf die eigenen Geräte eingestellt ist, und die Datei landet in einem Ordner Quick Share in Downloads. Es überträgt jeden Dateityp, den das Teilen-Menü weitergeben kann, auch Videos direkt aus der Galerie, und Google nennt kein Größenlimit. Galaxy-Besitzer mit Samsung-PC können stattdessen Samsungs Version aus dem Microsoft Store nutzen.",
+        "cons": "Nur Android. Die beiden Geräte müssen nah beieinander sein, und Netze, die Verkehr zwischen Geräten blockieren, verhindern es; Google rät, den PC mit dem Hotspot des Handys zu verbinden."
+      },
+      "2": {
+        "name": "Smartphone-Link",
+        "tag": "Am besten für aktuelle Fotos und Screenshots unter Windows",
+        "facts": "Link zu Windows auf Android 10+ · Windows 10 oder 11 · mit Microsoft angemeldet · beide im selben WLAN · zeigt die 2.000 neuesten Fotos und Screenshots · Dateien in Downloads › Phone Link",
+        "body": "Smartphone-Link erledigt hier zwei nützliche Dinge. Der Tab Fotos zeigt die neuesten 2.000 Bilder und Screenshots aus den Ordnern Kamera und Screenshots, und jedes lässt sich mit einem Klick kopieren oder auf dem PC speichern. Andere Dateien teilen Sie vom Handy an Link zu Windows, auf manchen Samsung- und Honor-Handys „An PC senden“ genannt, und sie kommen in einem Ordner Phone Link in Downloads an. Handys mit vorinstalliertem Link zu Windows können Dateien auch vom gespiegelten Bildschirm ziehen.",
+        "cons": "Der Tab Fotos zeigt Bilder, keine Videos, und nur aus diesen zwei Ordnern. Ziehen und Ablegen endet bei 512 MB pro Datei. Die iPhone-Version kümmert sich um Nachrichten und Anrufe; Dateifreigabe fürs iPhone bietet Microsoft bisher nur Insider-Builds an."
+      },
+      "3": {
+        "name": "AirDrop",
+        "tag": "Bester eingebauter Weg auf einen Mac, vom iPhone oder einem unterstützten Android",
+        "facts": "iPhone, iPad auf Mac · Pixel 9 und neuer sowie ausgewählte Galaxy-, Xiaomi-, OnePlus- und andere Modelle über Quick Share · nur in der Nähe · Objekte landen im Download-Ordner des Mac",
+        "body": "Vom iPhone auf Teilen, AirDrop und den Mac tippen; bei gleichem Apple Account nimmt er ohne Nachfrage an. Von einem Android-Handy auf Googles AirDrop-Liste das Kontrollzentrum am Mac öffnen, AirDrop zehn Minuten lang für jeden erlauben und dann den Mac in Quick Share wählen. So oder so ist die Verbindung direkt, die Originale behalten ihre Qualität, und was ankommt, liegt in Downloads auf dem Mac statt in der Fotos-Mediathek.",
+        "cons": "Nur Mac. Bisher kommt nur eine Minderheit der Android-Modelle infrage, und das Zehn-Minuten-Fenster für jeden macht den Mac auch für Fremde in Reichweite sichtbar."
+      },
+      "4": {
+        "name": "Ein USB-Kabel",
+        "tag": "Am besten für alle Aufnahmen auf einmal oder einen großen Android-Ordner",
+        "facts": "Android: Modus Dateiübertragung, jeder Ordner, Datei-Explorer oder Linux-Dateimanager · iPhone: nur Aufnahmen, Windows-App Fotos mit installiertem Apple Geräte oder Fotos und Digitale Bilder am Mac · Mac zu Android-Speicher braucht eine Drittanbieter-App",
+        "body": "Ein Android-Handy im Modus Dateiübertragung aus der USB-Mitteilung erscheint unter Windows und in den meisten Linux-Dateimanagern als Laufwerk, mit allen Ordnern zum Kopieren, nicht nur Bildern. Ein iPhone verhält sich wie eine Kamera: entsperren, „Vertrauen“ tippen, und die Windows-App Fotos oder Digitale Bilder am Mac importieren Fotos und Videos. Apples Hinweis ist hier wichtig: Bei aktiven iCloud-Fotos zuerst die Originale in voller Auflösung aufs iPhone laden, sonst sieht der Computer nur, was lokal gespeichert ist.",
+        "cons": "Auf diesem Weg kommen vom iPhone nur Fotos und Videos. Große Importe über ein USB-2.0-Kabel sind langsam, und am Mac braucht ein Android-Handy ein Werkzeug wie OpenMTP, um den Speicher zu durchsuchen."
+      },
+      "5": {
+        "name": "iCloud-Fotos oder Google Fotos",
+        "tag": "Am besten, wenn die ganze Mediathek auf den Computer soll und synchron bleibt",
+        "facts": "iCloud: 5 GB gratis, iCloud für Windows zeigt iCloud-Fotos im Datei-Explorer und in Fotos · Google Fotos: 15 GB gratis, geteilt mit Gmail und Drive, Download über photos.google.com · Konto auf beiden Seiten",
+        "body": "Sichert das Handy schon in eine Foto-Mediathek, sind die Bilder auf dem Computer, sobald Sie sich dort anmelden. iCloud für Windows bringt iCloud-Fotos in den Datei-Explorer und die Windows-App Fotos, ein Mac sieht sie in Fotos. Google Fotos funktioniert in jedem Desktop-Browser, wo Sie ein Bild, ein Album oder eine Auswahl als ZIP herunterladen. Für Dokumente leisten iCloud Drive und Google Drive dasselbe mit der Dateien-App des Handys.",
+        "cons": "Erst Upload, dann Download, ein frischer Stapel 4K-Video wartet also auf Ihre Leitung. Gratisspeicher ist schnell voll, und Google Fotos behält volle Auflösung nur bei Sicherung in Originalqualität."
+      },
+      "6": {
+        "name": "PairDrop",
+        "tag": "Gut, wenn auf dem Computer nichts installiert werden darf",
+        "facts": "Läuft in jedem aktuellen Browser · Open Source (GPL-3.0) · findet Geräte im selben Netz · verbindet Geräte in verschiedenen Netzen per 6-stelligem Kopplungscode oder QR-Code · leitet über einen TURN-Server, wenn kein direkter Weg klappt",
+        "body": "<goSnapdrop>pairdrop.net</goSnapdrop> im Browser des Handys und am Computer öffnen, und im gemeinsamen Netz sehen sich beide sofort. Computer antippen, Dateien wählen, und sie gehen Peer-to-Peer. Praktisch auf einem Arbeits-PC, auf dem Sie nichts installieren dürfen, oder am Laptop eines Freundes für eine einmalige Übertragung, und gekoppelte Geräte merken sich gegenseitig.",
+        "cons": "Beide Browser-Tabs müssen während der Übertragung offen bleiben, große Dateien hängen davon ab, dass das Handy den Browser nicht schlafen legt, und es gibt keine Übertragung im Hintergrund."
+      },
+      "7": {
+        "name": "KDE Connect",
+        "tag": "Bester eingebauter Weg von Android auf Linux",
+        "facts": "Android-App mit KDE Plasma, GSConnect unter GNOME · auch für Windows und macOS · selbes Netz · synchronisiert auch Zwischenablage und Mitteilungen · Empfangenes landet standardmäßig in Downloads",
+        "body": "Die KDE-Connect-App auf dem Handy einmal mit dem Desktop koppeln, und das Teilen einer Datei an KDE Connect aus jeder Android-App schickt sie in den Download-Ordner des Computers. Unter GNOME spricht die Erweiterung GSConnect dasselbe Protokoll. Die naheliegende Wahl für Linux-Nutzer, die Handy und Desktop den ganzen Tag verbunden haben wollen, nicht nur für Dateien.",
+        "cons": "Die iPhone-App kann weit weniger als die Android-App. Die Erkennung kann in Netzen scheitern, die Geräte isolieren, und außerhalb des lokalen Netzes funktioniert es nicht."
+      }
     }
   },
   "table": {
     "title": "Auf einen Blick",
-    "cols": { "feature": "Merkmal", "bishare": "BIShare", "quickshare": "Quick Share für Windows", "phonelink": "Smartphone-Link", "airdrop": "AirDrop", "usb": "USB-Kabel", "cloud": "iCloud / Google Fotos" },
-    "rows": { "r0": "Funktioniert von iPhone und Android", "r1": "Kommt auf Windows, Mac und Linux an", "r2": "Ohne Kabel", "r3": "Jeder Dateityp, nicht nur Fotos", "r4": "Kein Größenlimit pro Datei", "r5": "Kostet nichts und belegt keinen Cloud-Speicher" },
+    "cols": {
+      "feature": "Merkmal",
+      "bishare": "BIShare",
+      "quickshare": "Quick Share für Windows",
+      "phonelink": "Smartphone-Link",
+      "airdrop": "AirDrop",
+      "usb": "USB-Kabel",
+      "cloud": "iCloud / Google Fotos"
+    },
+    "rows": {
+      "r0": "Funktioniert von iPhone und Android",
+      "r1": "Kommt auf Windows, Mac und Linux an",
+      "r2": "Ohne Kabel",
+      "r3": "Jeder Dateityp, nicht nur Fotos",
+      "r4": "Kein Größenlimit pro Datei",
+      "r5": "Kostet nichts und belegt keinen Cloud-Speicher"
+    },
     "note": "Stand September 2026. Bei BIShare gilt die unbegrenzte Größe, wenn Handy und Computer ein Netz teilen, ein Link trägt höchstens 100 GB. Googles Windows-App nimmt nur Dateien von Android-Handys an und braucht einen 64-Bit-PC. Microsofts App bietet Dateifunktionen nur für Android, verlangt ein Microsoft-Konto und ein gemeinsames WLAN und weist gezogene Dateien über 512 MB ab. AirDrop liefert nur an einen Mac, vom iPhone oder von einem Android-Handy auf Googles AirDrop-Liste. Ein USB-Kabel holt jede Datei vom Android-Handy, vom iPhone aber nur Fotos und Videos, und ein Mac braucht eine Drittanbieter-App, um Android-Speicher zu durchsuchen. Foto-Mediatheken zehren vom Gratiskontingent, 5 GB bei Apple und 15 GB bei Google, und fassen nur Bilder und Clips; ihre Drive-Geschwister nehmen den Rest."
   },
   "windows": {
     "title": "Android auf Windows: Quick Share, Smartphone-Link oder Kabel?",
     "body": "Alle drei sind kostenlos, keiner braucht eine Drittanbieter-App. Der Unterschied liegt darin, was Sie bewegen, und ob das Handy dauerhaft verbunden sein soll.",
     "items": {
-      "0": { "h": "Quick Share für einzelne Dateien", "b": "Nichts vorher koppeln, kein veröffentlichtes Größenlimit. Es ist der schnellste Weg für ein Video aus der Galerie oder ein PDF aus Downloads, und die Datei landet am PC in Downloads › Quick Share. Mit Sichtbarkeit „Ihre Geräte“ entfällt die Annahme, wenn beide im selben Google-Konto angemeldet sind." },
-      "1": { "h": "Smartphone-Link für eben gemachte Fotos", "b": "Sein Tab Fotos ist der schnellste Weg für einen Screenshot oder ein Bild von vor einer Minute, weil er die Aufnahmen schon anzeigt. Rechtsklick auf ein Foto zum Kopieren oder Speichern. Aus dem Teilen-Menü des Handys gesendete Dateien landen in Downloads › Phone Link, einem Ordner, den Sie in den Einstellungen von Smartphone-Link ändern können." },
-      "2": { "h": "Kabel für alles auf einmal", "b": "Geht es um einen ganzen DCIM-Ordner oder die WhatsApp-Medien eines Handys, kopiert der Datei-Explorer per Kabel im Modus Dateiübertragung ganze Ordner in einem Rutsch, auch ohne WLAN. Nur für Fotos lässt der PTP-Modus, oft „Bilder übertragen“ genannt, die Windows-App Fotos wie von einer Kamera importieren." }
+      "0": {
+        "h": "Quick Share für einzelne Dateien",
+        "b": "Nichts vorher koppeln, kein veröffentlichtes Größenlimit. Es ist der schnellste Weg für ein Video aus der Galerie oder ein PDF aus Downloads, und die Datei landet am PC in Downloads › Quick Share. Mit Sichtbarkeit „Ihre Geräte“ entfällt die Annahme, wenn beide im selben Google-Konto angemeldet sind."
+      },
+      "1": {
+        "h": "Smartphone-Link für eben gemachte Fotos",
+        "b": "Sein Tab Fotos ist der schnellste Weg für einen Screenshot oder ein Bild von vor einer Minute, weil er die Aufnahmen schon anzeigt. Rechtsklick auf ein Foto zum Kopieren oder Speichern. Aus dem Teilen-Menü des Handys gesendete Dateien landen in Downloads › Phone Link, einem Ordner, den Sie in den Einstellungen von Smartphone-Link ändern können."
+      },
+      "2": {
+        "h": "Kabel für alles auf einmal",
+        "b": "Geht es um einen ganzen DCIM-Ordner oder die WhatsApp-Medien eines Handys, kopiert der Datei-Explorer per Kabel im Modus Dateiübertragung ganze Ordner in einem Rutsch, auch ohne WLAN. Nur für Fotos lässt der PTP-Modus, oft „Bilder übertragen“ genannt, die Windows-App Fotos wie von einer Kamera importieren."
+      }
     }
   },
   "iphone": {
     "title": "iPhone auf Windows: Fotos leicht, Dateien nicht",
     "body": "Windows behandelt ein iPhone als Kamera, nicht als Speicher. Das macht Fotoimporte einfach und fast alles andere umständlich ohne Cloud oder App.",
     "items": {
-      "0": { "h": "Fotos: Kabel, Vertrauen, Importieren", "b": "Apples Schritte: Apple Geräte aus dem Microsoft Store installieren, iPhone anschließen, entsperren und „Vertrauen“ tippen, dann in der Windows-App Fotos importieren. Hält iCloud-Fotos nur optimierte Kopien auf dem Handy, zuerst die Originale laden, sonst fehlen sie beim Import." },
-      "1": { "h": "Die ganze Mediathek: iCloud für Windows", "b": "Anmeldung in iCloud für Windows und Aktivieren von Fotos bringt iCloud-Fotos in den Datei-Explorer und die Windows-App Fotos, neue Aufnahmen erscheinen also ohne Kabel am PC. Die Mediathek braucht iCloud-Speicher, was bei den meisten Aufnahmen bedeutet, über die kostenlosen 5 GB hinaus zu zahlen." },
-      "2": { "h": "Dokumente: iCloud Drive oder eine App", "b": "Dateien aus der Dateien-App des iPhone lassen sich in iCloud Drive legen und im iCloud-Drive-Ordner im Datei-Explorer abholen. Ohne iCloud ist eine App auf beiden Geräten, BIShare oder ein Browser-Werkzeug wie PairDrop, der praktische Funkweg. Die iPhone-Dateifreigabe von Smartphone-Link ist weiterhin auf Windows-Insider-Builds beschränkt." }
+      "0": {
+        "h": "Fotos: Kabel, Vertrauen, Importieren",
+        "b": "Apples Schritte: Apple Geräte aus dem Microsoft Store installieren, iPhone anschließen, entsperren und „Vertrauen“ tippen, dann in der Windows-App Fotos importieren. Hält iCloud-Fotos nur optimierte Kopien auf dem Handy, zuerst die Originale laden, sonst fehlen sie beim Import."
+      },
+      "1": {
+        "h": "Die ganze Mediathek: iCloud für Windows",
+        "b": "Anmeldung in iCloud für Windows und Aktivieren von Fotos bringt iCloud-Fotos in den Datei-Explorer und die Windows-App Fotos, neue Aufnahmen erscheinen also ohne Kabel am PC. Die Mediathek braucht iCloud-Speicher, was bei den meisten Aufnahmen bedeutet, über die kostenlosen 5 GB hinaus zu zahlen."
+      },
+      "2": {
+        "h": "Dokumente: iCloud Drive oder eine App",
+        "b": "Dateien aus der Dateien-App des iPhone lassen sich in iCloud Drive legen und im iCloud-Drive-Ordner im Datei-Explorer abholen. Ohne iCloud ist eine App auf beiden Geräten, BIShare oder ein Browser-Werkzeug wie PairDrop, der praktische Funkweg. Die iPhone-Dateifreigabe von Smartphone-Link ist weiterhin auf Windows-Insider-Builds beschränkt."
+      }
     }
   },
   "maclinux": {
     "title": "Vom Handy auf einen Mac oder Linux-Rechner",
     "body": "Macs sind vom iPhone aus am einfachsten und Linux von Android aus, aber beide überschneiden sich inzwischen mehr als früher.",
     "items": {
-      "0": { "h": "iPhone auf Mac", "b": "AirDrop für alles von einer Datei bis zu ein paar Hundert Fotos. Für alle Aufnahmen das Kabel anschließen und mit Fotos in die Mediathek importieren oder mit Digitale Bilder direkt in einen Ordner kopieren, was die Fotos-Mediathek nicht füllt." },
-      "1": { "h": "Android auf Mac", "b": "Auf einem Pixel 9 oder neuer oder einem anderen Handy auf Googles AirDrop-Liste per AirDrop aus Quick Share an den Mac senden. Digitale Bilder kann außerdem Fotos von einem Android-Handy im PTP-Modus importieren. Für andere Ordner per Kabel braucht ein Mac OpenMTP oder ein ähnliches Werkzeug, da Google Android File Transfer nicht mehr anbietet." },
-      "2": { "h": "Handys auf Linux", "b": "KDE Connect oder GSConnect ist der Alltagsweg von Android, und die meisten Desktop-Dateimanager binden ein Android-Handy im Modus Dateiübertragung per USB ein. iPhones sind schwieriger: Dateimanager auf Basis von libimobiledevice lesen die Aufnahmen per Kabel, alles andere schicken Sie am besten mit einer plattformübergreifenden App oder einem Browser-Link." }
+      "0": {
+        "h": "iPhone auf Mac",
+        "b": "AirDrop für alles von einer Datei bis zu ein paar Hundert Fotos. Für alle Aufnahmen das Kabel anschließen und mit Fotos in die Mediathek importieren oder mit Digitale Bilder direkt in einen Ordner kopieren, was die Fotos-Mediathek nicht füllt."
+      },
+      "1": {
+        "h": "Android auf Mac",
+        "b": "Auf einem Pixel 9 oder neuer oder einem anderen Handy auf <goAirdropAndroid>Googles AirDrop-Liste</goAirdropAndroid> per AirDrop aus Quick Share an den Mac senden. Digitale Bilder kann außerdem Fotos von einem Android-Handy im PTP-Modus importieren. Für andere Ordner per Kabel braucht ein Mac OpenMTP oder ein ähnliches Werkzeug, da Google Android File Transfer nicht mehr anbietet."
+      },
+      "2": {
+        "h": "Handys auf Linux",
+        "b": "KDE Connect oder GSConnect ist der Alltagsweg von Android, und die meisten Desktop-Dateimanager binden ein Android-Handy im Modus Dateiübertragung per USB ein. iPhones sind schwieriger: Dateimanager auf Basis von libimobiledevice lesen die Aufnahmen per Kabel, alles andere schicken Sie am besten mit <goBestApps>einer plattformübergreifenden App</goBestApps> oder einem Browser-Link."
+      }
     }
   },
   "landing": {
     "title": "Wo die Datei auf dem Computer landet",
     "body": "Die meisten „ist nie angekommen“-Momente sind eine Datei in einem Ordner, mit dem Sie nicht gerechnet haben. Hier zuerst nachsehen.",
     "items": {
-      "0": { "h": "Windows", "b": "Quick Share speichert in Downloads › Quick Share, Smartphone-Link in Downloads › Phone Link. Mit der Windows-App Fotos importierte Bilder landen im Ordner Bilder, sofern Sie keinen anderen wählen. iCloud-Fotos aus iCloud für Windows erscheinen im Navigationsbereich des Datei-Explorers, und ein Browser-Download über einen Link geht nach Downloads." },
-      "1": { "h": "Mac", "b": "AirDrop legt alles in Downloads, auch Fotos, sie kommen also erst in die Fotos-Mediathek, wenn Sie sie hineinziehen. Importe mit Fotos gehen direkt in die Mediathek, während Digitale Bilder in den Ordner schreibt, den Sie unten im Fenster wählen." },
-      "2": { "h": "Linux und alles, was per BIShare ankommt", "b": "KDE Connect nutzt den Download-Ordner im Home-Verzeichnis, sofern in den Einstellungen nicht geändert. BIShare speichert Empfangenes am Computer in den in der App eingestellten Ordner, standardmäßig Downloads, und zeigt es im Posteingang, sodass Sie den Ordner mit einem Klick öffnen." }
+      "0": {
+        "h": "Windows",
+        "b": "Quick Share speichert in Downloads › Quick Share, Smartphone-Link in Downloads › Phone Link. Mit der Windows-App Fotos importierte Bilder landen im Ordner Bilder, sofern Sie keinen anderen wählen. iCloud-Fotos aus iCloud für Windows erscheinen im Navigationsbereich des Datei-Explorers, und ein Browser-Download über einen Link geht nach Downloads."
+      },
+      "1": {
+        "h": "Mac",
+        "b": "AirDrop legt alles in Downloads, auch Fotos, sie kommen also erst in die Fotos-Mediathek, wenn Sie sie hineinziehen. Importe mit Fotos gehen direkt in die Mediathek, während Digitale Bilder in den Ordner schreibt, den Sie unten im Fenster wählen."
+      },
+      "2": {
+        "h": "Linux und alles, was per BIShare ankommt",
+        "b": "KDE Connect nutzt den Download-Ordner im Home-Verzeichnis, sofern in den Einstellungen nicht geändert. BIShare speichert Empfangenes am Computer in den in der App eingestellten Ordner, standardmäßig Downloads, und zeigt es im Posteingang, sodass Sie den Ordner mit einem Klick öffnen."
+      }
     }
   },
   "formats": {
     "title": "HEIC, Live Photos und andere Dateien, an denen Windows hängt",
     "body": "Die Übertragung kann klappen und die Datei trotzdem nicht aufgehen. Das sind die üblichen Verdächtigen, wenn ein iPhone oder Android-Handy auf einen Windows-PC trifft.",
     "items": {
-      "0": { "h": "HEIC-Fotos und HEVC-Video", "b": "iPhones nehmen standardmäßig in HEIC und HEVC auf. Kann Windows sie nicht öffnen, Microsofts HEIF-Bilderweiterungen und HEVC-Videoerweiterungen aus dem Microsoft Store installieren, oder am iPhone Einstellungen, Kamera, Formate auf „Maximale Kompatibilität“ stellen, damit neue Aufnahmen JPEG und H.264 sind." },
-      "1": { "h": "Live Photos kommen in zwei Teilen", "b": "Per Kabel importiert, wird ein Live Photo zu einem Standbild plus einer kurzen MOV-Datei mit passendem Namen. Wer die MOV löscht, behält das Foto; wer beide behält, bewahrt die Bewegung, auch wenn Windows sie als getrennte Dateien abspielt." },
-      "2": { "h": "Bewegte Android-Fotos bleiben eine Datei", "b": "Auf Samsung- und Pixel-Handys steckt der bewegte Teil eines Bewegungsfotos im JPEG selbst. Windows zeigt das Standbild; um die Bewegung als abspielbaren Clip zu behalten, vor dem Senden in der Galerie des Handys als Video exportieren." }
+      "0": {
+        "h": "HEIC-Fotos und HEVC-Video",
+        "b": "iPhones nehmen standardmäßig in HEIC und HEVC auf. Kann Windows sie nicht öffnen, Microsofts HEIF-Bilderweiterungen und HEVC-Videoerweiterungen aus dem Microsoft Store installieren, oder am iPhone Einstellungen, Kamera, Formate auf „Maximale Kompatibilität“ stellen, damit neue Aufnahmen JPEG und H.264 sind."
+      },
+      "1": {
+        "h": "Live Photos kommen in zwei Teilen",
+        "b": "Per Kabel importiert, wird ein Live Photo zu einem Standbild plus einer kurzen MOV-Datei mit passendem Namen. Wer die MOV löscht, behält das Foto; wer beide behält, bewahrt die Bewegung, auch wenn Windows sie als getrennte Dateien abspielt."
+      },
+      "2": {
+        "h": "Bewegte Android-Fotos bleiben eine Datei",
+        "b": "Auf Samsung- und Pixel-Handys steckt der bewegte Teil eines Bewegungsfotos im JPEG selbst. Windows zeigt das Standbild; um die Bewegung als abspielbaren Clip zu behalten, vor dem Senden in der Galerie des Handys als Video exportieren."
+      }
     }
   },
   "steps": {
     "title": "Vom Handy auf den PC mit BIShare",
     "items": {
-      "0": { "h": "Auf Handy und Computer installieren", "b": "Die Handy-App aus dem App Store oder Google Play installieren und die Desktop-App aus dem Microsoft Store, dem Mac App Store oder als Linux-Download. Beide ins selbe WLAN bringen oder den Computer mit dem Hotspot des Handys verbinden, und auf dem iPhone den Zugriff aufs lokale Netzwerk erlauben, wenn gefragt." },
-      "1": { "h": "Dateien und Computer wählen", "b": "Fotos, Videos oder Dateien auf dem Handy wählen, den Computer antippen, sobald er erscheint, und am Computer bestätigen. Die Originale kommen in voller Größe im Empfangsordner an." },
-      "2": { "h": "Oder einen Link für später senden", "b": "Auf Link umschalten, die Adresse an sich selbst schicken und am Computer öffnen, wann immer Sie sich hinsetzen, innerhalb von 24 Stunden. Installiert werden muss dafür nichts; der Browser schafft bis zu 100 GB." }
+      "0": {
+        "h": "Auf Handy und Computer installieren",
+        "b": "Die Handy-App aus dem App Store oder Google Play installieren und die Desktop-App aus dem Microsoft Store, dem Mac App Store oder als Linux-Download. Beide ins selbe WLAN bringen oder den Computer mit dem Hotspot des Handys verbinden, und auf dem iPhone den Zugriff aufs lokale Netzwerk erlauben, wenn gefragt."
+      },
+      "1": {
+        "h": "Dateien und Computer wählen",
+        "b": "Fotos, Videos oder Dateien auf dem Handy wählen, den Computer antippen, sobald er erscheint, und am Computer bestätigen. Die Originale kommen in voller Größe im Empfangsordner an."
+      },
+      "2": {
+        "h": "Oder einen Link für später senden",
+        "b": "Auf Link umschalten, die Adresse an sich selbst schicken und am Computer öffnen, wann immer Sie sich hinsetzen, innerhalb von 24 Stunden. Installiert werden muss dafür nichts; der Browser schafft bis zu 100 GB."
+      }
     }
   },
   "speed": {
     "title": "Wie lange es dauert",
     "body": "Das Handy ist bei fast jedem Weg hier das langsame Ende, sein WLAN-Funk und bei Cloud-Wegen der Upload, den es zuerst schaffen muss.",
     "items": {
-      "0": { "h": "Direkt über WLAN", "b": "Ein aktuelles Handy einen Raum vom Router entfernt schafft meist 40 bis 50 MB/s über Wi-Fi 5 oder 70 bis 110 MB/s über Wi-Fi 6, womit ein 5-GB-Clip in ein, zwei Minuten drüben ist. Ein Handy-Hotspot ist langsamer, oft 10–30 MB/s." },
-      "1": { "h": "USB", "b": "Ein USB-2.0-Kabel endet bei 480 Mbit/s, und Importe der Aufnahmen werden mit Tausenden kleinen Dateien noch langsamer. Ein USB-C-Kabel und ein Anschluss, die beide schneller können, helfen großen Videos mehr als Foto-Mediatheken." },
-      "2": { "h": "Foto-Mediatheken und Links", "b": "Über Mobilfunk oder langsamen Upload können die Fotos eines Tages lange in der Warteschlange stehen. Ein 50-Mbit/s-Upload braucht für jedes Gigabyte etwa drei Minuten, bevor der Computer es abholen kann." }
+      "0": {
+        "h": "Direkt über WLAN",
+        "b": "Ein aktuelles Handy einen Raum vom Router entfernt schafft meist 40 bis 50 MB/s über Wi-Fi 5 oder 70 bis 110 MB/s über Wi-Fi 6, womit ein 5-GB-Clip in ein, zwei Minuten drüben ist. <goOffline>Ein Handy-Hotspot</goOffline> ist langsamer, oft 10–30 MB/s."
+      },
+      "1": {
+        "h": "USB",
+        "b": "Ein USB-2.0-Kabel endet bei 480 Mbit/s, und Importe der Aufnahmen werden mit Tausenden kleinen Dateien noch langsamer. Ein USB-C-Kabel und ein Anschluss, die beide schneller können, helfen großen Videos mehr als Foto-Mediatheken."
+      },
+      "2": {
+        "h": "Foto-Mediatheken und Links",
+        "b": "Über Mobilfunk oder langsamen Upload können die Fotos eines Tages lange in der Warteschlange stehen. Ein 50-Mbit/s-Upload braucht für jedes Gigabyte etwa drei Minuten, bevor der Computer es abholen kann."
+      }
     }
   },
   "fixes": {
     "title": "Wenn am Computer nichts ankommt",
     "items": {
-      "0": { "h": "Der PC fehlt in Quick Share", "b": "Die Quick-Share-App am PC öffnen, damit sie läuft, prüfen, dass Bluetooth und WLAN an beiden Enden an sind, und die Sichtbarkeit des PCs für einen Test auf „Alle“ stellen. Gast- und Büronetze isolieren Geräte oft; den PC an den Hotspot des Handys zu hängen, umgeht das." },
-      "1": { "h": "Windows meldet keine Fotos auf dem iPhone", "b": "iPhone entsperren und erneut „Vertrauen“ tippen, sicherstellen, dass Apple Geräte installiert ist, und bei aktiven iCloud-Fotos zuerst die Originale aufs Handy laden. Nur in iCloud gespeicherte Fotos sieht ein Kabelimport nicht." },
-      "2": { "h": "Android per USB zeigt ein leeres Handy", "b": "Das Handy ist im Modus „Nur Laden“ oder gesperrt. Entsperren, die USB-Mitteilung aufziehen und auf Dateiübertragung umstellen. Wirkt das Handy immer noch leer, ein anderes Kabel probieren, viele übertragen nur Strom." },
-      "3": { "h": "AirDrop von Android findet den Mac nicht", "b": "AirDrop am Mac zehn Minuten für jeden erlauben, den Bildschirm anlassen und prüfen, dass das Handy auf Googles Liste steht und aktuell ist. Bluetooth und WLAN müssen an beiden an sein." },
-      "4": { "h": "Das Foto ist kopiert, geht aber nicht auf", "b": "Vermutlich HEIC oder HEVC. Die HEIF- und HEVC-Erweiterungen aus dem Microsoft Store installieren oder die Datei in einem Betrachter mit HEIC-Unterstützung öffnen, und das iPhone für künftige Aufnahmen auf „Maximale Kompatibilität“ stellen." }
+      "0": {
+        "h": "Der PC fehlt in Quick Share",
+        "b": "Die Quick-Share-App am PC öffnen, damit sie läuft, prüfen, dass Bluetooth und WLAN an beiden Enden an sind, und die Sichtbarkeit des PCs für einen Test auf „Alle“ stellen. Gast- und Büronetze isolieren Geräte oft; den PC an den Hotspot des Handys zu hängen, umgeht das."
+      },
+      "1": {
+        "h": "Windows meldet keine Fotos auf dem iPhone",
+        "b": "iPhone entsperren und erneut „Vertrauen“ tippen, sicherstellen, dass Apple Geräte installiert ist, und bei aktiven iCloud-Fotos zuerst die Originale aufs Handy laden. Nur in iCloud gespeicherte Fotos sieht ein Kabelimport nicht."
+      },
+      "2": {
+        "h": "Android per USB zeigt ein leeres Handy",
+        "b": "Das Handy ist im Modus „Nur Laden“ oder gesperrt. Entsperren, die USB-Mitteilung aufziehen und auf Dateiübertragung umstellen. Wirkt das Handy immer noch leer, ein anderes Kabel probieren, viele übertragen nur Strom."
+      },
+      "3": {
+        "h": "AirDrop von Android findet den Mac nicht",
+        "b": "AirDrop am Mac zehn Minuten für jeden erlauben, den Bildschirm anlassen und prüfen, dass das Handy auf Googles Liste steht und aktuell ist. Bluetooth und WLAN müssen an beiden an sein."
+      },
+      "4": {
+        "h": "Das Foto ist kopiert, geht aber nicht auf",
+        "b": "Vermutlich HEIC oder HEVC. Die HEIF- und HEVC-Erweiterungen aus dem Microsoft Store installieren oder die Datei in einem Betrachter mit HEIC-Unterstützung öffnen, und das iPhone für künftige Aufnahmen auf „Maximale Kompatibilität“ stellen."
+      }
     }
   },
   "security": {
     "title": "Die Übertragung privat halten",
     "body": "Auf Handys liegen die persönlichsten Dateien überhaupt. Wie privat eine Übertragung ist, hängt davon ab, ob die Datei je auf dem Server eines anderen liegt.",
     "items": {
-      "0": { "h": "Direkt und lokal", "b": "Ein Kabel, Quick Share für Windows, AirDrop, KDE Connect und eine lokale BIShare-Übertragung geben die Datei nie an einen dritten Rechner, und alle kabellosen verschlüsseln die Verbindung." },
-      "1": { "h": "Weitergeleitet, aber versiegelt", "b": "Ein BIShare-Link wird auf dem Handy versiegelt, bevor er hochlädt, und lässt dem Server nur Chiffretext ohne Schlüssel. Auch die WebRTC-Verbindungen von PairDrop sind verschlüsselt, selbst wenn ein TURN-Server sie weiterleitet." },
-      "2": { "h": "Beim Anbieter gespeichert", "b": "iCloud-Fotos mit Standard-Datenschutz und Google Fotos halten Ihre Mediathek auf deren Servern, wo der Anbieter darauf zugreifen kann. Apples Erweiterter Datenschutz ergänzt Ende-zu-Ende-Verschlüsselung für iCloud-Fotos, wenn Sie ihn einschalten." }
+      "0": {
+        "h": "Direkt und lokal",
+        "b": "Ein Kabel, Quick Share für Windows, AirDrop, KDE Connect und eine lokale BIShare-Übertragung geben die Datei nie an einen dritten Rechner, und alle kabellosen verschlüsseln die Verbindung."
+      },
+      "1": {
+        "h": "Weitergeleitet, aber versiegelt",
+        "b": "Ein BIShare-Link wird <goEncrypted>auf dem Handy versiegelt, bevor er hochlädt</goEncrypted>, und lässt dem Server nur Chiffretext ohne Schlüssel. Auch die WebRTC-Verbindungen von PairDrop sind verschlüsselt, selbst wenn ein TURN-Server sie weiterleitet."
+      },
+      "2": {
+        "h": "Beim Anbieter gespeichert",
+        "b": "iCloud-Fotos mit Standard-Datenschutz und Google Fotos halten Ihre Mediathek auf deren Servern, wo der Anbieter darauf zugreifen kann. Apples Erweiterter Datenschutz ergänzt Ende-zu-Ende-Verschlüsselung für iCloud-Fotos, wenn Sie ihn einschalten."
+      }
     }
   },
   "faq": {
     "title": "Vom Handy auf den PC: häufige Fragen",
     "items": {
-      "0": { "q": "Wie übertrage ich Dateien ohne USB-Kabel vom Handy auf den PC?", "a": "Android-Besitzer unter Windows haben Googles Quick-Share-App und Microsofts Smartphone-Link. Vom iPhone oder einem unterstützten Android-Handy auf einen Mac hilft AirDrop. Für jedes Handy und jeden Computer BIShare auf beiden installieren und übers WLAN senden, oder auf dem Handy einen Link erstellen und am Computer öffnen." },
-      "1": { "q": "Warum zeigt Windows beim iPhone nur Fotos?", "a": "Windows liest ein iPhone als Kamera, sichtbar sind also nur die Aufnahmen. Andere Dateien brauchen iCloud Drive, eine App auf beiden Geräten oder Apple Geräte für Dateien in Apps mit Dateifreigabe." },
-      "2": { "q": "Wo speichert Quick Share Dateien unter Windows?", "a": "In einem Ordner namens Quick Share in Ihrem Download-Ordner." },
-      "3": { "q": "Wo speichert Smartphone-Link Dateien auf meinem PC?", "a": "Von einem Android-Handy an Smartphone-Link geteilte Dateien landen standardmäßig in Downloads › Phone Link. Den Ordner können Sie in den Einstellungen von Smartphone-Link ändern." },
-      "4": { "q": "Kann Smartphone-Link Videos vom Handy zeigen?", "a": "Nein. Der Tab Fotos zeigt die 2.000 neuesten Fotos und Screenshots aus den Ordnern Kamera und Screenshots, und nur Bilder. Videos senden Sie stattdessen mit Quick Share, Kabel oder einer Direkt-App." },
-      "5": { "q": "Wie importiere ich iPhone-Fotos auf einen Windows-PC?", "a": "Apple Geräte aus dem Microsoft Store installieren, iPhone per Kabel anschließen, entsperren und „Vertrauen“ tippen, dann in der Windows-App Fotos importieren. Bei aktiven iCloud-Fotos vor dem Import die Originale aufs iPhone laden." },
-      "6": { "q": "Wie sende ich Dateien von einem Android-Handy auf einen Mac?", "a": "Gehört das Handy zu den Modellen, die über Quick Share per AirDrop senden, den Mac zehn Minuten lang AirDrop von jedem annehmen lassen und ihn dann in Quick Share wählen. Sonst BIShare oder eine andere plattformübergreifende App nutzen oder Fotos per Kabel mit Digitale Bilder importieren." },
-      "7": { "q": "Warum gehen iPhone-Fotos auf meinem PC nicht auf?", "a": "Meist sind es HEIC-Bilder oder HEVC-Videos. HEIF-Bilderweiterungen und HEVC-Videoerweiterungen aus dem Microsoft Store installieren oder die iPhone-Kamera auf „Maximale Kompatibilität“ stellen, um JPEG und H.264 aufzunehmen." },
-      "8": { "q": "Was ist der schnellste Weg für ein großes Video vom Handy auf den Computer?", "a": "Ein direkter Weg über schnelles WLAN oder ein gutes Kabel: BIShare im selben Netz, Quick Share auf Windows, AirDrop auf einen Mac oder ein USB-C-Kabel. Cloud-Mediatheken und Links sind langsamer, weil das Handy zuerst hochlädt." },
-      "9": { "q": "Ist die Übertragung vom Handy auf den PC kostenlos?", "a": "Ja. BIShare, Quick Share für Windows, Smartphone-Link, AirDrop, KDE Connect, PairDrop und ein USB-Kabel kosten nichts. iCloud-Fotos und Google Fotos sind kostenlos, bis die Mediathek den Gratisspeicher überschreitet." }
+      "0": {
+        "q": "Wie übertrage ich Dateien ohne USB-Kabel vom Handy auf den PC?",
+        "a": "Android-Besitzer unter Windows haben Googles Quick-Share-App und Microsofts Smartphone-Link. Vom iPhone oder einem unterstützten Android-Handy auf einen Mac hilft AirDrop. Für jedes Handy und jeden Computer BIShare auf beiden installieren und übers WLAN senden, oder auf dem Handy einen Link erstellen und am Computer öffnen."
+      },
+      "1": {
+        "q": "Warum zeigt Windows beim iPhone nur Fotos?",
+        "a": "Windows liest ein iPhone als Kamera, sichtbar sind also nur die Aufnahmen. Andere Dateien brauchen iCloud Drive, eine App auf beiden Geräten oder Apple Geräte für Dateien in Apps mit Dateifreigabe."
+      },
+      "2": {
+        "q": "Wo speichert Quick Share Dateien unter Windows?",
+        "a": "In einem Ordner namens Quick Share in Ihrem Download-Ordner."
+      },
+      "3": {
+        "q": "Wo speichert Smartphone-Link Dateien auf meinem PC?",
+        "a": "Von einem Android-Handy an Smartphone-Link geteilte Dateien landen standardmäßig in Downloads › Phone Link. Den Ordner können Sie in den Einstellungen von Smartphone-Link ändern."
+      },
+      "4": {
+        "q": "Kann Smartphone-Link Videos vom Handy zeigen?",
+        "a": "Nein. Der Tab Fotos zeigt die 2.000 neuesten Fotos und Screenshots aus den Ordnern Kamera und Screenshots, und nur Bilder. Videos senden Sie stattdessen mit Quick Share, Kabel oder einer Direkt-App."
+      },
+      "5": {
+        "q": "Wie importiere ich iPhone-Fotos auf einen Windows-PC?",
+        "a": "Apple Geräte aus dem Microsoft Store installieren, iPhone per Kabel anschließen, entsperren und „Vertrauen“ tippen, dann in der Windows-App Fotos importieren. Bei aktiven iCloud-Fotos vor dem Import die Originale aufs iPhone laden."
+      },
+      "6": {
+        "q": "Wie sende ich Dateien von einem Android-Handy auf einen Mac?",
+        "a": "Gehört das Handy zu den Modellen, die über Quick Share per AirDrop senden, den Mac zehn Minuten lang AirDrop von jedem annehmen lassen und ihn dann in Quick Share wählen. Sonst BIShare oder eine andere plattformübergreifende App nutzen oder Fotos per Kabel mit Digitale Bilder importieren."
+      },
+      "7": {
+        "q": "Warum gehen iPhone-Fotos auf meinem PC nicht auf?",
+        "a": "Meist sind es HEIC-Bilder oder HEVC-Videos. HEIF-Bilderweiterungen und HEVC-Videoerweiterungen aus dem Microsoft Store installieren oder die iPhone-Kamera auf „Maximale Kompatibilität“ stellen, um JPEG und H.264 aufzunehmen."
+      },
+      "8": {
+        "q": "Was ist der schnellste Weg für ein großes Video vom Handy auf den Computer?",
+        "a": "Ein direkter Weg über schnelles WLAN oder ein gutes Kabel: BIShare im selben Netz, Quick Share auf Windows, AirDrop auf einen Mac oder ein USB-C-Kabel. Cloud-Mediatheken und Links sind langsamer, weil das Handy zuerst hochlädt."
+      },
+      "9": {
+        "q": "Ist die Übertragung vom Handy auf den PC kostenlos?",
+        "a": "Ja. BIShare, Quick Share für Windows, Smartphone-Link, AirDrop, KDE Connect, PairDrop und ein USB-Kabel kosten nichts. iCloud-Fotos und Google Fotos sind kostenlos, bis die Mediathek den Gratisspeicher überschreitet."
+      }
     }
   },
   "cta": {
@@ -154,11 +346,77 @@
     "body": "Open Source und kostenlos, ohne Konto. Die Originale jetzt übers WLAN schicken oder einen Link, den Sie später am Schreibtisch öffnen.",
     "download": "BIShare herunterladen"
   },
-  "a11y": { "yes": "Ja", "no": "Nein" },
+  "a11y": {
+    "yes": "Ja",
+    "no": "Nein"
+  },
   "art": {
-    "hero": { "alt": "Ein Handy sendet Fotos und Dateien an einen Laptop, Titel: Dateien vom Handy auf den PC übertragen, acht Wege, kabellos oder per USB, 2026.", "title": "Dateien vom Handy auf den PC", "sub": "8 Wege, kabellos oder USB, 2026", "left": "Handy", "right": "Computer" },
-    "types": { "alt": "Bester Weg je nach Inhalt: ein paar Fotos über das Teilen-Menü (Quick Share, AirDrop, Smartphone-Link oder BIShare); alle Aufnahmen per Kabelimport oder Foto-Mediathek; ein langes Video über einen direkten Weg ohne Größenlimit; Dokumente über die Dateien-App mit Teilen-Menü, einen Cloud-Speicher oder BIShare.", "title": "Was Sie bewegen, bestimmt den Weg", "sub": "Erst die Aufgabe, dann Handy und Computer", "t0": "Ein paar Fotos", "r0": "Teilen-Menü: Quick Share, AirDrop, Smartphone-Link, BIShare", "t1": "Alle Aufnahmen", "r1": "Kabelimport, iCloud-Fotos oder Google Fotos", "t2": "Ein langes Video", "r2": "Direkter Weg ohne Größenlimit", "t3": "Dokumente", "r3": "Dateien-App plus Teilen-Menü, Cloud-Speicher oder BIShare", "foot": "Messenger begrenzen Dateien auf 2 GB und verkleinern Fotos, wenn sie nicht als Datei gehen" },
-    "landing": { "alt": "Wo Dateien vom Handy auf dem Computer landen: unter Windows speichert Quick Share in Downloads › Quick Share, Smartphone-Link in Downloads › Phone Link, die App Fotos importiert nach Bilder; am Mac speichert AirDrop in Downloads und Fotos importiert in die Mediathek; unter Linux speichert KDE Connect in Downloads; BIShare nutzt seinen Empfangsordner, standardmäßig Downloads.", "title": "Wo die Datei auf dem Computer landet", "sub": "Hier zuerst suchen, wenn etwas zu fehlen scheint", "win": "Windows", "mac": "Mac", "linux": "Linux", "w0": "Quick Share", "w0p": "Downloads › Quick Share", "w1": "Smartphone-Link", "w1p": "Downloads › Phone Link", "w2": "Import mit Fotos", "w2p": "Bilder", "m0": "AirDrop", "m0p": "Downloads", "m1": "Import mit Fotos", "m1p": "Fotos-Mediathek", "m2": "Digitale Bilder", "m2p": "Gewählter Ordner", "l0": "KDE Connect", "l0p": "Downloads", "l1": "USB-Dateimanager", "l1p": "Ordner, in den Sie kopieren", "l2": "BIShare", "l2p": "Empfangsordner, standardmäßig Downloads" },
-    "formats": { "alt": "Was mit Fotoformaten von iPhone und Android unter Windows passiert: HEIC und HEVC brauchen Microsofts HEIF- und HEVC-Erweiterungen oder das iPhone auf Maximale Kompatibilität; ein per Kabel importiertes Live Photo wird Standbild plus MOV-Datei; bewegte Android-Fotos behalten das Video im JPEG, also den Clip vorher exportieren.", "title": "Warum ein kopiertes Foto unter Windows nicht aufgeht", "sub": "Drei Formatüberraschungen und die Lösung für jede", "a": { "from": "iPhone-Foto oder -Video", "what": "HEIC · HEVC", "fix": "HEIF- und HEVC-Erweiterungen installieren oder Kamera › Formate › Maximale Kompatibilität" }, "b": { "from": "iPhone-Live-Photo", "what": "Standbild + MOV", "fix": "Beide Dateien behalten für die Bewegung; MOV löschen, um nur das Foto zu behalten" }, "c": { "from": "Bewegtes Android-Foto", "what": "Video im JPEG versteckt", "fix": "Den Clip vor dem Senden in der Galerie als Video exportieren" } }
+    "hero": {
+      "alt": "Ein Handy sendet Fotos und Dateien an einen Laptop, Titel: Dateien vom Handy auf den PC übertragen, acht Wege, kabellos oder per USB, 2026.",
+      "title": "Dateien vom Handy auf den PC",
+      "sub": "8 Wege, kabellos oder USB, 2026",
+      "left": "Handy",
+      "right": "Computer"
+    },
+    "types": {
+      "alt": "Bester Weg je nach Inhalt: ein paar Fotos über das Teilen-Menü (Quick Share, AirDrop, Smartphone-Link oder BIShare); alle Aufnahmen per Kabelimport oder Foto-Mediathek; ein langes Video über einen direkten Weg ohne Größenlimit; Dokumente über die Dateien-App mit Teilen-Menü, einen Cloud-Speicher oder BIShare.",
+      "title": "Was Sie bewegen, bestimmt den Weg",
+      "sub": "Erst die Aufgabe, dann Handy und Computer",
+      "t0": "Ein paar Fotos",
+      "r0": "Teilen-Menü: Quick Share, AirDrop, Smartphone-Link, BIShare",
+      "t1": "Alle Aufnahmen",
+      "r1": "Kabelimport, iCloud-Fotos oder Google Fotos",
+      "t2": "Ein langes Video",
+      "r2": "Direkter Weg ohne Größenlimit",
+      "t3": "Dokumente",
+      "r3": "Dateien-App plus Teilen-Menü, Cloud-Speicher oder BIShare",
+      "foot": "Messenger begrenzen Dateien auf 2 GB und verkleinern Fotos, wenn sie nicht als Datei gehen"
+    },
+    "landing": {
+      "alt": "Wo Dateien vom Handy auf dem Computer landen: unter Windows speichert Quick Share in Downloads › Quick Share, Smartphone-Link in Downloads › Phone Link, die App Fotos importiert nach Bilder; am Mac speichert AirDrop in Downloads und Fotos importiert in die Mediathek; unter Linux speichert KDE Connect in Downloads; BIShare nutzt seinen Empfangsordner, standardmäßig Downloads.",
+      "title": "Wo die Datei auf dem Computer landet",
+      "sub": "Hier zuerst suchen, wenn etwas zu fehlen scheint",
+      "win": "Windows",
+      "mac": "Mac",
+      "linux": "Linux",
+      "w0": "Quick Share",
+      "w0p": "Downloads › Quick Share",
+      "w1": "Smartphone-Link",
+      "w1p": "Downloads › Phone Link",
+      "w2": "Import mit Fotos",
+      "w2p": "Bilder",
+      "m0": "AirDrop",
+      "m0p": "Downloads",
+      "m1": "Import mit Fotos",
+      "m1p": "Fotos-Mediathek",
+      "m2": "Digitale Bilder",
+      "m2p": "Gewählter Ordner",
+      "l0": "KDE Connect",
+      "l0p": "Downloads",
+      "l1": "USB-Dateimanager",
+      "l1p": "Ordner, in den Sie kopieren",
+      "l2": "BIShare",
+      "l2p": "Empfangsordner, standardmäßig Downloads"
+    },
+    "formats": {
+      "alt": "Was mit Fotoformaten von iPhone und Android unter Windows passiert: HEIC und HEVC brauchen Microsofts HEIF- und HEVC-Erweiterungen oder das iPhone auf Maximale Kompatibilität; ein per Kabel importiertes Live Photo wird Standbild plus MOV-Datei; bewegte Android-Fotos behalten das Video im JPEG, also den Clip vorher exportieren.",
+      "title": "Warum ein kopiertes Foto unter Windows nicht aufgeht",
+      "sub": "Drei Formatüberraschungen und die Lösung für jede",
+      "a": {
+        "from": "iPhone-Foto oder -Video",
+        "what": "HEIC · HEVC",
+        "fix": "HEIF- und HEVC-Erweiterungen installieren oder Kamera › Formate › Maximale Kompatibilität"
+      },
+      "b": {
+        "from": "iPhone-Live-Photo",
+        "what": "Standbild + MOV",
+        "fix": "Beide Dateien behalten für die Bewegung; MOV löschen, um nur das Foto zu behalten"
+      },
+      "c": {
+        "from": "Bewegtes Android-Foto",
+        "what": "Video im JPEG versteckt",
+        "fix": "Den Clip vor dem Senden in der Galerie als Video exportieren"
+      }
+    }
   }
 }
