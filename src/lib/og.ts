@@ -18,7 +18,7 @@ const OG_IMAGE = {
  */
 const ROUTE_FIGURES = new Set([
   "/encrypted-file-transfer",
-  "/firefox-send-alternative", "/nearby-share-alternative",
+  "/firefox-send-alternative",
   "/send-anywhere-alternative",
   "/send-files-without-internet",
   "/share-files-without-account", "/sharedrop-alternative",

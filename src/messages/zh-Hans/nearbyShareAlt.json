@@ -1,83 +1,397 @@
 {
   "meta": {
-    "title": "Nearby Share 替代品：也能传到 iPhone 和 Mac",
-    "description": "Nearby Share（现 Quick Share）只覆盖安卓和 Windows。BIShare 通过 Wi-Fi 或链接在安卓、iPhone、Mac、Windows、Linux 间传输。"
+    "title": "2026年Nearby Share替代方案7选",
+    "description": "Nearby Share如今叫Quick Share，却仍然到不了Mac、Linux、没有Google服务的手机和远方的人。含两个非官方客户端的7个替代方案对比。"
   },
   "hero": {
-    "eyebrow": "跨平台传输",
-    "title": "覆盖每台设备的附近分享替代方案",
-    "body": "附近分享（Quick Share）在 Android 手机之间很快，甚至能连到 Windows，却在 iPhone 面前戛然而止。<strong>BIShare</strong> 从它止步的地方接手：在 <strong>Android、iPhone、Windows、Mac 和 Linux</strong> 之间传文件，通过本地 Wi-Fi 瞬间送达，或用一条对方在任意浏览器打开的链接。<highlight>对方无需账户，也无需安装应用。</highlight>",
-    "ctaPrimary": "免费获取 BIShare",
+    "eyebrow": "Nearby Share替代方案",
+    "title": "最好的Nearby Share替代方案",
+    "body": "Nearby Share是Google对AirDrop的回应：在安卓手机上点分享，选一台附近的设备，文件就通过蓝牙和Wi-Fi无线送达。从2024年起它换了名字，叫Quick Share，因为Google把它并入了三星的同名功能，这也是为什么很多人搜Nearby Share，最后看到的设置界面里已经找不到这个词。服务本身也在扩大：推出了Windows应用，从2025年底起部分手机还能和AirDrop互通。但它仍然没有Mac或Linux的官方应用，不支持没有Google服务的手机，也没法把文件送给不在同一个房间的人。本指南理清几个名字，列出2026年Quick Share能到哪里，给7个替代方案排名（包括两个非官方Quick Share客户端），并说明在替换之前怎样修好自带功能。<strong>BIShare</strong>也在名单上：<strong>免费，MIT许可，支持Android、iPhone、Windows、macOS和Linux</strong>。<highlight>不需要Google账号。</highlight>",
+    "ctaPrimary": "免费获取BIShare",
     "ctaSecondary": "工作原理"
   },
-  "why": {
-    "title": "附近分享止步之处",
-    "body": "附近分享在 Android 手机、Chromebook 之间配对流畅，配合 Quick Share 应用还能连上 Windows。但它从未被设计成与 Apple 设备对话，于是把同一张照片发给朋友的 <strong>iPhone</strong>，你又只能退回到压垮画质的聊天应用，或限制大小的邮件。BIShare 填平了这道缺口：一款把 <strong>Android 和 iPhone</strong> 平等对待的工具，Windows、Mac、Linux 也一并纳入。"
+  "updated": "2026年9月更新 · Quick Share要求来自Google的Android和Windows帮助页面，非官方客户端的限制来自各项目的GitHub README，于2026年9月14日核实",
+  "disclosure": "BIShare是我们开发的，请带着这一点阅读排名。在Quick Share本身就是更好选择的场合，比如两台带Google服务的安卓手机之间，本页会直接说明。",
+  "quick": {
+    "title": "快速回答",
+    "items": [
+      "<strong>在手机上找Nearby Share：</strong>它现在叫Quick Share，就在安卓的分享菜单里，设置中也有单独的Quick Share入口。",
+      "<strong>安卓到Mac或Linux电脑：</strong>两端都装BIShare或LocalSend；如果想让手机自带的Quick Share来发，就用非官方的NearDrop（Mac）和RQuickShare（Linux和Mac）。",
+      "<strong>安卓到iPhone：</strong>只有Google名单里的手机能用Quick Share发到AirDrop。BIShare、LocalSend和PairDrop在任何安卓手机上都能用。",
+      "<strong>没有蓝牙或装着32位Windows的电脑：</strong>Google的应用在上面跑不起来，改用BIShare或LocalSend通过网络发送。",
+      "<strong>没有Google服务的手机：</strong>Quick Share随Google Play服务提供，所以要选能单独安装的应用，比如BIShare、LocalSend或KDE Connect。",
+      "<strong>在另一个城市的人：</strong>Quick Share只能在附近用。发一个BIShare链接，24小时内最多可装100 GB，或者用PairDrop把两个浏览器配对。"
+    ]
   },
-  "how": {
-    "title": "BIShare 如何抵达每台设备",
+  "what": {
+    "title": "Nearby Share后来怎么样了",
+    "body": "Nearby Share并没有消失。它改了名字，增加了平台，还吞并了一个对手，每一步都留下了过时的教程和截图。经过如下。",
     "items": {
       "0": {
-        "h": "在同一个 Wi-Fi 下",
-        "b": "选中房间对面的设备，直接发送。文件端到端加密，从一台设备直达另一台，全程不经过任何服务器——而且即便完全没有网络，靠手机热点也照样能传。"
+        "h": "2011至2019年：Android Beam的来去",
+        "b": "Google的第一次尝试Android Beam，要让两部手机背靠背通过NFC轻触才开始传输，然后把文件交给蓝牙。对准位置很麻烦，大文件传得极慢。Google在2019年的Android 10中移除了Beam，此后整整一年，安卓都没有自带的办法把文件递给桌子对面的手机。"
       },
       "1": {
-        "h": "当对方不在身边",
-        "b": "不在同一个房间？你会得到一条分享链接、一个二维码和一个 6 位字符的代码。对方在任意浏览器里打开就能下载——无需安装，无需注册。链接会在 24 小时后自动失效。"
+        "h": "2020年8月：Nearby Share上线",
+        "b": "Nearby Share于2020年8月4日面向Android 6.0及以上的手机推出。它通过Google Play服务而不是系统更新下发，大量老手机一次性就用上了。它会挑选可用的最佳链路：用低功耗蓝牙发现对方设备，用点对点Wi-Fi传数据，而且不需要联网。"
       },
       "2": {
-        "h": "Android、iPhone 与每一台电脑",
-        "b": "一个应用打通 Android、iPhone、Windows、Mac 和 Linux。从你的 Android 发到朋友的 iPhone，或从 Windows 电脑发到 Mac——任意设备到任意设备，双向皆可。"
+        "h": "2021至2023年：先是Chromebook，再是Windows",
+        "b": "2021年6月，Chromebook随ChromeOS 91加入。Google在CES 2022上宣布Windows应用，2023年3月31日发布测试版，同年7月向所有人开放。在此之前，从安卓手机到电脑的官方途径只有数据线或微软自己的手机连接。"
+      },
+      "3": {
+        "h": "2024年1月：并入三星Quick Share",
+        "b": "三星早在2020年2月就随Galaxy S20推出了自己的Quick Share，而它看不到Nearby Share设备。CES 2024上两家公司宣布合并为一个功能，沿用三星的名字。之后几周里，Pixel和其他安卓手机把Nearby Share改名为Quick Share，Galaxy手机也终于能和其他品牌互传文件。"
+      },
+      "4": {
+        "h": "2025年11月起：与AirDrop互通",
+        "b": "Google让Quick Share学会了AirDrop的协议，2025年底先在Pixel 10上推出，2026年扩展到更多Pixel、Galaxy旗舰和几家中国品牌。接收的iPhone、iPad或Mac需要把AirDrop设为“所有人（10分钟）”。不在Google名单里的手机仍然用不了。"
       }
     }
   },
-  "comparison": {
-    "title": "附近分享 vs AirDrop vs BIShare",
+  "names": {
+    "title": "被叫作Nearby Share的三个功能",
+    "body": "混乱的原因之一是好几家公司用了几乎一样的名字。换掉任何东西之前，先确认你说的是哪一个。",
+    "items": {
+      "0": {
+        "h": "Google Nearby Share，现在的Quick Share",
+        "b": "本页讨论的安卓和Chromebook功能。它在分享菜单里显示为Quick Share，可见性设置在Quick Share入口里，但这个入口在设置应用中的具体位置因手机厂商而异。变的是图标，背后的服务没变。"
+      },
+      "1": {
+        "h": "三星Quick Share",
+        "b": "在Galaxy手机上，Quick Share在2024年之前是三星自己的功能，现在也能和Google版互通。Google帮助页面说明，在One UI 2.1及以上的Galaxy设备上，设置和功能可能不同；三星电脑使用的是三星的Quick Share应用，而不是Google的。"
+      },
+      "2": {
+        "h": "Windows的附近共享",
+        "b": "微软在Windows 10和Windows 11里内置了一个名字几乎相同的独立功能。它在相邻的电脑之间传文件，完全不能发到安卓手机。如果想从电脑发到手机，这个开关帮不上忙，应该用Google的Windows版Quick Share应用或跨平台应用。"
+      }
+    }
+  },
+  "reach": {
+    "title": "2026年Quick Share能到哪里，又在哪里止步",
+    "body": "Quick Share覆盖的范围远超最初的Nearby Share，但能否成功仍取决于接收方是什么设备。下面的限制都来自Google自己的帮助页面。",
+    "items": {
+      "0": {
+        "h": "安卓手机和平板",
+        "b": "任何Android 6.0及以上、带Google Play服务的设备，只要打开蓝牙就能收发；Android 12及更早版本还需要打开位置信息。登录同一Google账号的设备之间会自动接收，其他人则会看到接受或拒绝的提示。"
+      },
+      "1": {
+        "h": "Windows电脑",
+        "b": "Google的Quick Share应用可安装在64位Windows 10及更高版本上，Arm电脑则只支持Windows 11。电脑需要有蓝牙，手机和电脑要在同一个Wi-Fi或以太网网络中，距离约5米以内。收到的文件保存在“下载”里的Quick Share文件夹。Google不在古巴、伊朗、朝鲜和叙利亚提供该应用。"
+      },
+      "2": {
+        "h": "iPhone、iPad和Mac",
+        "b": "有两条路，而且都比新闻标题给人的印象窄。Google AirDrop名单上的手机可以发给AirDrop对所有人开放的苹果设备。Google还加了一个供iPhone扫描的二维码，每天上限10 GB、每次会话1,000个文件，并且需要Wi-Fi。Google没有推出iOS或macOS版的Quick Share应用。"
+      },
+      "3": {
+        "h": "Linux",
+        "b": "Google从未发布Linux版Quick Share，主流发行版也都没有收录。能和安卓手机自带Quick Share通信的Linux软件，全是逆向工程做出来的非官方程序，下文会介绍。"
+      },
+      "4": {
+        "h": "没有Google服务的手机",
+        "b": "由于Quick Share通过Google Play服务提供，不带这些服务出售的手机（比如近年的华为机型）以及去掉Google的定制安卓系统都没有它。这类手机需要能单独安装的传输应用，通过APK或其他应用商店获取。"
+      },
+      "5": {
+        "h": "不在身边的人",
+        "b": "名字已经说明一切：Quick Share是给蓝牙范围内的设备用的。对方在家、你在办公室时它帮不上忙，也不会生成任何可以稍后贴进聊天的东西。"
+      }
+    }
+  },
+  "methods": {
+    "title": "7个Nearby Share替代方案排名",
+    "body": "名单里既有需要两端都装应用的完整替代品，也有让Mac或Linux电脑能回应手机自带Quick Share的非官方客户端。每一项都写明了不足。",
+    "consLabel": "不足：",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "五个平台通用的最佳替代，近处远处都能发",
+        "facts": "Android、iPhone、Windows、macOS和Linux · MIT许可 · 通过Wi-Fi或手机热点直连，不限大小 · 100 GB加密链接，一天后过期 · GitHub提供APK和Linux安装包 · 无需账号",
+        "body": "BIShare补上了Quick Share在Google平台边界止步的那一块。在Pixel和MacBook上，或者Galaxy手机和Ubuntu笔记本上打开它，只要两台设备连着同一个Wi-Fi，或者其中一台连上另一台的热点，就会出现在对方的列表里。它既不需要蓝牙也不需要Google账号，所以在Google应用拒绝安装的Windows电脑上也能用，在没有Play服务的安卓手机上从GitHub的APK安装同样可以。对方在远处时，同一个应用可以生成在浏览器里打开的链接。",
+        "cons": "近距离传输时对方设备也得装BIShare，而Quick Share已经内置在大多数安卓手机里。"
+      },
+      "1": {
+        "name": "LocalSend",
+        "tag": "共享网络下最好的开源选择",
+        "facts": "Android、iOS、Windows、macOS、Linux、Fire OS · Apache 2.0 · 同一局域网 · 加密HTTPS，每台设备各有证书 · Winget、Homebrew、Flathub、F-Droid",
+        "body": "在讨论Mac或Linux上用Nearby Share的帖子里，LocalSend是被推荐最多的应用。每台设备都装上，连在同一个路由器下，它们就会以名称和图标互相显示，和Quick Share的设备列表很像。没有账号、没有服务器、没有大小限制，电脑上用平时的包管理器就能装。",
+        "cons": "两台设备必须保持在同一个本地网络里，也没有给异地的人用的链接功能。"
+      },
+      "2": {
+        "name": "KDE Connect",
+        "tag": "适合让手机和电脑一直保持连接",
+        "facts": "Android、Linux、Windows、macOS、iOS · GPL · 同一网络 · 文件、剪贴板和通知 · Google Play、F-Droid、Microsoft Store、Homebrew",
+        "body": "KDE Connect能做的远不止传文件。手机和电脑配对后，它会把手机通知显示在桌面上、共享剪贴板、让你用键盘回复短信，还能把手机变成遥控器或触控板。传文件只是其中一部分，适合想让安卓和Linux桌面像一个系统那样协作的人。",
+        "cons": "配对比一次性发送更费时，iOS版是另一个移植版本，有已知限制，所以它在安卓和电脑之间表现最好。"
+      },
+      "3": {
+        "name": "PairDrop",
+        "tag": "什么都不装、偶尔发一次时最合适",
+        "facts": "任何现代浏览器 · GPL-3.0 · 同一网络的设备自动发现 · 跨网络用配对码或二维码 · 备用TURN中继 · 可自行部署",
+        "body": "在没有Nearby Share的设备上，PairDrop最接近那种免设置的便利。在同一网络的手机和电脑上打开pairdrop.net，它们就能互相看到；不同网络就用配对码连接。借来的笔记本、禁止安装软件的公司电脑、iPhone，一个浏览器标签页就能搞定。",
+        "cons": "需要联网才能让设备互相认识，标签页必须保持打开，超大文件会吃紧浏览器内存。"
+      },
+      "4": {
+        "name": "NearDrop",
+        "tag": "让Mac接收Quick Share文件的最佳方式",
+        "facts": "macOS菜单栏应用 · Unlicense · 非官方 · 仅限同一Wi-Fi · 保存到“下载” · GitHub或Homebrew tap，未经公证",
+        "body": "NearDrop重新实现了足够多的Google协议，安卓手机自带的Quick Share菜单会把Mac列为接收设备，手机上不用装任何东西。收到的文件进入Mac的“下载”文件夹，反方向可以从Finder的共享菜单发送。",
+        "cons": "macOS不允许应用发出安卓等待的蓝牙信号，所以Mac无法自己发现手机，发往手机时要扫二维码。NearDrop运行期间，网络上所有人都能看到这台Mac，而且必须先允许来自身份不明开发者的应用才能打开。"
+      },
+      "5": {
+        "name": "RQuickShare",
+        "tag": "Linux上最好的Quick Share客户端",
+        "facts": "Linux（.deb、.rpm、AppImage、AUR、Nix）和macOS · GPL-3.0 · 非官方 · 允许mDNS的同一Wi-Fi · 可用笔记本蓝牙唤醒手机",
+        "body": "用Rust编写的RQuickShare把同样的思路带到了Linux桌面：手机继续用自带的Quick Share，电脑出现在它的设备列表里。在带蓝牙的笔记本上，它会发出广播促使安卓主动宣告自己，手机因此更容易被找到。GNOME用户还可以看看Packet，这是Flathub上的GPL-3.0客户端，带有Nautilus插件，可以直接从文件管理器发送。",
+        "cons": "和所有非官方客户端一样，它只支持协议中的Wi-Fi局域网部分，所以两台设备必须在允许mDNS的网络里，而很多公共网络会屏蔽mDNS。"
+      },
+      "6": {
+        "name": "Warpinator",
+        "tag": "Linux电脑之间最好用，并有安卓和Windows移植版",
+        "facts": "Linux Mint自带，其他发行版用Flathub · GPL-3.0 · 同一网络 · 非官方安卓和Windows移植版",
+        "body": "Warpinator是Linux Mint自己的就近分享方案：在同一网络的两台电脑上打开，把文件拖过去即可。社区移植版把它带到了安卓和Windows，于是Mint桌面、Windows笔记本和安卓手机可以在完全不用Google账号的情况下互传文件。",
+        "cons": "安卓和Windows版本由志愿者开发，不是Mint团队出品，也没有iPhone或Mac应用。"
+      }
+    }
+  },
+  "table": {
+    "title": "一览",
     "cols": {
-      "airdrop": "附近分享",
-      "quick": "AirDrop",
-      "bishare": "BIShare"
+      "feature": "项目",
+      "quickshare": "Quick Share",
+      "bishare": "BIShare",
+      "localsend": "LocalSend",
+      "kdeconnect": "KDE Connect",
+      "pairdrop": "PairDrop",
+      "neardrop": "NearDrop",
+      "rquickshare": "RQuickShare"
     },
     "rows": {
-      "r0": "真正跨平台（五端全覆盖）",
-      "r1": "iPhone ↔ Android 互通",
-      "r2": "接收方无需应用",
-      "r3": "可发往 Android 和 Windows",
-      "r4": "免费，无需账户"
+      "r0": "支持安卓手机",
+      "r1": "支持iPhone",
+      "r2": "可在Windows上运行",
+      "r3": "可在Mac上运行",
+      "r4": "可在Linux上运行",
+      "r5": "安卓手机上无需安装",
+      "r6": "能发给远方的人",
+      "r7": "开源"
+    },
+    "note": "2026年9月核实。Quick Share只能通过Google名单上手机的AirDrop或它的二维码发到iPhone；Google的电脑应用要求64位Windows 10或更新版本、带蓝牙并与手机处于同一网络。PairDrop在浏览器中运行，连接设备需要联网。NearDrop和RQuickShare是非官方客户端，只在共享Wi-Fi下回应手机自带的Quick Share。KDE Connect的iOS应用功能比安卓版少。BIShare链接24小时内最多可装100 GB。"
+  },
+  "unofficial": {
+    "title": "让手机的Quick Share配合Mac或Linux电脑",
+    "body": "如果你喜欢手机上的Quick Share，只是缺一台能接收的电脑，非官方客户端可能就够了。NearDrop、RQuickShare和Packet的优点和限制都一样，因为它们重新实现的是Google协议的同一部分。",
+    "items": {
+      "0": {
+        "h": "只有局域网这条路能走",
+        "b": "Google原生的Quick Share可以通过Wi-Fi Direct、热点、蓝牙或互联网传文件。这些客户端只实现了Wi-Fi局域网这一条路径，所以手机和电脑必须在同一个网络里。咖啡馆或酒店那种把客人彼此隔离的Wi-Fi会让它们失效，即使两台设备信号都是满格。"
+      },
+      "1": {
+        "h": "手机发电脑容易，反过来难",
+        "b": "手机通过网络上的mDNS找到电脑，所以客户端一运行，安卓就能发过去。反方向更难，因为安卓只有在听到特定的低功耗蓝牙信号后才会宣告自己。RQuickShare能用笔记本的蓝牙发出这个信号。macOS不允许应用这样做，所以NearDrop改为显示一个二维码让手机扫描。"
+      },
+      "2": {
+        "h": "可见性要么全开，要么全关",
+        "b": "仅对联系人可见依赖Google的服务器，而这些客户端不和它通信。NearDrop的README提醒，应用运行期间Mac对网络上所有人可见，所以在和陌生人共用的网络里请退出它。"
+      },
+      "3": {
+        "h": "怎么安装",
+        "b": "NearDrop从GitHub或Homebrew tap获取，没有经过公证，第一次打开时macOS会在“隐私与安全性”里请求你允许。RQuickShare为Linux提供.deb、.rpm和AppImage包，为macOS提供.dmg。Packet从Flathub安装。它们都不是Google出品，跟上协议变化全靠志愿者。"
+      }
+    }
+  },
+  "choose": {
+    "title": "哪个缺口用哪个替代方案",
+    "body": "从Quick Share到不了的那台设备出发，挑一个能到达那里的最轻便工具。",
+    "items": {
+      "0": {
+        "h": "安卓手机到Mac",
+        "b": "如果大多只往一个方向发，手机继续用Quick Share，在Mac上加装NearDrop。需要双向或者传大文件夹，就在两台设备上都装BIShare或LocalSend。"
+      },
+      "1": {
+        "h": "安卓手机到Linux电脑",
+        "b": "想让手机分享菜单直接列出电脑，就用RQuickShare或Packet。如果还想在桌面上看手机通知、共享剪贴板，就选KDE Connect。"
+      },
+      "2": {
+        "h": "任意安卓手机到iPhone",
+        "b": "用BIShare、LocalSend或PairDrop，因为AirDrop互通只覆盖名单上的手机。如果你的手机在Google名单上，先试Quick Share，什么都不用装。"
+      },
+      "3": {
+        "h": "Google应用装不上的Windows电脑",
+        "b": "32位版本、没有蓝牙的台式机，或仍在用Windows 10的Arm笔记本：装BIShare或LocalSend，它们只依赖网络。"
+      },
+      "4": {
+        "h": "没有Google Play服务的手机",
+        "b": "从GitHub的APK装BIShare，从F-Droid装LocalSend或KDE Connect，或者在手机浏览器里用PairDrop。"
+      },
+      "5": {
+        "h": "远方的人",
+        "b": "生成一个BIShare链接：能装100 GB，一天后过期，接收方只要有浏览器。PairDrop也能在两个标签页都开着时，把不同网络中的两台设备配对。"
+      }
+    }
+  },
+  "fixes": {
+    "title": "替换之前先修好Quick Share",
+    "body": "Quick Share以前能用、突然不行时，原因通常是某项设置，而不是服务本身。按顺序检查下面几点。",
+    "items": {
+      "0": {
+        "h": "可见性自动恢复了",
+        "b": "“所有人（10分钟）”十分钟后会自己恢复原设置。设为“联系人”的接收方，只在屏幕亮着且已解锁时对通讯录里的人可见；“您的设备”仅限同一Google账号。在接收的手机上打开Quick Share设置，发送前再选一次“所有人（10分钟）”。"
+      },
+      "1": {
+        "h": "蓝牙或位置信息关着",
+        "b": "就近分享必须打开蓝牙，即使数据最终走Wi-Fi。在Android 12及更早版本上还要打开位置信息，因为这些版本把蓝牙扫描和位置权限绑在一起。"
+      },
+      "2": {
+        "h": "电脑不满足Google的要求",
+        "b": "确认Windows是10或更新版本的64位版本、蓝牙正常，并且手机和电脑在同一网络、距离约5米以内。三星笔记本请用三星的Quick Share应用，而不是Google的。"
+      },
+      "3": {
+        "h": "Galaxy手机的菜单不一样",
+        "b": "Google表示，One UI 2.1及以上的Galaxy设备设置和功能可能不同。在Galaxy手机上从快捷设置面板打开Quick Share来修改谁能找到你，支持的机型上还可以找找与苹果设备共享的选项。"
+      },
+      "4": {
+        "h": "文件到了却找不到",
+        "b": "在Windows上，Google应用把文件存到“下载”里的Quick Share文件夹，而不是桌面。在手机上，点传输结束时弹出的通知就能打开收到的内容。"
+      },
+      "5": {
+        "h": "你所在的国家不在支持范围",
+        "b": "Google不在古巴、伊朗、朝鲜和叙利亚提供Windows应用，在这些地方，从手机到电脑的无线途径只剩跨平台应用。"
+      }
+    }
+  },
+  "security": {
+    "title": "安全使用Quick Share及其替代方案",
+    "body": "任何让你的设备被周围人看到的功能，都值得多想一分钟。",
+    "items": {
+      "0": {
+        "h": "把可见范围收窄",
+        "b": "“所有人（10分钟）”的存在，是为了不让手机整天对周围所有陌生人开放；Google在2026年从安卓中移除了永久对所有人可见的模式。平时设为“联系人”或“您的设备”，只在接收时临时放开。"
+      },
+      "1": {
+        "h": "接受之前先核对",
+        "b": "设备显示验证PIN时，接受前先和另一块屏幕上的数字对一下，不认识的传输一律拒绝。来自陌生名字的意外文件，是恶意软件最典型的入口。"
+      },
+      "2": {
+        "h": "非官方客户端要当非官方看待",
+        "b": "NearDrop、RQuickShare和Packet都是开源的，任何人都能查看代码，但它们是志愿者项目，不在Google的安全审查范围内。请从GitHub页面、Flathub或包管理器安装，别用镜像站，在你控制不了的网络里记得退出。"
+      }
     }
   },
   "faq": {
-    "title": "附近分享替代方案：常见问题",
+    "title": "Nearby Share替代方案：常见问题",
     "items": {
       "0": {
-        "q": "支持 iPhone 的最佳附近分享替代方案是哪个？",
-        "a": "BIShare。附近分享（Quick Share）覆盖 Android、Chromebook 和 Windows，却把 Apple 设备完全排除在外。BIShare 把 iPhone 和 Mac 也加进这份名单，于是一款工具就能在它们之间任意方向传文件。"
+        "q": "Nearby Share还在吗？",
+        "a": "在，只是换了名字。Google在2024年1月把Nearby Share并入了三星Quick Share，如今在安卓手机、Chromebook和Windows上这个功能都叫Quick Share。"
       },
       "1": {
-        "q": "附近分享或 Quick Share 能发到 iPhone 吗？",
-        "a": "不能。附近分享和 Quick Share 只能与 Android、Chromebook 和 Windows 电脑配对，没有 iPhone 或 iPad 支持。要从 Android 手机发到 iPhone，你需要像 BIShare 这样一视同仁的跨平台工具。"
+        "q": "Nearby Share最好的替代方案是什么？",
+        "a": "要覆盖iPhone、Mac和Linux在内的所有平台，选BIShare。最看重在单一网络里开源，选LocalSend；谁都不能装软件，选PairDrop。想继续用手机的Quick Share配合Mac或Linux电脑，选NearDrop或RQuickShare。"
       },
       "2": {
-        "q": "不用附近分享，怎么把文件从 Android 发到 iPhone？",
-        "a": "在 Android 手机上安装 BIShare（iPhone 那端连应用都不用装）。同一个 Wi-Fi 下选中设备直接发送。相隔较远？分享链接、二维码或 6 位代码，iPhone 在 Safari 里就能下载——无需前往 App Store。"
+        "q": "有Mac版Nearby Share吗？",
+        "a": "Google没有出。非官方的NearDrop能让Mac在同一Wi-Fi下接收安卓手机Quick Share发来的文件，Google AirDrop名单上的手机也可以直接用AirDrop发给Mac。"
       },
       "3": {
-        "q": "对方需要安装 BIShare 吗？",
-        "a": "分享链接不需要。对方只要在任意浏览器打开并下载即可——那端无需应用、无需账户。安装应用能让就近传输更快并解锁全部功能，但接收文件从来都不是必须的。"
+        "q": "有Linux版Nearby Share吗？",
+        "a": "没有官方版本。RQuickShare和Packet是Linux上的非官方Quick Share客户端，KDE Connect、LocalSend、Warpinator和BIShare则各有在安卓和Linux之间传文件的方式。"
       },
       "4": {
-        "q": "BIShare 像附近分享一样免费吗？",
-        "a": "是的——免费，无需账户。通过你自己 Wi-Fi 的就近传输没有大小上限，分享链接对任何人、任何平台都有效，每次传输最高 100 GB。"
+        "q": "Quick Share能把文件发到iPhone吗？",
+        "a": "部分情况可以。Google名单上的手机能发给AirDrop暂时对所有人开放的iPhone，用二维码的话iPhone每天最多可接收10 GB。其他手机需要BIShare或LocalSend这类应用。"
+      },
+      "5": {
+        "q": "Nearby Share和Windows的附近共享是一回事吗？",
+        "a": "不是。附近共享是微软用于Windows电脑之间传文件的功能。Google的Nearby Share，也就是现在的Quick Share，是通过Google的Windows版Quick Share应用把安卓手机和电脑连起来。"
+      },
+      "6": {
+        "q": "为什么Windows版Quick Share在我的电脑上用不了？",
+        "a": "该应用只能装在64位Windows 10或更新版本上（Arm电脑需要Windows 11），还要求有蓝牙并与手机处于同一网络。它在古巴、伊朗、朝鲜和叙利亚也不提供。"
+      },
+      "7": {
+        "q": "Quick Share不联网能用吗？",
+        "a": "能。附近设备之间它使用蓝牙和点对点Wi-Fi。Google提示，没有Wi-Fi时分享可能消耗移动数据，可以在Quick Share设置中控制。"
+      },
+      "8": {
+        "q": "三星Quick Share和Google Quick Share一样吗？",
+        "a": "现在是同一个功能。三星在2020年推出Quick Share，2024年Google把Nearby Share并了进去，所以Galaxy和其他安卓手机可以互相分享。不过Galaxy的菜单看起来仍和Google的不一样。"
+      },
+      "9": {
+        "q": "BIShare免费吗？",
+        "a": "免费。BIShare不收任何费用，代码以MIT许可公开，无需账号或Google服务即可运行，两台设备直接传输时也不限大小。"
       }
     }
   },
   "cta": {
-    "title": "发往任意设备，而不只是 Android",
-    "body": "免费，无需账户。装到 Android、iPhone、Windows、Mac 或 Linux 上即可开始传输——对方连应用都不用装。",
-    "download": "下载 BIShare"
+    "title": "和所有设备分享，不只安卓",
+    "body": "免费、开源、无需账号。在房间两头之间给Android、iPhone、Windows、Mac和Linux发文件，或者给城市另一头的人发一个加密链接。",
+    "download": "下载BIShare"
   },
   "a11y": {
     "yes": "是",
     "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "一部安卓手机向Mac、Linux电脑、iPhone和Windows电脑发送文件，标题为最好的Nearby Share替代方案，面向Quick Share到不了的设备。",
+      "title": "最好的Nearby Share替代方案",
+      "sub": "给Quick Share仍然到不了的设备",
+      "phone": "Android",
+      "mac": "Mac",
+      "linux": "Linux",
+      "iphone": "iPhone",
+      "windows": "Windows"
+    },
+    "timeline": {
+      "alt": "从Nearby Share到Quick Share的时间线：2019年移除Android Beam，2020年8月推出Nearby Share，2021年6月随ChromeOS 91支持Chromebook，2023年3月Windows应用测试版，2024年1月并入Quick Share，2025年11月起支持AirDrop。",
+      "title": "从Nearby Share到Quick Share",
+      "sub": "Google就近分享功能的演变",
+      "y0": "2019年",
+      "e0": "移除Android Beam",
+      "y1": "2020年8月",
+      "e1": "Nearby Share上线",
+      "y2": "2021年6月",
+      "e2": "支持Chromebook",
+      "y3": "2023年3月",
+      "e3": "Windows测试版",
+      "y4": "2024年1月",
+      "e4": "改为Quick Share",
+      "y5": "2025年11月",
+      "e5": "与AirDrop互通"
+    },
+    "reach": {
+      "alt": "2026年Quick Share的覆盖范围：Android 6及以上和Chromebook内置；64位Windows 10和11使用Google应用；iPhone、iPad和Mac仅限名单上的手机或二维码；Linux没有官方应用；没有Google服务的手机不支持。最后三处由替代方案补上。",
+      "title": "2026年Quick Share的覆盖范围",
+      "sub": "各平台的官方支持，以及用什么补上缺口",
+      "p0": "Android 6+",
+      "p1": "Chromebook",
+      "p2": "Windows 10/11 64位",
+      "p3": "iPhone、iPad、Mac",
+      "p4": "Linux",
+      "p5": "无Google服务的手机",
+      "s0": "内置",
+      "s1": "Google应用",
+      "s2": "名单手机或二维码",
+      "s3": "无官方应用",
+      "fill": "补上缺口",
+      "f3": "BIShare · LocalSend · PairDrop",
+      "f4": "RQuickShare · BIShare · KDE Connect",
+      "f5": "BIShare · LocalSend"
+    },
+    "bridge": {
+      "alt": "非官方客户端如何接入Quick Share：安卓手机和Mac或Linux电脑必须在同一Wi-Fi；手机通过mDNS找到电脑；Linux笔记本可以用蓝牙信号唤醒手机，Mac则改为显示二维码；不支持Wi-Fi Direct、热点和互联网传输。",
+      "title": "非官方Quick Share客户端如何连接",
+      "sub": "NearDrop、RQuickShare和Packet",
+      "phone": "安卓手机",
+      "pc": "Mac或Linux电脑",
+      "wifi": "同一Wi-Fi网络",
+      "a1": "手机通过mDNS找到电脑",
+      "a2": "Linux：笔记本蓝牙唤醒手机",
+      "a3": "Mac：改为扫描二维码",
+      "noTitle": "不支持",
+      "n1": "Wi-Fi Direct",
+      "n2": "热点",
+      "n3": "互联网"
+    }
   }
 }

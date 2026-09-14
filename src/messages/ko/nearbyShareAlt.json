@@ -1,83 +1,397 @@
 {
   "meta": {
-    "title": "Nearby Share 대안: iPhone·Mac까지 전송",
-    "description": "Nearby Share(현 Quick Share)는 Android와 Windows까지만. BIShare는 Android·iPhone·Mac·Windows·Linux 간 Wi-Fi나 링크로 보냅니다."
+    "title": "Nearby Share 대안 7가지 (2026년)",
+    "description": "Nearby Share는 이제 Quick Share지만 여전히 Mac, Linux, Google 서비스 없는 폰, 멀리 있는 사람에게는 닿지 않습니다. 비공식 클라이언트 2개를 포함한 대안 7가지 비교."
   },
   "hero": {
-    "eyebrow": "크로스플랫폼 전송",
-    "title": "모든 기기를 위한 주변 공유 대안",
-    "body": "주변 공유(퀵 공유)는 Android 폰끼리 빠르고 Windows에도 닿지만, iPhone 앞에서 딱 멈춥니다. <strong>BIShare</strong>는 바로 그 지점부터 이어받습니다. <strong>Android·iPhone·Windows·Mac·Linux</strong> 사이에서, 로컬 Wi-Fi로는 즉시, 또는 상대가 어떤 브라우저로든 여는 링크로 파일을 보냅니다. <highlight>상대 쪽은 계정도 앱도 필요 없습니다.</highlight>",
+    "eyebrow": "Nearby Share 대안",
+    "title": "Nearby Share의 가장 좋은 대안",
+    "body": "Nearby Share는 AirDrop에 대한 Google의 답이었습니다. 안드로이드 폰에서 공유를 누르고 가까운 기기를 고르면 케이블 없이 Bluetooth와 Wi-Fi로 파일이 도착합니다. 2024년부터는 Quick Share라는 다른 이름을 쓰는데, Google이 삼성의 같은 이름 기능에 통합했기 때문입니다. 그래서 Nearby Share를 검색하면 그 단어가 더는 보이지 않는 설정 화면에 도착하는 경우가 많습니다. 서비스도 커졌습니다. Windows 앱이 나왔고, 2025년 말부터는 일부 폰에서 AirDrop과 연결됩니다. 그래도 여전히 없는 것은 Mac이나 Linux용 공식 앱, Google 서비스가 없는 폰 지원, 같은 공간에 없는 사람에게 보내는 방법입니다. 이 가이드는 이름을 정리하고, 2026년 Quick Share가 어디까지 닿는지 보여주며, 비공식 Quick Share 클라이언트 2개를 포함한 대안 7가지의 순위를 매기고, 바꾸기 전에 기본 기능을 고치는 방법을 설명합니다. <strong>BIShare</strong>도 목록에 있습니다. <strong>무료이고 MIT 라이선스이며 Android, iPhone, Windows, macOS, Linux를 지원합니다</strong>. <highlight>Google 계정이 필요 없습니다.</highlight>",
     "ctaPrimary": "BIShare 무료로 받기",
     "ctaSecondary": "작동 방식"
   },
-  "why": {
-    "title": "주변 공유가 멈추는 지점",
-    "body": "주변 공유는 Android 폰, Chromebook, 그리고 퀵 공유 앱을 쓰면 Windows까지 훌륭하게 연결됩니다. 하지만 Apple 기기와 대화하도록 만들어진 적이 없어, 같은 사진을 친구 <strong>iPhone</strong>으로 보내려면 화질을 뭉개는 채팅 앱이나 용량을 제한하는 이메일로 되돌아가게 됩니다. BIShare는 그 틈을 메웁니다. <strong>Android와 iPhone</strong>을 동등하게 다루고, Windows·Mac·Linux까지 한자리에 놓는 단 하나의 도구입니다."
+  "updated": "2026년 9월 업데이트 · Quick Share 요구 사항은 Google의 Android·Windows 도움말, 비공식 클라이언트의 제한은 각 프로젝트의 GitHub README에서 2026년 9월 14일 확인",
+  "disclosure": "BIShare는 저희가 만든 앱이니 순위를 그 점을 감안해 읽어 주세요. Google 서비스가 있는 안드로이드 폰 두 대 사이처럼 Quick Share가 더 나은 경우에는 그렇다고 분명히 적었습니다.",
+  "quick": {
+    "title": "요약",
+    "items": [
+      "<strong>폰에서 Nearby Share를 찾는다면:</strong> 지금 이름은 Quick Share입니다. 안드로이드 공유 메뉴에 있고, 설정에도 Quick Share 항목이 따로 있습니다.",
+      "<strong>안드로이드에서 Mac이나 Linux PC로:</strong> 양쪽에 BIShare나 LocalSend, 또는 폰의 기본 Quick Share로 보내고 싶다면 비공식 NearDrop(Mac)과 RQuickShare(Linux·Mac).",
+      "<strong>안드로이드에서 iPhone으로:</strong> Quick Share는 Google 목록에 있는 폰에서만 AirDrop에 닿습니다. BIShare, LocalSend, PairDrop은 어떤 안드로이드에서든 됩니다.",
+      "<strong>Bluetooth가 없거나 32비트 Windows인 PC:</strong> Google 앱이 돌아가지 않으니 BIShare나 LocalSend로 네트워크를 통해 보내세요.",
+      "<strong>Google 서비스가 없는 폰:</strong> Quick Share는 Google Play 서비스에 들어 있으므로 BIShare, LocalSend, KDE Connect처럼 따로 설치되는 앱을 고르세요.",
+      "<strong>다른 도시에 있는 사람:</strong> Quick Share는 가까이에서만 됩니다. 24시간 동안 최대 100GB를 담는 BIShare 링크를 보내거나 PairDrop으로 두 브라우저를 페어링하세요."
+    ]
   },
-  "how": {
-    "title": "BIShare가 모든 기기에 닿는 방법",
+  "what": {
+    "title": "Nearby Share에 무슨 일이 있었나",
+    "body": "Nearby Share는 사라지지 않았습니다. 이름이 바뀌고, 플랫폼이 늘고, 경쟁 기능을 흡수했으며, 단계마다 낡은 안내와 스크린샷이 남았습니다. 흐름은 다음과 같습니다.",
     "items": {
       "0": {
-        "h": "같은 Wi-Fi에서",
-        "b": "방 건너편 기기를 골라 보내기만 하면 됩니다. 파일은 종단 간 암호화된 채 기기에서 기기로 곧장 흐르며 서버를 전혀 거치지 않습니다. 게다가 인터넷이 전혀 없어도 폰 핫스팟으로 작동합니다."
+        "h": "2011~2019년: Android Beam의 등장과 퇴장",
+        "b": "Google의 첫 시도였던 Android Beam은 두 폰의 뒷면을 NFC로 맞대면 전송을 시작하고 파일은 Bluetooth에 넘겼습니다. 위치를 맞추기가 번거로웠고 큰 파일은 한참 걸렸습니다. Google은 2019년 Android 10에서 Beam을 없앴고, 이후 1년 동안 안드로이드에는 테이블 건너편 폰에 파일을 건넬 기본 방법이 없었습니다."
       },
       "1": {
-        "h": "상대가 가까이 없을 때",
-        "b": "같은 방이 아니라고요? 공유 링크, QR 코드, 6자리 코드를 받습니다. 상대는 어떤 브라우저로든 열어 내려받기만 하면 됩니다. 설치도 가입도 없습니다. 링크는 24시간 뒤 저절로 만료됩니다."
+        "h": "2020년 8월: Nearby Share 출시",
+        "b": "Nearby Share는 2020년 8월 4일 Android 6.0 이상 폰에 나왔습니다. 시스템 업데이트가 아니라 Google Play 서비스로 배포되어 수많은 구형 기기가 한꺼번에 받았습니다. 상대 기기를 찾을 때는 Bluetooth Low Energy, 데이터는 P2P Wi-Fi처럼 쓸 수 있는 가장 좋은 경로를 골랐고 인터넷이 필요 없었습니다."
       },
       "2": {
-        "h": "Android, iPhone, 그리고 모든 데스크톱",
-        "b": "Android·iPhone·Windows·Mac·Linux를 앱 하나로. 내 Android에서 친구 iPhone으로, 또는 Windows PC에서 Mac으로 — 어떤 기기에서 어떤 기기로든 양방향으로 보냅니다."
+        "h": "2021~2023년: 크롬북, 그다음 Windows",
+        "b": "크롬북은 2021년 6월 ChromeOS 91로 합류했습니다. Google은 CES 2022에서 Windows 앱을 발표했고, 2023년 3월 31일 베타를 낸 뒤 그해 7월 모두에게 열었습니다. 그전까지 안드로이드 폰에서 PC로 가는 공식 방법은 케이블이나 Microsoft의 휴대폰과 연결뿐이었습니다."
+      },
+      "3": {
+        "h": "2024년 1월: 삼성 Quick Share로 통합",
+        "b": "삼성은 2020년 2월 Galaxy S20과 함께 자체 Quick Share를 내놓았는데, Nearby Share 기기는 보지 못했습니다. CES 2024에서 두 회사는 삼성의 이름으로 기능을 하나로 합친다고 발표했습니다. 픽셀과 다른 안드로이드 폰은 이후 몇 주 동안 Nearby Share를 Quick Share로 바꿨고, 갤럭시도 드디어 다른 브랜드와 파일을 주고받게 됐습니다."
+      },
+      "4": {
+        "h": "2025년 11월부터: AirDrop과 연결",
+        "b": "Google은 Quick Share가 AirDrop과 통하도록 만들었습니다. 2025년 말 Pixel 10을 시작으로 2026년에는 다른 픽셀, 갤럭시 플래그십, 여러 중국 브랜드로 넓어졌습니다. 받는 iPhone, iPad, Mac은 AirDrop을 '모든 사람(10분 동안)'으로 설정해야 합니다. Google 목록에 없는 폰은 여전히 안 됩니다."
       }
     }
   },
-  "comparison": {
-    "title": "주변 공유 vs AirDrop vs BIShare",
+  "names": {
+    "title": "Nearby Share라고 불리는 세 가지 기능",
+    "body": "혼란의 일부는 여러 회사가 거의 같은 이름을 썼기 때문입니다. 무언가를 바꾸기 전에 어느 것을 말하는지 확인하세요.",
+    "items": {
+      "0": {
+        "h": "Google Nearby Share, 지금의 Quick Share",
+        "b": "이 페이지가 다루는 안드로이드와 크롬북 기능입니다. 공유 메뉴에는 Quick Share로 표시되고, 공개 범위 설정은 Quick Share 항목에 있지만 설정 앱 안의 정확한 위치는 제조사마다 다릅니다. 바뀐 건 아이콘이고 서비스 자체는 같습니다."
+      },
+      "1": {
+        "h": "삼성 Quick Share",
+        "b": "갤럭시에서 Quick Share는 2024년 전까지 삼성 고유 기능이었고 지금은 Google 버전과도 통합니다. Google 도움말에 따르면 One UI 2.1 이상 갤럭시에서는 설정과 기능이 다를 수 있으며, 삼성 PC는 Google이 아닌 삼성의 Quick Share 앱을 씁니다."
+      },
+      "2": {
+        "h": "Windows의 근거리 공유",
+        "b": "Microsoft는 Windows 10과 Windows 11에 거의 같은 이름의 별도 기능을 넣었습니다. 가까운 PC끼리 파일을 넘기는 기능이며 안드로이드 폰에는 전혀 보낼 수 없습니다. PC에서 폰으로 보내려면 이 스위치가 아니라 Google의 Windows용 Quick Share 앱이나 크로스플랫폼 앱이 맞습니다."
+      }
+    }
+  },
+  "reach": {
+    "title": "2026년 Quick Share가 닿는 곳과 멈추는 곳",
+    "body": "Quick Share는 초기 Nearby Share보다 훨씬 넓게 쓰이지만, 되느냐 마느냐는 여전히 받는 쪽 기기에 달려 있습니다. 아래 제한은 Google 도움말 자체에서 가져왔습니다.",
+    "items": {
+      "0": {
+        "h": "안드로이드 폰과 태블릿",
+        "b": "Android 6.0 이상에 Google Play 서비스가 있는 기기라면 Bluetooth를 켠 상태에서 보내고 받을 수 있고, Android 12 이하에서는 위치도 켜야 합니다. 같은 Google 계정의 기기끼리는 자동으로 수락되고, 그 밖의 경우에는 수락 또는 거부를 묻습니다."
+      },
+      "1": {
+        "h": "Windows PC",
+        "b": "Google의 Quick Share 앱은 64비트 Windows 10 이상에 설치되며, Arm 기반 PC에서는 Windows 11에서만 됩니다. PC에 Bluetooth가 있어야 하고, 폰과 PC가 같은 Wi-Fi나 이더넷 네트워크에 있으며 약 5미터 이내여야 합니다. 받은 파일은 다운로드 안의 Quick Share 폴더에 저장됩니다. 쿠바, 이란, 북한, 시리아에서는 앱을 제공하지 않습니다."
+      },
+      "2": {
+        "h": "iPhone, iPad, Mac",
+        "b": "경로는 두 가지이고, 둘 다 기사 제목에서 받는 인상보다 좁습니다. Google의 AirDrop 목록에 있는 폰은 AirDrop을 모든 사람에게 연 Apple 기기로 보낼 수 있습니다. Google은 iPhone으로 스캔하는 QR 코드도 추가했는데, 하루 10GB와 세션당 1,000개 파일로 제한되며 Wi-Fi가 필요합니다. iOS나 macOS용 Quick Share 앱은 Google이 만들지 않습니다."
+      },
+      "3": {
+        "h": "Linux",
+        "b": "Google은 Linux용 Quick Share를 한 번도 내놓지 않았고, 주요 배포판에도 들어 있지 않습니다. 안드로이드 폰의 기본 Quick Share와 통하는 Linux 소프트웨어는 리버스 엔지니어링으로 만든 비공식 프로그램뿐이며 아래에서 다룹니다."
+      },
+      "4": {
+        "h": "Google 서비스가 없는 폰",
+        "b": "Quick Share는 Google Play 서비스로 제공되므로, 최근 화웨이 모델처럼 이 서비스 없이 팔리는 폰이나 Google을 뺀 커스텀 안드로이드 빌드에는 없습니다. 이런 폰에는 APK나 다른 스토어에서 따로 설치하는 전송 앱이 필요합니다."
+      },
+      "5": {
+        "h": "가까이 없는 사람",
+        "b": "이름 그대로 Quick Share는 Bluetooth가 닿는 거리의 기기를 위한 기능입니다. 상대가 집에 있고 내가 사무실에 있을 때는 소용없고, 나중에 채팅에 붙여 넣을 만한 것도 만들어 주지 않습니다."
+      }
+    }
+  },
+  "methods": {
+    "title": "Nearby Share 대안 7가지 순위",
+    "body": "양쪽에 앱이 필요한 완전한 대안과, Mac이나 Linux PC가 폰의 기본 Quick Share에 응답하게 해주는 비공식 클라이언트를 함께 담았습니다. 항목마다 부족한 점을 적었습니다.",
+    "consLabel": "아쉬운 점:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "다섯 플랫폼 모두에서 가장 좋은 대안, 가까이든 멀리든",
+        "facts": "Android, iPhone, Windows, macOS, Linux · MIT 라이선스 · Wi-Fi나 폰 핫스팟으로 직접 전송, 크기 제한 없음 · 하루 뒤 만료되는 100GB 암호화 링크 · GitHub에 APK와 Linux 패키지 · 계정 불필요",
+        "body": "BIShare는 Quick Share가 Google 플랫폼의 경계에서 멈추는 부분을 채웁니다. 픽셀과 맥북, 또는 갤럭시와 우분투 노트북에서 열면 두 기기가 같은 Wi-Fi를 쓰거나 한쪽이 다른 쪽 핫스팟에 붙는 순간 서로의 화면에 나타납니다. Bluetooth도 Google 계정도 필요 없어서, Google 앱이 거부하는 Windows PC에서도, Play 서비스가 없는 안드로이드 폰에서도 GitHub의 APK로 설치해 쓸 수 있습니다. 상대가 멀리 있으면 같은 앱으로 브라우저에서 열리는 링크를 만듭니다.",
+        "cons": "가까이서 보내려면 상대 기기에도 BIShare가 있어야 하지만, Quick Share는 대부분의 안드로이드 폰에 이미 들어 있습니다."
+      },
+      "1": {
+        "name": "LocalSend",
+        "tag": "공유 네트워크에서 쓰기 좋은 최고의 오픈 소스",
+        "facts": "Android, iOS, Windows, macOS, Linux, Fire OS · Apache 2.0 · LAN 하나 · 암호화된 HTTPS, 기기마다 자체 인증서 · Winget, Homebrew, Flathub, F-Droid",
+        "body": "LocalSend는 Mac이나 Linux에서 Nearby Share를 쓰고 싶다는 글에서 가장 자주 추천되는 앱입니다. 모든 기기에 설치하고 같은 공유기에 두면 Quick Share의 기기 목록처럼 이름과 아이콘으로 서로 표시됩니다. 계정도 서버도 크기 제한도 없고, 컴퓨터에서는 늘 쓰던 패키지 관리자로 설치할 수 있습니다.",
+        "cons": "두 기기가 같은 로컬 네트워크에 있어야 하고, 다른 곳에 있는 사람에게 보낼 링크 기능은 없습니다."
+      },
+      "2": {
+        "name": "KDE Connect",
+        "tag": "폰과 컴퓨터를 늘 연결해 두고 싶을 때",
+        "facts": "Android, Linux, Windows, macOS, iOS · GPL · 같은 네트워크 · 파일, 클립보드, 알림 · Google Play, F-Droid, Microsoft Store, Homebrew",
+        "body": "KDE Connect는 파일 전송 이상을 합니다. 폰과 컴퓨터를 페어링하면 폰 알림을 데스크톱에 띄우고, 클립보드를 공유하고, 키보드로 문자에 답장하게 해주며, 폰을 리모컨이나 터치패드로 바꿔 줍니다. 파일 전송은 그 묶음의 일부라서 안드로이드와 Linux 데스크톱을 하나의 시스템처럼 쓰고 싶은 사람에게 맞습니다.",
+        "cons": "페어링은 한 번 보내기보다 오래 걸리고, iOS 버전은 알려진 제약이 있는 별도 포팅이라 안드로이드와 컴퓨터 사이에서 가장 빛납니다."
+      },
+      "3": {
+        "name": "PairDrop",
+        "tag": "아무것도 설치하지 않고 한 번 보낼 때",
+        "facts": "최신 브라우저라면 무엇이든 · GPL-3.0 · 같은 네트워크의 기기는 자동 발견 · 다른 네트워크는 페어링 코드나 QR · 예비 TURN 릴레이 · 직접 호스팅 가능",
+        "body": "PairDrop은 Nearby Share가 없는 기기에서 설정 없이 쓰는 편리함에 가장 가깝습니다. 같은 네트워크의 폰과 컴퓨터에서 pairdrop.net을 열면 서로 보이고, 다른 네트워크라면 코드로 페어링합니다. 빌린 노트북, 설치가 막힌 회사 PC, iPhone까지 브라우저 탭 하나로 해결합니다.",
+        "cons": "기기를 서로 연결하려면 인터넷이 필요하고, 탭을 열어 두어야 하며, 아주 큰 파일은 브라우저 메모리에 부담이 됩니다."
+      },
+      "4": {
+        "name": "NearDrop",
+        "tag": "Mac이 Quick Share에서 받는 가장 좋은 방법",
+        "facts": "macOS 메뉴 막대 앱 · Unlicense · 비공식 · 같은 Wi-Fi만 · 다운로드에 저장 · GitHub나 Homebrew tap, 공증 없음",
+        "body": "NearDrop은 Google 프로토콜을 충분히 재구현해서 안드로이드 폰 자체의 Quick Share 메뉴에 Mac이 받는 기기로 나타납니다. 폰에는 아무것도 설치하지 않아도 됩니다. 받은 파일은 Mac의 다운로드 폴더로 가고, 반대 방향은 Finder의 공유 메뉴에서 보낼 수 있습니다.",
+        "cons": "macOS가 안드로이드가 기다리는 Bluetooth 신호를 앱이 보내지 못하게 막아서 Mac이 폰을 스스로 찾지 못하므로, 폰으로 보내려면 QR 코드를 스캔해야 합니다. NearDrop이 실행 중이면 네트워크의 모든 사람에게 Mac이 보이고, 확인되지 않은 개발자의 앱을 허용해야 열립니다."
+      },
+      "5": {
+        "name": "RQuickShare",
+        "tag": "Linux용 Quick Share 클라이언트의 대표 주자",
+        "facts": "Linux(.deb, .rpm, AppImage, AUR, Nix)와 macOS · GPL-3.0 · 비공식 · mDNS가 허용된 같은 Wi-Fi · 노트북 Bluetooth로 폰을 깨울 수 있음",
+        "body": "Rust로 작성된 RQuickShare는 같은 방식을 Linux 데스크톱으로 가져옵니다. 폰은 기본 Quick Share를 그대로 쓰고, PC가 그 기기 목록에 나타납니다. Bluetooth가 있는 노트북에서는 안드로이드가 스스로를 알리도록 유도하는 광고 신호를 보내 폰을 찾기 쉬워집니다. GNOME 사용자라면 파일 관리자에서 바로 보내는 Nautilus 플러그인이 있는 GPL-3.0 클라이언트, Flathub의 Packet도 살펴볼 만합니다.",
+        "cons": "모든 비공식 클라이언트처럼 프로토콜의 Wi-Fi LAN 부분만 지원하므로, 두 기기가 mDNS를 허용하는 네트워크에 있어야 하는데 많은 공용 네트워크가 이를 막습니다."
+      },
+      "6": {
+        "name": "Warpinator",
+        "tag": "Linux PC끼리 가장 좋고, 안드로이드·Windows 포팅도 있음",
+        "facts": "Linux Mint 기본 탑재, 다른 배포판은 Flathub · GPL-3.0 · 같은 네트워크 · 비공식 안드로이드·Windows 포팅",
+        "body": "Warpinator는 Linux Mint가 직접 만든 근거리 공유 방식입니다. 같은 네트워크의 컴퓨터 두 대에서 열고 파일을 끌어다 넘기면 됩니다. 커뮤니티 포팅으로 안드로이드와 Windows에서도 쓸 수 있어서 Mint 데스크톱, Windows 노트북, 안드로이드 폰이 Google 계정 없이 파일을 주고받습니다.",
+        "cons": "안드로이드와 Windows 버전은 Mint 팀이 아니라 자원봉사자가 만들고, iPhone이나 Mac용 앱은 없습니다."
+      }
+    }
+  },
+  "table": {
+    "title": "한눈에 보기",
     "cols": {
-      "airdrop": "주변 공유",
-      "quick": "AirDrop",
-      "bishare": "BIShare"
+      "feature": "항목",
+      "quickshare": "Quick Share",
+      "bishare": "BIShare",
+      "localsend": "LocalSend",
+      "kdeconnect": "KDE Connect",
+      "pairdrop": "PairDrop",
+      "neardrop": "NearDrop",
+      "rquickshare": "RQuickShare"
     },
     "rows": {
-      "r0": "진짜 크로스플랫폼 (5가지 모두)",
-      "r1": "iPhone ↔ Android 작동",
-      "r2": "받는 사람 앱 불필요",
-      "r3": "Android와 Windows로 전송",
-      "r4": "무료, 계정 불필요"
+      "r0": "안드로이드 폰에서 사용",
+      "r1": "iPhone에서 사용",
+      "r2": "Windows에서 실행",
+      "r3": "Mac에서 실행",
+      "r4": "Linux에서 실행",
+      "r5": "안드로이드 폰에 설치할 것 없음",
+      "r6": "멀리 있는 사람에게 전달",
+      "r7": "오픈 소스"
+    },
+    "note": "2026년 9월 확인. Quick Share는 Google 목록의 폰에서 AirDrop을 통하거나 QR 코드를 써야만 iPhone에 닿고, Google의 PC 앱은 Bluetooth가 있고 폰과 같은 네트워크에 있는 64비트 Windows 10 이상 PC가 필요합니다. PairDrop은 브라우저에서 동작하며 기기를 연결하려면 인터넷이 필요합니다. NearDrop과 RQuickShare는 비공식이며 공유 Wi-Fi에서만 폰의 기본 Quick Share에 응답합니다. KDE Connect의 iOS 앱은 안드로이드 앱보다 기능이 적습니다. BIShare 링크에는 24시간 동안 최대 100GB가 들어갑니다."
+  },
+  "unofficial": {
+    "title": "폰의 Quick Share를 Mac이나 Linux PC와 함께 쓰기",
+    "body": "폰의 Quick Share가 마음에 들고 보낼 컴퓨터만 아쉽다면 비공식 클라이언트로 충분할 수 있습니다. NearDrop, RQuickShare, Packet은 모두 Google 프로토콜의 같은 부분을 재구현하므로 장점과 한계가 같습니다.",
+    "items": {
+      "0": {
+        "h": "로컬 네트워크 경로만 동작",
+        "b": "Google의 Quick Share는 Wi-Fi Direct, 핫스팟, Bluetooth, 인터넷 중 무엇으로도 파일을 옮길 수 있습니다. 이 클라이언트들은 Wi-Fi LAN 경로만 구현하므로 폰과 컴퓨터가 같은 네트워크에 있어야 합니다. 손님끼리 서로 격리하는 카페나 호텔 Wi-Fi에서는 두 기기 모두 신호가 가득해도 막힙니다."
+      },
+      "1": {
+        "h": "폰에서 컴퓨터는 쉽고, 반대는 어렵다",
+        "b": "폰은 네트워크의 mDNS로 컴퓨터를 찾기 때문에 클라이언트만 켜면 안드로이드에서 바로 보낼 수 있습니다. 반대 방향이 어려운 이유는 안드로이드가 특정 Bluetooth Low Energy 신호를 들은 뒤에야 자신을 알리기 때문입니다. RQuickShare는 노트북의 Bluetooth로 그 신호를 보낼 수 있습니다. macOS는 앱에 이를 허용하지 않아서 NearDrop은 대신 폰이 스캔할 QR 코드를 띄웁니다."
+      },
+      "2": {
+        "h": "공개 범위는 전부 아니면 전무",
+        "b": "연락처에만 공개하는 설정은 Google 서버에 의존하는데, 이 클라이언트들은 그 서버를 쓰지 않습니다. NearDrop README는 앱이 실행되는 동안 네트워크의 모든 사람에게 Mac이 보인다고 경고하니, 낯선 사람과 함께 쓰는 네트워크에서는 앱을 종료하세요."
+      },
+      "3": {
+        "h": "설치 방법",
+        "b": "NearDrop은 GitHub나 Homebrew tap에서 받으며 공증되지 않아서, 처음 실행할 때 macOS가 개인정보 보호 및 보안에서 허용을 요청합니다. RQuickShare는 Linux용 .deb, .rpm, AppImage와 macOS용 .dmg를 배포합니다. Packet은 Flathub에서 설치합니다. 모두 Google이 만든 것이 아니므로 프로토콜 변경을 따라가는 일은 자원봉사자에게 달려 있습니다."
+      }
+    }
+  },
+  "choose": {
+    "title": "공백별로 고르는 대안",
+    "body": "Quick Share가 닿지 못한 기기에서 출발해, 거기까지 가는 가장 가벼운 도구를 고르세요.",
+    "items": {
+      "0": {
+        "h": "안드로이드 폰에서 Mac으로",
+        "b": "주로 한 방향으로만 보낸다면 폰은 Quick Share 그대로 두고 Mac에 NearDrop을 더하세요. 양방향이나 큰 폴더라면 두 기기에 BIShare나 LocalSend를 설치하세요."
+      },
+      "1": {
+        "h": "안드로이드 폰에서 Linux PC로",
+        "b": "폰 공유 메뉴에 PC가 뜨길 원하면 RQuickShare나 Packet. 데스크톱에서 폰 알림과 공유 클립보드도 쓰고 싶다면 KDE Connect."
+      },
+      "2": {
+        "h": "어떤 안드로이드에서든 iPhone으로",
+        "b": "AirDrop 연결은 목록에 있는 폰만 되므로 BIShare, LocalSend, PairDrop을 쓰세요. 내 폰이 Google 목록에 있다면 설치할 게 없는 Quick Share부터 시도해 보세요."
+      },
+      "3": {
+        "h": "Google 앱이 거부하는 Windows PC",
+        "b": "32비트 에디션, Bluetooth 없는 데스크톱, 아직 Windows 10인 Arm 노트북이라면 네트워크만 있으면 되는 BIShare나 LocalSend를 설치하세요."
+      },
+      "4": {
+        "h": "Google Play 서비스가 없는 폰",
+        "b": "GitHub APK로 BIShare, F-Droid에서 LocalSend나 KDE Connect, 또는 폰 브라우저에서 PairDrop."
+      },
+      "5": {
+        "h": "멀리 있는 사람",
+        "b": "BIShare 링크를 만드세요. 100GB까지 들어가고 하루 뒤 만료되며 받는 사람은 브라우저만 있으면 됩니다. PairDrop도 두 탭이 열려 있는 동안에는 다른 네트워크의 기기 두 대를 페어링할 수 있습니다."
+      }
+    }
+  },
+  "fixes": {
+    "title": "바꾸기 전에 Quick Share부터 고치기",
+    "body": "잘 되던 Quick Share가 갑자기 안 된다면 대개 서비스가 아니라 설정이 원인입니다. 순서대로 확인하세요.",
+    "items": {
+      "0": {
+        "h": "공개 범위가 원래대로 돌아감",
+        "b": "'모든 사용자(10분)'는 10분이 지나면 저절로 되돌아갑니다. '연락처'로 된 수신 기기는 화면이 켜지고 잠금이 풀린 동안, 연락처에 있는 사람에게만 보입니다. '내 기기'는 같은 Google 계정으로 한정됩니다. 받는 폰에서 Quick Share 설정을 열고 보내기 직전에 다시 '모든 사용자(10분)'를 고르세요."
+      },
+      "1": {
+        "h": "Bluetooth나 위치가 꺼져 있음",
+        "b": "데이터가 Wi-Fi로 가더라도 근거리 공유에는 Bluetooth가 켜져 있어야 합니다. Android 12 이하에서는 위치도 켜야 하는데, 이 버전들은 Bluetooth 검색을 위치 권한과 묶어 두었기 때문입니다."
+      },
+      "2": {
+        "h": "PC가 Google 요구 사항에 못 미침",
+        "b": "Windows가 버전 10 이상의 64비트 에디션인지, Bluetooth가 작동하는지, 폰과 PC가 같은 네트워크에서 약 5미터 이내인지 확인하세요. 삼성 노트북에서는 Google이 아닌 삼성의 Quick Share 앱을 쓰세요."
+      },
+      "3": {
+        "h": "갤럭시는 메뉴가 다름",
+        "b": "Google에 따르면 One UI 2.1 이상 갤럭시에서는 설정과 기능이 다를 수 있습니다. 갤럭시에서는 빠른 설정 패널에서 Quick Share를 열어 누가 찾을 수 있는지 바꾸고, 지원 모델에서는 Apple 기기와 공유하는 옵션을 찾아보세요."
+      },
+      "4": {
+        "h": "파일은 왔는데 찾을 수 없음",
+        "b": "Windows에서 Google 앱은 바탕화면이 아니라 다운로드 안의 Quick Share 폴더에 저장합니다. 폰에서는 전송이 끝날 때 뜨는 알림을 눌러 받은 항목을 여세요."
+      },
+      "5": {
+        "h": "국가가 지원 대상이 아님",
+        "b": "쿠바, 이란, 북한, 시리아에서는 Google이 Windows 앱을 제공하지 않으므로, 그곳에서 폰에서 PC로 가는 무선 방법은 크로스플랫폼 앱뿐입니다."
+      }
+    }
+  },
+  "security": {
+    "title": "Quick Share와 대안을 안전하게 쓰기",
+    "body": "주변 사람에게 기기를 보이게 하는 기능이라면 잠깐 생각해 볼 가치가 있습니다.",
+    "items": {
+      "0": {
+        "h": "공개 범위는 좁게",
+        "b": "'모든 사용자(10분)'는 폰이 하루 종일 주변의 모든 낯선 사람에게 열려 있지 않도록 만든 설정이며, Google은 2026년 안드로이드에서 상시 '모든 사용자' 모드를 없앴습니다. 평소에는 '연락처'나 '내 기기'로 두고 받을 때만 넓히세요."
+      },
+      "1": {
+        "h": "수락하기 전에 확인",
+        "b": "기기에 확인용 PIN이 표시되면 수락하기 전에 다른 화면의 숫자와 비교하고, 예상하지 못한 전송은 거부하세요. 모르는 이름에서 갑자기 온 파일은 악성 코드가 들어오는 전형적인 경로입니다."
+      },
+      "2": {
+        "h": "비공식 클라이언트는 비공식답게",
+        "b": "NearDrop, RQuickShare, Packet은 오픈 소스라 누구나 코드를 볼 수 있지만, Google 보안 검토 밖에 있는 자원봉사 프로젝트입니다. 미러 사이트가 아니라 GitHub 페이지, Flathub, 패키지 관리자에서 설치하고, 내가 관리하지 않는 네트워크에서는 종료해 두세요."
+      }
     }
   },
   "faq": {
-    "title": "주변 공유 대안: 자주 묻는 질문",
+    "title": "Nearby Share 대안: 자주 묻는 질문",
     "items": {
       "0": {
-        "q": "iPhone에서도 되는 최고의 주변 공유 대안은?",
-        "a": "BIShare입니다. 주변 공유(퀵 공유)는 Android·Chromebook·Windows를 지원하지만 Apple 기기는 완전히 빼놓습니다. BIShare는 그 목록에 iPhone과 Mac을 더해, 도구 하나로 이 모두 사이를 어느 방향으로든 전송합니다."
+        "q": "Nearby Share는 아직 있나요?",
+        "a": "네, 이름만 바뀌었습니다. Google은 2024년 1월 Nearby Share를 삼성 Quick Share에 통합했고, 안드로이드 폰, 크롬북, Windows에서 이 기능은 이제 Quick Share라고 부릅니다."
       },
       "1": {
-        "q": "주변 공유나 퀵 공유가 iPhone으로 보낼 수 있나요?",
-        "a": "아니요. 주변 공유와 퀵 공유는 Android·Chromebook·Windows PC하고만 연결되며 iPhone이나 iPad은 지원하지 않습니다. Android 폰에서 iPhone으로 보내려면 둘을 똑같이 다루는 BIShare 같은 크로스플랫폼 도구가 필요합니다."
+        "q": "Nearby Share의 가장 좋은 대안은 무엇인가요?",
+        "a": "iPhone, Mac, Linux를 포함한 모든 플랫폼이라면 BIShare. 네트워크 하나에서 오픈 소스가 가장 중요하면 LocalSend, 아무도 설치할 수 없으면 PairDrop. 폰의 Quick Share를 Mac이나 Linux PC와 계속 쓰고 싶다면 NearDrop이나 RQuickShare입니다."
       },
       "2": {
-        "q": "주변 공유 없이 Android에서 iPhone으로 파일을 보내려면?",
-        "a": "Android 폰에 BIShare를 설치하세요(iPhone 쪽은 앱도 필요 없습니다). 같은 Wi-Fi에서 기기를 골라 곧장 보냅니다. 멀리 있나요? 링크, QR, 6자리 코드를 공유하면 iPhone이 Safari에서 내려받습니다. App Store에 갈 필요가 없습니다."
+        "q": "Mac용 Nearby Share가 있나요?",
+        "a": "Google에서 만든 것은 없습니다. 비공식 NearDrop을 쓰면 같은 Wi-Fi에서 안드로이드 폰의 Quick Share로 보낸 파일을 Mac이 받을 수 있고, Google의 AirDrop 목록에 있는 폰은 AirDrop으로 Mac에 바로 보낼 수 있습니다."
       },
       "3": {
-        "q": "상대가 BIShare를 설치해야 하나요?",
-        "a": "공유 링크라면 아닙니다. 어떤 브라우저로든 열어 내려받기만 하면 됩니다. 상대 쪽은 앱도 계정도 없습니다. 앱을 설치하면 근거리 전송이 빨라지고 모든 기능이 열리지만, 파일을 받는 데는 결코 필수가 아닙니다."
+        "q": "Linux용 Nearby Share가 있나요?",
+        "a": "공식 버전은 없습니다. RQuickShare와 Packet은 Linux용 비공식 Quick Share 클라이언트이고, KDE Connect, LocalSend, Warpinator, BIShare도 안드로이드와 Linux 사이에서 보내는 자체 방법을 제공합니다."
       },
       "4": {
-        "q": "BIShare는 주변 공유처럼 무료인가요?",
-        "a": "네 — 무료이며 계정도 없습니다. 내 Wi-Fi를 통한 근거리 전송은 용량 제한이 없고, 공유 링크는 누구에게나, 어떤 플랫폼에서든, 전송당 100GB까지 작동합니다."
+        "q": "Quick Share로 iPhone에 파일을 보낼 수 있나요?",
+        "a": "경우에 따라 가능합니다. Google 목록의 폰은 AirDrop을 잠시 모든 사람에게 연 iPhone으로 보낼 수 있고, QR 코드를 쓰면 iPhone이 하루 10GB까지 받을 수 있습니다. 나머지 폰은 BIShare나 LocalSend 같은 앱이 필요합니다."
+      },
+      "5": {
+        "q": "Nearby Share와 Windows 근거리 공유는 같은 건가요?",
+        "a": "아닙니다. 근거리 공유는 Windows PC끼리 보내는 Microsoft 기능입니다. Google의 Nearby Share, 지금의 Quick Share는 Google의 Windows용 Quick Share 앱으로 안드로이드 폰과 PC를 연결합니다."
+      },
+      "6": {
+        "q": "Windows용 Quick Share가 내 PC에서 안 되는 이유는?",
+        "a": "앱은 64비트 Windows 10 이상에만 설치되고(Arm 기기는 Windows 11 필요), Bluetooth와 폰과 같은 네트워크가 있어야 합니다. 쿠바, 이란, 북한, 시리아에서는 제공되지도 않습니다."
+      },
+      "7": {
+        "q": "Quick Share는 인터넷 없이도 되나요?",
+        "a": "네. 가까운 기기끼리는 Bluetooth와 P2P Wi-Fi를 씁니다. Google은 Wi-Fi 없이 공유하면 모바일 데이터가 쓰일 수 있다고 안내하며, Quick Share 설정에서 조절할 수 있습니다."
+      },
+      "8": {
+        "q": "삼성 Quick Share와 Google Quick Share는 같은가요?",
+        "a": "지금은 하나의 기능입니다. 삼성이 2020년에 Quick Share를 내놓았고 2024년 Google이 Nearby Share를 여기에 합쳐서, 갤럭시와 다른 안드로이드 폰이 서로 공유할 수 있습니다. 다만 갤럭시 메뉴는 Google 것과 다르게 보입니다."
+      },
+      "9": {
+        "q": "BIShare는 무료인가요?",
+        "a": "네. BIShare는 비용이 들지 않고, 코드를 MIT로 공개하며, 계정이나 Google 서비스 없이 동작하고, 두 기기가 직접 보낼 때 크기 제한이 없습니다."
       }
     }
   },
   "cta": {
-    "title": "Android뿐 아니라 어떤 기기로도 보내세요",
-    "body": "무료, 계정 불필요. Android·iPhone·Windows·Mac·Linux에 설치하고 바로 보내세요 — 상대는 앱조차 필요 없습니다.",
+    "title": "안드로이드만이 아니라 모든 기기와 공유",
+    "body": "무료, 오픈 소스, 계정 불필요. 방 이쪽에서 저쪽까지 Android, iPhone, Windows, Mac, Linux로 보내거나, 도시 반대편에 있는 사람에게 암호화 링크를 보내세요.",
     "download": "BIShare 다운로드"
   },
   "a11y": {
     "yes": "예",
     "no": "아니요"
+  },
+  "art": {
+    "hero": {
+      "alt": "안드로이드 폰이 Mac, Linux PC, iPhone, Windows PC로 보내는 모습과 함께, Quick Share가 닿지 않는 기기를 위한 Nearby Share의 가장 좋은 대안이라는 제목.",
+      "title": "Nearby Share의 가장 좋은 대안",
+      "sub": "Quick Share가 아직 닿지 않는 기기를 위해",
+      "phone": "Android",
+      "mac": "Mac",
+      "linux": "Linux",
+      "iphone": "iPhone",
+      "windows": "Windows"
+    },
+    "timeline": {
+      "alt": "Nearby Share에서 Quick Share까지의 연표: 2019년 Android Beam 제거, 2020년 8월 Nearby Share 출시, 2021년 6월 ChromeOS 91로 크롬북 지원, 2023년 3월 Windows 앱 베타, 2024년 1월 Quick Share로 통합, 2025년 11월부터 AirDrop 지원.",
+      "title": "Nearby Share에서 Quick Share로",
+      "sub": "Google 근거리 공유 기능의 변화",
+      "y0": "2019년",
+      "e0": "Android Beam 제거",
+      "y1": "2020년 8월",
+      "e1": "Nearby Share 출시",
+      "y2": "2021년 6월",
+      "e2": "크롬북 지원",
+      "y3": "2023년 3월",
+      "e3": "Windows 앱 베타",
+      "y4": "2024년 1월",
+      "e4": "Quick Share로",
+      "y5": "2025년 11월",
+      "e5": "AirDrop과 연결"
+    },
+    "reach": {
+      "alt": "2026년 Quick Share 지원 범위: Android 6 이상과 크롬북에 기본 탑재, 64비트 Windows 10·11은 Google 앱, iPhone·iPad·Mac은 목록의 폰이나 QR 코드로만, Linux는 공식 앱 없음, Google 서비스 없는 폰은 미지원. 마지막 세 가지는 대안이 채웁니다.",
+      "title": "2026년 Quick Share 지원 범위",
+      "sub": "플랫폼별 공식 지원과 공백을 채우는 앱",
+      "p0": "Android 6 이상",
+      "p1": "크롬북",
+      "p2": "Windows 10/11 64비트",
+      "p3": "iPhone·iPad·Mac",
+      "p4": "Linux",
+      "p5": "Google 없는 폰",
+      "s0": "기본 탑재",
+      "s1": "Google 앱",
+      "s2": "목록 폰 또는 QR",
+      "s3": "공식 앱 없음",
+      "fill": "공백을 채우는 앱",
+      "f3": "BIShare · LocalSend · PairDrop",
+      "f4": "RQuickShare · BIShare · KDE Connect",
+      "f5": "BIShare · LocalSend"
+    },
+    "bridge": {
+      "alt": "비공식 클라이언트가 Quick Share에 연결되는 방식: 안드로이드 폰과 Mac 또는 Linux PC가 같은 Wi-Fi에 있어야 하고, 폰은 mDNS로 컴퓨터를 찾으며, Linux 노트북은 Bluetooth 신호로 폰을 깨우고 Mac은 대신 QR 코드를 표시합니다. Wi-Fi Direct, 핫스팟, 인터넷은 지원하지 않습니다.",
+      "title": "비공식 Quick Share 클라이언트의 연결 방식",
+      "sub": "NearDrop, RQuickShare, Packet",
+      "phone": "안드로이드 폰",
+      "pc": "Mac 또는 Linux PC",
+      "wifi": "같은 Wi-Fi 네트워크",
+      "a1": "폰이 mDNS로 PC를 찾음",
+      "a2": "Linux: 노트북 Bluetooth가 폰을 깨움",
+      "a3": "Mac: 대신 QR 코드 스캔",
+      "noTitle": "지원 안 함",
+      "n1": "Wi-Fi Direct",
+      "n2": "핫스팟",
+      "n3": "인터넷"
+    }
   }
 }

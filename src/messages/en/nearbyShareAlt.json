@@ -1,83 +1,397 @@
 {
   "meta": {
-    "title": "Nearby Share Alternative That Also Reaches iPhone and Mac",
-    "description": "Nearby Share, now Quick Share, stops at Android and Windows. BIShare sends between Android, iPhone, Mac, Windows and Linux, nearby over Wi-Fi or by link. Free, no Google account."
+    "title": "Nearby Share Alternatives in 2026: Mac, Linux and iPhone",
+    "description": "Nearby Share is now Quick Share and still skips Mac, Linux, phones without Google services and anyone far away. Seven alternatives, two unofficial clients."
   },
   "hero": {
-    "eyebrow": "Cross-platform transfer",
-    "title": "A Nearby Share alternative for every device",
-    "body": "Nearby Share — now Quick Share — is quick between Android phones and even reaches Windows, but it stops dead at the iPhone. <strong>BIShare</strong> picks up where it leaves off: send files between <strong>Android, iPhone, Windows, Mac and Linux</strong>, instantly over your local Wi-Fi, or with a link the other side opens in any browser. <highlight>No account, no app on their end.</highlight>",
+    "eyebrow": "Nearby Share alternative",
+    "title": "The best Nearby Share alternatives",
+    "body": "Nearby Share was Google's answer to AirDrop: tap Share on an Android phone, pick a device close by, and the file arrives over Bluetooth and Wi-Fi with no cable. Since 2024 it goes by another name, Quick Share, after Google folded it into Samsung's feature of that name, which is why so many searches for Nearby Share end on a settings screen that no longer uses the words. The service grew as well: a Windows app, and from late 2025 a bridge to AirDrop on some phones. What it still lacks is an official app for Mac or Linux, support on phones without Google services, and any way to reach someone who is not in the room. This guide untangles the names, maps where Quick Share reaches in 2026, ranks seven alternatives including two unofficial Quick Share clients, and shows how to fix the built-in feature before replacing it. <strong>BIShare</strong> is on the list: <strong>free, MIT-licensed, and available for Android, iPhone, Windows, macOS and Linux</strong>. <highlight>No Google account needed.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
-  "why": {
-    "title": "Where Nearby Share stops",
-    "body": "Nearby Share pairs beautifully across Android phones, Chromebooks, and — with the Quick Share app — Windows. But it was never built to talk to Apple devices, so sending that same photo to a friend's <strong>iPhone</strong> drops you back to chat apps that crush the quality or email that caps the size. BIShare closes the gap: one tool that treats <strong>Android and iPhone</strong> as equals, alongside Windows, Mac, and Linux."
+  "updated": "Updated September 2026 · Quick Share requirements from Google's Android and Windows help pages, unofficial client limits from each project's GitHub README, checked 14 September 2026",
+  "disclosure": "We build BIShare, so read the ranking with that in mind. Where Quick Share is already the better choice, such as between two Android phones with Google services, this page says so.",
+  "quick": {
+    "title": "Quick answer",
+    "items": [
+      "<strong>Looking for Nearby Share on your phone:</strong> it is called Quick Share now. It sits in the Android share sheet, and its settings have a Quick Share entry of their own.",
+      "<strong>Android to a Mac or a Linux PC:</strong> BIShare or LocalSend on both ends, or the unofficial NearDrop (Mac) and RQuickShare (Linux and Mac) if you want the phone's built-in Quick Share to do the sending.",
+      "<strong>Android to iPhone:</strong> Quick Share reaches AirDrop only from phones on Google's list. BIShare, LocalSend and PairDrop work from any Android.",
+      "<strong>A PC without Bluetooth, or on 32-bit Windows:</strong> Google's app will not run there, so send over the network with BIShare or LocalSend.",
+      "<strong>A phone without Google services:</strong> Quick Share ships inside Google Play services, so pick an app that installs by itself, such as BIShare, LocalSend or KDE Connect.",
+      "<strong>Someone in another city:</strong> Quick Share only works nearby. Send a BIShare link, which holds up to 100 GB for 24 hours, or pair two browsers with PairDrop."
+    ]
   },
-  "how": {
-    "title": "How BIShare reaches every device",
+  "what": {
+    "title": "What happened to Nearby Share",
+    "body": "Nearby Share did not disappear. It changed names, gained platforms and absorbed a rival, and each step left outdated guides and screenshots behind. Here is the sequence.",
     "items": {
       "0": {
-        "h": "On the same Wi-Fi",
-        "b": "Pick the device across the room and send. Files travel straight from one device to the other, end-to-end encrypted, never touching a server — and it still works on a phone hotspot with no internet at all."
+        "h": "2011 to 2019: Android Beam comes and goes",
+        "b": "Google's first attempt, Android Beam, began a transfer when two phones touched back to back over NFC, then handed the file to Bluetooth. Lining the phones up was fiddly and big files crawled. Google dropped Beam from Android 10 in 2019, and for a year Android shipped with nothing native for passing a file to the phone across the table."
       },
       "1": {
-        "h": "When they're not nearby",
-        "b": "Not in the same room? You get a share link, a QR code, and a 6-character code. The other side opens it in any browser and downloads — no install, no sign-up. The link expires on its own after 24 hours."
+        "h": "August 2020: Nearby Share launches",
+        "b": "Nearby Share arrived on 4 August 2020 for phones running Android 6.0 or later. It came through Google Play services rather than a system update, so a huge base of older handsets gained it at once. It picked the best link available, Bluetooth Low Energy to find the other device and peer-to-peer Wi-Fi to carry the data, and it needed no internet connection."
       },
       "2": {
-        "h": "Android, iPhone, and every desktop",
-        "b": "One app for Android, iPhone, Windows, Mac, and Linux. Push a file from your Android to a friend's iPhone, or from a Windows PC to a Mac — any device to any device, both directions."
+        "h": "2021 to 2023: Chromebooks, then Windows",
+        "b": "Chromebooks joined with ChromeOS 91 in June 2021. Google announced a Windows app at CES 2022, released a beta on 31 March 2023 and opened it to everyone that July. Until then the official routes from an Android phone to a PC were a cable or Microsoft's own Phone Link."
+      },
+      "3": {
+        "h": "January 2024: merged into Samsung's Quick Share",
+        "b": "Samsung had launched its own Quick Share with the Galaxy S20 in February 2020, and it could not see Nearby Share devices. At CES 2024 the two companies announced a single feature under Samsung's name. Pixels and other Android phones renamed Nearby Share to Quick Share over the following weeks, and Galaxy phones could finally trade files with other brands."
+      },
+      "4": {
+        "h": "November 2025 onward: talking to AirDrop",
+        "b": "Google taught Quick Share to speak AirDrop, first on the Pixel 10 late in 2025 and spreading to more Pixels, Galaxy flagships and several Chinese brands during 2026. The receiving iPhone, iPad or Mac has to have AirDrop open to Everyone for 10 Minutes. Phones missing from Google's list still cannot do it."
       }
     }
   },
-  "comparison": {
-    "title": "Nearby Share vs AirDrop vs BIShare",
+  "names": {
+    "title": "Three features people call Nearby Share",
+    "body": "Part of the confusion is that more than one company used almost the same name. Before replacing anything, check which of these you mean.",
+    "items": {
+      "0": {
+        "h": "Google Nearby Share, now Quick Share",
+        "b": "The Android and Chromebook feature this page is about. It shows up in the share sheet as Quick Share, and its visibility settings sit under a Quick Share entry whose exact place in the Settings app varies by phone maker. The icon changed, the service underneath did not."
+      },
+      "1": {
+        "h": "Samsung Quick Share",
+        "b": "On Galaxy phones, Quick Share was Samsung's own feature before 2024 and now speaks to Google's version too. Google's help page notes that its settings and features can differ on Galaxy devices with One UI 2.1 or later, and Samsung PCs use Samsung's Quick Share app rather than Google's."
+      },
+      "2": {
+        "h": "Nearby sharing in Windows",
+        "b": "Microsoft built a separate feature with a near-identical name into Windows 10 and Windows 11. It passes files between PCs close to each other and cannot send to an Android phone at all. If you want to reach a phone from a PC, Nearby sharing is the wrong switch; Google's Quick Share app for Windows or a cross-platform app is the right one."
+      }
+    }
+  },
+  "reach": {
+    "title": "Where Quick Share reaches in 2026, and where it stops",
+    "body": "Quick Share covers far more than the first Nearby Share did, yet success still hinges on what sits on the receiving side. Google's own help pages set the limits below.",
+    "items": {
+      "0": {
+        "h": "Android phones and tablets",
+        "b": "Any device on Android 6.0 or newer with Google Play services can send and receive, as long as Bluetooth is on, and on Android 12 or earlier Location must be on as well. A transfer between devices signed in to the same Google Account is accepted automatically; anyone else gets an Accept or Decline prompt."
+      },
+      "1": {
+        "h": "Windows PCs",
+        "b": "Google's Quick Share app installs on 64-bit Windows 10 and later, and on Arm-based PCs only with Windows 11. The computer needs Bluetooth, the phone and PC should share one Wi-Fi or Ethernet network, and they have to be within about 5 metres. Incoming files land in a Quick Share folder inside Downloads. Google does not offer the app in Cuba, Iran, North Korea or Syria."
+      },
+      "2": {
+        "h": "iPhone, iPad and Mac",
+        "b": "Two routes exist, and both are narrower than headlines suggest. Phones on Google's AirDrop list can send to Apple devices whose AirDrop accepts everyone. Google has also added a QR code that an iPhone scans, which Google limits to 10 GB a day and a thousand files a session, and which needs Wi-Fi. Google makes no Quick Share app for iOS or macOS."
+      },
+      "3": {
+        "h": "Linux",
+        "b": "Google has never released Quick Share for Linux, and no major distribution includes it. The only Linux software that talks to an Android phone's built-in Quick Share is unofficial and reverse-engineered, covered further down."
+      },
+      "4": {
+        "h": "Phones without Google services",
+        "b": "Since Quick Share is delivered through Google Play services, phones sold without them, such as recent Huawei models, and custom Android builds that leave Google out do not have it. Those phones need a transfer app that installs on its own, from an APK or an alternative store."
+      },
+      "5": {
+        "h": "Anyone who is not nearby",
+        "b": "The name gives it away: Quick Share is made for devices within Bluetooth range of each other. It cannot help when the other person is at home and you are at the office, and it produces nothing you could paste into a chat for later."
+      }
+    }
+  },
+  "methods": {
+    "title": "Seven Nearby Share alternatives, ranked",
+    "body": "The list mixes full replacements, which need an app on both ends, with unofficial clients that let a Mac or a Linux PC answer the phone's built-in Quick Share. Every entry says where it falls short.",
+    "consLabel": "Falls short:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Best replacement across all five platforms, nearby or far away",
+        "facts": "Android, iPhone, Windows, macOS and Linux · MIT-licensed · direct over Wi-Fi or a phone hotspot, no size cap · encrypted 100 GB links that expire after a day · APK and Linux packages on GitHub · no account",
+        "body": "BIShare fills in where Quick Share stops at the edge of Google's platforms. Open it on a Pixel and a MacBook, or a Galaxy phone and an Ubuntu laptop, and each device appears on the other once both use the same Wi-Fi or one joins the other's hotspot. It needs neither Bluetooth nor a Google account, so it also runs on a Windows PC that Google's app refuses and on an Android phone without Play services, installed from the APK on GitHub. When the other person is far away, the same app makes a link that opens in a browser.",
+        "cons": "Nearby transfers need BIShare installed on the other device too, while Quick Share is already built into most Android phones."
+      },
+      "1": {
+        "name": "LocalSend",
+        "tag": "Best open-source option on a shared network",
+        "facts": "Android, iOS, Windows, macOS, Linux, Fire OS · Apache 2.0 · one LAN · encrypted HTTPS, own certificate on each device · Winget, Homebrew, Flathub, F-Droid",
+        "body": "LocalSend is the app threads about Nearby Share on a Mac or Linux recommend most often. Install it on each device, keep them on one router, and they list each other by name and icon, much like Quick Share's device picker. There are no accounts, no servers and no size limits, and desktop users can get it from the package manager they already use.",
+        "cons": "Both devices must stay on the same local network, and there is no link option for someone elsewhere."
+      },
+      "2": {
+        "name": "KDE Connect",
+        "tag": "Best for keeping a phone and computer linked all the time",
+        "facts": "Android, Linux, Windows, macOS, iOS · GPL · same network · files, clipboard and notifications · Google Play, F-Droid, Microsoft Store, Homebrew",
+        "body": "KDE Connect does much more than send files. Once a phone and a computer are paired, it shows phone notifications on the desktop, shares the clipboard, lets you answer texts from the keyboard and turns the phone into a remote or a touchpad. File sending comes as part of that bundle, which suits anyone who wants Android and a Linux desktop to behave like one system.",
+        "cons": "Pairing takes longer than a one-off send, and the iOS version is a separate port with known limitations, so it shines between Android and a computer."
+      },
+      "3": {
+        "name": "PairDrop",
+        "tag": "Best for a one-off send with nothing to install",
+        "facts": "Any modern browser · GPL-3.0 · devices on one network find each other · pairing code or QR across networks · TURN relay fallback · self-hostable",
+        "body": "PairDrop comes closest to Nearby Share's zero-setup feel on devices that lack it. Open pairdrop.net on a phone and a computer on the same network and they see each other; on different networks, pair them with a code. It covers borrowed laptops, work PCs that block installs, and iPhones, all from a browser tab.",
+        "cons": "Devices need internet to be introduced, the tab has to stay open, and very large files lean on browser memory."
+      },
+      "4": {
+        "name": "NearDrop",
+        "tag": "Best way for a Mac to receive from Quick Share",
+        "facts": "macOS menu bar app · Unlicense · unofficial · same Wi-Fi only · saves to Downloads · GitHub or Homebrew tap, not notarized",
+        "body": "NearDrop reimplements enough of Google's protocol that an Android phone's own Quick Share sheet lists the Mac as a target, so nothing new goes on the phone. Received files go to the Mac's Downloads folder, and you can send the other way from the Share menu in Finder.",
+        "cons": "The Mac cannot discover the phone by itself because macOS will not let apps send the Bluetooth broadcast Android listens for, so sending to a phone means scanning a QR code. The Mac is visible to everyone on the network while NearDrop runs, and it only opens after you approve an app from an unidentified developer."
+      },
+      "5": {
+        "name": "RQuickShare",
+        "tag": "Best Quick Share client for Linux",
+        "facts": "Linux (.deb, .rpm, AppImage, AUR, Nix) and macOS · GPL-3.0 · unofficial · same Wi-Fi with mDNS allowed · can use the laptop's Bluetooth to wake the phone",
+        "body": "RQuickShare, written in Rust, brings the same trick to Linux desktops: the phone keeps its built-in Quick Share, and the PC shows up in its device list. On a laptop with Bluetooth it sends an advertisement that prompts Android to announce itself, which makes the phone easier to find. GNOME users can also look at Packet, a GPL-3.0 client on Flathub with a Nautilus plugin for sending from the file manager.",
+        "cons": "Like every unofficial client it covers only the Wi-Fi LAN part of the protocol, so both devices must be on a network that permits mDNS, which many public networks block."
+      },
+      "6": {
+        "name": "Warpinator",
+        "tag": "Best between Linux PCs, with ports for Android and Windows",
+        "facts": "Ships with Linux Mint, Flathub for other distributions · GPL-3.0 · same network · unofficial Android and Windows ports",
+        "body": "Warpinator is Linux Mint's own take on nearby sharing: open it on two computers on one network and drop files across. Community ports bring it to Android and Windows, so a Mint desktop, a Windows laptop and an Android phone can swap files with no Google account anywhere.",
+        "cons": "The Android and Windows versions come from volunteers rather than the Mint team, and there is no app for iPhone or Mac."
+      }
+    }
+  },
+  "table": {
+    "title": "At a glance",
     "cols": {
-      "airdrop": "Nearby Share",
-      "quick": "AirDrop",
-      "bishare": "BIShare"
+      "feature": "Feature",
+      "quickshare": "Quick Share",
+      "bishare": "BIShare",
+      "localsend": "LocalSend",
+      "kdeconnect": "KDE Connect",
+      "pairdrop": "PairDrop",
+      "neardrop": "NearDrop",
+      "rquickshare": "RQuickShare"
     },
     "rows": {
-      "r0": "Truly cross-platform (all 5)",
-      "r1": "Works iPhone ↔ Android",
-      "r2": "Recipient needs no app",
-      "r3": "Sends to Android & Windows",
-      "r4": "Free, no account"
+      "r0": "Works with Android phones",
+      "r1": "Works with iPhone",
+      "r2": "Runs on Windows",
+      "r3": "Runs on a Mac",
+      "r4": "Runs on Linux",
+      "r5": "Nothing to install on the Android phone",
+      "r6": "Reaches someone far away",
+      "r7": "Open source"
+    },
+    "note": "Checked September 2026. Quick Share gets to iPhones only through AirDrop from phones on Google's list or through its QR code, and Google's PC app requires a 64-bit Windows 10 or newer machine with Bluetooth on the phone's network. PairDrop runs in a browser and needs internet to connect devices. NearDrop and RQuickShare are unofficial and answer the phone's built-in Quick Share over a shared Wi-Fi only. KDE Connect's iOS app has fewer features than its Android app. A BIShare link holds up to 100 GB for 24 hours."
+  },
+  "unofficial": {
+    "title": "Using a phone's Quick Share with a Mac or Linux PC",
+    "body": "If you like Quick Share on your phone and only miss a computer to send to, an unofficial client may be all you need. NearDrop, RQuickShare and Packet share the same strengths and the same limits, because each one reimplements the same slice of Google's protocol.",
+    "items": {
+      "0": {
+        "h": "Only the local network path works",
+        "b": "Google's own Quick Share can move a file over Wi-Fi Direct, a hotspot, Bluetooth or the internet. These clients implement just the Wi-Fi LAN path, so the phone and computer must be on one network. A café or hotel Wi-Fi that keeps guests from seeing one another will stop them even when both show full bars."
+      },
+      "1": {
+        "h": "Phone to computer is easy, the reverse is not",
+        "b": "The phone spots the computer through mDNS on the network, so sending from Android works as soon as the client is running. The other direction is harder, because Android only announces itself after hearing a specific Bluetooth Low Energy broadcast. RQuickShare can send that broadcast through a laptop's Bluetooth. macOS does not allow apps to, so NearDrop shows a QR code for the phone to scan instead."
+      },
+      "2": {
+        "h": "Visibility is all or nothing",
+        "b": "Contacts-only visibility depends on Google's servers, which these clients do not use. NearDrop's README warns that the Mac is visible to everyone on the network for as long as the app runs, so quit it on networks you share with strangers."
+      },
+      "3": {
+        "h": "Installing them",
+        "b": "NearDrop comes from GitHub or a Homebrew tap and is not notarized, so macOS asks you to allow it under Privacy & Security the first time. RQuickShare publishes .deb, .rpm and AppImage builds for Linux and a .dmg for macOS. Packet installs from Flathub. None of them come from Google, so keeping up with protocol changes depends on volunteers."
+      }
+    }
+  },
+  "choose": {
+    "title": "Which alternative for which gap",
+    "body": "Start from the device Quick Share could not reach, then pick the lightest tool that gets you there.",
+    "items": {
+      "0": {
+        "h": "Android phone to a Mac",
+        "b": "Keep Quick Share on the phone and add NearDrop to the Mac if you mostly send one way. For both directions or for large folders, put BIShare or LocalSend on both devices."
+      },
+      "1": {
+        "h": "Android phone to a Linux PC",
+        "b": "RQuickShare or Packet if you want the phone's share sheet to list the PC. KDE Connect if phone notifications and a shared clipboard on the desktop appeal too."
+      },
+      "2": {
+        "h": "Any Android phone to an iPhone",
+        "b": "BIShare, LocalSend or PairDrop, since the AirDrop bridge covers listed phones only. If your phone is on Google's list, try Quick Share first because there is nothing to install."
+      },
+      "3": {
+        "h": "A Windows PC that Google's app turns away",
+        "b": "A 32-bit edition, a desktop with no Bluetooth or an Arm laptop still on Windows 10: install BIShare or LocalSend, which rely on the network alone."
+      },
+      "4": {
+        "h": "A phone without Google Play services",
+        "b": "BIShare from its GitHub APK, LocalSend or KDE Connect from F-Droid, or PairDrop in the phone's browser."
+      },
+      "5": {
+        "h": "Someone far away",
+        "b": "Make a BIShare link: 100 GB fits in one, it expires a day later, and the recipient only needs a browser. PairDrop can also pair two devices on different networks while both tabs are open."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Fix Quick Share before you replace it",
+    "body": "When Quick Share worked before and suddenly will not, the cause is usually a setting rather than the service. Work through these in order.",
+    "items": {
+      "0": {
+        "h": "Visibility switched back",
+        "b": "Everyone for 10 minutes reverts on its own after ten minutes. A receiver on Contacts is visible only while its screen is on and unlocked, and only to people in its contacts; Your devices is limited to the same Google Account. Open Quick Share settings on the receiving phone and choose Everyone for 10 minutes again right before sending."
+      },
+      "1": {
+        "h": "Bluetooth or Location is off",
+        "b": "Bluetooth has to be on for nearby sharing even when the data itself will move over Wi-Fi. On Android 12 or earlier, Location must also be on, because those versions tie Bluetooth scanning to location access."
+      },
+      "2": {
+        "h": "The PC misses Google's requirements",
+        "b": "Confirm Windows is a 64-bit edition of version 10 or later, that Bluetooth works, and that phone and PC share a network and sit within about 5 metres. On a Samsung laptop, use Samsung's Quick Share app rather than Google's."
+      },
+      "3": {
+        "h": "A Galaxy phone shows different menus",
+        "b": "Google says settings and features can differ on Galaxy devices with One UI 2.1 or later. On a Galaxy phone, open Quick Share from the quick settings panel to change who can find it, and on supported models look for the option to share with Apple devices."
+      },
+      "4": {
+        "h": "The file arrived but you cannot find it",
+        "b": "On Windows, Google's app saves into a Quick Share folder inside Downloads rather than onto the desktop. On a phone, tap the notification shown when the transfer ends to open what arrived."
+      },
+      "5": {
+        "h": "Your country is not covered",
+        "b": "Google does not offer the Windows app in Cuba, Iran, North Korea or Syria, so there a cross-platform app is the only wireless route from phone to PC."
+      }
+    }
+  },
+  "security": {
+    "title": "Staying safe with Quick Share and its alternatives",
+    "body": "Any feature that makes your device visible to people nearby deserves a minute of thought.",
+    "items": {
+      "0": {
+        "h": "Keep visibility narrow",
+        "b": "Everyone for 10 minutes exists so that a phone does not stay open to every stranger around it all day, and Google removed the permanent Everyone mode on Android in 2026. Leave the phone on Contacts or Your devices and widen it only while you are receiving."
+      },
+      "1": {
+        "h": "Check before you accept",
+        "b": "When a device shows a verification PIN, compare it with the number on the other screen before accepting, and decline any transfer you were not expecting. An unexpected file from an unknown name is the classic way malware arrives."
+      },
+      "2": {
+        "h": "Treat unofficial clients as unofficial",
+        "b": "NearDrop, RQuickShare and Packet are open source, so anyone can read their code, but they are volunteer projects outside Google's security reviews. Install them from their GitHub pages, Flathub or a package manager rather than mirror sites, and quit them on networks you do not control."
+      }
     }
   },
   "faq": {
     "title": "Nearby Share alternatives: FAQ",
     "items": {
       "0": {
-        "q": "What's the best Nearby Share alternative that works with iPhone?",
-        "a": "BIShare. Nearby Share (Quick Share) covers Android, Chromebooks, and Windows but leaves out Apple devices entirely. BIShare adds the iPhone and Mac to that list, so a single tool moves files between all of them in any direction."
+        "q": "Does Nearby Share still exist?",
+        "a": "Yes, under a new name. Google merged Nearby Share into Samsung's Quick Share in January 2024, and on Android phones, Chromebooks and Windows the feature is now called Quick Share."
       },
       "1": {
-        "q": "Can Nearby Share or Quick Share send to an iPhone?",
-        "a": "No. Nearby Share and Quick Share only pair with Android, Chromebooks, and Windows PCs — there is no iPhone or iPad support. To send from an Android phone to an iPhone you need a cross-platform tool like BIShare, which treats both the same."
+        "q": "What is the best alternative to Nearby Share?",
+        "a": "For every platform including iPhone, Mac and Linux, BIShare. LocalSend when open source on a single network matters most, PairDrop when nobody can install anything. To keep using the phone's Quick Share with a Mac or Linux PC, NearDrop or RQuickShare."
       },
       "2": {
-        "q": "How do I send files from Android to iPhone without Nearby Share?",
-        "a": "Install BIShare on the Android phone (the iPhone side doesn't even need the app). On the same Wi-Fi, pick the device and send directly. Apart? Share the link, QR, or 6-character code and the iPhone downloads it in Safari — no App Store trip required."
+        "q": "Is there Nearby Share for Mac?",
+        "a": "Not from Google. The unofficial NearDrop lets a Mac receive from an Android phone's Quick Share on the same Wi-Fi, and phones on Google's AirDrop list can send straight to a Mac through AirDrop."
       },
       "3": {
-        "q": "Does the other person need to install BIShare?",
-        "a": "Not for a share link. They just open it in any browser and download — no app, no account on their end. Installing the app makes nearby transfers faster and unlocks every feature, but it's never required to receive a file."
+        "q": "Is there Nearby Share for Linux?",
+        "a": "There is no official version. RQuickShare and Packet are unofficial Quick Share clients for Linux, while KDE Connect, LocalSend, Warpinator and BIShare offer their own ways to send between Android and Linux."
       },
       "4": {
-        "q": "Is BIShare free like Nearby Share?",
-        "a": "Yes — free, with no account. Nearby transfers over your own Wi-Fi have no size caps, and share links work for anyone, on any platform, up to 100 GB per transfer."
+        "q": "Can Quick Share send files to an iPhone?",
+        "a": "In some cases. Phones on Google's list can send to iPhones whose AirDrop is temporarily open to everyone, and a QR code lets an iPhone collect as much as 10 GB a day. Other phones need an app such as BIShare or LocalSend."
+      },
+      "5": {
+        "q": "Is Nearby Share the same as Nearby sharing in Windows?",
+        "a": "No. Nearby sharing is a Microsoft feature for sending between Windows PCs. Google's Nearby Share, now Quick Share, is what connects an Android phone and a PC, through Google's Quick Share app for Windows."
+      },
+      "6": {
+        "q": "Why won't Quick Share for Windows work on my PC?",
+        "a": "The app only installs on 64-bit Windows 10 or newer (Arm machines need Windows 11), and it wants Bluetooth plus the same network as the phone. It is also not offered in Cuba, Iran, North Korea or Syria."
+      },
+      "7": {
+        "q": "Does Quick Share work without internet?",
+        "a": "Yes. Between nearby devices it uses Bluetooth and peer-to-peer Wi-Fi. Google notes that sharing without Wi-Fi may use mobile data, which you can control in Quick Share settings."
+      },
+      "8": {
+        "q": "Is Samsung Quick Share the same as Google Quick Share?",
+        "a": "They are one feature now. Samsung launched Quick Share in 2020, and in 2024 Google merged Nearby Share into it, so Galaxy phones and other Android phones share with each other. Galaxy menus still look different from Google's."
+      },
+      "9": {
+        "q": "Is BIShare free?",
+        "a": "Yes. BIShare costs nothing, publishes its code under MIT, runs without an account or Google services, and sets no size cap when two devices send directly."
       }
     }
   },
   "cta": {
-    "title": "Send to any device, not just Android",
-    "body": "Free, no account. Install on Android, iPhone, Windows, Mac, or Linux and start sending — the other side doesn't even need the app.",
+    "title": "Share with every device, not only Android",
+    "body": "Free, open source and account-free. Reach Android, iPhone, Windows, Mac and Linux across the room, or post an encrypted link for someone across town.",
     "download": "Download BIShare"
   },
   "a11y": {
     "yes": "Yes",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "An Android phone sending to a Mac, a Linux PC, an iPhone and a Windows PC, titled the best Nearby Share alternatives, for the devices Quick Share misses.",
+      "title": "The best Nearby Share alternatives",
+      "sub": "For the devices Quick Share still misses",
+      "phone": "Android",
+      "mac": "Mac",
+      "linux": "Linux",
+      "iphone": "iPhone",
+      "windows": "Windows"
+    },
+    "timeline": {
+      "alt": "Timeline from Nearby Share to Quick Share: Android Beam removed in 2019, Nearby Share launched in August 2020, Chromebooks with ChromeOS 91 in June 2021, the Windows app beta in March 2023, the merger into Quick Share in January 2024, and AirDrop support from November 2025.",
+      "title": "From Nearby Share to Quick Share",
+      "sub": "How Google's nearby sharing feature changed",
+      "y0": "2019",
+      "e0": "Android Beam removed",
+      "y1": "Aug 2020",
+      "e1": "Nearby Share launches",
+      "y2": "Jun 2021",
+      "e2": "Chromebooks join",
+      "y3": "Mar 2023",
+      "e3": "Windows app beta",
+      "y4": "Jan 2024",
+      "e4": "Now Quick Share",
+      "y5": "Nov 2025",
+      "e5": "Talks to AirDrop"
+    },
+    "reach": {
+      "alt": "Where Quick Share reaches in 2026: built into Android 6 and later and Chromebooks; a Google app for 64-bit Windows 10 and 11; iPhone, iPad and Mac only from listed phones or by QR code; no official app for Linux; not on phones without Google services. Alternatives fill the last three gaps.",
+      "title": "Where Quick Share reaches in 2026",
+      "sub": "Official support by platform, and what fills the gap",
+      "p0": "Android 6+",
+      "p1": "Chromebook",
+      "p2": "Windows 10/11, 64-bit",
+      "p3": "iPhone, iPad, Mac",
+      "p4": "Linux",
+      "p5": "Phone without Google",
+      "s0": "Built in",
+      "s1": "Google app",
+      "s2": "Listed phones or QR",
+      "s3": "No official app",
+      "fill": "Fills the gap",
+      "f3": "BIShare · LocalSend · PairDrop",
+      "f4": "RQuickShare · BIShare · KDE Connect",
+      "f5": "BIShare · LocalSend"
+    },
+    "bridge": {
+      "alt": "How unofficial clients join Quick Share: the Android phone and the Mac or Linux PC must be on the same Wi-Fi; the phone finds the computer through mDNS; a Linux laptop can wake the phone with a Bluetooth broadcast, while a Mac shows a QR code instead; Wi-Fi Direct, hotspot, Bluetooth transfer and internet paths are not supported.",
+      "title": "How unofficial Quick Share clients connect",
+      "sub": "NearDrop, RQuickShare and Packet",
+      "phone": "Android phone",
+      "pc": "Mac or Linux PC",
+      "wifi": "Same Wi-Fi network",
+      "a1": "Phone finds the PC through mDNS",
+      "a2": "Linux: laptop Bluetooth wakes the phone",
+      "a3": "Mac: scan a QR code instead",
+      "noTitle": "Not supported",
+      "n1": "Wi-Fi Direct",
+      "n2": "Hotspot",
+      "n3": "Internet"
+    }
   }
 }
