@@ -1,83 +1,378 @@
 {
   "meta": {
-    "title": "ShareDrop Alternative: Browser Sharing That Also Works Remotely",
-    "description": "ShareDrop now belongs to LimeWire. BIShare keeps in-browser sharing and adds native apps, end-to-end encryption and links that reach another network. Free, no account."
+    "title": "ShareDrop Alternatives in 2026: 7 Picks After LimeWire",
+    "description": "ShareDrop now belongs to LimeWire and its page carries ad slots and an upload button. Here is how it worked, where it falls short, and seven alternatives."
   },
   "hero": {
     "eyebrow": "ShareDrop alternative",
-    "title": "A ShareDrop alternative",
-    "body": "ShareDrop made browser-to-browser sharing beautifully simple — until the site is down, or the other person isn’t on the same page at the same moment. <strong>BIShare</strong> keeps the easy part: open a link in any browser and send, no account needed. Then it adds what ShareDrop can’t — <strong>native apps, remote links, and end-to-end encryption</strong>. <highlight>Same simplicity, none of the limits.</highlight>",
+    "title": "The best ShareDrop alternatives",
+    "body": "ShareDrop was one of the first web pages to copy AirDrop in a browser: open sharedrop.io on two devices, see each other's avatars, drop a file, and it travels straight across over WebRTC. It is still online in 2026, but it no longer belongs to its creator. LimeWire bought it in early 2025, and today the page loads LimeWire scripts for five ad slots and an Upload Files button that sends files to LimeWire's servers instead of to the device next to you. Plenty of people now want the old behaviour without the new owner, and a few always wanted more than a single tab could do. This guide explains what changed, how ShareDrop actually picked which devices you could see, where it falls short, ranks seven alternatives including self-hosted ShareDrop Classic, and shows how to send to someone on another network. Our own <strong>BIShare</strong> made the list: <strong>free and MIT-licensed, it runs in a browser at bishare.app and as apps for Android, iPhone, Windows, macOS and Linux</strong>. <highlight>No account on either side.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
-  "why": {
-    "title": "Where ShareDrop runs out",
-    "body": "ShareDrop is a lovely open-source trick: two browsers on the same network find each other over WebRTC and swap files. But both devices have to be on the page at the same instant, there are <strong>no native apps</strong>, and when a public instance goes offline you’re stuck. BIShare does the same local, in-browser sharing — then goes further with <strong>remote links, real apps, and true end-to-end encryption</strong>."
+  "updated": "Updated September 2026 · sharedrop.io source and scripts inspected on 14 September 2026, project facts from the ShareDrop, PairDrop and FilePizza GitHub repositories",
+  "disclosure": "We make BIShare, so treat our ranking with that in mind. Where a browser-only tool such as PairDrop is the simpler fit, this page says so.",
+  "quick": {
+    "title": "Quick answer",
+    "items": [
+      "<strong>Closest thing to classic ShareDrop:</strong> PairDrop. Same idea, open source, devices on one network find each other, and pairing covers other networks.",
+      "<strong>You want the sender to go offline after sending:</strong> a BIShare link stores up to 100 GB, encrypted, for a day and opens in any browser, so neither tab has to stay open.",
+      "<strong>One file, one recipient, nothing stored anywhere:</strong> FilePizza or ToffeeShare, as long as you keep your tab open until the download finishes.",
+      "<strong>Big folders between your own computers and phones:</strong> an app beats a tab. BIShare or LocalSend across one router, or Taildrop if you already run Tailscale.",
+      "<strong>You liked ShareDrop exactly as it was:</strong> the original MIT-licensed code sits untouched on GitHub, ready to host, though it needs a Firebase database.",
+      "<strong>Using sharedrop.io anyway:</strong> drop files on a person's avatar for a direct transfer. The Upload Files button sends them to LimeWire instead."
+    ]
   },
-  "how": {
-    "title": "How BIShare shares — near or far",
+  "what": {
+    "title": "What happened to ShareDrop",
+    "body": "ShareDrop never shut down, which is why so many guides still recommend it as if nothing changed. The page is the same shape; who runs it, and what else it loads, are not.",
     "items": {
       "0": {
-        "h": "On the same Wi-Fi",
-        "b": "Pick a nearby device and the files go straight across, device to device and end-to-end encrypted — never parked on a server. It works on any network you both share, even a phone hotspot with no internet at all."
+        "h": "2014: an AirDrop clone in a browser",
+        "b": "Polish developer Szymon Nowak created the ShareDrop repository in March 2014 and released it under the MIT licence. The README described it plainly as a web application inspired by Apple AirDrop that moves files directly between devices over WebRTC, with Firebase handling presence and signalling. It predates Snapdrop and most of the drop pages people know today."
       },
       "1": {
-        "h": "When you’re apart",
-        "b": "No shared network? You get a link, a QR code, and a 6-character code. The other person opens it in any browser and downloads — no app, no sign-up — and the link auto-expires after 24 hours."
+        "h": "February 2025: LimeWire takes over",
+        "b": "The README now opens with \"ShareDrop is now LimeWire\" and a note to the community that the project was acquired. It promises sharing on the same network, anonymous uploads and downloads, end-to-end encryption and up to 40 GB of storage for free users. A Hacker News post linking the change appeared on 22 February 2025, and the repository moved to a ShareDropio organisation."
       },
       "2": {
-        "h": "Every platform, natively",
-        "b": "iPhone, Android, Windows, Mac, and Linux each get a real app — not just a browser tab that can vanish. Send in any direction, and anyone can still receive with just a browser."
+        "h": "The classic code froze",
+        "b": "The README says the repository will stay as it is and that the classic version can still be run on your own infrastructure. Its last change to anything beyond documentation is a small link fix from January 2024. Whatever runs on sharedrop.io today is not the code in that repository, so nobody outside LimeWire can audit it."
+      },
+      "3": {
+        "h": "September 2026: ad slots and a LimeWire upload",
+        "b": "Loading sharedrop.io on 14 September 2026 pulled in two scripts named lw_ads.js and lw_upload.js. The first fetches sponsored creatives from api.limewire.com for five slots (left, right, top, bottom and a mobile banner). The second powers an Upload Files and Upload Folder area that hands files to LimeWire's own upload service, with a sign-in page on limewire.com."
+      },
+      "4": {
+        "h": "The peer-to-peer part is still there",
+        "b": "The avatars, the + button for rooms and the text explaining that files move directly between sender and recipient all remain. So ShareDrop still works as a drop page, as long as you use the avatar rather than the upload box. The reason to move is trust and clarity, not a dead site."
       }
     }
   },
-  "comparison": {
-    "title": "ShareDrop vs AirDrop vs BIShare",
+  "how": {
+    "title": "How ShareDrop decided which devices you saw",
+    "body": "Most people assume ShareDrop scanned the local Wi-Fi like AirDrop. It never did, and that detail explains both its magic and its odd failures.",
+    "items": {
+      "0": {
+        "h": "Same public IP address, same room",
+        "b": "ShareDrop's README defines devices \"in the same local network\" as devices with the same public IP address. Every browser that reaches the server from one internet address lands in one automatic room and sees the others' avatars. The Wi-Fi itself plays no part in discovery; the server does the matching."
+      },
+      "1": {
+        "h": "Why strangers sometimes appeared",
+        "b": "Large networks often put hundreds of people behind one public address: a university, an office, a hotel, or a mobile carrier using carrier-grade NAT. On those, ShareDrop could show avatars of people you have never met, and they could see yours. The recipient still has to accept, but it is not the private circle many users imagined."
+      },
+      "2": {
+        "h": "Why your own laptop sometimes vanished",
+        "b": "The reverse happens too. A laptop on a VPN, a phone on mobile data, or a PC whose traffic leaves through a different gateway presents a different public address, so it lands in a different room even while sitting on the same desk. The live page now warns that ShareDrop does not work with VPNs."
+      },
+      "3": {
+        "h": "Rooms for everything else",
+        "b": "For devices on different networks, the + button creates a room with its own URL. Everyone who opens that URL joins the room and sees each other, and the transfer then runs peer to peer over WebRTC. Discovery and signalling always needed an internet connection, even when both devices sat on one router."
+      }
+    }
+  },
+  "limits": {
+    "title": "Where ShareDrop falls short",
+    "body": "Even before the sale, a browser drop page had hard edges. These are the ones that send people looking for something else.",
+    "items": {
+      "0": {
+        "h": "Both tabs must stay open",
+        "b": "A WebRTC transfer lives inside two browser tabs. If the sender closes the page, a phone locks its screen and suspends the tab, or a laptop sleeps, the transfer stops and has to start again from the beginning."
+      },
+      "1": {
+        "h": "Nothing to collect later",
+        "b": "ShareDrop moves a file only while both people are online at the same moment. There is no link that waits for a colleague in another time zone, and no way to send first and let the recipient download tomorrow."
+      },
+      "2": {
+        "h": "Discovery depends on a server and the internet",
+        "b": "Two laptops on a router with no internet connection cannot find each other, because matching happens on ShareDrop's server. A captive portal, a VPN or a network that blocks WebRTC also breaks it."
+      },
+      "3": {
+        "h": "Mobile browsers are fragile senders",
+        "b": "Phones throttle background tabs to save battery. Sending a long video from a phone browser works when you keep the screen on and the page in front, and fails quietly when you switch to another app."
+      },
+      "4": {
+        "h": "Two buttons that do very different things",
+        "b": "On today's page, dropping a file on an avatar is peer to peer, while the Upload Files area stores it with LimeWire. Both sit on one screen, and a hurried user can pick the wrong one without noticing."
+      }
+    }
+  },
+  "methods": {
+    "title": "Seven ShareDrop alternatives, ranked",
+    "body": "Ranked for people who liked ShareDrop's no-account, no-install feel. Each entry lists what it needs on each side and where it falls short.",
+    "consLabel": "Falls short:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Best when the recipient should not have to be online at the same time",
+        "facts": "bishare.app in any browser, plus Android, iPhone, Windows, macOS and Linux apps · MIT · links up to 100 GB, encrypted, expire after 24 hours · Rooms with a cloud or local peer-to-peer mode · no account",
+        "body": "BIShare covers both halves of what ShareDrop did and the part it never could. In a browser, upload to get a link and a six-character code, close your laptop, and the recipient downloads later in any browser. For a group, a Room joined with a short code can run in local mode, where files go straight between browsers on one Wi-Fi, or in cloud mode for people in different places. Install the app on your own devices and they discover one another over shared Wi-Fi or a phone's hotspot, with no cap on size.",
+        "cons": "Browser links refuse executable types such as .exe, .msi and .sh, and the fastest direct transfers need the app on both devices."
+      },
+      "1": {
+        "name": "PairDrop",
+        "tag": "Best like-for-like replacement in a browser",
+        "facts": "Any modern browser, installable as a PWA · GPL-3.0 · same-network discovery · permanent pairing with a 6-digit code or QR · temporary public rooms · TURN relay for NAT · Docker images for self-hosting",
+        "body": "PairDrop grew out of Snapdrop and behaves the way people remember ShareDrop behaving, with extras. Devices on one network appear automatically; paired devices find each other wherever they are; and a temporary public room works like ShareDrop's + button. Its FAQ is clear about routing: on the same network files never reach a server, and paired devices behind NAT fall back to PairDrop's TURN server.",
+        "cons": "Like ShareDrop, both devices must be online together with the tab open, and a TURN-relayed transfer is slower than a direct one."
+      },
+      "2": {
+        "name": "FilePizza",
+        "tag": "Best for handing one person a file through a link",
+        "facts": "Any modern browser including Mobile Safari · BSD-3-Clause · link-based, peer to peer · password protection · multiple files arrive as a zip · Docker, optional Redis and TURN",
+        "body": "FilePizza skips discovery altogether. Pick files, get a link, send it through any chat, and the recipient's browser pulls data straight from yours. Version 2 added password protection, progress the sender can watch and stop, multi-file transfers delivered as a zip, and streaming downloads so large files do not sit in memory.",
+        "cons": "Your tab is the server: close it and the link dies, so it suits a live handover, not a file someone opens tomorrow."
+      },
+      "3": {
+        "name": "ToffeeShare",
+        "tag": "Best no-frills peer-to-peer link from the Netherlands",
+        "facts": "Browser · free · WebRTC with DTLS 1.3 · no file size limit claimed · nothing stored online",
+        "body": "ToffeeShare describes itself as an independent peer-to-peer service from the Netherlands. Drop a file, share the link, and data flows over an encrypted WebRTC connection, with the site claiming no size limit because nothing is stored on its side. Closing the tab ends the share, which some people prefer as a privacy feature.",
+        "cons": "It is not open source, and like FilePizza it depends on the sender's tab staying open for the whole download."
+      },
+      "4": {
+        "name": "LocalSend",
+        "tag": "Best app-based option on one network",
+        "facts": "Apache 2.0 · apps on Android, iOS, desktop and Fire OS · one local network, internet optional · HTTPS between devices · Winget, Homebrew, Flathub, F-Droid",
+        "body": "If ShareDrop mostly moved files between your own phone and computer, an app removes the tab problems entirely. LocalSend devices on one router list each other without any server, so it keeps working on a router with no internet connection. In September 2026 it topped the list of open-source picks on AlternativeTo's ShareDrop page.",
+        "cons": "Every device needs the app, and it cannot reach anyone outside your local network."
+      },
+      "5": {
+        "name": "Taildrop",
+        "tag": "Best for your own devices if you already use Tailscale",
+        "facts": "Part of Tailscale on macOS, iOS, Windows, Android and Linux · public alpha · your own devices only · encrypted peer-to-peer connections · available on all Tailscale plans",
+        "body": "Taildrop sends files between devices signed in to your Tailscale network, wherever they are, over the same encrypted connections Tailscale uses for everything else. A phone at a café can drop a file onto the desktop at home with no room URL and no open tab. Received files land in Downloads on Mac and Windows.",
+        "cons": "Tailscale's documentation limits it to your own personal devices, so it cannot send to a friend, and it is still labelled alpha and must be enabled by the admin."
+      },
+      "6": {
+        "name": "ShareDrop Classic, self-hosted",
+        "tag": "Best if you want the original, minus the new owner",
+        "facts": "MIT licence · Ember app · needs a Firebase Realtime Database for presence and signalling · README includes Heroku deployment steps · Chrome, Edge, Firefox, Opera, Safari 13+",
+        "body": "The README still documents how to run the classic version: create a Firebase database, load the provided security rules, install Ember CLI and the dependencies, set a secret, and deploy. Hosted on your own domain, it behaves like the ShareDrop you remember, with no ad scripts and no upload box.",
+        "cons": "The instructions are old (they point to firebase.com and Heroku), the code has not changed since 2024, and you take on keeping Firebase and the server secure."
+      }
+    }
+  },
+  "table": {
+    "title": "At a glance",
     "cols": {
-      "airdrop": "ShareDrop",
-      "quick": "AirDrop",
-      "bishare": "BIShare"
+      "feature": "Feature",
+      "bishare": "BIShare",
+      "pairdrop": "PairDrop",
+      "filepizza": "FilePizza",
+      "toffeeshare": "ToffeeShare",
+      "localsend": "LocalSend",
+      "taildrop": "Taildrop"
     },
     "rows": {
-      "r0": "Works when you’re apart (remote link)",
-      "r1": "Native apps for every platform",
-      "r2": "End-to-end encrypted",
-      "r3": "Runs in any browser, no install",
-      "r4": "Free, no account"
+      "r0": "Works in a browser on both ends",
+      "r1": "Finds nearby devices by itself",
+      "r2": "Reaches another network",
+      "r3": "Recipient can download after the sender goes offline",
+      "r4": "Sends to other people",
+      "r5": "No account"
+    },
+    "note": "As of September 2026. BIShare works in a browser through links and Rooms, and finds nearby devices in its apps. PairDrop reaches other networks through pairing or public rooms, relayed by TURN behind NAT. FilePizza and ToffeeShare need the sender's tab open until the download ends. LocalSend needs its app on every device and one shared network. Taildrop needs a Tailscale login and only sends between your own devices."
+  },
+  "rooms": {
+    "title": "Sending to someone on another network",
+    "body": "ShareDrop's + button was the least understood part of it. The alternatives split into three models, and the right one depends on who can stay online.",
+    "items": {
+      "0": {
+        "h": "Live rooms: everyone online together",
+        "b": "ShareDrop rooms, PairDrop public rooms and BIShare local Rooms all expect people to join at the same time. They are ideal on a call or in a classroom, where you can say \"open this now\", and useless for someone who will not see the message until later."
+      },
+      "1": {
+        "h": "Live links: only the sender must wait",
+        "b": "FilePizza and ToffeeShare turn the room into a single link. The recipient can open it whenever they like, but only while your tab stays open. Leave a laptop plugged in with the page visible and it works; close the lid and the link is gone."
+      },
+      "2": {
+        "h": "Stored links: nobody has to wait",
+        "b": "A BIShare link encrypts the file in your browser, uploads it, and keeps it for 24 hours. You can go offline straight away, and the recipient downloads from any browser. This is the model that fits time zones and busy people, at the cost of a copy sitting encrypted on a server for a day."
+      },
+      "3": {
+        "h": "Paired devices: your own gear anywhere",
+        "b": "PairDrop pairing and Taildrop both remember devices, so your phone and laptop find each other on any network without a new room each time. Pairing suits two devices you use daily; Taildrop suits a whole fleet already on Tailscale."
+      }
+    }
+  },
+  "selfhost": {
+    "title": "Hosting ShareDrop Classic or a replacement yourself",
+    "body": "Self-hosting was ShareDrop's quiet promise, and it is how you keep a drop page that nobody can sell. The effort varies more than you might expect.",
+    "items": {
+      "0": {
+        "h": "ShareDrop Classic",
+        "b": "You need a Firebase Realtime Database with the repository's rules, Node with Yarn and Ember CLI, a SECRET used for cookies and room names, and somewhere to run it; the README walks through Heroku. Firebase is a Google service, so a self-hosted ShareDrop still depends on a third party for signalling."
+      },
+      "1": {
+        "h": "PairDrop",
+        "b": "PairDrop is the lightest: one Docker command using the LinuxServer.io or GitHub Container Registry image, or Node directly. Its hosting guide warns that transfers between different networks need your own TURN server, and ships a Docker Compose file that starts coturn alongside PairDrop."
+      },
+      "2": {
+        "h": "FilePizza",
+        "b": "FilePizza v2 is a Next.js app with Docker scripts. Redis is optional for channel state, a coturn TURN server can be switched on for peers behind NAT, and the PeerJS signalling host can point at your own server instead of the public one."
+      },
+      "3": {
+        "h": "The part nobody mentions: TURN",
+        "b": "Every WebRTC drop page works on one network without help, but a transfer between two home or mobile networks often needs a relay. A self-hosted page without TURN will look fine in testing at home and then fail for the friend on mobile data. Budget for bandwidth if you turn it on."
+      }
+    }
+  },
+  "choose": {
+    "title": "Which alternative for which moment",
+    "body": "Pick by who is on the other end and whether they can be online at the same time as you.",
+    "items": {
+      "0": {
+        "h": "Two of your devices on the same Wi-Fi",
+        "b": "PairDrop if you want nothing installed, BIShare or LocalSend if the files are large or the phone keeps suspending the tab."
+      },
+      "1": {
+        "h": "A friend on a call right now",
+        "b": "A PairDrop public room, a BIShare Room, or a FilePizza link. All three are quick to explain out loud."
+      },
+      "2": {
+        "h": "A client or colleague who will open it later",
+        "b": "A BIShare link, which waits 24 hours without your tab, or a paid storage service if the file must stay up longer."
+      },
+      "3": {
+        "h": "A classroom or meeting",
+        "b": "A BIShare Room joined with a short code, in local mode when everyone shares the Wi-Fi and cloud mode when some join remotely."
+      },
+      "4": {
+        "h": "Your own fleet of machines",
+        "b": "Taildrop if you run Tailscale already, or a self-hosted PairDrop with TURN if you want a page you control."
+      }
+    }
+  },
+  "security": {
+    "title": "Privacy: what a browser drop page can and cannot see",
+    "body": "Peer to peer does not mean invisible. It helps to know which part of the trip each service can observe.",
+    "items": {
+      "0": {
+        "h": "WebRTC encrypts the file in transit",
+        "b": "ShareDrop, PairDrop, FilePizza and ToffeeShare all send data over WebRTC, which encrypts it with DTLS between the two browsers. Someone on the café Wi-Fi cannot read the file, and a TURN relay forwards encrypted packets it cannot open."
+      },
+      "1": {
+        "h": "The signalling server still sees metadata",
+        "b": "To introduce two browsers, a server learns their IP addresses and when they connected, and on ShareDrop your public address decides your room. PairDrop's own FAQ adds that you still have to trust its server, and that encrypting the signalling is planned. Self-hosting moves that trust to you."
+      },
+      "2": {
+        "h": "Upload buttons are a different model",
+        "b": "The Upload Files area on sharedrop.io stores files with LimeWire, and a BIShare link stores an encrypted copy for 24 hours. Stored links are convenient, but read what each service keeps and for how long, and prefer one that encrypts on your device before upload."
+      }
     }
   },
   "faq": {
     "title": "ShareDrop alternatives: FAQ",
     "items": {
       "0": {
-        "q": "What’s the best ShareDrop alternative?",
-        "a": "BIShare. It keeps ShareDrop’s best idea — send files right in the browser between devices — and adds the things it never had: native apps for every platform, remote link transfers when you’re not on the same network, and end-to-end encryption. All free, no account."
+        "q": "Does ShareDrop still work?",
+        "a": "Yes. sharedrop.io is online and dropping a file on another device's avatar still sends it peer to peer. Since LimeWire bought it in 2025, the page also loads ad slots and an Upload Files area that stores files with LimeWire."
       },
       "1": {
-        "q": "Why won’t sharedrop.io load, and is ShareDrop still working?",
-        "a": "ShareDrop is open-source, so public instances come and go and can be offline for stretches. BIShare doesn’t depend on one shared page staying up: nearby sharing works on your own network, and remote link sharing runs on a maintained service, so it’s there when you need it."
+        "q": "Who owns ShareDrop now?",
+        "a": "LimeWire. The project README announces the acquisition, and a Hacker News post about it appeared on 22 February 2025. Szymon Nowak's original code is still published on GitHub, MIT-licensed."
       },
       "2": {
-        "q": "Can I send files when the other device isn’t on the same network?",
-        "a": "That’s the big gap ShareDrop leaves — it needs both devices on the same network and on the page at the same time. BIShare’s remote link works across the internet: share the link or 6-character code, and the other person can open and download it later, up to 24 hours."
+        "q": "What is the best ShareDrop alternative?",
+        "a": "PairDrop is the closest browser replacement. BIShare is best when the recipient needs a link that works after you go offline, FilePizza for a quick live link, and LocalSend for moving files between your own devices with an app."
       },
       "3": {
-        "q": "Does the recipient need to install an app, like with ShareDrop?",
-        "a": "No. Just like ShareDrop, they can open a link in any browser and download — no app, no account on their side. Installing the BIShare app is optional; it makes nearby transfers faster and unlocks every feature, but it’s never required to receive."
+        "q": "Why can't ShareDrop see my other device?",
+        "a": "ShareDrop groups devices by public IP address, not by Wi-Fi. A VPN, mobile data or a different gateway gives a device another address, so it lands in a different room. Turn off the VPN or create a room with the + button."
       },
       "4": {
-        "q": "Is BIShare free like ShareDrop?",
-        "a": "Yes — free, with no account. Nearby transfers over your own network have no size limit, and remote link sharing handles large files up to 100GB for free, on any platform."
+        "q": "Why do strangers show up on ShareDrop?",
+        "a": "Offices, campuses, hotels and mobile carriers often share one public IP address among many people, and ShareDrop puts everyone behind that address in the same room. Nobody can send you a file unless you accept it."
+      },
+      "5": {
+        "q": "Is ShareDrop safe?",
+        "a": "Direct transfers use encrypted WebRTC connections. The live site's code is no longer published, and it now loads LimeWire scripts, so if that matters to you, use an open-source alternative or host ShareDrop Classic yourself."
+      },
+      "6": {
+        "q": "Is ShareDrop the same as Snapdrop?",
+        "a": "No. They are separate open-source projects with the same idea, and LimeWire acquired both. ShareDrop started in 2014 with Firebase signalling; PairDrop is a fork of Snapdrop."
+      },
+      "7": {
+        "q": "Can I send a file with ShareDrop to someone who is offline?",
+        "a": "No. Both browsers must be open at the same time. For a file someone collects later, use a stored link such as BIShare's, kept for a day."
+      },
+      "8": {
+        "q": "Can I host ShareDrop myself?",
+        "a": "Yes. The classic code is MIT-licensed on GitHub, and the README explains setup with a Firebase database, Ember CLI and Heroku. PairDrop is simpler to host with a single Docker command."
+      },
+      "9": {
+        "q": "Is BIShare free?",
+        "a": "Yes. BIShare charges nothing, publishes its code under MIT, asks neither sender nor recipient to sign up, and each link carries as much as 100 GB for a day."
       }
     }
   },
   "cta": {
-    "title": "Everything you liked about ShareDrop — and more",
-    "body": "Free, no account. Share in the browser like always, or install the app for faster nearby transfers and links you can send anywhere.",
+    "title": "Keep the drop, lose the wait",
+    "body": "Free and open source. Share from a browser with a link that outlives the tab, or install the app and move files directly between your own devices.",
     "download": "Download BIShare"
   },
   "a11y": {
     "yes": "Yes",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "Two browser windows passing a file directly between them, next to a crossed-out ad slot, titled the best ShareDrop alternatives, seven picks after LimeWire.",
+      "title": "The best ShareDrop alternatives",
+      "sub": "Seven picks after the LimeWire takeover",
+      "left": "Your browser",
+      "right": "Their browser",
+      "ad": "AD"
+    },
+    "grouping": {
+      "alt": "How ShareDrop groups devices: everyone behind one public IP address shares a room, so strangers on a campus or carrier network can appear, while your own laptop on a VPN or phone on mobile data lands in a different room even on the same desk.",
+      "title": "ShareDrop matches public IP addresses, not Wi-Fi",
+      "sub": "One public address means one automatic room",
+      "ipA": "Public IP A",
+      "ipB": "Public IP B",
+      "roomA": "Room A",
+      "roomB": "Room B",
+      "you": "Your phone",
+      "stranger1": "Stranger on campus",
+      "stranger2": "Stranger on campus",
+      "laptop": "Your laptop on a VPN",
+      "note": "Same desk, different rooms"
+    },
+    "online": {
+      "alt": "Who has to stay online: in live rooms (ShareDrop, PairDrop, BIShare local Rooms) both people must be online together; with live links (FilePizza, ToffeeShare) only the sender must keep the tab open; with a stored BIShare link nobody has to stay online for 24 hours.",
+      "title": "Who has to stay online?",
+      "sub": "Three ways to reach another network",
+      "colSender": "Sender online",
+      "colRecipient": "Recipient online at the same time",
+      "m0": "Live room",
+      "e0": "ShareDrop · PairDrop · BIShare local Room",
+      "m1": "Live link",
+      "e1": "FilePizza · ToffeeShare",
+      "m2": "Stored link, 24 h",
+      "e2": "BIShare link",
+      "yes": "Required",
+      "no": "Not needed"
+    },
+    "hosting": {
+      "alt": "What self-hosting needs: ShareDrop Classic needs Node, Ember CLI and a Firebase Realtime Database; PairDrop needs one Docker container plus a TURN server for other networks; FilePizza needs Docker with optional Redis and TURN.",
+      "title": "What it takes to host your own drop page",
+      "sub": "From the projects' own setup guides",
+      "c0": "ShareDrop Classic",
+      "c1": "PairDrop",
+      "c2": "FilePizza",
+      "k0": "Runtime",
+      "k1": "Signalling",
+      "k2": "Other networks",
+      "v00": "Node, Yarn, Ember CLI",
+      "v01": "Firebase database",
+      "v02": "Rooms via Firebase",
+      "v10": "One Docker container",
+      "v11": "Built-in server",
+      "v12": "Your own TURN",
+      "v20": "Docker, Next.js",
+      "v21": "PeerJS server",
+      "v22": "Optional coturn"
+    }
   }
 }

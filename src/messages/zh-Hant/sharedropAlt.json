@@ -1,83 +1,378 @@
 {
   "meta": {
-    "title": "ShareDrop 替代方案：瀏覽器分享也能跨網路",
-    "description": "ShareDrop 現已歸 LimeWire 所有。BIShare 保留瀏覽器分享，並加入原生 App、端對端加密和跨網路連結。免費。"
+    "title": "2026年ShareDrop替代方案7選",
+    "description": "ShareDrop如今歸LimeWire所有，頁面載入了廣告版位和上傳按鈕。本文說明它的運作方式、弱點，以及7個替代方案。"
   },
   "hero": {
-    "eyebrow": "ShareDrop 替代方案",
-    "title": "一個 ShareDrop 替代方案",
-    "body": "ShareDrop 讓瀏覽器之間的共享變得無比簡單——直到網站當機，或對方沒有在同一刻打開同一個頁面。<strong>BIShare</strong> 保留了簡單的部分：在任何瀏覽器裡打開連結就能傳送，免帳號。同時補上 ShareDrop 做不到的——<strong>原生應用程式、遠端連結與端對端加密</strong>。<highlight>同樣簡單，卻沒有那些限制。</highlight>",
-    "ctaPrimary": "免費取得 BIShare",
+    "eyebrow": "ShareDrop替代方案",
+    "title": "最好的ShareDrop替代方案",
+    "body": "ShareDrop是最早在瀏覽器裡模仿AirDrop的網頁之一：在兩台裝置上開啟sharedrop.io，互相看到對方的頭像，把檔案拖上去，它就透過WebRTC直接傳過去。2026年這個網站還在運作，但已經不屬於原作者。LimeWire在2025年初收購了它，如今頁面會載入LimeWire的腳本，用於五個廣告版位，以及一個Upload Files按鈕，把檔案送到LimeWire的伺服器，而不是你身邊的裝置。很多人想要以前的體驗卻不想要新東家，也有人一直嫌一個分頁能做的事太少。本指南說明發生了什麼變化、ShareDrop實際上如何決定你能看到哪些裝置、它有哪些弱點，為7個替代方案排名（包括自行架設的ShareDrop Classic），並說明如何傳給另一個網路裡的人。我們的<strong>BIShare</strong>也在名單上：<strong>免費、MIT授權，既能在bishare.app的瀏覽器裡用，也有Android、iPhone、Windows、macOS和Linux應用程式</strong>。<highlight>傳送方和接收方都不需要帳戶。</highlight>",
+    "ctaPrimary": "免費取得BIShare",
     "ctaSecondary": "運作方式"
   },
-  "why": {
-    "title": "ShareDrop 力有未逮之處",
-    "body": "ShareDrop 是個可愛的開源小把戲：同一網路裡的兩個瀏覽器透過 WebRTC 互相發現並交換檔案。但兩台裝置必須在同一刻停留在頁面上，<strong>沒有原生應用程式</strong>，而當某個公用執行個體離線時你就束手無策。BIShare 提供同樣的本機、瀏覽器內共享——並更進一步，帶來<strong>遠端連結、真正的應用程式與名副其實的端對端加密</strong>。"
+  "updated": "2026年9月更新 · sharedrop.io的原始碼和腳本於2026年9月14日檢查，專案資訊來自ShareDrop、PairDrop和FilePizza的GitHub儲存庫",
+  "disclosure": "BIShare是我們開發的，請帶著這一點看排名。在PairDrop這類純瀏覽器工具更省事的情況，本頁會直接說明。",
+  "quick": {
+    "title": "快速回答",
+    "items": [
+      "<strong>最接近經典ShareDrop的：</strong>PairDrop。思路相同，開源，同一網路的裝置會互相發現，配對還能跨網路。",
+      "<strong>希望傳送方傳完就能離線：</strong>BIShare連結把最多100 GB加密保存一天，任何瀏覽器都能開啟，不必一直開著分頁。",
+      "<strong>一個檔案、一位接收者、哪裡都不存：</strong>FilePizza或ToffeeShare，前提是下載完成前你的分頁一直開著。",
+      "<strong>自己的電腦和手機之間傳大型資料夾：</strong>應用程式比分頁可靠。同一台路由器下用BIShare或LocalSend，已經在用Tailscale就用Taildrop。",
+      "<strong>就喜歡原汁原味的ShareDrop：</strong>MIT授權的原始程式碼原封不動地留在GitHub上，可以自行架設，但需要Firebase資料庫。",
+      "<strong>如果還是要用sharedrop.io：</strong>把檔案拖到對方的頭像上才是直接傳輸。Upload Files區域會把檔案交給LimeWire。"
+    ]
   },
-  "how": {
-    "title": "BIShare 如何共享——無論遠近",
+  "what": {
+    "title": "ShareDrop後來怎麼了",
+    "body": "ShareDrop從沒關站，所以很多教學仍然照舊推薦，好像什麼都沒變。頁面樣子沒變，變的是誰在經營、頁面額外載入了什麼。",
     "items": {
       "0": {
-        "h": "在同一 Wi-Fi 下",
-        "b": "選取附近的裝置，檔案便從一台裝置直達另一台，端對端加密——絕不停留在任何伺服器上。任何你們共用的網路都能用，甚至沒有連網的手機熱點也行。"
+        "h": "2014年：瀏覽器裡的AirDrop複製品",
+        "b": "波蘭開發者Szymon Nowak在2014年3月建立了ShareDrop儲存庫，並以MIT授權發布。README把它描述為受Apple AirDrop啟發的網頁應用程式，透過WebRTC在裝置之間直接傳檔案，由Firebase負責上線狀態和信令。它比Snapdrop以及如今知名的大多數同類頁面都早。"
       },
       "1": {
-        "h": "當你們相隔兩地",
-        "b": "沒有共用網路？你會拿到一個連結、一個 QR 碼和一組 6 位字元代碼。對方在任何瀏覽器裡打開就能下載——免應用程式、免註冊——連結會在 24 小時後自動失效。"
+        "h": "2025年2月：LimeWire接手",
+        "b": "現在的README開頭是「ShareDrop is now LimeWire」，以及一段向社群宣布收購的話。內容承諾同一網路內分享、匿名上傳下載、端對端加密，以及免費使用者最多40 GB儲存空間。介紹這項變化的Hacker News貼文發布於2025年2月22日，儲存庫也遷到了名為ShareDropio的組織之下。"
       },
       "2": {
-        "h": "每個平台，皆為原生",
-        "b": "iPhone、Android、Windows、Mac 和 Linux 各有一款真正的應用程式——而不是一個說沒就沒的瀏覽器分頁。任意方向傳送，而接收方僅憑瀏覽器依然可以收下。"
+        "h": "經典程式碼已凍結",
+        "b": "README表示儲存庫會維持原樣，經典版仍可在自己的基礎設施上執行。除了文件之外，最後一次變更是2024年1月的一個小連結修正。如今sharedrop.io上執行的並不是這個儲存庫的程式碼，所以LimeWire以外的人無法稽核。"
+      },
+      "3": {
+        "h": "2026年9月：廣告版位和上傳到LimeWire",
+        "b": "2026年9月14日開啟sharedrop.io時，載入了lw_ads.js和lw_upload.js兩個腳本。前者從api.limewire.com為五個位置（左、右、上、下和手機橫幅）取得贊助廣告。後者驅動Upload Files和Upload Folder區域，把檔案交給LimeWire自己的上傳服務，登入頁在limewire.com。"
+      },
+      "4": {
+        "h": "點對點的部分還在",
+        "b": "頭像、建立房間的+按鈕，以及說明檔案直接在傳送方和接收方之間傳輸的文字都還在。只要用頭像而不是上傳框，ShareDrop仍然能當作傳檔頁面使用。要換掉它，理由是信任和透明，而不是網站沒了。"
       }
     }
   },
-  "comparison": {
-    "title": "ShareDrop 對比 AirDrop 對比 BIShare",
+  "how": {
+    "title": "ShareDrop如何決定你能看到哪些裝置",
+    "body": "大多數人以為ShareDrop像AirDrop一樣掃描本地Wi-Fi。它從來沒這麼做過，這一點正好解釋了它的神奇和它那些奇怪的失靈。",
+    "items": {
+      "0": {
+        "h": "同一個公用IP，同一個房間",
+        "b": "ShareDrop的README把「同一區域網路」的裝置定義為公用IP位址相同的裝置。凡是從同一個網際網路位址連到伺服器的瀏覽器，都會進入同一個自動房間並看到彼此的頭像。Wi-Fi本身不參與探索，配對是伺服器完成的。"
+      },
+      "1": {
+        "h": "為什麼有時會出現陌生人",
+        "b": "大型網路經常讓成百上千人共用一個公用位址，例如大學、辦公室、飯店，或使用CGNAT的電信業者。在這些網路裡，ShareDrop可能顯示你從沒見過的人的頭像，他們也看得到你。接收方仍然要按接受，但這並不是許多人以為的私密小圈子。"
+      },
+      "2": {
+        "h": "為什麼自己的筆電有時會不見",
+        "b": "反過來也會發生。開著VPN的筆電、用行動數據的手機，或流量走另一個閘道的電腦，公用位址不同，就會進另一個房間，即使就放在同一張桌上。現在頁面上也提示ShareDrop不支援VPN。"
+      },
+      "3": {
+        "h": "其他情況靠房間",
+        "b": "對於不同網路的裝置，+按鈕會建立一個有獨立URL的房間。開啟這個URL的人進入房間並互相看到，接著透過WebRTC點對點傳輸。探索和信令始終需要連網，即使兩台裝置接在同一台路由器上。"
+      }
+    }
+  },
+  "limits": {
+    "title": "ShareDrop的弱點",
+    "body": "即使在出售之前，瀏覽器傳檔頁面也有硬傷。下面這些正是讓人另找工具的原因。",
+    "items": {
+      "0": {
+        "h": "兩個分頁都得開著",
+        "b": "WebRTC傳輸活在兩個瀏覽器分頁裡。傳送方關掉頁面、手機鎖定螢幕把分頁暫停，或筆電進入睡眠，傳輸都會中斷，只能從頭再來。"
+      },
+      "1": {
+        "h": "沒有可以稍後領取的東西",
+        "b": "ShareDrop只在雙方同時在線時才傳檔案。沒有能等另一個時區同事的連結，也沒辦法現在傳、明天再下載。"
+      },
+      "2": {
+        "h": "探索依賴伺服器和網際網路",
+        "b": "兩台筆電接在沒有對外連線的路由器上是找不到對方的，因為配對發生在ShareDrop的伺服器上。認證入口網頁、VPN或封鎖WebRTC的網路也會讓它失效。"
+      },
+      "3": {
+        "h": "手機瀏覽器傳送不穩定",
+        "b": "手機為了省電會限制背景分頁。用手機瀏覽器傳長影片，保持螢幕亮著、頁面在前景時能成功，一切換到別的應用程式就會悄悄失敗。"
+      },
+      "4": {
+        "h": "兩個按鈕，作用完全不同",
+        "b": "在現在的頁面上，把檔案拖到頭像上是點對點，而Upload Files區域會把檔案存到LimeWire。兩者在同一個畫面上，匆忙時很容易點錯而不自知。"
+      }
+    }
+  },
+  "methods": {
+    "title": "7個ShareDrop替代方案排名",
+    "body": "依照喜歡ShareDrop免帳戶、免安裝的使用者需求排名。每一項都寫明兩端需要什麼以及弱點在哪。",
+    "consLabel": "弱點：",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "接收方不必同時在線時的最佳選擇",
+        "facts": "任何瀏覽器開啟bishare.app，另有Android、iPhone、Windows、macOS和Linux應用程式 · MIT · 最大100 GB加密連結，24小時後失效 · 雲端或本地點對點模式的房間 · 不需要帳戶",
+        "body": "BIShare涵蓋了ShareDrop做過的兩件事，也補上了它從未做到的部分。在瀏覽器裡上傳，取得連結和六個字元的代碼，闔上筆電，接收方稍後在任何瀏覽器裡下載。多人情境下，用短代碼加入的房間可以跑本地模式，同一個Wi-Fi下檔案直接在瀏覽器之間傳，也可以跑雲端模式，適合不在同一處的人。在自己的裝置上裝好應用程式，它們會透過共用Wi-Fi或手機熱點互相發現，不限檔案大小。",
+        "cons": "瀏覽器連結不接受.exe、.msi、.sh等可執行檔，最快的直連傳輸需要兩台裝置都安裝應用程式。"
+      },
+      "1": {
+        "name": "PairDrop",
+        "tag": "瀏覽器裡最對等的替代品",
+        "facts": "任何新式瀏覽器，可安裝為PWA · GPL-3.0 · 同一網路自動探索 · 用6位數代碼或QR碼永久配對 · 臨時公開房間 · NAT後走TURN中繼 · 提供自行架設用的Docker映像檔",
+        "body": "PairDrop源自Snapdrop，用起來就像大家記憶中的ShareDrop，還多了些功能。同一網路的裝置自動出現，配對過的裝置在哪都能互相找到，臨時公開房間就相當於ShareDrop的+按鈕。它的FAQ把路徑說得很清楚：同一網路下檔案從不經過伺服器，NAT之後的配對裝置則走PairDrop的TURN伺服器。",
+        "cons": "和ShareDrop一樣，兩台裝置必須同時在線並開著分頁，經TURN中繼的傳輸比直連慢。"
+      },
+      "2": {
+        "name": "FilePizza",
+        "tag": "用連結把檔案交給一個人時的最佳選擇",
+        "facts": "任何新式瀏覽器，包括iPhone上的Safari · BSD-3-Clause · 以連結為基礎的點對點 · 密碼保護 · 多個檔案打包成zip · Docker，Redis和TURN可選",
+        "body": "FilePizza乾脆略過裝置探索。選好檔案、取得連結、用任何聊天工具傳出去，接收方的瀏覽器就直接從你的瀏覽器取得資料。第2版加入了密碼保護、傳送方可查看並中止的進度、多檔打包成zip，以及串流下載，避免大型檔案堆在記憶體裡。",
+        "cons": "你的分頁就是伺服器，關掉它連結就失效。適合當場交付，不適合別人明天才開啟的檔案。"
+      },
+      "3": {
+        "name": "ToffeeShare",
+        "tag": "來自荷蘭的簡潔點對點連結",
+        "facts": "瀏覽器 · 免費 · 使用DTLS 1.3的WebRTC · 網站宣稱不限大小 · 不在線上儲存任何內容",
+        "body": "ToffeeShare自稱是來自荷蘭的獨立點對點服務。拖入檔案、分享連結，資料就透過加密的WebRTC連線傳輸；因為它那邊不存任何東西，網站沒有標註大小限制。關掉分頁分享即結束，有人把這當作隱私優點。",
+        "cons": "它不開源，而且和FilePizza一樣，整個下載期間都得開著傳送方的分頁。"
+      },
+      "4": {
+        "name": "LocalSend",
+        "tag": "同一網路裡用應用程式的最佳選擇",
+        "facts": "Apache 2.0 · Android、iOS、桌面和Fire OS應用程式 · 一個區域網路，網際網路可有可無 · 裝置間HTTPS · Winget、Homebrew、Flathub、F-Droid",
+        "body": "如果你以前主要用ShareDrop在自己的手機和電腦之間傳檔案，換成應用程式能徹底擺脫分頁的問題。同一台路由器下的LocalSend裝置不經任何伺服器就能互相列出，所以在沒有對外連線的路由器上也能用。2026年9月，它在AlternativeTo的ShareDrop頁面上位列開源推薦第一。",
+        "cons": "每台裝置都要安裝應用程式，也碰不到區域網路之外的人。"
+      },
+      "5": {
+        "name": "Taildrop",
+        "tag": "已經在用Tailscale時，自己裝置之間的最佳選擇",
+        "facts": "macOS、iOS、Windows、Android和Linux上的Tailscale內建功能 · 公開Alpha · 僅限自己的裝置 · 加密點對點連線 · 所有Tailscale方案可用",
+        "body": "Taildrop在登入同一Tailscale網路的裝置之間傳送檔案，不管裝置在哪，走的都是Tailscale其他功能使用的同一套加密連線。咖啡廳裡的手機不需要房間URL、不需要開著分頁，就能把檔案放到家裡的電腦上。在Mac和Windows上，收到的檔案會進入「下載」資料夾。",
+        "cons": "Tailscale文件規定它只能在你自己的個人裝置之間使用，所以不能傳給朋友，而且仍是Alpha階段，需要管理員開啟。"
+      },
+      "6": {
+        "name": "自行架設ShareDrop Classic",
+        "tag": "想要原版又不要新東家時的選擇",
+        "facts": "MIT授權 · Ember應用程式 · 上線狀態和信令需要Firebase Realtime Database · README附有Heroku部署步驟 · Chrome、Edge、Firefox、Opera、Safari 13+",
+        "body": "README仍然寫著經典版的執行方式：建立Firebase資料庫、匯入附帶的安全規則、安裝Ember CLI和相依套件、設定密鑰，然後部署。放在你自己的網域下，它就是記憶中的那個ShareDrop，沒有廣告腳本，也沒有上傳框。",
+        "cons": "說明已經過時（指向firebase.com和Heroku），程式碼自2024年起沒有更新，Firebase和伺服器的安全都得自己負責。"
+      }
+    }
+  },
+  "table": {
+    "title": "一覽",
     "cols": {
-      "airdrop": "ShareDrop",
-      "quick": "AirDrop",
-      "bishare": "BIShare"
+      "feature": "項目",
+      "bishare": "BIShare",
+      "pairdrop": "PairDrop",
+      "filepizza": "FilePizza",
+      "toffeeshare": "ToffeeShare",
+      "localsend": "LocalSend",
+      "taildrop": "Taildrop"
     },
     "rows": {
-      "r0": "相隔兩地也能用（遠端連結）",
-      "r1": "每個平台都有原生應用程式",
-      "r2": "端對端加密",
-      "r3": "任何瀏覽器可用，免安裝",
-      "r4": "免費，免帳號"
+      "r0": "兩端都能在瀏覽器裡用",
+      "r1": "自動發現附近裝置",
+      "r2": "能到達另一個網路",
+      "r3": "傳送方離線後仍可下載",
+      "r4": "能傳給別人",
+      "r5": "不需要帳戶"
+    },
+    "note": "截至2026年9月。BIShare透過連結和房間在瀏覽器裡使用，在應用程式裡發現附近裝置。PairDrop透過配對或公開房間到達其他網路，NAT之後經TURN中繼。FilePizza和ToffeeShare需要傳送方分頁一直開到下載結束。LocalSend需要每台裝置安裝應用程式並位於同一網路。Taildrop需要登入Tailscale，且只能在你自己的裝置之間傳送。"
+  },
+  "rooms": {
+    "title": "傳給另一個網路裡的人",
+    "body": "+按鈕是ShareDrop最容易被誤解的部分。替代方案分成三種模式，選哪種取決於誰能一直在線。",
+    "items": {
+      "0": {
+        "h": "即時房間：所有人同時在線",
+        "b": "ShareDrop房間、PairDrop公開房間和BIShare本地房間都要求大家同時加入。在通話或課堂上正合適，可以直接說「現在打開」，但對稍後才看到訊息的人毫無用處。"
+      },
+      "1": {
+        "h": "即時連結：只有傳送方要等",
+        "b": "FilePizza和ToffeeShare把房間變成一個連結。接收方想什麼時候打開都行，但前提是你的分頁還開著。筆電插著電、頁面亮著就沒問題，闔上蓋子連結就沒了。"
+      },
+      "2": {
+        "h": "保存的連結：誰都不用等",
+        "b": "BIShare連結在你的瀏覽器裡加密檔案、上傳並保存24小時。你可以馬上離線，接收方用任何瀏覽器下載。這種模式適合有時差和忙碌的人，代價是一份加密副本要在伺服器上放一天。"
+      },
+      "3": {
+        "h": "配對裝置：自己的裝置在哪個網路都行",
+        "b": "PairDrop配對和Taildrop都會記住裝置，所以你的手機和筆電在任何網路都能互相找到，不必每次建房間。配對適合每天用的兩台裝置，Taildrop適合已經在Tailscale裡的一整套裝置。"
+      }
+    }
+  },
+  "selfhost": {
+    "title": "自行架設ShareDrop Classic或替代方案",
+    "body": "自行架設是ShareDrop默默許下的承諾，也是擁有一個誰都賣不掉的傳檔頁面的方法。不同方案的工作量差別比想像中大。",
+    "items": {
+      "0": {
+        "h": "ShareDrop Classic",
+        "b": "你需要匯入儲存庫規則的Firebase Realtime Database、裝有Yarn和Ember CLI的Node、用於Cookie和房間名稱的SECRET，以及執行它的地方；README以Heroku為例說明。Firebase是Google的服務，所以自行架設的ShareDrop在信令上仍依賴第三方。"
+      },
+      "1": {
+        "h": "PairDrop",
+        "b": "PairDrop最輕量：用LinuxServer.io或GitHub Container Registry的映像檔，一條Docker指令即可，也可以直接用Node執行。它的架設指南提醒，不同網路之間的傳輸需要自己的TURN伺服器，並提供一個同時啟動coturn和PairDrop的Docker Compose檔案。"
+      },
+      "2": {
+        "h": "FilePizza",
+        "b": "FilePizza v2是附Docker腳本的Next.js應用程式。保存頻道狀態的Redis可選，可以為NAT後的對端開啟coturn TURN伺服器，PeerJS信令主機也能從公開伺服器改成你自己的伺服器。"
+      },
+      "3": {
+        "h": "沒人提的一點：TURN",
+        "b": "任何WebRTC傳檔頁面在同一網路裡都不需要幫忙，但兩個家用網路或行動網路之間的傳輸經常需要中繼。沒有TURN的自架頁面在家測試時一切正常，換成用行動數據的朋友就會失敗。開啟的話要準備好頻寬。"
+      }
+    }
+  },
+  "choose": {
+    "title": "什麼情境用哪個替代方案",
+    "body": "看對方是誰，以及對方能不能和你同時在線。",
+    "items": {
+      "0": {
+        "h": "同一個Wi-Fi下你自己的兩台裝置",
+        "b": "什麼都不想裝就用PairDrop；檔案大或手機老是暫停分頁，就用BIShare或LocalSend。"
+      },
+      "1": {
+        "h": "正在通話的朋友",
+        "b": "PairDrop公開房間、BIShare房間或FilePizza連結，三者都能用口頭快速說明。"
+      },
+      "2": {
+        "h": "稍後才開啟的客戶或同事",
+        "b": "不需要你開著分頁、能等24小時的BIShare連結；檔案需要保留更久，就用付費儲存服務。"
+      },
+      "3": {
+        "h": "課堂或會議",
+        "b": "用短代碼加入的BIShare房間，大家在同一個Wi-Fi就用本地模式，有人遠端加入就用雲端模式。"
+      },
+      "4": {
+        "h": "你自己管理的一批機器",
+        "b": "已經在用Tailscale就選Taildrop，想要自己掌控的頁面就自行架設有TURN的PairDrop。"
+      }
+    }
+  },
+  "security": {
+    "title": "隱私：傳檔網頁能看到什麼、看不到什麼",
+    "body": "點對點不等於隱形。了解每個服務能看到路徑的哪一段會更安心。",
+    "items": {
+      "0": {
+        "h": "WebRTC在傳輸中加密檔案",
+        "b": "ShareDrop、PairDrop、FilePizza和ToffeeShare都透過WebRTC傳資料，在兩個瀏覽器之間用DTLS加密。咖啡廳Wi-Fi裡的人讀不到檔案，TURN中繼轉送的也是它打不開的加密封包。"
+      },
+      "1": {
+        "h": "信令伺服器仍看得到中繼資料",
+        "b": "為了讓兩個瀏覽器接上線，伺服器會知道它們的IP位址和連線時間，而在ShareDrop上，你的公用位址決定你進哪個房間。PairDrop的FAQ也說明，你仍需信任它的伺服器，信令加密還在規劃中。自行架設就是把這份信任轉到自己身上。"
+      },
+      "2": {
+        "h": "上傳按鈕是另一種模式",
+        "b": "sharedrop.io的Upload Files區域把檔案存到LimeWire，BIShare連結則保存一份加密副本24小時。保存的連結很方便，但要看清每個服務保留什麼、保留多久，並優先選擇上傳前就在你裝置上加密的服務。"
+      }
     }
   },
   "faq": {
-    "title": "ShareDrop 替代方案：常見問題",
+    "title": "ShareDrop替代方案：常見問題",
     "items": {
       "0": {
-        "q": "最好的 ShareDrop 替代方案是什麼？",
-        "a": "BIShare。它保留了 ShareDrop 最棒的點子——在裝置之間直接用瀏覽器傳檔——並補上原本沒有的：每個平台的原生應用程式、不在同一網路時的遠端連結傳輸，以及端對端加密。全部免費，免帳號。"
+        "q": "ShareDrop還能用嗎？",
+        "a": "能。sharedrop.io仍在運作，把檔案拖到另一台裝置的頭像上依然是點對點傳送。自2025年被LimeWire收購後，頁面還會載入廣告版位和把檔案存到LimeWire的Upload Files區域。"
       },
       "1": {
-        "q": "為什麼 sharedrop.io 打不開，ShareDrop 還能用嗎？",
-        "a": "ShareDrop 是開源的，所以它的公用執行個體時有時無，也可能停擺一陣子。BIShare 不依賴某個共享頁面持續在線：附近共享走你自己的網路，遠端連結共享跑在有人維護的服務上，需要時它就在。"
+        "q": "ShareDrop現在歸誰？",
+        "a": "歸LimeWire。專案README宣布了收購，相關的Hacker News貼文發布於2025年2月22日。Szymon Nowak的原始程式碼仍以MIT授權公開在GitHub上。"
       },
       "2": {
-        "q": "對方裝置不在同一網路時，我還能傳檔嗎？",
-        "a": "這正是 ShareDrop 的一大短處——它要求兩台裝置處於同一網路並同時停留在頁面上。BIShare 的遠端連結透過網際網路運作：把連結或 6 位字元代碼傳過去，對方稍後即可打開並下載，有效期長達 24 小時。"
+        "q": "ShareDrop最好的替代方案是什麼？",
+        "a": "瀏覽器裡最接近的是PairDrop。需要在你離線後仍能用的連結就選BIShare，想要快速的即時連結選FilePizza，在自己裝置之間用應用程式傳檔案選LocalSend。"
       },
       "3": {
-        "q": "接收方需要像用 ShareDrop 那樣安裝應用程式嗎？",
-        "a": "不需要。和 ShareDrop 一樣，對方在任何瀏覽器裡打開連結就能下載——他那一端免應用程式、免帳號。安裝 BIShare 應用程式是選用的；它能讓附近傳輸更快並解鎖全部功能，但接收從來不是必需。"
+        "q": "為什麼ShareDrop看不到我的另一台裝置？",
+        "a": "ShareDrop依公用IP位址而不是Wi-Fi為裝置分組。VPN、行動數據或不同的閘道會讓裝置拿到另一個位址，於是進了另一個房間。關掉VPN，或用+按鈕建立房間。"
       },
       "4": {
-        "q": "BIShare 像 ShareDrop 一樣免費嗎？",
-        "a": "是的——免費，免帳號。透過你自己網路的附近傳輸沒有大小限制，遠端連結共享則在任何平台上免費處理最大 100GB 的大檔案。"
+        "q": "為什麼ShareDrop上會出現陌生人？",
+        "a": "辦公室、校園、飯店和電信業者經常讓很多人共用一個公用IP，ShareDrop會把這個位址背後的所有人放進同一個房間。不經你同意，誰也傳不了檔案給你。"
+      },
+      "5": {
+        "q": "ShareDrop安全嗎？",
+        "a": "直接傳輸使用加密的WebRTC連線。但現在網站的程式碼已不公開，而且載入了LimeWire的腳本；如果你在意這一點，就用開源替代方案，或自行架設ShareDrop Classic。"
+      },
+      "6": {
+        "q": "ShareDrop和Snapdrop是同一回事嗎？",
+        "a": "不是。它們是思路相同的兩個獨立開源專案，LimeWire把兩個都收購了。ShareDrop於2014年起步，使用Firebase信令；PairDrop是Snapdrop的分支。"
+      },
+      "7": {
+        "q": "能用ShareDrop傳給不在線的人嗎？",
+        "a": "不能。兩個瀏覽器必須同時開著。別人稍後才取的檔案，用BIShare這類保存一天的連結。"
+      },
+      "8": {
+        "q": "我能自行架設ShareDrop嗎？",
+        "a": "能。經典程式碼以MIT授權放在GitHub上，README說明了用Firebase資料庫、Ember CLI和Heroku架設的方法。PairDrop架設起來更簡單，一條Docker指令就行。"
+      },
+      "9": {
+        "q": "BIShare免費嗎？",
+        "a": "免費。BIShare不收任何費用，程式碼以MIT授權公開，傳送方和接收方都不用註冊，每個連結最多可存100 GB、保留一天。"
       }
     }
   },
   "cta": {
-    "title": "ShareDrop 裡你喜歡的一切——還有更多",
-    "body": "免費，免帳號。像往常一樣在瀏覽器裡共享，或安裝應用程式，享受更快的附近傳輸和可傳往任何地方的連結。",
-    "download": "下載 BIShare"
+    "title": "保留隨手一傳，省掉等待",
+    "body": "免費開源。在瀏覽器裡用關掉分頁也還在的連結分享，或安裝應用程式，在自己的裝置之間直接傳檔案。",
+    "download": "下載BIShare"
   },
   "a11y": {
     "yes": "是",
     "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "兩個瀏覽器視窗直接互傳檔案，旁邊是一個被劃掉的廣告版位，標題為最好的ShareDrop替代方案，LimeWire收購後的7個選擇。",
+      "title": "最好的ShareDrop替代方案",
+      "sub": "LimeWire收購後的7個選擇",
+      "left": "你的瀏覽器",
+      "right": "對方的瀏覽器",
+      "ad": "廣告"
+    },
+    "grouping": {
+      "alt": "ShareDrop如何為裝置分組：同一公用IP背後的所有人共用一個房間，所以校園或電信網路裡的陌生人可能出現，而開著VPN的筆電或用行動數據的手機即使在同一張桌上也會進另一個房間。",
+      "title": "ShareDrop比對的是公用IP，不是Wi-Fi",
+      "sub": "一個公用位址就是一個自動房間",
+      "ipA": "公用IP A",
+      "ipB": "公用IP B",
+      "roomA": "房間A",
+      "roomB": "房間B",
+      "you": "你的手機",
+      "stranger1": "校園裡的陌生人",
+      "stranger2": "校園裡的陌生人",
+      "laptop": "開著VPN的筆電",
+      "note": "同一張桌，不同房間"
+    },
+    "online": {
+      "alt": "誰必須保持在線：即時房間（ShareDrop、PairDrop、BIShare本地房間）雙方必須同時在線；即時連結（FilePizza、ToffeeShare）只有傳送方要開著分頁；BIShare保存的連結在24小時內誰都不用在線。",
+      "title": "誰必須保持在線？",
+      "sub": "到達另一個網路的三種方式",
+      "colSender": "傳送方在線",
+      "colRecipient": "接收方同時在線",
+      "m0": "即時房間",
+      "e0": "ShareDrop · PairDrop · BIShare本地房間",
+      "m1": "即時連結",
+      "e1": "FilePizza · ToffeeShare",
+      "m2": "保存的連結，24小時",
+      "e2": "BIShare連結",
+      "yes": "必須",
+      "no": "不需要"
+    },
+    "hosting": {
+      "alt": "自行架設需要什麼：ShareDrop Classic需要Node、Ember CLI和Firebase Realtime Database；PairDrop需要一個Docker容器，跨網路還需TURN伺服器；FilePizza需要Docker，Redis和TURN可選。",
+      "title": "自行架設傳檔頁面需要什麼",
+      "sub": "依據各專案自己的安裝指南",
+      "c0": "ShareDrop Classic",
+      "c1": "PairDrop",
+      "c2": "FilePizza",
+      "k0": "執行環境",
+      "k1": "信令",
+      "k2": "其他網路",
+      "v00": "Node、Yarn、Ember CLI",
+      "v01": "Firebase資料庫",
+      "v02": "透過Firebase建房間",
+      "v10": "一個Docker容器",
+      "v11": "內建伺服器",
+      "v12": "自建TURN",
+      "v20": "Docker、Next.js",
+      "v21": "PeerJS伺服器",
+      "v22": "可選coturn"
+    }
   }
 }

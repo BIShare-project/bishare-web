@@ -1,83 +1,378 @@
 {
   "meta": {
-    "title": "Alternativa ao ShareDrop: compartilhar no navegador, até de longe",
-    "description": "O ShareDrop agora é da LimeWire. O BIShare mantém o envio pelo navegador e acrescenta apps nativos, criptografia de ponta a ponta e links para outras redes. Grátis."
+    "title": "Alternativas ao ShareDrop em 2026: 7 opções após a LimeWire",
+    "description": "O ShareDrop agora é da LimeWire e a página carrega espaços de anúncio e um botão de upload. Como funcionava, onde deixa a desejar e sete alternativas."
   },
   "hero": {
     "eyebrow": "Alternativa ao ShareDrop",
-    "title": "Uma alternativa ao ShareDrop",
-    "body": "O ShareDrop tornou o compartilhamento de navegador para navegador lindamente simples — até o site cair ou a outra pessoa não estar na mesma página ao mesmo tempo. O <strong>BIShare</strong> mantém a parte fácil: abra um link em qualquer navegador e envie, sem conta. E acrescenta o que o ShareDrop não faz — <strong>apps nativos, links remotos e criptografia de ponta a ponta</strong>. <highlight>A mesma simplicidade, sem os limites.</highlight>",
+    "title": "As melhores alternativas ao ShareDrop",
+    "body": "O ShareDrop foi uma das primeiras páginas a copiar o AirDrop no navegador: você abre sharedrop.io em dois aparelhos, vê o avatar do outro, solta um arquivo e ele vai direto por WebRTC. Em 2026 a página continua no ar, mas não pertence mais ao criador. A LimeWire comprou o site no início de 2025, e hoje a página carrega scripts da LimeWire para cinco espaços de anúncio e um botão Upload Files que manda os arquivos para os servidores da LimeWire em vez do aparelho ao seu lado. Muita gente quer agora o comportamento antigo sem o novo dono, e alguns sempre quiseram mais do que uma única aba consegue fazer. Este guia explica o que mudou, como o ShareDrop decidia de fato quais aparelhos você via, onde ele deixa a desejar, classifica sete alternativas, incluindo o ShareDrop Classic auto-hospedado, e mostra como enviar para alguém em outra rede. O nosso <strong>BIShare</strong> está na lista: <strong>gratuito e com licença MIT, funciona no navegador em bishare.app e como app para Android, iPhone, Windows, macOS e Linux</strong>. <highlight>Sem conta em nenhum dos lados.</highlight>",
     "ctaPrimary": "Baixe o BIShare grátis",
     "ctaSecondary": "Como funciona"
   },
-  "why": {
-    "title": "Onde o ShareDrop esbarra",
-    "body": "O ShareDrop é um truque open-source charmoso: dois navegadores na mesma rede se encontram via WebRTC e trocam arquivos. Mas os dois aparelhos precisam estar na página no mesmo instante, <strong>não há apps nativos</strong> e, quando uma instância pública sai do ar, você fica na mão. O BIShare faz esse mesmo envio local pelo navegador — e vai além, com <strong>links remotos, apps de verdade e criptografia de ponta a ponta real</strong>."
+  "updated": "Atualizado em setembro de 2026 · Código e scripts do sharedrop.io inspecionados em 14 de setembro de 2026, dados dos projetos nos repositórios do GitHub do ShareDrop, PairDrop e FilePizza",
+  "disclosure": "Nós fazemos o BIShare, então leve isso em conta ao ler a classificação. Quando uma ferramenta só de navegador como o PairDrop se encaixa melhor, esta página diz.",
+  "quick": {
+    "title": "Resposta rápida",
+    "items": [
+      "<strong>O mais parecido com o ShareDrop clássico:</strong> PairDrop. Mesma ideia, código aberto, aparelhos na mesma rede se encontram e o pareamento cobre outras redes.",
+      "<strong>Você quer que o remetente fique offline depois de enviar:</strong> um link do BIShare guarda até 100 GB criptografados por um dia e abre em qualquer navegador, sem aba aberta.",
+      "<strong>Um arquivo, um destinatário, nada guardado em lugar nenhum:</strong> FilePizza ou ToffeeShare, desde que sua aba fique aberta até o download terminar.",
+      "<strong>Pastas grandes entre seus próprios computadores e celulares:</strong> um app ganha de uma aba. BIShare ou LocalSend no mesmo roteador, ou Taildrop se você já usa Tailscale.",
+      "<strong>Você gostava do ShareDrop exatamente como era:</strong> o código original com licença MIT continua intacto no GitHub, pronto para hospedar, mas precisa de um banco de dados Firebase.",
+      "<strong>Se for usar o sharedrop.io mesmo assim:</strong> solte os arquivos no avatar da pessoa para uma transferência direta. A área Upload Files manda tudo para a LimeWire."
+    ]
   },
-  "how": {
-    "title": "Como o BIShare compartilha — perto ou longe",
+  "what": {
+    "title": "O que aconteceu com o ShareDrop",
+    "body": "O ShareDrop nunca saiu do ar, e por isso tantos guias ainda o recomendam como se nada tivesse mudado. A página tem a mesma cara; quem cuida dela e o que mais ela carrega, não.",
     "items": {
       "0": {
-        "h": "Na mesma Wi-Fi",
-        "b": "Escolha um aparelho por perto e os arquivos vão direto, de um dispositivo a outro e com criptografia de ponta a ponta — nunca ficam num servidor. Funciona em qualquer rede compartilhada, até num roteador do celular sem internet nenhuma."
+        "h": "2014: um clone do AirDrop no navegador",
+        "b": "O desenvolvedor polonês Szymon Nowak criou o repositório do ShareDrop em março de 2014 e o publicou com licença MIT. O README o descrevia como um aplicativo web inspirado no AirDrop da Apple que move arquivos direto entre aparelhos por WebRTC, com o Firebase cuidando de presença e sinalização. Ele é mais antigo que o Snapdrop e que a maioria das páginas do tipo conhecidas hoje."
       },
       "1": {
-        "h": "Quando vocês estão longe",
-        "b": "Sem rede em comum? Você recebe um link, um QR code e um código de 6 caracteres. A outra pessoa abre em qualquer navegador e baixa — sem app, sem cadastro — e o link expira sozinho depois de 24 horas."
+        "h": "Fevereiro de 2025: a LimeWire assume",
+        "b": "O README agora abre com \"ShareDrop is now LimeWire\" e um recado à comunidade sobre a aquisição. Ele promete compartilhamento na mesma rede, uploads e downloads anônimos, criptografia de ponta a ponta e até 40 GB de armazenamento para usuários gratuitos. Um post no Hacker News apontando a mudança apareceu em 22 de fevereiro de 2025, e o repositório foi para uma organização chamada ShareDropio."
       },
       "2": {
-        "h": "Cada plataforma, de forma nativa",
-        "b": "iPhone, Android, Windows, Mac e Linux têm cada um um app de verdade — não só uma aba de navegador que pode sumir. Envie em qualquer direção, e qualquer pessoa ainda pode receber só com um navegador."
+        "h": "O código clássico congelou",
+        "b": "O README diz que o repositório vai ficar como está e que a versão clássica ainda pode rodar na sua própria infraestrutura. A última mudança além de documentação é uma pequena correção de link de janeiro de 2024. O que roda hoje no sharedrop.io não é o código desse repositório, então ninguém de fora da LimeWire consegue auditá-lo."
+      },
+      "3": {
+        "h": "Setembro de 2026: anúncios e upload para a LimeWire",
+        "b": "Ao carregar o sharedrop.io em 14 de setembro de 2026, vieram dois scripts chamados lw_ads.js e lw_upload.js. O primeiro busca anúncios patrocinados em api.limewire.com para cinco espaços (esquerda, direita, topo, rodapé e um banner no celular). O segundo controla uma área Upload Files e Upload Folder que entrega os arquivos ao serviço de upload da própria LimeWire, com página de login em limewire.com."
+      },
+      "4": {
+        "h": "A parte ponto a ponto continua lá",
+        "b": "Os avatares, o botão + para salas e o texto explicando que os arquivos vão direto do remetente ao destinatário continuam na página. Ou seja, o ShareDrop ainda funciona como página de envio, desde que você use o avatar e não a caixa de upload. O motivo para mudar é confiança e clareza, não um site morto."
       }
     }
   },
-  "comparison": {
-    "title": "ShareDrop vs AirDrop vs BIShare",
+  "how": {
+    "title": "Como o ShareDrop decidia quais aparelhos você via",
+    "body": "Quase todo mundo acha que o ShareDrop varria o Wi-Fi local como o AirDrop. Ele nunca fez isso, e esse detalhe explica tanto a mágica quanto as falhas estranhas.",
+    "items": {
+      "0": {
+        "h": "Mesmo IP público, mesma sala",
+        "b": "O README do ShareDrop define aparelhos \"na mesma rede local\" como aparelhos com o mesmo endereço IP público. Todo navegador que chega ao servidor a partir de um mesmo endereço de internet cai numa sala automática e vê os avatares dos outros. O Wi-Fi em si não participa da descoberta; quem faz a combinação é o servidor."
+      },
+      "1": {
+        "h": "Por que às vezes apareciam desconhecidos",
+        "b": "Redes grandes costumam colocar centenas de pessoas atrás de um único endereço público: uma universidade, um escritório, um hotel ou uma operadora com CGNAT. Nelas, o ShareDrop podia mostrar avatares de gente que você nunca viu, e essas pessoas viam o seu. O destinatário ainda precisa aceitar, mas não é o círculo privado que muitos imaginavam."
+      },
+      "2": {
+        "h": "Por que seu próprio notebook às vezes sumia",
+        "b": "O contrário também acontece. Um notebook na VPN, um celular no 4G ou um PC cujo tráfego sai por outro gateway tem outro endereço público e cai em outra sala, mesmo em cima da mesma mesa. A página agora avisa que o ShareDrop não funciona com VPN."
+      },
+      "3": {
+        "h": "Salas para todo o resto",
+        "b": "Para aparelhos em redes diferentes, o botão + cria uma sala com URL própria. Quem abre essa URL entra na sala e vê os outros, e a transferência corre ponto a ponto por WebRTC. Descoberta e sinalização sempre exigiram internet, mesmo com os dois aparelhos no mesmo roteador."
+      }
+    }
+  },
+  "limits": {
+    "title": "Onde o ShareDrop deixa a desejar",
+    "body": "Mesmo antes da venda, uma página de envio no navegador tinha arestas duras. Estas são as que levam as pessoas a procurar outra coisa.",
+    "items": {
+      "0": {
+        "h": "As duas abas precisam ficar abertas",
+        "b": "Uma transferência WebRTC vive dentro de duas abas. Se o remetente fecha a página, um celular bloqueia a tela e suspende a aba ou um notebook entra em repouso, a transferência para e tem de recomeçar do zero."
+      },
+      "1": {
+        "h": "Nada para buscar depois",
+        "b": "O ShareDrop só move um arquivo enquanto as duas pessoas estão online no mesmo instante. Não existe link que espere um colega em outro fuso nem jeito de enviar agora para a pessoa baixar amanhã."
+      },
+      "2": {
+        "h": "A descoberta depende de um servidor e da internet",
+        "b": "Dois notebooks num roteador sem internet não se encontram, porque a combinação acontece no servidor do ShareDrop. Um portal cativo, uma VPN ou uma rede que bloqueia WebRTC também quebram tudo."
+      },
+      "3": {
+        "h": "Navegadores de celular enviam mal",
+        "b": "Celulares desaceleram abas em segundo plano para poupar bateria. Mandar um vídeo longo pelo navegador do celular funciona com a tela ligada e a página na frente, e falha sem aviso assim que você troca de app."
+      },
+      "4": {
+        "h": "Dois botões que fazem coisas bem diferentes",
+        "b": "Na página de hoje, soltar um arquivo num avatar é ponto a ponto, enquanto a área Upload Files guarda o arquivo na LimeWire. Os dois ficam na mesma tela, e quem está com pressa pode escolher o errado sem perceber."
+      }
+    }
+  },
+  "methods": {
+    "title": "Sete alternativas ao ShareDrop, classificadas",
+    "body": "Classificadas para quem gostava do ShareDrop por não pedir conta nem instalação. Cada item diz o que precisa de cada lado e onde deixa a desejar.",
+    "consLabel": "Deixa a desejar:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Melhor quando o destinatário não precisa estar online ao mesmo tempo",
+        "facts": "bishare.app em qualquer navegador, mais apps para Android, iPhone, Windows, macOS e Linux · MIT · links de até 100 GB, criptografados, expiram em 24 horas · salas com modo nuvem ou ponto a ponto local · sem conta",
+        "body": "O BIShare cobre as duas metades do que o ShareDrop fazia e a parte que ele nunca conseguiu. No navegador, você faz o upload, recebe um link e um código de seis caracteres, fecha o notebook, e o destinatário baixa depois em qualquer navegador. Para um grupo, uma sala com código curto pode rodar no modo local, em que os arquivos vão direto entre navegadores no mesmo Wi-Fi, ou no modo nuvem para pessoas em lugares diferentes. Instale o app nos seus aparelhos e eles se descobrem pelo Wi-Fi compartilhado ou pelo roteador de um celular, sem limite de tamanho.",
+        "cons": "Links pelo navegador recusam tipos executáveis como .exe, .msi e .sh, e as transferências diretas mais rápidas precisam do app nos dois aparelhos."
+      },
+      "1": {
+        "name": "PairDrop",
+        "tag": "Melhor substituto equivalente no navegador",
+        "facts": "Qualquer navegador moderno, instalável como PWA · GPL-3.0 · descoberta na mesma rede · pareamento permanente com código de 6 dígitos ou QR · salas públicas temporárias · relay TURN atrás de NAT · imagens Docker para auto-hospedar",
+        "body": "O PairDrop nasceu do Snapdrop e se comporta como as pessoas lembram do ShareDrop, com extras. Aparelhos na mesma rede aparecem sozinhos; aparelhos pareados se acham onde estiverem; e uma sala pública temporária faz o papel do botão + do ShareDrop. O FAQ é claro sobre o roteamento: na mesma rede os arquivos nunca chegam a um servidor, e aparelhos pareados atrás de NAT recorrem ao servidor TURN do PairDrop.",
+        "cons": "Como no ShareDrop, os dois aparelhos precisam estar online juntos com a aba aberta, e uma transferência via TURN é mais lenta que uma direta."
+      },
+      "2": {
+        "name": "FilePizza",
+        "tag": "Melhor para entregar um arquivo a uma pessoa por link",
+        "facts": "Qualquer navegador moderno, inclusive Safari no celular · BSD-3-Clause · por link, ponto a ponto · proteção por senha · vários arquivos chegam num zip · Docker, Redis e TURN opcionais",
+        "body": "O FilePizza pula a descoberta. Escolha os arquivos, pegue um link, mande por qualquer chat, e o navegador do destinatário puxa os dados direto do seu. A versão 2 trouxe proteção por senha, progresso que o remetente acompanha e pode interromper, vários arquivos entregues em zip e downloads em streaming para que arquivos grandes não fiquem na memória.",
+        "cons": "Sua aba é o servidor: fechou, o link morre. Serve para uma entrega ao vivo, não para um arquivo que alguém vai abrir amanhã."
+      },
+      "3": {
+        "name": "ToffeeShare",
+        "tag": "Melhor link ponto a ponto sem enfeites, da Holanda",
+        "facts": "Navegador · gratuito · WebRTC com DTLS 1.3 · sem limite de tamanho segundo o site · nada guardado online",
+        "body": "O ToffeeShare se apresenta como um serviço ponto a ponto independente da Holanda. Solte um arquivo, compartilhe o link, e os dados passam por uma conexão WebRTC criptografada; como nada fica guardado do lado dele, o site não anuncia limite de tamanho. Fechar a aba encerra o compartilhamento, o que alguns veem como recurso de privacidade.",
+        "cons": "Não é código aberto e, como o FilePizza, depende da aba do remetente aberta durante todo o download."
+      },
+      "4": {
+        "name": "LocalSend",
+        "tag": "Melhor opção com app numa mesma rede",
+        "facts": "Apache 2.0 · apps para Android, iOS, computador e Fire OS · uma rede local, internet opcional · HTTPS entre aparelhos · Winget, Homebrew, Flathub, F-Droid",
+        "body": "Se o ShareDrop servia principalmente para passar arquivos entre seu celular e seu computador, um app acaba de vez com os problemas da aba. Aparelhos com LocalSend no mesmo roteador se listam sem nenhum servidor, então ele continua funcionando num roteador sem internet. Em setembro de 2026 ele liderava as opções de código aberto na página do ShareDrop no AlternativeTo.",
+        "cons": "Todo aparelho precisa do app, e ele não alcança ninguém fora da sua rede local."
+      },
+      "5": {
+        "name": "Taildrop",
+        "tag": "Melhor para seus próprios aparelhos se você já usa Tailscale",
+        "facts": "Parte do Tailscale no macOS, iOS, Windows, Android e Linux · alfa público · só seus próprios aparelhos · conexões ponto a ponto criptografadas · disponível em todos os planos do Tailscale",
+        "body": "O Taildrop envia arquivos entre aparelhos conectados à sua rede Tailscale, estejam onde estiverem, pelas mesmas conexões criptografadas que o Tailscale usa para todo o resto. Um celular no café joga um arquivo no computador de casa sem URL de sala nem aba aberta. No Mac e no Windows, o que chega vai para Downloads.",
+        "cons": "A documentação do Tailscale limita o recurso aos seus aparelhos pessoais, então não dá para enviar a um amigo, e ele ainda é alfa e precisa ser ativado pelo administrador."
+      },
+      "6": {
+        "name": "ShareDrop Classic auto-hospedado",
+        "tag": "Melhor se você quer o original sem o novo dono",
+        "facts": "Licença MIT · app Ember · precisa de Firebase Realtime Database para presença e sinalização · README com passos para Heroku · Chrome, Edge, Firefox, Opera, Safari 13+",
+        "body": "O README ainda documenta como rodar a versão clássica: criar um banco Firebase, carregar as regras de segurança fornecidas, instalar o Ember CLI e as dependências, definir um segredo e fazer o deploy. No seu próprio domínio, ele se comporta como o ShareDrop de que você lembra, sem scripts de anúncio e sem caixa de upload.",
+        "cons": "As instruções são antigas (apontam para firebase.com e Heroku), o código não muda desde 2024, e a segurança do Firebase e do servidor fica por sua conta."
+      }
+    }
+  },
+  "table": {
+    "title": "Resumo",
     "cols": {
-      "airdrop": "ShareDrop",
-      "quick": "AirDrop",
-      "bishare": "BIShare"
+      "feature": "Recurso",
+      "bishare": "BIShare",
+      "pairdrop": "PairDrop",
+      "filepizza": "FilePizza",
+      "toffeeshare": "ToffeeShare",
+      "localsend": "LocalSend",
+      "taildrop": "Taildrop"
     },
     "rows": {
-      "r0": "Funciona à distância (link remoto)",
-      "r1": "Apps nativos para cada plataforma",
-      "r2": "Criptografia de ponta a ponta",
-      "r3": "Roda em qualquer navegador, sem instalar",
-      "r4": "Grátis, sem conta"
+      "r0": "Funciona no navegador dos dois lados",
+      "r1": "Encontra aparelhos próximos sozinho",
+      "r2": "Chega a outra rede",
+      "r3": "Dá para baixar depois que o remetente sai",
+      "r4": "Envia para outras pessoas",
+      "r5": "Sem conta"
+    },
+    "note": "Em setembro de 2026. O BIShare funciona no navegador por links e salas, e encontra aparelhos próximos nos apps. O PairDrop chega a outras redes por pareamento ou salas públicas, com relay TURN atrás de NAT. FilePizza e ToffeeShare precisam da aba do remetente aberta até o fim do download. O LocalSend precisa do app em cada aparelho e de uma rede em comum. O Taildrop exige login no Tailscale e só envia entre seus próprios aparelhos."
+  },
+  "rooms": {
+    "title": "Enviar para alguém em outra rede",
+    "body": "O botão + era a parte menos entendida do ShareDrop. As alternativas seguem três modelos, e o certo depende de quem consegue ficar online.",
+    "items": {
+      "0": {
+        "h": "Salas ao vivo: todos online juntos",
+        "b": "Salas do ShareDrop, salas públicas do PairDrop e salas locais do BIShare esperam que todos entrem ao mesmo tempo. Ótimas numa chamada ou numa aula, onde dá para dizer \"abre agora\", e inúteis para quem só vai ver a mensagem mais tarde."
+      },
+      "1": {
+        "h": "Links ao vivo: só o remetente espera",
+        "b": "FilePizza e ToffeeShare transformam a sala num único link. O destinatário abre quando quiser, mas só enquanto sua aba estiver aberta. Notebook na tomada com a página visível funciona; fechou a tampa, o link some."
+      },
+      "2": {
+        "h": "Links guardados: ninguém precisa esperar",
+        "b": "Um link do BIShare criptografa o arquivo no seu navegador, faz o upload e o mantém por 24 horas. Você pode sair na hora, e o destinatário baixa de qualquer navegador. É o modelo que combina com fusos diferentes e agendas cheias, ao custo de uma cópia criptografada passar um dia num servidor."
+      },
+      "3": {
+        "h": "Aparelhos pareados: seus equipamentos em qualquer rede",
+        "b": "O pareamento do PairDrop e o Taildrop lembram os aparelhos, então seu celular e seu notebook se acham em qualquer rede sem criar sala toda vez. Pareamento serve para dois aparelhos do dia a dia; Taildrop, para uma frota inteira que já está no Tailscale."
+      }
+    }
+  },
+  "selfhost": {
+    "title": "Hospedar você mesmo o ShareDrop Classic ou um substituto",
+    "body": "Auto-hospedar era a promessa silenciosa do ShareDrop, e é o jeito de ter uma página de envio que ninguém pode vender. O esforço varia mais do que parece.",
+    "items": {
+      "0": {
+        "h": "ShareDrop Classic",
+        "b": "Você precisa de uma Firebase Realtime Database com as regras do repositório, Node com Yarn e Ember CLI, um SECRET para cookies e nomes de sala, e um lugar para rodar; o README explica o Heroku. O Firebase é um serviço do Google, então um ShareDrop auto-hospedado continua dependendo de terceiros para a sinalização."
+      },
+      "1": {
+        "h": "PairDrop",
+        "b": "O PairDrop é o mais leve: um comando Docker com a imagem da LinuxServer.io ou do GitHub Container Registry, ou Node direto. O guia de hospedagem avisa que transferências entre redes diferentes precisam do seu próprio servidor TURN e traz um arquivo Docker Compose que sobe o coturn junto com o PairDrop."
+      },
+      "2": {
+        "h": "FilePizza",
+        "b": "O FilePizza v2 é um app Next.js com scripts Docker. O Redis é opcional para o estado dos canais, um servidor TURN coturn pode ser ligado para pares atrás de NAT, e o host de sinalização PeerJS pode apontar para o seu servidor em vez do público."
+      },
+      "3": {
+        "h": "O que ninguém conta: TURN",
+        "b": "Toda página WebRTC funciona numa mesma rede sem ajuda, mas uma transferência entre duas redes domésticas ou móveis muitas vezes precisa de relay. Uma página auto-hospedada sem TURN vai parecer ótima no teste em casa e depois falhar para o amigo no 4G. Reserve banda se ativar."
+      }
+    }
+  },
+  "choose": {
+    "title": "Qual alternativa para cada momento",
+    "body": "Escolha pelo que está do outro lado e se a pessoa pode ficar online ao mesmo tempo que você.",
+    "items": {
+      "0": {
+        "h": "Dois aparelhos seus no mesmo Wi-Fi",
+        "b": "PairDrop se você não quer instalar nada, BIShare ou LocalSend se os arquivos são grandes ou o celular vive suspendendo a aba."
+      },
+      "1": {
+        "h": "Um amigo na chamada agora",
+        "b": "Uma sala pública do PairDrop, uma sala do BIShare ou um link do FilePizza. Os três se explicam rápido em voz alta."
+      },
+      "2": {
+        "h": "Um cliente ou colega que vai abrir depois",
+        "b": "Um link do BIShare, que espera 24 horas sem sua aba, ou um serviço de armazenamento pago se o arquivo precisa ficar mais tempo no ar."
+      },
+      "3": {
+        "h": "Uma aula ou reunião",
+        "b": "Uma sala do BIShare com código curto, no modo local quando todos estão no mesmo Wi-Fi e no modo nuvem quando alguns entram de longe."
+      },
+      "4": {
+        "h": "Sua própria frota de máquinas",
+        "b": "Taildrop se você já roda Tailscale, ou um PairDrop auto-hospedado com TURN se quer uma página sob seu controle."
+      }
+    }
+  },
+  "security": {
+    "title": "Privacidade: o que uma página de envio vê e o que não vê",
+    "body": "Ponto a ponto não quer dizer invisível. Vale saber qual trecho do caminho cada serviço consegue observar.",
+    "items": {
+      "0": {
+        "h": "O WebRTC criptografa o arquivo no trajeto",
+        "b": "ShareDrop, PairDrop, FilePizza e ToffeeShare mandam os dados por WebRTC, que os criptografa com DTLS entre os dois navegadores. Alguém no Wi-Fi do café não consegue ler o arquivo, e um relay TURN repassa pacotes criptografados que não consegue abrir."
+      },
+      "1": {
+        "h": "O servidor de sinalização ainda vê metadados",
+        "b": "Para apresentar dois navegadores, um servidor descobre os endereços IP e o horário da conexão, e no ShareDrop seu endereço público define sua sala. O FAQ do PairDrop acrescenta que você ainda precisa confiar no servidor dele e que a sinalização criptografada está nos planos. Auto-hospedar passa essa confiança para você."
+      },
+      "2": {
+        "h": "Botões de upload são outro modelo",
+        "b": "A área Upload Files do sharedrop.io guarda os arquivos na LimeWire, e um link do BIShare guarda uma cópia criptografada por 24 horas. Links guardados são práticos, mas veja o que cada serviço mantém e por quanto tempo, e prefira um que criptografe no seu aparelho antes do upload."
+      }
     }
   },
   "faq": {
     "title": "Alternativas ao ShareDrop: perguntas frequentes",
     "items": {
       "0": {
-        "q": "Qual é a melhor alternativa ao ShareDrop?",
-        "a": "O BIShare. Ele mantém a melhor ideia do ShareDrop — enviar arquivos direto no navegador entre aparelhos — e acrescenta o que faltava: apps nativos para cada plataforma, transferência por link remoto quando vocês não estão na mesma rede, e criptografia de ponta a ponta. Tudo grátis, sem conta."
+        "q": "O ShareDrop ainda funciona?",
+        "a": "Sim. O sharedrop.io está no ar e soltar um arquivo no avatar de outro aparelho ainda envia ponto a ponto. Desde que a LimeWire comprou o site em 2025, a página também carrega espaços de anúncio e uma área Upload Files que guarda arquivos na LimeWire."
       },
       "1": {
-        "q": "Por que o sharedrop.io não carrega, e o ShareDrop ainda funciona?",
-        "a": "O ShareDrop é open-source, então suas instâncias públicas vão e voltam e podem ficar fora do ar por um tempo. O BIShare não depende de uma única página compartilhada continuar no ar: o envio por perto usa a sua própria rede, e o envio por link remoto roda num serviço mantido, então ele está lá quando você precisa."
+        "q": "De quem é o ShareDrop agora?",
+        "a": "Da LimeWire. O README do projeto anuncia a aquisição, e um post sobre isso no Hacker News apareceu em 22 de fevereiro de 2025. O código original de Szymon Nowak continua publicado no GitHub com licença MIT."
       },
       "2": {
-        "q": "Consigo enviar arquivos quando o outro aparelho não está na mesma rede?",
-        "a": "Essa é a grande lacuna do ShareDrop — ele precisa dos dois aparelhos na mesma rede e na página ao mesmo tempo. O link remoto do BIShare funciona pela internet: compartilhe o link ou o código de 6 caracteres, e a outra pessoa pode abrir e baixar depois, por até 24 horas."
+        "q": "Qual é a melhor alternativa ao ShareDrop?",
+        "a": "O PairDrop é o substituto mais próximo no navegador. O BIShare é melhor quando o destinatário precisa de um link que funcione depois que você sai, o FilePizza para um link rápido ao vivo e o LocalSend para passar arquivos entre seus aparelhos com um app."
       },
       "3": {
-        "q": "O destinatário precisa instalar um app, como no ShareDrop?",
-        "a": "Não. Assim como no ShareDrop, ele pode abrir um link em qualquer navegador e baixar — sem app, sem conta do lado dele. Instalar o app do BIShare é opcional; ele deixa as transferências por perto mais rápidas e libera todos os recursos, mas nunca é obrigatório para receber."
+        "q": "Por que o ShareDrop não vê meu outro aparelho?",
+        "a": "O ShareDrop agrupa por endereço IP público, não por Wi-Fi. Uma VPN, dados móveis ou outro gateway dão ao aparelho outro endereço, e ele cai em outra sala. Desligue a VPN ou crie uma sala no botão +."
       },
       "4": {
-        "q": "O BIShare é grátis como o ShareDrop?",
-        "a": "Sim — grátis e sem conta. As transferências por perto pela sua própria rede não têm limite de tamanho, e o envio por link remoto lida com arquivos grandes de até 100GB de graça, em qualquer plataforma."
+        "q": "Por que aparecem desconhecidos no ShareDrop?",
+        "a": "Escritórios, universidades, hotéis e operadoras costumam dividir um IP público entre muita gente, e o ShareDrop coloca todos atrás desse endereço na mesma sala. Ninguém consegue te mandar um arquivo sem que você aceite."
+      },
+      "5": {
+        "q": "O ShareDrop é seguro?",
+        "a": "As transferências diretas usam conexões WebRTC criptografadas. O código do site atual não é mais publicado e agora ele carrega scripts da LimeWire; se isso importa para você, use uma alternativa de código aberto ou hospede o ShareDrop Classic."
+      },
+      "6": {
+        "q": "ShareDrop é a mesma coisa que Snapdrop?",
+        "a": "Não. São projetos de código aberto diferentes com a mesma ideia, e a LimeWire comprou os dois. O ShareDrop começou em 2014 com sinalização pelo Firebase; o PairDrop é um fork do Snapdrop."
+      },
+      "7": {
+        "q": "Dá para enviar pelo ShareDrop para alguém offline?",
+        "a": "Não. Os dois navegadores precisam estar abertos ao mesmo tempo. Para um arquivo que alguém vai buscar depois, use um link guardado como o do BIShare, disponível por um dia."
+      },
+      "8": {
+        "q": "Posso hospedar o ShareDrop eu mesmo?",
+        "a": "Sim. O código clássico tem licença MIT no GitHub, e o README explica a instalação com um banco Firebase, Ember CLI e Heroku. O PairDrop é mais simples de hospedar, com um único comando Docker."
+      },
+      "9": {
+        "q": "O BIShare é gratuito?",
+        "a": "Sim. O BIShare não cobra nada, publica o código sob MIT, não pede cadastro nem ao remetente nem ao destinatário, e cada link comporta até 100 GB por um dia."
       }
     }
   },
   "cta": {
-    "title": "Tudo o que você gostava no ShareDrop — e mais",
-    "body": "Grátis, sem conta. Compartilhe no navegador como sempre, ou instale o app para transferências por perto mais rápidas e links que você pode enviar para qualquer lugar.",
-    "download": "Baixar BIShare"
+    "title": "Fique com o envio, esqueça a espera",
+    "body": "Gratuito e de código aberto. Compartilhe pelo navegador com um link que sobrevive à aba, ou instale o app e mova arquivos direto entre seus aparelhos.",
+    "download": "Baixar o BIShare"
   },
   "a11y": {
     "yes": "Sim",
     "no": "Não"
+  },
+  "art": {
+    "hero": {
+      "alt": "Duas janelas de navegador passando um arquivo direto entre si, ao lado de um espaço de anúncio riscado, com o título as melhores alternativas ao ShareDrop, sete opções após a LimeWire.",
+      "title": "As melhores alternativas ao ShareDrop",
+      "sub": "Sete opções depois da compra pela LimeWire",
+      "left": "Seu navegador",
+      "right": "Navegador do outro",
+      "ad": "ANÚNCIO"
+    },
+    "grouping": {
+      "alt": "Como o ShareDrop agrupa aparelhos: todos atrás de um mesmo IP público dividem uma sala, então desconhecidos de um campus ou de uma operadora podem aparecer, enquanto seu notebook na VPN ou seu celular no 4G cai em outra sala mesmo na mesma mesa.",
+      "title": "O ShareDrop compara IPs públicos, não o Wi-Fi",
+      "sub": "Um endereço público vira uma sala automática",
+      "ipA": "IP público A",
+      "ipB": "IP público B",
+      "roomA": "Sala A",
+      "roomB": "Sala B",
+      "you": "Seu celular",
+      "stranger1": "Desconhecido do campus",
+      "stranger2": "Desconhecida do campus",
+      "laptop": "Seu notebook na VPN",
+      "note": "Mesma mesa, salas diferentes"
+    },
+    "online": {
+      "alt": "Quem precisa ficar online: nas salas ao vivo (ShareDrop, PairDrop, salas locais do BIShare) os dois precisam estar online juntos; nos links ao vivo (FilePizza, ToffeeShare) só o remetente mantém a aba aberta; num link guardado do BIShare ninguém precisa ficar online por 24 horas.",
+      "title": "Quem precisa ficar online?",
+      "sub": "Três jeitos de chegar a outra rede",
+      "colSender": "Remetente online",
+      "colRecipient": "Destinatário online ao mesmo tempo",
+      "m0": "Sala ao vivo",
+      "e0": "ShareDrop · PairDrop · sala local do BIShare",
+      "m1": "Link ao vivo",
+      "e1": "FilePizza · ToffeeShare",
+      "m2": "Link guardado, 24 h",
+      "e2": "Link do BIShare",
+      "yes": "Obrigatório",
+      "no": "Não precisa"
+    },
+    "hosting": {
+      "alt": "O que auto-hospedar exige: o ShareDrop Classic precisa de Node, Ember CLI e Firebase Realtime Database; o PairDrop, de um contêiner Docker e um servidor TURN para outras redes; o FilePizza, de Docker com Redis e TURN opcionais.",
+      "title": "O que é preciso para hospedar sua página",
+      "sub": "Segundo os guias de instalação dos projetos",
+      "c0": "ShareDrop Classic",
+      "c1": "PairDrop",
+      "c2": "FilePizza",
+      "k0": "Ambiente",
+      "k1": "Sinalização",
+      "k2": "Outras redes",
+      "v00": "Node, Yarn, Ember CLI",
+      "v01": "Banco Firebase",
+      "v02": "Salas via Firebase",
+      "v10": "Um contêiner Docker",
+      "v11": "Servidor embutido",
+      "v12": "Seu próprio TURN",
+      "v20": "Docker, Next.js",
+      "v21": "Servidor PeerJS",
+      "v22": "coturn opcional"
+    }
   }
 }
