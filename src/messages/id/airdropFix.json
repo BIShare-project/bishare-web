@@ -1,101 +1,374 @@
 {
   "meta": {
-    "title": "AirDrop Tidak Berfungsi? 7 Solusi Sesuai Urutan",
-    "description": "AirDrop macet di Menunggu atau tidak menemukan perangkat? Tujuh solusi dalam urutan yang paling sering berhasil, plus jalur saat perangkat lain bukan Apple."
+    "title": "AirDrop Tidak Berfungsi? Solusi untuk iPhone, iPad, dan Mac 2026",
+    "description": "AirDrop macet di Menunggu, meminta kode, atau perangkat lain tidak muncul? Cocokkan gejala dengan penyebabnya, lalu perbaiki di iPhone, iPad, atau Mac, termasuk perubahan iOS 26."
   },
   "hero": {
     "eyebrow": "Pemecahan masalah",
-    "title": "AirDrop tidak berfungsi? Mulai di sini",
-    "body": "Saat AirDrop gagal, penyebabnya hampir selalu salah satu dari tujuh hal yang sama — dan mengeceknya berurutan cuma butuh dua menit. Di bawah: perbaikan yang <strong>benar-benar</strong> menyelesaikannya, sesuai urutan yang layak dicoba. Dan jika perangkat satunya <strong>ponsel Android atau PC Windows</strong>, tidak ada perbaikan apa pun memang begitu desainnya — <highlight>langsung lompat ke jembatan yang selalu jalan</highlight>.",
-    "ctaPrimary": "Lihat plan B",
+    "title": "AirDrop tidak berfungsi? Cari penyebabnya dulu",
+    "body": "AirDrop gagal dengan beberapa pola yang mudah dikenali: perangkat lain tidak pernah muncul, transfer tertahan di Menunggu, muncul kode enam digit yang tidak diduga siapa pun, atau file sampai lalu hilang di aplikasi yang tidak dicek. Tiap gejala mengarah ke penyebab berbeda, dan beberapa bahkan bukan kerusakan, melainkan perubahan yang sengaja dibuat Apple di iOS 16.2, iOS 17, dan iOS 26.2. Panduan ini dimulai dari apa yang Anda lihat, merinci apa yang sebenarnya dibutuhkan AirDrop menurut Apple, membahas perbaikan di iPhone, iPad, dan Mac, menjelaskan perubahan terbaru yang terlihat seperti bug, dan membahas kasus ketika perangkat lain adalah HP Android atau PC Windows. <strong>BIShare</strong> adalah cadangan yang kami buat untuk saat AirDrop tidak bisa membantu: <strong>mengirim antara iPhone, Android, Windows, Mac, dan Linux</strong>, langsung di jaringan yang sama atau lewat tautan. <highlight>Gratis, open source, tanpa akun.</highlight>",
+    "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
-  "fixes": {
-    "title": "7 perbaikan, sesuai urutan yang layak dicoba",
+  "updated": "Diperbarui September 2026 · syarat dan langkah dicocokkan bulan ini dengan artikel dukungan AirDrop dari Apple dan Petunjuk Pengguna Mac",
+  "disclosure": "BIShare adalah aplikasi kami. Sebagian besar masalah AirDrop antara dua perangkat Apple bisa beres dalam semenit tanpa memasang apa pun, dan panduan ini membahas itu lebih dulu.",
+  "quick": {
+    "title": "Jawaban singkat",
+    "items": [
+      "<strong>iPhone lain tidak pernah muncul:</strong> minta pemiliknya mengatur AirDrop ke \"Semua Orang selama 10 Menit\" di Pusat Kontrol; pilihan itu diam-diam kembali setelah sepuluh menit.",
+      "<strong>Anda diminta kode:</strong> itu iOS 26.2 yang bekerja sesuai rancangan; penerima mendapatkan kode AirDrop lalu membacakannya, dan Anda mengetiknya.",
+      "<strong>Macet di Menunggu:</strong> nyalakan dan buka kunci perangkat penerima, dekatkan keduanya dalam jarak 10 meter, dan matikan Hotspot Pribadi di keduanya.",
+      "<strong>Mac tidak ditemukan:</strong> atur agar bisa ditemukan oleh semua orang, dan pastikan firewall tidak memblokir semua koneksi masuk.",
+      "<strong>AirDrop hilang sama sekali:</strong> cek Durasi Layar, Pembatasan Konten & Privasi, tempat AirDrop bisa dimatikan, atau tanyakan ke organisasi yang mengelola perangkat.",
+      "<strong>Perangkat lain Android atau Windows:</strong> hanya HP Android baru di daftar Google yang bisa ikut; selebihnya perlu cara lain, seperti BIShare."
+    ]
+  },
+  "diagnose": {
+    "title": "Mulai dari gejalanya",
+    "body": "Sebelum mengubah pengaturan secara acak, cocokkan apa yang tampil di layar dengan penyebab yang paling mungkin. Enam pola ini mencakup hampir semua kasus.",
     "items": {
       "0": {
-        "h": "1. Nyalakan Wi-Fi dan Bluetooth penuh — dari Settings",
-        "b": "AirDrop butuh kedua radio. Toggle di Control Center bisa meninggalkannya setengah-mati (terputus tapi tidak nonaktif), jadi nyalakan lewat aplikasi Settings di kedua perangkat, bukan cuma panelnya."
+        "h": "Perangkat lain tidak pernah muncul",
+        "b": "Biasanya soal visibilitas. Penerima memakai \"Hanya Kontak\" sementara Anda tidak ada di kontaknya, pengaturan untuk semua orang miliknya sudah habis waktunya, atau perangkatnya Mac yang diatur agar tidak ditemukan siapa pun. Setelah itu baru jarak dan layar yang terkunci."
       },
       "1": {
-        "h": "2. Setel penerimaan ke \"Everyone for 10 Minutes\"",
-        "b": "Penyebab paling umum sejak iOS 16.2: \"Everyone\" kini otomatis kembali setelah 10 menit. Di perangkat penerima, buka pengaturan AirDrop dan pilih Everyone for 10 Minutes — Contacts Only diam-diam gagal saat kartu kontak pengirim tidak cocok sempurna."
+        "h": "Muncul, lalu tertahan di Menunggu",
+        "b": "Permintaan sudah sampai ke perangkat lain, tetapi belum ada yang menanggapi. Mungkin penerima belum membuka kunci layar untuk melihat pesannya, atau koneksi terputus karena salah satu menjauh. Biarkan kedua perangkat menyala dan berdekatan, lalu kirim lagi."
       },
       "2": {
-        "h": "3. Bangunkan kedua layar, tetap dekat",
-        "b": "AirDrop hanya menyiarkan diri saat perangkat bangun dan tidak terkunci, dan jangkauannya sekitar sembilan meter tanpa tembok. Buka kunci kedua perangkat, dekatkan, coba lagi."
+        "h": "Muncul kode enam digit",
+        "b": "Kedua perangkat memakai iOS 26.2 atau lebih baru, penerima memilih Semua Orang, dan Anda tidak ada di kontaknya. Apple kini meminta penerima membuat kode yang diketik pengirim. Tidak ada yang rusak; ikuti petunjuknya."
       },
       "3": {
-        "h": "4. Matikan Personal Hotspot",
-        "b": "Hotspot aktif menduduki radio yang dibutuhkan AirDrop. Settings → Personal Hotspot → mati, di kedua perangkat — yang satu ini tak kasat mata dan menjebak banyak orang."
+        "h": "Transfer mulai lalu gagal",
+        "b": "Video besar di koneksi yang lemah, Hotspot Pribadi yang sedang dipakai, atau VPN maupun aplikasi keamanan yang mengganggu lalu lintas lokal adalah penyebab umum. Mulai ulang kedua perangkat dan coba lagi dengan keduanya berdampingan."
       },
       "4": {
-        "h": "5. Cek Focus dan Do Not Disturb",
-        "b": "Mode Focus bisa menahan prompt AirDrop masuk, jadi transfer tampak macet padahal permintaannya tak terlihat. Buka Control Center dan jeda Focus selama berbagi."
+        "h": "Berhasil, tetapi file tidak ditemukan",
+        "b": "Di iPhone dan iPad, foto dan video masuk ke app Foto, sedangkan file lain dibuka di app yang menanganinya, sering kali File. Di Mac, banyak item tersimpan di folder Unduhan."
       },
       "5": {
-        "h": "6. Di Mac: firewall dan Finder",
-        "b": "System Settings → Network → Firewall: \"Block all incoming connections\" ikut memblokir AirDrop. Lalu biarkan jendela Finder terbuka di Go → AirDrop saat menerima — visibilitas paling kuat dengan jendela itu di depan."
-      },
-      "6": {
-        "h": "7. Reset yang menyembuhkan yang tak terjelaskan",
-        "b": "Mode pesawat lima detik, lalu matikan — di kedua perangkat. Masih nihil? Restart keduanya. Ini membersihkan kondisi radio di balik kebanyakan kasus \"cuma bilang menunggu\" yang lolos dari perbaikan 1–6."
+        "h": "Tombol AirDrop tidak ada",
+        "b": "Pembatasan Durasi Layar atau profil pengelolaan dari kantor atau sekolah telah mematikan AirDrop. Menyalakan dan mematikan Wi-Fi tidak akan mengubahnya; pembatasannya harus dicabut."
       }
     }
   },
-  "why": {
-    "title": "Saat bukan salah Anda: tembok AirDrop",
-    "body": "Jika perangkat satunya <strong>ponsel Android atau PC Windows</strong>, berhenti troubleshooting — tidak ada yang rusak, dan tidak ada yang bisa memperbaikinya. AirDrop hanya bicara ke perangkat Apple, memang begitu desainnya, dan tak ada setelan di sisi mana pun yang mengubahnya. Tujuh perbaikan di atas untuk transfer Apple-ke-Apple; untuk selainnya Anda butuh alat yang memperlakukan semua platform sebagai warga kelas satu."
-  },
-  "how": {
-    "title": "Plan B yang selalu jalan",
+  "needs": {
+    "title": "Yang dibutuhkan AirDrop, menurut Apple",
+    "body": "Artikel dukungan Apple sendiri mencantumkan beberapa syarat singkat. Memeriksanya dengan urutan ini menyingkirkan sebagian besar kegagalan dalam sekitar satu menit.",
     "items": {
       "0": {
-        "h": "Satu aplikasi, semua platform",
-        "b": "BIShare jalan di iPhone, Android, Mac, Windows, dan Linux — dan perangkat tanpa aplikasi bisa menerima lewat tab browser biasa. Kasus \"perangkat yang salah\" berhenti ada."
+        "h": "Wi-Fi dan Bluetooth menyala",
+        "b": "Kedua perangkat butuh kedua radio itu. Tersambung ke jaringan Wi-Fi tidak diperlukan. Perhatikan: mengetuk Wi-Fi atau Bluetooth di Pusat Kontrol hanya memutus jaringan dan aksesori; Apple menyebut AirDrop tetap berfungsi dalam keadaan itu, dan hanya tombol di Pengaturan yang benar-benar mematikan radio."
       },
       "1": {
-        "h": "Kecepatan sama, privasi sama",
-        "b": "Di Wi-Fi yang sama, file berpindah langsung antar perangkat, terenkripsi end-to-end, tanpa apa pun tersimpan di server — kualitas yang Anda suka dari AirDrop, minus daftar tamunya."
+        "h": "Dalam jarak 10 meter",
+        "b": "Apple menyebut jangkauan 30 kaki atau 10 meter. Dinding, tas, dan lingkungan yang penuh sinyal membuatnya lebih pendek dalam praktik, jadi bawa perangkat ke ruangan yang sama."
       },
       "2": {
-        "h": "Dan dia tidak moody",
-        "b": "Tanpa jendela visibilitas, tanpa ketidakcocokan Contacts-Only, tanpa konflik hotspot. Perangkat di jaringan yang sama saling melihat, Anda ketuk, sisi satunya menerima. Itu saja ritualnya."
+        "h": "Hotspot Pribadi mati",
+        "b": "Apple meminta siapa pun yang membagikan koneksi lewat Hotspot Pribadi untuk memutusnya sebelum memakai AirDrop. Periksa kedua perangkat, karena HP yang diam-diam memberi internet ke laptop mudah terlupa."
+      },
+      "3": {
+        "h": "Pengaturan penerimaan yang mengizinkan Anda",
+        "b": "\"Hanya Kontak\" bisa dipakai jika email atau nomor telepon Akun Apple pengirim tercantum di kartu kontak pengirim milik penerima. Jika tidak, penerima perlu \"Semua Orang selama 10 Menit\" di iPhone atau iPad, atau Semua Orang di Mac."
+      },
+      "4": {
+        "h": "Mulai ulang bila semua sudah benar",
+        "b": "Langkah terakhir Apple sederhana: mulai ulang perangkat dan coba lagi. Ini membersihkan kondisi Bluetooth dan Wi-Fi yang macet dan tidak hilang meski pengaturan diubah."
+      }
+    }
+  },
+  "iphone": {
+    "title": "Perbaikan di iPhone dan iPad",
+    "body": "Kerjakan langkah ini berurutan, dimulai di perangkat penerima, lalu di perangkat pengirim.",
+    "items": {
+      "0": {
+        "h": "Ubah visibilitas ke \"Semua Orang selama 10 Menit\"",
+        "b": "Buka Pusat Kontrol, sentuh lama kontrol konektivitas di sudut atas, ketuk AirDrop, lalu pilih \"Semua Orang selama 10 Menit\". Pengaturan yang sama ada di Pengaturan, Umum, AirDrop. Sejak iOS 16.2, pilihan ini kembali ke \"Hanya Kontak\" setelah sepuluh menit jika Anda masuk dengan Akun Apple, jadi ulangi untuk percobaan kedua."
+      },
+      "1": {
+        "h": "Buka kunci penerima dan biarkan layar menyala",
+        "b": "Pesan untuk menerima muncul di layar perangkat penerima. Jika iPhone itu tertelungkup di saku, pengirim akan melihat Menunggu tanpa akhir. Buka kuncinya sebelum orang lain mengetuk Kirim."
+      },
+      "2": {
+        "h": "Dekatkan kedua HP",
+        "b": "Dengan iOS 17 atau lebih baru di kedua iPhone, Apple menyarankan mendekatkan perangkat untuk mulai berbagi. Gerakan yang sama memulai NameDrop untuk kartu kontak, jadi pilih Bagikan saat pilihan muncul."
+      },
+      "3": {
+        "h": "Periksa pembatasan Durasi Layar",
+        "b": "Buka Pengaturan, Durasi Layar, Pembatasan Konten & Privasi, App & Fitur yang Diizinkan. Jika AirDrop mati di sana, AirDrop hilang sepenuhnya dari menu berbagi. Di perangkat anak, perubahan harus dilakukan orang tua yang mengelola Durasi Layar."
+      },
+      "4": {
+        "h": "Jeda VPN atau aplikasi keamanan",
+        "b": "Sebagian VPN dan aplikasi firewall mengalihkan atau memblokir lalu lintas lokal, sehingga AirDrop gagal tersambung meski perangkat saling terlihat. Jeda aplikasinya selama transfer, lalu nyalakan lagi."
+      },
+      "5": {
+        "h": "Perbarui kedua perangkat",
+        "b": "Fitur seperti kode AirDrop hanya berjalan jika kedua sisi memakai iOS 26.2 atau lebih baru, dan perangkat lunak lama bisa berperilaku tidak menentu dengan perangkat yang lebih baru. Pasang pembaruan terbaru di Pengaturan, Umum, Pembaruan Perangkat Lunak."
+      },
+      "6": {
+        "h": "Mulai ulang, lalu atur ulang jaringan sebagai upaya terakhir",
+        "b": "Mulai ulang kedua perangkat lebih dulu. Jika AirDrop masih gagal, Pengaturan, Umum, Transfer atau Atur Ulang iPhone, Atur Ulang, Atur Ulang Pengaturan Jaringan juga menghapus jaringan Wi-Fi tersimpan dan pasangan Bluetooth, jadi simpan cara ini untuk saat semua cara lain gagal."
+      }
+    }
+  },
+  "mac": {
+    "title": "Perbaikan di Mac",
+    "body": "Mac punya pengaturan penemuan sendiri, firewall yang bisa menghalangi, dan tempat berbeda untuk file yang diterima.",
+    "items": {
+      "0": {
+        "h": "Izinkan ditemukan oleh Semua Orang",
+        "b": "Buka AirDrop dari Pusat Kontrol atau bar samping Finder, lalu atur agar Mac bisa ditemukan oleh Semua Orang atau Hanya Kontak. Mac yang diatur ke Tidak Seorang Pun tidak akan pernah muncul, apa pun yang dilakukan iPhone."
+      },
+      "1": {
+        "h": "Biarkan jendela AirDrop terbuka di Finder",
+        "b": "Pilih Buka, lalu AirDrop di Finder untuk melihat perangkat di sekitar dan membuat Mac terus mencari. Ini cara tercepat memastikan apakah Mac bisa melihat iPhone."
+      },
+      "2": {
+        "h": "Longgarkan firewall",
+        "b": "Di Pengaturan Sistem, Jaringan, Firewall, buka Pilihan. Jika \"Blokir semua koneksi masuk\" menyala, permintaan AirDrop tidak bisa sampai ke Mac. Matikan pilihan itu atau izinkan koneksi masuk untuk layanan yang Anda pakai."
+      },
+      "3": {
+        "h": "Cek folder Unduhan",
+        "b": "Petunjuk Apple menyebut item yang dikirim ke Mac biasanya disimpan di app terkait, sedangkan sebagian file langsung masuk ke folder Unduhan. Cek di sana sebelum menganggap transfer gagal."
+      },
+      "4": {
+        "h": "Matikan dan nyalakan Bluetooth",
+        "b": "Nyalakan ulang Bluetooth dan Wi-Fi dari Pusat Kontrol, atau mulai ulang Mac jika bar menu menampilkan Bluetooth tidak tersedia. Aksesori seperti keyboard akan tersambung sendiri setelahnya."
+      }
+    }
+  },
+  "changes": {
+    "title": "Perubahan yang terlihat seperti bug",
+    "body": "Beberapa perilaku AirDrop yang membuat orang mencari solusi justru diperkenalkan dengan sengaja. Mengetahui urutan waktunya menghemat banyak atur ulang yang sia-sia.",
+    "items": {
+      "0": {
+        "h": "iOS 16.1.1 dan 16.2: Semua Orang jadi sementara",
+        "b": "Apple pertama kali membatasi Semua Orang menjadi sepuluh menit di iPhone di China lewat iOS 16.1.1 pada November 2022, lalu menerapkan batas yang sama ke seluruh dunia lewat iOS 16.2 pada Desember. Itulah sebabnya AirDrop yang barusan jalan tiba-tiba berhenti tanpa ada yang menyentuh apa pun."
+      },
+      "1": {
+        "h": "iOS 17: dekatkan kedua HP",
+        "b": "iOS 17 menambahkan berbagi dengan mendekatkan dua iPhone, bersama NameDrop untuk kontak. Ini membantu saat daftar nama di sekitar ramai, tetapi kedua HP harus memakai iOS 17 atau lebih baru."
+      },
+      "2": {
+        "h": "iOS 17.1: transfer yang keluar ruangan",
+        "b": "Jika kedua orang masuk ke iCloud, transfer yang sudah dimulai bisa selesai lewat internet saat perangkat keluar dari jangkauan. Tombol untuk memakai data seluler di luar jangkauan ada di Pengaturan, Umum, AirDrop; jika mati, menjauh bisa membatalkan transfer besar."
+      },
+      "3": {
+        "h": "iOS 26.2: kode AirDrop",
+        "b": "Saat kedua perangkat memakai versi 26.2, penerima memilih Semua Orang, dan pengirim tidak ada di kontaknya, penerima mendapatkan kode AirDrop yang diketik pengirim. Pengirim lalu tercatat 30 hari di daftar kontak AirDrop yang dikenal, yang bisa dikelola di Pengaturan, Umum, AirDrop."
+      },
+      "4": {
+        "h": "November 2025: sebagian HP Android ikut",
+        "b": "Quick Share milik Google mulai bisa AirDrop di Pixel 10 dan sejak itu menambah HP Android baru lainnya. HP itu hanya melihat iPhone yang diatur ke \"Semua Orang selama 10 Menit\", jadi teman Android yang muncul sebentar lalu hilang biasanya karena pengaturan yang sudah habis waktunya."
+      }
+    }
+  },
+  "other": {
+    "title": "Saat perangkat lain bukan iPhone atau Mac",
+    "body": "Banyak upaya memperbaiki AirDrop berakhir di sini, karena perangkat di seberang memang tidak pernah bisa ikut.",
+    "items": {
+      "0": {
+        "h": "HP Android",
+        "b": "Jika HP ada di daftar Google untuk Quick Share dengan AirDrop, HP itu bisa bertukar file dengan iPhone asalkan iPhone mengizinkan \"Semua Orang selama 10 Menit\" dan, di Galaxy, tombol berbagi dengan Apple menyala. HP Android lama atau yang tidak terdaftar tidak bisa menerima AirDrop dalam bentuk apa pun."
+      },
+      "1": {
+        "h": "PC Windows atau Chromebook",
+        "b": "Apple tidak pernah membuat AirDrop untuk Windows, dan Quick Share di PC atau Chromebook tidak menjangkau perangkat Apple. Tidak ada pengaturan di sisi mana pun yang mengubahnya, jadi pakai kabel, tautan cloud, atau aplikasi lintas platform."
+      },
+      "2": {
+        "h": "Komputer Linux",
+        "b": "Linux juga tidak punya klien AirDrop. Alat open source seperti LocalSend dan cara berbasis browser seperti tautan BIShare atau PairDrop adalah pilihan yang praktis."
+      }
+    }
+  },
+  "methods": {
+    "title": "Rencana B: lima cara mengirim saat AirDrop menolak",
+    "body": "Saat perbaikan sudah habis, atau perangkat lain bukan Apple, pilih cara berdasarkan lokasi penerima dan perangkat yang dipakainya.",
+    "consLabel": "Perlu diingat:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Terbaik jika penerima memakai Android, Windows, atau Linux, atau berada di tempat lain",
+        "facts": "Aplikasi untuk iPhone, Android, Windows, macOS, dan Linux · lisensi MIT · antarperangkat lewat Wi-Fi yang sama atau hotspot HP, ukuran file berapa pun · tautan terenkripsi hingga 100 GB yang bertahan 24 jam di browser · room grup · tanpa daftar",
+        "body": "Pasang BIShare di kedua perangkat, dan keduanya saling terlihat di Wi-Fi yang sama atau hotspot HP, tanpa jendela visibilitas yang habis dan tanpa kartu kontak yang harus cocok. File berpindah langsung ke dua arah tanpa menyentuh internet. Untuk penerima yang tidak berada di dekat Anda, buat tautan: file dikunci di perangkat Anda sebelum diunggah, dan penerima mengunduhnya di browser.",
+        "cons": "Mengirim dari dekat butuh BIShare di tiap perangkat, dan tautan butuh koneksi data di kedua sisi."
+      },
+      "1": {
+        "name": "Quick Share dengan AirDrop",
+        "tag": "Terbaik jika perangkat lain adalah HP Android baru di daftar Google",
+        "facts": "Bagian dari Quick Share di HP Android yang dicantumkan Google, dari Pixel dan Galaxy hingga beberapa merek China · berkomunikasi dengan iPhone, iPad, dan Mac · antarperangkat, tanpa server · hanya mode Semua Orang",
+        "body": "Tidak ada yang perlu dipasang di kedua HP. iPhone memakai AirDrop seperti biasa, dan HP Android memakai Quick Share yang kini memahami protokol AirDrop. Untuk teman Android di ruangan yang sama, inilah yang paling mendekati AirDrop itu sendiri.",
+        "cons": "Hanya HP di daftar Google yang bisa ikut, iPhone harus mengizinkan \"Semua Orang selama 10 Menit\", dan tidak berfungsi lagi begitu perangkat berjauhan."
+      },
+      "2": {
+        "name": "Tautan iCloud dari Foto",
+        "tag": "Terbaik untuk berbagi foto dengan siapa saja saat keduanya punya internet",
+        "facts": "Bawaan app Foto saat Foto iCloud aktif · terbuka di browser apa pun, termasuk Android dan Windows · tautan kedaluwarsa setelah 30 hari · memakai penyimpanan iCloud Anda",
+        "body": "Pilih foto atau video, buka menu berbagi dan gunakan \"Salin Tautan iCloud\", lalu tempel tautannya di obrolan mana pun. Penerima membukanya di perangkat apa pun yang dimilikinya dan menyimpan file aslinya. Cocok untuk album liburan yang diinginkan beberapa orang.",
+        "cons": "Hanya untuk item di Foto iCloud, unggahan memakai jatah penyimpanan iCloud Anda, dan tautan berhenti bekerja setelah 30 hari."
+      },
+      "3": {
+        "name": "LocalSend",
+        "tag": "Pilihan open source terbaik di jaringan rumah atau kantor",
+        "facts": "iPhone, Android, Windows, macOS, Linux · Apache 2.0 · jaringan lokal yang sama · HTTPS, tanpa akun",
+        "body": "LocalSend menampilkan setiap perangkat yang sedang membukanya di Wi-Fi lokal dan mengirim dengan sekali ketuk, tanpa server atau akun di tengah. Ini pengganti permanen yang baik jika Anda sering memindahkan file antara iPhone dan komputer Windows atau Linux di rumah.",
+        "cons": "Aplikasinya harus ada di kedua perangkat, apa pun di jaringan lain tidak terjangkau, dan router yang mengisolasi perangkat bisa menyembunyikan mereka satu sama lain."
+      },
+      "4": {
+        "name": "Kabel USB",
+        "tag": "Terbaik untuk memindahkan seluruh galeri ke komputer",
+        "facts": "App Foto di Mac, app Perangkat Apple di Windows · tanpa jaringan · file asli resolusi penuh bila tersimpan di iPhone",
+        "body": "Sambungkan iPhone, buka kuncinya dan percayai komputernya, lalu impor lewat app Foto di Mac atau app Perangkat Apple di Windows. Untuk ribuan foto, cara ini sering lebih cepat dan lebih bisa diandalkan daripada cara nirkabel mana pun.",
+        "cons": "Anda butuh kabel yang tepat dan komputernya ada di depan Anda, dan foto yang hanya ada di iCloud harus diunduh dulu ke iPhone."
+      }
+    }
+  },
+  "table": {
+    "title": "Sekilas",
+    "cols": {
+      "feature": "Fitur",
+      "bishare": "BIShare",
+      "quickshare": "Quick Share dengan AirDrop",
+      "icloud": "Tautan iCloud",
+      "localsend": "LocalSend",
+      "cable": "Kabel USB"
+    },
+    "rows": {
+      "r0": "Bisa dengan HP Android",
+      "r1": "Bisa dengan PC Windows",
+      "r2": "Bisa saat penerima berada jauh",
+      "r3": "Bisa tanpa internet",
+      "r4": "Kirim jarak dekat tidak lewat server",
+      "r5": "Tanpa aplikasi tambahan di iPhone"
+    },
+    "note": "Per September 2026. BIShare butuh aplikasinya di kedua perangkat untuk kiriman jarak dekat; tautannya menjangkau siapa pun yang jauh tetapi perlu internet. Quick Share dengan AirDrop hanya mencakup HP Android di daftar Google. Tautan iCloud terbuka di browser apa pun, tetapi mengunggah ke iCloud. LocalSend butuh aplikasinya di kedua sisi dan satu jaringan lokal. Kabel ke Windows butuh app Perangkat Apple di PC, bukan di iPhone."
+  },
+  "security": {
+    "title": "Memperbaiki AirDrop tanpa membuka diri",
+    "body": "Sebagian besar perbaikan membuat perangkat lebih mudah terlihat, jadi sebaiknya tutup kembali pintunya setelah selesai.",
+    "items": {
+      "0": {
+        "h": "Biarkan Semua Orang berakhir",
+        "b": "\"Semua Orang selama 10 Menit\" dibuat justru agar iPhone tidak terus terbuka bagi orang asing. Pakai untuk transfer lalu biarkan berakhir; di Mac, kembalikan sendiri ke Hanya Kontak."
+      },
+      "1": {
+        "h": "Anggap kode AirDrop sebagai pelindung",
+        "b": "Langkah kode di iOS 26.2 mencegah sembarang orang di sekitar mengirim file kepada Anda, bahkan saat Semua Orang dipilih. Bacakan kode hanya kepada orang yang memang ingin Anda ajak bertukar file."
+      },
+      "2": {
+        "h": "Tolak yang tidak Anda harapkan",
+        "b": "Pengirim yang tidak dikenal menampilkan pratinjau dan nama sebelum apa pun disimpan. Tolak permintaan yang tidak Anda minta, dan pertahankan pembatasan di perangkat anak meski sesekali membuat AirDrop gagal."
       }
     }
   },
   "faq": {
-    "title": "Masalah AirDrop, terjawab",
+    "title": "AirDrop tidak berfungsi: FAQ",
     "items": {
       "0": {
-        "q": "Kenapa AirDrop cuma bilang \"Menunggu…\" selamanya?",
-        "a": "Biasanya visibilitas penerima (setel Everyone for 10 Minutes), Personal Hotspot aktif, atau jarak/layar tidur — jalankan perbaikan 1–4 berurutan. Kalau lolos semua tujuh, radionya bingung: siklus mode pesawat dan restart kedua perangkat."
+        "q": "Kenapa AirDrop tidak menemukan iPhone lain?",
+        "a": "Biasanya penerima memakai \"Hanya Kontak\" sementara Anda tidak ada di kontaknya, atau pengaturan \"Semua Orang selama 10 Menit\" miliknya sudah berakhir. Minta ia memilihnya lagi di Pusat Kontrol dan membiarkan layarnya tidak terkunci."
       },
       "1": {
-        "q": "Kenapa saya tidak bisa AirDrop ke PC Windows?",
-        "a": "Karena AirDrop tidak pernah ada untuk Windows dan tidak akan pernah — Apple-only memang desainnya. Untuk memindah file iPhone → PC lewat Wi-Fi, pakai alat lintas platform seperti BIShare: PC bahkan bisa menerima di browser tanpa instal."
+        "q": "Kenapa AirDrop menampilkan Menunggu dan tidak pernah selesai?",
+        "a": "Permintaannya belum diterima. Perangkat penerima mungkin terkunci, di luar jangkauan, atau sedang memakai Hotspot Pribadi. Buka kuncinya, dekatkan perangkat dalam 10 meter, matikan Hotspot Pribadi, dan kirim lagi."
       },
       "2": {
-        "q": "Bisakah AirDrop dari iPhone ke Android?",
-        "a": "Tidak — dan Quick Share Android juga tak bisa menjangkau iPhone; kedua sistem memang tidak saling bicara. Aplikasi netral menjembatani celahnya dan mengirim file kualitas penuh dua arah lewat Wi-Fi lokal."
+        "q": "Kenapa AirDrop meminta kode?",
+        "a": "Sejak iOS 26.2, saat penerima memilih Semua Orang dan Anda tidak ada di kontaknya, ia mendapatkan kode AirDrop dan memberi tahu Anda enam digitnya untuk diketik. Setelah itu kalian bisa saling AirDrop selama 30 hari."
       },
       "3": {
-        "q": "Apakah AirDrop butuh jaringan Wi-Fi?",
-        "a": "AirDrop membuat tautan antar-perangkatnya sendiri, jadi router tidak wajib — tapi kedua radio harus nyala. BIShare bekerja lewat jaringan bersama apa pun, termasuk hotspot satu ponsel, yang sekaligus membuatnya lintas platform."
+        "q": "Kenapa AirDrop berhenti setelah sepuluh menit?",
+        "a": "Sejak iOS 16.2, pengaturan \"Semua Orang selama 10 Menit\" kembali ke \"Hanya Kontak\" setelah sepuluh menit jika Anda masuk dengan Akun Apple. Pilih lagi untuk melanjutkan."
       },
       "4": {
-        "q": "Kenapa AirDrop lambat untuk video besar?",
-        "a": "Radio peer-to-peer sensitif pada jarak, tembok, dan interferensi, jadi video multi-gigabita bisa merayap. Dekatkan perangkat, atau transfer lewat router Wi-Fi dengan alat yang dibuat untuk file besar — satu hop router pada kecepatan penuh biasanya mengalahkan tautan langsung yang megap-megap."
+        "q": "Apakah AirDrop butuh Wi-Fi dan internet?",
+        "a": "Wi-Fi dan Bluetooth harus menyala, tetapi tidak perlu jaringan Wi-Fi atau internet. Hanya opsi iOS 17.1 untuk menyelesaikan transfer di luar jangkauan yang memakai internet."
+      },
+      "5": {
+        "q": "Kenapa Mac saya tidak bisa menerima AirDrop?",
+        "a": "Pastikan Mac bisa ditemukan oleh Semua Orang atau Hanya Kontak, Bluetooth menyala, dan firewall tidak memblokir semua koneksi masuk. Membuka jendela AirDrop di Finder membantu melihat apa yang terdeteksi."
+      },
+      "6": {
+        "q": "Ke mana file hasil AirDrop tersimpan?",
+        "a": "Di iPhone dan iPad, foto dan video masuk ke app Foto, sedangkan file lain dibuka di app yang sesuai. Di Mac, item disimpan di app terkait atau di folder Unduhan."
+      },
+      "7": {
+        "q": "Kenapa AirDrop hilang dari iPhone saya?",
+        "a": "AirDrop dimatikan di Durasi Layar, di bagian Pembatasan Konten & Privasi, atau oleh profil pengelolaan dari kantor atau sekolah. Untuk menyalakannya lagi, pembatasan itu harus diubah."
+      },
+      "8": {
+        "q": "Bisakah AirDrop ke HP Android atau PC Windows?",
+        "a": "Hanya ke HP Android baru di daftar Quick Share Google, dan hanya selama iPhone mengizinkan \"Semua Orang selama 10 Menit\". PC Windows, Chromebook, Linux, dan HP Android lain butuh alat berbeda, seperti BIShare."
+      },
+      "9": {
+        "q": "Apakah BIShare gratis?",
+        "a": "Ya. BIShare tidak berbayar, kodenya diterbitkan dengan lisensi MIT, tidak meminta akun, dan tidak membatasi pengiriman langsung antarperangkat di tempat yang sama."
       }
     }
   },
   "cta": {
-    "title": "Berhenti melawan daftar tamu",
-    "body": "BIShare mengirim ke semua perangkat Anda — gratis, terenkripsi, tanpa akun.",
+    "title": "Untuk setiap perangkat yang tidak terjangkau AirDrop",
+    "body": "Gratis dan open source. Kirim antara iPhone, Android, Windows, Mac, dan Linux lewat jaringan Anda sendiri, atau berikan tautan terenkripsi kepada siapa saja.",
     "download": "Unduh BIShare"
   },
   "a11y": {
     "yes": "Ya",
     "no": "Tidak"
+  },
+  "art": {
+    "hero": {
+      "alt": "iPhone dan Mac dengan sambungan AirDrop putus-putus yang terputus di antaranya serta daftar periksa, dengan judul AirDrop tidak berfungsi, cari penyebabnya dulu.",
+      "title": "AirDrop tidak berfungsi?",
+      "sub": "Cari penyebabnya dulu, lalu perbaiki",
+      "left": "iPhone",
+      "right": "Mac"
+    },
+    "symptoms": {
+      "alt": "Gejala AirDrop dan penyebab umumnya: perangkat tidak pernah muncul berarti visibilitas atau jarak; tertahan di Menunggu berarti penerima terkunci atau di luar jangkauan; kode enam digit berarti kode AirDrop iOS 26.2; transfer gagal berarti Hotspot, VPN, atau jarak; file yang hilang ada di Foto atau Unduhan; tombol AirDrop tidak ada berarti pembatasan Durasi Layar atau pengelolaan perangkat.",
+      "title": "Yang Anda lihat dan artinya",
+      "sub": "Kenali gejalanya sebelum mengubah pengaturan",
+      "s0": "Perangkat tidak muncul",
+      "c0": "Pengaturan visibilitas atau jarak",
+      "s1": "Tertahan di Menunggu",
+      "c1": "Penerima terkunci atau terlalu jauh",
+      "s2": "Meminta kode 6 digit",
+      "c2": "Kode AirDrop iOS 26.2, bukan bug",
+      "s3": "Mulai, lalu gagal",
+      "c3": "Hotspot, VPN, atau jarak",
+      "s4": "File tidak ditemukan",
+      "c4": "Cek di Foto atau Unduhan",
+      "s5": "Tidak ada tombol AirDrop",
+      "c5": "Durasi Layar atau pengelolaan perangkat"
+    },
+    "needs": {
+      "alt": "Yang dibutuhkan AirDrop menurut Apple: Wi-Fi dan Bluetooth menyala, perangkat dalam jarak 10 meter, Hotspot Pribadi mati, penerima memakai Hanya Kontak dengan data Anda atau Semua Orang, dan mulai ulang bila semua sudah benar.",
+      "title": "Yang dibutuhkan AirDrop",
+      "sub": "Daftar dari Apple, sesuai urutan yang layak dicek",
+      "n0": "Wi-Fi dan Bluetooth menyala",
+      "n1": "Dalam 10 m",
+      "n2": "Hotspot mati",
+      "n3": "Penerimaan diatur benar",
+      "n4": "Mulai ulang keduanya",
+      "foot": "Mematikan Wi-Fi dan Bluetooth di Pusat Kontrol tetap mengizinkan AirDrop"
+    },
+    "timeline": {
+      "alt": "Linimasa perubahan AirDrop: November 2022 iOS 16.1.1 membatasi Semua Orang 10 menit di China; Desember 2022 iOS 16.2 memberlakukannya di seluruh dunia; September 2023 iOS 17 menambah berbagi dengan mendekatkan iPhone; Oktober 2023 iOS 17.1 memungkinkan transfer selesai lewat internet; November 2025 Quick Share di Pixel 10 bisa berkomunikasi dengan AirDrop; Desember 2025 iOS 26.2 menambah kode AirDrop.",
+      "title": "Perubahan AirDrop yang terlihat seperti bug",
+      "sub": "Perubahan yang disengaja di balik banyak transfer gagal",
+      "e0y": "Nov 2022",
+      "e0": "Semua Orang dibatasi 10 menit di China",
+      "e1y": "Des 2022",
+      "e1": "Batas 10 menit di seluruh dunia",
+      "e2y": "Sep 2023",
+      "e2": "Dekatkan iPhone untuk berbagi",
+      "e3y": "Okt 2023",
+      "e3": "Transfer selesai lewat internet",
+      "e4y": "Nov 2025",
+      "e4": "Sebagian HP Android ikut",
+      "e5y": "Des 2025",
+      "e5": "Kode AirDrop untuk non-kontak"
+    }
   }
 }

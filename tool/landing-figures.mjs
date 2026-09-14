@@ -25,7 +25,6 @@ import path from "node:path";
 
 /** left/right: device labels. link: what the off-network route carries. */
 const FIGURES = {
-  "airdrop-not-working": { left: "iPhone", right: "iPhone · Mac", title: "When AirDrop will not connect, ordinary Wi-Fi still will" },
   "encrypted-file-transfer": { left: "Any device", right: "Any device", title: "Encrypted before it leaves, on both routes" },
   "firefox-send-alternative": { left: "Browser", right: "Anyone, any browser", title: "The Firefox Send idea, still running" },
   "nearby-share-alternative": { left: "Android", right: "iPhone · Mac · Linux", title: "Past where Quick Share stops" },

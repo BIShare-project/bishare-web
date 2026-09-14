@@ -1,101 +1,374 @@
 {
   "meta": {
-    "title": "AirDrop Not Working? 7 Fixes, in the Order That Works",
-    "description": "AirDrop stuck on Waiting, not showing the other device, or failing? Seven fixes in the order they usually solve it, plus a route that works when the other side is not Apple."
+    "title": "AirDrop Not Working? Fixes for iPhone, iPad and Mac (2026)",
+    "description": "AirDrop stuck on Waiting, asking for a code, or not showing the other device? Match the symptom to the cause, then fix it on iPhone, iPad or Mac, including iOS 26 changes."
   },
   "hero": {
     "eyebrow": "Troubleshooting",
-    "title": "AirDrop not working? Start here",
-    "body": "When AirDrop fails, it's almost always one of the same seven causes — and they take two minutes to rule out in order. Below: the fixes that <strong>actually</strong> solve it, in the order worth trying. And if the other device is an <strong>Android phone or a Windows PC</strong>, no fix exists by design — <highlight>skip to the bridge that always works</highlight>.",
-    "ctaPrimary": "Get the plan B",
+    "title": "AirDrop not working? Find the cause first",
+    "body": "AirDrop fails in a handful of recognisable ways: the other device never appears, the transfer sits on Waiting, a six-digit code pops up that nobody expected, or the files arrive and then vanish into an app you did not check. Each symptom points to a different cause, and several of them are not faults at all but deliberate changes Apple made in iOS 16.2, iOS 17 and iOS 26.2. This guide starts from what you are seeing, lists what AirDrop actually requires according to Apple, walks through the fixes on iPhone, iPad and Mac, explains the recent changes that look like bugs, and covers the case where the other device is an Android phone or a Windows PC. <strong>BIShare</strong> is the fallback we built for the times AirDrop cannot help: <strong>it sends between iPhone, Android, Windows, Mac and Linux</strong>, directly on a shared network or through a link. <highlight>Free, open source, no account.</highlight>",
+    "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
-  "fixes": {
-    "title": "The 7 fixes, in the order worth trying",
+  "updated": "Updated September 2026 · requirements and steps checked against Apple's AirDrop support articles and Mac User Guide this month",
+  "disclosure": "BIShare is our app. Most AirDrop problems between two Apple devices are fixed in a minute without installing anything, and this guide deals with those first.",
+  "quick": {
+    "title": "Quick answer",
+    "items": [
+      "<strong>The other iPhone never shows up:</strong> ask its owner to switch AirDrop to Everyone for 10 Minutes in Control Center; that choice quietly reverts after ten minutes.",
+      "<strong>You get asked for a code:</strong> that is iOS 26.2 working as designed; the receiver taps Get AirDrop Code and reads it out, and you type it in.",
+      "<strong>Stuck on Waiting:</strong> wake and unlock the receiving device, bring the two within 10 metres, and turn off Personal Hotspot on both.",
+      "<strong>A Mac cannot be found:</strong> set it to be discovered by Everyone, and check that the firewall is not blocking all incoming connections.",
+      "<strong>AirDrop is missing entirely:</strong> look in Screen Time, Content and Privacy Restrictions, where AirDrop can be switched off, or ask the organisation that manages the device.",
+      "<strong>The other device is Android or Windows:</strong> only recent Android phones on Google's list can take part; everything else needs another route, such as BIShare."
+    ]
+  },
+  "diagnose": {
+    "title": "Start with the symptom",
+    "body": "Before changing settings at random, match what the screen shows to the likely cause. Six patterns cover almost every report.",
     "items": {
       "0": {
-        "h": "1. Turn Wi-Fi and Bluetooth fully on — in Settings",
-        "b": "AirDrop needs both radios. The Control Center toggles can leave them half-off (disconnected but not disabled), so flip them in the Settings app on both devices, not just the panel."
+        "h": "The other device never appears",
+        "b": "Visibility is the usual culprit. The receiver is on Contacts Only while you are not in their contacts, their Everyone setting has already timed out, or the device is a Mac set to be discovered by No One. Distance and a locked screen come next."
       },
       "1": {
-        "h": "2. Set receiving to \"Everyone for 10 Minutes\"",
-        "b": "The single most common cause since iOS 16.2: \"Everyone\" now auto-reverts after 10 minutes. On the receiving device, open AirDrop settings and select Everyone for 10 Minutes — Contacts Only silently fails whenever the sender's card doesn't match perfectly."
+        "h": "It appears, then stays on Waiting",
+        "b": "The request reached the other device but nobody has answered it. The receiver may not have unlocked the screen to see the prompt, or the connection dropped as one of you walked away. Keep both devices awake and close, and send again."
       },
       "2": {
-        "h": "3. Wake both screens, stay close",
-        "b": "AirDrop advertises only while the device is awake and unlocked, and its range is roughly nine meters with no walls in between. Unlock both devices, keep them near each other, and retry."
+        "h": "A six-digit code appears",
+        "b": "Both devices run iOS 26.2 or later, the receiver chose Everyone, and you are not in their contacts. Apple now asks the receiver to produce a code that the sender enters. Nothing is broken; follow the prompt."
       },
       "3": {
-        "h": "4. Turn off Personal Hotspot",
-        "b": "An active hotspot occupies the radio AirDrop wants. Settings → Personal Hotspot → off, on both devices — this one is invisible and catches a lot of people."
+        "h": "The transfer starts and fails",
+        "b": "Large videos over a weak link, a Personal Hotspot in use, or a VPN or security app interfering with local traffic are common causes. Restart both devices and retry with them side by side."
       },
       "4": {
-        "h": "5. Check Focus and Do Not Disturb",
-        "b": "A Focus mode can suppress the incoming AirDrop prompt, so the transfer looks stuck while the request sits unseen. Swipe into Control Center and pause Focus while sharing."
+        "h": "It worked, but the files are nowhere",
+        "b": "On an iPhone or iPad, photos and videos go into the Photos app and other files open in the app that handles them, often Files. On a Mac, many items land in the Downloads folder."
       },
       "5": {
-        "h": "6. On a Mac: firewall and Finder",
-        "b": "System Settings → Network → Firewall: \"Block all incoming connections\" also blocks AirDrop. Then keep a Finder window open at Go → AirDrop while receiving — visibility is strongest with that window in front."
-      },
-      "6": {
-        "h": "7. The reset that fixes the unexplainable",
-        "b": "Airplane mode on for five seconds, then off — on both devices. Still nothing? Restart both. This clears the radio state behind most \"it just says waiting\" cases that survive fixes 1–6."
+        "h": "The AirDrop button is missing",
+        "b": "A Screen Time restriction or a management profile from an employer or school has turned AirDrop off. No amount of toggling Wi-Fi changes that; the restriction has to be lifted."
       }
     }
   },
-  "why": {
-    "title": "When it's not you: the AirDrop wall",
-    "body": "If the other device is an <strong>Android phone or a Windows PC</strong>, stop troubleshooting — nothing is broken, and nothing will fix it. AirDrop only speaks to Apple devices, by design, and no setting on either side changes that. The seven fixes above are for Apple-to-Apple transfers; for everything else you need a tool that treats every platform as a first-class citizen."
-  },
-  "how": {
-    "title": "The plan B that always works",
+  "needs": {
+    "title": "What AirDrop needs, according to Apple",
+    "body": "Apple's own support articles list a short set of conditions. Checking them in this order rules out the majority of failures in about a minute.",
     "items": {
       "0": {
-        "h": "One app, every platform",
-        "b": "BIShare runs on iPhone, Android, Mac, Windows, and Linux — and a device with nothing installed can receive in a plain browser tab. The \"wrong device\" case stops existing."
+        "h": "Wi-Fi and Bluetooth switched on",
+        "b": "Both devices need both radios. Joining a Wi-Fi network is not required. Note that tapping Wi-Fi or Bluetooth off in Control Center only disconnects from networks and accessories; Apple says AirDrop keeps working in that state, and only the switches in Settings turn the radios off completely."
       },
       "1": {
-        "h": "Same speed, same privacy",
-        "b": "On the same Wi-Fi, files travel directly between devices, end-to-end encrypted, with nothing stored on a server — the qualities you liked about AirDrop, minus the guest list."
+        "h": "Within 10 metres",
+        "b": "Apple gives 30 feet, or 10 metres, as the range. Walls, bags and crowded radio environments shorten it in practice, so bring the devices into the same room."
       },
       "2": {
-        "h": "And it doesn't have moods",
-        "b": "No visibility windows, no Contacts-Only mismatch, no hotspot conflict. Devices on the same network see each other, you tap, the other side accepts. That's the whole ritual."
+        "h": "Personal Hotspot off",
+        "b": "Apple asks anyone sharing a connection through Personal Hotspot to disconnect before using AirDrop. Check both devices, since a phone feeding a laptop in the background is easy to forget."
+      },
+      "3": {
+        "h": "A receiving setting that lets you in",
+        "b": "Contacts Only works when the sender's Apple Account email address or phone number is on the receiver's contact card for them. Otherwise the receiver needs Everyone for 10 Minutes on iPhone or iPad, or Everyone on a Mac."
+      },
+      "4": {
+        "h": "A restart when the rest checks out",
+        "b": "Apple's last step is simple: restart the device and try again. It clears stuck Bluetooth and Wi-Fi states that survive every setting change."
+      }
+    }
+  },
+  "iphone": {
+    "title": "Fixes on iPhone and iPad",
+    "body": "Work through these in order on the receiving device first, then on the sending one.",
+    "items": {
+      "0": {
+        "h": "Switch visibility to Everyone for 10 Minutes",
+        "b": "Open Control Center, touch and hold the connectivity controls in the top corner, tap AirDrop and pick Everyone for 10 Minutes. The same setting sits in Settings, General, AirDrop. Since iOS 16.2 it falls back to Contacts Only after ten minutes when you are signed in to an Apple Account, so repeat it for a second attempt."
+      },
+      "1": {
+        "h": "Unlock the receiver and keep it awake",
+        "b": "The accept prompt appears on the receiving screen. If that iPhone is face down in a pocket, the sender sees Waiting indefinitely. Unlock it before the other person taps Send."
+      },
+      "2": {
+        "h": "Hold the phones together",
+        "b": "With iOS 17 or later on both iPhones, Apple suggests holding the devices together to start sharing. The same gesture starts NameDrop for contact cards, so choose Share when the options appear."
+      },
+      "3": {
+        "h": "Check Screen Time restrictions",
+        "b": "Go to Settings, Screen Time, Content and Privacy Restrictions, Allowed Apps and Features. If AirDrop is off there, it disappears from share sheets entirely. On a child's device the change has to be made by the parent who manages Screen Time."
+      },
+      "4": {
+        "h": "Pause the VPN or security app",
+        "b": "Some VPNs and firewall apps route or block local traffic, which can stop AirDrop connecting even though discovery works. Pause the app for the transfer and turn it back on afterwards."
+      },
+      "5": {
+        "h": "Update both devices",
+        "b": "Features like AirDrop codes only work when both sides run iOS 26.2 or later, and older software can behave unpredictably with newer peers. Install the latest update in Settings, General, Software Update."
+      },
+      "6": {
+        "h": "Restart, then reset network settings as a last resort",
+        "b": "Restart both devices first. If AirDrop still fails, Settings, General, Transfer or Reset iPhone, Reset, Reset Network Settings clears saved Wi-Fi networks and Bluetooth pairings too, so keep it for when nothing else has worked."
+      }
+    }
+  },
+  "mac": {
+    "title": "Fixes on a Mac",
+    "body": "A Mac has its own discovery setting, a firewall that can get in the way, and a different place for received files.",
+    "items": {
+      "0": {
+        "h": "Allow discovery by Everyone",
+        "b": "Open AirDrop from Control Center or the Finder sidebar and set who can discover the Mac to Everyone or Contacts Only. A Mac left on No One will never show up, whatever the iPhone does."
+      },
+      "1": {
+        "h": "Keep a Finder AirDrop window open",
+        "b": "Choosing Go, then AirDrop in the Finder shows nearby devices and keeps the Mac actively looking. It is the quickest way to confirm whether the Mac can see the iPhone at all."
+      },
+      "2": {
+        "h": "Loosen the firewall",
+        "b": "In System Settings, Network, Firewall, open Options. If Block all incoming connections is turned on, AirDrop requests cannot reach the Mac. Turn that option off, or allow incoming connections for the services you use."
+      },
+      "3": {
+        "h": "Look in Downloads",
+        "b": "Apple's guide says items sent to a Mac are usually saved in the app they belong to, while some files go straight to the Downloads folder. Check there before assuming the transfer failed."
+      },
+      "4": {
+        "h": "Turn Bluetooth off and on",
+        "b": "Toggle Bluetooth and Wi-Fi from Control Center, or restart the Mac if the menu bar shows Bluetooth as unavailable. Accessories like keyboards reconnect on their own afterwards."
+      }
+    }
+  },
+  "changes": {
+    "title": "Changes that look like bugs",
+    "body": "Several AirDrop behaviours that send people searching for fixes were introduced on purpose. Knowing the timeline saves a lot of pointless resetting.",
+    "items": {
+      "0": {
+        "h": "iOS 16.1.1 and 16.2: Everyone became temporary",
+        "b": "Apple first limited Everyone to ten minutes on iPhones in China with iOS 16.1.1 in November 2022, then applied the same limit worldwide in iOS 16.2 that December. That is why AirDrop that worked a moment ago stops working without anyone touching it."
+      },
+      "1": {
+        "h": "iOS 17: bring the phones together",
+        "b": "iOS 17 added sharing by holding two iPhones close, alongside NameDrop for contacts. It helps when a list of nearby names is crowded, but both phones need iOS 17 or later."
+      },
+      "2": {
+        "h": "iOS 17.1: transfers that leave the room",
+        "b": "With both people signed in to iCloud, a transfer that has already started can finish over the internet when the devices move out of range. The switch is Use Cellular Data under Out of Range in Settings, General, AirDrop; if it is off, walking away can cancel a large transfer."
+      },
+      "3": {
+        "h": "iOS 26.2: AirDrop codes",
+        "b": "When both devices run version 26.2, the receiver has chosen Everyone and the sender is not in their contacts, the receiver taps Get AirDrop Code and the sender enters it. The sender then stays on a list of known AirDrop contacts for 30 days, which can be managed in Settings, General, AirDrop."
+      },
+      "4": {
+        "h": "November 2025: some Android phones joined",
+        "b": "Google's Quick Share began speaking AirDrop on the Pixel 10 and has since added other recent Android phones. They only see iPhones set to Everyone for 10 Minutes, so an Android friend who appears one minute and not the next is usually a timed-out setting."
+      }
+    }
+  },
+  "other": {
+    "title": "When the other device is not an iPhone or Mac",
+    "body": "Plenty of AirDrop troubleshooting ends here, because the device on the other end was never going to take part.",
+    "items": {
+      "0": {
+        "h": "An Android phone",
+        "b": "When the phone appears on Google's list for Quick Share with AirDrop, it can swap files with an iPhone provided the iPhone allows Everyone for 10 Minutes and, on a Galaxy, the Apple sharing switch is on. Older or unlisted Android phones cannot receive AirDrop in any form."
+      },
+      "1": {
+        "h": "A Windows PC or Chromebook",
+        "b": "Apple has never made AirDrop for Windows, and Quick Share on a PC or Chromebook does not reach Apple devices. No setting on either side changes this, so use a cable, a cloud link or a cross-platform app."
+      },
+      "2": {
+        "h": "A Linux computer",
+        "b": "There is no AirDrop client for Linux either. Open-source tools such as LocalSend and browser-based ones such as BIShare links or PairDrop are the practical options."
+      }
+    }
+  },
+  "methods": {
+    "title": "Plan B: five ways to send when AirDrop will not",
+    "body": "When the fixes run out, or the other device is not Apple, pick a route by where the recipient is and what they use.",
+    "consLabel": "Keep in mind:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Best when the recipient uses Android, Windows or Linux, or is somewhere else",
+        "facts": "Apps for iPhone, Android, Windows, macOS and Linux · MIT licence · device to device over a common Wi-Fi or a phone's hotspot, any file size · encrypted links hold up to 100 GB and last 24 hours in a browser · group rooms · no sign-up",
+        "body": "Install BIShare on both devices and they see one another over a common Wi-Fi or a phone's hotspot, with no visibility window to run out and no contact card to match. Files cross directly in either direction without touching the internet. For a recipient who is not close by, make a link: the files are sealed on your device before they upload, and the other person downloads them in a browser.",
+        "cons": "Close-range sending requires BIShare on each device, and a link needs a data connection on both sides."
+      },
+      "1": {
+        "name": "Quick Share with AirDrop",
+        "tag": "Best when the other device is a recent Android phone on Google's list",
+        "facts": "Part of Quick Share on Android phones Google lists, from Pixel and Galaxy to several Chinese brands · talks to iPhone, iPad and Mac · device to device, no server · Everyone mode only",
+        "body": "Nothing to install on either phone. The iPhone uses AirDrop as usual, and the Android phone uses Quick Share, which now understands the AirDrop protocol. It is the closest thing to AirDrop itself for an Android friend in the same room.",
+        "cons": "Only phones on Google's list take part, the iPhone has to allow Everyone for 10 Minutes, and it stops working once the devices are apart."
+      },
+      "2": {
+        "name": "iCloud link from Photos",
+        "tag": "Best for sharing photos with anyone when both of you have internet",
+        "facts": "Built into Photos with iCloud Photos turned on · opens in any browser, including Android and Windows · link expires after 30 days · uses your iCloud storage",
+        "body": "Pick photos or videos, open the share sheet and use Copy iCloud Link, then paste the link into any chat. The recipient opens it on whatever device they own and saves the originals. It suits a holiday album that several people want.",
+        "cons": "It only covers items in iCloud Photos, the upload counts against your iCloud storage, and the link stops working after 30 days."
+      },
+      "3": {
+        "name": "LocalSend",
+        "tag": "Best open-source option on a home or office network",
+        "facts": "iPhone, Android, Windows, macOS, Linux · Apache 2.0 · same local network · HTTPS, no account",
+        "body": "LocalSend lists every device where it is open on the local Wi-Fi and sends with a tap, with no server or account in between. It makes a good permanent replacement if you regularly move files between an iPhone and a Windows or Linux computer at home.",
+        "cons": "The app has to be on both devices, anything on a different network is out of reach, and routers that isolate devices can hide them from each other."
+      },
+      "4": {
+        "name": "USB cable",
+        "tag": "Best for a whole camera roll onto a computer",
+        "facts": "Photos app on a Mac, Apple Devices app on Windows · no network needed · full-resolution originals when they are stored on the iPhone",
+        "body": "Connect the iPhone, unlock it and trust the computer, then import from the Photos app on a Mac or through the Apple Devices app on Windows. For thousands of photos it is often faster and more predictable than any wireless route.",
+        "cons": "You need the right cable and the computer in front of you, and photos kept only in iCloud have to be downloaded to the iPhone first."
+      }
+    }
+  },
+  "table": {
+    "title": "At a glance",
+    "cols": {
+      "feature": "Feature",
+      "bishare": "BIShare",
+      "quickshare": "Quick Share with AirDrop",
+      "icloud": "iCloud link",
+      "localsend": "LocalSend",
+      "cable": "USB cable"
+    },
+    "rows": {
+      "r0": "Works with Android phones",
+      "r1": "Works with Windows PCs",
+      "r2": "Works when the recipient is far away",
+      "r3": "Works without internet",
+      "r4": "Nearby transfer keeps files off servers",
+      "r5": "No extra app on the iPhone"
+    },
+    "note": "As of September 2026. BIShare needs its app on both devices for nearby transfers; its links reach anyone far away but need internet. Quick Share with AirDrop only covers Android phones on Google's list. An iCloud link opens in any browser but uploads to iCloud. LocalSend needs its app on both sides and one local network. A cable to Windows needs the Apple Devices app on the PC, not the iPhone."
+  },
+  "security": {
+    "title": "Fixing AirDrop without opening yourself up",
+    "body": "Most fixes involve making a device more visible, so it is worth closing that door again when you are done.",
+    "items": {
+      "0": {
+        "h": "Let Everyone expire",
+        "b": "Everyone for 10 Minutes exists precisely so that an iPhone does not stay open to strangers. Use it for the transfer and let it lapse, and on a Mac switch back to Contacts Only yourself."
+      },
+      "1": {
+        "h": "Treat AirDrop codes as a feature",
+        "b": "The iOS 26.2 code step stops random people nearby from pushing files to you, even with Everyone selected. Only read out a code to someone you are actually trying to exchange files with."
+      },
+      "2": {
+        "h": "Decline what you did not expect",
+        "b": "Unknown senders show a preview and a name before anything is saved. Decline requests you did not ask for, and keep restrictions on children's devices even if it means an occasional failed AirDrop."
       }
     }
   },
   "faq": {
-    "title": "AirDrop problems, answered",
+    "title": "AirDrop not working: FAQ",
     "items": {
       "0": {
-        "q": "Why does AirDrop just say \"Waiting…\" forever?",
-        "a": "Usually receiving visibility (set Everyone for 10 Minutes), an active Personal Hotspot, or distance/sleep — work fixes 1–4 in order. If it survives all seven, the radios are confused: airplane-mode cycle and restart both devices."
+        "q": "Why is AirDrop not finding the other iPhone?",
+        "a": "Usually the receiver is set to Contacts Only while you are not in their contacts, or their Everyone for 10 Minutes setting has expired. Ask them to select it again in Control Center and keep their screen unlocked."
       },
       "1": {
-        "q": "Why can't I AirDrop to my Windows PC?",
-        "a": "Because AirDrop has never existed for Windows and never will — it's Apple-only by design. To move files iPhone → PC over Wi-Fi, use a cross-platform tool like BIShare: the PC can even receive in a browser with nothing installed."
+        "q": "Why does AirDrop say Waiting and never finish?",
+        "a": "The request has not been accepted. The receiving device may be locked, out of range or busy with Personal Hotspot. Unlock it, bring the devices within 10 metres, turn off Personal Hotspot and send again."
       },
       "2": {
-        "q": "Can I AirDrop from iPhone to Android?",
-        "a": "No — and Android's Quick Share can't reach an iPhone either; the two systems simply don't interoperate. A neutral app bridges the gap and sends full-quality files in either direction over local Wi-Fi."
+        "q": "Why is AirDrop asking me for a code?",
+        "a": "Since iOS 26.2, when the receiver chooses Everyone and you are not in their contacts, they tap Get AirDrop Code and tell you the six digits to enter. After that you can AirDrop each other for 30 days."
       },
       "3": {
-        "q": "Does AirDrop need a Wi-Fi network?",
-        "a": "AirDrop makes its own device-to-device link, so no router is required — but both radios must be on. BIShare works over any shared network instead, including one phone's hotspot, which also makes it work across platforms."
+        "q": "Why did AirDrop stop working after ten minutes?",
+        "a": "Since iOS 16.2, the Everyone for 10 Minutes setting reverts to Contacts Only after ten minutes if you are signed in to an Apple Account. Select it again to continue."
       },
       "4": {
-        "q": "Why is AirDrop so slow with big videos?",
-        "a": "Peer-to-peer radio is sensitive to distance, walls, and interference, so multi-gigabyte videos can crawl. Keep devices close, or transfer over your Wi-Fi router with a tool built for large files — a router hop at full Wi-Fi speed usually beats a struggling direct link."
+        "q": "Does AirDrop need Wi-Fi and internet?",
+        "a": "It needs Wi-Fi and Bluetooth switched on but no Wi-Fi network or internet. Only the iOS 17.1 option to finish a transfer out of range uses the internet."
+      },
+      "5": {
+        "q": "Why can't my Mac receive AirDrop?",
+        "a": "Check that the Mac is set to be discovered by Everyone or Contacts Only, that Bluetooth is on and that the firewall is not blocking all incoming connections. Opening an AirDrop window in the Finder helps confirm what it can see."
+      },
+      "6": {
+        "q": "Where do AirDropped files go?",
+        "a": "On iPhone and iPad, photos and videos go to the Photos app and other files open in a matching app. On a Mac, items are saved in their app or in the Downloads folder."
+      },
+      "7": {
+        "q": "Why is AirDrop missing from my iPhone?",
+        "a": "It has been switched off in Screen Time under Content and Privacy Restrictions, or by a management profile from an employer or school. Turning it back on requires changing that restriction."
+      },
+      "8": {
+        "q": "Can I AirDrop to an Android phone or Windows PC?",
+        "a": "Only to recent Android phones on Google's Quick Share list, and only while the iPhone allows Everyone for 10 Minutes. Windows PCs, Chromebooks, Linux and other Android phones need a different tool, such as BIShare."
+      },
+      "9": {
+        "q": "Is BIShare free?",
+        "a": "Yes. BIShare costs nothing, its code is published under the MIT licence, it asks for no account and it does not cap direct sending between devices in the same place."
       }
     }
   },
   "cta": {
-    "title": "Stop fighting the guest list",
-    "body": "BIShare sends to every device you own — free, encrypted, no account.",
+    "title": "For every device AirDrop cannot reach",
+    "body": "Free and open source. Send between iPhone, Android, Windows, Mac and Linux over your own network, or hand anyone an encrypted link.",
     "download": "Download BIShare"
   },
   "a11y": {
     "yes": "Yes",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "An iPhone and a Mac with a broken dashed AirDrop link between them and a checklist, titled AirDrop not working, find the cause first.",
+      "title": "AirDrop not working?",
+      "sub": "Find the cause first, then fix it",
+      "left": "iPhone",
+      "right": "Mac"
+    },
+    "symptoms": {
+      "alt": "AirDrop symptoms and their usual causes: the device never appears means visibility or distance; stuck on Waiting means the receiver is locked or out of range; a six-digit code means iOS 26.2 AirDrop codes; failed transfers mean Personal Hotspot, VPN or distance; missing files are in Photos or Downloads; a missing AirDrop button means a Screen Time or management restriction.",
+      "title": "What you see, and what it means",
+      "sub": "Match the symptom before changing settings",
+      "s0": "Device never appears",
+      "c0": "Visibility setting or distance",
+      "s1": "Stuck on Waiting",
+      "c1": "Receiver locked or out of range",
+      "s2": "Asks for a 6-digit code",
+      "c2": "iOS 26.2 AirDrop code, not a bug",
+      "s3": "Starts, then fails",
+      "c3": "Hotspot, VPN or distance",
+      "s4": "Files cannot be found",
+      "c4": "Look in Photos or Downloads",
+      "s5": "No AirDrop button",
+      "c5": "Screen Time or device management"
+    },
+    "needs": {
+      "alt": "What AirDrop needs according to Apple: Wi-Fi and Bluetooth on, devices within 10 metres, Personal Hotspot off, the receiver on Contacts Only with your details saved or on Everyone, and a restart if everything else checks out.",
+      "title": "What AirDrop needs",
+      "sub": "Apple's checklist, in the order worth checking",
+      "n0": "Wi-Fi and Bluetooth on",
+      "n1": "Within 10 m",
+      "n2": "Hotspot off",
+      "n3": "Right receive setting",
+      "n4": "Restart both",
+      "foot": "Control Center Wi-Fi and Bluetooth off still allows AirDrop"
+    },
+    "timeline": {
+      "alt": "Timeline of AirDrop changes: November 2022 iOS 16.1.1 limits Everyone to 10 minutes in China; December 2022 iOS 16.2 applies it worldwide; September 2023 iOS 17 adds bringing iPhones together; October 2023 iOS 17.1 lets transfers finish over the internet; November 2025 Quick Share on Pixel 10 talks to AirDrop; December 2025 iOS 26.2 adds AirDrop codes.",
+      "title": "AirDrop changes that look like bugs",
+      "sub": "Deliberate changes behind many failed transfers",
+      "e0y": "Nov 2022",
+      "e0": "Everyone limited to 10 min in China",
+      "e1y": "Dec 2022",
+      "e1": "10-minute limit worldwide",
+      "e2y": "Sep 2023",
+      "e2": "Hold iPhones together to share",
+      "e3y": "Oct 2023",
+      "e3": "Finish transfers over the internet",
+      "e4y": "Nov 2025",
+      "e4": "Some Android phones join in",
+      "e5y": "Dec 2025",
+      "e5": "AirDrop codes for non-contacts"
+    }
   }
 }
