@@ -1,84 +1,369 @@
 {
   "meta": {
-    "title": "Transferência de arquivos criptografada, segura e grátis",
-    "description": "Envie arquivos com criptografia de ponta a ponta: o BIShare criptografa no navegador antes do upload e a chave fica no link. Até 100 GB, sem conta.",
-    "ogTitle": "Transferência de arquivos criptografada — de ponta a ponta, no seu navegador"
+    "title": "Transferência criptografada de arquivos: 7 formas seguras",
+    "description": "Em trânsito, em repouso ou de ponta a ponta? Como saber o que um serviço criptografa de verdade, o que ele ainda vê e sete formas de enviar em privado."
   },
   "hero": {
     "eyebrow": "Transferência de arquivos criptografada",
-    "title": "Transferência de arquivos criptografada de ponta a ponta",
-    "body": "A maioria das ferramentas de transferência \"segura\" criptografa seu arquivo <strong>nos servidores delas</strong> — o que significa que elas ficam com as chaves. O BIShare criptografa o arquivo <strong>no seu navegador antes do upload</strong>, e a chave viaja no link, sem nunca tocar nossos servidores. Só armazenamos texto cifrado que não conseguimos ler. <highlight>Criptografado de ponta a ponta, sem conta, grátis.</highlight>",
+    "title": "Transferência de arquivos criptografada, bem explicada",
+    "body": "Quase todo serviço de envio de arquivos diz hoje que é criptografado, e quase todos falam a verdade sobre alguma coisa. A questão é sobre o quê. Um link pode estar protegido por HTTPS até o servidor, ficar criptografado num disco que o provedor consegue abrir ou ser trancado no seu aparelho com uma chave que o provedor nunca vê. Só a última opção mantém longe do seu arquivo a própria empresa, quem a invadir e quem puder obrigá-la a entregar. Este guia separa os três tipos de criptografia, dá um teste para diferenciá-los em qualquer serviço em um minuto, classifica sete formas de enviar um arquivo que o intermediário não consegue ler e é honesto sobre o que a criptografia não esconde, inclusive no nosso produto. O nosso <strong>BIShare</strong> está entre os sete: <strong>gratuito e com licença MIT, criptografa links no navegador com AES-256-GCM e envia de aparelho a aparelho com chaves combinadas entre os dois aparelhos</strong>. <highlight>Sem conta.</highlight>",
     "ctaPrimary": "Baixe o BIShare grátis",
     "ctaSecondary": "Como funciona"
   },
-  "why": {
-    "title": "Criptografado em trânsito não é o mesmo que ponta a ponta",
-    "body": "Muitos serviços dizem \"criptografado\", mas querem dizer criptografado <strong>do lado deles</strong> — eles ainda podem ler seus arquivos, e qualquer um que os invada também. Criptografia de ponta a ponta significa que só quem envia e quem recebe têm a chave. Com o BIShare, a chave é gerada no seu navegador e fica no #fragment do link, que nunca é enviado em nenhuma requisição — então o servidor armazena bytes que, de fato, não consegue descriptografar."
+  "updated": "Atualizado em setembro de 2026 · detalhes de criptografia da página de segurança, da documentação ou do código de cada projeto, conferidos em 14 de setembro de 2026",
+  "disclosure": "O BIShare é nosso produto, então leve isso em conta na classificação. O código de criptografia dele é público, e esta página diz o que ele não protege com a mesma clareza que diz dos outros.",
+  "quick": {
+    "title": "Resposta rápida",
+    "items": [
+      "<strong>Procure ponta a ponta, não só \"criptografado\":</strong> HTTPS e criptografia em repouso ainda deixam o provedor abrir seu arquivo. Ponta a ponta significa que só quem envia e quem recebe têm a chave.",
+      "<strong>Um teste de um minuto:</strong> se o serviço mostra uma prévia do seu arquivo no app web ou recupera o acesso quando você perde o link, ele não é de ponta a ponta.",
+      "<strong>O mais fácil pelo navegador:</strong> BIShare ou Wormhole criptografam antes do upload e colocam a chave no link, então quem recebe só precisa clicar.",
+      "<strong>Arquivos que precisam ficar no ar por semanas:</strong> o Proton Drive guarda arquivos criptografados de ponta a ponta na sua conta e compartilha por link com senha opcional.",
+      "<strong>Você também precisa esconder quem envia:</strong> o OnionShare serve o arquivo do seu próprio computador pela rede Tor.",
+      "<strong>Qualquer canal, até e-mail comum:</strong> coloque o arquivo num arquivo 7-Zip com AES-256 e uma senha forte, e mande a senha por outro caminho."
+    ]
   },
-  "how": {
-    "title": "Como o BIShare criptografa sua transferência",
+  "levels": {
+    "title": "Três tipos de criptografia por trás de uma palavra",
+    "body": "Quando um serviço diz que seus arquivos são criptografados, normalmente quer dizer uma de três coisas diferentes. Cada uma protege contra pessoas diferentes.",
     "items": {
       "0": {
-        "h": "Criptografado antes do upload",
-        "b": "Ative a criptografia de ponta a ponta e o arquivo é criptografado no seu navegador com AES-256-GCM. Só o texto cifrado é enviado — em blocos e por streaming, para que até arquivos de vários gigabytes nunca fiquem retidos na memória."
+        "h": "Criptografia em trânsito",
+        "b": "A conexão entre seu navegador ou app e o servidor é protegida por TLS, o cadeado na barra de endereço. Ela impede que alguém no Wi-Fi do café ou no seu provedor de internet leia o upload. Não adianta nada quando o arquivo chega, porque o servidor descriptografa a conexão para recebê-lo. Todo serviço sério faz isso, então é o mínimo, não um diferencial."
       },
       "1": {
-        "h": "A chave fica com você",
-        "b": "A chave de descriptografia é colocada no fragmento do link (#), que os navegadores nunca transmitem a um servidor. Compartilhe o link e o navegador de quem recebe descriptografa localmente. Perdeu o link, e nem nós conseguimos recuperar o arquivo."
+        "h": "Criptografia em repouso",
+        "b": "O provedor criptografa o arquivo nos próprios discos, para que um disco roubado ou um backup descuidado não vaze. Mas o provedor guarda as chaves e descriptografa o arquivo sempre que os sistemas precisam: prévias, antivírus, busca ou pedido judicial. Funcionários com acesso suficiente, um invasor dentro da rede ou uma ordem judicial chegam ao arquivo legível."
       },
       "2": {
-        "h": "Ou nunca faça upload",
-        "b": "Na mesma rede, o BIShare envia arquivos direto entre os dispositivos por um canal criptografado — o arquivo nunca chega à nuvem, então não há nada para interceptar ou armazenar."
+        "h": "Criptografia de ponta a ponta",
+        "b": "O arquivo é criptografado no aparelho de quem envia antes de sair, e só o aparelho de quem recebe consegue descriptografar. O serviço guarda ou repassa bytes ilegíveis e nunca tem a chave. Se a empresa for invadida ou obrigada a entregar arquivos, não tem nada legível para dar. É o único tipo que protege você do próprio intermediário."
+      },
+      "3": {
+        "h": "Por que o marketing mistura tudo",
+        "b": "Expressões como nível bancário, grau militar ou 256 bits descrevem a força de um algoritmo, não quem tem a chave. Um serviço pode usar AES-256 em repouso e ainda assim ler todos os arquivos. A pergunta honesta é sempre onde está a chave."
       }
     }
   },
-  "comparison": {
-    "title": "Transferência na nuvem vs ZIP com senha vs BIShare",
+  "test": {
+    "title": "Como saber se um serviço é mesmo de ponta a ponta",
+    "body": "Não é preciso ler código para ter uma boa resposta. Estas verificações levam um minuto em qualquer site de envio.",
+    "items": {
+      "0": {
+        "h": "Ele consegue mostrar uma prévia?",
+        "b": "Se o app web do provedor mostra a miniatura da sua foto ou a primeira página do seu PDF, os servidores dele conseguem ler o arquivo. Serviços de ponta a ponta descriptografam as prévias no seu navegador ou não mostram nenhuma."
+      },
+      "1": {
+        "h": "Ele consegue recuperar o acesso para você?",
+        "b": "Se você perde o link ou esquece a senha e o suporte consegue devolver o arquivo, o provedor tem uma chave. Com ponta a ponta de verdade, chave perdida é arquivo perdido, e bons serviços dizem isso com todas as letras."
+      },
+      "2": {
+        "h": "Onde fica a chave no link?",
+        "b": "Muitos serviços de link de ponta a ponta colocam a chave depois de um # na URL. Os navegadores nunca enviam essa parte ao servidor, então o serviço guarda o arquivo sem meios de abri-lo. Um link sem fragmento e sem senha separada geralmente significa que o servidor consegue descriptografar."
+      },
+      "3": {
+        "h": "A página de segurança nomeia o desenho?",
+        "b": "Um serviço confiável nomeia os algoritmos, explica onde as chaves são criadas e publica código ou auditoria. Promessas vagas sem uma palavra sobre chaves são sinal de alerta."
+      },
+      "4": {
+        "h": "O que ele diz sobre metadados?",
+        "b": "Mesmo serviços de ponta a ponta sólidos costumam ver nomes de arquivo, tamanhos, endereços IP e horários. Um provedor franco sobre isso merece mais confiança do que um que promete não ver absolutamente nada."
+      }
+    }
+  },
+  "methods": {
+    "title": "Sete formas de enviar um arquivo criptografado de ponta a ponta, classificadas",
+    "body": "Todas as opções abaixo deixam o arquivo ilegível para o serviço no meio do caminho. Elas diferem em quem precisa instalar o quê, por quanto tempo o arquivo fica disponível e o que mais protegem.",
+    "consLabel": "Atenção:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Melhor no geral: links criptografados no navegador e envios diretos entre aparelhos",
+        "facts": "Navegador em bishare.app, apps para Android, iPhone, Windows, macOS, Linux · MIT · links: AES-256-GCM no navegador, chave depois de #k= na URL, até 100 GB por 24 horas · direto: acordo de chaves X25519, HKDF-SHA256, AES-256-GCM · sem conta",
+        "body": "O BIShare cobre os dois jeitos de enviar arquivos. Para um link, o navegador ou app gera uma chave aleatória de 256 bits, criptografa o arquivo em blocos de 1 MiB com AES-GCM, sobe só texto cifrado e coloca a chave no fragmento do link, que nunca chega ao servidor. Para aparelhos próximos, os apps combinam uma chave com X25519, derivam com HKDF-SHA256 e criptografam cada bloco com AES-256-GCM, e cada aparelho mostra uma impressão digital curta para comparar. A criptografia está numa biblioteca Rust pública.",
+        "cons": "Nomes e tamanhos de arquivos enviados por link ficam visíveis ao servidor, o código do protocolo ainda não passou por auditoria externa formal e os links expiram em 24 horas."
+      },
+      "1": {
+        "name": "Wormhole",
+        "tag": "Melhor link criptografado rápido em qualquer navegador",
+        "facts": "Navegador · grátis · até 10 GB · AES-GCM com chaves de 128 bits baseado na RFC 8188, criptografado antes do upload · arquivos de até 5 GB guardados 24 horas, maiores ponto a ponto · biblioteca de criptografia de código aberto",
+        "body": "O Wormhole criptografa no navegador antes de qualquer coisa sair, então os servidores guardam texto cifrado por no máximo um dia. É rápido de usar num computador emprestado e não exige instalar nada em nenhum lado. O FAQ detalha o esquema e publica a biblioteca de criptografia em streaming, mas não o serviço inteiro.",
+        "cons": "O código completo de cliente e servidor não é publicado, o teto é 10 GB e envios acima de 5 GB exigem sua aba aberta."
+      },
+      "2": {
+        "name": "Proton Drive",
+        "tag": "Melhor para arquivos que precisam continuar disponíveis por semanas",
+        "facts": "Web, Windows, macOS, Android, iOS · armazenamento criptografado de ponta a ponta · plano grátis com 5 GB · links com senha e validade opcionais · destinatário não precisa de conta · apps de código aberto e auditados",
+        "body": "O Proton Drive é armazenamento na nuvem baseado em criptografia de ponta a ponta, da empresa por trás do Proton Mail. Suba uma vez, crie um link e acrescente senha ou data de validade; o destinatário abre no navegador sem se cadastrar. Como os arquivos ficam na sua conta, você os mantém pelo tempo que quiser em vez de correr contra um relógio de 24 horas.",
+        "cons": "É preciso conta Proton, os 5 GB do plano grátis são divididos com tudo o que você guarda, e o serviço é feito para armazenamento, não para envios rápidos avulsos."
+      },
+      "3": {
+        "name": "OnionShare",
+        "tag": "Melhor quando você também precisa de anonimato",
+        "facts": "Windows, macOS, Linux · código aberto · roda um servidor web no seu computador como serviço onion do Tor · endereço mais chave privada · nenhum servidor de terceiros guarda o arquivo",
+        "body": "O OnionShare transforma seu próprio computador num site privado e temporário acessível só pelo Tor. Você envia o endereço onion e a chave privada; o destinatário cola os dois no Tor Browser e baixa o arquivo direto da sua máquina. Nenhuma empresa guarda o arquivo, e o Tor esconde de onde cada lado se conecta.",
+        "cons": "Seu computador precisa ficar ligado e conectado até o download terminar, o destinatário precisa do Tor Browser e o Tor é mais lento que uma conexão direta."
+      },
+      "4": {
+        "name": "magic-wormhole",
+        "tag": "Melhor para usuários técnicos que movem arquivos entre computadores",
+        "facts": "Linha de comando no macOS, Linux, Windows · MIT · códigos curtos de uso único · criptografia de ponta a ponta com troca de chaves autenticada por senha · servidor mailbox mais relay de trânsito · qualquer tamanho, arquivos e pastas",
+        "body": "Digite wormhole send e o nome do arquivo, leia o código curto que aparece, e a outra pessoa digita wormhole receive e o código. As duas máquinas usam esse código para combinar uma chave, então o relay no meio só carrega dados criptografados. Ele lida com arquivos e diretórios de qualquer tamanho e é muito usado para mover dados entre servidores.",
+        "cons": "Os dois lados precisam da ferramenta instalada e de um terminal, e ela não foi feita para enviar a pessoas leigas."
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "Melhor para aparelhos na mesma rede, sem internet",
+        "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS entre aparelhos com certificado por aparelho · só rede local · sem servidor",
+        "body": "Quando quem envia e quem recebe estão no mesmo Wi-Fi, o LocalSend move os arquivos direto entre os aparelhos por HTTPS criptografado, sem servidor no meio. Nada é enviado para lugar nenhum, então a pergunta sobre o que um provedor consegue ler nem aparece.",
+        "cons": "Só alcança aparelhos da mesma rede local, e todo aparelho precisa do app."
+      },
+      "6": {
+        "name": "Arquivo 7-Zip com AES-256",
+        "tag": "Melhor quando você precisa usar e-mail ou um canal em que não confia",
+        "facts": "7-Zip grátis para Windows, com ferramentas compatíveis no macOS e Linux · formato 7z com AES-256 e senha · funciona com qualquer transporte, do e-mail ao pen drive",
+        "body": "Criptografar o próprio arquivo torna o transporte irrelevante. Crie um arquivo 7z no 7-Zip, escolha AES-256 e uma frase-senha longa, e mande o arquivo por e-mail, nuvem ou o que for. Envie a frase-senha separadamente, por telefone ou mensageiro criptografado. É o método mais antigo da lista e continua um dos mais confiáveis.",
+        "cons": "Toda a segurança depende da frase-senha, o destinatário precisa de um programa que abra 7z, e você mesmo precisa passar a frase-senha com segurança."
+      }
+    }
+  },
+  "table": {
+    "title": "Resumo",
     "cols": {
-      "airdrop": "Transferência na nuvem",
-      "quick": "ZIP com senha",
-      "bishare": "BIShare"
+      "feature": "Recurso",
+      "bishare": "BIShare",
+      "wormhole": "Wormhole",
+      "protondrive": "Proton Drive",
+      "onionshare": "OnionShare",
+      "magicwormhole": "magic-wormhole",
+      "sevenzip": "Arquivo 7-Zip"
     },
     "rows": {
-      "r0": "Criptografia de ponta a ponta",
-      "r1": "A chave nunca chega ao servidor",
-      "r2": "Sem precisar de conta",
-      "r3": "Funciona offline, dispositivo a dispositivo",
-      "r4": "Grátis para usar"
+      "r0": "O serviço não consegue ler o arquivo",
+      "r1": "Quem recebe não instala nada",
+      "r2": "Quem envia pode sair depois de enviar",
+      "r3": "Lida com arquivos acima de 10 GB",
+      "r4": "Esconde quem envia",
+      "r5": "Cliente de código aberto"
+    },
+    "note": "Em setembro de 2026. Quem recebe um link do BIShare só precisa de navegador; enviar de aparelho a aparelho exige o app nas duas pontas. O Wormhole guarda arquivos de até 5 GB por 24 horas e transmite os maiores de navegador a navegador até 10 GB, e publica a biblioteca de criptografia em vez do cliente completo. O plano grátis do Proton Drive tem 5 GB de armazenamento. Quem recebe pelo OnionShare precisa do Tor Browser. O magic-wormhole exige a ferramenta de linha de comando nas duas máquinas. Um arquivo 7-Zip é tão forte quanto a frase-senha, e o destinatário precisa de uma ferramenta que abra arquivos 7z."
+  },
+  "metadata": {
+    "title": "O que a criptografia não esconde",
+    "body": "A criptografia de ponta a ponta protege o conteúdo de um arquivo. Várias outras coisas costumam continuar visíveis, e vale saber quais.",
+    "items": {
+      "0": {
+        "h": "Nomes e tamanhos de arquivo",
+        "b": "Muitos serviços precisam de nome e tamanho para mostrar uma página de download. Os uploads por link do BIShare, por exemplo, mandam ao servidor o nome, o tamanho e o tipo sem criptografia, enquanto o conteúdo continua criptografado. Se o próprio nome for sensível, renomeie o arquivo ou coloque-o antes num arquivo criptografado."
+      },
+      "1": {
+        "h": "Quem se conectou e quando",
+        "b": "O servidor vê os endereços IP de quem envia e de quem recebe, e quando fizeram upload e download. Só uma rede como o Tor, usada pelo OnionShare, esconde isso do serviço."
+      },
+      "2": {
+        "h": "O link é a chave",
+        "b": "Quando a chave vai no link, qualquer pessoa que pegar o link completo abre o arquivo. Basta um e-mail encaminhado, um backup de conversa ou uma tela compartilhada. Validade, download único e senha separada diminuem essa janela."
+      },
+      "3": {
+        "h": "O que acontece depois do download",
+        "b": "Depois de descriptografado, o arquivo vira dado comum no aparelho de quem recebe. Se as fotos dele sincronizam com uma nuvem ou o notebook não é criptografado, a proteção que você escolheu termina ali."
+      }
+    }
+  },
+  "bishare": {
+    "title": "Como o BIShare criptografa, em detalhes",
+    "body": "Já que pedimos que você confie no nosso código, aqui está exatamente o que ele faz, com os limites. A criptografia está nos repositórios públicos bishare-protocol e bishare-web.",
+    "items": {
+      "0": {
+        "h": "Links pelo navegador ou pelo app",
+        "b": "Para cada arquivo é gerada no seu aparelho uma chave aleatória nova de 256 bits. O arquivo é dividido em blocos de 1 MiB e cada um é selado com AES-GCM usando um nonce feito de um salt por arquivo e do número do bloco, que também entra como dado autenticado. Blocos reordenados, removidos ou truncados não descriptografam. A chave vai codificada depois de #k= no link, uma parte da URL que os navegadores guardam para si."
+      },
+      "1": {
+        "h": "Envios diretos entre aparelhos",
+        "b": "Os dois apps fazem um acordo de chaves X25519, passam o segredo compartilhado pelo HKDF-SHA256 para obter uma chave de 32 bytes e criptografam o arquivo em blocos com AES-256-GCM, cada um com seu nonce derivado. Cada aparelho tem uma impressão digital, os oito primeiros bytes do SHA-256 da chave pública, mostrada em hexadecimal para você conferir que está falando com o aparelho certo."
+      },
+      "2": {
+        "h": "O que o servidor guarda e vê",
+        "b": "Nos links, o servidor guarda o texto cifrado mais o nome, tamanho e tipo do arquivo enviado, e apaga tudo depois de um dia ou, no download único, assim que o arquivo é baixado. Nos envios diretos pela mesma rede, nada passa pelos nossos servidores."
+      },
+      "3": {
+        "h": "O que ainda não foi feito",
+        "b": "O protocolo é coberto por testes unitários, incluindo vetores de teste entre plataformas, mas ainda não passou por auditoria de segurança externa formal. Relatos de vulnerabilidade vão para security@billiongroup.net."
+      }
+    }
+  },
+  "password": {
+    "title": "Compartilhando a chave, o link ou a senha com segurança",
+    "body": "Criptografia forte falha se o segredo viaja junto com o arquivo. Alguns hábitos fecham essa brecha.",
+    "items": {
+      "0": {
+        "h": "Use um segundo canal",
+        "b": "Mande o arquivo por e-mail e a senha por SMS, ou compartilhe o link num chat e leia o código numa ligação. Quem comprometer um canal continua sem a outra metade."
+      },
+      "1": {
+        "h": "Encurte a janela",
+        "b": "Escolha a validade mais curta que funcione, e download único quando só uma pessoa precisa do arquivo. Um link que parou de funcionar ontem não vaza amanhã."
+      },
+      "2": {
+        "h": "Evite grupos e chamados",
+        "b": "Links com chave colados em grupos, chamados de suporte ou documentos compartilhados acabam copiados em lugares que você não controla, muitas vezes para sempre. Mande de pessoa para pessoa."
+      },
+      "3": {
+        "h": "Pessoalmente, use QR code",
+        "b": "Quando quem recebe está na sala, escanear um QR code passa o link sem que ele seja digitado, colado ou registrado num serviço de mensagens."
+      }
+    }
+  },
+  "choose": {
+    "title": "Qual método para cada situação",
+    "body": "Escolha pelo que é o arquivo, quem recebe e por quanto tempo ele precisa ficar disponível.",
+    "items": {
+      "0": {
+        "h": "Um contrato, documento de identidade ou laudo médico para uma pessoa",
+        "b": "Um link do BIShare ou do Wormhole com download único ou validade curta, enviado por um chat privado."
+      },
+      "1": {
+        "h": "Documentos de que um cliente vai precisar por semanas",
+        "b": "Proton Drive, com senha no link e uma validade que você pode estender."
+      },
+      "2": {
+        "h": "Material de uma fonte que precisa continuar anônima",
+        "b": "OnionShare, com endereço e chave privada trocados por um mensageiro criptografado."
+      },
+      "3": {
+        "h": "Pastas grandes entre seus próprios aparelhos",
+        "b": "Um envio direto com BIShare ou LocalSend na mesma rede, para que nada seja enviado a lugar nenhum."
+      },
+      "4": {
+        "h": "Dados entre servidores ou terminais",
+        "b": "magic-wormhole, que move diretórios de qualquer tamanho com um código curto."
+      },
+      "5": {
+        "h": "Só e-mail é permitido",
+        "b": "Um arquivo 7-Zip com AES-256 anexado ao e-mail, e a frase-senha por outro caminho."
+      }
+    }
+  },
+  "mistakes": {
+    "title": "Erros comuns que anulam a criptografia",
+    "body": "A maioria dos vazamentos de arquivos criptografados não quebra o algoritmo. Eles passam por fora.",
+    "items": {
+      "0": {
+        "h": "Senha na mesma mensagem",
+        "b": "Um arquivo e sua frase-senha no mesmo e-mail são tão legíveis quanto o arquivo sozinho. Separe sempre."
+      },
+      "1": {
+        "h": "Frases-senha fracas ou repetidas",
+        "b": "Criptografia baseada em senha é tão forte quanto a senha. Use uma frase longa e aleatória de um gerenciador de senhas, e nunca uma que você usa em outro lugar."
+      },
+      "2": {
+        "h": "Confiar em criptografia em repouso para arquivos sensíveis",
+        "b": "Um serviço que só criptografa nos próprios discos ainda consegue ler, escanear e entregar seu arquivo. Para qualquer coisa sensível, exija ponta a ponta."
+      },
+      "3": {
+        "h": "Esquecer as cópias",
+        "b": "Downloads descriptografados, rascunhos de e-mail, capturas de tela e backups automáticos de fotos criam cópias legíveis. Apague nas duas pontas o que não precisa mais."
+      }
     }
   },
   "faq": {
     "title": "Transferência de arquivos criptografada: perguntas frequentes",
     "items": {
       "0": {
-        "q": "O que é transferência de arquivos com criptografia de ponta a ponta?",
-        "a": "Significa que o arquivo é criptografado antes de sair do seu dispositivo e só pode ser descriptografado por quem recebe — o serviço que o move não consegue lê-lo. O BIShare faz isso criptografando no seu navegador e mantendo a chave fora do alcance do servidor."
+        "q": "O que é transferência de arquivos criptografada?",
+        "a": "Mover um arquivo de modo que ninguém que o intercepte consiga lê-lo. A versão mais forte é a de ponta a ponta: o arquivo é trancado antes de sair de quem envia, e só quem recebe consegue abri-lo."
       },
       "1": {
-        "q": "Qual a diferença em relação a um ZIP protegido por senha?",
-        "a": "Um ZIP com senha ainda depende de você compartilhar uma senha por outro canal, e o arquivo é tão forte quanto essa senha. O BIShare usa uma chave aleatória de força total e a transporta no fragmento do link, então não há senha fraca nem nada para o servidor ver."
+        "q": "Qual a diferença entre criptografia em trânsito e de ponta a ponta?",
+        "a": "A criptografia em trânsito protege a conexão até o servidor, mas o servidor descriptografa e consegue ler o arquivo. A de ponta a ponta mantém o arquivo criptografado até chegar ao destinatário, então o servidor nunca consegue."
       },
       "2": {
-        "q": "O servidor chega a ver meu arquivo?",
-        "a": "Nas transferências criptografadas, apenas texto cifrado — a chave nunca chega até nós, então não conseguimos descriptografá-lo. Nas transferências entre dispositivos por perto, o arquivo nunca passa pelos nossos servidores."
+        "q": "O WeTransfer tem criptografia de ponta a ponta?",
+        "a": "O WeTransfer descreve criptografia em trânsito e em repouso, o que significa que seus sistemas conseguem descriptografar os arquivos guardados. Para ponta a ponta pelo navegador, use um serviço como BIShare, Wormhole ou Proton Drive."
       },
       "3": {
-        "q": "Preciso de conta para enviar com segurança?",
-        "a": "Não. A criptografia é integrada e grátis, sem cadastro. Você compartilha um link ou código, e quem recebe abre em qualquer navegador."
+        "q": "Como envio um arquivo criptografado por e-mail?",
+        "a": "Coloque o arquivo num arquivo 7-Zip com AES-256 e uma frase-senha forte, anexe e mande a frase-senha por outro canal, como uma ligação ou um mensageiro criptografado."
       },
       "4": {
-        "q": "Posso enviar arquivos grandes criptografados?",
-        "a": "Sim. A criptografia funciona por streaming em blocos, então você pode enviar arquivos grandes — até 100 GB grátis por um link criptografado, e sem limite de tamanho para transferências por perto na sua própria rede Wi-Fi."
+        "q": "Qual é o jeito mais seguro de enviar um arquivo grande?",
+        "a": "Um envio direto criptografado de ponta a ponta entre os dois aparelhos, como o BIShare na mesma rede, não guarda o arquivo em lugar nenhum. Para quem está longe, a melhor opção seguinte é um link de ponta a ponta que expira depois de um download."
+      },
+      "5": {
+        "q": "A criptografia de ponta a ponta esconde o nome do arquivo?",
+        "a": "Nem sempre. Muitos serviços, incluindo os links do BIShare, veem nomes e tamanhos mesmo com o conteúdo criptografado. Renomeie o arquivo ou coloque-o num arquivo criptografado se o nome for sensível."
+      },
+      "6": {
+        "q": "AES-128 é mais fraco que AES-256 para enviar arquivos?",
+        "a": "Os dois são considerados seguros contra ataques práticos hoje. O que importa mais é que a chave seja criada e fique nos aparelhos de quem envia e de quem recebe, e não no serviço."
+      },
+      "7": {
+        "q": "O provedor consegue ler meus arquivos se eles estão criptografados?",
+        "a": "Com criptografia em trânsito ou em repouso, sim, porque o provedor tem as chaves. Com criptografia de ponta a ponta, não, porque a chave nunca sai dos aparelhos de quem envia e de quem recebe."
+      },
+      "8": {
+        "q": "O BIShare tem criptografia de ponta a ponta?",
+        "a": "Sim. Os links são criptografados no navegador ou no app com AES-256-GCM e a chave fica no fragmento do link, e os envios diretos usam chaves combinadas entre os dois aparelhos. O servidor vê nomes e tamanhos dos uploads por link, e o protocolo ainda não teve auditoria externa."
+      },
+      "9": {
+        "q": "O BIShare é gratuito?",
+        "a": "Sim. Não custa nada, o código é publicado sob MIT e ele funciona sem cadastro nem anúncios."
       }
     }
   },
   "cta": {
-    "title": "Envie seu próximo arquivo criptografado de ponta a ponta",
-    "body": "Criptografia de verdade, sem conta, sem custo. Pegue o BIShare para o seu celular ou computador — quem recebe só precisa de um navegador.",
+    "title": "Envie arquivos que só o destinatário consegue abrir",
+    "body": "Gratuito e de código aberto. Criptografe um link no navegador, ou envie direto entre seus aparelhos com chaves que nunca saem deles.",
     "download": "Baixar o BIShare"
   },
   "a11y": {
     "yes": "Sim",
     "no": "Não"
+  },
+  "art": {
+    "hero": {
+      "alt": "Um arquivo com cadeado viaja de um notebook para um celular passando por um servidor que só vê dados ilegíveis, com o título transferência de arquivos criptografada, bem explicada.",
+      "title": "Transferência criptografada, explicada",
+      "sub": "Em trânsito, em repouso ou de ponta a ponta, e como diferenciar",
+      "left": "Remetente",
+      "right": "Destinatário",
+      "server": "Servidor"
+    },
+    "levels": {
+      "alt": "Quem consegue ler seu arquivo em cada tipo de criptografia: em trânsito, a rede não consegue mas o servidor sim; em repouso, um disco roubado não revela nada mas o provedor consegue ler; de ponta a ponta, nem a rede nem o provedor conseguem, só remetente e destinatário.",
+      "title": "Quem consegue ler seu arquivo?",
+      "sub": "Três tipos de criptografia comparados",
+      "colNet": "Espião na rede",
+      "colDisk": "Disco roubado",
+      "colProvider": "O provedor",
+      "colEnds": "Remetente e destinatário",
+      "r0": "Em trânsito (TLS)",
+      "r1": "Em repouso",
+      "r2": "Ponta a ponta",
+      "can": "Consegue ler",
+      "cannot": "Não consegue"
+    },
+    "fragment": {
+      "alt": "Como um link de ponta a ponta mantém a chave longe do servidor: o link tem uma parte de endereço enviada ao servidor e um fragmento depois do sinal # com a chave, que o navegador nunca envia, então o servidor só guarda dados criptografados.",
+      "title": "Por que a chave depois do # nunca chega ao servidor",
+      "sub": "Anatomia de um link criptografado de ponta a ponta",
+      "sent": "Enviado ao servidor",
+      "kept": "Fica no navegador",
+      "keyLabel": "Chave de descriptografia",
+      "stored": "O servidor guarda só texto cifrado",
+      "warn": "Quem tiver o link completo abre o arquivo"
+    },
+    "visible": {
+      "alt": "O que a criptografia de ponta a ponta esconde e o que continua visível: o conteúdo do arquivo fica escondido, enquanto nome e tamanho, endereços IP, horários e o próprio link podem continuar visíveis dependendo do serviço.",
+      "title": "O que a ponta a ponta esconde",
+      "sub": "O conteúdo vai selado; alguns metadados, em geral, não",
+      "hidden": "Escondido",
+      "shown": "Muitas vezes visível",
+      "h0": "Conteúdo do arquivo",
+      "s0": "Nome e tamanho do arquivo",
+      "s1": "Endereços IP",
+      "s2": "Horários de upload e download",
+      "s3": "Quem tiver o link completo"
+    }
   }
 }

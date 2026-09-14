@@ -1,84 +1,369 @@
 {
   "meta": {
-    "title": "Encrypted File Transfer: Send Files Securely for Free",
-    "description": "Send files with end-to-end encryption. BIShare encrypts in your browser before upload and keeps the key in the link, so the server cannot read the file. Up to 100 GB, no account.",
-    "ogTitle": "Encrypted file transfer — end-to-end, in your browser"
+    "title": "Encrypted File Transfer: 7 Ways to Send Files Truly Encrypted",
+    "description": "In transit, at rest or end to end? How to tell what a file transfer service really encrypts, what it still sees, and seven ways to send a file privately."
   },
   "hero": {
     "eyebrow": "Encrypted file transfer",
-    "title": "Encrypted file transfer, end to end",
-    "body": "Most \"secure\" transfer tools encrypt your file <strong>on their servers</strong> — which means they hold the keys. BIShare encrypts the file <strong>in your browser before it uploads</strong>, and the key rides in the link, never touching our servers. We only ever store ciphertext we can't read. <highlight>End-to-end encrypted, no account, free.</highlight>",
+    "title": "Encrypted file transfer, explained properly",
+    "body": "Almost every file transfer service now calls itself encrypted, and almost all of them are telling the truth about something. The question is what. A link can be protected by HTTPS on the way to the server, sit encrypted on a disk the provider can unlock, or be locked on your device with a key the provider never sees. Only the last one keeps the company itself, anyone who breaches it, and anyone who can compel it out of your file. This guide separates the three kinds of encryption, gives you a test to tell them apart on any service in a minute, ranks seven ways to send a file that the carrier cannot read, and is honest about what encryption does not hide, including on our own product. Our own <strong>BIShare</strong> is among the seven: <strong>free and MIT-licensed, it encrypts links in your browser with AES-256-GCM and sends device to device with keys agreed between the two devices</strong>. <highlight>No account needed.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
-  "why": {
-    "title": "Encrypted in transit isn't the same as end-to-end",
-    "body": "Plenty of services say \"encrypted\" but mean encrypted <strong>on their side</strong> — they can still read your files, and so can anyone who breaches them. End-to-end encryption means only the sender and recipient hold the key. With BIShare the key is generated in your browser and lives in the link's #fragment, which is never sent in any request — so the server stores bytes it genuinely cannot decrypt."
+  "updated": "Updated September 2026 · encryption details from each project's own security page, documentation or source code, checked 14 September 2026",
+  "disclosure": "BIShare is our product, so factor that into the ranking. Its encryption code is public, and this page lists what it does not protect as plainly as it does for the others.",
+  "quick": {
+    "title": "Quick answer",
+    "items": [
+      "<strong>Look for end-to-end, not just \"encrypted\":</strong> HTTPS and encryption at rest still let the provider open your file. End-to-end means only the sender and recipient hold the key.",
+      "<strong>A one-minute test:</strong> if the service can show a preview of your file in its web app, or reset access when you lose the link, it is not end-to-end.",
+      "<strong>Easiest from a browser:</strong> BIShare or Wormhole encrypt before upload and put the key in the link, so the recipient only needs to click.",
+      "<strong>Files that must stay online for weeks:</strong> Proton Drive keeps end-to-end encrypted files in your account and shares them with a link and optional password.",
+      "<strong>You also need to hide who is sending:</strong> OnionShare serves the file from your own computer over Tor.",
+      "<strong>Any channel at all, even plain email:</strong> put the file in a 7-Zip archive with AES-256 and a strong password, and send the password another way."
+    ]
   },
-  "how": {
-    "title": "How BIShare encrypts your transfer",
+  "levels": {
+    "title": "Three kinds of encryption hide behind one word",
+    "body": "When a service says your files are encrypted, it usually means one of three different things. They protect against different people.",
     "items": {
       "0": {
-        "h": "Encrypted before upload",
-        "b": "Toggle on end-to-end encryption and the file is encrypted in your browser with AES-256-GCM. Only ciphertext is ever uploaded — chunked and streamed so even multi-gigabyte files never sit in memory."
+        "h": "Encryption in transit",
+        "b": "The connection between your browser or app and the server is wrapped in TLS, the padlock in the address bar. It stops someone on the café Wi-Fi or at your internet provider from reading the upload. It does nothing once the file arrives, because the server decrypts the connection to receive it. Every reputable service does this, so it is a baseline, not a feature."
       },
       "1": {
-        "h": "The key stays with you",
-        "b": "The decryption key is placed in the link fragment (#), which browsers never transmit to a server. Share the link and the recipient's browser decrypts locally. Lose the link, and even we can't recover the file."
+        "h": "Encryption at rest",
+        "b": "The provider encrypts the file on its disks, so a stolen drive or a careless backup does not leak it. But the provider holds the keys and decrypts the file whenever its systems need to, for previews, virus scans, search or a legal request. Staff with enough access, an attacker inside the network, or a court order can all reach the readable file."
       },
       "2": {
-        "h": "Or never upload at all",
-        "b": "On the same network, BIShare sends files straight between devices over an encrypted channel — the file never reaches the cloud, so there's nothing to intercept or store."
+        "h": "End-to-end encryption",
+        "b": "The file is encrypted on the sender's device before it leaves, and only the recipient's device can decrypt it. The service stores or relays scrambled bytes and never has the key. If the company is breached or ordered to hand files over, it has nothing readable to give. This is the only kind that protects you from the carrier itself."
+      },
+      "3": {
+        "h": "Why marketing blurs them",
+        "b": "Phrases such as bank-grade, military-grade or 256-bit describe the strength of a cipher, not who holds the key. A service can use AES-256 at rest and still read every file. The honest question is always where the key lives."
       }
     }
   },
-  "comparison": {
-    "title": "Cloud transfer vs Password ZIP vs BIShare",
+  "test": {
+    "title": "How to tell whether a service is really end-to-end",
+    "body": "You do not need to read source code to get a good answer. These checks take a minute on any file transfer site.",
+    "items": {
+      "0": {
+        "h": "Can it show you a preview?",
+        "b": "If the provider's web app renders a thumbnail of your photo or the first page of your PDF, its servers can read the file. End-to-end services either decrypt previews in your browser or show none."
+      },
+      "1": {
+        "h": "Can it recover access for you?",
+        "b": "If you lose the link or forget the password and support can restore the file, the provider holds a key. With true end-to-end encryption a lost key means a lost file, and good services say so plainly."
+      },
+      "2": {
+        "h": "Where is the key in the link?",
+        "b": "Many end-to-end link services put the key after a # in the URL. Browsers never send that part to the server, so the service stores the file without the means to open it. A link with no fragment and no separate password usually means the server can decrypt."
+      },
+      "3": {
+        "h": "Does the security page name the design?",
+        "b": "A credible service names its algorithms, explains where keys are created and publishes code or an audit. Vague claims with no mention of keys are a warning sign."
+      },
+      "4": {
+        "h": "What does it say about metadata?",
+        "b": "Even strong end-to-end services usually see file names, sizes, IP addresses and timing. A provider that is candid about this is more trustworthy than one that promises it sees nothing at all."
+      }
+    }
+  },
+  "methods": {
+    "title": "Seven ways to send a file end-to-end encrypted, ranked",
+    "body": "Every option below keeps the file unreadable to the service in the middle. They differ in who needs to install what, how long the file stays available and what else they protect.",
+    "consLabel": "Keep in mind:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Best all-round: encrypted links in a browser and direct transfers between devices",
+        "facts": "Browser at bishare.app, apps for Android, iPhone, Windows, macOS, Linux · MIT · links: AES-256-GCM in the browser, key after #k= in the URL, up to 100 GB for 24 hours · direct: X25519 key agreement, HKDF-SHA256, AES-256-GCM · no account",
+        "body": "BIShare covers both ways people send files. For a link, the browser or app generates a random 256-bit key, encrypts the file in 1 MiB records with AES-GCM, uploads only ciphertext and places the key in the link fragment, which never reaches the server. For devices near each other, the apps agree on a key with X25519, derive it with HKDF-SHA256 and encrypt each chunk with AES-256-GCM, and each device shows a short fingerprint you can compare. The cryptography lives in a public Rust crate.",
+        "cons": "File names and sizes of link uploads are visible to the server, the protocol code has not had a formal external audit, and links expire after 24 hours."
+      },
+      "1": {
+        "name": "Wormhole",
+        "tag": "Best quick encrypted link from any browser",
+        "facts": "Browser · free · up to 10 GB · AES-GCM with 128-bit keys based on RFC 8188, encrypted before upload · files up to 5 GB stored 24 hours, larger ones peer to peer · encryption library open source",
+        "body": "Wormhole encrypts in the browser before anything leaves, so its servers hold ciphertext for at most a day. It is fast to use on a borrowed computer and needs nothing installed on either side. Its FAQ is specific about the scheme and publishes the streaming encryption library, though not the full service.",
+        "cons": "The full client and server code is not published, the ceiling is 10 GB, and transfers over 5 GB need your tab open."
+      },
+      "2": {
+        "name": "Proton Drive",
+        "tag": "Best for files that need to remain downloadable for weeks",
+        "facts": "Web, Windows, macOS, Android, iOS · end-to-end encrypted storage · free plan with 5 GB · share links with optional password and expiry · recipients need no account · apps open source and audited",
+        "body": "Proton Drive is cloud storage built on end-to-end encryption, from the company behind Proton Mail. Upload once, create a link, and add a password or an expiry date; the recipient opens it in a browser without signing up. Because the files live in your account, you can keep them up for as long as you like instead of racing a 24-hour clock.",
+        "cons": "You need a Proton account, the free plan's 5 GB is shared with everything else you store, and it is built for storage rather than quick one-off sends."
+      },
+      "3": {
+        "name": "OnionShare",
+        "tag": "Best when you also need anonymity",
+        "facts": "Windows, macOS, Linux · open source · runs a web server on your computer as a Tor onion service · address plus private key · no third-party server holds the file",
+        "body": "OnionShare turns your own computer into a temporary, private website reachable only through Tor. You send the onion address and its private key; the recipient pastes them into Tor Browser and pulls the file off your machine. No company stores the file, and Tor conceals where each side is connecting from.",
+        "cons": "Your computer must stay on and online until the download finishes, the recipient needs Tor Browser, and Tor is slower than a direct connection."
+      },
+      "4": {
+        "name": "magic-wormhole",
+        "tag": "Best for technical users moving files between computers",
+        "facts": "Command line on macOS, Linux, Windows · MIT · short single-use codes · end-to-end encrypted with a password-authenticated key exchange · mailbox server plus transit relay · any size, files and folders",
+        "body": "Type wormhole send and a file name, read out the short code it prints, and the other person types wormhole receive and the code. The two machines use that code to agree on a key, so the relay in the middle only ever carries encrypted data. It handles files and directories of any size and is a favourite for moving data between servers.",
+        "cons": "Both sides need the tool installed and a terminal, and it is not designed for sending to non-technical people."
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "Best for devices on the same network, no internet at all",
+        "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS between devices with a certificate per device · local network only · no server",
+        "body": "When sender and recipient share a Wi-Fi network, LocalSend moves files directly between the devices over encrypted HTTPS without any server in between. Nothing is uploaded anywhere, so the question of what a provider can read never arises.",
+        "cons": "It only reaches devices on the same local network, and every device needs the app."
+      },
+      "6": {
+        "name": "7-Zip archive with AES-256",
+        "tag": "Best when you must use email or a channel you do not trust",
+        "facts": "Free 7-Zip for Windows, with compatible tools on macOS and Linux · 7z format with AES-256 and a password · works with any carrier, from email to USB sticks",
+        "body": "Encrypting the file itself makes the transport irrelevant. Create a 7z archive in 7-Zip, choose AES-256 and a long passphrase, then send the archive through email, a cloud drive or anything else. Send the passphrase separately, by phone or an encrypted messenger. It is the oldest method on the list and still one of the most dependable.",
+        "cons": "Security rests entirely on the passphrase, the recipient needs software that opens 7z archives, and you must share that passphrase safely yourself."
+      }
+    }
+  },
+  "table": {
+    "title": "At a glance",
     "cols": {
-      "airdrop": "Cloud transfer",
-      "quick": "Password ZIP",
-      "bishare": "BIShare"
+      "feature": "Feature",
+      "bishare": "BIShare",
+      "wormhole": "Wormhole",
+      "protondrive": "Proton Drive",
+      "onionshare": "OnionShare",
+      "magicwormhole": "magic-wormhole",
+      "sevenzip": "7-Zip archive"
     },
     "rows": {
-      "r0": "End-to-end encrypted",
-      "r1": "Key never reaches the server",
-      "r2": "No account needed",
-      "r3": "Works offline, device-to-device",
-      "r4": "Free to use"
+      "r0": "The service cannot read the file",
+      "r1": "Recipient installs nothing",
+      "r2": "Sender can go offline after sending",
+      "r3": "Handles files over 10 GB",
+      "r4": "Hides who is sending",
+      "r5": "Open-source client"
+    },
+    "note": "As of September 2026. BIShare's link recipients need only a browser; sending device to device needs the app at both ends. Wormhole stores files up to 5 GB for 24 hours and streams larger ones browser to browser up to 10 GB, and publishes its encryption library rather than the full client. Proton Drive's free plan has 5 GB of storage. OnionShare recipients need Tor Browser. magic-wormhole needs its command-line tool on both machines. A 7-Zip archive is only as strong as its passphrase, and the recipient needs a tool that opens 7z files."
+  },
+  "metadata": {
+    "title": "What encryption does not hide",
+    "body": "End-to-end encryption protects the contents of a file. Several other things usually stay visible, and it helps to know which.",
+    "items": {
+      "0": {
+        "h": "File names and sizes",
+        "b": "Many services need a name and size to show a download page. BIShare's link uploads, for example, send the file name, size and type to the server in the clear while the contents stay encrypted. If the name itself is sensitive, rename the file or put it inside an encrypted archive first."
+      },
+      "1": {
+        "h": "Who connected, and when",
+        "b": "The server sees the IP addresses of the sender and recipients and when they uploaded and downloaded. Only a network like Tor, as used by OnionShare, hides that from the service."
+      },
+      "2": {
+        "h": "The link is the key",
+        "b": "When the key rides in the link, anyone who gets the full link can open the file. A forwarded email, a chat backup or a shared screen is enough. Expiry dates, one-time downloads and a separate password all shrink that window."
+      },
+      "3": {
+        "h": "What happens after download",
+        "b": "Once decrypted, the file is ordinary data on the recipient's device. If their photos sync to a cloud service or their laptop is unencrypted, the protection you chose ends there."
+      }
+    }
+  },
+  "bishare": {
+    "title": "How BIShare encrypts, in detail",
+    "body": "Because we ask you to trust our code, here is exactly what it does, with the limits stated. The cryptography is in the public bishare-protocol and bishare-web repositories.",
+    "items": {
+      "0": {
+        "h": "Links from a browser or the app",
+        "b": "A fresh random 256-bit key is generated on your device for every file. The file is cut into 1 MiB records and each is sealed with AES-GCM using a nonce built from a per-file salt and the record number, with the record number also bound as authenticated data. Reordered, removed or truncated records fail to decrypt. The key is encoded after #k= in the link, a part of the URL that browsers keep to themselves."
+      },
+      "1": {
+        "h": "Direct transfers between devices",
+        "b": "The two apps run an X25519 key agreement, feed the shared secret through HKDF-SHA256 to get a 32-byte key, and encrypt the file in chunks with AES-256-GCM, each with its own derived nonce. Every device has a fingerprint, the first eight bytes of the SHA-256 of its public key, shown as hex so you can check you are talking to the right device."
+      },
+      "2": {
+        "h": "What the server stores and sees",
+        "b": "For links, the server stores ciphertext plus the name, size and type you uploaded, and removes it once a day has passed, or as soon as it is fetched when you picked one-time. For direct transfers on the same network, nothing passes through our servers at all."
+      },
+      "3": {
+        "h": "What has not been done yet",
+        "b": "The protocol is covered by unit tests, including cross-platform test vectors, but it has not had a formal external security audit. Vulnerability reports go to security@billiongroup.net."
+      }
+    }
+  },
+  "password": {
+    "title": "Sharing the key, link or password safely",
+    "body": "Strong encryption fails if the secret travels next to the file. A few habits close that gap.",
+    "items": {
+      "0": {
+        "h": "Use a second channel",
+        "b": "Send the file by email and the password by text message, or share the link in a chat and read the code over a call. Someone who compromises one channel then still lacks the other half."
+      },
+      "1": {
+        "h": "Shorten the window",
+        "b": "Choose the shortest expiry that works, and one-time download when only one person needs the file. A link that stopped working yesterday cannot leak tomorrow."
+      },
+      "2": {
+        "h": "Avoid group chats and tickets",
+        "b": "Links with keys pasted into group chats, support tickets or shared documents are copied into places you do not control, often indefinitely. Send them one to one."
+      },
+      "3": {
+        "h": "In person, use a QR code",
+        "b": "When the recipient is in the room, scanning a QR code moves the link without it ever being typed, pasted or logged in a messaging service."
+      }
+    }
+  },
+  "choose": {
+    "title": "Which method for which situation",
+    "body": "Pick by what the file is, who receives it and how long it must be available.",
+    "items": {
+      "0": {
+        "h": "A contract, ID scan or medical letter for one person",
+        "b": "A BIShare or Wormhole link with one-time download or a short expiry, and the link sent through a private chat."
+      },
+      "1": {
+        "h": "Documents a client will need for weeks",
+        "b": "Proton Drive, with a password on the link and an expiry you can extend."
+      },
+      "2": {
+        "h": "Material from a source who must stay anonymous",
+        "b": "OnionShare, with the address and private key exchanged over an encrypted messenger."
+      },
+      "3": {
+        "h": "Large folders between your own devices",
+        "b": "A direct BIShare transfer or LocalSend on the same network, so nothing is uploaded anywhere."
+      },
+      "4": {
+        "h": "Data between servers or terminals",
+        "b": "magic-wormhole, which handles directories of any size with a short code."
+      },
+      "5": {
+        "h": "Only email is allowed",
+        "b": "A 7-Zip AES-256 archive attached to the email, with the passphrase sent by another route."
+      }
+    }
+  },
+  "mistakes": {
+    "title": "Common mistakes that undo encryption",
+    "body": "Most leaks of encrypted files do not break the cipher. They go around it.",
+    "items": {
+      "0": {
+        "h": "Password in the same message",
+        "b": "An archive and its passphrase in one email are as readable as the file on its own. Always split them."
+      },
+      "1": {
+        "h": "Weak or reused passphrases",
+        "b": "Password-based encryption is only as strong as the password. Use a long, random passphrase from a password manager, and never one you use elsewhere."
+      },
+      "2": {
+        "h": "Trusting encrypted at rest for sensitive files",
+        "b": "A service that encrypts only on its own disks can still read, scan and hand over your file. For anything sensitive, insist on end-to-end."
+      },
+      "3": {
+        "h": "Forgetting the copies",
+        "b": "Decrypted downloads, email drafts, screenshots and automatic photo backups all create readable copies. Delete what you no longer need on both ends."
+      }
     }
   },
   "faq": {
     "title": "Encrypted file transfer: FAQ",
     "items": {
       "0": {
-        "q": "What is end-to-end encrypted file transfer?",
-        "a": "It means the file is encrypted before it leaves your device and can only be decrypted by the recipient — the service moving it can't read it. BIShare does this by encrypting in your browser and keeping the key out of the server's reach."
+        "q": "What is encrypted file transfer?",
+        "a": "Moving a file so that nobody who intercepts it can read it. The strongest version is end-to-end: the file is locked before leaving the sender, and only the recipient can unlock it."
       },
       "1": {
-        "q": "How is this different from a password-protected ZIP?",
-        "a": "A password ZIP still relies on you sharing a password out-of-band, and the archive is only as strong as that password. BIShare uses a full-strength random key and moves it in the link fragment, so there's no weak password and nothing for the server to see."
+        "q": "What is the difference between encryption in transit and end-to-end?",
+        "a": "Encryption in transit protects the connection to the server, but the server decrypts and can read the file. End-to-end encryption keeps the file encrypted until it reaches the recipient, so the server never can."
       },
       "2": {
-        "q": "Does the server ever see my file?",
-        "a": "For encrypted transfers, only ciphertext — the key never reaches us, so we can't decrypt it. For nearby device-to-device transfers, the file never touches our servers at all."
+        "q": "Is WeTransfer end-to-end encrypted?",
+        "a": "WeTransfer describes encryption in transit and at rest, which means its systems can decrypt stored files. For end-to-end encryption from a browser, use a service such as BIShare, Wormhole or Proton Drive."
       },
       "3": {
-        "q": "Do I need an account to send securely?",
-        "a": "No. Encryption is built in and free with no sign-up. You share a link or code, and the recipient opens it in any browser."
+        "q": "How can I send an encrypted file by email?",
+        "a": "Put the file in a 7-Zip archive with AES-256 and a strong passphrase, attach the archive, and send the passphrase through a different channel such as a phone call or an encrypted messenger."
       },
       "4": {
-        "q": "Can I send large files encrypted?",
-        "a": "Yes. Encryption streams in chunks, so you can send large files — up to 100 GB free via an encrypted link, and with no size cap for nearby transfers over your own Wi-Fi."
+        "q": "What is the most secure way to send a large file?",
+        "a": "A direct end-to-end encrypted transfer between the two devices, such as BIShare on the same network, avoids storing the file anywhere. For someone far away, an end-to-end encrypted link that expires after one download is the next best option."
+      },
+      "5": {
+        "q": "Does end-to-end encryption hide the file name?",
+        "a": "Not always. Many services, including BIShare links, can see file names and sizes even though the contents are encrypted. Rename the file or place it inside an encrypted archive if the name is sensitive."
+      },
+      "6": {
+        "q": "Is AES-128 weaker than AES-256 for file transfer?",
+        "a": "Both are considered secure against practical attacks today. What matters more is that the key is created and kept on the sender's and recipient's devices rather than by the service."
+      },
+      "7": {
+        "q": "Can the provider read my files if they are encrypted?",
+        "a": "With encryption in transit or at rest, yes, because the provider holds the keys. With end-to-end encryption, no, because the key never leaves the sender's and recipient's devices."
+      },
+      "8": {
+        "q": "Is BIShare end-to-end encrypted?",
+        "a": "Yes. Links are encrypted in the browser or app with AES-256-GCM and the key stays in the link fragment, and direct transfers use keys agreed between the two devices. The server can see file names and sizes of link uploads, and the protocol has not yet had an external audit."
+      },
+      "9": {
+        "q": "Is BIShare free?",
+        "a": "Yes. It costs nothing, its source is published under MIT, and it runs without sign-up or advertising."
       }
     }
   },
   "cta": {
-    "title": "Send your next file end-to-end encrypted",
-    "body": "Real encryption, no account, no cost. Grab BIShare for your phone or computer — the recipient just needs a browser.",
+    "title": "Send files only the recipient can open",
+    "body": "Free and open source. Encrypt a link in your browser, or send directly between your devices with keys that never leave them.",
     "download": "Download BIShare"
   },
   "a11y": {
     "yes": "Yes",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "A padlocked file travelling from a laptop to a phone through a server that sees only scrambled data, titled encrypted file transfer, explained properly.",
+      "title": "Encrypted file transfer, explained",
+      "sub": "In transit, at rest or end to end, and how to tell",
+      "left": "Sender",
+      "right": "Recipient",
+      "server": "Server"
+    },
+    "levels": {
+      "alt": "Who can read your file under each kind of encryption: with encryption in transit, the network cannot but the server can; with encryption at rest, a stolen disk cannot but the provider can; with end-to-end encryption, neither the network nor the provider can, only the sender and recipient.",
+      "title": "Who can read your file?",
+      "sub": "Three kinds of encryption compared",
+      "colNet": "Network snoop",
+      "colDisk": "Stolen disk",
+      "colProvider": "The provider",
+      "colEnds": "Sender and recipient",
+      "r0": "In transit (TLS)",
+      "r1": "At rest",
+      "r2": "End to end",
+      "can": "Can read",
+      "cannot": "Cannot read"
+    },
+    "fragment": {
+      "alt": "How an end-to-end link keeps the key from the server: the link has an address part sent to the server and a fragment after the # sign holding the key, which the browser never sends, so the server stores only encrypted data.",
+      "title": "Why the key after # never reaches the server",
+      "sub": "Anatomy of an end-to-end encrypted link",
+      "sent": "Sent to the server",
+      "kept": "Kept in the browser",
+      "keyLabel": "Decryption key",
+      "stored": "Server stores ciphertext only",
+      "warn": "Anyone with the full link can open the file"
+    },
+    "visible": {
+      "alt": "What end-to-end encryption hides and what stays visible: the file contents are hidden, while file name and size, IP addresses and timing, and the link itself can remain visible depending on the service.",
+      "title": "What end-to-end encryption hides",
+      "sub": "Contents are sealed; some metadata usually is not",
+      "hidden": "Hidden",
+      "shown": "Often visible",
+      "h0": "File contents",
+      "s0": "File name and size",
+      "s1": "IP addresses",
+      "s2": "Upload and download times",
+      "s3": "Anyone holding the full link"
+    }
   }
 }

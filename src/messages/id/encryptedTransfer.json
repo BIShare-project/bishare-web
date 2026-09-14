@@ -1,84 +1,369 @@
 {
   "meta": {
-    "title": "Transfer File Terenkripsi, Aman dan Gratis",
-    "description": "Kirim file terenkripsi end-to-end: BIShare mengenkripsi di browser sebelum diunggah dan kuncinya tetap di tautan. Hingga 100 GB, tanpa akun.",
-    "ogTitle": "Transfer file terenkripsi — ujung-ke-ujung, di browser Anda"
+    "title": "Transfer File Terenkripsi: 7 Cara Kirim File yang Benar-Benar Aman",
+    "description": "Saat transit, saat disimpan, atau end-to-end? Cara mengetahui apa yang benar-benar dienkripsi layanan transfer, apa yang masih terlihat, dan tujuh cara kirim privat."
   },
   "hero": {
     "eyebrow": "Transfer file terenkripsi",
-    "title": "Transfer file terenkripsi end-to-end",
-    "body": "Kebanyakan alat transfer \"aman\" mengenkripsi file Anda <strong>di server mereka</strong> — artinya merekalah yang memegang kuncinya. BIShare mengenkripsi file <strong>di browser Anda sebelum diunggah</strong>, dan kuncinya berjalan di tautan, tak pernah menyentuh server kami. Kami hanya menyimpan ciphertext yang tak bisa kami baca. <highlight>Terenkripsi ujung-ke-ujung, tanpa akun, gratis.</highlight>",
+    "title": "Transfer file terenkripsi, dijelaskan dengan benar",
+    "body": "Hampir semua layanan transfer file kini menyebut dirinya terenkripsi, dan hampir semuanya jujur tentang sesuatu. Pertanyaannya, tentang apa. Sebuah tautan bisa dilindungi HTTPS dalam perjalanan ke server, disimpan terenkripsi di disk yang bisa dibuka penyedia, atau dikunci di perangkat Anda dengan kunci yang tak pernah dilihat penyedia. Hanya yang terakhir yang menjauhkan file Anda dari perusahaan itu sendiri, dari siapa pun yang membobolnya, dan dari siapa pun yang bisa memaksanya menyerahkan data. Panduan ini memisahkan tiga jenis enkripsi, memberi tes untuk membedakannya di layanan mana pun dalam satu menit, memeringkat tujuh cara mengirim file yang tak bisa dibaca perantara, dan jujur soal apa yang tidak disembunyikan enkripsi, termasuk pada produk kami. <strong>BIShare</strong> buatan kami termasuk di antaranya: <strong>gratis dan berlisensi MIT, mengenkripsi tautan di browser dengan AES-256-GCM dan mengirim antarperangkat dengan kunci yang disepakati kedua perangkat</strong>. <highlight>Tanpa akun.</highlight>",
     "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
-  "why": {
-    "title": "Terenkripsi saat transit tak sama dengan ujung-ke-ujung",
-    "body": "Banyak layanan berkata \"terenkripsi\" tapi maksudnya terenkripsi <strong>di sisi mereka</strong> — mereka masih bisa membaca file Anda, begitu pula siapa pun yang membobol mereka. Enkripsi ujung-ke-ujung berarti hanya pengirim dan penerima yang memegang kunci. Dengan BIShare kunci dibuat di browser Anda dan hidup di #fragment tautan, yang tak pernah dikirim dalam permintaan apa pun — jadi server menyimpan byte yang sungguh-sungguh tak bisa didekripsi."
+  "updated": "Diperbarui September 2026 · detail enkripsi dari halaman keamanan, dokumentasi, atau kode sumber tiap proyek, dicek 14 September 2026",
+  "disclosure": "BIShare adalah produk kami, jadi pertimbangkan itu saat membaca peringkat. Kode enkripsinya terbuka, dan halaman ini menyebut apa yang tidak dilindunginya sejelas yang lain.",
+  "quick": {
+    "title": "Jawaban singkat",
+    "items": [
+      "<strong>Cari end-to-end, bukan sekadar \"terenkripsi\":</strong> HTTPS dan enkripsi saat disimpan tetap membuat penyedia bisa membuka file Anda. End-to-end berarti hanya pengirim dan penerima yang memegang kunci.",
+      "<strong>Tes satu menit:</strong> jika layanan bisa menampilkan pratinjau file di aplikasi webnya, atau memulihkan akses saat Anda kehilangan tautan, berarti bukan end-to-end.",
+      "<strong>Paling mudah dari browser:</strong> BIShare atau Wormhole mengenkripsi sebelum upload dan menaruh kunci di tautan, jadi penerima cukup mengklik.",
+      "<strong>File yang harus tetap tersedia berminggu-minggu:</strong> Proton Drive menyimpan file terenkripsi end-to-end di akun Anda dan membagikannya lewat tautan dengan kata sandi opsional.",
+      "<strong>Anda juga perlu menyembunyikan pengirim:</strong> OnionShare menyajikan file dari komputer Anda sendiri lewat Tor.",
+      "<strong>Saluran apa pun, bahkan email biasa:</strong> masukkan file ke arsip 7-Zip dengan AES-256 dan kata sandi kuat, lalu kirim kata sandinya lewat jalur lain."
+    ]
   },
-  "how": {
-    "title": "Bagaimana BIShare mengenkripsi transfer Anda",
+  "levels": {
+    "title": "Tiga jenis enkripsi di balik satu kata",
+    "body": "Saat layanan bilang file Anda terenkripsi, biasanya yang dimaksud salah satu dari tiga hal berbeda. Masing-masing melindungi dari pihak yang berbeda.",
     "items": {
       "0": {
-        "h": "Terenkripsi sebelum diunggah",
-        "b": "Aktifkan enkripsi ujung-ke-ujung dan file dienkripsi di browser Anda dengan AES-256-GCM. Hanya ciphertext yang diunggah — dipecah dan dialirkan sehingga file berukuran multi-gigabyte pun tak pernah menetap di memori."
+        "h": "Enkripsi saat transit",
+        "b": "Koneksi antara browser atau aplikasi Anda dan server dibungkus TLS, gembok di bilah alamat. Ini mencegah orang di Wi-Fi kafe atau di penyedia internet Anda membaca upload. Begitu file tiba, perlindungan ini tak berguna lagi, karena server membuka koneksi untuk menerimanya. Semua layanan yang layak melakukannya, jadi ini standar minimum, bukan keunggulan."
       },
       "1": {
-        "h": "Kunci tetap bersama Anda",
-        "b": "Kunci dekripsi ditempatkan di fragmen tautan (#), yang tak pernah dikirim browser ke server. Bagikan tautan dan browser penerima mendekripsi secara lokal. Kehilangan tautan, dan bahkan kami pun tak bisa memulihkan file itu."
+        "h": "Enkripsi saat disimpan",
+        "b": "Penyedia mengenkripsi file di disknya, supaya disk yang dicuri atau cadangan yang ceroboh tidak membocorkannya. Namun kuncinya dipegang penyedia, dan ia mendekripsi file kapan pun sistemnya perlu: untuk pratinjau, pemindaian virus, pencarian, atau permintaan hukum. Staf dengan akses cukup, penyerang di dalam jaringan, atau perintah pengadilan bisa menjangkau file yang terbaca."
       },
       "2": {
-        "h": "Atau jangan unggah sama sekali",
-        "b": "Di jaringan yang sama, BIShare mengirim file langsung antarperangkat lewat kanal terenkripsi — file tak pernah sampai ke cloud, jadi tak ada yang bisa disadap atau disimpan."
+        "h": "Enkripsi end-to-end",
+        "b": "File dienkripsi di perangkat pengirim sebelum pergi, dan hanya perangkat penerima yang bisa mendekripsinya. Layanan menyimpan atau meneruskan byte acak dan tidak pernah punya kuncinya. Jika perusahaan dibobol atau diperintahkan menyerahkan file, tak ada yang terbaca untuk diserahkan. Hanya jenis ini yang melindungi Anda dari perantara itu sendiri."
+      },
+      "3": {
+        "h": "Kenapa pemasaran mencampuradukkannya",
+        "b": "Frasa seperti setara bank, kelas militer, atau 256-bit menggambarkan kekuatan sandi, bukan siapa pemegang kuncinya. Layanan bisa memakai AES-256 saat disimpan dan tetap membaca setiap file. Pertanyaan yang jujur selalu: di mana kuncinya?"
       }
     }
   },
-  "comparison": {
-    "title": "Transfer cloud vs ZIP berkata sandi vs BIShare",
+  "test": {
+    "title": "Cara mengetahui apakah layanan benar-benar end-to-end",
+    "body": "Anda tak perlu membaca kode sumber untuk mendapat jawaban yang baik. Pemeriksaan ini hanya butuh semenit di situs transfer mana pun.",
+    "items": {
+      "0": {
+        "h": "Bisakah menampilkan pratinjau?",
+        "b": "Jika aplikasi web penyedia menampilkan gambar mini foto Anda atau halaman pertama PDF Anda, servernya bisa membaca file. Layanan end-to-end mendekripsi pratinjau di browser Anda atau tidak menampilkannya sama sekali."
+      },
+      "1": {
+        "h": "Bisakah memulihkan akses untuk Anda?",
+        "b": "Jika Anda kehilangan tautan atau lupa kata sandi dan tim dukungan bisa mengembalikan file, berarti penyedia memegang kunci. Dengan end-to-end sungguhan, kunci hilang berarti file hilang, dan layanan yang baik menyatakannya terang-terangan."
+      },
+      "2": {
+        "h": "Di mana kunci dalam tautan?",
+        "b": "Banyak layanan tautan end-to-end menaruh kunci setelah tanda # di URL. Browser tak pernah mengirim bagian itu ke server, jadi layanan menyimpan file tanpa sarana untuk membukanya. Tautan tanpa fragmen dan tanpa kata sandi terpisah biasanya berarti server bisa mendekripsi."
+      },
+      "3": {
+        "h": "Apakah halaman keamanannya menyebut desainnya?",
+        "b": "Layanan yang kredibel menyebut algoritmanya, menjelaskan di mana kunci dibuat, dan menerbitkan kode atau audit. Klaim samar tanpa menyinggung kunci patut diwaspadai."
+      },
+      "4": {
+        "h": "Apa katanya soal metadata?",
+        "b": "Bahkan layanan end-to-end yang kuat biasanya melihat nama file, ukuran, alamat IP, dan waktu. Penyedia yang terbuka soal ini lebih layak dipercaya daripada yang berjanji tak melihat apa pun."
+      }
+    }
+  },
+  "methods": {
+    "title": "Tujuh cara mengirim file terenkripsi end-to-end, diperingkat",
+    "body": "Semua opsi di bawah membuat file tak terbaca oleh layanan perantara. Bedanya ada pada siapa yang harus memasang apa, berapa lama file tetap tersedia, dan apa lagi yang dilindungi.",
+    "consLabel": "Perlu diingat:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Terbaik secara keseluruhan: tautan terenkripsi di browser dan transfer langsung antarperangkat",
+        "facts": "Browser di bishare.app, aplikasi Android, iPhone, Windows, macOS, Linux · MIT · tautan: AES-256-GCM di browser, kunci setelah #k= di URL, hingga 100 GB selama 24 jam · langsung: kesepakatan kunci X25519, HKDF-SHA256, AES-256-GCM · tanpa akun",
+        "body": "BIShare mencakup dua cara orang mengirim file. Untuk tautan, browser atau aplikasi membuat kunci acak 256-bit, mengenkripsi file dalam blok 1 MiB dengan AES-GCM, hanya mengunggah ciphertext, dan menaruh kunci di fragmen tautan yang tak pernah sampai ke server. Untuk perangkat berdekatan, aplikasi menyepakati kunci lewat X25519, menurunkannya dengan HKDF-SHA256, dan mengenkripsi tiap blok dengan AES-256-GCM, dan tiap perangkat menampilkan sidik jari singkat untuk dicocokkan. Kriptografinya ada di pustaka Rust yang publik.",
+        "cons": "Nama dan ukuran file yang diunggah lewat tautan terlihat oleh server, kode protokolnya belum menjalani audit eksternal formal, dan tautan kedaluwarsa setelah 24 jam."
+      },
+      "1": {
+        "name": "Wormhole",
+        "tag": "Tautan terenkripsi cepat terbaik dari browser apa pun",
+        "facts": "Browser · gratis · hingga 10 GB · AES-GCM dengan kunci 128-bit berbasis RFC 8188, dienkripsi sebelum upload · file hingga 5 GB disimpan 24 jam, lebih besar peer-to-peer · pustaka enkripsi open source",
+        "body": "Wormhole mengenkripsi di browser sebelum apa pun keluar, jadi servernya menyimpan ciphertext paling lama sehari. Cepat dipakai di komputer pinjaman dan tidak perlu memasang apa pun di kedua sisi. FAQ-nya menjelaskan skemanya secara spesifik dan menerbitkan pustaka enkripsi streaming, meski bukan seluruh layanan.",
+        "cons": "Kode klien dan server lengkap tidak diterbitkan, batasnya 10 GB, dan transfer di atas 5 GB butuh tab Anda tetap terbuka."
+      },
+      "2": {
+        "name": "Proton Drive",
+        "tag": "Terbaik untuk file yang harus tetap bisa diunduh berminggu-minggu",
+        "facts": "Web, Windows, macOS, Android, iOS · penyimpanan terenkripsi end-to-end · paket gratis 5 GB · tautan dengan kata sandi dan masa berlaku opsional · penerima tak perlu akun · aplikasi open source dan diaudit",
+        "body": "Proton Drive adalah penyimpanan cloud berbasis enkripsi end-to-end dari perusahaan di balik Proton Mail. Unggah sekali, buat tautan, lalu tambahkan kata sandi atau tanggal kedaluwarsa; penerima membukanya di browser tanpa daftar. Karena file tinggal di akun Anda, file bisa tersedia selama yang Anda mau tanpa dikejar batas 24 jam.",
+        "cons": "Anda perlu akun Proton, 5 GB paket gratis dibagi dengan semua yang Anda simpan, dan layanan ini dirancang untuk penyimpanan, bukan kiriman kilat sekali jalan."
+      },
+      "3": {
+        "name": "OnionShare",
+        "tag": "Terbaik saat Anda juga butuh anonimitas",
+        "facts": "Windows, macOS, Linux · open source · menjalankan server web di komputer Anda sebagai layanan onion Tor · alamat plus kunci privat · tak ada server pihak ketiga yang menyimpan file",
+        "body": "OnionShare mengubah komputer Anda menjadi situs privat sementara yang hanya bisa diakses lewat Tor. Anda mengirim alamat onion dan kunci privatnya; penerima menempelkannya di Tor Browser lalu mengunduh file langsung dari mesin Anda. Tak ada perusahaan yang menyimpan file, dan Tor menyembunyikan dari mana tiap pihak terhubung.",
+        "cons": "Komputer Anda harus tetap menyala dan online sampai unduhan selesai, penerima butuh Tor Browser, dan Tor lebih lambat daripada koneksi langsung."
+      },
+      "4": {
+        "name": "magic-wormhole",
+        "tag": "Terbaik untuk pengguna teknis yang memindahkan file antarkomputer",
+        "facts": "Baris perintah di macOS, Linux, Windows · MIT · kode pendek sekali pakai · terenkripsi end-to-end dengan pertukaran kunci terautentikasi kata sandi · server mailbox plus relay transit · ukuran berapa pun, file dan folder",
+        "body": "Ketik wormhole send dan nama file, bacakan kode pendek yang muncul, lalu pihak lain mengetik wormhole receive dan kode itu. Kedua mesin memakai kode tersebut untuk menyepakati kunci, sehingga relay di tengah hanya membawa data terenkripsi. Alat ini menangani file dan direktori berukuran berapa pun dan populer untuk memindahkan data antarserver.",
+        "cons": "Kedua sisi perlu alat terpasang dan terminal, dan tidak dirancang untuk mengirim ke orang awam."
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "Terbaik untuk perangkat di jaringan yang sama, tanpa internet sama sekali",
+        "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS antarperangkat dengan sertifikat per perangkat · hanya jaringan lokal · tanpa server",
+        "body": "Ketika pengirim dan penerima berada di Wi-Fi yang sama, LocalSend memindahkan file langsung antarperangkat lewat HTTPS terenkripsi tanpa server di tengah. Tak ada yang diunggah ke mana pun, jadi pertanyaan soal apa yang bisa dibaca penyedia tak pernah muncul.",
+        "cons": "Hanya menjangkau perangkat di jaringan lokal yang sama, dan setiap perangkat butuh aplikasinya."
+      },
+      "6": {
+        "name": "Arsip 7-Zip dengan AES-256",
+        "tag": "Terbaik saat Anda harus memakai email atau saluran yang tak dipercaya",
+        "facts": "7-Zip gratis untuk Windows, dengan alat kompatibel di macOS dan Linux · format 7z dengan AES-256 dan kata sandi · bekerja dengan pengantar apa pun, dari email sampai flashdisk",
+        "body": "Mengenkripsi file itu sendiri membuat jalur pengiriman tak lagi penting. Buat arsip 7z di 7-Zip, pilih AES-256 dan frasa sandi panjang, lalu kirim arsipnya lewat email, cloud, atau apa saja. Kirim frasa sandi secara terpisah, lewat telepon atau messenger terenkripsi. Ini metode tertua di daftar dan tetap salah satu yang paling andal.",
+        "cons": "Keamanannya sepenuhnya bergantung pada frasa sandi, penerima butuh perangkat lunak yang bisa membuka arsip 7z, dan Anda sendiri harus membagikan frasa sandi dengan aman."
+      }
+    }
+  },
+  "table": {
+    "title": "Sekilas",
     "cols": {
-      "airdrop": "Transfer cloud",
-      "quick": "ZIP berkata sandi",
-      "bishare": "BIShare"
+      "feature": "Fitur",
+      "bishare": "BIShare",
+      "wormhole": "Wormhole",
+      "protondrive": "Proton Drive",
+      "onionshare": "OnionShare",
+      "magicwormhole": "magic-wormhole",
+      "sevenzip": "Arsip 7-Zip"
     },
     "rows": {
-      "r0": "Terenkripsi ujung-ke-ujung",
-      "r1": "Kunci tak pernah sampai ke server",
-      "r2": "Tanpa perlu akun",
-      "r3": "Bekerja offline, antarperangkat",
-      "r4": "Gratis dipakai"
+      "r0": "Layanan tidak bisa membaca file",
+      "r1": "Penerima tidak memasang apa pun",
+      "r2": "Pengirim bisa offline setelah mengirim",
+      "r3": "Menangani file di atas 10 GB",
+      "r4": "Menyembunyikan pengirim",
+      "r5": "Klien open source"
+    },
+    "note": "Per September 2026. Penerima tautan BIShare hanya butuh browser; mengirim antarperangkat butuh aplikasi di kedua ujung. Wormhole menyimpan file hingga 5 GB selama 24 jam dan mengalirkan yang lebih besar dari browser ke browser hingga 10 GB, serta menerbitkan pustaka enkripsinya, bukan klien lengkap. Paket gratis Proton Drive memberi penyimpanan 5 GB. Penerima OnionShare butuh Tor Browser. magic-wormhole butuh alat baris perintahnya di kedua mesin. Arsip 7-Zip hanya sekuat frasa sandinya, dan penerima butuh alat yang bisa membuka file 7z."
+  },
+  "metadata": {
+    "title": "Yang tidak disembunyikan enkripsi",
+    "body": "Enkripsi end-to-end melindungi isi file. Beberapa hal lain biasanya tetap terlihat, dan ada baiknya tahu apa saja.",
+    "items": {
+      "0": {
+        "h": "Nama dan ukuran file",
+        "b": "Banyak layanan butuh nama dan ukuran untuk menampilkan halaman unduhan. Upload tautan di BIShare, misalnya, mengirim nama, ukuran, dan jenis file ke server tanpa enkripsi, sementara isinya tetap terenkripsi. Jika namanya saja sudah sensitif, ganti nama file atau masukkan dulu ke arsip terenkripsi."
+      },
+      "1": {
+        "h": "Siapa yang terhubung, dan kapan",
+        "b": "Server melihat alamat IP pengirim dan penerima serta kapan mereka mengunggah dan mengunduh. Hanya jaringan seperti Tor, yang dipakai OnionShare, yang menyembunyikannya dari layanan."
+      },
+      "2": {
+        "h": "Tautan adalah kuncinya",
+        "b": "Saat kunci ada di tautan, siapa pun yang mendapat tautan lengkap bisa membuka file. Cukup email yang diteruskan, cadangan chat, atau layar yang dibagikan. Masa berlaku, unduhan sekali pakai, dan kata sandi terpisah mempersempit celah itu."
+      },
+      "3": {
+        "h": "Apa yang terjadi setelah diunduh",
+        "b": "Setelah didekripsi, file menjadi data biasa di perangkat penerima. Jika fotonya tersinkron ke cloud atau laptopnya tidak terenkripsi, perlindungan yang Anda pilih berhenti di situ."
+      }
+    }
+  },
+  "bishare": {
+    "title": "Cara BIShare mengenkripsi, secara rinci",
+    "body": "Karena kami meminta Anda memercayai kode kami, berikut persis apa yang dilakukannya, lengkap dengan batasannya. Kriptografinya ada di repositori publik bishare-protocol dan bishare-web.",
+    "items": {
+      "0": {
+        "h": "Tautan dari browser atau aplikasi",
+        "b": "Untuk setiap file, kunci acak 256-bit baru dibuat di perangkat Anda. File dipotong menjadi blok 1 MiB dan tiap blok disegel dengan AES-GCM memakai nonce dari salt per file dan nomor blok, dan nomor blok itu juga diikat sebagai data terautentikasi. Blok yang diacak urutannya, dihapus, atau terpotong gagal didekripsi. Kunci dikodekan setelah #k= di tautan, bagian URL yang disimpan sendiri oleh browser."
+      },
+      "1": {
+        "h": "Transfer langsung antarperangkat",
+        "b": "Kedua aplikasi menjalankan kesepakatan kunci X25519, memproses rahasia bersama lewat HKDF-SHA256 untuk mendapat kunci 32 byte, lalu mengenkripsi file per blok dengan AES-256-GCM, tiap blok dengan nonce turunannya sendiri. Setiap perangkat punya sidik jari, delapan byte pertama SHA-256 dari kunci publiknya, ditampilkan dalam heksadesimal agar Anda bisa memastikan sedang terhubung ke perangkat yang benar."
+      },
+      "2": {
+        "h": "Apa yang disimpan dan dilihat server",
+        "b": "Untuk tautan, server menyimpan ciphertext beserta nama, ukuran, dan jenis file yang diunggah, lalu menghapusnya setelah sehari atau, jika memilih sekali unduh, begitu diunduh. Untuk transfer langsung di jaringan yang sama, tak ada yang melewati server kami."
+      },
+      "3": {
+        "h": "Yang belum dilakukan",
+        "b": "Protokol ini dicakup unit test, termasuk vektor uji lintas platform, tetapi belum menjalani audit keamanan eksternal formal. Laporan kerentanan dikirim ke security@billiongroup.net."
+      }
+    }
+  },
+  "password": {
+    "title": "Membagikan kunci, tautan, atau kata sandi dengan aman",
+    "body": "Enkripsi kuat gagal jika rahasianya bepergian bersama file. Beberapa kebiasaan menutup celah itu.",
+    "items": {
+      "0": {
+        "h": "Gunakan saluran kedua",
+        "b": "Kirim file lewat email dan kata sandinya lewat SMS, atau bagikan tautan di chat dan bacakan kodenya lewat telepon. Orang yang membobol satu saluran tetap tidak punya separuh lainnya."
+      },
+      "1": {
+        "h": "Persempit jendela waktu",
+        "b": "Pilih masa berlaku terpendek yang memungkinkan, dan unduhan sekali pakai jika hanya satu orang yang butuh file. Tautan yang sudah mati kemarin tak bisa bocor besok."
+      },
+      "2": {
+        "h": "Hindari grup chat dan tiket",
+        "b": "Tautan berisi kunci yang ditempel di grup chat, tiket dukungan, atau dokumen bersama tersalin ke tempat yang tak Anda kendalikan, sering tanpa batas waktu. Kirim satu per satu."
+      },
+      "3": {
+        "h": "Tatap muka, pakai kode QR",
+        "b": "Saat penerima ada di ruangan, memindai kode QR memindahkan tautan tanpa pernah diketik, ditempel, atau tercatat di layanan pesan."
+      }
+    }
+  },
+  "choose": {
+    "title": "Metode mana untuk situasi apa",
+    "body": "Pilih berdasarkan jenis file, siapa penerimanya, dan berapa lama file harus tersedia.",
+    "items": {
+      "0": {
+        "h": "Kontrak, pindaian KTP, atau surat medis untuk satu orang",
+        "b": "Tautan BIShare atau Wormhole dengan unduhan sekali pakai atau masa berlaku singkat, dikirim lewat chat pribadi."
+      },
+      "1": {
+        "h": "Dokumen yang dibutuhkan klien selama berminggu-minggu",
+        "b": "Proton Drive, dengan kata sandi di tautan dan masa berlaku yang bisa diperpanjang."
+      },
+      "2": {
+        "h": "Materi dari narasumber yang harus tetap anonim",
+        "b": "OnionShare, dengan alamat dan kunci privat ditukar lewat messenger terenkripsi."
+      },
+      "3": {
+        "h": "Folder besar antarperangkat milik sendiri",
+        "b": "Transfer langsung BIShare atau LocalSend di jaringan yang sama, agar tak ada yang diunggah ke mana pun."
+      },
+      "4": {
+        "h": "Data antarserver atau terminal",
+        "b": "magic-wormhole, yang memindahkan direktori berukuran berapa pun dengan kode pendek."
+      },
+      "5": {
+        "h": "Hanya email yang diizinkan",
+        "b": "Arsip 7-Zip dengan AES-256 dilampirkan ke email, dan frasa sandi dikirim lewat jalur lain."
+      }
+    }
+  },
+  "mistakes": {
+    "title": "Kesalahan umum yang membatalkan enkripsi",
+    "body": "Sebagian besar kebocoran file terenkripsi tidak memecahkan sandinya. Kebocoran itu mengitarinya.",
+    "items": {
+      "0": {
+        "h": "Kata sandi di pesan yang sama",
+        "b": "Arsip dan frasa sandinya dalam satu email sama terbacanya dengan file tanpa enkripsi. Selalu pisahkan."
+      },
+      "1": {
+        "h": "Frasa sandi lemah atau dipakai ulang",
+        "b": "Enkripsi berbasis kata sandi hanya sekuat kata sandinya. Gunakan frasa panjang dan acak dari pengelola kata sandi, dan jangan pernah yang dipakai di tempat lain."
+      },
+      "2": {
+        "h": "Mengandalkan enkripsi saat disimpan untuk file sensitif",
+        "b": "Layanan yang hanya mengenkripsi di disknya sendiri tetap bisa membaca, memindai, dan menyerahkan file Anda. Untuk apa pun yang sensitif, wajibkan end-to-end."
+      },
+      "3": {
+        "h": "Melupakan salinan",
+        "b": "Unduhan yang sudah didekripsi, draf email, tangkapan layar, dan cadangan foto otomatis semuanya membuat salinan yang terbaca. Hapus di kedua sisi apa yang tak lagi dibutuhkan."
+      }
     }
   },
   "faq": {
     "title": "Transfer file terenkripsi: FAQ",
     "items": {
       "0": {
-        "q": "Apa itu transfer file terenkripsi ujung-ke-ujung?",
-        "a": "Artinya file dienkripsi sebelum meninggalkan perangkat Anda dan hanya bisa didekripsi oleh penerima — layanan yang memindahkannya tak bisa membacanya. BIShare melakukan ini dengan mengenkripsi di browser Anda dan menjauhkan kunci dari jangkauan server."
+        "q": "Apa itu transfer file terenkripsi?",
+        "a": "Memindahkan file sehingga siapa pun yang menyadapnya tak bisa membacanya. Versi terkuat adalah end-to-end: file dikunci sebelum meninggalkan pengirim, dan hanya penerima yang bisa membukanya."
       },
       "1": {
-        "q": "Apa bedanya dengan ZIP terlindungi kata sandi?",
-        "a": "ZIP berkata sandi tetap mengandalkan Anda membagikan kata sandi lewat jalur lain, dan arsip itu hanya sekuat kata sandi tersebut. BIShare memakai kunci acak berkekuatan penuh dan memindahkannya di fragmen tautan, jadi tak ada kata sandi lemah dan tak ada yang bisa dilihat server."
+        "q": "Apa beda enkripsi saat transit dan end-to-end?",
+        "a": "Enkripsi saat transit melindungi koneksi ke server, tetapi server mendekripsi dan bisa membaca file. Enkripsi end-to-end menjaga file tetap terenkripsi sampai tiba di penerima, jadi server tak pernah bisa membacanya."
       },
       "2": {
-        "q": "Apakah server pernah melihat file saya?",
-        "a": "Untuk transfer terenkripsi, hanya ciphertext — kunci tak pernah sampai ke kami, jadi kami tak bisa mendekripsinya. Untuk transfer antarperangkat di dekat Anda, file tak pernah menyentuh server kami sama sekali."
+        "q": "Apakah WeTransfer terenkripsi end-to-end?",
+        "a": "WeTransfer menjelaskan enkripsi saat transit dan saat disimpan, artinya sistemnya bisa mendekripsi file yang disimpan. Untuk enkripsi end-to-end dari browser, gunakan layanan seperti BIShare, Wormhole, atau Proton Drive."
       },
       "3": {
-        "q": "Apakah saya butuh akun untuk mengirim dengan aman?",
-        "a": "Tidak. Enkripsi sudah terpasang dan gratis tanpa pendaftaran. Anda membagikan tautan atau kode, dan penerima membukanya di browser apa pun."
+        "q": "Bagaimana cara mengirim file terenkripsi lewat email?",
+        "a": "Masukkan file ke arsip 7-Zip dengan AES-256 dan frasa sandi kuat, lampirkan arsipnya, lalu kirim frasa sandi lewat saluran lain seperti telepon atau messenger terenkripsi."
       },
       "4": {
-        "q": "Bisakah saya mengirim file besar dengan terenkripsi?",
-        "a": "Ya. Enkripsi dialirkan per potongan, jadi Anda bisa mengirim file besar — hingga 100 GB gratis lewat tautan terenkripsi, dan tanpa batas ukuran untuk transfer di dekat Anda lewat Wi-Fi sendiri."
+        "q": "Apa cara paling aman mengirim file besar?",
+        "a": "Transfer langsung terenkripsi end-to-end antara dua perangkat, seperti BIShare di jaringan yang sama, tidak menyimpan file di mana pun. Untuk orang yang jauh, pilihan terbaik berikutnya adalah tautan end-to-end yang kedaluwarsa setelah sekali diunduh."
+      },
+      "5": {
+        "q": "Apakah enkripsi end-to-end menyembunyikan nama file?",
+        "a": "Tidak selalu. Banyak layanan, termasuk tautan BIShare, bisa melihat nama dan ukuran file meski isinya terenkripsi. Ganti nama file atau masukkan ke arsip terenkripsi jika namanya sensitif."
+      },
+      "6": {
+        "q": "Apakah AES-128 lebih lemah dari AES-256 untuk transfer file?",
+        "a": "Keduanya saat ini dianggap aman dari serangan praktis. Yang lebih penting, kunci dibuat dan disimpan di perangkat pengirim dan penerima, bukan oleh layanan."
+      },
+      "7": {
+        "q": "Bisakah penyedia membaca file saya jika terenkripsi?",
+        "a": "Dengan enkripsi saat transit atau saat disimpan, bisa, karena penyedia memegang kuncinya. Dengan enkripsi end-to-end, tidak, karena kunci tak pernah meninggalkan perangkat pengirim dan penerima."
+      },
+      "8": {
+        "q": "Apakah BIShare terenkripsi end-to-end?",
+        "a": "Ya. Tautan dienkripsi di browser atau aplikasi dengan AES-256-GCM dan kuncinya tetap di fragmen tautan, dan transfer langsung memakai kunci yang disepakati kedua perangkat. Server bisa melihat nama dan ukuran file upload tautan, dan protokolnya belum diaudit pihak luar."
+      },
+      "9": {
+        "q": "Apakah BIShare gratis?",
+        "a": "Ya. Tidak berbayar, kode sumbernya diterbitkan dengan lisensi MIT, dan berjalan tanpa pendaftaran maupun iklan."
       }
     }
   },
   "cta": {
-    "title": "Kirim file berikutnya dengan enkripsi ujung-ke-ujung",
-    "body": "Enkripsi sungguhan, tanpa akun, tanpa biaya. Ambil BIShare untuk ponsel atau komputer Anda — penerima cukup butuh browser.",
+    "title": "Kirim file yang hanya bisa dibuka penerima",
+    "body": "Gratis dan open source. Enkripsi tautan di browser Anda, atau kirim langsung antarperangkat dengan kunci yang tak pernah meninggalkannya.",
     "download": "Unduh BIShare"
   },
   "a11y": {
     "yes": "Ya",
     "no": "Tidak"
+  },
+  "art": {
+    "hero": {
+      "alt": "File bergembok berpindah dari laptop ke HP melalui server yang hanya melihat data acak, berjudul transfer file terenkripsi, dijelaskan dengan benar.",
+      "title": "Transfer file terenkripsi, dijelaskan",
+      "sub": "Saat transit, saat disimpan, atau end-to-end, dan cara membedakannya",
+      "left": "Pengirim",
+      "right": "Penerima",
+      "server": "Server"
+    },
+    "levels": {
+      "alt": "Siapa yang bisa membaca file Anda pada tiap jenis enkripsi: dengan enkripsi saat transit, jaringan tidak bisa tetapi server bisa; dengan enkripsi saat disimpan, disk yang dicuri tak membocorkan apa pun tetapi penyedia bisa membaca; dengan enkripsi end-to-end, jaringan maupun penyedia tidak bisa, hanya pengirim dan penerima.",
+      "title": "Siapa yang bisa membaca file Anda?",
+      "sub": "Perbandingan tiga jenis enkripsi",
+      "colNet": "Penyadap jaringan",
+      "colDisk": "Disk yang dicuri",
+      "colProvider": "Penyedia",
+      "colEnds": "Pengirim dan penerima",
+      "r0": "Saat transit (TLS)",
+      "r1": "Saat disimpan",
+      "r2": "End-to-end",
+      "can": "Bisa membaca",
+      "cannot": "Tak bisa membaca"
+    },
+    "fragment": {
+      "alt": "Cara tautan end-to-end menjauhkan kunci dari server: tautan punya bagian alamat yang dikirim ke server dan fragmen setelah tanda # berisi kunci yang tak pernah dikirim browser, sehingga server hanya menyimpan data terenkripsi.",
+      "title": "Kenapa kunci setelah # tak pernah sampai ke server",
+      "sub": "Anatomi tautan terenkripsi end-to-end",
+      "sent": "Dikirim ke server",
+      "kept": "Tetap di browser",
+      "keyLabel": "Kunci dekripsi",
+      "stored": "Server hanya menyimpan ciphertext",
+      "warn": "Siapa pun yang memegang tautan lengkap bisa membuka file"
+    },
+    "visible": {
+      "alt": "Apa yang disembunyikan enkripsi end-to-end dan apa yang tetap terlihat: isi file tersembunyi, sementara nama dan ukuran, alamat IP, waktu, dan tautan itu sendiri bisa tetap terlihat tergantung layanannya.",
+      "title": "Yang disembunyikan enkripsi end-to-end",
+      "sub": "Isi tersegel; sebagian metadata biasanya tidak",
+      "hidden": "Tersembunyi",
+      "shown": "Sering terlihat",
+      "h0": "Isi file",
+      "s0": "Nama dan ukuran file",
+      "s1": "Alamat IP",
+      "s2": "Waktu upload dan unduh",
+      "s3": "Siapa pun yang memegang tautan lengkap"
+    }
   }
 }

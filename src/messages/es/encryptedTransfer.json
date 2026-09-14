@@ -1,84 +1,369 @@
 {
   "meta": {
-    "title": "Transferencia de archivos cifrada, segura y gratis",
-    "description": "Envía archivos con cifrado de extremo a extremo: BIShare cifra en tu navegador antes de subir y la clave queda en el enlace. Hasta 100 GB, sin cuenta.",
-    "ogTitle": "Transferencia cifrada — de extremo a extremo, en tu navegador"
+    "title": "Transferencia de archivos cifrada: 7 formas realmente seguras",
+    "description": "¿En tránsito, en reposo o de extremo a extremo? Cómo saber qué cifra de verdad un servicio de envío, qué sigue viendo y siete formas de enviar en privado."
   },
   "hero": {
     "eyebrow": "Transferencia de archivos cifrada",
-    "title": "Transferencia de archivos cifrada de extremo a extremo",
-    "body": "La mayoría de las herramientas de transferencia \"seguras\" cifran tu archivo <strong>en sus servidores</strong> — lo que significa que ellos tienen las claves. BIShare cifra el archivo <strong>en tu navegador antes de subirlo</strong>, y la clave viaja en el enlace, sin tocar nunca nuestros servidores. Solo almacenamos texto cifrado que no podemos leer. <highlight>Cifrado de extremo a extremo, sin cuenta, gratis.</highlight>",
+    "title": "Transferencia de archivos cifrada, bien explicada",
+    "body": "Casi todos los servicios de envío de archivos dicen ahora que están cifrados, y casi todos dicen la verdad sobre algo. La pregunta es sobre qué. Un enlace puede ir protegido por HTTPS de camino al servidor, quedarse cifrado en un disco que el proveedor puede abrir o cerrarse en tu dispositivo con una clave que el proveedor nunca ve. Solo lo último mantiene fuera de tu archivo a la propia empresa, a quien la vulnere y a quien pueda obligarla a entregarlo. Esta guía separa los tres tipos de cifrado, te da una prueba para distinguirlos en cualquier servicio en un minuto, clasifica siete formas de enviar un archivo que el intermediario no puede leer y cuenta con honestidad lo que el cifrado no oculta, también en nuestro producto. Nuestro <strong>BIShare</strong> está entre los siete: <strong>gratis y con licencia MIT, cifra los enlaces en tu navegador con AES-256-GCM y envía de dispositivo a dispositivo con claves que acuerdan los dos dispositivos</strong>. <highlight>Sin cuenta.</highlight>",
     "ctaPrimary": "Consigue BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
-  "why": {
-    "title": "Cifrado en tránsito no es lo mismo que de extremo a extremo",
-    "body": "Muchos servicios dicen \"cifrado\" pero se refieren a cifrado <strong>de su lado</strong> — aún pueden leer tus archivos, y también quien los vulnere. El cifrado de extremo a extremo significa que solo el remitente y el destinatario tienen la clave. Con BIShare la clave se genera en tu navegador y vive en el #fragment del enlace, que nunca se envía en ninguna petición — así que el servidor almacena bytes que realmente no puede descifrar."
+  "updated": "Actualizado en septiembre de 2026 · detalles de cifrado según la página de seguridad, la documentación o el código de cada proyecto, revisados el 14 de septiembre de 2026",
+  "disclosure": "BIShare es nuestro producto, tenlo en cuenta al leer la clasificación. Su código de cifrado es público, y esta página cuenta lo que no protege con la misma claridad que en los demás.",
+  "quick": {
+    "title": "Respuesta rápida",
+    "items": [
+      "<strong>Busca extremo a extremo, no solo «cifrado»:</strong> HTTPS y el cifrado en reposo siguen permitiendo al proveedor abrir tu archivo. Extremo a extremo significa que solo quien envía y quien recibe tienen la clave.",
+      "<strong>Una prueba de un minuto:</strong> si el servicio muestra una vista previa de tu archivo en su web o recupera el acceso cuando pierdes el enlace, no es de extremo a extremo.",
+      "<strong>Lo más fácil desde el navegador:</strong> BIShare o Wormhole cifran antes de subir y ponen la clave en el enlace, así que el destinatario solo tiene que hacer clic.",
+      "<strong>Archivos que deben seguir disponibles semanas:</strong> Proton Drive guarda archivos cifrados de extremo a extremo en tu cuenta y los comparte con un enlace y contraseña opcional.",
+      "<strong>También necesitas ocultar quién envía:</strong> OnionShare sirve el archivo desde tu propio ordenador a través de Tor.",
+      "<strong>Cualquier canal, incluso correo normal:</strong> mete el archivo en un archivo 7-Zip con AES-256 y una contraseña fuerte, y manda la contraseña por otra vía."
+    ]
   },
-  "how": {
-    "title": "Cómo BIShare cifra tu transferencia",
+  "levels": {
+    "title": "Tres tipos de cifrado tras una misma palabra",
+    "body": "Cuando un servicio dice que tus archivos están cifrados, suele referirse a una de tres cosas distintas. Cada una protege frente a gente diferente.",
     "items": {
       "0": {
-        "h": "Cifrado antes de subir",
-        "b": "Activa el cifrado de extremo a extremo y el archivo se cifra en tu navegador con AES-256-GCM. Solo se sube texto cifrado — troceado y transmitido en flujo, de modo que ni los archivos de varios gigabytes se quedan en memoria."
+        "h": "Cifrado en tránsito",
+        "b": "La conexión entre tu navegador o app y el servidor va envuelta en TLS, el candado de la barra de direcciones. Impide que alguien en la Wi-Fi de la cafetería o en tu proveedor de internet lea la subida. No sirve de nada cuando el archivo llega, porque el servidor descifra la conexión para recibirlo. Todo servicio serio lo hace, así que es lo mínimo, no una ventaja."
       },
       "1": {
-        "h": "La clave se queda contigo",
-        "b": "La clave de descifrado se coloca en el fragmento del enlace (#), que los navegadores nunca transmiten a un servidor. Comparte el enlace y el navegador del destinatario descifra localmente. Pierde el enlace, y ni siquiera nosotros podemos recuperar el archivo."
+        "h": "Cifrado en reposo",
+        "b": "El proveedor cifra el archivo en sus discos, para que un disco robado o una copia descuidada no lo filtren. Pero el proveedor tiene las claves y descifra el archivo cuando sus sistemas lo necesitan: vistas previas, antivirus, búsquedas o un requerimiento legal. Personal con permisos suficientes, un atacante dentro de la red o una orden judicial pueden llegar al archivo legible."
       },
       "2": {
-        "h": "O no subas nada en absoluto",
-        "b": "En la misma red, BIShare envía los archivos directamente entre dispositivos por un canal cifrado — el archivo nunca llega a la nube, así que no hay nada que interceptar ni almacenar."
+        "h": "Cifrado de extremo a extremo",
+        "b": "El archivo se cifra en el dispositivo de quien envía antes de salir, y solo el dispositivo de quien recibe puede descifrarlo. El servicio guarda o retransmite bytes ilegibles y nunca tiene la clave. Si la empresa sufre un ataque o recibe una orden de entregar archivos, no tiene nada legible que dar. Es el único tipo que te protege del propio intermediario."
+      },
+      "3": {
+        "h": "Por qué el marketing los mezcla",
+        "b": "Expresiones como nivel bancario, grado militar o 256 bits describen la fuerza de un cifrado, no quién tiene la clave. Un servicio puede usar AES-256 en reposo y aun así leer todos los archivos. La pregunta honesta siempre es dónde está la clave."
       }
     }
   },
-  "comparison": {
-    "title": "Transferencia en la nube vs ZIP con contraseña vs BIShare",
+  "test": {
+    "title": "Cómo saber si un servicio es realmente de extremo a extremo",
+    "body": "No hace falta leer código para obtener una buena respuesta. Estas comprobaciones llevan un minuto en cualquier web de envío.",
+    "items": {
+      "0": {
+        "h": "¿Puede mostrarte una vista previa?",
+        "b": "Si la web del proveedor muestra una miniatura de tu foto o la primera página de tu PDF, sus servidores pueden leer el archivo. Los servicios de extremo a extremo descifran las vistas previas en tu navegador o no muestran ninguna."
+      },
+      "1": {
+        "h": "¿Puede recuperarte el acceso?",
+        "b": "Si pierdes el enlace u olvidas la contraseña y soporte puede devolverte el archivo, el proveedor tiene una clave. Con cifrado de extremo a extremo de verdad, clave perdida es archivo perdido, y los buenos servicios lo dicen claramente."
+      },
+      "2": {
+        "h": "¿Dónde está la clave en el enlace?",
+        "b": "Muchos servicios de enlaces de extremo a extremo ponen la clave tras un # en la URL. Los navegadores nunca envían esa parte al servidor, así que el servicio guarda el archivo sin medios para abrirlo. Un enlace sin fragmento y sin contraseña aparte suele significar que el servidor puede descifrar."
+      },
+      "3": {
+        "h": "¿La página de seguridad nombra el diseño?",
+        "b": "Un servicio creíble nombra sus algoritmos, explica dónde se crean las claves y publica código o una auditoría. Afirmaciones vagas sin mencionar las claves son una señal de alerta."
+      },
+      "4": {
+        "h": "¿Qué dice de los metadatos?",
+        "b": "Incluso los servicios de extremo a extremo sólidos suelen ver nombres de archivo, tamaños, direcciones IP y horas. Un proveedor que lo reconoce merece más confianza que uno que promete no ver absolutamente nada."
+      }
+    }
+  },
+  "methods": {
+    "title": "Siete formas de enviar un archivo cifrado de extremo a extremo, clasificadas",
+    "body": "Todas las opciones de abajo mantienen el archivo ilegible para el servicio intermedio. Se diferencian en quién tiene que instalar qué, cuánto tiempo sigue disponible el archivo y qué más protegen.",
+    "consLabel": "Ten en cuenta:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "El mejor en conjunto: enlaces cifrados en el navegador y envíos directos entre dispositivos",
+        "facts": "Navegador en bishare.app, apps para Android, iPhone, Windows, macOS, Linux · MIT · enlaces: AES-256-GCM en el navegador, clave tras #k= en la URL, hasta 100 GB durante 24 horas · directo: acuerdo de claves X25519, HKDF-SHA256, AES-256-GCM · sin cuenta",
+        "body": "BIShare cubre las dos maneras en que la gente envía archivos. Para un enlace, el navegador o la app genera una clave aleatoria de 256 bits, cifra el archivo en bloques de 1 MiB con AES-GCM, sube solo texto cifrado y coloca la clave en el fragmento del enlace, que nunca llega al servidor. Para dispositivos cercanos, las apps acuerdan una clave con X25519, la derivan con HKDF-SHA256 y cifran cada bloque con AES-256-GCM, y cada dispositivo muestra una huella corta para compararla. La criptografía está en una biblioteca Rust pública.",
+        "cons": "El servidor ve los nombres y tamaños de los archivos subidos por enlace, el código del protocolo no ha pasado una auditoría externa formal y los enlaces caducan a las 24 horas."
+      },
+      "1": {
+        "name": "Wormhole",
+        "tag": "El mejor enlace cifrado rápido desde cualquier navegador",
+        "facts": "Navegador · gratis · hasta 10 GB · AES-GCM con claves de 128 bits basado en RFC 8188, cifrado antes de subir · archivos de hasta 5 GB guardados 24 horas, los mayores entre pares · biblioteca de cifrado de código abierto",
+        "body": "Wormhole cifra en el navegador antes de que salga nada, así que sus servidores guardan texto cifrado como mucho un día. Se usa rápido en un ordenador prestado y no requiere instalar nada en ningún lado. Sus preguntas frecuentes detallan el esquema y publican la biblioteca de cifrado en streaming, aunque no el servicio completo.",
+        "cons": "El código completo de cliente y servidor no está publicado, el techo es de 10 GB y los envíos de más de 5 GB necesitan tu pestaña abierta."
+      },
+      "2": {
+        "name": "Proton Drive",
+        "tag": "El mejor para archivos que deben seguir descargables durante semanas",
+        "facts": "Web, Windows, macOS, Android, iOS · almacenamiento cifrado de extremo a extremo · plan gratuito con 5 GB · enlaces con contraseña y caducidad opcionales · el destinatario no necesita cuenta · apps de código abierto y auditadas",
+        "body": "Proton Drive es almacenamiento en la nube basado en cifrado de extremo a extremo, de la empresa detrás de Proton Mail. Subes una vez, creas un enlace y añades contraseña o fecha de caducidad; el destinatario lo abre en el navegador sin registrarse. Como los archivos viven en tu cuenta, puedes mantenerlos el tiempo que quieras en lugar de correr contra un reloj de 24 horas.",
+        "cons": "Necesitas una cuenta de Proton, los 5 GB del plan gratuito se comparten con todo lo demás que guardas, y está pensado para almacenar, no para envíos rápidos puntuales."
+      },
+      "3": {
+        "name": "OnionShare",
+        "tag": "El mejor cuando también necesitas anonimato",
+        "facts": "Windows, macOS, Linux · código abierto · ejecuta un servidor web en tu ordenador como servicio onion de Tor · dirección más clave privada · ningún servidor de terceros guarda el archivo",
+        "body": "OnionShare convierte tu propio ordenador en una web privada y temporal accesible solo por Tor. Envías la dirección onion y su clave privada; el destinatario las pega en Tor Browser y descarga el archivo directamente de tu equipo. Ninguna empresa guarda el archivo, y Tor oculta desde dónde se conecta cada lado.",
+        "cons": "Tu ordenador debe seguir encendido y conectado hasta que termine la descarga, el destinatario necesita Tor Browser y Tor es más lento que una conexión directa."
+      },
+      "4": {
+        "name": "magic-wormhole",
+        "tag": "El mejor para usuarios técnicos que mueven archivos entre ordenadores",
+        "facts": "Línea de comandos en macOS, Linux, Windows · MIT · códigos cortos de un solo uso · cifrado de extremo a extremo con intercambio de claves autenticado por contraseña · servidor mailbox más relé de tránsito · cualquier tamaño, archivos y carpetas",
+        "body": "Escribe wormhole send y un nombre de archivo, dicta el código corto que aparece, y la otra persona escribe wormhole receive y el código. Las dos máquinas usan ese código para acordar una clave, así que el relé intermedio solo transporta datos cifrados. Maneja archivos y directorios de cualquier tamaño y es muy usado para mover datos entre servidores.",
+        "cons": "Ambos lados necesitan la herramienta instalada y una terminal, y no está pensado para enviar a personas no técnicas."
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "El mejor para dispositivos en la misma red, sin internet",
+        "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS entre dispositivos con un certificado por dispositivo · solo red local · sin servidor",
+        "body": "Cuando quien envía y quien recibe comparten una Wi-Fi, LocalSend mueve los archivos directamente entre los dispositivos por HTTPS cifrado, sin ningún servidor en medio. No se sube nada a ninguna parte, así que la pregunta de qué puede leer un proveedor ni se plantea.",
+        "cons": "Solo llega a dispositivos de la misma red local, y cada dispositivo necesita la app."
+      },
+      "6": {
+        "name": "Archivo 7-Zip con AES-256",
+        "tag": "El mejor cuando debes usar correo o un canal en el que no confías",
+        "facts": "7-Zip gratis para Windows, con herramientas compatibles en macOS y Linux · formato 7z con AES-256 y contraseña · funciona con cualquier transporte, del correo a una memoria USB",
+        "body": "Cifrar el propio archivo hace que el transporte dé igual. Crea un archivo 7z en 7-Zip, elige AES-256 y una frase de paso larga, y envía el archivo por correo, una nube o lo que sea. Manda la frase de paso por separado, por teléfono o por un mensajero cifrado. Es el método más antiguo de la lista y sigue siendo de los más fiables.",
+        "cons": "Toda la seguridad depende de la frase de paso, el destinatario necesita software que abra archivos 7z y tú mismo debes compartir esa frase de forma segura."
+      }
+    }
+  },
+  "table": {
+    "title": "De un vistazo",
     "cols": {
-      "airdrop": "Transferencia en la nube",
-      "quick": "ZIP con contraseña",
-      "bishare": "BIShare"
+      "feature": "Característica",
+      "bishare": "BIShare",
+      "wormhole": "Wormhole",
+      "protondrive": "Proton Drive",
+      "onionshare": "OnionShare",
+      "magicwormhole": "magic-wormhole",
+      "sevenzip": "Archivo 7-Zip"
     },
     "rows": {
-      "r0": "Cifrado de extremo a extremo",
-      "r1": "La clave nunca llega al servidor",
-      "r2": "Sin cuenta necesaria",
-      "r3": "Funciona sin conexión, entre dispositivos",
-      "r4": "Gratis de usar"
+      "r0": "El servicio no puede leer el archivo",
+      "r1": "El destinatario no instala nada",
+      "r2": "Quien envía puede desconectarse tras enviar",
+      "r3": "Maneja archivos de más de 10 GB",
+      "r4": "Oculta quién envía",
+      "r5": "Cliente de código abierto"
+    },
+    "note": "A septiembre de 2026. Quien recibe un enlace de BIShare solo necesita un navegador; enviar de dispositivo a dispositivo requiere la app en ambos extremos. Wormhole guarda archivos de hasta 5 GB durante 24 horas y transmite los mayores de navegador a navegador hasta 10 GB, y publica su biblioteca de cifrado en lugar del cliente completo. El plan gratuito de Proton Drive tiene 5 GB de almacenamiento. Quien recibe con OnionShare necesita Tor Browser. magic-wormhole necesita su herramienta de línea de comandos en ambas máquinas. Un archivo 7-Zip es tan fuerte como su frase de paso, y el destinatario necesita una herramienta que abra archivos 7z."
+  },
+  "metadata": {
+    "title": "Lo que el cifrado no oculta",
+    "body": "El cifrado de extremo a extremo protege el contenido de un archivo. Otras cosas suelen seguir visibles, y conviene saber cuáles.",
+    "items": {
+      "0": {
+        "h": "Nombres y tamaños de archivo",
+        "b": "Muchos servicios necesitan un nombre y un tamaño para mostrar una página de descarga. Las subidas por enlace de BIShare, por ejemplo, envían al servidor el nombre, el tamaño y el tipo sin cifrar, mientras el contenido sigue cifrado. Si el nombre ya es delicado, cambia el nombre del archivo o mételo antes en un archivo cifrado."
+      },
+      "1": {
+        "h": "Quién se conectó y cuándo",
+        "b": "El servidor ve las direcciones IP de quien envía y quien recibe, y cuándo subieron y descargaron. Solo una red como Tor, la que usa OnionShare, oculta eso al servicio."
+      },
+      "2": {
+        "h": "El enlace es la clave",
+        "b": "Cuando la clave va en el enlace, cualquiera que consiga el enlace completo puede abrir el archivo. Basta un correo reenviado, una copia de un chat o una pantalla compartida. Las caducidades, las descargas únicas y una contraseña aparte reducen ese margen."
+      },
+      "3": {
+        "h": "Lo que pasa tras la descarga",
+        "b": "Una vez descifrado, el archivo son datos corrientes en el dispositivo de quien recibe. Si sus fotos se sincronizan con una nube o su portátil no está cifrado, la protección que elegiste termina ahí."
+      }
+    }
+  },
+  "bishare": {
+    "title": "Cómo cifra BIShare, en detalle",
+    "body": "Ya que te pedimos confiar en nuestro código, aquí está exactamente lo que hace, con sus límites. La criptografía está en los repositorios públicos bishare-protocol y bishare-web.",
+    "items": {
+      "0": {
+        "h": "Enlaces desde el navegador o la app",
+        "b": "Para cada archivo se genera en tu dispositivo una clave aleatoria nueva de 256 bits. El archivo se divide en bloques de 1 MiB y cada uno se sella con AES-GCM usando un nonce formado por una sal por archivo y el número de bloque, que además va ligado como dato autenticado. Los bloques reordenados, eliminados o truncados no se descifran. La clave va codificada tras #k= en el enlace, una parte de la URL que los navegadores se guardan para sí."
+      },
+      "1": {
+        "h": "Envíos directos entre dispositivos",
+        "b": "Las dos apps hacen un acuerdo de claves X25519, pasan el secreto compartido por HKDF-SHA256 para obtener una clave de 32 bytes y cifran el archivo por bloques con AES-256-GCM, cada uno con su propio nonce derivado. Cada dispositivo tiene una huella, los ocho primeros bytes del SHA-256 de su clave pública, mostrada en hexadecimal para que compruebes que hablas con el dispositivo correcto."
+      },
+      "2": {
+        "h": "Qué guarda y ve el servidor",
+        "b": "En los enlaces, el servidor guarda texto cifrado más el nombre, tamaño y tipo del archivo subido, y lo elimina al pasar un día o, si elegiste descarga única, en cuanto se descarga. En los envíos directos por la misma red no pasa nada por nuestros servidores."
+      },
+      "3": {
+        "h": "Lo que aún no se ha hecho",
+        "b": "El protocolo está cubierto por pruebas unitarias, incluidos vectores de prueba multiplataforma, pero no ha pasado una auditoría de seguridad externa formal. Los informes de vulnerabilidades van a security@billiongroup.net."
+      }
+    }
+  },
+  "password": {
+    "title": "Compartir la clave, el enlace o la contraseña con seguridad",
+    "body": "El cifrado fuerte falla si el secreto viaja junto al archivo. Unos cuantos hábitos cierran esa brecha.",
+    "items": {
+      "0": {
+        "h": "Usa un segundo canal",
+        "b": "Envía el archivo por correo y la contraseña por SMS, o comparte el enlace en un chat y dicta el código por llamada. Quien comprometa un canal seguirá sin la otra mitad."
+      },
+      "1": {
+        "h": "Acorta el margen",
+        "b": "Elige la caducidad más corta que sirva, y descarga única cuando solo una persona necesite el archivo. Un enlace que dejó de funcionar ayer no puede filtrarse mañana."
+      },
+      "2": {
+        "h": "Evita chats de grupo y tickets",
+        "b": "Los enlaces con clave pegados en chats de grupo, tickets de soporte o documentos compartidos acaban copiados en sitios que no controlas, a menudo sin fecha de fin. Mándalos de persona a persona."
+      },
+      "3": {
+        "h": "En persona, usa un código QR",
+        "b": "Si el destinatario está en la sala, escanear un código QR transfiere el enlace sin que se escriba, se pegue ni quede registrado en un servicio de mensajería."
+      }
+    }
+  },
+  "choose": {
+    "title": "Qué método para cada situación",
+    "body": "Elige según qué es el archivo, quién lo recibe y cuánto tiempo debe estar disponible.",
+    "items": {
+      "0": {
+        "h": "Un contrato, un DNI escaneado o un informe médico para una persona",
+        "b": "Un enlace de BIShare o Wormhole con descarga única o caducidad corta, enviado por un chat privado."
+      },
+      "1": {
+        "h": "Documentos que un cliente necesitará durante semanas",
+        "b": "Proton Drive, con contraseña en el enlace y una caducidad que puedas ampliar."
+      },
+      "2": {
+        "h": "Material de una fuente que debe seguir en el anonimato",
+        "b": "OnionShare, con la dirección y la clave privada intercambiadas por un mensajero cifrado."
+      },
+      "3": {
+        "h": "Carpetas grandes entre tus propios dispositivos",
+        "b": "Un envío directo con BIShare o LocalSend en la misma red, para no subir nada a ninguna parte."
+      },
+      "4": {
+        "h": "Datos entre servidores o terminales",
+        "b": "magic-wormhole, que mueve directorios de cualquier tamaño con un código corto."
+      },
+      "5": {
+        "h": "Solo se permite el correo",
+        "b": "Un archivo 7-Zip con AES-256 adjunto al correo, y la frase de paso por otra vía."
+      }
+    }
+  },
+  "mistakes": {
+    "title": "Errores habituales que anulan el cifrado",
+    "body": "La mayoría de las filtraciones de archivos cifrados no rompen el cifrado. Lo rodean.",
+    "items": {
+      "0": {
+        "h": "La contraseña en el mismo mensaje",
+        "b": "Un archivo y su frase de paso en un mismo correo son tan legibles como el archivo solo. Sepáralos siempre."
+      },
+      "1": {
+        "h": "Frases de paso débiles o repetidas",
+        "b": "El cifrado basado en contraseña es tan fuerte como la contraseña. Usa una frase larga y aleatoria de un gestor de contraseñas, y nunca una que uses en otro sitio."
+      },
+      "2": {
+        "h": "Confiar en el cifrado en reposo para archivos delicados",
+        "b": "Un servicio que solo cifra en sus propios discos puede seguir leyendo, analizando y entregando tu archivo. Para cualquier cosa delicada, exige extremo a extremo."
+      },
+      "3": {
+        "h": "Olvidar las copias",
+        "b": "Las descargas descifradas, los borradores de correo, las capturas y las copias automáticas de fotos crean copias legibles. Borra en ambos lados lo que ya no necesites."
+      }
     }
   },
   "faq": {
     "title": "Transferencia de archivos cifrada: preguntas frecuentes",
     "items": {
       "0": {
-        "q": "¿Qué es la transferencia de archivos cifrada de extremo a extremo?",
-        "a": "Significa que el archivo se cifra antes de salir de tu dispositivo y solo el destinatario puede descifrarlo — el servicio que lo mueve no puede leerlo. BIShare lo logra cifrando en tu navegador y manteniendo la clave fuera del alcance del servidor."
+        "q": "¿Qué es una transferencia de archivos cifrada?",
+        "a": "Mover un archivo de forma que nadie que lo intercepte pueda leerlo. La versión más fuerte es de extremo a extremo: el archivo se cierra antes de salir de quien envía y solo quien recibe puede abrirlo."
       },
       "1": {
-        "q": "¿En qué se diferencia de un ZIP protegido con contraseña?",
-        "a": "Un ZIP con contraseña sigue dependiendo de que compartas una contraseña por otro medio, y el archivo es solo tan fuerte como esa contraseña. BIShare usa una clave aleatoria de máxima fortaleza y la mueve en el fragmento del enlace, así que no hay contraseña débil ni nada que el servidor pueda ver."
+        "q": "¿Qué diferencia hay entre cifrado en tránsito y de extremo a extremo?",
+        "a": "El cifrado en tránsito protege la conexión con el servidor, pero el servidor descifra y puede leer el archivo. El de extremo a extremo mantiene el archivo cifrado hasta que llega al destinatario, así que el servidor nunca puede."
       },
       "2": {
-        "q": "¿El servidor ve mi archivo en algún momento?",
-        "a": "En las transferencias cifradas, solo texto cifrado — la clave nunca nos llega, así que no podemos descifrarlo. En las transferencias cercanas entre dispositivos, el archivo no toca nuestros servidores en absoluto."
+        "q": "¿WeTransfer tiene cifrado de extremo a extremo?",
+        "a": "WeTransfer describe cifrado en tránsito y en reposo, lo que significa que sus sistemas pueden descifrar los archivos guardados. Para cifrado de extremo a extremo desde el navegador, usa un servicio como BIShare, Wormhole o Proton Drive."
       },
       "3": {
-        "q": "¿Necesito una cuenta para enviar de forma segura?",
-        "a": "No. El cifrado viene integrado y es gratis sin registro. Compartes un enlace o código, y el destinatario lo abre en cualquier navegador."
+        "q": "¿Cómo envío un archivo cifrado por correo?",
+        "a": "Mete el archivo en un archivo 7-Zip con AES-256 y una frase de paso fuerte, adjúntalo y manda la frase por otro canal, como una llamada o un mensajero cifrado."
       },
       "4": {
-        "q": "¿Puedo enviar archivos grandes cifrados?",
-        "a": "Sí. El cifrado se transmite en trozos, así que puedes enviar archivos grandes — hasta 100 GB gratis mediante un enlace cifrado, y sin límite de tamaño en las transferencias cercanas por tu propia Wi-Fi."
+        "q": "¿Cuál es la forma más segura de enviar un archivo grande?",
+        "a": "Un envío directo cifrado de extremo a extremo entre los dos dispositivos, como BIShare en la misma red, no guarda el archivo en ninguna parte. Para alguien lejos, lo siguiente mejor es un enlace de extremo a extremo que caduque tras una descarga."
+      },
+      "5": {
+        "q": "¿El cifrado de extremo a extremo oculta el nombre del archivo?",
+        "a": "No siempre. Muchos servicios, incluidos los enlaces de BIShare, pueden ver nombres y tamaños aunque el contenido esté cifrado. Cambia el nombre del archivo o mételo en un archivo cifrado si el nombre es delicado."
+      },
+      "6": {
+        "q": "¿AES-128 es más débil que AES-256 para enviar archivos?",
+        "a": "Ambos se consideran hoy seguros frente a ataques prácticos. Importa más que la clave se cree y se quede en los dispositivos de quien envía y quien recibe, y no en el servicio."
+      },
+      "7": {
+        "q": "¿Puede el proveedor leer mis archivos si están cifrados?",
+        "a": "Con cifrado en tránsito o en reposo, sí, porque el proveedor tiene las claves. Con cifrado de extremo a extremo, no, porque la clave nunca sale de los dispositivos de quien envía y quien recibe."
+      },
+      "8": {
+        "q": "¿BIShare tiene cifrado de extremo a extremo?",
+        "a": "Sí. Los enlaces se cifran en el navegador o la app con AES-256-GCM y la clave se queda en el fragmento del enlace, y los envíos directos usan claves acordadas entre los dos dispositivos. El servidor ve los nombres y tamaños de las subidas por enlace, y el protocolo aún no ha tenido una auditoría externa."
+      },
+      "9": {
+        "q": "¿BIShare es gratis?",
+        "a": "Sí. No cuesta nada, su código se publica bajo MIT y funciona sin registro ni publicidad."
       }
     }
   },
   "cta": {
-    "title": "Envía tu próximo archivo cifrado de extremo a extremo",
-    "body": "Cifrado real, sin cuenta, sin coste. Consigue BIShare para tu teléfono o tu ordenador — el destinatario solo necesita un navegador.",
+    "title": "Envía archivos que solo el destinatario puede abrir",
+    "body": "Gratis y de código abierto. Cifra un enlace en tu navegador, o envía directo entre tus dispositivos con claves que nunca salen de ellos.",
     "download": "Descargar BIShare"
   },
   "a11y": {
     "yes": "Sí",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un archivo con candado viaja de un portátil a un móvil a través de un servidor que solo ve datos ilegibles, con el título transferencia de archivos cifrada, bien explicada.",
+      "title": "Transferencia de archivos cifrada, explicada",
+      "sub": "En tránsito, en reposo o de extremo a extremo, y cómo distinguirlos",
+      "left": "Remitente",
+      "right": "Destinatario",
+      "server": "Servidor"
+    },
+    "levels": {
+      "alt": "Quién puede leer tu archivo con cada tipo de cifrado: con cifrado en tránsito la red no puede pero el servidor sí; con cifrado en reposo un disco robado no revela nada pero el proveedor sí puede leer; con cifrado de extremo a extremo ni la red ni el proveedor pueden, solo remitente y destinatario.",
+      "title": "¿Quién puede leer tu archivo?",
+      "sub": "Tres tipos de cifrado comparados",
+      "colNet": "Espía en la red",
+      "colDisk": "Disco robado",
+      "colProvider": "El proveedor",
+      "colEnds": "Remitente y destinatario",
+      "r0": "En tránsito (TLS)",
+      "r1": "En reposo",
+      "r2": "Extremo a extremo",
+      "can": "Puede leer",
+      "cannot": "No puede leer"
+    },
+    "fragment": {
+      "alt": "Cómo un enlace de extremo a extremo aparta la clave del servidor: el enlace tiene una parte de dirección que va al servidor y un fragmento tras el signo # con la clave, que el navegador nunca envía, así que el servidor solo guarda datos cifrados.",
+      "title": "Por qué la clave tras # nunca llega al servidor",
+      "sub": "Anatomía de un enlace cifrado de extremo a extremo",
+      "sent": "Se envía al servidor",
+      "kept": "Se queda en el navegador",
+      "keyLabel": "Clave de descifrado",
+      "stored": "El servidor solo guarda texto cifrado",
+      "warn": "Quien tenga el enlace completo puede abrir el archivo"
+    },
+    "visible": {
+      "alt": "Lo que oculta el cifrado de extremo a extremo y lo que queda visible: el contenido del archivo queda oculto, mientras el nombre y el tamaño, las direcciones IP, las horas y el propio enlace pueden seguir visibles según el servicio.",
+      "title": "Lo que oculta el cifrado de extremo a extremo",
+      "sub": "El contenido va sellado; algunos metadatos, normalmente no",
+      "hidden": "Oculto",
+      "shown": "A menudo visible",
+      "h0": "Contenido del archivo",
+      "s0": "Nombre y tamaño",
+      "s1": "Direcciones IP",
+      "s2": "Horas de subida y descarga",
+      "s3": "Quien tenga el enlace completo"
+    }
   }
 }

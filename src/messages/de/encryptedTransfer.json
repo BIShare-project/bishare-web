@@ -1,84 +1,369 @@
 {
   "meta": {
-    "title": "Verschlüsselte Dateiübertragung, sicher und kostenlos",
-    "description": "Dateien Ende-zu-Ende verschlüsselt senden: BIShare verschlüsselt im Browser vor dem Upload, der Schlüssel bleibt im Link. Bis 100 GB, ohne Konto.",
-    "ogTitle": "Verschlüsselte Dateiübertragung — Ende-zu-Ende, im Browser"
+    "title": "Verschlüsselte Dateiübertragung: 7 Wege, wirklich sicher",
+    "description": "Transport, Speicher oder Ende-zu-Ende? So erkennen Sie, was ein Übertragungsdienst wirklich verschlüsselt, was er trotzdem sieht, und sieben private Wege."
   },
   "hero": {
     "eyebrow": "Verschlüsselte Dateiübertragung",
-    "title": "Verschlüsselte Dateiübertragung, Ende zu Ende",
-    "body": "Die meisten \"sicheren\" Übertragungstools verschlüsseln deine Datei <strong>auf ihren Servern</strong> — das heißt, sie halten die Schlüssel. BIShare verschlüsselt die Datei <strong>in deinem Browser, bevor sie hochgeladen wird</strong>, und der Schlüssel reist im Link, ohne unsere Server je zu berühren. Wir speichern nur verschlüsselte Daten, die wir nicht lesen können. <highlight>Ende-zu-Ende verschlüsselt, ohne Konto, kostenlos.</highlight>",
-    "ctaPrimary": "BIShare kostenlos holen",
-    "ctaSecondary": "So funktioniert's"
+    "title": "Verschlüsselte Dateiübertragung, richtig erklärt",
+    "body": "Fast jeder Dateiübertragungsdienst nennt sich inzwischen verschlüsselt, und fast alle sagen damit über irgendetwas die Wahrheit. Die Frage ist, worüber. Ein Link kann auf dem Weg zum Server per HTTPS geschützt sein, verschlüsselt auf einer Festplatte liegen, die der Anbieter öffnen kann, oder auf Ihrem Gerät mit einem Schlüssel verschlossen werden, den der Anbieter nie sieht. Nur die letzte Variante hält das Unternehmen selbst, jeden, der es hackt, und jeden, der es zur Herausgabe zwingen kann, von Ihrer Datei fern. Dieser Ratgeber trennt die drei Arten der Verschlüsselung, gibt Ihnen einen Test, mit dem Sie sie bei jedem Dienst in einer Minute unterscheiden, bewertet sieben Wege, eine Datei zu senden, die der Transporteur nicht lesen kann, und sagt ehrlich, was Verschlüsselung nicht verbirgt, auch bei unserem eigenen Produkt. Unser eigenes <strong>BIShare</strong> ist unter den sieben: <strong>kostenlos und MIT-lizenziert, verschlüsselt es Links im Browser mit AES-256-GCM und sendet von Gerät zu Gerät mit Schlüsseln, die die beiden Geräte untereinander aushandeln</strong>. <highlight>Kein Konto nötig.</highlight>",
+    "ctaPrimary": "BIShare kostenlos laden",
+    "ctaSecondary": "So funktioniert es"
   },
-  "why": {
-    "title": "Verschlüsselt bei der Übertragung ist nicht dasselbe wie Ende-zu-Ende",
-    "body": "Viele Dienste sagen \"verschlüsselt\", meinen aber verschlüsselt <strong>auf ihrer Seite</strong> — sie können deine Dateien weiterhin lesen, und jeder, der sie hackt, ebenso. Ende-zu-Ende-Verschlüsselung bedeutet, dass nur Sender und Empfänger den Schlüssel besitzen. Bei BIShare wird der Schlüssel in deinem Browser erzeugt und lebt im #Fragment des Links, das in keiner Anfrage gesendet wird — der Server speichert also Bytes, die er wirklich nicht entschlüsseln kann."
+  "updated": "Aktualisiert im September 2026 · Verschlüsselungsdetails von der Sicherheitsseite, Dokumentation oder dem Quellcode des jeweiligen Projekts, geprüft am 14. September 2026",
+  "disclosure": "BIShare ist unser Produkt, beziehen Sie das ins Ranking ein. Sein Verschlüsselungscode ist öffentlich, und diese Seite nennt, was er nicht schützt, genauso deutlich wie bei den anderen.",
+  "quick": {
+    "title": "Kurze Antwort",
+    "items": [
+      "<strong>Achten Sie auf Ende-zu-Ende, nicht nur auf „verschlüsselt“:</strong> HTTPS und Verschlüsselung im Speicher lassen den Anbieter Ihre Datei trotzdem öffnen. Ende-zu-Ende heißt, nur Absender und Empfänger halten den Schlüssel.",
+      "<strong>Ein Test in einer Minute:</strong> Kann der Dienst in seiner Web-App eine Vorschau Ihrer Datei zeigen oder den Zugriff wiederherstellen, wenn Sie den Link verlieren, ist er nicht Ende-zu-Ende.",
+      "<strong>Am einfachsten aus dem Browser:</strong> BIShare oder Wormhole verschlüsseln vor dem Hochladen und legen den Schlüssel in den Link, der Empfänger muss nur klicken.",
+      "<strong>Dateien, die wochenlang online bleiben müssen:</strong> Proton Drive hält Ende-zu-Ende-verschlüsselte Dateien in Ihrem Konto und teilt sie per Link mit optionalem Passwort.",
+      "<strong>Sie müssen auch verbergen, wer sendet:</strong> OnionShare stellt die Datei von Ihrem eigenen Computer über Tor bereit.",
+      "<strong>Jeder beliebige Kanal, sogar normale E-Mail:</strong> Packen Sie die Datei in ein 7-Zip-Archiv mit AES-256 und starkem Passwort, und schicken Sie das Passwort auf anderem Weg."
+    ]
   },
-  "how": {
-    "title": "So verschlüsselt BIShare deine Übertragung",
+  "levels": {
+    "title": "Drei Arten der Verschlüsselung hinter einem Wort",
+    "body": "Wenn ein Dienst sagt, Ihre Dateien seien verschlüsselt, meint er meist eines von drei verschiedenen Dingen. Sie schützen vor unterschiedlichen Leuten.",
     "items": {
       "0": {
-        "h": "Verschlüsselt vor dem Upload",
-        "b": "Aktiviere die Ende-zu-Ende-Verschlüsselung und die Datei wird in deinem Browser mit AES-256-GCM verschlüsselt. Es werden nur verschlüsselte Daten hochgeladen — in Blöcken gestreamt, sodass selbst Dateien mit mehreren Gigabyte nie im Speicher liegen."
+        "h": "Verschlüsselung beim Transport",
+        "b": "Die Verbindung zwischen Ihrem Browser oder Ihrer App und dem Server ist per TLS geschützt, das Schloss in der Adressleiste. So kann niemand im Café-WLAN oder bei Ihrem Internetanbieter den Upload mitlesen. Sobald die Datei ankommt, hilft das nicht mehr, denn der Server entschlüsselt die Verbindung, um sie zu empfangen. Jeder seriöse Dienst macht das, es ist also Grundausstattung, kein Merkmal."
       },
       "1": {
-        "h": "Der Schlüssel bleibt bei dir",
-        "b": "Der Entschlüsselungsschlüssel wird im Link-Fragment (#) platziert, das Browser nie an einen Server übertragen. Teile den Link und der Browser des Empfängers entschlüsselt lokal. Verlierst du den Link, können selbst wir die Datei nicht wiederherstellen."
+        "h": "Verschlüsselung im Speicher",
+        "b": "Der Anbieter verschlüsselt die Datei auf seinen Festplatten, damit eine gestohlene Platte oder ein nachlässiges Backup sie nicht preisgibt. Die Schlüssel hält aber der Anbieter, und er entschlüsselt die Datei, wann immer seine Systeme es brauchen, für Vorschauen, Virenscans, Suche oder eine behördliche Anfrage. Mitarbeitende mit genügend Rechten, ein Angreifer im Netzwerk oder ein Gerichtsbeschluss erreichen die lesbare Datei."
       },
       "2": {
-        "h": "Oder gar nicht hochladen",
-        "b": "Im selben Netzwerk sendet BIShare Dateien direkt zwischen Geräten über einen verschlüsselten Kanal — die Datei erreicht die Cloud nie, es gibt also nichts abzufangen oder zu speichern."
+        "h": "Ende-zu-Ende-Verschlüsselung",
+        "b": "Die Datei wird auf dem Gerät des Absenders verschlüsselt, bevor sie es verlässt, und nur das Gerät des Empfängers kann sie entschlüsseln. Der Dienst speichert oder leitet unlesbare Bytes weiter und hat den Schlüssel nie. Wird das Unternehmen gehackt oder zur Herausgabe verpflichtet, hat es nichts Lesbares. Nur diese Art schützt Sie vor dem Transporteur selbst."
+      },
+      "3": {
+        "h": "Warum Werbung sie verwischt",
+        "b": "Begriffe wie Bank-Standard, militärische Verschlüsselung oder 256 Bit beschreiben die Stärke eines Verfahrens, nicht, wer den Schlüssel hat. Ein Dienst kann im Speicher AES-256 verwenden und trotzdem jede Datei lesen. Die ehrliche Frage lautet immer: Wo liegt der Schlüssel?"
       }
     }
   },
-  "comparison": {
-    "title": "Cloud-Übertragung vs Passwort-ZIP vs BIShare",
+  "test": {
+    "title": "So erkennen Sie, ob ein Dienst wirklich Ende-zu-Ende verschlüsselt",
+    "body": "Sie müssen keinen Quellcode lesen, um eine gute Antwort zu bekommen. Diese Prüfungen dauern bei jeder Übertragungsseite eine Minute.",
+    "items": {
+      "0": {
+        "h": "Kann er eine Vorschau zeigen?",
+        "b": "Zeigt die Web-App des Anbieters ein Vorschaubild Ihres Fotos oder die erste Seite Ihres PDFs, können seine Server die Datei lesen. Ende-zu-Ende-Dienste entschlüsseln Vorschauen im Browser oder zeigen gar keine."
+      },
+      "1": {
+        "h": "Kann er den Zugriff für Sie wiederherstellen?",
+        "b": "Wenn Sie Link oder Passwort verlieren und der Support die Datei zurückholen kann, hat der Anbieter einen Schlüssel. Bei echter Ende-zu-Ende-Verschlüsselung bedeutet ein verlorener Schlüssel eine verlorene Datei, und gute Dienste sagen das klar."
+      },
+      "2": {
+        "h": "Wo steckt der Schlüssel im Link?",
+        "b": "Viele Ende-zu-Ende-Linkdienste setzen den Schlüssel hinter ein # in der URL. Browser senden diesen Teil nie an den Server, der Dienst speichert die Datei also ohne die Mittel, sie zu öffnen. Ein Link ohne Fragment und ohne separates Passwort bedeutet meist, dass der Server entschlüsseln kann."
+      },
+      "3": {
+        "h": "Nennt die Sicherheitsseite das Verfahren?",
+        "b": "Ein glaubwürdiger Dienst nennt seine Algorithmen, erklärt, wo Schlüssel entstehen, und veröffentlicht Code oder ein Audit. Vage Aussagen ohne ein Wort über Schlüssel sind ein Warnsignal."
+      },
+      "4": {
+        "h": "Was sagt er über Metadaten?",
+        "b": "Selbst starke Ende-zu-Ende-Dienste sehen meist Dateinamen, Größen, IP-Adressen und Zeitpunkte. Ein Anbieter, der das offen sagt, verdient mehr Vertrauen als einer, der verspricht, gar nichts zu sehen."
+      }
+    }
+  },
+  "methods": {
+    "title": "Sieben Wege, eine Datei Ende-zu-Ende-verschlüsselt zu senden, im Ranking",
+    "body": "Jede Option unten hält die Datei für den Dienst in der Mitte unlesbar. Sie unterscheiden sich darin, wer was installieren muss, wie lange die Datei verfügbar bleibt und was sie sonst noch schützen.",
+    "consLabel": "Zu beachten:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Bester Allrounder: verschlüsselte Links im Browser und direkte Übertragung zwischen Geräten",
+        "facts": "Browser unter bishare.app, Apps für Android, iPhone, Windows, macOS, Linux · MIT · Links: AES-256-GCM im Browser, Schlüssel nach #k= in der URL, bis 100 GB für 24 Stunden · direkt: X25519-Schlüsseleinigung, HKDF-SHA256, AES-256-GCM · kein Konto",
+        "body": "BIShare deckt beide Arten ab, wie Menschen Dateien senden. Für einen Link erzeugt Browser oder App einen zufälligen 256-Bit-Schlüssel, verschlüsselt die Datei in 1-MiB-Blöcken mit AES-GCM, lädt nur Chiffretext hoch und legt den Schlüssel ins Link-Fragment, das den Server nie erreicht. Für Geräte in der Nähe einigen sich die Apps per X25519 auf einen Schlüssel, leiten ihn mit HKDF-SHA256 ab und verschlüsseln jeden Block mit AES-256-GCM, und jedes Gerät zeigt einen kurzen Fingerabdruck zum Vergleichen. Die Kryptografie steckt in einer öffentlichen Rust-Bibliothek.",
+        "cons": "Dateinamen und Größen von Link-Uploads sieht der Server, der Protokollcode hatte noch kein formelles externes Audit, und Links laufen nach 24 Stunden ab."
+      },
+      "1": {
+        "name": "Wormhole",
+        "tag": "Bester schneller verschlüsselter Link aus jedem Browser",
+        "facts": "Browser · kostenlos · bis 10 GB · AES-GCM mit 128-Bit-Schlüsseln nach RFC 8188, vor dem Hochladen verschlüsselt · Dateien bis 5 GB 24 Stunden gespeichert, größere Peer-to-Peer · Verschlüsselungsbibliothek quelloffen",
+        "body": "Wormhole verschlüsselt im Browser, bevor etwas das Gerät verlässt, seine Server halten also höchstens einen Tag lang Chiffretext. Auf einem geliehenen Computer ist es schnell benutzt, auf keiner Seite muss etwas installiert werden. Die FAQ nennt das Verfahren konkret und veröffentlicht die Streaming-Verschlüsselungsbibliothek, wenn auch nicht den ganzen Dienst.",
+        "cons": "Der vollständige Client- und Servercode ist nicht veröffentlicht, die Obergrenze liegt bei 10 GB, und Übertragungen über 5 GB brauchen Ihren offenen Tab."
+      },
+      "2": {
+        "name": "Proton Drive",
+        "tag": "Am besten für Dateien, die wochenlang abrufbar bleiben sollen",
+        "facts": "Web, Windows, macOS, Android, iOS · Ende-zu-Ende-verschlüsselter Speicher · Gratistarif mit 5 GB · Freigabelinks mit optionalem Passwort und Ablauf · Empfänger brauchen kein Konto · Apps quelloffen und geprüft",
+        "body": "Proton Drive ist Cloud-Speicher auf Basis von Ende-zu-Ende-Verschlüsselung, vom Unternehmen hinter Proton Mail. Einmal hochladen, Link erstellen, Passwort oder Ablaufdatum hinzufügen; der Empfänger öffnet ihn im Browser ohne Anmeldung. Weil die Dateien in Ihrem Konto liegen, bleiben sie so lange verfügbar, wie Sie wollen, statt gegen eine 24-Stunden-Uhr anzulaufen.",
+        "cons": "Sie brauchen ein Proton-Konto, die 5 GB im Gratistarif teilen sich mit allem anderen, was Sie speichern, und der Dienst ist für Speicherung gebaut, nicht für schnelle Einmalsendungen."
+      },
+      "3": {
+        "name": "OnionShare",
+        "tag": "Am besten, wenn Sie auch Anonymität brauchen",
+        "facts": "Windows, macOS, Linux · Open Source · betreibt einen Webserver auf Ihrem Computer als Tor-Onion-Dienst · Adresse plus privater Schlüssel · kein Drittserver hält die Datei",
+        "body": "OnionShare macht Ihren Computer zu einer vorübergehenden, privaten Website, die nur über Tor erreichbar ist. Sie schicken die Onion-Adresse und ihren privaten Schlüssel; der Empfänger fügt beides in den Tor Browser ein und lädt die Datei direkt von Ihrem Rechner. Kein Unternehmen speichert die Datei, und Tor verbirgt, von wo aus sich beide Seiten verbinden.",
+        "cons": "Ihr Computer muss eingeschaltet und online bleiben, bis der Download fertig ist, der Empfänger braucht den Tor Browser, und Tor ist langsamer als eine direkte Verbindung."
+      },
+      "4": {
+        "name": "magic-wormhole",
+        "tag": "Am besten für Technikaffine, die Dateien zwischen Computern bewegen",
+        "facts": "Kommandozeile unter macOS, Linux, Windows · MIT · kurze Einmalcodes · Ende-zu-Ende-verschlüsselt mit passwortgestütztem Schlüsselaustausch · Mailbox-Server plus Transit-Relay · beliebige Größe, Dateien und Ordner",
+        "body": "Tippen Sie wormhole send und einen Dateinamen, lesen Sie den ausgegebenen kurzen Code vor, und die andere Person tippt wormhole receive und den Code. Die beiden Rechner einigen sich über diesen Code auf einen Schlüssel, das Relay in der Mitte transportiert also nur verschlüsselte Daten. Es verarbeitet Dateien und Verzeichnisse jeder Größe und ist beliebt, um Daten zwischen Servern zu verschieben.",
+        "cons": "Beide Seiten brauchen das installierte Werkzeug und ein Terminal, und für das Senden an Nicht-Techniker ist es nicht gedacht."
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "Am besten für Geräte im selben Netz, ganz ohne Internet",
+        "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS zwischen Geräten mit Zertifikat pro Gerät · nur lokales Netz · kein Server",
+        "body": "Wenn Absender und Empfänger ein WLAN teilen, überträgt LocalSend Dateien über verschlüsseltes HTTPS direkt zwischen den Geräten, ohne Server dazwischen. Nichts wird irgendwohin hochgeladen, die Frage, was ein Anbieter lesen kann, stellt sich also gar nicht.",
+        "cons": "Es erreicht nur Geräte im selben lokalen Netz, und jedes Gerät braucht die App."
+      },
+      "6": {
+        "name": "7-Zip-Archiv mit AES-256",
+        "tag": "Am besten, wenn Sie E-Mail oder einen unsicheren Kanal nutzen müssen",
+        "facts": "Kostenloses 7-Zip für Windows, kompatible Programme für macOS und Linux · 7z-Format mit AES-256 und Passwort · funktioniert mit jedem Transportweg, von E-Mail bis USB-Stick",
+        "body": "Wer die Datei selbst verschlüsselt, macht den Transportweg unwichtig. Erstellen Sie in 7-Zip ein 7z-Archiv, wählen Sie AES-256 und eine lange Passphrase, und verschicken Sie das Archiv per E-Mail, Cloud-Laufwerk oder auf anderem Weg. Die Passphrase schicken Sie getrennt, per Telefon oder verschlüsseltem Messenger. Es ist die älteste Methode der Liste und immer noch eine der zuverlässigsten.",
+        "cons": "Die Sicherheit hängt ganz an der Passphrase, der Empfänger braucht Software, die 7z-Archive öffnet, und die Passphrase müssen Sie selbst sicher übermitteln."
+      }
+    }
+  },
+  "table": {
+    "title": "Auf einen Blick",
     "cols": {
-      "airdrop": "Cloud-Übertragung",
-      "quick": "Passwort-ZIP",
-      "bishare": "BIShare"
+      "feature": "Merkmal",
+      "bishare": "BIShare",
+      "wormhole": "Wormhole",
+      "protondrive": "Proton Drive",
+      "onionshare": "OnionShare",
+      "magicwormhole": "magic-wormhole",
+      "sevenzip": "7-Zip-Archiv"
     },
     "rows": {
-      "r0": "Ende-zu-Ende verschlüsselt",
-      "r1": "Schlüssel erreicht nie den Server",
-      "r2": "Kein Konto nötig",
-      "r3": "Funktioniert offline, von Gerät zu Gerät",
-      "r4": "Kostenlos nutzbar"
+      "r0": "Der Dienst kann die Datei nicht lesen",
+      "r1": "Empfänger installiert nichts",
+      "r2": "Absender kann nach dem Senden offline gehen",
+      "r3": "Schafft Dateien über 10 GB",
+      "r4": "Verbirgt, wer sendet",
+      "r5": "Quelloffener Client"
+    },
+    "note": "Stand September 2026. Link-Empfänger von BIShare brauchen nur einen Browser; Senden von Gerät zu Gerät braucht die App an beiden Enden. Wormhole speichert Dateien bis 5 GB für 24 Stunden und streamt größere bis 10 GB von Browser zu Browser, und veröffentlicht seine Verschlüsselungsbibliothek statt des ganzen Clients. Der Gratistarif von Proton Drive bietet 5 GB Speicher. OnionShare-Empfänger brauchen den Tor Browser. magic-wormhole braucht sein Kommandozeilenwerkzeug auf beiden Rechnern. Ein 7-Zip-Archiv ist nur so stark wie seine Passphrase, und der Empfänger braucht ein Programm, das 7z-Dateien öffnet."
+  },
+  "metadata": {
+    "title": "Was Verschlüsselung nicht verbirgt",
+    "body": "Ende-zu-Ende-Verschlüsselung schützt den Inhalt einer Datei. Mehreres andere bleibt meist sichtbar, und es hilft zu wissen, was.",
+    "items": {
+      "0": {
+        "h": "Dateinamen und Größen",
+        "b": "Viele Dienste brauchen Name und Größe, um eine Downloadseite anzuzeigen. Link-Uploads von BIShare zum Beispiel senden Dateiname, Größe und Typ unverschlüsselt an den Server, während der Inhalt verschlüsselt bleibt. Ist schon der Name heikel, benennen Sie die Datei um oder packen Sie sie zuerst in ein verschlüsseltes Archiv."
+      },
+      "1": {
+        "h": "Wer sich wann verbunden hat",
+        "b": "Der Server sieht die IP-Adressen von Absender und Empfängern und wann sie hoch- und heruntergeladen haben. Nur ein Netzwerk wie Tor, wie es OnionShare nutzt, verbirgt das vor dem Dienst."
+      },
+      "2": {
+        "h": "Der Link ist der Schlüssel",
+        "b": "Steckt der Schlüssel im Link, kann jeder, der den vollständigen Link bekommt, die Datei öffnen. Eine weitergeleitete E-Mail, ein Chat-Backup oder ein geteilter Bildschirm reichen. Ablaufdaten, Einmal-Downloads und ein separates Passwort verkleinern dieses Fenster."
+      },
+      "3": {
+        "h": "Was nach dem Download passiert",
+        "b": "Einmal entschlüsselt, ist die Datei gewöhnliche Daten auf dem Gerät des Empfängers. Synchronisiert es Fotos in eine Cloud oder ist der Laptop unverschlüsselt, endet der gewählte Schutz dort."
+      }
+    }
+  },
+  "bishare": {
+    "title": "Wie BIShare verschlüsselt, im Detail",
+    "body": "Weil wir Sie bitten, unserem Code zu vertrauen, steht hier genau, was er tut, samt Grenzen. Die Kryptografie liegt in den öffentlichen Repositorys bishare-protocol und bishare-web.",
+    "items": {
+      "0": {
+        "h": "Links aus dem Browser oder der App",
+        "b": "Für jede Datei entsteht auf Ihrem Gerät ein neuer zufälliger 256-Bit-Schlüssel. Die Datei wird in 1-MiB-Blöcke geteilt, und jeder wird mit AES-GCM versiegelt, mit einer Nonce aus einem Salt pro Datei und der Blocknummer, wobei die Blocknummer zusätzlich als authentifizierte Daten eingebunden ist. Vertauschte, entfernte oder abgeschnittene Blöcke lassen sich nicht entschlüsseln. Der Schlüssel steht nach #k= im Link, in einem Teil der URL, den Browser für sich behalten."
+      },
+      "1": {
+        "h": "Direkte Übertragungen zwischen Geräten",
+        "b": "Die beiden Apps führen eine X25519-Schlüsseleinigung durch, leiten aus dem gemeinsamen Geheimnis per HKDF-SHA256 einen 32-Byte-Schlüssel ab und verschlüsseln die Datei blockweise mit AES-256-GCM, jeder Block mit eigener abgeleiteter Nonce. Jedes Gerät hat einen Fingerabdruck, die ersten acht Bytes des SHA-256 seines öffentlichen Schlüssels, als Hex angezeigt, damit Sie prüfen können, mit dem richtigen Gerät zu sprechen."
+      },
+      "2": {
+        "h": "Was der Server speichert und sieht",
+        "b": "Bei Links speichert der Server Chiffretext plus Name, Größe und Typ der hochgeladenen Datei und entfernt sie nach einem Tag oder, bei Einmal-Download, sobald sie abgerufen wurde. Bei direkten Übertragungen im selben Netz läuft gar nichts über unsere Server."
+      },
+      "3": {
+        "h": "Was noch nicht getan ist",
+        "b": "Das Protokoll ist durch Unit-Tests abgedeckt, einschließlich plattformübergreifender Testvektoren, hatte aber noch kein formelles externes Sicherheitsaudit. Meldungen zu Schwachstellen gehen an security@billiongroup.net."
+      }
+    }
+  },
+  "password": {
+    "title": "Schlüssel, Link oder Passwort sicher weitergeben",
+    "body": "Starke Verschlüsselung scheitert, wenn das Geheimnis neben der Datei reist. Ein paar Gewohnheiten schließen diese Lücke.",
+    "items": {
+      "0": {
+        "h": "Einen zweiten Kanal nutzen",
+        "b": "Schicken Sie die Datei per E-Mail und das Passwort per SMS, oder teilen Sie den Link im Chat und lesen Sie den Code am Telefon vor. Wer einen Kanal knackt, hat dann immer noch nicht die andere Hälfte."
+      },
+      "1": {
+        "h": "Das Zeitfenster verkürzen",
+        "b": "Wählen Sie das kürzeste Ablaufdatum, das passt, und Einmal-Download, wenn nur eine Person die Datei braucht. Ein Link, der gestern aufgehört hat zu funktionieren, kann morgen nicht mehr durchsickern."
+      },
+      "2": {
+        "h": "Keine Gruppenchats und Tickets",
+        "b": "Links mit Schlüssel, die in Gruppenchats, Support-Tickets oder geteilte Dokumente kopiert werden, landen an Orten, die Sie nicht kontrollieren, oft auf unbestimmte Zeit. Schicken Sie sie eins zu eins."
+      },
+      "3": {
+        "h": "Vor Ort einen QR-Code nutzen",
+        "b": "Ist der Empfänger im Raum, überträgt ein gescannter QR-Code den Link, ohne dass er je getippt, eingefügt oder in einem Messenger gespeichert wird."
+      }
+    }
+  },
+  "choose": {
+    "title": "Welche Methode für welche Situation",
+    "body": "Wählen Sie danach, was die Datei ist, wer sie bekommt und wie lange sie verfügbar sein muss.",
+    "items": {
+      "0": {
+        "h": "Vertrag, Ausweisscan oder Arztbrief für eine Person",
+        "b": "Ein BIShare- oder Wormhole-Link mit Einmal-Download oder kurzem Ablauf, und den Link über einen privaten Chat verschickt."
+      },
+      "1": {
+        "h": "Unterlagen, die ein Kunde wochenlang braucht",
+        "b": "Proton Drive, mit Passwort auf dem Link und einem Ablaufdatum, das Sie verlängern können."
+      },
+      "2": {
+        "h": "Material von einer Quelle, die anonym bleiben muss",
+        "b": "OnionShare, Adresse und privater Schlüssel über einen verschlüsselten Messenger ausgetauscht."
+      },
+      "3": {
+        "h": "Große Ordner zwischen eigenen Geräten",
+        "b": "Eine direkte BIShare-Übertragung oder LocalSend im selben Netz, damit nichts irgendwo hochgeladen wird."
+      },
+      "4": {
+        "h": "Daten zwischen Servern oder Terminals",
+        "b": "magic-wormhole, das Verzeichnisse jeder Größe mit einem kurzen Code bewegt."
+      },
+      "5": {
+        "h": "Nur E-Mail ist erlaubt",
+        "b": "Ein 7-Zip-Archiv mit AES-256 als Anhang, die Passphrase auf anderem Weg."
+      }
+    }
+  },
+  "mistakes": {
+    "title": "Häufige Fehler, die Verschlüsselung aushebeln",
+    "body": "Die meisten Lecks verschlüsselter Dateien knacken nicht das Verfahren. Sie gehen darum herum.",
+    "items": {
+      "0": {
+        "h": "Passwort in derselben Nachricht",
+        "b": "Ein Archiv und seine Passphrase in einer E-Mail sind so lesbar wie die Datei allein. Trennen Sie beides immer."
+      },
+      "1": {
+        "h": "Schwache oder wiederverwendete Passphrasen",
+        "b": "Passwortbasierte Verschlüsselung ist nur so stark wie das Passwort. Nutzen Sie eine lange, zufällige Passphrase aus einem Passwortmanager und nie eine, die Sie anderswo verwenden."
+      },
+      "2": {
+        "h": "Bei heiklen Dateien auf Speicherverschlüsselung vertrauen",
+        "b": "Ein Dienst, der nur auf seinen eigenen Festplatten verschlüsselt, kann Ihre Datei trotzdem lesen, scannen und herausgeben. Bestehen Sie bei allem Heiklen auf Ende-zu-Ende."
+      },
+      "3": {
+        "h": "Die Kopien vergessen",
+        "b": "Entschlüsselte Downloads, E-Mail-Entwürfe, Screenshots und automatische Foto-Backups erzeugen lesbare Kopien. Löschen Sie auf beiden Seiten, was Sie nicht mehr brauchen."
+      }
     }
   },
   "faq": {
     "title": "Verschlüsselte Dateiübertragung: FAQ",
     "items": {
       "0": {
-        "q": "Was ist Ende-zu-Ende-verschlüsselte Dateiübertragung?",
-        "a": "Es bedeutet, dass die Datei verschlüsselt wird, bevor sie dein Gerät verlässt, und nur vom Empfänger entschlüsselt werden kann — der übertragende Dienst kann sie nicht lesen. BIShare erreicht das, indem es im Browser verschlüsselt und den Schlüssel außerhalb der Reichweite des Servers hält."
+        "q": "Was ist eine verschlüsselte Dateiübertragung?",
+        "a": "Eine Datei so zu übertragen, dass niemand, der sie abfängt, sie lesen kann. Die stärkste Form ist Ende-zu-Ende: Die Datei wird verschlossen, bevor sie den Absender verlässt, und nur der Empfänger kann sie öffnen."
       },
       "1": {
-        "q": "Wie unterscheidet sich das von einer passwortgeschützten ZIP?",
-        "a": "Eine Passwort-ZIP hängt weiterhin davon ab, dass du ein Passwort auf einem anderen Weg teilst, und das Archiv ist nur so stark wie dieses Passwort. BIShare nutzt einen vollwertigen Zufallsschlüssel und bewegt ihn im Link-Fragment, sodass es kein schwaches Passwort und nichts für den Server zu sehen gibt."
+        "q": "Was ist der Unterschied zwischen Transportverschlüsselung und Ende-zu-Ende?",
+        "a": "Transportverschlüsselung schützt die Verbindung zum Server, doch der Server entschlüsselt und kann die Datei lesen. Ende-zu-Ende-Verschlüsselung hält die Datei verschlüsselt, bis sie beim Empfänger ankommt, der Server kann sie also nie lesen."
       },
       "2": {
-        "q": "Sieht der Server je meine Datei?",
-        "a": "Bei verschlüsselten Übertragungen nur verschlüsselte Daten — der Schlüssel erreicht uns nie, wir können sie also nicht entschlüsseln. Bei Übertragungen in der Nähe von Gerät zu Gerät berührt die Datei unsere Server überhaupt nicht."
+        "q": "Ist WeTransfer Ende-zu-Ende-verschlüsselt?",
+        "a": "WeTransfer beschreibt Verschlüsselung beim Transport und im Speicher, seine Systeme können gespeicherte Dateien also entschlüsseln. Für Ende-zu-Ende-Verschlüsselung aus dem Browser nutzen Sie einen Dienst wie BIShare, Wormhole oder Proton Drive."
       },
       "3": {
-        "q": "Brauche ich ein Konto, um sicher zu senden?",
-        "a": "Nein. Verschlüsselung ist eingebaut und kostenlos, ganz ohne Anmeldung. Du teilst einen Link oder Code, und der Empfänger öffnet ihn in jedem Browser."
+        "q": "Wie verschicke ich eine verschlüsselte Datei per E-Mail?",
+        "a": "Packen Sie die Datei in ein 7-Zip-Archiv mit AES-256 und starker Passphrase, hängen Sie das Archiv an, und schicken Sie die Passphrase über einen anderen Kanal, etwa telefonisch oder per verschlüsseltem Messenger."
       },
       "4": {
-        "q": "Kann ich große Dateien verschlüsselt senden?",
-        "a": "Ja. Die Verschlüsselung streamt in Blöcken, sodass du große Dateien senden kannst — bis zu 100 GB kostenlos über einen verschlüsselten Link und ohne Größenbeschränkung bei Übertragungen in der Nähe über dein eigenes Wi-Fi."
+        "q": "Was ist der sicherste Weg, eine große Datei zu senden?",
+        "a": "Eine direkte Ende-zu-Ende-verschlüsselte Übertragung zwischen den beiden Geräten, etwa BIShare im selben Netz, speichert die Datei nirgends. Für jemanden in der Ferne ist ein Ende-zu-Ende-verschlüsselter Link, der nach einem Download abläuft, die zweitbeste Wahl."
+      },
+      "5": {
+        "q": "Verbirgt Ende-zu-Ende-Verschlüsselung den Dateinamen?",
+        "a": "Nicht immer. Viele Dienste, auch BIShare-Links, sehen Dateinamen und Größen, obwohl der Inhalt verschlüsselt ist. Benennen Sie die Datei um oder packen Sie sie in ein verschlüsseltes Archiv, wenn der Name heikel ist."
+      },
+      "6": {
+        "q": "Ist AES-128 bei Dateiübertragungen schwächer als AES-256?",
+        "a": "Beide gelten heute als sicher gegen praktische Angriffe. Wichtiger ist, dass der Schlüssel auf den Geräten von Absender und Empfänger entsteht und bleibt, statt beim Dienst."
+      },
+      "7": {
+        "q": "Kann der Anbieter meine Dateien lesen, wenn sie verschlüsselt sind?",
+        "a": "Bei Transport- oder Speicherverschlüsselung ja, denn der Anbieter hält die Schlüssel. Bei Ende-zu-Ende-Verschlüsselung nein, denn der Schlüssel verlässt die Geräte von Absender und Empfänger nie."
+      },
+      "8": {
+        "q": "Ist BIShare Ende-zu-Ende-verschlüsselt?",
+        "a": "Ja. Links werden im Browser oder in der App mit AES-256-GCM verschlüsselt, und der Schlüssel bleibt im Link-Fragment; direkte Übertragungen nutzen Schlüssel, die die beiden Geräte aushandeln. Der Server sieht Dateinamen und Größen von Link-Uploads, und das Protokoll hatte noch kein externes Audit."
+      },
+      "9": {
+        "q": "Ist BIShare kostenlos?",
+        "a": "Ja. Es kostet nichts, der Quellcode steht unter MIT, und es läuft ohne Anmeldung und ohne Werbung."
       }
     }
   },
   "cta": {
-    "title": "Sende deine nächste Datei Ende-zu-Ende verschlüsselt",
-    "body": "Echte Verschlüsselung, ohne Konto, ohne Kosten. Hol dir BIShare für dein Handy oder deinen Computer — der Empfänger braucht nur einen Browser.",
+    "title": "Dateien senden, die nur der Empfänger öffnen kann",
+    "body": "Kostenlos und Open Source. Verschlüsseln Sie einen Link im Browser, oder senden Sie direkt zwischen Ihren Geräten mit Schlüsseln, die sie nie verlassen.",
     "download": "BIShare herunterladen"
   },
   "a11y": {
     "yes": "Ja",
     "no": "Nein"
+  },
+  "art": {
+    "hero": {
+      "alt": "Eine verschlossene Datei reist von einem Laptop zu einem Handy über einen Server, der nur unlesbare Daten sieht, Titel: verschlüsselte Dateiübertragung, richtig erklärt.",
+      "title": "Verschlüsselte Dateiübertragung, erklärt",
+      "sub": "Transport, Speicher oder Ende-zu-Ende, und wie man es erkennt",
+      "left": "Absender",
+      "right": "Empfänger",
+      "server": "Server"
+    },
+    "levels": {
+      "alt": "Wer Ihre Datei bei welcher Verschlüsselung lesen kann: Bei Transportverschlüsselung kann das Netzwerk nicht mitlesen, der Server schon; bei Speicherverschlüsselung kann eine gestohlene Festplatte nichts preisgeben, der Anbieter aber lesen; bei Ende-zu-Ende-Verschlüsselung können weder Netzwerk noch Anbieter lesen, nur Absender und Empfänger.",
+      "title": "Wer kann Ihre Datei lesen?",
+      "sub": "Drei Arten der Verschlüsselung im Vergleich",
+      "colNet": "Lauscher im Netz",
+      "colDisk": "Gestohlene Festplatte",
+      "colProvider": "Der Anbieter",
+      "colEnds": "Absender und Empfänger",
+      "r0": "Transport (TLS)",
+      "r1": "Im Speicher",
+      "r2": "Ende-zu-Ende",
+      "can": "Kann lesen",
+      "cannot": "Kann nicht lesen"
+    },
+    "fragment": {
+      "alt": "Wie ein Ende-zu-Ende-Link den Schlüssel vom Server fernhält: Der Link besteht aus einem Adressteil, der an den Server geht, und einem Fragment nach dem #-Zeichen mit dem Schlüssel, das der Browser nie sendet, sodass der Server nur verschlüsselte Daten speichert.",
+      "title": "Warum der Schlüssel nach # nie den Server erreicht",
+      "sub": "Aufbau eines Ende-zu-Ende-verschlüsselten Links",
+      "sent": "Geht an den Server",
+      "kept": "Bleibt im Browser",
+      "keyLabel": "Entschlüsselungsschlüssel",
+      "stored": "Server speichert nur Chiffretext",
+      "warn": "Wer den ganzen Link hat, kann die Datei öffnen"
+    },
+    "visible": {
+      "alt": "Was Ende-zu-Ende-Verschlüsselung verbirgt und was sichtbar bleibt: Der Dateiinhalt ist verborgen, während Dateiname und Größe, IP-Adressen, Zeitpunkte und der Link selbst je nach Dienst sichtbar bleiben können.",
+      "title": "Was Ende-zu-Ende-Verschlüsselung verbirgt",
+      "sub": "Inhalte sind versiegelt, manche Metadaten meist nicht",
+      "hidden": "Verborgen",
+      "shown": "Oft sichtbar",
+      "h0": "Dateiinhalt",
+      "s0": "Dateiname und Größe",
+      "s1": "IP-Adressen",
+      "s2": "Upload- und Downloadzeiten",
+      "s3": "Wer den ganzen Link hat"
+    }
   }
 }

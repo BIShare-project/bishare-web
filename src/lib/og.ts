@@ -17,7 +17,6 @@ const OG_IMAGE = {
  * generic brand card. Keep in sync with FIGURES in that script.
  */
 const ROUTE_FIGURES = new Set([
-  "/encrypted-file-transfer",
   "/firefox-send-alternative",
   "/send-files-without-internet",
   "/share-files-without-account",

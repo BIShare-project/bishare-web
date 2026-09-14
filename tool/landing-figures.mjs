@@ -25,7 +25,6 @@ import path from "node:path";
 
 /** left/right: device labels. link: what the off-network route carries. */
 const FIGURES = {
-  "encrypted-file-transfer": { left: "Any device", right: "Any device", title: "Encrypted before it leaves, on both routes" },
   "firefox-send-alternative": { left: "Browser", right: "Anyone, any browser", title: "The Firefox Send idea, still running" },
   "send-files-without-internet": { left: "Phone hotspot", right: "Laptop", title: "No router, no internet, still a network" },
   "share-files-without-account": { left: "Any device", right: "Anyone, any browser", title: "Nobody signs in, on either side" },

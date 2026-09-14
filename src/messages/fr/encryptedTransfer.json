@@ -1,84 +1,370 @@
 {
   "meta": {
-    "title": "Transfert de fichiers chiffré, sûr et gratuit",
-    "description": "Envoyez des fichiers chiffrés de bout en bout : BIShare chiffre dans le navigateur avant l'envoi et la clé reste dans le lien. Jusqu'à 100 Go, sans compte.",
-    "ogTitle": "Transfert chiffré — de bout en bout, dans votre navigateur"
+    "title": "Transfert de fichiers chiffré : 7 méthodes vraiment sûres",
+    "description": "En transit, au repos ou de bout en bout ? Comment savoir ce qu'un service chiffre vraiment, ce qu'il voit encore, et sept façons d'envoyer un fichier en privé."
   },
   "hero": {
     "eyebrow": "Transfert de fichiers chiffré",
-    "title": "Transfert de fichiers chiffré de bout en bout",
-    "body": "La plupart des outils de transfert « sécurisés » chiffrent votre fichier <strong>sur leurs serveurs</strong> — ce qui signifie qu'ils détiennent les clés. BIShare chiffre le fichier <strong>dans votre navigateur avant le téléversement</strong>, et la clé voyage dans le lien, sans jamais toucher nos serveurs. Nous ne stockons que du texte chiffré que nous ne pouvons pas lire. <highlight>Chiffré de bout en bout, sans compte, gratuit.</highlight>",
-    "ctaPrimary": "Obtenez BIShare gratuitement",
+    "title": "Le transfert de fichiers chiffré, bien expliqué",
+    "body": "Presque tous les services d'envoi de fichiers se disent aujourd'hui chiffrés, et presque tous disent vrai sur quelque chose. Reste à savoir quoi. Un lien peut être protégé par HTTPS jusqu'au serveur, dormir chiffré sur un disque que le fournisseur sait ouvrir, ou être verrouillé sur votre appareil avec une clé que le fournisseur ne voit jamais. Seule la dernière option tient à l'écart de votre fichier l'entreprise elle-même, quiconque la pirate et quiconque peut la contraindre à le livrer. Ce guide distingue les trois types de chiffrement, vous donne un test pour les reconnaître sur n'importe quel service en une minute, classe sept façons d'envoyer un fichier que l'intermédiaire ne peut pas lire, et dit honnêtement ce que le chiffrement ne cache pas, y compris pour notre propre produit. Notre <strong>BIShare</strong> fait partie des sept : <strong>gratuit et sous licence MIT, il chiffre les liens dans votre navigateur avec AES-256-GCM et envoie d'appareil à appareil avec des clés négociées entre les deux appareils</strong>. <highlight>Aucun compte requis.</highlight>",
+    "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
-  "why": {
-    "title": "Chiffré en transit n'est pas la même chose que de bout en bout",
-    "body": "Beaucoup de services disent « chiffré » mais entendent chiffré <strong>de leur côté</strong> — ils peuvent toujours lire vos fichiers, et quiconque les pirate aussi. Le chiffrement de bout en bout signifie que seuls l'expéditeur et le destinataire détiennent la clé. Avec BIShare, la clé est générée dans votre navigateur et vit dans le #fragment du lien, qui n'est jamais envoyé dans aucune requête — donc le serveur stocke des octets qu'il ne peut vraiment pas déchiffrer."
+  "updated": "Mis à jour en septembre 2026 · détails du chiffrement tirés de la page sécurité, de la documentation ou du code de chaque projet, vérifiés le 14 septembre 2026",
+  "disclosure": "BIShare est notre produit : tenez-en compte dans le classement. Son code de chiffrement est public, et cette page dit ce qu'il ne protège pas aussi clairement que pour les autres.",
+  "quick": {
+    "title": "Réponse rapide",
+    "items": [
+      "<strong>Cherchez « de bout en bout », pas seulement « chiffré » :</strong> HTTPS et le chiffrement au repos laissent le fournisseur ouvrir votre fichier. De bout en bout signifie que seuls l'expéditeur et le destinataire détiennent la clé.",
+      "<strong>Un test d'une minute :</strong> si le service affiche un aperçu de votre fichier dans son application web ou peut vous rendre l'accès quand vous perdez le lien, il n'est pas de bout en bout.",
+      "<strong>Le plus simple depuis un navigateur :</strong> BIShare ou Wormhole chiffrent avant l'envoi et placent la clé dans le lien ; le destinataire n'a qu'à cliquer.",
+      "<strong>Des fichiers qui doivent rester en ligne des semaines :</strong> Proton Drive conserve des fichiers chiffrés de bout en bout dans votre compte et les partage par lien avec mot de passe facultatif.",
+      "<strong>Vous devez aussi cacher qui envoie :</strong> OnionShare sert le fichier depuis votre propre ordinateur via Tor.",
+      "<strong>N'importe quel canal, même un e-mail classique :</strong> placez le fichier dans une archive 7-Zip en AES-256 avec un mot de passe solide, et transmettez le mot de passe par un autre moyen."
+    ]
   },
-  "how": {
-    "title": "Comment BIShare chiffre votre transfert",
+  "levels": {
+    "title": "Trois types de chiffrement derrière un seul mot",
+    "body": "Quand un service affirme que vos fichiers sont chiffrés, il parle en général de l'une de trois choses différentes. Elles protègent contre des personnes différentes.",
     "items": {
       "0": {
-        "h": "Chiffré avant le téléversement",
-        "b": "Activez le chiffrement de bout en bout et le fichier est chiffré dans votre navigateur avec AES-256-GCM. Seul le texte chiffré est téléversé — découpé et diffusé en flux, de sorte que même les fichiers de plusieurs gigaoctets ne restent jamais en mémoire."
+        "h": "Chiffrement en transit",
+        "b": "La connexion entre votre navigateur ou application et le serveur est enveloppée dans TLS, le cadenas de la barre d'adresse. Cela empêche quelqu'un sur le Wi-Fi du café ou chez votre fournisseur d'accès de lire l'envoi. Cela ne sert plus à rien une fois le fichier arrivé, car le serveur déchiffre la connexion pour le recevoir. Tout service sérieux le fait : c'est un minimum, pas un atout."
       },
       "1": {
-        "h": "La clé reste avec vous",
-        "b": "La clé de déchiffrement est placée dans le fragment du lien (#), que les navigateurs ne transmettent jamais à un serveur. Partagez le lien et le navigateur du destinataire déchiffre localement. Perdez le lien, et même nous ne pouvons pas récupérer le fichier."
+        "h": "Chiffrement au repos",
+        "b": "Le fournisseur chiffre le fichier sur ses disques, pour qu'un disque volé ou une sauvegarde négligée ne le divulgue pas. Mais il détient les clés et déchiffre le fichier dès que ses systèmes en ont besoin : aperçus, antivirus, recherche ou réquisition. Un employé disposant des droits, un attaquant dans le réseau ou une décision de justice peuvent atteindre le fichier lisible."
       },
       "2": {
-        "h": "Ou ne téléversez rien du tout",
-        "b": "Sur le même réseau, BIShare envoie les fichiers directement d'un appareil à l'autre via un canal chiffré — le fichier n'atteint jamais le cloud, donc il n'y a rien à intercepter ni à stocker."
+        "h": "Chiffrement de bout en bout",
+        "b": "Le fichier est chiffré sur l'appareil de l'expéditeur avant de partir, et seul l'appareil du destinataire peut le déchiffrer. Le service stocke ou relaie des octets illisibles et n'a jamais la clé. Si l'entreprise est piratée ou sommée de livrer des fichiers, elle n'a rien de lisible à fournir. C'est le seul type qui vous protège de l'intermédiaire lui-même."
+      },
+      "3": {
+        "h": "Pourquoi le marketing les confond",
+        "b": "Des formules comme niveau bancaire, qualité militaire ou 256 bits décrivent la robustesse d'un algorithme, pas qui détient la clé. Un service peut utiliser AES-256 au repos et lire quand même chaque fichier. La vraie question reste : où est la clé ?"
       }
     }
   },
-  "comparison": {
-    "title": "Transfert cloud vs ZIP protégé par mot de passe vs BIShare",
+  "test": {
+    "title": "Comment savoir si un service est vraiment de bout en bout",
+    "body": "Pas besoin de lire du code pour obtenir une bonne réponse. Ces vérifications prennent une minute sur n'importe quel site d'envoi.",
+    "items": {
+      "0": {
+        "h": "Peut-il afficher un aperçu ?",
+        "b": "Si l'application web du fournisseur affiche la miniature de votre photo ou la première page de votre PDF, ses serveurs peuvent lire le fichier. Les services de bout en bout déchiffrent les aperçus dans votre navigateur ou n'en affichent aucun."
+      },
+      "1": {
+        "h": "Peut-il vous rendre l'accès ?",
+        "b": "Si vous perdez le lien ou oubliez le mot de passe et que le support peut restaurer le fichier, le fournisseur détient une clé. Avec un vrai chiffrement de bout en bout, clé perdue signifie fichier perdu, et les bons services le disent clairement."
+      },
+      "2": {
+        "h": "Où se trouve la clé dans le lien ?",
+        "b": "Beaucoup de services de liens de bout en bout placent la clé après un # dans l'URL. Les navigateurs n'envoient jamais cette partie au serveur, qui stocke donc le fichier sans moyen de l'ouvrir. Un lien sans fragment et sans mot de passe séparé signifie en général que le serveur peut déchiffrer."
+      },
+      "3": {
+        "h": "La page sécurité nomme-t-elle la conception ?",
+        "b": "Un service crédible nomme ses algorithmes, explique où les clés sont créées et publie du code ou un audit. Des promesses floues sans un mot sur les clés sont un signal d'alerte."
+      },
+      "4": {
+        "h": "Que dit-il des métadonnées ?",
+        "b": "Même les services de bout en bout solides voient souvent les noms de fichiers, les tailles, les adresses IP et les horaires. Un fournisseur franc sur ce point mérite plus de confiance qu'un autre qui promet de ne rien voir du tout."
+      }
+    }
+  },
+  "methods": {
+    "title": "Sept façons d'envoyer un fichier chiffré de bout en bout, classées",
+    "body": "Toutes les options ci-dessous rendent le fichier illisible pour le service intermédiaire. Elles diffèrent par ce que chacun doit installer, la durée de disponibilité du fichier et ce qu'elles protègent d'autre.",
+    "consLabel": "À savoir :",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Meilleur choix polyvalent : liens chiffrés dans le navigateur et transferts directs entre appareils",
+        "facts": "Navigateur sur bishare.app, applications Android, iPhone, Windows, macOS, Linux · MIT · liens : AES-256-GCM dans le navigateur, clé après #k= dans l'URL, jusqu'à 100 Go pendant 24 heures · direct : accord de clés X25519, HKDF-SHA256, AES-256-GCM · sans compte",
+        "body": "BIShare couvre les deux manières d'envoyer des fichiers. Pour un lien, le navigateur ou l'application génère une clé aléatoire de 256 bits, chiffre le fichier par blocs de 1 Mio en AES-GCM, n'envoie que du texte chiffré et place la clé dans le fragment du lien, qui n'atteint jamais le serveur. Pour des appareils proches, les applications s'accordent sur une clé via X25519, la dérivent avec HKDF-SHA256 et chiffrent chaque bloc en AES-256-GCM, et chaque appareil affiche une courte empreinte à comparer. La cryptographie se trouve dans une bibliothèque Rust publique.",
+        "cons": "Le serveur voit les noms et tailles des fichiers envoyés par lien, le code du protocole n'a pas encore fait l'objet d'un audit externe formel, et les liens expirent après 24 heures."
+      },
+      "1": {
+        "name": "Wormhole",
+        "tag": "Meilleur lien chiffré rapide depuis n'importe quel navigateur",
+        "facts": "Navigateur · gratuit · jusqu'à 10 Go · AES-GCM avec clés de 128 bits selon la RFC 8188, chiffré avant l'envoi · fichiers jusqu'à 5 Go stockés 24 heures, plus gros en pair à pair · bibliothèque de chiffrement open source",
+        "body": "Wormhole chiffre dans le navigateur avant que quoi que ce soit ne parte, ses serveurs ne gardent donc du texte chiffré qu'une journée au plus. Il s'utilise vite sur un ordinateur prêté et ne demande rien à installer d'un côté comme de l'autre. Sa FAQ détaille le schéma et publie la bibliothèque de chiffrement en flux, mais pas le service complet.",
+        "cons": "Le code complet du client et du serveur n'est pas publié, le plafond est de 10 Go, et les envois de plus de 5 Go exigent votre onglet ouvert."
+      },
+      "2": {
+        "name": "Proton Drive",
+        "tag": "Idéal pour des fichiers qui doivent rester téléchargeables des semaines",
+        "facts": "Web, Windows, macOS, Android, iOS · stockage chiffré de bout en bout · offre gratuite de 5 Go · liens avec mot de passe et expiration facultatifs · aucun compte pour le destinataire · applications open source et auditées",
+        "body": "Proton Drive est un stockage en ligne fondé sur le chiffrement de bout en bout, par l'entreprise derrière Proton Mail. Envoyez une fois, créez un lien, ajoutez un mot de passe ou une date d'expiration ; le destinataire l'ouvre dans un navigateur sans inscription. Comme les fichiers vivent dans votre compte, ils restent disponibles aussi longtemps que vous le souhaitez, au lieu d'une course contre 24 heures.",
+        "cons": "Il faut un compte Proton, les 5 Go gratuits sont partagés avec tout ce que vous stockez, et le service est pensé pour le stockage plutôt que pour des envois ponctuels rapides."
+      },
+      "3": {
+        "name": "OnionShare",
+        "tag": "Idéal quand vous avez aussi besoin d'anonymat",
+        "facts": "Windows, macOS, Linux · open source · lance un serveur web sur votre ordinateur en service onion Tor · adresse plus clé privée · aucun serveur tiers ne détient le fichier",
+        "body": "OnionShare transforme votre propre ordinateur en site privé et temporaire accessible uniquement via Tor. Vous transmettez l'adresse onion et sa clé privée ; le destinataire les colle dans Tor Browser et récupère le fichier directement sur votre machine. Aucune entreprise ne stocke le fichier, et Tor masque d'où se connecte chaque partie.",
+        "cons": "Votre ordinateur doit rester allumé et connecté jusqu'à la fin du téléchargement, le destinataire a besoin de Tor Browser, et Tor est plus lent qu'une connexion directe."
+      },
+      "4": {
+        "name": "magic-wormhole",
+        "tag": "Idéal pour les utilisateurs techniques qui déplacent des fichiers entre ordinateurs",
+        "facts": "Ligne de commande sous macOS, Linux, Windows · MIT · codes courts à usage unique · chiffré de bout en bout par échange de clés authentifié par mot de passe · serveur mailbox et relais de transit · toute taille, fichiers et dossiers",
+        "body": "Tapez wormhole send et un nom de fichier, lisez le code court affiché, et l'autre personne tape wormhole receive et le code. Les deux machines utilisent ce code pour s'accorder sur une clé, le relais au milieu ne transporte donc que des données chiffrées. Il gère fichiers et répertoires de toute taille et sert souvent à déplacer des données entre serveurs.",
+        "cons": "Les deux côtés doivent avoir l'outil installé et un terminal, et il n'est pas conçu pour envoyer à des personnes non techniques."
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "Idéal pour des appareils sur le même réseau, sans internet",
+        "facts": "Android, iOS, Windows, macOS, Linux · Apache 2.0 · HTTPS entre appareils avec un certificat par appareil · réseau local uniquement · aucun serveur",
+        "body": "Quand l'expéditeur et le destinataire partagent un Wi-Fi, LocalSend fait passer les fichiers directement entre les appareils en HTTPS chiffré, sans serveur au milieu. Rien n'est envoyé nulle part, la question de ce qu'un fournisseur peut lire ne se pose donc pas."
+        ,
+        "cons": "Il ne joint que les appareils du même réseau local, et chaque appareil doit avoir l'application."
+      },
+      "6": {
+        "name": "Archive 7-Zip en AES-256",
+        "tag": "Idéal quand vous devez passer par l'e-mail ou un canal peu sûr",
+        "facts": "7-Zip gratuit pour Windows, outils compatibles sous macOS et Linux · format 7z avec AES-256 et mot de passe · fonctionne avec n'importe quel transport, de l'e-mail à la clé USB",
+        "body": "Chiffrer le fichier lui-même rend le transport indifférent. Créez une archive 7z dans 7-Zip, choisissez AES-256 et une longue phrase secrète, puis envoyez l'archive par e-mail, cloud ou autre. Transmettez la phrase secrète séparément, par téléphone ou messagerie chiffrée. C'est la méthode la plus ancienne de la liste et l'une des plus fiables.",
+        "cons": "Toute la sécurité repose sur la phrase secrète, le destinataire doit avoir un logiciel qui ouvre le 7z, et c'est à vous de transmettre cette phrase en toute sécurité."
+      }
+    }
+  },
+  "table": {
+    "title": "En un coup d'œil",
     "cols": {
-      "airdrop": "Transfert cloud",
-      "quick": "ZIP par mot de passe",
-      "bishare": "BIShare"
+      "feature": "Critère",
+      "bishare": "BIShare",
+      "wormhole": "Wormhole",
+      "protondrive": "Proton Drive",
+      "onionshare": "OnionShare",
+      "magicwormhole": "magic-wormhole",
+      "sevenzip": "Archive 7-Zip"
     },
     "rows": {
-      "r0": "Chiffré de bout en bout",
-      "r1": "La clé n'atteint jamais le serveur",
-      "r2": "Aucun compte nécessaire",
-      "r3": "Fonctionne hors ligne, entre appareils",
-      "r4": "Gratuit à utiliser"
+      "r0": "Le service ne peut pas lire le fichier",
+      "r1": "Le destinataire n'installe rien",
+      "r2": "L'expéditeur peut se déconnecter après l'envoi",
+      "r3": "Gère des fichiers de plus de 10 Go",
+      "r4": "Cache qui envoie",
+      "r5": "Client open source"
+    },
+    "note": "En septembre 2026. Les destinataires d'un lien BIShare n'ont besoin que d'un navigateur ; l'envoi d'appareil à appareil exige l'application aux deux bouts. Wormhole stocke les fichiers jusqu'à 5 Go pendant 24 heures et fait passer les plus gros de navigateur à navigateur jusqu'à 10 Go, et publie sa bibliothèque de chiffrement plutôt que le client complet. L'offre gratuite de Proton Drive propose 5 Go de stockage. Les destinataires OnionShare ont besoin de Tor Browser. magic-wormhole exige son outil en ligne de commande sur les deux machines. Une archive 7-Zip ne vaut que sa phrase secrète, et le destinataire doit avoir un outil qui ouvre les fichiers 7z."
+  },
+  "metadata": {
+    "title": "Ce que le chiffrement ne cache pas",
+    "body": "Le chiffrement de bout en bout protège le contenu d'un fichier. D'autres éléments restent souvent visibles, et mieux vaut savoir lesquels.",
+    "items": {
+      "0": {
+        "h": "Noms et tailles de fichiers",
+        "b": "Beaucoup de services ont besoin d'un nom et d'une taille pour afficher une page de téléchargement. Les envois par lien de BIShare, par exemple, transmettent au serveur le nom, la taille et le type en clair, tandis que le contenu reste chiffré. Si le nom lui-même est sensible, renommez le fichier ou placez-le d'abord dans une archive chiffrée."
+      },
+      "1": {
+        "h": "Qui s'est connecté, et quand",
+        "b": "Le serveur voit les adresses IP de l'expéditeur et des destinataires, et les heures d'envoi et de téléchargement. Seul un réseau comme Tor, utilisé par OnionShare, masque cela au service."
+      },
+      "2": {
+        "h": "Le lien est la clé",
+        "b": "Quand la clé voyage dans le lien, quiconque obtient le lien complet peut ouvrir le fichier. Un e-mail transféré, une sauvegarde de discussion ou un écran partagé suffisent. Les dates d'expiration, le téléchargement unique et un mot de passe séparé réduisent cette fenêtre."
+      },
+      "3": {
+        "h": "Ce qui se passe après le téléchargement",
+        "b": "Une fois déchiffré, le fichier redevient une donnée ordinaire sur l'appareil du destinataire. Si ses photos se synchronisent dans un cloud ou si son portable n'est pas chiffré, la protection choisie s'arrête là."
+      }
+    }
+  },
+  "bishare": {
+    "title": "Comment BIShare chiffre, en détail",
+    "body": "Puisque nous vous demandons de faire confiance à notre code, voici exactement ce qu'il fait, limites comprises. La cryptographie se trouve dans les dépôts publics bishare-protocol et bishare-web.",
+    "items": {
+      "0": {
+        "h": "Liens depuis le navigateur ou l'application",
+        "b": "Une nouvelle clé aléatoire de 256 bits est générée sur votre appareil pour chaque fichier. Le fichier est découpé en blocs de 1 Mio, chacun scellé en AES-GCM avec un nonce formé d'un sel propre au fichier et du numéro de bloc, ce numéro étant aussi lié comme donnée authentifiée. Les blocs réordonnés, supprimés ou tronqués ne se déchiffrent pas. La clé est encodée après #k= dans le lien, une partie de l'URL que les navigateurs gardent pour eux."
+      },
+      "1": {
+        "h": "Transferts directs entre appareils",
+        "b": "Les deux applications effectuent un accord de clés X25519, font passer le secret partagé par HKDF-SHA256 pour obtenir une clé de 32 octets, puis chiffrent le fichier par blocs en AES-256-GCM, chaque bloc avec son propre nonce dérivé. Chaque appareil possède une empreinte, les huit premiers octets du SHA-256 de sa clé publique, affichée en hexadécimal pour vérifier que vous parlez au bon appareil."
+      },
+      "2": {
+        "h": "Ce que le serveur stocke et voit",
+        "b": "Pour les liens, le serveur stocke le texte chiffré ainsi que le nom, la taille et le type du fichier envoyé, et le supprime au bout d'une journée ou, en téléchargement unique, dès qu'il a été récupéré. Pour les transferts directs sur le même réseau, rien ne passe par nos serveurs."
+      },
+      "3": {
+        "h": "Ce qui n'a pas encore été fait",
+        "b": "Le protocole est couvert par des tests unitaires, dont des vecteurs de test multiplateformes, mais n'a pas encore fait l'objet d'un audit de sécurité externe formel. Les signalements de vulnérabilités sont à envoyer à security@billiongroup.net."
+      }
+    }
+  },
+  "password": {
+    "title": "Transmettre la clé, le lien ou le mot de passe en sécurité",
+    "body": "Un chiffrement solide échoue si le secret voyage à côté du fichier. Quelques habitudes comblent cette faille.",
+    "items": {
+      "0": {
+        "h": "Utiliser un second canal",
+        "b": "Envoyez le fichier par e-mail et le mot de passe par SMS, ou partagez le lien dans une messagerie et lisez le code au téléphone. Quiconque compromet un canal n'a toujours pas l'autre moitié."
+      },
+      "1": {
+        "h": "Réduire la fenêtre",
+        "b": "Choisissez l'expiration la plus courte possible, et le téléchargement unique quand une seule personne a besoin du fichier. Un lien mort hier ne peut pas fuiter demain."
+      },
+      "2": {
+        "h": "Éviter les groupes et les tickets",
+        "b": "Les liens avec clé collés dans des discussions de groupe, des tickets d'assistance ou des documents partagés sont copiés dans des endroits que vous ne maîtrisez pas, souvent sans limite de durée. Envoyez-les en tête-à-tête."
+      },
+      "3": {
+        "h": "En personne, utiliser un QR code",
+        "b": "Quand le destinataire est dans la pièce, scanner un QR code transmet le lien sans qu'il soit tapé, collé ou enregistré dans une messagerie."
+      }
+    }
+  },
+  "choose": {
+    "title": "Quelle méthode pour quelle situation",
+    "body": "Choisissez selon la nature du fichier, qui le reçoit et combien de temps il doit rester disponible.",
+    "items": {
+      "0": {
+        "h": "Un contrat, une pièce d'identité ou un courrier médical pour une personne",
+        "b": "Un lien BIShare ou Wormhole en téléchargement unique ou à courte expiration, envoyé par une messagerie privée."
+      },
+      "1": {
+        "h": "Des documents dont un client aura besoin pendant des semaines",
+        "b": "Proton Drive, avec un mot de passe sur le lien et une expiration que vous pouvez prolonger."
+      },
+      "2": {
+        "h": "Des éléments d'une source qui doit rester anonyme",
+        "b": "OnionShare, l'adresse et la clé privée échangées via une messagerie chiffrée."
+      },
+      "3": {
+        "h": "De gros dossiers entre vos propres appareils",
+        "b": "Un transfert direct BIShare ou LocalSend sur le même réseau, pour que rien ne soit envoyé ailleurs."
+      },
+      "4": {
+        "h": "Des données entre serveurs ou terminaux",
+        "b": "magic-wormhole, qui gère des répertoires de toute taille avec un code court."
+      },
+      "5": {
+        "h": "Seul l'e-mail est autorisé",
+        "b": "Une archive 7-Zip en AES-256 en pièce jointe, la phrase secrète envoyée par un autre moyen."
+      }
+    }
+  },
+  "mistakes": {
+    "title": "Erreurs courantes qui annulent le chiffrement",
+    "body": "La plupart des fuites de fichiers chiffrés ne cassent pas l'algorithme. Elles le contournent.",
+    "items": {
+      "0": {
+        "h": "Le mot de passe dans le même message",
+        "b": "Une archive et sa phrase secrète dans le même e-mail sont aussi lisibles que le fichier seul. Séparez-les toujours."
+      },
+      "1": {
+        "h": "Phrases secrètes faibles ou réutilisées",
+        "b": "Un chiffrement par mot de passe ne vaut que ce mot de passe. Utilisez une phrase longue et aléatoire issue d'un gestionnaire de mots de passe, jamais une que vous utilisez ailleurs."
+      },
+      "2": {
+        "h": "Se fier au chiffrement au repos pour des fichiers sensibles",
+        "b": "Un service qui chiffre seulement sur ses propres disques peut toujours lire, analyser et livrer votre fichier. Pour tout ce qui est sensible, exigez le bout en bout."
+      },
+      "3": {
+        "h": "Oublier les copies",
+        "b": "Téléchargements déchiffrés, brouillons d'e-mail, captures d'écran et sauvegardes automatiques de photos créent des copies lisibles. Supprimez des deux côtés ce dont vous n'avez plus besoin."
+      }
     }
   },
   "faq": {
     "title": "Transfert de fichiers chiffré : FAQ",
     "items": {
       "0": {
-        "q": "Qu'est-ce qu'un transfert de fichiers chiffré de bout en bout ?",
-        "a": "Cela signifie que le fichier est chiffré avant de quitter votre appareil et ne peut être déchiffré que par le destinataire — le service qui l'achemine ne peut pas le lire. BIShare y parvient en chiffrant dans votre navigateur et en gardant la clé hors de portée du serveur."
+        "q": "Qu'est-ce qu'un transfert de fichiers chiffré ?",
+        "a": "Faire passer un fichier de sorte que personne qui l'intercepte ne puisse le lire. La forme la plus forte est le bout en bout : le fichier est verrouillé avant de quitter l'expéditeur, et seul le destinataire peut l'ouvrir."
       },
       "1": {
-        "q": "En quoi est-ce différent d'un ZIP protégé par mot de passe ?",
-        "a": "Un ZIP par mot de passe repose toujours sur le partage d'un mot de passe par un autre canal, et l'archive ne vaut que ce que vaut ce mot de passe. BIShare utilise une clé aléatoire de pleine force et l'achemine dans le fragment du lien, donc pas de mot de passe faible et rien que le serveur puisse voir."
+        "q": "Quelle différence entre chiffrement en transit et de bout en bout ?",
+        "a": "Le chiffrement en transit protège la connexion vers le serveur, mais le serveur déchiffre et peut lire le fichier. Le chiffrement de bout en bout garde le fichier chiffré jusqu'au destinataire, le serveur ne peut donc jamais le lire."
       },
       "2": {
-        "q": "Le serveur voit-il mon fichier à un moment donné ?",
-        "a": "Pour les transferts chiffrés, seulement du texte chiffré — la clé ne nous parvient jamais, donc nous ne pouvons pas le déchiffrer. Pour les transferts à proximité entre appareils, le fichier ne touche jamais nos serveurs."
+        "q": "WeTransfer est-il chiffré de bout en bout ?",
+        "a": "WeTransfer décrit un chiffrement en transit et au repos, ce qui signifie que ses systèmes peuvent déchiffrer les fichiers stockés. Pour du bout en bout depuis un navigateur, utilisez un service comme BIShare, Wormhole ou Proton Drive."
       },
       "3": {
-        "q": "Ai-je besoin d'un compte pour envoyer en toute sécurité ?",
-        "a": "Non. Le chiffrement est intégré et gratuit, sans inscription. Vous partagez un lien ou un code, et le destinataire l'ouvre dans n'importe quel navigateur."
+        "q": "Comment envoyer un fichier chiffré par e-mail ?",
+        "a": "Placez le fichier dans une archive 7-Zip en AES-256 avec une phrase secrète solide, joignez l'archive et transmettez la phrase par un autre canal, comme un appel ou une messagerie chiffrée."
       },
       "4": {
-        "q": "Puis-je envoyer de gros fichiers chiffrés ?",
-        "a": "Oui. Le chiffrement se fait en flux par morceaux, donc vous pouvez envoyer de gros fichiers — jusqu'à 100 GB gratuitement via un lien chiffré, et sans limite de taille pour les transferts à proximité via votre propre Wi-Fi."
+        "q": "Quel est le moyen le plus sûr d'envoyer un gros fichier ?",
+        "a": "Un transfert direct chiffré de bout en bout entre les deux appareils, comme BIShare sur le même réseau, ne stocke le fichier nulle part. Pour quelqu'un d'éloigné, un lien de bout en bout qui expire après un téléchargement est la meilleure alternative."
+      },
+      "5": {
+        "q": "Le chiffrement de bout en bout cache-t-il le nom du fichier ?",
+        "a": "Pas toujours. Beaucoup de services, dont les liens BIShare, voient les noms et tailles de fichiers même si le contenu est chiffré. Renommez le fichier ou placez-le dans une archive chiffrée si le nom est sensible."
+      },
+      "6": {
+        "q": "AES-128 est-il plus faible qu'AES-256 pour un transfert de fichiers ?",
+        "a": "Les deux sont aujourd'hui considérés comme sûrs face aux attaques pratiques. L'essentiel est que la clé soit créée et conservée sur les appareils de l'expéditeur et du destinataire plutôt que par le service."
+      },
+      "7": {
+        "q": "Le fournisseur peut-il lire mes fichiers s'ils sont chiffrés ?",
+        "a": "Avec un chiffrement en transit ou au repos, oui, car il détient les clés. Avec un chiffrement de bout en bout, non, car la clé ne quitte jamais les appareils de l'expéditeur et du destinataire."
+      },
+      "8": {
+        "q": "BIShare est-il chiffré de bout en bout ?",
+        "a": "Oui. Les liens sont chiffrés dans le navigateur ou l'application en AES-256-GCM et la clé reste dans le fragment du lien, et les transferts directs utilisent des clés négociées entre les deux appareils. Le serveur voit les noms et tailles des envois par lien, et le protocole n'a pas encore été audité en externe."
+      },
+      "9": {
+        "q": "BIShare est-il gratuit ?",
+        "a": "Oui. Il ne coûte rien, son code est publié sous MIT, et il fonctionne sans inscription ni publicité."
       }
     }
   },
   "cta": {
-    "title": "Envoyez votre prochain fichier chiffré de bout en bout",
-    "body": "Un vrai chiffrement, sans compte, sans frais. Prenez BIShare pour votre téléphone ou votre ordinateur — le destinataire n'a besoin que d'un navigateur.",
+    "title": "Envoyez des fichiers que seul le destinataire peut ouvrir",
+    "body": "Gratuit et open source. Chiffrez un lien dans votre navigateur, ou envoyez directement entre vos appareils avec des clés qui ne les quittent jamais.",
     "download": "Télécharger BIShare"
   },
   "a11y": {
     "yes": "Oui",
     "no": "Non"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un fichier cadenassé voyage d'un ordinateur portable à un téléphone via un serveur qui ne voit que des données illisibles, avec le titre le transfert de fichiers chiffré, bien expliqué.",
+      "title": "Le transfert de fichiers chiffré, expliqué",
+      "sub": "En transit, au repos ou de bout en bout, et comment les distinguer",
+      "left": "Expéditeur",
+      "right": "Destinataire",
+      "server": "Serveur"
+    },
+    "levels": {
+      "alt": "Qui peut lire votre fichier selon le type de chiffrement : en transit, le réseau ne peut pas mais le serveur oui ; au repos, un disque volé ne révèle rien mais le fournisseur peut lire ; de bout en bout, ni le réseau ni le fournisseur ne peuvent, seuls l'expéditeur et le destinataire.",
+      "title": "Qui peut lire votre fichier ?",
+      "sub": "Trois types de chiffrement comparés",
+      "colNet": "Espion sur le réseau",
+      "colDisk": "Disque volé",
+      "colProvider": "Le fournisseur",
+      "colEnds": "Expéditeur et destinataire",
+      "r0": "En transit (TLS)",
+      "r1": "Au repos",
+      "r2": "De bout en bout",
+      "can": "Peut lire",
+      "cannot": "Ne peut pas lire"
+    },
+    "fragment": {
+      "alt": "Comment un lien de bout en bout tient la clé loin du serveur : le lien comprend une adresse envoyée au serveur et un fragment après le signe # contenant la clé, que le navigateur n'envoie jamais, si bien que le serveur ne stocke que des données chiffrées.",
+      "title": "Pourquoi la clé après # n'atteint jamais le serveur",
+      "sub": "Anatomie d'un lien chiffré de bout en bout",
+      "sent": "Envoyé au serveur",
+      "kept": "Gardé dans le navigateur",
+      "keyLabel": "Clé de déchiffrement",
+      "stored": "Le serveur ne stocke que du texte chiffré",
+      "warn": "Quiconque a le lien complet peut ouvrir le fichier"
+    },
+    "visible": {
+      "alt": "Ce que cache le chiffrement de bout en bout et ce qui reste visible : le contenu du fichier est caché, tandis que le nom et la taille, les adresses IP, les horaires et le lien lui-même peuvent rester visibles selon le service.",
+      "title": "Ce que cache le chiffrement de bout en bout",
+      "sub": "Le contenu est scellé ; certaines métadonnées le sont rarement",
+      "hidden": "Caché",
+      "shown": "Souvent visible",
+      "h0": "Contenu du fichier",
+      "s0": "Nom et taille du fichier",
+      "s1": "Adresses IP",
+      "s2": "Heures d'envoi et de téléchargement",
+      "s3": "Quiconque a le lien complet"
+    }
   }
 }
