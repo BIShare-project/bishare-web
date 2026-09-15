@@ -5,6 +5,7 @@ import { sharedOpenGraph } from "@/lib/og";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { Home } from "@/components/home/home";
+import { IntlScope } from "@/components/intl-scope";
 
 export async function generateMetadata({
   params,
@@ -37,7 +38,11 @@ export default async function HomePage({
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <Home />
+      {/* The live widget lazy-loads TransferStudio (a client tree that reads
+          these namespaces); the site-wide provider only carries chrome/common. */}
+      <IntlScope namespaces={["beam", "nearby", "tool"]}>
+        <Home />
+      </IntlScope>
       <SiteFooter />
     </div>
   );

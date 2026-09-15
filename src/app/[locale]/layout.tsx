@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { pickMessages } from "@/i18n/client-messages";
 import { hasLocale } from "next-intl";
 import { routing, dirForLocale } from "@/i18n/routing";
 import { plexSans, plexMono } from "./fonts";
@@ -37,6 +38,12 @@ export default async function LocaleLayout({
   // Enable static rendering for this locale subtree.
   setRequestLocale(locale);
 
+  // Client components site-wide only read "chrome"/"common"; routes with
+  // their own client widgets add namespaces in a nested layout (IntlScope).
+  // Without an explicit `messages` prop the provider inlines every namespace
+  // into each page's RSC payload (~776 KB per URL).
+  const messages = pickMessages(await getMessages(), []);
+
   return (
     <html
       lang={locale}
@@ -49,7 +56,7 @@ export default async function LocaleLayout({
             before the client widgets need it. */}
         <link rel="preconnect" href="https://api.bishare.app" />
         <NavigationProgress />
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
