@@ -1,84 +1,335 @@
 {
   "meta": {
-    "title": "Alternativa a Wormhole: enlaces cifrados de 100 GB y apps",
-    "description": "Como Wormhole, BIShare cifra en el navegador antes de subir, pero sus enlaces llevan hasta 100 GB y las apps envían directo en la misma Wi-Fi. Gratis, sin cuenta.",
-    "ogTitle": "La alternativa a Wormhole — enlaces cifrados, apps nativas, cercano"
+    "title": "Alternativas a Wormhole (2026): 8 opciones y la pestaña",
+    "description": "Por encima de 5 GB, Wormhole no guarda nada en un servidor y tu pestaña debe seguir abierta. Ocho alternativas con los límites leídos en cada proveedor en septiembre de 2026."
   },
   "hero": {
-    "eyebrow": "Transferencia de archivos cifrada",
-    "title": "La alternativa a Wormhole",
-    "body": "Wormhole clavó el compartir cifrado por enlace en el navegador. <strong>BIShare</strong> hace lo mismo — <strong>enlaces cifrados de extremo a extremo</strong>, hasta 100 GB, sin cuenta — y va más allá con <strong>apps nativas</strong> y <highlight>transferencia instantánea cercana que funciona totalmente sin conexión</highlight>, de dispositivo a dispositivo, sin servidor de por medio.",
+    "eyebrow": "Alternativa a Wormhole",
+    "title": "Las mejores alternativas a Wormhole",
+    "body": "Wormhole acertó en lo difícil en 2021 y casi nadie lo ha igualado desde entonces: el archivo se cierra con llave dentro de tu propia pestaña antes de que se mueva un byte, la clave viaja en la parte de la dirección que los navegadores se niegan a enviar, y no hay cuenta por ninguna parte. Lo que empuja a buscar un sustituto casi nunca es el cifrado. Es la línea de los cinco gigabytes. Por debajo, tu subida reposa en un servidor hasta un día y puedes marcharte. Por encima no se guarda nada en absoluto, los dos navegadores hablan entre sí, y tu pestaña tiene que seguir abierta hasta que la persona del otro lado termine de bajar el archivo. Esta página explica dónde cae esa línea y qué te cuesta, y luego ordena <strong>ocho alternativas</strong> por si puedes cerrar la pestaña, por lo que cada servicio puede leer y por cuánto sobrevive un enlace, con cada límite tomado de las páginas oficiales del proveedor en septiembre de 2026.",
     "ctaPrimary": "Consigue BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
-  "why": {
-    "title": "¿Por qué elegir BIShare frente a Wormhole?",
-    "body": "Wormhole es una gran herramienta de enlace cifrado, pero vive por completo en el navegador y siempre necesita una ruta de red entre remitente y destinatario. BIShare añade dos cosas: <strong>apps de verdad</strong> para iPhone, Android, Mac, Windows y Linux, y auténtica <strong>transferencia cercana sin conexión</strong> — cuando ambos dispositivos están en la misma Wi-Fi o un punto de acceso, el archivo va directamente al otro lado sin internet y sin ningún servidor."
+  "updated": "Actualizado en septiembre de 2026 · cifras de Wormhole leídas este mes en su propia página de inicio, sus preguntas frecuentes y su página de seguridad, alternativas verificadas una por una, datos de BIShare tomados de su código fuente",
+  "disclosure": "BIShare es nuestro. Wormhole es una pieza de ingeniería realmente buena y esta página lo dice: para un contrato de dos gigabytes que va a una sola persona esta tarde, sigue siendo una respuesta excelente y nada de lo que hay abajo lo supera en sencillez.",
+  "quick": {
+    "title": "Respuesta rápida",
+    "items": {
+      "0": "<strong>Quieres la misma privacidad sin la pestaña abierta:</strong> <goTransfer>un enlace de BIShare</goTransfer> cierra el archivo en tu navegador igual que Wormhole, lleva hasta 100 GB y después puedes cerrarlo todo. La recogida sigue siendo posible durante 24 horas.",
+      "1": "<strong>Has chocado con el techo de 10 GB:</strong> un enlace de BIShare llega a 100 GB, y transfer.zip no declara ningún techo en su modo gratuito de navegador a navegador. Ese modo conserva la exigencia de la pestaña.",
+      "2": "<strong>Tu destinatario es lento:</strong> nada aquí es más lento que un enlace muerto. SwissTransfer guarda 50 GB durante 15 días y Proton Drive conserva un archivo compartido hasta que lo borras.",
+      "3": "<strong>Nunca quisiste que hubiera un servidor:</strong> <goOffline>dos dispositivos en la misma red se envían directamente</goOffline>, o usa FilePizza en el navegador. Sin subida, sin almacenamiento, sin nada que caduque.",
+      "4": "<strong>El límite que nadie menciona:</strong> un enlace de Wormhole también muere tras un número de descargas elegido por quien envía, que puede ser una sola. Si un enlace dejó de funcionar antes de tiempo, ese contador es la causa habitual, no el reloj.",
+      "5": "<strong>El resumen honesto:</strong> Wormhole está en marcha y accesible, pero su hoja de ruta no se mueve desde 2021. Elige el sustituto por si puedes cerrar la pestaña, no por gigabytes."
+    }
   },
-  "how": {
-    "title": "Cómo BIShare comparte tus archivos",
+  "split": {
+    "title": "La línea de los cinco gigabytes y lo que cambia de verdad",
+    "body": "Wormhole son en realidad dos productos con una sola interfaz, y cuál te toca lo decide el tamaño de lo que sueltas dentro. Sus preguntas frecuentes lo dicen sin rodeos: hasta 5 GB el servicio guarda los archivos por ti, y por encima cambia a una ruta directa de navegador a navegador. Nada en la pantalla de subida te avisa de a qué lado de esa línea acabas de caer, y por eso el fallo que la gente describe es siempre el mismo: la transferencia parecía terminada, cerraron el portátil, y la otra persona no recibió nada.",
     "items": {
       "0": {
-        "h": "Enlaces cifrados",
-        "b": "Envía un enlace para archivos de hasta 100 GB, cifrados de extremo a extremo con la clave guardada en el fragmento del enlace, de modo que nuestros servidores solo ven texto cifrado. El destinatario lo abre en cualquier navegador y el archivo se descifra localmente."
+        "h": "Por debajo de cinco gigabytes: normal y sin problema",
+        "b": "Tu archivo cifrado va al almacenamiento de Wormhole, que se apoya en Backblaze, y espera ahí durante la ventana que elegiste. Cierra la pestaña, apaga la máquina, vete a casa. El destinatario recoge cuando quiera. Con esa forma Wormhole se comporta como cualquier otro servicio de enlaces, salvo que este de verdad no puede leer lo que guarda, algo que casi ninguno de los demás puede afirmar."
       },
       "1": {
-        "h": "Instantáneo cercano, incluso sin conexión",
-        "b": "En la misma red, BIShare transfiere de dispositivo a dispositivo sin subida — cifrado de extremo a extremo, sin límite de tamaño, y funciona por un punto de acceso sin conexión a internet."
+        "h": "Por encima de cinco gigabytes: tu pestaña es el servidor",
+        "b": "No se sube nada a ninguna parte. Los dos navegadores negocian una ruta directa y los bytes van entre ellos, y por eso las preguntas frecuentes te dicen que dejes la página abierta hasta que el destinatario haya descargado. No es un fallo, es la única manera de mover 10 GB sin pagar por guardarlos. Pero significa que la transferencia la agendan dos personas a la vez, y un portátil cerrado o un móvil que se bloquea la termina."
       },
       "2": {
-        "h": "Apps nativas en todas partes",
-        "b": "iPhone, Android, Mac, Windows y Linux tienen apps de verdad — transferencias cercanas más rápidas, envío en segundo plano y el conjunto completo de funciones, no solo una pestaña del navegador."
+        "h": "El contador de descargas, que casi nadie ve",
+        "b": "Junto al reloj de caducidad hay un segundo límite: el enlace también muere tras un número fijado de descargas, que quien envía elige de una lista que empieza en una. Las palabras de Wormhole son que los archivos se borran pasada la ventana de tiempo o esas descargas, lo que ocurra antes. Ninguna página que posiciona para esta búsqueda lo menciona, y explica la mayoría de los enlaces que dejan de funcionar antes de lo previsto."
+      },
+      "3": {
+        "h": "El reloj es más corto de lo que crees",
+        "b": "Veinticuatro horas es el máximo, no el comportamiento por defecto: la caducidad se elige al enviar, de una lista que arranca en una hora. Así que dos personas pueden usar Wormhole, tener razón las dos y describir duraciones completamente distintas. Conviene fijarlo a conciencia en lugar de dar por hecho un día."
       }
     }
   },
-  "comparison": {
-    "title": "Wormhole vs WeTransfer vs BIShare",
+  "methods": {
+    "title": "Ocho alternativas a Wormhole, ordenadas",
+    "consLabel": "Ojo con:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "La mejor si quieres el modelo de privacidad de Wormhole y poder cerrar la pestaña",
+        "facts": "100 GB por enlace · cerrado con llave en tu propio navegador antes de subir · clave aparcada en el fragmento del enlace · un día para recoger · interruptor de destrucción tras la primera descarga · ningún techo entre dos dispositivos de una misma red · código con licencia MIT · sin cuenta y sin plan de pago",
+        "body": "BIShare copia la parte de Wormhole que merece la pena copiar y descarta la que duele. El archivo se cierra dentro de tu navegador primero, y la clave vive tras la marca # del enlace, un tramo de la dirección que los navegadores se guardan para sí, de modo que lo que retiene nuestro almacenamiento son bytes que no podemos abrir. La diferencia está en lo que viene después: la subida se completa al almacenamiento en cualquier tamaño hasta 100 GB, así que puedes bajar la tapa y el destinatario recoge más tarde, sin una segunda máquina esperando a la tuya. También hay aplicaciones de verdad, y cuando los dos dispositivos están en el mismo wifi se saltan internet por completo y empujan el archivo al otro lado de la sala.",
+        "cons": "Un día es una ventana corta, más corta que la de SwissTransfer o Proton Drive. Los enlaces rechazan ejecutables como .exe y .msi. Y por debajo de 5 GB, Wormhole ya hace este trabajo perfectamente."
+      },
+      "1": {
+        "name": "transfer.zip",
+        "tag": "El cambio más equivalente, con el mismo trato de pestaña abierta",
+        "facts": "El modo Quick Transfer es gratuito y sin límite · de navegador a navegador, sin guardar nada · las dos pestañas siguen abiertas · cifrado de extremo a extremo · sin cuenta · código abierto · los enlaces guardados y las caducidades largas son el producto de pago",
+        "body": "De todo lo que hay aquí, esto es lo más parecido a Wormhole por encima de su línea de cinco gigabytes. Quick Transfer transmite entre dos navegadores en tiempo real, su propia descripción dice que no se guarda nada en sus servidores, y no hay una cifra de tamaño contra la que chocar. Si lo que te gustaba de Wormhole era que ninguna empresa llega a tener tu archivo, y la exigencia de la pestaña nunca te molestó, este es un cambio directo que elimina el techo.",
+        "cons": "El modo gratuito es el de transmisión, así que quien envía sigue esperando con una pestaña abierta. Las transferencias guardadas de pago son otro producto con una promesa más floja: cifradas en reposo en sus servidores, no cerradas por ti. Fíjate en cuál estás comprando."
+      },
+      "2": {
+        "name": "FilePizza",
+        "tag": "El mejor cuando quieres pruebas de que no hay servidor",
+        "facts": "De navegador a navegador puro sobre WebRTC · nada se sube y nada se guarda · las dos pestañas abiertas durante toda la transferencia · sin cuenta y sin cifra de tamaño · código abierto y realmente activo, último cambio en septiembre de 2026",
+        "body": "FilePizza hace una sola cosa desde 2014 y la sigue haciendo: abres una página, eliges un archivo, entregas el enlace, y los bytes van directos de tu navegador al suyo mientras ambas pestañas están abiertas. Al no haber almacenamiento no hay nada que caduque, nada que requisar y ningún contador de descargas. A diferencia de casi toda esta lista, se mantiene a la vista, con cambios este mismo mes, algo que importa si dejas Wormhole justamente porque su hoja de ruta se paró.",
+        "cons": "Todo lo que implica la pestaña, de forma permanente: no cerrar el portátil, no dejar una transferencia programada para esta noche, no añadir un segundo destinatario mañana. Tampoco hay contraseña, porque no hay nada guardado en ninguna parte que proteger."
+      },
+      "3": {
+        "name": "Enviar directamente entre dos dispositivos",
+        "tag": "La mejor cuando las dos máquinas son tuyas o están en la misma sala",
+        "facts": "Ninguna subida, así que ni techo, ni reloj, ni contador · BIShare o LocalSend · basta un wifi o el punto de acceso del móvil · sigue funcionando con internet caído · cerrado de extremo a extremo · gratis, con el código publicado",
+        "body": "Si lo que te gustaba de Wormhole era que ninguna empresa llegaba a tener tu archivo, <goOffline>una transferencia directa entre dos dispositivos de una misma red</goOffline> lleva eso más lejos: no solo nadie lo guarda, es que nada sale del edificio. Medimos entre 70 y 110 MB/s en un enlace wifi 6 a corta distancia, así que una carpeta de 20 GB se mueve en unos minutos, y ni la pestaña ni el servidor tienen nada que decir. También sobrevive a un corte, cosa que ninguna ruta basada en navegador puede.",
+        "cons": "Inútil para un destinatario de otra ciudad, que es la mayoría de las veces. Los dos lados instalan algo, mientras que Wormhole no pide nada en absoluto."
+      },
+      "4": {
+        "name": "SwissTransfer",
+        "tag": "El mejor cuando importa más una vida larga que el cierre con llave",
+        "facts": "50 GB por transferencia · guardados 15 días, con una ampliación a 30 ofrecida antes de que caduque · contraseña sin pagar · navegador más aplicaciones móviles · operado en Suiza por Infomaniak",
+        "body": "Este es el trato contrario al de Wormhole: mucho más sitio y una ventana mucho más larga, a cambio de una empresa que puede leer el archivo. Cincuenta gigabytes, guardados quince días, con una oferta de estirarlo a treinta que llega antes del vencimiento, y protección por contraseña incluida gratis. Cuando tu problema es un cliente que abre el correo el lunes, ningún cifrado de extremo a extremo ayuda y esto sí.",
+        "cons": "No es de extremo a extremo, digan lo que digan los directorios: la propia documentación de Infomaniak dice que los archivos se cifran al llegar a su almacenamiento, así que las claves son suyas. Enviar exige ahora un código de verificación por correo, de modo que lo de sin cuenta ya no se sostiene. Enviar también está bloqueado del todo en unos sesenta países, entre ellos Indonesia, India, China, Malasia y Filipinas, aunque recibir no lo está."
+      },
+      "5": {
+        "name": "Una instancia pública de Send",
+        "tag": "La mejor si quieres el viejo comportamiento de Firefox Send y aceptas el riesgo",
+        "facts": "La instancia pública más conocida limita cada transferencia a 2,5 GiB · como mucho 20 descargas · tres días de máximo, y menos si lo eliges · cerrado en el navegador como en Wormhole · sin cuenta · código abierto",
+        "body": "<goFirefoxSend>Firefox Send ya no existe</goFirefoxSend> y Mozilla archivó el código en 2021, pero la bifurcación comunitaria sigue funcionando en instancias voluntarias, y la más conocida responde hoy: leí su configuración en vivo en lugar de fiarme de una lista, y declara un límite de 2,5 GiB, veinte descargas y un máximo de tres días. El modelo es exactamente el de Wormhole, clave en el enlace y texto cifrado en el servidor.",
+        "cons": "Una instancia voluntaria sobre una base de código cuyo último cambio fue julio de 2025. Funciona hoy y nadie te debe el mañana. El techo de 2,5 GiB es además el más pequeño de aquí, muy por debajo de lo que admite Wormhole."
+      },
+      "6": {
+        "name": "Proton Drive",
+        "tag": "El mejor cuando el archivo debe seguir ahí el mes que viene",
+        "facts": "5 GB de almacenamiento gratuito en total, no por envío · cifrado en tu dispositivo · los enlaces compartidos admiten contraseña y una caducidad a tu elección · sin tope de veces que se usa un enlace · el destinatario no necesita cuenta de Proton · quien envía sí",
+        "body": "Proton Drive responde al caso que Wormhole rechaza a propósito: la permanencia. El cifrado sigue ocurriendo en tu máquina, así que el modelo de privacidad sobrevive, pero el archivo se queda hasta que lo quitas en vez de evaporarse tras un día y un puñado de descargas. Los enlaces compartidos admiten contraseña y una fecha de caducidad que fijas tú, y Proton afirma que no hay límite de descargas por enlace ni de cuántos enlaces creas.",
+        "cons": "Cinco gigabytes son toda tu cuenta, no una transferencia, y el vídeo se los come. Quien envía tiene que registrarse, que es justo lo que evita la gente de Wormhole."
+      },
+      "7": {
+        "name": "Tresorit Send",
+        "tag": "El mejor cuando un destinatario corporativo quiere un nombre que reconozca",
+        "facts": "5 GB por envío · protección por contraseña · cifrado antes de salir de tu dispositivo · sin registro para enviar · de la empresa detrás de Tresorit",
+        "body": "Sigue vivo, sigue siendo gratuito y sigue sin pedir nada: su propia página ofrece 5 GB con protección por contraseña y sin registro, con los archivos cifrados antes de dejar el dispositivo. Su atractivo frente a Wormhole es institucional más que técnico, porque un responsable de cumplimiento que no ha oído hablar de Wormhole suele haber oído hablar de Tresorit.",
+        "cons": "Cinco gigabytes son la mitad del techo de Wormhole y caen justo donde empieza el lío del modo entre pares. Los siete días y diez descargas que tanto se citan vienen del artículo de lanzamiento de Tresorit de 2018 y no pude confirmarlos en ninguna página actual este mes, así que trata esas dos cifras como no verificadas."
+      }
+    }
+  },
+  "table": {
+    "title": "De un vistazo",
     "cols": {
-      "airdrop": "Wormhole",
-      "quick": "WeTransfer",
-      "bishare": "BIShare"
+      "feature": "Plan gratuito, septiembre de 2026",
+      "bishare": "BIShare",
+      "wormhole": "Wormhole",
+      "transferzip": "transfer.zip",
+      "swiss": "SwissTransfer",
+      "send": "Instancia de Send",
+      "proton": "Proton Drive"
     },
     "rows": {
-      "r0": "Cifrado de extremo a extremo",
-      "r1": "Transferencia instantánea cercana, sin conexión",
-      "r2": "Apps nativas de iPhone / Android / escritorio",
-      "r3": "Sin cuenta para enviar",
-      "r4": "Gratis de usar"
+      "r0": "Cerrado en el navegador, antes de subir",
+      "r1": "Quien envía puede cerrar la pestaña a cualquier tamaño",
+      "r2": "Más de 10 GB de una vez",
+      "r3": "Quien envía no necesita cuenta",
+      "r4": "Disponible más de tres días",
+      "r5": "Código abierto"
+    },
+    "note": "Leído de cada proveedor en septiembre de 2026. Wormhole: 10 GB en la página de inicio, hasta un día elegido al enviar, un contador de descargas que arranca en una, y almacenamiento solo por debajo de 5 GB, por encima de lo cual la pestaña de quien envía carga con la transferencia. BIShare: 100 GB, un día para recoger, cerrado en el navegador, destrucción opcional tras la primera descarga y ningún techo entre dos dispositivos de una misma red. transfer.zip: el modo gratuito Quick Transfer transmite entre navegadores sin guardar nada, de ahí la columna de la pestaña; las transferencias guardadas de pago se comportan de otro modo. SwissTransfer: 50 GB durante 15 días, ampliables a 30, pero cifrados al llegar a Infomaniak y no por ti, y ahora exige un código por correo. Instancia de Send: cifras leídas en vivo de la instancia pública más conocida, 2,5 GiB y tres días. Proton Drive: 5 GB de almacenamiento de cuenta, guardados hasta que los borres. Wormhole publica su biblioteca de cifrado pero no el servicio, y por eso su columna de código abierto queda como queda."
+  },
+  "whichone": {
+    "title": "Hay tres cosas distintas que se llaman Wormhole",
+    "body": "Esta búsqueda está insólitamente contaminada y los primeros resultados no lo aclaran: uno de la primera página es un puente de blockchain y un directorio lleva dos entradas separadas de Wormhole. Antes de elegir sustituto, comprueba cuál usabas.",
+    "items": {
+      "0": {
+        "h": "wormhole.app, el del navegador",
+        "b": "Una página web donde sueltas archivos y que te devuelve un enlace terminado en # y una clave larga. Hecho por el equipo de WebTorrent, gratis, sin cuenta, sin plan de pago. Es del que trata esta página y el que casi todo el mundo quiere decir."
+      },
+      "1": {
+        "h": "magic-wormhole, el del terminal",
+        "b": "Un proyecto completamente aparte: escribes una orden de envío, imprime un código corto como 7-crossover-clockwork, y la otra persona escribe ese código para recibir. Otros autores, otro diseño, todavía en desarrollo, con interfaces de escritorio y un cliente móvil reciente de un desarrollador sin relación. Si usabas un código y no un enlace, este es el tuyo, y ninguno de los servicios de navegador de abajo lo sustituye."
+      },
+      "2": {
+        "h": "Wormhole el puente cripto",
+        "b": "Un protocolo de blockchain con el mismo nombre y ninguna relación con la transferencia de archivos. Supera a la herramienta de archivos en algunas búsquedas, y conviene saberlo antes de seguir un resultado que de pronto empieza a hablar de tokens."
+      }
+    }
+  },
+  "steps": {
+    "title": "Pasar de Wormhole a BIShare",
+    "items": {
+      "0": {
+        "h": "Misma costumbre, misma privacidad, sin cuenta",
+        "b": "Abre bishare.app/transfer y suelta los archivos. Nada pregunta quién eres, igual que no lo hace Wormhole. El cierre con llave ocurre en tu navegador y la clave va tras el # del enlace, así que la dirección que envías es el secreto entero. Entrégala como enlace, como cuadro QR o como seis caracteres lo bastante cortos para leerlos en voz alta."
+      },
+      "1": {
+        "h": "Y luego cierra la pestaña",
+        "b": "Esto es todo el sentido del cambio. La subida termina al almacenamiento en cualquier tamaño hasta 100 GB, así que no hay ningún par esperando a tu máquina ni una línea a partir de la cual cambien las reglas. Cierra el portátil y el destinatario sigue recogiendo, durante las próximas 24 horas."
+      },
+      "2": {
+        "h": "Activa el interruptor de destrucción si usabas un tope bajo de descargas",
+        "b": "Si usabas el límite de descargas de Wormhole para que un enlace fuera de un solo uso, activa la opción de recogida única y el enlace muere en cuanto se saca el archivo. Si no lo usabas, déjalo estar y el enlace simplemente caduca con el reloj."
+      },
+      "3": {
+        "h": "Para más de 100 GB, o para alguien cercano",
+        "b": "Instala la aplicación en los dos dispositivos. En una red compartida o en el punto de acceso del móvil se emparejan y mueven el archivo entre ellos, sin subida y sin techo, lo que cubre el mismo caso que Wormhole atiende por encima de 5 GB sin que ninguna pestaña tenga que quedarse abierta."
+      }
+    }
+  },
+  "choose": {
+    "title": "Qué alternativa para qué trabajo",
+    "body": "Una pregunta ordena esta lista más rápido que ninguna otra: ¿tiene alguien que quedarse esperando con una pestaña abierta?",
+    "items": {
+      "0": {
+        "h": "Archivo grande y quieres marcharte",
+        "b": "Un enlace de BIShare hasta 100 GB, o SwissTransfer hasta 50 GB si puedes vivir sin cierre de extremo a extremo. Ambos terminan al almacenamiento, así que nada espera a tu máquina."
+      },
+      "1": {
+        "h": "Nada puede tocar un servidor",
+        "b": "FilePizza, transfer.zip en modo Quick Transfer, o el propio Wormhole por encima de 5 GB. Los tres convierten tu pestaña en el servidor, y ese es el precio."
+      },
+      "2": {
+        "h": "Menos de 5 GB y para una persona hoy",
+        "b": "Quédate en Wormhole. Guarda, cierra con llave, no pide cuenta, y cambiar no te aporta nada a ese tamaño."
+      },
+      "3": {
+        "h": "Confidencial y el destinatario es lento",
+        "b": "<goEncrypted>Elige por quién guarda la clave, no por el marketing</goEncrypted>. Proton Drive mantiene un archivo cerrado disponible indefinidamente; un enlace de BIShare te da un día; SwissTransfer da quince pero puede leer lo que guarda."
+      },
+      "4": {
+        "h": "Los dos en la misma sala",
+        "b": "Enviad de dispositivo a dispositivo y todos los límites de esta página desaparecen a la vez. Sin subida, sin contador, sin reloj, y sigue funcionando con la línea caída."
+      }
+    }
+  },
+  "security": {
+    "title": "Qué puede leer cada servicio",
+    "body": "Wormhole fijó aquí el listón, así que es la vara adecuada: el archivo se cierra con AES-GCM de 128 bits antes de salir del navegador y la clave nunca llega al servidor. Mide a los demás contra eso y no contra la palabra cifrado.",
+    "items": {
+      "0": {
+        "h": "Cerrado por ti, con la clave en el enlace",
+        "b": "Wormhole, un enlace de BIShare, una instancia de Send y el modo gratuito de transfer.zip funcionan así. El servicio guarda o retransmite bytes de los que no tiene clave, así que una brecha o una orden judicial no producen nada legible. La otra cara es que quien tiene el enlace tiene el archivo, lo que convierte la forma de enviar el enlace en la verdadera decisión de seguridad."
+      },
+      "1": {
+        "h": "Cerrado en tu dispositivo, guardado en una cuenta",
+        "b": "Proton Drive también cifra en local, pero el archivo vive en un almacenamiento ligado a ti y no en un enlace desechable. Eso es más fuerte para la durabilidad y más débil para el anonimato, que es el intercambio correcto para un conjunto de contratos y el equivocado para una entrega puntual."
+      },
+      "2": {
+        "h": "Cifrado, por la empresa, una vez que llega",
+        "b": "SwissTransfer, Smash, WeTransfer y Filemail entran aquí. La documentación de Infomaniak es refrescantemente directa al respecto y dice que los archivos se cifran al llegar a sus servidores, lo que significa que Infomaniak tiene las claves. Bien para el trabajo diario, mal para documentos de identidad o material sin publicar."
+      }
     }
   },
   "faq": {
-    "title": "Alternativa a Wormhole: preguntas frecuentes",
+    "title": "Alternativas a Wormhole: preguntas frecuentes",
     "items": {
       "0": {
-        "q": "¿Cuál es una buena alternativa a Wormhole?",
-        "a": "BIShare. Ofrece el mismo compartir por enlace cifrado de extremo a extremo y sin cuenta por el que se conoce a Wormhole, y añade apps nativas más transferencia instantánea cercana que funciona totalmente sin conexión."
+        "q": "¿Cuál es la mejor alternativa a Wormhole?",
+        "a": "Si quieres el mismo cifrado en el navegador sin mantener una pestaña abierta, BIShare: 100 GB por enlace, cerrado antes de subir, sin cuenta, 24 horas para recoger. Si quieres el mismo comportamiento de navegador a navegador sin techo, el Quick Transfer gratuito de transfer.zip o FilePizza. Si necesitas más una ventana larga que el cierre con llave, SwissTransfer."
       },
       "1": {
-        "q": "¿BIShare es cifrado de extremo a extremo como Wormhole?",
-        "a": "Sí. Los enlaces cifrados guardan la clave en el fragmento del enlace, así que el servidor solo almacena texto cifrado. Las transferencias cercanas se cifran entre dispositivos y nunca llegan a un servidor."
+        "q": "¿Por qué falló mi transferencia de Wormhole al cerrar la pestaña?",
+        "a": "Porque el archivo pasaba de 5 GB. Wormhole guarda archivos de hasta 5 GB y por encima cambia a una ruta directa de navegador a navegador, y sus preguntas frecuentes dicen que dejes la página abierta hasta que el destinatario haya descargado. Por debajo de 5 GB, cerrar la pestaña es seguro."
       },
       "2": {
-        "q": "¿Puede BIShare enviar archivos sin conexión?",
-        "a": "Sí — esta es la gran diferencia. Cuando ambos dispositivos están en la misma Wi-Fi o un punto de acceso del móvil, BIShare transfiere directamente sin internet y sin nube, algo que una herramienta solo de navegador como Wormhole no puede hacer."
+        "q": "¿Cuál es el límite de tamaño de Wormhole?",
+        "a": "Diez gigabytes, indicado en la página de inicio. Lo confuso es que la entrada de preguntas frecuentes sobre el tamaño máximo nunca da la cifra y solo explica el reparto de 5 GB, así que quien lee esa sección a menudo no llega a enterarse del techo."
       },
       "3": {
-        "q": "¿Cómo de grande puede ser el archivo que envío?",
-        "a": "Los enlaces cifrados llevan hasta 100 GB gratis. Las transferencias cercanas entre dispositivos no tienen límite de tamaño, porque el archivo nunca se sube."
+        "q": "¿Por qué caducó antes de tiempo mi enlace de Wormhole?",
+        "a": "Dos relojes, no uno. Quien envía elige una caducidad que puede ser de una hora, y por separado un número máximo de descargas que puede ser de una. Wormhole borra el archivo con lo que llegue primero, así que un enlace puede morir minutos después de la primera descarga."
       },
       "4": {
-        "q": "¿Necesito una cuenta?",
-        "a": "No. Enviar y recibir no requieren registro. Comparte un enlace, un código QR o un 6-character code, y el destinatario lo abre en cualquier navegador."
+        "q": "¿Wormhole sigue mantenido?",
+        "a": "Está en marcha y accesible, y sus condiciones se actualizaron en julio de 2025, pero el producto no se ha movido. Su hoja de ruta sigue listando un plan Pro, aplicaciones móviles y protección por contraseña como trabajo futuro, y el anuncio enlazado más reciente es de 2021. Tómalo como mantenido pero no desarrollado."
+      },
+      "5": {
+        "q": "¿Wormhole es realmente seguro?",
+        "a": "Su diseño es sólido y está documentado de forma poco habitual: AES-GCM de 128 bits aplicado antes de que nada salga del navegador, claves derivadas con HKDF y SHA-256, y el secreto colocado en el fragmento de la URL, que los navegadores nunca transmiten. El punto débil práctico no es la criptografía sino el enlace, porque quien lo consigue puede abrir el archivo."
+      },
+      "6": {
+        "q": "¿Qué alternativas a Wormhole guardan los archivos más de un día?",
+        "a": "SwissTransfer guarda 50 GB durante 15 días con una ampliación a 30 ofrecida antes del vencimiento, y Proton Drive conserva un archivo compartido hasta que lo borras, dentro de sus 5 GB gratuitos. Una instancia pública de Send permite hasta tres días. BIShare, como Wormhole, te da 24 horas."
+      },
+      "7": {
+        "q": "¿Hay alguna alternativa a Wormhole sin límite de tamaño?",
+        "a": "En el navegador, el Quick Transfer gratuito de transfer.zip no declara techo, y FilePizza tampoco, pero ambos transmiten entre pestañas igual que hace Wormhole por encima de 5 GB. Para un enlace guardado, nada aquí supera los 100 GB de BIShare. Dentro de una misma red local la pregunta no se plantea, porque el archivo no se sube nunca."
+      },
+      "8": {
+        "q": "¿Es Firefox Send una alternativa a Wormhole?",
+        "a": "No como producto de Mozilla. Firefox Send cerró en 2020 y el código se archivó en 2021. Lo que sobrevive es una bifurcación comunitaria en instancias llevadas por voluntarios, y la más conocida permite hoy 2,5 GiB, veinte descargas y tres días. El último cambio de código de esa bifurcación fue en julio de 2025."
+      },
+      "9": {
+        "q": "Usé un código corto, no un enlace. ¿Es el mismo Wormhole?",
+        "a": "No. Eso es magic-wormhole, un proyecto de línea de órdenes aparte con sus propios autores, donde los dos lados escriben un código como 7-crossover-clockwork. Sigue en desarrollo activo y tiene interfaces de escritorio. Ninguno de los servicios de navegador de esta página lo sustituye, y ambos se confunden constantemente en las listas."
       }
     }
   },
   "cta": {
-    "title": "Compartir cifrado, con apps y transferencia cercana sin conexión",
-    "body": "Todo lo que te gustaba de Wormhole, más apps nativas y auténtica transferencia sin conexión. Gratis en iPhone, Android, Mac, Windows y cualquier navegador.",
+    "title": "El mismo enlace cerrado, y puedes cerrar la pestaña",
+    "body": "Hasta 100 GB, cerrado con llave en tu navegador antes de subir, la clave en el enlace, sin cuenta y sin plan de pago. Gratis y de código abierto.",
     "download": "Descargar BIShare"
   },
   "a11y": {
     "yes": "Sí",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un navegador envía un archivo cerrado con llave mientras su botón de cerrar pestaña está encendido, titulado las mejores alternativas a Wormhole",
+      "title": "Las mejores alternativas a Wormhole",
+      "sub": "8 opciones comparadas, septiembre de 2026",
+      "left": "Tu archivo",
+      "right": "Destinatario",
+      "badge": "Cierra la pestaña"
+    },
+    "split": {
+      "alt": "Cómo se parte Wormhole en cinco gigabytes: los archivos de hasta 5 GB se guardan hasta un día y quien envía puede cerrar la pestaña, los de más de 5 GB van de navegador a navegador y quien envía debe seguir abierto, y una transferencia directa entre dispositivos no necesita servidor",
+      "title": "Dónde la pestaña tiene que seguir abierta",
+      "sub": "El tamaño decide qué producto te toca",
+      "z1": "Hasta 5 GB",
+      "z1apps": "Guardado por ellos, cierra la pestaña cuando quieras",
+      "z2": "Más de 5 GB, hasta 10 GB",
+      "z2apps": "De navegador a navegador, tu pestaña lo sostiene",
+      "z3": "De dispositivo a dispositivo",
+      "z3apps": "Sin servidor, sin pestaña, sin techo",
+      "foot": "Wormhole nunca dice a qué lado de la línea has caído; la pantalla de subida es idéntica en ambos casos"
+    },
+    "limits": {
+      "alt": "Tamaño gratuito de una transferencia en escala logarítmica, desde una instancia pública de Send con 2,5 GiB y Proton Drive y Tresorit Send con 5 GB, pasando por Wormhole con 10 GB y SwissTransfer con 50, hasta un enlace de BIShare de 100 GB, con la transmisión de navegador a navegador sin techo",
+      "title": "Tamaño gratuito por transferencia",
+      "sub": "Escala logarítmica, septiembre de 2026",
+      "send": "Instancia de Send",
+      "sendv": "2,5 GiB · 3 días",
+      "proton": "Proton Drive",
+      "protonv": "5 GB en total · hasta que lo borres",
+      "tresorit": "Tresorit Send",
+      "tresoritv": "5 GB · contraseña",
+      "wormhole": "Wormhole",
+      "wormholev": "10 GB · hasta 24 horas",
+      "swiss": "SwissTransfer",
+      "swissv": "50 GB · 15 a 30 días",
+      "bishare": "Enlace de BIShare",
+      "bisharev": "100 GB · 24 horas",
+      "stream": "De navegador a navegador",
+      "streamv": "Sin techo · las dos pestañas abiertas",
+      "foot": "Wormhole solo guarda por debajo de 5 GB; por encima transmite entre pestañas, y por eso aparece en las dos mitades de este gráfico"
+    },
+    "choose": {
+      "alt": "Elegir según si una pestaña debe seguir abierta: un archivo grande del que quieres desentenderte encaja con un enlace de BIShare o SwissTransfer, que nada toque un servidor encaja con FilePizza o transfer.zip, menos de 5 GB para una persona encaja con el propio Wormhole, confidencial y lento encaja con Proton Drive, y dos dispositivos en una sala deberían enviarse directamente",
+      "title": "¿Puedes cerrar la pestaña?",
+      "sub": "Esa pregunta ordena la lista",
+      "a": {
+        "need": "Archivo grande, quieres marcharte",
+        "pick": "Enlace de BIShare · SwissTransfer"
+      },
+      "b": {
+        "need": "Nada puede tocar un servidor",
+        "pick": "FilePizza · transfer.zip"
+      },
+      "c": {
+        "need": "Menos de 5 GB, un destinatario hoy",
+        "pick": "Quédate en Wormhole"
+      },
+      "d": {
+        "need": "Confidencial, destinatario lento",
+        "pick": "Proton Drive"
+      },
+      "e": {
+        "need": "Los dos en una misma sala",
+        "pick": "Enviad directamente, sin subida"
+      }
+    }
   }
 }

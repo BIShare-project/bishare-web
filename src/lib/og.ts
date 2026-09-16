@@ -11,15 +11,14 @@ const OG_IMAGE = {
 };
 
 /**
- * Landing pages with a route figure (drawn by tool/landing-figures.mjs). For
- * these, the page's own figure is the share image, so a link to
- * /wormhole-alternative previews its own route figure instead of the
- * generic brand card. Keep in sync with FIGURES in that script.
+ * Landing pages still on the generic route figure (drawn by
+ * tool/landing-figures.mjs). For these the page's own figure is the share
+ * image, so the link previews that instead of the brand card. Keep in sync
+ * with FIGURES in that script. Rebuilt pages pass a locale to
+ * sharedOpenGraph and use their own hero raster instead, which is why this
+ * set keeps shrinking.
  */
-const ROUTE_FIGURES = new Set([
-  "/firefox-send-alternative",
-  "/wormhole-alternative",
-]);
+const ROUTE_FIGURES = new Set(["/firefox-send-alternative"]);
 
 /**
  * Shared OpenGraph builder so every page inherits the brand og-image and

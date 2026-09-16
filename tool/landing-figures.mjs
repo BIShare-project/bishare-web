@@ -28,7 +28,6 @@ const FIGURES = {
   "firefox-send-alternative": { left: "Browser", right: "Anyone, any browser", title: "The Firefox Send idea, still running" },
   "send-files-without-internet": { left: "Phone hotspot", right: "Laptop", title: "No router, no internet, still a network" },
   "share-files-without-account": { left: "Any device", right: "Anyone, any browser", title: "Nobody signs in, on either side" },
-  "wormhole-alternative": { left: "Browser", right: "Anyone, any browser", title: "Encrypted links, and a local route Wormhole has never had" },
 };
 
 const W = 1400;

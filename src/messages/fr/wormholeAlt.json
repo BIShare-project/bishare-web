@@ -1,84 +1,335 @@
 {
   "meta": {
-    "title": "Alternative à Wormhole : liens chiffrés de 100 Go et applis",
-    "description": "Comme Wormhole, BIShare chiffre dans le navigateur avant l'envoi, mais ses liens portent jusqu'à 100 Go et les applis envoient en direct sur le même Wi-Fi. Gratuit.",
-    "ogTitle": "L'alternative à Wormhole — liens chiffrés, applis natives, à proximité"
+    "title": "Alternatives à Wormhole (2026) : 8 options et l’onglet",
+    "description": "Au-delà de 5 Go, Wormhole ne garde rien sur un serveur et votre onglet doit rester ouvert. Huit alternatives, limites relevées chez chaque fournisseur en septembre 2026."
   },
   "hero": {
-    "eyebrow": "Transfert de fichiers chiffré",
-    "title": "L'alternative à Wormhole",
-    "body": "Wormhole a réussi le partage chiffré par lien dans le navigateur. <strong>BIShare</strong> fait de même — <strong>des liens chiffrés de bout en bout</strong>, jusqu'à 100 GB, sans compte — et va plus loin avec des <strong>applis natives</strong> et le <highlight>transfert instantané à proximité qui fonctionne entièrement hors ligne</highlight>, d'un appareil à l'autre, sans serveur au milieu.",
-    "ctaPrimary": "Obtenez BIShare gratuitement",
+    "eyebrow": "Alternative à Wormhole",
+    "title": "Les meilleures alternatives à Wormhole",
+    "body": "Wormhole a réussi la partie difficile dès 2021 et presque personne ne l’a égalé depuis : le fichier est verrouillé dans votre propre onglet avant qu’un seul octet bouge, la clé voyage dans la portion de l’adresse que les navigateurs refusent d’envoyer, et il n’y a de compte nulle part. Ce qui pousse à chercher un remplaçant, ce n’est presque jamais le chiffrement. C’est la ligne des cinq gigaoctets. En dessous, votre envoi repose sur un serveur pendant une journée au plus et vous pouvez partir. Au-dessus, plus rien n’est stocké, les deux navigateurs se parlent directement, et votre onglet doit rester ouvert jusqu’à ce que la personne en face ait fini de récupérer le fichier. Cette page explique où tombe cette ligne et ce qu’elle vous coûte, puis classe <strong>huit alternatives</strong> selon que vous pouvez fermer l’onglet, ce que chaque service peut lire et combien de temps un lien survit, chaque limite étant relevée sur les pages officielles du fournisseur en septembre 2026.",
+    "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
-  "why": {
-    "title": "Pourquoi choisir BIShare plutôt que Wormhole ?",
-    "body": "Wormhole est un excellent outil de lien chiffré, mais il vit entièrement dans le navigateur et a toujours besoin d'un chemin réseau entre l'expéditeur et le destinataire. BIShare ajoute deux choses : de <strong>vraies applis</strong> pour iPhone, Android, Mac, Windows et Linux, et un véritable <strong>transfert à proximité hors ligne</strong> — quand les deux appareils sont sur le même Wi-Fi ou un point d'accès, le fichier va directement à l'autre sans internet et sans aucun serveur."
+  "updated": "Mis à jour en septembre 2026 · chiffres de Wormhole relevés ce mois-ci sur sa page d’accueil, sa FAQ et sa page sécurité, alternatives vérifiées une par une, chiffres de BIShare tirés de son code source",
+  "disclosure": "BIShare est notre produit. Wormhole est une vraie réussite technique et cette page le dit : pour un contrat de deux gigaoctets destiné à une seule personne cet après-midi, il reste une excellente réponse et rien plus bas ne le bat en simplicité.",
+  "quick": {
+    "title": "Réponse rapide",
+    "items": {
+      "0": "<strong>Vous voulez la même confidentialité sans onglet ouvert :</strong> <goTransfer>un lien BIShare</goTransfer> verrouille le fichier dans votre navigateur exactement comme Wormhole, porte jusqu’à 100 Go, et ensuite vous pouvez tout fermer. La récupération reste possible pendant 24 heures.",
+      "1": "<strong>Vous butez sur le plafond de 10 Go :</strong> un lien BIShare monte à 100 Go, et transfer.zip n’annonce aucun plafond dans son mode gratuit de navigateur à navigateur. Ce mode conserve l’exigence de l’onglet.",
+      "2": "<strong>Votre destinataire est lent :</strong> rien ici n’est plus lent qu’un lien mort. SwissTransfer garde 50 Go pendant 15 jours, et Proton Drive conserve un fichier partagé jusqu’à ce que vous le supprimiez.",
+      "3": "<strong>Vous ne vouliez aucun serveur dans l’histoire :</strong> <goOffline>deux appareils sur un même réseau s’envoient les fichiers directement</goOffline>, ou passez par FilePizza dans un navigateur. Aucun téléversement, aucun stockage, rien qui expire.",
+      "4": "<strong>La limite dont personne ne parle :</strong> un lien Wormhole meurt aussi après un nombre de téléchargements choisi par l’expéditeur, qui peut être de un. Si un lien a cessé de fonctionner trop tôt, c’est en général ce compteur, pas l’horloge.",
+      "5": "<strong>Le résumé honnête :</strong> Wormhole tourne et répond, mais sa feuille de route n’a pas bougé depuis 2021. Choisissez un remplaçant selon la possibilité de fermer l’onglet, pas selon les gigaoctets."
+    }
   },
-  "how": {
-    "title": "Comment BIShare partage vos fichiers",
+  "split": {
+    "title": "La ligne des cinq gigaoctets, et ce qu’elle change vraiment",
+    "body": "Wormhole est en réalité deux produits sous une seule interface, et celui que vous obtenez dépend de la taille de ce que vous déposez. La FAQ le dit sans détour : jusqu’à 5 Go le service stocke les fichiers pour vous, et au-delà il bascule vers une route directe de navigateur à navigateur. Rien sur l’écran d’envoi ne vous prévient de quel côté de cette ligne vous venez d’atterrir, et c’est pourquoi la panne que les gens racontent est toujours la même : le transfert semblait terminé, ils ont fermé le portable, et la personne en face n’a rien reçu.",
     "items": {
       "0": {
-        "h": "Liens chiffrés",
-        "b": "Envoyez un lien pour des fichiers jusqu'à 100 GB, chiffrés de bout en bout avec la clé gardée dans le fragment du lien, de sorte que nos serveurs ne voient que du texte chiffré. Le destinataire l'ouvre dans n'importe quel navigateur et le fichier se déchiffre localement."
+        "h": "Sous cinq gigaoctets : ordinaire et sans souci",
+        "b": "Votre fichier chiffré part vers le stockage de Wormhole, hébergé chez Backblaze, et y attend pendant la fenêtre que vous avez choisie. Fermez l’onglet, éteignez la machine, rentrez chez vous. Le destinataire récupère quand il veut. Sous cette forme Wormhole se comporte comme n’importe quel service de liens, sauf qu’il ne peut réellement pas lire ce qu’il détient, ce que presque aucun autre ne peut affirmer."
       },
       "1": {
-        "h": "Instantané à proximité, même hors ligne",
-        "b": "Sur le même réseau, BIShare transfère d'un appareil à l'autre sans téléversement — chiffré de bout en bout, sans limite de taille, et ça fonctionne via un point d'accès sans connexion internet."
+        "h": "Au-dessus de cinq gigaoctets : votre onglet devient le serveur",
+        "b": "Rien n’est téléversé nulle part. Les deux navigateurs négocient un chemin direct et les octets circulent entre eux, et c’est pour cela que la FAQ vous demande de laisser la page ouverte jusqu’à ce que le destinataire ait téléchargé. Ce n’est pas un défaut, c’est la seule façon de déplacer 10 Go sans payer pour les stocker. Mais cela signifie que le transfert est programmé par deux personnes à la fois, et qu’un portable refermé ou un téléphone qui se verrouille y met fin."
       },
       "2": {
-        "h": "Des applis natives partout",
-        "b": "iPhone, Android, Mac, Windows et Linux disposent de vraies applis — transferts à proximité plus rapides, envoi en arrière-plan et l'ensemble complet des fonctionnalités, pas seulement un onglet de navigateur."
+        "h": "Le compteur de téléchargements, que presque personne ne voit",
+        "b": "À côté de l’horloge d’expiration, il existe une seconde limite : le lien meurt aussi après un nombre de téléchargements fixé, que l’expéditeur choisit dans une liste qui commence à un. Les mots de Wormhole sont que les fichiers sont supprimés après la fenêtre de temps ou ce nombre de téléchargements, selon ce qui arrive en premier. Aucune page qui se classe sur cette recherche ne le mentionne, et cela explique la plupart des liens qui cessent de fonctionner plus tôt que prévu."
+      },
+      "3": {
+        "h": "L’horloge est plus courte que vous ne croyez",
+        "b": "Vingt-quatre heures est le maximum, pas le comportement par défaut : l’expiration se choisit à l’envoi dans une liste qui démarre à une heure. Deux personnes peuvent donc toutes deux utiliser Wormhole, avoir raison toutes les deux, et décrire des durées de vie complètement différentes. Mieux vaut le régler sciemment que supposer une journée."
       }
     }
   },
-  "comparison": {
-    "title": "Wormhole vs WeTransfer vs BIShare",
+  "methods": {
+    "title": "Huit alternatives à Wormhole, classées",
+    "consLabel": "Attention à :",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "La meilleure si vous voulez le modèle de confidentialité de Wormhole et la liberté de fermer l’onglet",
+        "facts": "100 Go par lien · verrouillé dans votre propre navigateur avant l’envoi · clé garée dans le fragment du lien · une journée pour récupérer · un interrupteur de destruction après le premier téléchargement · aucun plafond entre deux appareils d’un même réseau · code sous licence MIT · sans compte et sans palier payant",
+        "body": "BIShare copie la partie de Wormhole qui mérite de l’être et laisse tomber celle qui fait mal. Le fichier est verrouillé dans votre navigateur d’abord, et la clé vit après le repère # du lien, une portion de l’adresse que les navigateurs gardent pour eux, si bien que notre stockage détient des octets que nous ne pouvons pas ouvrir. La différence vient ensuite : l’envoi se termine vers le stockage à n’importe quelle taille jusqu’à 100 Go, vous pouvez donc refermer l’écran et le destinataire récupère plus tard, sans qu’une seconde machine attende la vôtre. Il existe aussi de vraies applications, et quand les deux appareils partagent un Wi-Fi ils sautent complètement Internet et poussent le fichier à travers la pièce.",
+        "cons": "Une journée est une fenêtre courte, plus courte que SwissTransfer ou Proton Drive. Les liens refusent les exécutables comme .exe et .msi. Et sous 5 Go, Wormhole fait déjà ce travail parfaitement."
+      },
+      "1": {
+        "name": "transfer.zip",
+        "tag": "L’échange le plus équivalent, avec le même marché de l’onglet ouvert",
+        "facts": "Le mode Quick Transfer est gratuit et sans limite · de navigateur à navigateur, rien de stocké · les deux onglets restent ouverts · chiffré de bout en bout · sans compte · code ouvert · les liens stockés et les longues expirations sont le produit payant",
+        "body": "De tout ce qui figure ici, c’est ce qui ressemble le plus à Wormhole au-dessus de sa ligne des cinq gigaoctets. Quick Transfer diffuse entre deux navigateurs en temps réel, leur propre description dit que rien n’est stocké sur leurs serveurs, et il n’y a aucun chiffre de taille à heurter. Si ce que vous aimiez chez Wormhole était qu’aucune entreprise ne détient jamais votre fichier, et que l’onglet ouvert ne vous a jamais gêné, c’est un échange direct qui supprime le plafond.",
+        "cons": "Le mode gratuit est celui qui diffuse, donc l’expéditeur attend toujours avec un onglet ouvert. Les transferts stockés payants sont un autre produit avec une promesse plus faible : chiffrés au repos sur leurs serveurs plutôt que verrouillés par vous. Regardez lequel vous achetez."
+      },
+      "2": {
+        "name": "FilePizza",
+        "tag": "Le meilleur quand vous voulez la preuve qu’aucun serveur n’intervient",
+        "facts": "Purement de navigateur à navigateur via WebRTC · rien de téléversé et rien de stocké · les deux onglets ouverts pendant tout le transfert · sans compte et sans chiffre de taille · code ouvert et réellement actif, dernière modification en septembre 2026",
+        "body": "FilePizza fait une seule chose depuis 2014 et la fait toujours : vous ouvrez une page, choisissez un fichier, transmettez le lien, et les octets vont droit de votre navigateur au sien tant que les deux onglets restent ouverts. Sans stockage, rien n’expire, rien n’est réquisitionnable et aucun compteur de téléchargements n’existe. Contrairement à presque toute cette liste, il est visiblement entretenu, avec des modifications ce mois-ci, ce qui compte si vous quittez Wormhole justement parce que sa feuille de route s’est arrêtée.",
+        "cons": "Tout ce qu’implique l’onglet, en permanence : pas question de fermer le portable, de programmer un transfert pour ce soir, ni d’ajouter un second destinataire demain. Il n’y a pas non plus de mot de passe, puisque rien ne repose nulle part à protéger."
+      },
+      "3": {
+        "name": "Envoyer directement entre deux appareils",
+        "tag": "La meilleure quand les deux machines sont à vous ou dans la même pièce",
+        "facts": "Aucun téléversement, donc ni plafond, ni horloge, ni compteur · BIShare ou LocalSend · un Wi-Fi ou un partage de connexion suffit · continue avec Internet coupé · verrouillé de bout en bout · gratuit, code publié",
+        "body": "Si ce qui vous plaisait chez Wormhole était qu’aucune entreprise ne détenait votre fichier, <goOffline>un transfert direct entre deux appareils d’un même réseau</goOffline> va plus loin : non seulement personne ne le stocke, mais rien ne quitte le bâtiment. Nous mesurons entre 70 et 110 Mo/s sur une liaison Wi-Fi 6 à courte distance, donc un dossier de 20 Go se déplace en quelques minutes, et ni l’onglet ni le serveur n’ont leur mot à dire. Cela résiste aussi à une coupure, ce qu’aucune route passant par le navigateur ne peut faire.",
+        "cons": "Inutile pour un destinataire dans une autre ville, c’est-à-dire la plupart du temps. Les deux côtés installent quelque chose, là où Wormhole ne demande rien du tout."
+      },
+      "4": {
+        "name": "SwissTransfer",
+        "tag": "Le meilleur quand une longue durée de vie compte plus que le verrouillage",
+        "facts": "50 Go par transfert · gardés 15 jours, avec une prolongation à 30 proposée avant l’échéance · mot de passe sans payer · navigateur plus applications mobiles · exploité en Suisse par Infomaniak",
+        "body": "C’est le marché inverse de Wormhole : beaucoup plus de place et une fenêtre bien plus longue, en échange d’une entreprise capable de lire le fichier. Cinquante gigaoctets, gardés quinze jours, avec une offre de prolongation à trente jours qui arrive avant l’expiration, et la protection par mot de passe incluse gratuitement. Quand votre problème est un client qui ouvre sa messagerie lundi, aucun verrouillage de bout en bout n’aide et cela, si.",
+        "cons": "Pas de bout en bout, quoi qu’en disent les annuaires : la documentation d’Infomaniak indique elle-même que les fichiers sont chiffrés en arrivant sur son stockage, donc les clés sont les siennes. L’envoi exige désormais un code de vérification par courriel, si bien que le sans-compte ne tient plus. L’envoi est aussi totalement bloqué dans une soixantaine de pays, dont l’Indonésie, l’Inde, la Chine, la Malaisie et les Philippines, alors que la réception ne l’est pas."
+      },
+      "5": {
+        "name": "Une instance Send publique",
+        "tag": "La meilleure si vous voulez l’ancien comportement de Firefox Send et acceptez le risque",
+        "facts": "L’instance publique la plus connue limite un transfert à 2,5 Gio · au plus 20 téléchargements · trois jours au maximum, moins si vous le décidez · verrouillé dans le navigateur comme chez Wormhole · sans compte · code ouvert",
+        "body": "<goFirefoxSend>Firefox Send n’existe plus</goFirefoxSend> et Mozilla a archivé le code en 2021, mais le fork communautaire tourne encore sur des instances bénévoles, et la plus connue répond aujourd’hui : j’ai lu sa configuration en direct plutôt que de croire une liste, et elle annonce une limite de 2,5 Gio, vingt téléchargements et trois jours au maximum. Le modèle est exactement celui de Wormhole, clé dans le lien et texte chiffré sur le serveur.",
+        "cons": "Une instance bénévole sur une base de code dont la dernière modification date de juillet 2025. Cela fonctionne aujourd’hui et personne ne vous doit demain. Le plafond de 2,5 Gio est aussi le plus petit ici, bien en dessous de ce qu’accepte Wormhole."
+      },
+      "6": {
+        "name": "Proton Drive",
+        "tag": "Le meilleur quand le fichier doit encore être là le mois prochain",
+        "facts": "5 Go de stockage gratuit au total, pas par envoi · chiffré sur votre appareil · les liens de partage acceptent un mot de passe et une expiration de votre choix · aucune limite au nombre d’utilisations d’un lien · le destinataire n’a pas besoin de compte Proton · l’expéditeur si",
+        "body": "Proton Drive répond au cas que Wormhole refuse volontairement : la permanence. Le chiffrement a toujours lieu sur votre machine, le modèle de confidentialité survit donc, mais le fichier reste jusqu’à ce que vous le retiriez au lieu de s’évaporer après une journée et quelques téléchargements. Les liens de partage acceptent un mot de passe et une date d’expiration que vous fixez, et Proton indique qu’il n’y a pas de limite de téléchargements par lien ni de nombre de liens créés.",
+        "cons": "Cinq gigaoctets, c’est tout votre compte et non un transfert, et la vidéo les avale. L’expéditeur doit s’inscrire, ce qui est précisément ce que les utilisateurs de Wormhole évitent."
+      },
+      "7": {
+        "name": "Tresorit Send",
+        "tag": "Le meilleur quand un destinataire d’entreprise veut un nom qu’il connaît",
+        "facts": "5 Go par envoi · protection par mot de passe · chiffré avant de quitter votre appareil · aucune inscription pour envoyer · de l’entreprise derrière Tresorit",
+        "body": "Toujours vivant, toujours gratuit, et ne demandant toujours rien : sa propre page propose 5 Go avec protection par mot de passe et sans inscription, les fichiers étant chiffrés avant de quitter l’appareil. Son avantage sur Wormhole est institutionnel plutôt que technique, car un responsable conformité qui n’a jamais entendu parler de Wormhole a souvent entendu parler de Tresorit.",
+        "cons": "Cinq gigaoctets, c’est la moitié du plafond de Wormhole, et cela tombe exactement là où les ennuis du pair à pair commencent. Les sept jours et dix téléchargements souvent cités viennent du billet de lancement de Tresorit de 2018 et je n’ai pas pu les confirmer sur une page actuelle ce mois-ci : traitez ces deux chiffres comme non vérifiés."
+      }
+    }
+  },
+  "table": {
+    "title": "En un coup d’œil",
     "cols": {
-      "airdrop": "Wormhole",
-      "quick": "WeTransfer",
-      "bishare": "BIShare"
+      "feature": "Plan gratuit, septembre 2026",
+      "bishare": "BIShare",
+      "wormhole": "Wormhole",
+      "transferzip": "transfer.zip",
+      "swiss": "SwissTransfer",
+      "send": "Instance Send",
+      "proton": "Proton Drive"
     },
     "rows": {
-      "r0": "Chiffré de bout en bout",
-      "r1": "Transfert instantané à proximité, hors ligne",
-      "r2": "Applis natives iPhone / Android / bureau",
-      "r3": "Sans compte pour envoyer",
-      "r4": "Gratuit à utiliser"
+      "r0": "Verrouillé dans le navigateur, avant l’envoi",
+      "r1": "L’expéditeur peut fermer l’onglet à toute taille",
+      "r2": "Plus de 10 Go d’un coup",
+      "r3": "L’expéditeur n’a pas besoin de compte",
+      "r4": "Disponible plus de trois jours",
+      "r5": "Code ouvert"
+    },
+    "note": "Relevé chez chaque fournisseur en septembre 2026. Wormhole : 10 Go sur la page d’accueil, jusqu’à une journée choisie à l’envoi, un compteur de téléchargements qui démarre à un, et du stockage uniquement sous 5 Go, au-delà de quoi l’onglet de l’expéditeur porte le transfert. BIShare : 100 Go, une journée pour récupérer, verrouillé dans le navigateur, destruction facultative après le premier téléchargement, et aucun plafond entre deux appareils d’un même réseau. transfer.zip : le mode gratuit Quick Transfer diffuse entre navigateurs sans rien stocker, d’où la colonne de l’onglet ; les transferts stockés payants se comportent autrement. SwissTransfer : 50 Go pendant 15 jours, extensibles à 30, mais chiffrés à l’arrivée chez Infomaniak et non par vous, et un code par courriel est désormais exigé. Instance Send : chiffres lus en direct sur l’instance publique la plus connue, 2,5 Gio et trois jours. Proton Drive : 5 Go de stockage de compte, gardés jusqu’à suppression. Wormhole publie sa bibliothèque de chiffrement mais pas le service, d’où sa colonne code ouvert."
+  },
+  "whichone": {
+    "title": "Trois choses différentes s’appellent Wormhole",
+    "body": "Cette recherche est exceptionnellement polluée et les premiers résultats n’y mettent pas d’ordre : l’un d’eux, en première page, est un pont blockchain, et un annuaire comporte deux entrées Wormhole distinctes. Avant de choisir un remplaçant, vérifiez lequel vous utilisiez.",
+    "items": {
+      "0": {
+        "h": "wormhole.app, celui du navigateur",
+        "b": "Une page web où l’on dépose des fichiers, qui renvoie un lien terminé par un # et une longue clé. Réalisé par l’équipe derrière WebTorrent, gratuit, sans compte, sans palier payant. C’est celui dont parle cette page, et celui que presque tout le monde a en tête."
+      },
+      "1": {
+        "h": "magic-wormhole, celui du terminal",
+        "b": "Un projet totalement distinct : vous tapez une commande d’envoi, elle affiche un code court comme 7-crossover-clockwork, et la personne en face tape ce code pour recevoir. Auteurs différents, conception différente, toujours développé, avec des interfaces de bureau et un client mobile récent signé d’un développeur sans lien. Si vous utilisiez un code plutôt qu’un lien, c’est le vôtre, et aucun des services par navigateur ci-dessous ne le remplace."
+      },
+      "2": {
+        "h": "Wormhole le pont crypto",
+        "b": "Un protocole blockchain portant le même nom et sans aucun rapport avec le transfert de fichiers. Il devance l’outil de fichiers sur certaines recherches, ce qu’il vaut mieux savoir avant de suivre un résultat qui se met soudain à parler de jetons."
+      }
+    }
+  },
+  "steps": {
+    "title": "Passer de Wormhole à BIShare",
+    "items": {
+      "0": {
+        "h": "Même habitude, même confidentialité, sans compte",
+        "b": "Ouvrez bishare.app/transfer et déposez les fichiers. Rien ne demande qui vous êtes, comme chez Wormhole. Le verrouillage a lieu dans votre navigateur et la clé se place après le # du lien : l’adresse que vous envoyez est donc tout le secret. Transmettez-la en lien, en carré QR, ou en six caractères assez courts pour être dictés."
+      },
+      "1": {
+        "h": "Puis fermez l’onglet",
+        "b": "C’est tout l’intérêt du changement. L’envoi se termine vers le stockage à n’importe quelle taille jusqu’à 100 Go, il n’y a donc aucun pair qui attend votre machine ni de ligne au-delà de laquelle les règles changent. Refermez le portable et le destinataire récupère quand même, pendant les 24 heures qui suivent."
+      },
+      "2": {
+        "h": "Activez l’interrupteur de destruction si vous utilisiez un compteur bas",
+        "b": "Si vous vous serviez de la limite de téléchargements de Wormhole pour rendre un lien à usage unique, activez l’option de récupération unique et le lien meurt dès que le fichier est tiré. Si vous ne vous en serviez pas, laissez-la de côté et le lien expire simplement avec l’horloge."
+      },
+      "3": {
+        "h": "Pour tout ce qui dépasse 100 Go, ou pour quelqu’un de proche",
+        "b": "Installez l’application sur les deux appareils. Sur un réseau partagé ou un partage de connexion, ils s’associent et déplacent le fichier entre eux, sans téléversement et sans plafond, ce qui couvre le cas que Wormhole traite au-dessus de 5 Go sans qu’aucun onglet doive rester ouvert."
+      }
+    }
+  },
+  "choose": {
+    "title": "Quelle alternative pour quel travail",
+    "body": "Une question trie cette liste plus vite que toutes les autres : quelqu’un doit-il rester à attendre avec un onglet ouvert.",
+    "items": {
+      "0": {
+        "h": "Gros fichier, et vous voulez partir",
+        "b": "Un lien BIShare jusqu’à 100 Go, ou SwissTransfer jusqu’à 50 Go si vous pouvez vous passer du verrouillage de bout en bout. Les deux se terminent vers le stockage, donc rien n’attend votre machine."
+      },
+      "1": {
+        "h": "Rien ne doit toucher un serveur",
+        "b": "FilePizza, transfer.zip en mode Quick Transfer, ou Wormhole lui-même au-dessus de 5 Go. Tous trois font de votre onglet le serveur, et c’est le prix."
+      },
+      "2": {
+        "h": "Moins de 5 Go, pour une personne aujourd’hui",
+        "b": "Restez sur Wormhole. Il stocke, il verrouille, il ne demande pas de compte, et changer ne vous apporte rien à cette taille."
+      },
+      "3": {
+        "h": "Confidentiel, et le destinataire est lent",
+        "b": "<goEncrypted>Choisissez selon qui détient la clé, pas selon le discours commercial</goEncrypted>. Proton Drive garde un fichier verrouillé disponible indéfiniment ; un lien BIShare vous donne une journée ; SwissTransfer donne quinze jours mais peut lire ce qu’il détient."
+      },
+      "4": {
+        "h": "Vous deux dans la même pièce",
+        "b": "Envoyez d’appareil à appareil et toutes les limites de cette page disparaissent d’un coup. Aucun téléversement, aucun compteur, aucune horloge, et cela marche avec la ligne coupée."
+      }
+    }
+  },
+  "security": {
+    "title": "Ce que chaque service peut lire",
+    "body": "Wormhole a posé la référence ici, c’est donc la bonne mesure : le fichier est verrouillé en AES-GCM 128 bits avant de quitter le navigateur et la clé n’atteint jamais le serveur. Jugez les autres là-dessus, pas sur le mot chiffré.",
+    "items": {
+      "0": {
+        "h": "Verrouillé par vous, clé dans le lien",
+        "b": "Wormhole, un lien BIShare, une instance Send et le mode gratuit de transfer.zip fonctionnent ainsi. Le service stocke ou relaie des octets dont il n’a pas la clé, si bien qu’une intrusion ou une décision de justice ne produit rien de lisible. Le revers : qui tient le lien tient le fichier, ce qui fait de la façon d’envoyer ce lien la vraie décision de sécurité."
+      },
+      "1": {
+        "h": "Verrouillé sur votre appareil, gardé dans un compte",
+        "b": "Proton Drive chiffre aussi localement, mais le fichier vit dans un stockage rattaché à vous plutôt que dans un lien jetable. C’est plus solide pour la durée et plus faible pour l’anonymat, ce qui est le bon compromis pour un jeu de contrats et le mauvais pour une remise ponctuelle."
+      },
+      "2": {
+        "h": "Chiffré, par l’entreprise, une fois arrivé",
+        "b": "SwissTransfer, Smash, WeTransfer et Filemail appartiennent à cette catégorie. La documentation d’Infomaniak est d’une franchise rafraîchissante sur ce point : les fichiers sont chiffrés en arrivant sur ses serveurs, ce qui veut dire qu’Infomaniak a les clés. Convenable pour le travail courant, inadapté aux pièces d’identité ou au matériel non publié."
+      }
     }
   },
   "faq": {
-    "title": "Alternative à Wormhole : FAQ",
+    "title": "Alternatives à Wormhole : questions fréquentes",
     "items": {
       "0": {
-        "q": "Quelle est une bonne alternative à Wormhole ?",
-        "a": "BIShare. Il offre le même partage par lien chiffré de bout en bout et sans compte pour lequel Wormhole est connu, et ajoute des applis natives plus le transfert instantané à proximité qui fonctionne entièrement hors ligne."
+        "q": "Quelle est la meilleure alternative à Wormhole ?",
+        "a": "Si vous voulez le même chiffrement dans le navigateur sans garder un onglet ouvert, BIShare : 100 Go par lien, verrouillé avant l’envoi, sans compte, 24 heures pour récupérer. Si vous voulez le même fonctionnement de navigateur à navigateur sans plafond, le Quick Transfer gratuit de transfer.zip ou FilePizza. Si une longue fenêtre vous manque plus que le verrouillage, SwissTransfer."
       },
       "1": {
-        "q": "BIShare est-il chiffré de bout en bout comme Wormhole ?",
-        "a": "Oui. Les liens de partage chiffrés gardent la clé dans le fragment du lien, donc le serveur ne stocke jamais que du texte chiffré. Les transferts à proximité sont chiffrés d'appareil à appareil et n'atteignent jamais un serveur."
+        "q": "Pourquoi mon transfert Wormhole a-t-il échoué quand j’ai fermé l’onglet ?",
+        "a": "Parce que le fichier dépassait 5 Go. Wormhole stocke les fichiers jusqu’à 5 Go et bascule au-delà vers une route directe de navigateur à navigateur, et sa FAQ demande de laisser la page ouverte jusqu’au téléchargement par le destinataire. Sous 5 Go, fermer l’onglet ne pose aucun problème."
       },
       "2": {
-        "q": "BIShare peut-il envoyer des fichiers hors ligne ?",
-        "a": "Oui — c'est la grande différence. Quand les deux appareils sont sur le même Wi-Fi ou un point d'accès du téléphone, BIShare transfère directement sans internet et sans cloud, ce qu'un outil uniquement navigateur comme Wormhole ne peut pas faire."
+        "q": "Quelle est la taille maximale sur Wormhole ?",
+        "a": "Dix gigaoctets, indiqué sur la page d’accueil. Curieusement, l’entrée de la FAQ consacrée à la taille maximale ne donne jamais ce chiffre et explique seulement le partage à 5 Go, si bien que ceux qui lisent la FAQ n’apprennent souvent jamais le plafond."
       },
       "3": {
-        "q": "Quelle taille de fichier puis-je envoyer ?",
-        "a": "Les liens chiffrés portent jusqu'à 100 GB gratuitement. Les transferts à proximité entre appareils n'ont pas de limite de taille, car le fichier n'est jamais téléversé."
+        "q": "Pourquoi mon lien Wormhole a-t-il expiré trop tôt ?",
+        "a": "Deux horloges, pas une. L’expéditeur choisit une expiration qui peut être d’une heure, et séparément un nombre maximal de téléchargements qui peut être de un. Wormhole supprime le fichier au premier des deux, un lien peut donc mourir quelques minutes après le premier téléchargement."
       },
       "4": {
-        "q": "Ai-je besoin d'un compte ?",
-        "a": "Non. Envoyer et recevoir ne nécessitent aucune inscription. Partagez un lien, un QR code ou un 6-character code, et le destinataire l'ouvre dans n'importe quel navigateur."
+        "q": "Wormhole est-il encore maintenu ?",
+        "a": "Il tourne et répond, et ses conditions ont été mises à jour en juillet 2025, mais le produit n’a pas bougé. Sa feuille de route liste toujours une offre Pro, des applications mobiles et la protection par mot de passe comme travaux futurs, et l’annonce liée la plus récente date de 2021. Considérez-le comme maintenu mais pas développé."
+      },
+      "5": {
+        "q": "Wormhole est-il vraiment sûr ?",
+        "a": "Sa conception est solide et remarquablement documentée : AES-GCM 128 bits appliqué avant que quoi que ce soit quitte le navigateur, clés dérivées avec HKDF et SHA-256, et secret placé dans le fragment de l’URL, que les navigateurs ne transmettent jamais. Le point faible pratique n’est pas la cryptographie mais le lien, puisque quiconque l’obtient peut ouvrir le fichier."
+      },
+      "6": {
+        "q": "Quelles alternatives à Wormhole gardent les fichiers plus d’une journée ?",
+        "a": "SwissTransfer garde 50 Go pendant 15 jours avec une prolongation à 30 proposée avant l’échéance, et Proton Drive conserve un fichier partagé jusqu’à suppression, dans la limite de ses 5 Go gratuits. Une instance Send publique autorise jusqu’à trois jours. BIShare, comme Wormhole, vous donne 24 heures."
+      },
+      "7": {
+        "q": "Existe-t-il une alternative à Wormhole sans limite de taille ?",
+        "a": "Dans le navigateur, le Quick Transfer gratuit de transfer.zip n’annonce aucun plafond, et FilePizza non plus, mais tous deux diffusent entre onglets comme le fait Wormhole au-delà de 5 Go. Pour un lien stocké, rien ici ne dépasse les 100 Go de BIShare. À l’intérieur d’un même réseau local la question ne se pose pas, puisque le fichier n’est jamais téléversé."
+      },
+      "8": {
+        "q": "Firefox Send est-il une alternative à Wormhole ?",
+        "a": "Pas en tant que produit Mozilla. Firefox Send a fermé en 2020 et le code a été archivé en 2021. Ce qui survit est un fork communautaire sur des instances tenues par des bénévoles, et la plus connue autorise aujourd’hui 2,5 Gio, vingt téléchargements et trois jours. La dernière modification du code de ce fork date de juillet 2025."
+      },
+      "9": {
+        "q": "J’utilisais un code court, pas un lien. Est-ce le même Wormhole ?",
+        "a": "Non. Il s’agit de magic-wormhole, un projet en ligne de commande distinct, avec ses propres auteurs, où les deux côtés tapent un code comme 7-crossover-clockwork. Il est encore activement développé et dispose d’interfaces de bureau. Aucun des services par navigateur de cette page ne le remplace, et les deux sont sans cesse confondus dans les listes."
       }
     }
   },
   "cta": {
-    "title": "Le partage chiffré, avec des applis et le transfert à proximité hors ligne",
-    "body": "Tout ce que vous aimiez dans Wormhole, plus des applis natives et un vrai transfert hors ligne. Gratuit sur iPhone, Android, Mac, Windows et tout navigateur.",
+    "title": "Le même lien verrouillé, et vous pouvez fermer l’onglet",
+    "body": "Jusqu’à 100 Go, verrouillé dans votre navigateur avant l’envoi, la clé dans le lien, sans compte et sans palier payant. Gratuit et à code ouvert.",
     "download": "Télécharger BIShare"
   },
   "a11y": {
     "yes": "Oui",
     "no": "Non"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un navigateur envoie un fichier verrouillé tandis que son bouton de fermeture d’onglet est allumé, intitulé les meilleures alternatives à Wormhole",
+      "title": "Les meilleures alternatives à Wormhole",
+      "sub": "8 options comparées, septembre 2026",
+      "left": "Votre fichier",
+      "right": "Destinataire",
+      "badge": "Fermez l’onglet"
+    },
+    "split": {
+      "alt": "Comment Wormhole se coupe à cinq gigaoctets : les fichiers jusqu’à 5 Go sont stockés pendant une journée au plus et l’expéditeur peut fermer l’onglet, ceux au-dessus de 5 Go passent de navigateur à navigateur et l’expéditeur doit rester ouvert, et un transfert direct entre appareils n’a besoin d’aucun serveur",
+      "title": "Là où l’onglet doit rester ouvert",
+      "sub": "La taille décide du produit que vous obtenez",
+      "z1": "Jusqu’à 5 Go",
+      "z1apps": "Stocké pour vous, fermez l’onglet quand vous voulez",
+      "z2": "Au-dessus de 5 Go, jusqu’à 10 Go",
+      "z2apps": "De navigateur à navigateur, votre onglet le porte",
+      "z3": "D’appareil à appareil",
+      "z3apps": "Sans serveur, sans onglet, sans plafond",
+      "foot": "Wormhole ne dit jamais de quel côté de la ligne vous êtes tombé ; l’écran d’envoi est identique dans les deux cas"
+    },
+    "limits": {
+      "alt": "Taille gratuite pour un transfert en échelle logarithmique, d’une instance Send publique à 2,5 Gio et de Proton Drive et Tresorit Send à 5 Go, en passant par Wormhole à 10 Go et SwissTransfer à 50, jusqu’à un lien BIShare de 100 Go, la diffusion de navigateur à navigateur restant sans plafond",
+      "title": "Taille gratuite par transfert",
+      "sub": "Échelle logarithmique, septembre 2026",
+      "send": "Instance Send",
+      "sendv": "2,5 Gio · 3 jours",
+      "proton": "Proton Drive",
+      "protonv": "5 Go au total · gardés jusqu’à suppression",
+      "tresorit": "Tresorit Send",
+      "tresoritv": "5 Go · mot de passe",
+      "wormhole": "Wormhole",
+      "wormholev": "10 Go · jusqu’à 24 heures",
+      "swiss": "SwissTransfer",
+      "swissv": "50 Go · 15 à 30 jours",
+      "bishare": "Lien BIShare",
+      "bisharev": "100 Go · 24 heures",
+      "stream": "De navigateur à navigateur",
+      "streamv": "Sans plafond · les deux onglets ouverts",
+      "foot": "Wormhole ne stocke qu’en dessous de 5 Go ; au-delà il diffuse entre onglets, et c’est pourquoi il figure dans les deux moitiés de ce graphique"
+    },
+    "choose": {
+      "alt": "Choisir selon qu’un onglet doit rester ouvert : un gros fichier que vous voulez laisser filer convient à un lien BIShare ou à SwissTransfer, ne rien confier à un serveur convient à FilePizza ou transfer.zip, moins de 5 Go pour une personne convient à Wormhole lui-même, confidentiel et lent convient à Proton Drive, et deux appareils dans une même pièce devraient s’envoyer les fichiers directement",
+      "title": "Pouvez-vous fermer l’onglet ?",
+      "sub": "Cette question trie la liste",
+      "a": {
+        "need": "Gros fichier, vous voulez partir",
+        "pick": "Lien BIShare · SwissTransfer"
+      },
+      "b": {
+        "need": "Rien ne doit toucher un serveur",
+        "pick": "FilePizza · transfer.zip"
+      },
+      "c": {
+        "need": "Moins de 5 Go, un destinataire aujourd’hui",
+        "pick": "Restez sur Wormhole"
+      },
+      "d": {
+        "need": "Confidentiel, destinataire lent",
+        "pick": "Proton Drive"
+      },
+      "e": {
+        "need": "Vous deux dans une même pièce",
+        "pick": "Envoi direct, sans téléversement"
+      }
+    }
   }
 }
