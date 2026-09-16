@@ -10,8 +10,22 @@ import { cn } from "@/lib/utils";
  * "Send via email" — emails the transfer's download link straight to a
  * recipient (branded, server-side via POST /api/v1/transfer/email). Shown in
  * the upload success view. `code` is the raw 6-char transfer code.
+ *
+ * `link` is the full share URL as the browser built it. End-to-end transfers
+ * keep their key in the fragment, so without it the API would email a link
+ * that cannot open the file. Passing it means the key travels through our
+ * mail server for that one message, which is why `sealed` surfaces a line
+ * telling the sender the mail itself is now the secret.
  */
-export function TransferEmailForm({ code }: { code: string }) {
+export function TransferEmailForm({
+  code,
+  link,
+  sealed = false,
+}: {
+  code: string;
+  link?: string;
+  sealed?: boolean;
+}) {
   const t = useTranslations("tool.email");
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
@@ -30,6 +44,7 @@ export function TransferEmailForm({ code }: { code: string }) {
       email: email.trim(),
       name: name.trim() || undefined,
       message: message.trim() || undefined,
+      link,
     });
     if (res.success) {
       setState("sent");
@@ -70,6 +85,11 @@ export function TransferEmailForm({ code }: { code: string }) {
         <p className="text-sm font-semibold">{t("title")}</p>
         <p className="mt-0.5 text-xs text-muted-foreground">{t("sub")}</p>
       </div>
+      {sealed && (
+        <p className="rounded-lg border border-border bg-background-raised/60 px-3 py-2 text-xs leading-relaxed text-muted-foreground">
+          {t("keyNote")}
+        </p>
+      )}
       <input
         type="email"
         required

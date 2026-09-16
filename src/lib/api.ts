@@ -195,12 +195,21 @@ export function getTransferUploadUrlEndpoint(): string {
   return `${API_URL}/api/v1/transfer/upload-url`;
 }
 
-/** Email a live transfer's download link to a recipient (v3 additive endpoint). */
+/**
+ * Email a live transfer's download link to a recipient (v3 additive endpoint).
+ *
+ * `link` is for end-to-end transfers: their decryption key lives in the URL
+ * fragment, which the browser never sends anywhere, so the link the API would
+ * build on its own could not open the file. Passing the complete link lets the
+ * mail carry a working one. The API accepts it only when it is this transfer's
+ * own URL plus a key-shaped fragment, and never stores or logs it.
+ */
 export async function sendTransferEmail(input: {
   code: string;
   email: string;
   name?: string;
   message?: string;
+  link?: string;
 }): Promise<FlatResponse> {
   try {
     const res = await fetch(`${API_URL}/api/v1/transfer/email`, {

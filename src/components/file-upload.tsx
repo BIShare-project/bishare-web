@@ -970,10 +970,15 @@ export function FileUpload() {
           </motion.div>
         )}
 
-        {/* Single-file: email the link straight to a recipient (not for E2E —
-            the server-composed email can't carry the fragment key). */}
-        {single && single.status === "done" && single.rawCode && !single.encrypted && (
-          <TransferEmailForm code={single.rawCode} />
+        {/* Single-file: email the link straight to a recipient. End-to-end
+            transfers pass the browser-built URL, since the key lives in the
+            fragment and a server-composed link would not open the file. */}
+        {single && single.status === "done" && single.rawCode && (
+          <TransferEmailForm
+            code={single.rawCode}
+            link={single.webURL}
+            sealed={!!single.encrypted}
+          />
         )}
 
         {/* Per-file result cards */}
