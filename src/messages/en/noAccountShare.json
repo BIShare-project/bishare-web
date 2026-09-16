@@ -1,84 +1,343 @@
 {
   "meta": {
-    "title": "Share Files Without an Account: No Sign-Up on Either Side",
-    "description": "Send files with no sign-up for you or the recipient. Share a link, QR code or 6-character code, end-to-end encrypted, up to 100 GB free. The link expires after 24 hours.",
-    "ogTitle": "Share files without an account — no sign-up, encrypted"
+    "title": "Share Files Without an Account: 8 No Sign-Up Ways (2026)",
+    "description": "Share files without an account on either side: free limits for BIShare, SwissTransfer, Wormhole, Smash and cloud links, checked September 2026, plus what still identifies you."
   },
   "hero": {
-    "eyebrow": "No account needed",
+    "eyebrow": "No sign-up, either side",
     "title": "Share files without an account",
-    "body": "Sending a file shouldn't mean creating yet another account — or asking the other person to. With <strong>BIShare</strong> there's <strong>no sign-up on either side</strong>: you share a link, QR code, or 6-character code, and they open it in any browser and download. <highlight>End-to-end encrypted, up to 100 GB free, links auto-expire.</highlight>",
+    "body": "Most of the friction in sending a file has nothing to do with the file. It is the sign-up form on your side, then the sign-in wall on theirs, then the email asking them to request access. It does not have to be that way, and it was never the norm before cloud drives made it one. Plenty of services take a file from anyone and hand it to anyone, no name asked. The differences are in what they let you send, how long the link lives, what you give up in control, and what still quietly identifies you. This guide goes through <strong>eight ways to share a file without an account</strong>, checked against each service's own pages in September 2026.",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
-  "why": {
-    "title": "Why account-free sharing matters",
-    "body": "Google Drive, Dropbox, and most transfer sites want you signed in — and often want the recipient signed in too, or they hit a wall. That's friction and it's data you didn't need to hand over. BIShare asks for <strong>nothing</strong>: no email, no password, no profile. The file moves, the link expires, and there's no account trailing behind it."
+  "updated": "Updated September 2026 · Limits read from each service's pricing or help page this month, BIShare figures taken from its source code",
+  "disclosure": "BIShare is our own product and needs no account on either side, which is why it opens the list. Where a rival keeps files longer, sends more for free or fits a job better, the text says so.",
+  "quick": {
+    "title": "Quick answer",
+    "items": {
+      "0": "<strong>One file, one person, nothing to sign up for on either side:</strong> <goTransfer>open bishare.app/transfer</goTransfer>, drop the file, share the link, QR code or 6-character code. Up to 100 GB, encrypted before upload, gone after 24 hours.",
+      "1": "<strong>Something the recipient may open late:</strong> SwissTransfer keeps up to 50 GB for 15 days and can extend to 30, with no account.",
+      "2": "<strong>Something private that must never sit readable on a server:</strong> Wormhole or a BIShare link, both encrypted in your browser with the key in the link itself.",
+      "3": "<strong>You have a Google, Microsoft or Dropbox account and only the recipient must stay out of one:</strong> an Anyone-with-the-link share works for them without signing in, at the cost of your name on the file and no expiry on the free plans.",
+      "4": "<strong>A group swapping files for an evening:</strong> <goRooms>a BIShare room</goRooms> with a short code, joined from a browser or the app, nobody registered.",
+      "5": "<strong>What you lose without an account:</strong> the ability to revoke, extend or track a link after sending. Pick the expiry you want at send time, and use a password where the service offers one."
+    }
   },
-  "how": {
-    "title": "How account-free sharing works",
+  "sides": {
+    "title": "No account for whom? The question has two sides",
+    "body": "Search results for this query mix up two very different needs. Some people want to send without registering. Others already have an account somewhere and want the person on the other end to open the file without creating one. A few need both, because they are sending to a stranger from a machine that is not theirs. Each service falls into one of three groups, and knowing which group you need saves most of the searching.",
     "items": {
       "0": {
-        "h": "You send with no sign-up",
-        "b": "Open BIShare, drop a file, and get a link, QR code, and 6-character code instantly. No registration, no email verification — just share."
+        "h": "Neither side signs up",
+        "b": "Transfer sites in the WeTransfer tradition take a file from an anonymous browser tab and give an anonymous link back: BIShare, SwissTransfer, Wormhole, Smash, Filemail and TransferNow all work this way on their free tiers. There is no profile to fill in, no verification email, and nothing to remember afterwards. The price is that the link is the only key: lose it, and the transfer is gone; forward it, and anyone who gets it can download."
       },
       "1": {
-        "h": "They receive with no sign-up",
-        "b": "The recipient opens the link in any browser and downloads. No account wall, no \"request access\" — it just works, on phone or computer."
+        "h": "Only the recipient stays out",
+        "b": "Google Drive, OneDrive, Dropbox Transfer and Proton Drive all need the sender to be signed in, but each can produce a link that opens without an account on the other end. Google's help page puts it plainly: anyone who has the link can use the file without signing in to a Google account. This is the right group when the file already lives in your drive and you would rather not upload it a second time."
       },
       "2": {
-        "h": "Nothing left behind",
-        "b": "Links auto-expire after 24 hours, and nearby transfers never upload to a server at all. There's no account, and no file lingering in someone's cloud."
+        "h": "Nobody at all, and no server either",
+        "b": "When both devices are in the same building, the cleanest answer is to skip accounts and servers together. <goOffline>BIShare and LocalSend move files directly between devices on one Wi-Fi or hotspot</goOffline>, with nothing uploaded and no link to protect. It is not a share in the usual sense, because there is no URL, but it is the most private way to hand over a file."
       }
     }
   },
-  "comparison": {
-    "title": "Google Drive vs Email vs BIShare",
+  "methods": {
+    "title": "Eight ways to share a file with no account, ranked",
+    "consLabel": "Keep in mind:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Best all-round: no account on either side, encrypted before upload, links up to 100 GB",
+        "facts": "Browser, iPhone, Android, Windows, macOS, Linux · open source (MIT) · 100 GB per link, 24 hours · optional one-time download · encrypted on your device · no account, no ads",
+        "body": "Nothing on BIShare asks who you are. You drop a file into the page or the app and get three ways to hand it over: a link, a QR code the other phone scans, and a six-character code made of letters and digits that is easy to read out over the phone. The recipient opens it in any browser and downloads. Before upload the file is encrypted in your browser and the key rides in the part of the link after the # sign, which browsers never send to servers, so what sits on BIShare's storage is unreadable to BIShare. A one-time option deletes the file after the first download, and every link expires after 24 hours whether or not it was used. When the other person is in the room, the app sends directly with no upload and no link at all.",
+        "cons": "Twenty-four hours is short for a recipient who checks email once a week; send again if they miss it. Executables such as .exe, .msi and .sh are refused, which is deliberate."
+      },
+      "1": {
+        "name": "SwissTransfer",
+        "tag": "Best when the file has to wait for the recipient",
+        "facts": "Browser, iOS and Android apps · free · 50 GB per transfer · kept 15 days, extendable to 30 · optional password · no account · run by Infomaniak in Switzerland",
+        "body": "SwissTransfer is the service to reach for when you cannot control when the other person will look. Fifty gigabytes per transfer, a link or an email, and the files stay for 15 days, with an offer to extend to 30 before they expire. There is no sign-up at either end and no ads on the download page. The company behind it, Infomaniak, hosts everything in Switzerland, which some recipients in Europe will care about. For a video project or a photo shoot that a client opens next week, it is hard to beat.",
+        "cons": "Files are encrypted on the way and at rest, but the service holds the keys, so it can read what it stores if compelled. Uploads are limited by your connection, and a 50 GB transfer takes as long as your line allows."
+      },
+      "2": {
+        "name": "Wormhole",
+        "tag": "Best for a private file up to 10 GB with nothing to install",
+        "facts": "Browser only · free · up to 10 GB · links expire after 24 hours · files over 5 GB stream peer to peer · 128-bit AES-GCM in the browser, key in the link · no account",
+        "body": "<goWormhole>Wormhole</goWormhole> does one thing carefully. Files are encrypted in the browser before anything leaves it, the key is added to the link fragment that never reaches the server, and the link stops working after 24 hours. Anything up to 5 GB is stored for that day; larger files, up to 10 GB, go straight from your browser to the recipient's while both tabs are open. There is no sign-up, no email and no app. For a contract or an ID scan going to one person today, it is the simplest private option that exists.",
+        "cons": "Over 5 GB, you have to keep the tab open until the download finishes, and the 24-hour clock is fixed. Mobile apps are still listed as in the works."
+      },
+      "3": {
+        "name": "Smash",
+        "tag": "Best when the file is big and nobody minds a wait",
+        "facts": "Browser, iOS, Android · free, no sign-up · 2 GB per transfer at full priority, larger transfers queued behind paid plans · kept up to 7 days · TLS and AES-256 at rest",
+        "body": "<goSmash>Smash</goSmash> states the trade on its pricing page: no payment, no sign-up, and transfers beyond 2 GB join a queue behind Pro customers. Below that size it behaves like any transfer site, with a link or an email and a week of availability. Above it, the upload still completes; it just waits its turn before the recipient can fetch it, which at busy hours can mean a long pause. If you have a 30 GB folder and a patient recipient, it costs nothing.",
+        "cons": "The queue makes delivery unpredictable for the files you most need it for. Password protection and download tracking belong to the paid tiers."
+      },
+      "4": {
+        "name": "Filemail and TransferNow",
+        "tag": "Best for mid-size files that go to several people",
+        "facts": "Browser · free · 5 GB per transfer on both · kept 7 days · Filemail: no sign-up, unlimited downloads · TransferNow: account optional",
+        "body": "Two services that quietly do what WeTransfer's free plan used to. Filemail takes up to 5 GB with no sign-up and puts no cap on how many times the link is downloaded, which makes it handy for a file going to a whole mailing list. TransferNow covers the same size with a seven-day link and an optional account for people who want history. Neither encrypts before upload, and neither needs anything from you beyond the file and, if you like, the recipient's address.",
+        "cons": "Five gigabytes rules out most video projects. Both hold the encryption keys themselves, so they are for everyday files rather than sensitive ones."
+      },
+      "5": {
+        "name": "Send, the open-source successor to Firefox Send",
+        "tag": "Best if you want to run your own no-account service",
+        "facts": "Browser · open source (MPL-2.0) · self-hostable with Docker · public instance send.vis.ee: up to 2.5 GB, links kept up to 3 days · encrypted in the browser · no account",
+        "body": "Mozilla closed <goFirefoxSend>Firefox Send</goFirefoxSend> in 2020, but the code lived on as Send, a fork with the Mozilla branding removed so anyone can host it. The public instance run by the fork's maintainer accepts files up to 2.5 GB and keeps them for up to three days, encrypted in the browser before upload with the key in the link, exactly as the original did. For a small company that wants a no-account transfer page under its own domain, a Docker container of Send is an afternoon's work.",
+        "cons": "The public instance is a volunteer service with no promises about uptime or how long it will exist. Self-hosting means you are the one keeping it patched."
+      },
+      "6": {
+        "name": "Google Drive and OneDrive links",
+        "tag": "Best when the file already lives in your drive and only the recipient must skip the account",
+        "facts": "Sender signed in · recipient: Anyone with the link opens without signing in · Drive shows your name and email as the owner · OneDrive password and expiry only on Microsoft 365 plans",
+        "body": "If the file is already in Google Drive or OneDrive, change the link to Anyone with the link and the other person downloads without an account. Google's help page says so directly, and Microsoft's adds that unchecking the sign-in box lets people view, copy or download without signing in, while editing still requires an account. The catch is on your side: Drive shows your name and email address as the owner of the file to whoever opens it, and on OneDrive the expiry date and password options are reserved for Microsoft 365 subscribers. Free links live until you remove them.",
+        "cons": "Your identity travels with the file, and there is no automatic expiry on the free plans. Whoever the link reaches, by forwarding or by accident, gets the same access."
+      },
+      "7": {
+        "name": "Dropbox Transfer and Proton Drive",
+        "tag": "Best when you already pay for the drive and want expiry built in",
+        "facts": "Sender needs an account · recipients need none · Dropbox Transfer Basic: 2 GB, 7 days; paid plans 50 to 250 GB with passwords · Proton Drive: end-to-end encrypted, password and expiry on public links, 5 GB free storage",
+        "body": "Both take a different route from the drive links above: the recipient still needs nothing, but the sender gets controls. Dropbox Transfer on a free Basic account sends 2 GB with a seven-day expiry, and paid plans raise that to 50, 100 or 250 GB with passwords and custom expiry. Proton Drive encrypts everything on your device and lets you put a password and an expiry date on any public link, so the recipient opens it in a browser without a Proton account. For people who already live in one of these, it is the tidiest way to send to someone who does not.",
+        "cons": "Neither is account-free for you. Proton's 5 GB of free storage fills fast with video, and Dropbox's useful sizes sit behind a subscription."
+      }
+    }
+  },
+  "table": {
+    "title": "At a glance",
     "cols": {
-      "airdrop": "Google Drive",
-      "quick": "Email",
-      "bishare": "BIShare"
+      "feature": "Free tier, September 2026",
+      "bishare": "BIShare",
+      "swiss": "SwissTransfer",
+      "wormhole": "Wormhole",
+      "smash": "Smash",
+      "drive": "Drive link",
+      "dropbox": "Dropbox Transfer"
     },
     "rows": {
-      "r0": "Send without an account",
+      "r0": "Sender needs no account",
       "r1": "Recipient needs no account",
-      "r2": "End-to-end encrypted",
-      "r3": "Instant nearby device-to-device",
-      "r4": "Large files, up to 100GB free"
+      "r2": "Encrypted before upload",
+      "r3": "More than 10 GB per transfer, free",
+      "r4": "Link expires by itself",
+      "r5": "Open source"
+    },
+    "note": "Read from each service's own pages in September 2026. BIShare: 100 GB links for 24 hours, encrypted in the browser, MIT-licensed. SwissTransfer: 50 GB for 15 to 30 days. Wormhole: 10 GB for 24 hours, encrypted in the browser. Smash: no size cap, transfers over 2 GB queued, 7 days. Google Drive: sender signed in, recipient not, no expiry on free plans. Dropbox Transfer Basic: 2 GB, 7 days, sender signed in."
+  },
+  "controls": {
+    "title": "What you give up without an account, and how to get it back",
+    "body": "An account is not only a nuisance; it is where services keep the buttons that let you change your mind. Without one, the moment you press send is the last moment you control the file. That is fine for most transfers, as long as you set the terms up front.",
+    "items": {
+      "0": {
+        "h": "Revoking a link",
+        "b": "Signed-in services let you delete a transfer early. Anonymous ones mostly cannot, because nothing ties the transfer to you. The workaround is a short expiry chosen at send time: BIShare's 24 hours or Wormhole's 24 hours end the exposure whether or not you remember to act. If a link must be killable, use a one-time download so it dies with the first fetch."
+      },
+      "1": {
+        "h": "Extending a deadline",
+        "b": "Only SwissTransfer, among the account-free services here, offers more time after the fact, by email before the 15 days run out. Everywhere else, a missed deadline means sending again. For recipients who are slow to open mail, choose the longest expiry in the first place rather than the service you like most."
+      },
+      "2": {
+        "h": "Knowing whether it was downloaded",
+        "b": "Download counts and receipts are account features almost everywhere; Smash and Dropbox Transfer sell them on paid tiers. Without them, ask the recipient, or use a one-time link, which at least tells you that the first download happened when the link stops working."
+      },
+      "3": {
+        "h": "A password",
+        "b": "A password keeps a forwarded link from being useful. SwissTransfer and Proton Drive offer one on free links, OneDrive only with Microsoft 365, Smash and Dropbox only on paid plans. Encrypted-in-the-browser services take a different route: the link itself contains the key, so anyone with the full link can open the file, and the protection lies in sending the link privately."
+      }
+    }
+  },
+  "identity": {
+    "title": "What still identifies you",
+    "body": "No account does not mean no trace. Each service sees a little, and some show more than you expect to the recipient. <goEncrypted>The encryption guide covers what a server can read</goEncrypted>; this is the shorter list of what points back at you.",
+    "items": {
+      "0": {
+        "h": "Your name on cloud drive links",
+        "b": "Google's own help page states that when you share a link, your name and email are visible as the owner of the file. OneDrive links show your account name too. For a file going to someone you would rather not hand your email to, use a transfer service instead of a drive."
+      },
+      "1": {
+        "h": "File names and sizes",
+        "b": "Even services that encrypt the contents in your browser usually see the file's name, size and type, because they need them to serve the download page. BIShare is one of them: contents are unreadable, the name is not. If the name itself is sensitive, rename the file or zip it under a bland name before uploading."
+      },
+      "2": {
+        "h": "Your connection",
+        "b": "Every upload comes from an IP address, and every service can log it. That is not something a sign-up changes either way; an account simply adds a name to the same log. Where that matters, a direct transfer between devices on one network leaves no server log at all, because there is no server."
+      }
+    }
+  },
+  "steps": {
+    "title": "Sharing without an account on BIShare, step by step",
+    "items": {
+      "0": {
+        "h": "Open the page or the app",
+        "b": "Go to bishare.app/transfer in any browser, or open BIShare on a phone or computer. No form appears at any point; the first screen is the drop zone."
+      },
+      "1": {
+        "h": "Add files and pick the terms",
+        "b": "Drop up to 100 GB. End-to-end encryption is on by default, and a one-time switch makes the link die after the first download. Uploads over a slow line resume if the connection drops."
+      },
+      "2": {
+        "h": "Hand it over three ways",
+        "b": "Copy the link, show the QR code to the phone next to you, or read out the six-character code. The recipient opens it in a browser and downloads, with nothing to install and nothing to join. The link stops working 24 hours later."
+      },
+      "3": {
+        "h": "For a group, open a room instead",
+        "b": "A room has a short code that several people can join from the app or a browser. Everyone in it can drop files and pick them up, which suits a class, a meeting or a family trip, and it needs no accounts either."
+      }
+    }
+  },
+  "choose": {
+    "title": "Which account-free route for which job",
+    "body": "The right choice depends less on features than on who is on the other end and how quickly they act.",
+    "items": {
+      "0": {
+        "h": "A client who opens email at their own pace",
+        "b": "SwissTransfer, for the 15 to 30 days. A BIShare link is fine if you can ask them to open it today."
+      },
+      "1": {
+        "h": "A confidential document to one person",
+        "b": "Wormhole or a BIShare link with the one-time option, sent over a channel you trust. Both encrypt before upload, so the service cannot read the file and the link is the only key."
+      },
+      "2": {
+        "h": "A very large folder",
+        "b": "Over 50 GB the free choices narrow to <goLargeFiles>BIShare's 100 GB links</goLargeFiles> and Smash's queue. If the recipient is nearby, skip the upload and send directly instead."
+      },
+      "3": {
+        "h": "Someone who cannot install anything",
+        "b": "Any of the browser services on this page. The recipient only needs a browser tab, and on BIShare a code they can type on a locked-down machine that blocks pasting."
+      },
+      "4": {
+        "h": "A team that needs history and receipts",
+        "b": "This is the one case for an account. Dropbox Transfer or a paid transfer plan gives download logs and revocation that anonymous links cannot."
+      }
+    }
+  },
+  "security": {
+    "title": "Staying safe with links nobody signed in for",
+    "body": "A link that anyone can open is exactly as safe as the way you share it. Three habits cover most of the risk.",
+    "items": {
+      "0": {
+        "h": "Send the link somewhere private",
+        "b": "Not in a group chat, not in a forum post. A direct message or a phone call for the six-character code is enough. Wormhole and BIShare put the decryption key in the link, so the link is the secret."
+      },
+      "1": {
+        "h": "Set the shortest expiry the recipient can live with",
+        "b": "A link that dies tomorrow cannot leak next month. Use one-time downloads for anything you would not want found later in someone's inbox."
+      },
+      "2": {
+        "h": "Treat incoming anonymous links with care",
+        "b": "The same openness serves people distributing malware, which is <goFirefoxSend>what ended Firefox Send</goFirefoxSend>. BIShare refuses executable file types on links for that reason. When a link arrives from someone you do not know, check the file type before opening it, and never run an installer received this way."
+      }
     }
   },
   "faq": {
-    "title": "Sharing without an account: FAQ",
+    "title": "Sharing files without an account: FAQ",
     "items": {
       "0": {
-        "q": "Can I really share files without signing up?",
-        "a": "Yes. BIShare needs no account to send or receive. You share a link, QR code, or 6-character code, and the recipient opens it in any browser — no registration anywhere."
+        "q": "How can I send a file to someone without creating an account?",
+        "a": "Use a transfer service that works from an anonymous browser tab: BIShare, SwissTransfer, Wormhole, Smash, Filemail or TransferNow. Drop the file, copy the link it returns, and send that link. None of them asks you to register on the free tier."
       },
       "1": {
-        "q": "Does the recipient need an account?",
-        "a": "No. Unlike Google Drive or Dropbox, there's no account wall and no \"request access\" step. They just open the link and download."
+        "q": "Can the recipient download without an account?",
+        "a": "On every service listed here, yes. Transfer sites hand out plain download links, and Google Drive, OneDrive, Dropbox Transfer and Proton Drive all let the sender create a link that opens without signing in."
       },
       "2": {
-        "q": "Is it still private without an account?",
-        "a": "Yes — arguably more private. There's no profile tied to your transfer, nearby sends are end-to-end encrypted and never uploaded, and share links auto-expire after 24 hours."
+        "q": "What is the largest file I can send without signing up?",
+        "a": "By link, BIShare at 100 GB, then SwissTransfer at 50 GB and Wormhole at 10 GB. Smash has no stated ceiling but queues free transfers above 2 GB. Between two devices on the same network, BIShare has no limit at all."
       },
       "3": {
-        "q": "How big a file can I send without signing up?",
-        "a": "Up to 100 GB free through a share link, with no account. Nearby device-to-device transfers over your own Wi-Fi have no size cap at all."
+        "q": "Is it safe to share files without an account?",
+        "a": "As safe as the link you send. Choose a service that encrypts in the browser if the file is private, send the link over a private channel, and pick a short expiry or a one-time download. The absence of an account does not weaken the encryption."
       },
       "4": {
-        "q": "What's the catch — is it actually free?",
-        "a": "It's genuinely free with no account. You can install BIShare for the fastest nearby transfers, but sending and receiving via a browser link costs nothing and needs no sign-up."
+        "q": "Can I share files anonymously?",
+        "a": "You can avoid giving a name or an email, and a browser-encrypted service cannot read the contents. Your IP address is still visible to the service, and file names usually are too. Cloud drive links are the least anonymous option, because they show your account name as the owner."
+      },
+      "5": {
+        "q": "How do I share a Google Drive file with someone who has no Google account?",
+        "a": "Open Share on the file, change General access to Anyone with the link, and choose Viewer. Google's help page confirms that anyone with the link can then use the file without signing in. Your name and email stay visible as the owner."
+      },
+      "6": {
+        "q": "Does WeTransfer need an account?",
+        "a": "WeTransfer's free plan now runs on a monthly allowance of 10 transfers or 3 GB in total, with links that last three days. If those limits are the problem, SwissTransfer sends 50 GB with no account and keeps it for weeks."
+      },
+      "7": {
+        "q": "How long do account-free links last?",
+        "a": "It varies more than people expect: 24 hours on BIShare and Wormhole, up to three days on the public Send instance, seven on Smash, Filemail and TransferNow, 15 to 30 on SwissTransfer. Cloud drive links on free plans do not expire at all."
+      },
+      "8": {
+        "q": "Can I password-protect a file without an account?",
+        "a": "SwissTransfer offers a password on free transfers. On BIShare and Wormhole the link carries the decryption key, so protection comes from sending the link privately and from one-time or 24-hour expiry. Smash, Dropbox and OneDrive reserve passwords for paid plans."
+      },
+      "9": {
+        "q": "Is BIShare really free with no account?",
+        "a": "Yes. The source code is public under the MIT licence, there are no ads and no paid tier, and nothing on the site or in the app asks you to register. Links carry up to 100 GB for 24 hours; nearby transfers between devices on one network have no limit."
       }
     }
   },
   "cta": {
-    "title": "Send a file — no account required",
-    "body": "No sign-up, no email, no friction for you or the recipient. Get BIShare, or just share a link from the browser.",
+    "title": "Send it, no sign-up on either side",
+    "body": "Drop a file, share a link or a six-character code, done. Encrypted before upload, up to 100 GB, gone in 24 hours. Free and open source.",
     "download": "Download BIShare"
   },
   "a11y": {
     "yes": "Yes",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "A browser window sending a file by link to a phone, with a crossed-out sign-in form beside it, titled share files without an account",
+      "title": "Share files without an account",
+      "sub": "8 no-sign-up routes, checked September 2026",
+      "left": "Any browser",
+      "right": "Any phone",
+      "badge": "No sign-up"
+    },
+    "sides": {
+      "alt": "Which side has to sign in: neither side on BIShare, SwissTransfer, Wormhole, Smash, Filemail and TransferNow; only the sender on Google Drive, OneDrive, Dropbox Transfer and Proton Drive; nobody and no server when devices share a network with BIShare or LocalSend",
+      "title": "Who has to sign in?",
+      "sub": "The three groups behind one search",
+      "z1": "Neither side",
+      "z1apps": "BIShare · SwissTransfer · Wormhole · Smash · Filemail · TransferNow",
+      "z2": "Only the sender",
+      "z2apps": "Google Drive · OneDrive · Dropbox Transfer · Proton Drive",
+      "z3": "Nobody, and no server",
+      "z3apps": "BIShare or LocalSend on the same Wi-Fi or hotspot",
+      "foot": "Free tiers as documented by each service in September 2026"
+    },
+    "limits": {
+      "alt": "Free size per transfer without an account, log scale: Dropbox Transfer Basic 2 GB, Smash 2 GB before the queue, Send public instance 2.5 GB, Filemail and TransferNow 5 GB, Wormhole 10 GB, SwissTransfer 50 GB, BIShare 100 GB",
+      "title": "Free size per transfer, no account",
+      "sub": "Log scale, September 2026",
+      "dropbox": "Dropbox Transfer Basic",
+      "dropboxv": "2 GB · 7 days",
+      "smash": "Smash (before the queue)",
+      "smashv": "2 GB · 7 days",
+      "send": "Send public instance",
+      "sendv": "2.5 GB · 3 days",
+      "filemail": "Filemail · TransferNow",
+      "filemailv": "5 GB · 7 days",
+      "wormhole": "Wormhole",
+      "wormholev": "10 GB · 24 hours",
+      "swiss": "SwissTransfer",
+      "swissv": "50 GB · 15 to 30 days",
+      "bishare": "BIShare",
+      "bisharev": "100 GB · 24 hours",
+      "foot": "Smash accepts larger transfers but queues them behind paid plans"
+    },
+    "controls": {
+      "alt": "Controls on free, account-free links: expiry set at send time on BIShare, Wormhole, SwissTransfer and Smash; one-time download on BIShare; password on SwissTransfer and Proton Drive; extension only on SwissTransfer; download receipts on none of the free tiers",
+      "title": "What you can still control without an account",
+      "sub": "Set at send time, since there is no dashboard afterwards",
+      "r0": "Expiry chosen at send time",
+      "r1": "One-time download",
+      "r2": "Password on the link",
+      "r3": "Extend after sending",
+      "r4": "Download receipts",
+      "c0": "BIShare",
+      "c1": "Wormhole",
+      "c2": "SwissTransfer",
+      "c3": "Smash",
+      "foot": "Free tiers only; Smash and Dropbox sell passwords and receipts on paid plans"
+    }
   }
 }

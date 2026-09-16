@@ -1,84 +1,343 @@
 {
   "meta": {
-    "title": "Dateien teilen ohne Konto, ohne Anmeldung",
-    "description": "Dateien senden ohne Anmeldung auf beiden Seiten: per Link, QR-Code oder 6-stelligem Code, Ende-zu-Ende verschlüsselt, bis 100 GB kostenlos, Ablauf nach 24 Stunden.",
-    "ogTitle": "Dateien ohne Konto teilen — keine Anmeldung, verschlüsselt"
+    "title": "Dateien ohne Konto teilen: 8 Wege ohne Anmeldung (2026)",
+    "description": "Dateien ohne Konto teilen, auf beiden Seiten: kostenlose Limits von BIShare, SwissTransfer, Wormhole, Smash und Cloud-Links, geprüft im September 2026, plus das, was Sie verrät."
   },
   "hero": {
-    "eyebrow": "Kein Konto nötig",
+    "eyebrow": "Ohne Anmeldung, auf beiden Seiten",
     "title": "Dateien ohne Konto teilen",
-    "body": "Eine Datei zu senden sollte nicht bedeuten, noch ein Konto zu erstellen — oder die andere Person darum zu bitten. Mit <strong>BIShare</strong> gibt es <strong>auf keiner Seite eine Anmeldung</strong>: Du teilst einen Link, QR-Code oder 6-stelligen Code, und sie öffnen ihn in jedem Browser und laden herunter. <highlight>Ende-zu-Ende verschlüsselt, bis zu 100 GB kostenlos, Links laufen automatisch ab.</highlight>",
+    "body": "Der größte Teil der Reibung beim Versenden einer Datei hat mit der Datei selbst nichts zu tun. Es ist das Anmeldeformular auf Ihrer Seite, dann die Login-Wand auf der anderen, dann die E-Mail, die den Empfänger bittet, Zugriff anzufordern. Das muss nicht so sein, und es war auch nie so, bevor Cloud-Speicher es zur Norm gemacht haben. Es gibt genug Dienste, die eine Datei von jedem annehmen und an jeden weitergeben, ohne nach einem Namen zu fragen. Die Unterschiede liegen darin, was sie senden lassen, wie lange der Link lebt, welche Kontrolle man aufgibt und was einen trotzdem stillschweigend identifiziert. Dieser Leitfaden geht <strong>acht Wege durch, eine Datei ohne Konto zu teilen</strong>, im September 2026 an den Seiten der Dienste selbst geprüft.",
     "ctaPrimary": "BIShare kostenlos holen",
-    "ctaSecondary": "So funktioniert's"
+    "ctaSecondary": "So funktioniert es"
   },
-  "why": {
-    "title": "Warum kontofreies Teilen wichtig ist",
-    "body": "Google Drive, Dropbox und die meisten Übertragungsseiten wollen dich angemeldet — und oft auch den Empfänger, sonst stoßen sie an eine Wand. Das ist Reibung und Daten, die du nie hättest hergeben müssen. BIShare verlangt <strong>nichts</strong>: keine E-Mail, kein Passwort, kein Profil. Die Datei geht auf die Reise, der Link läuft ab, und kein Konto bleibt zurück."
+  "updated": "Aktualisiert im September 2026 · Limits diesen Monat von der Preisseite oder dem Hilfe-Center jedes Dienstes abgelesen, BIShare-Werte aus dem Quellcode",
+  "disclosure": "BIShare ist unser eigenes Produkt und braucht auf keiner Seite ein Konto, deshalb eröffnet es die Liste. Wo ein Konkurrent Dateien länger aufbewahrt, kostenlos mehr sendet oder besser zu einer Aufgabe passt, steht das im Text.",
+  "quick": {
+    "title": "Kurze Antwort",
+    "items": {
+      "0": "<strong>Eine Datei, eine Person, auf keiner Seite etwas zum Anmelden:</strong> <goTransfer>bishare.app/transfer öffnen</goTransfer>, Datei ablegen, Link, QR-Code oder 6-stelligen Code teilen. Bis 100 GB, vor dem Upload verschlüsselt, nach 24 Stunden weg.",
+      "1": "<strong>Etwas, das der Empfänger vielleicht erst spät öffnet:</strong> SwissTransfer hält bis zu 50 GB 15 Tage lang bereit, verlängerbar auf 30, ohne Konto.",
+      "2": "<strong>Etwas Privates, das nie lesbar auf einem Server liegen darf:</strong> Wormhole oder ein BIShare-Link, beide im Browser verschlüsselt, mit dem Schlüssel im Link selbst.",
+      "3": "<strong>Sie haben ein Google-, Microsoft- oder Dropbox-Konto und nur der Empfänger soll ohne auskommen:</strong> ein Link für „Jeder, der über den Link verfügt“ funktioniert für ihn ohne Anmeldung, um den Preis Ihres Namens an der Datei und ohne Ablauf in den Gratis-Tarifen.",
+      "4": "<strong>Eine Gruppe, die einen Abend lang Dateien tauscht:</strong> <goRooms>ein BIShare-Raum</goRooms> mit kurzem Code, aus dem Browser oder der App betreten, niemand registriert.",
+      "5": "<strong>Was ohne Konto fehlt:</strong> einen Link nach dem Senden widerrufen, verlängern oder nachverfolgen. Wählen Sie die Ablaufzeit beim Senden und nutzen Sie ein Passwort, wo der Dienst eines anbietet."
+    }
   },
-  "how": {
-    "title": "So funktioniert kontofreies Teilen",
+  "sides": {
+    "title": "Ohne Konto für wen? Die Frage hat zwei Seiten",
+    "body": "Die Suchergebnisse zu dieser Frage vermischen zwei sehr unterschiedliche Bedürfnisse. Manche wollen senden, ohne sich zu registrieren. Andere haben irgendwo längst ein Konto und wollen, dass die Person am anderen Ende die Datei öffnet, ohne eines anzulegen. Einige brauchen beides, weil sie von einem fremden Rechner aus an einen Fremden senden. Jeder Dienst gehört in eine von drei Gruppen, und wer weiß, welche er braucht, spart sich den Großteil der Suche.",
     "items": {
       "0": {
-        "h": "Du sendest ohne Anmeldung",
-        "b": "Öffne BIShare, lege eine Datei ab und erhalte sofort einen Link, QR-Code und 6-stelligen Code. Keine Registrierung, keine E-Mail-Bestätigung — einfach teilen."
+        "h": "Keine Seite meldet sich an",
+        "b": "Transferdienste nach dem Vorbild von WeTransfer nehmen eine Datei aus einem anonymen Browser-Tab entgegen und geben einen anonymen Link zurück: BIShare, SwissTransfer, Wormhole, Smash, Filemail und TransferNow arbeiten in ihren Gratis-Tarifen alle so. Kein Profil zum Ausfüllen, keine Bestätigungs-Mail, nichts, das man sich danach merken müsste. Der Preis: Der Link ist der einzige Schlüssel. Wer ihn verliert, verliert den Transfer; wer ihn weiterleitet, lässt jeden herunterladen, der ihn bekommt."
       },
       "1": {
-        "h": "Sie empfangen ohne Anmeldung",
-        "b": "Der Empfänger öffnet den Link in jedem Browser und lädt herunter. Keine Konto-Wand, kein \"Zugriff anfordern\" — es funktioniert einfach, auf Handy oder Computer."
+        "h": "Nur der Empfänger bleibt draußen",
+        "b": "Google Drive, OneDrive, Dropbox Transfer und Proton Drive verlangen alle, dass der Absender angemeldet ist, können aber jeweils einen Link erzeugen, der am anderen Ende ohne Konto aufgeht. Googles Hilfeseite sagt es unmissverständlich: Jeder, der den Link hat, kann die Datei nutzen, ohne sich bei einem Google-Konto anzumelden. Das ist die richtige Gruppe, wenn die Datei bereits in Ihrem Speicher liegt und Sie sie nicht ein zweites Mal hochladen möchten."
       },
       "2": {
-        "h": "Nichts bleibt zurück",
-        "b": "Links laufen nach 24 Stunden automatisch ab, und Übertragungen in der Nähe laden überhaupt nichts auf einen Server. Es gibt kein Konto und keine Datei, die in irgendjemandes Cloud liegen bleibt."
+        "h": "Niemand, und auch kein Server",
+        "b": "Sind beide Geräte im selben Gebäude, ist die sauberste Antwort, Konten und Server zugleich zu überspringen. <goOffline>BIShare und LocalSend schieben Dateien direkt von Gerät zu Gerät über ein gemeinsames WLAN oder einen Hotspot</goOffline>, ohne Upload und ohne Link, den man schützen müsste. Teilen im üblichen Sinn ist das nicht, weil es keine URL gibt, aber es ist der privateste Weg, eine Datei zu übergeben."
       }
     }
   },
-  "comparison": {
-    "title": "Google Drive vs E-Mail vs BIShare",
+  "methods": {
+    "title": "Acht Wege, eine Datei ohne Konto zu teilen, in Reihenfolge",
+    "consLabel": "Achtung:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Insgesamt am besten: kein Konto auf beiden Seiten, vor dem Upload verschlüsselt, Links bis 100 GB",
+        "facts": "Browser, iPhone, Android, Windows, macOS, Linux · Open Source (MIT) · 100 GB pro Link, 24 Stunden · optionaler Einmal-Download · auf Ihrem Gerät verschlüsselt · kein Konto, keine Werbung",
+        "body": "Nichts an BIShare fragt, wer Sie sind. Sie legen eine Datei auf der Seite oder in der App ab und bekommen drei Wege, sie zu übergeben: einen Link, einen QR-Code, den das andere Handy scannt, und einen sechsstelligen Code aus Buchstaben und Ziffern, der sich leicht am Telefon vorlesen lässt. Der Empfänger öffnet ihn in jedem Browser und lädt herunter. Vor dem Upload wird die Datei im Browser verschlüsselt, und der Schlüssel steckt im Teil des Links nach dem Zeichen #, den Browser nie an Server senden; was auf BIShares Speicher liegt, ist für BIShare also unlesbar. Eine Einmal-Option löscht die Datei nach dem ersten Download, und jeder Link läuft nach 24 Stunden ab, ob genutzt oder nicht. Ist die andere Person im selben Raum, sendet die App direkt, ohne Upload und ganz ohne Link.",
+        "cons": "Vierundzwanzig Stunden sind kurz für jemanden, der einmal die Woche in die Mails schaut; senden Sie dann einfach erneut. Ausführbare Dateien wie .exe, .msi und .sh werden abgelehnt, und das mit Absicht."
+      },
+      "1": {
+        "name": "SwissTransfer",
+        "tag": "Am besten, wenn die Datei auf den Empfänger warten muss",
+        "facts": "Browser, Apps für iOS und Android · kostenlos · 50 GB pro Transfer · 15 Tage aufbewahrt, verlängerbar auf 30 · optionales Passwort · kein Konto · betrieben von Infomaniak in der Schweiz",
+        "body": "SwissTransfer ist der Dienst, wenn Sie nicht steuern können, wann die andere Person nachsieht. Fünfzig Gigabyte pro Transfer, ein Link oder eine E-Mail, und die Dateien bleiben 15 Tage, mit dem Angebot, vor Ablauf auf 30 zu verlängern. Es gibt an keinem Ende eine Registrierung und keine Werbung auf der Download-Seite. Das Unternehmen dahinter, Infomaniak, hostet alles in der Schweiz, was manchen Empfängern in Europa wichtig sein wird. Für ein Videoprojekt oder ein Fotoshooting, das ein Kunde erst nächste Woche öffnet, ist das kaum zu schlagen.",
+        "cons": "Die Dateien sind unterwegs und im Ruhezustand verschlüsselt, aber der Dienst hält die Schlüssel, kann also lesen, was er speichert, wenn er dazu gezwungen wird. Uploads hängen an Ihrer Leitung, und ein 50-GB-Transfer dauert so lange, wie sie erlaubt."
+      },
+      "2": {
+        "name": "Wormhole",
+        "tag": "Am besten für eine private Datei bis 10 GB, ohne etwas zu installieren",
+        "facts": "Nur Browser · kostenlos · bis 10 GB · Links laufen nach 24 Stunden ab · Dateien über 5 GB gehen Peer-to-Peer · 128-Bit-AES-GCM im Browser, Schlüssel im Link · kein Konto",
+        "body": "<goWormhole>Wormhole</goWormhole> macht eine einzige Sache und macht sie sorgfältig. Dateien werden im Browser verschlüsselt, bevor etwas den Rechner verlässt, der Schlüssel wandert in das Link-Fragment, das den Server nie erreicht, und der Link funktioniert nach 24 Stunden nicht mehr. Bis 5 GB wird die Datei für diesen Tag gespeichert; größere, bis 10 GB, gehen direkt aus Ihrem Browser in den des Empfängers, solange beide Tabs offen sind. Keine Registrierung, keine E-Mail, keine App. Für einen Vertrag oder einen Ausweis-Scan, der heute an eine einzige Person geht, ist es die einfachste private Option, die es gibt.",
+        "cons": "Über 5 GB müssen Sie den Tab offen lassen, bis der Download fertig ist, und die 24-Stunden-Uhr lässt sich nicht verstellen. Mobile Apps werden weiterhin als in Arbeit geführt."
+      },
+      "3": {
+        "name": "Smash",
+        "tag": "Am besten, wenn die Datei groß ist und niemand es eilig hat",
+        "facts": "Browser, iOS, Android · kostenlos, ohne Anmeldung · 2 GB pro Transfer mit voller Priorität, größere Transfers warten hinter den Bezahltarifen · bis zu 7 Tage · TLS und AES-256 im Ruhezustand",
+        "body": "<goSmash>Smash</goSmash> nennt den Deal auf seiner Preisseite offen: keine Zahlung, keine Anmeldung, und Transfers über 2 GB reihen sich hinter den Pro-Kunden ein. Darunter verhält es sich wie jeder Transferdienst, mit Link oder E-Mail und einer Woche Verfügbarkeit. Darüber wird der Upload trotzdem fertig; er wartet nur, bis er an der Reihe ist, bevor der Empfänger ihn abholen kann, was zu Stoßzeiten eine lange Pause bedeuten kann. Wer einen 30-GB-Ordner und einen geduldigen Empfänger hat, zahlt nichts.",
+        "cons": "Die Warteschlange macht die Zustellung gerade bei den Dateien unberechenbar, für die man sie am meisten braucht. Passwortschutz und Download-Nachverfolgung gehören zu den Bezahltarifen."
+      },
+      "4": {
+        "name": "Filemail und TransferNow",
+        "tag": "Am besten für mittelgroße Dateien, die an mehrere Leute gehen",
+        "facts": "Browser · kostenlos · 5 GB pro Transfer bei beiden · 7 Tage aufbewahrt · Filemail: ohne Anmeldung, unbegrenzte Downloads · TransferNow: Konto optional",
+        "body": "Zwei Dienste, die still das tun, was WeTransfers Gratis-Tarif früher tat. Filemail nimmt bis zu 5 GB ohne Anmeldung an und begrenzt nicht, wie oft der Link heruntergeladen wird, was für eine Datei an einen ganzen Verteiler praktisch ist. TransferNow deckt dieselbe Größe mit einem Sieben-Tage-Link ab und bietet ein optionales Konto für alle, die einen Verlauf wollen. Keiner der beiden verschlüsselt vor dem Upload, und keiner verlangt mehr als die Datei und, wenn Sie mögen, die Adresse des Empfängers.",
+        "cons": "Fünf Gigabyte schließen die meisten Videoprojekte aus. Beide halten ihre Verschlüsselungsschlüssel selbst, taugen also für Alltagsdateien, nicht für heikle."
+      },
+      "5": {
+        "name": "Send, der Open-Source-Nachfolger von Firefox Send",
+        "tag": "Am besten, wenn Sie Ihren eigenen kontolosen Dienst betreiben wollen",
+        "facts": "Browser · Open Source (MPL-2.0) · selbst hostbar per Docker · öffentliche Instanz send.vis.ee: bis 2,5 GB, Links bis 3 Tage · im Browser verschlüsselt · kein Konto",
+        "body": "Mozilla hat <goFirefoxSend>Firefox Send</goFirefoxSend> 2020 eingestellt, aber der Code lebt als Send weiter, ein Fork ohne Mozilla-Branding, damit ihn jeder hosten darf. Die öffentliche Instanz des Fork-Betreuers nimmt Dateien bis 2,5 GB an und hält sie bis zu drei Tage vor, im Browser vor dem Upload verschlüsselt, mit dem Schlüssel im Link, genau wie das Original. Für eine kleine Firma, die eine kontolose Transferseite unter eigener Domain will, ist ein Docker-Container mit Send die Arbeit eines Nachmittags.",
+        "cons": "Die öffentliche Instanz ist ein Freiwilligenangebot ohne Zusagen zu Verfügbarkeit oder Lebensdauer. Selbst hosten heißt, dass Sie derjenige sind, der alles aktuell hält."
+      },
+      "6": {
+        "name": "Google-Drive- und OneDrive-Links",
+        "tag": "Am besten, wenn die Datei schon im Speicher liegt und nur der Empfänger das Konto überspringen soll",
+        "facts": "Absender angemeldet · Empfänger: „Jeder, der über den Link verfügt“ öffnet ohne Anmeldung · Drive zeigt Ihren Namen und Ihre E-Mail als Eigentümer · Passwort und Ablauf bei OneDrive nur in Microsoft-365-Tarifen",
+        "body": "Liegt die Datei bereits in Google Drive oder OneDrive, stellen Sie den Link auf „Jeder, der über den Link verfügt“ um, und die andere Person lädt ohne Konto herunter. Googles Hilfeseite sagt genau das, und Microsofts ergänzt, dass Leute nach dem Abwählen des Anmelde-Kästchens ansehen, kopieren oder herunterladen können, ohne sich anzumelden, während Bearbeiten weiterhin ein Konto verlangt. Der Haken liegt auf Ihrer Seite: Drive zeigt jedem, der die Datei öffnet, Ihren Namen und Ihre E-Mail-Adresse als Eigentümer, und bei OneDrive sind Ablaufdatum und Passwort den Microsoft-365-Abonnenten vorbehalten. Kostenlose Links leben, bis Sie sie entfernen.",
+        "cons": "Ihre Identität reist mit der Datei, und in den Gratis-Tarifen gibt es keinen automatischen Ablauf. Wen auch immer der Link erreicht, per Weiterleitung oder aus Versehen, bekommt denselben Zugriff."
+      },
+      "7": {
+        "name": "Dropbox Transfer und Proton Drive",
+        "tag": "Am besten, wenn Sie den Speicher ohnehin bezahlen und Ablauf eingebaut haben wollen",
+        "facts": "Absender braucht ein Konto · Empfänger nicht · Dropbox Transfer Basic: 2 GB, 7 Tage; Bezahltarife 50 bis 250 GB mit Passwort · Proton Drive: Ende-zu-Ende-verschlüsselt, Passwort und Ablauf für öffentliche Links, 5 GB Gratis-Speicher",
+        "body": "Beide gehen einen anderen Weg als die Speicher-Links oben: Der Empfänger braucht weiterhin nichts, aber der Absender bekommt Kontrolle. Dropbox Transfer sendet mit einem kostenlosen Basic-Konto 2 GB mit sieben Tagen Ablauf, Bezahltarife heben das auf 50, 100 oder 250 GB mit Passwörtern und eigenem Ablaufdatum. Proton Drive verschlüsselt alles auf Ihrem Gerät und erlaubt für jeden öffentlichen Link ein Passwort und ein Ablaufdatum, sodass der Empfänger ihn ohne Proton-Konto im Browser öffnet. Wer ohnehin in einem der beiden lebt, sendet so am saubersten an jemanden, der es nicht tut.",
+        "cons": "Keiner von beiden ist für Sie kontolos. Protons 5 GB Gratis-Speicher sind mit Video schnell voll, und Dropbox’ brauchbare Größen stecken hinter einem Abo."
+      }
+    }
+  },
+  "table": {
+    "title": "Auf einen Blick",
     "cols": {
-      "airdrop": "Google Drive",
-      "quick": "E-Mail",
-      "bishare": "BIShare"
+      "feature": "Gratis-Tarif, September 2026",
+      "bishare": "BIShare",
+      "swiss": "SwissTransfer",
+      "wormhole": "Wormhole",
+      "smash": "Smash",
+      "drive": "Drive-Link",
+      "dropbox": "Dropbox Transfer"
     },
     "rows": {
-      "r0": "Senden ohne Konto",
+      "r0": "Absender braucht kein Konto",
       "r1": "Empfänger braucht kein Konto",
-      "r2": "Ende-zu-Ende verschlüsselt",
-      "r3": "Sofort in der Nähe von Gerät zu Gerät",
-      "r4": "Große Dateien, bis zu 100GB kostenlos"
+      "r2": "Vor dem Upload verschlüsselt",
+      "r3": "Mehr als 10 GB pro Transfer, kostenlos",
+      "r4": "Link läuft von selbst ab",
+      "r5": "Open Source"
+    },
+    "note": "Im September 2026 von den Seiten der Dienste abgelesen. BIShare: 100-GB-Links für 24 Stunden, im Browser verschlüsselt, MIT-lizenziert. SwissTransfer: 50 GB für 15 bis 30 Tage. Wormhole: 10 GB für 24 Stunden, im Browser verschlüsselt. Smash: keine Größengrenze, Transfers über 2 GB in der Warteschlange, 7 Tage. Google Drive: Absender angemeldet, Empfänger nicht, kein Ablauf in Gratis-Tarifen. Dropbox Transfer Basic: 2 GB, 7 Tage, Absender angemeldet."
+  },
+  "controls": {
+    "title": "Was ohne Konto fehlt, und wie man es zurückholt",
+    "body": "Ein Konto ist nicht nur lästig; dort bewahren die Dienste die Knöpfe auf, mit denen man es sich anders überlegen kann. Ohne Konto ist der Moment, in dem Sie auf Senden drücken, der letzte, in dem Sie die Datei kontrollieren. Für die meisten Transfers ist das in Ordnung, solange Sie die Bedingungen vorher festlegen.",
+    "items": {
+      "0": {
+        "h": "Einen Link widerrufen",
+        "b": "Dienste mit Anmeldung lassen einen Transfer vorzeitig löschen. Anonyme können das meist nicht, weil nichts den Transfer mit Ihnen verbindet. Der Ausweg ist eine kurze Ablaufzeit, beim Senden gewählt: Die 24 Stunden von BIShare oder Wormhole beenden die Sichtbarkeit, ob Sie nun daran denken oder nicht. Muss ein Link abschaltbar sein, nehmen Sie den Einmal-Download, damit er mit dem ersten Abruf stirbt."
+      },
+      "1": {
+        "h": "Eine Frist verlängern",
+        "b": "Von den kontolosen Diensten hier bietet nur SwissTransfer nachträglich mehr Zeit, per E-Mail, bevor die 15 Tage ablaufen. Überall sonst heißt eine verpasste Frist: neu senden. Bei Empfängern, die ihre Post langsam öffnen, wählen Sie von vornherein die längste Ablaufzeit und nicht den Dienst, der Ihnen am besten gefällt."
+      },
+      "2": {
+        "h": "Wissen, ob heruntergeladen wurde",
+        "b": "Download-Zähler und Empfangsbestätigungen sind fast überall Kontofunktionen; Smash und Dropbox Transfer verkaufen sie in Bezahltarifen. Ohne sie fragen Sie den Empfänger, oder Sie nehmen einen Einmal-Link, der zumindest verrät, dass der erste Download stattgefunden hat, sobald der Link nicht mehr funktioniert."
+      },
+      "3": {
+        "h": "Ein Passwort",
+        "b": "Ein Passwort macht einen weitergeleiteten Link nutzlos. SwissTransfer und Proton Drive bieten eines für kostenlose Links, OneDrive nur mit Microsoft 365, Smash und Dropbox nur in Bezahltarifen. Dienste, die im Browser verschlüsseln, gehen einen anderen Weg: Der Link selbst enthält den Schlüssel, also kann jeder mit dem vollständigen Link die Datei öffnen, und der Schutz liegt darin, den Link privat zu übermitteln."
+      }
+    }
+  },
+  "identity": {
+    "title": "Was Sie trotzdem verrät",
+    "body": "Kein Konto heißt nicht keine Spur. Jeder Dienst sieht ein wenig, und manche zeigen dem Empfänger mehr, als Sie erwarten. <goEncrypted>Der Verschlüsselungs-Leitfaden erklärt, was ein Server lesen kann</goEncrypted>; hier die kürzere Liste dessen, was auf Sie zurückweist.",
+    "items": {
+      "0": {
+        "h": "Ihr Name an Cloud-Speicher-Links",
+        "b": "Googles eigene Hilfeseite hält fest, dass beim Teilen eines Links Ihr Name und Ihre E-Mail als Eigentümer der Datei sichtbar sind. OneDrive-Links zeigen ebenfalls Ihren Kontonamen. Für eine Datei an jemanden, dem Sie Ihre E-Mail-Adresse lieber nicht geben, nehmen Sie einen Transferdienst statt eines Speichers."
+      },
+      "1": {
+        "h": "Dateinamen und -größen",
+        "b": "Selbst Dienste, die den Inhalt im Browser verschlüsseln, sehen in der Regel Name, Größe und Typ der Datei, weil sie sie für die Download-Seite brauchen. BIShare gehört dazu: Der Inhalt ist unlesbar, der Name nicht. Ist schon der Name heikel, benennen Sie die Datei um oder packen Sie sie unter einem nichtssagenden Namen in ein Zip, bevor Sie hochladen."
+      },
+      "2": {
+        "h": "Ihre Verbindung",
+        "b": "Jeder Upload kommt von einer IP-Adresse, und jeder Dienst kann sie protokollieren. Daran ändert eine Registrierung in keine Richtung etwas; ein Konto fügt demselben Protokoll nur einen Namen hinzu. Wo das zählt, hinterlässt ein direkter Transfer zwischen Geräten im selben Netz gar kein Server-Protokoll, weil es keinen Server gibt."
+      }
+    }
+  },
+  "steps": {
+    "title": "Ohne Konto mit BIShare teilen, Schritt für Schritt",
+    "items": {
+      "0": {
+        "h": "Seite oder App öffnen",
+        "b": "Rufen Sie bishare.app/transfer in einem beliebigen Browser auf oder öffnen Sie BIShare auf Handy oder Computer. An keiner Stelle taucht ein Formular auf; der erste Bildschirm ist die Ablagefläche."
+      },
+      "1": {
+        "h": "Dateien hinzufügen und Bedingungen festlegen",
+        "b": "Legen Sie bis zu 100 GB ab. Die Ende-zu-Ende-Verschlüsselung ist standardmäßig an, und ein Einmal-Schalter lässt den Link nach dem ersten Download sterben. Uploads über eine langsame Leitung werden fortgesetzt, wenn die Verbindung abreißt."
+      },
+      "2": {
+        "h": "Auf drei Wegen übergeben",
+        "b": "Kopieren Sie den Link, zeigen Sie den QR-Code dem Handy nebenan oder lesen Sie den sechsstelligen Code vor. Der Empfänger öffnet ihn im Browser und lädt herunter, ohne etwas zu installieren oder beizutreten. Nach 24 Stunden funktioniert der Link nicht mehr."
+      },
+      "3": {
+        "h": "Für eine Gruppe lieber einen Raum öffnen",
+        "b": "Ein Raum hat einen kurzen Code, mit dem mehrere Personen aus der App oder dem Browser beitreten. Alle darin können Dateien ablegen und abholen, was für eine Klasse, ein Meeting oder eine Familienreise passt, und auch dafür braucht niemand ein Konto."
+      }
+    }
+  },
+  "choose": {
+    "title": "Welcher kontolose Weg für welche Aufgabe",
+    "body": "Die richtige Wahl hängt weniger von Funktionen ab als davon, wer am anderen Ende sitzt und wie schnell er handelt.",
+    "items": {
+      "0": {
+        "h": "Ein Kunde, der seine Mails in eigenem Tempo öffnet",
+        "b": "SwissTransfer, wegen der 15 bis 30 Tage. Ein BIShare-Link geht auch, wenn Sie ihn bitten können, noch heute zu öffnen."
+      },
+      "1": {
+        "h": "Ein vertrauliches Dokument an eine Person",
+        "b": "Wormhole oder ein BIShare-Link mit Einmal-Option, über einen Kanal geschickt, dem Sie vertrauen. Beide verschlüsseln vor dem Upload, der Dienst kann die Datei also nicht lesen, und der Link ist der einzige Schlüssel."
+      },
+      "2": {
+        "h": "Ein sehr großer Ordner",
+        "b": "Über 50 GB schrumpfen die kostenlosen Optionen auf <goLargeFiles>BIShares 100-GB-Links</goLargeFiles> und Smashs Warteschlange. Ist der Empfänger in der Nähe, lassen Sie den Upload weg und senden direkt."
+      },
+      "3": {
+        "h": "Jemand, der nichts installieren darf",
+        "b": "Jeder Browser-Dienst auf dieser Seite. Der Empfänger braucht nur einen Browser-Tab, und bei BIShare einen Code, den er auf einem abgeriegelten Rechner eintippen kann, der das Einfügen blockiert."
+      },
+      "4": {
+        "h": "Ein Team, das Verlauf und Bestätigungen braucht",
+        "b": "Das ist der eine Fall für ein Konto. Dropbox Transfer oder ein bezahlter Transfertarif liefern Download-Protokolle und Widerruf, die anonyme Links nicht bieten können."
+      }
+    }
+  },
+  "security": {
+    "title": "Sicher bleiben mit Links, für die sich niemand angemeldet hat",
+    "body": "Ein Link, den jeder öffnen kann, ist genau so sicher wie der Weg, auf dem Sie ihn teilen. Drei Gewohnheiten decken den Großteil des Risikos ab.",
+    "items": {
+      "0": {
+        "h": "Den Link über einen privaten Kanal schicken",
+        "b": "Nicht im Gruppenchat, nicht in einem Forumsbeitrag. Eine Direktnachricht oder ein Anruf, um den sechsstelligen Code vorzulesen, reicht. Wormhole und BIShare legen den Entschlüsselungsschlüssel in den Link, also ist der Link das Geheimnis."
+      },
+      "1": {
+        "h": "Die kürzeste Ablaufzeit wählen, die der Empfänger verkraftet",
+        "b": "Ein Link, der morgen stirbt, kann nächsten Monat nicht mehr durchsickern. Nutzen Sie Einmal-Downloads für alles, was Sie später nicht in irgendjemandes Posteingang wiederfinden möchten."
+      },
+      "2": {
+        "h": "Eingehende anonyme Links mit Vorsicht behandeln",
+        "b": "Dieselbe Offenheit nützt auch denen, die Schadsoftware verteilen, und genau das <goFirefoxSend>hat Firefox Send das Ende gebracht</goFirefoxSend>. BIShare lehnt ausführbare Dateitypen bei Links aus diesem Grund ab. Kommt ein Link von jemandem, den Sie nicht kennen, prüfen Sie den Dateityp, bevor Sie ihn öffnen, und führen Sie nie einen so erhaltenen Installer aus."
+      }
     }
   },
   "faq": {
-    "title": "Teilen ohne Konto: FAQ",
+    "title": "Dateien ohne Konto teilen: häufige Fragen",
     "items": {
       "0": {
-        "q": "Kann ich Dateien wirklich ohne Anmeldung teilen?",
-        "a": "Ja. BIShare braucht kein Konto zum Senden oder Empfangen. Du teilst einen Link, QR-Code oder 6-stelligen Code, und der Empfänger öffnet ihn in jedem Browser — nirgends eine Registrierung."
+        "q": "Wie sende ich jemandem eine Datei, ohne ein Konto anzulegen?",
+        "a": "Nutzen Sie einen Transferdienst, der aus einem anonymen Browser-Tab heraus funktioniert: BIShare, SwissTransfer, Wormhole, Smash, Filemail oder TransferNow. Datei ablegen, den zurückgegebenen Link kopieren und diesen Link senden. Keiner davon verlangt im Gratis-Tarif eine Registrierung."
       },
       "1": {
-        "q": "Braucht der Empfänger ein Konto?",
-        "a": "Nein. Anders als bei Google Drive oder Dropbox gibt es keine Konto-Wand und keinen \"Zugriff anfordern\"-Schritt. Sie öffnen einfach den Link und laden herunter."
+        "q": "Kann der Empfänger ohne Konto herunterladen?",
+        "a": "Bei jedem hier genannten Dienst: ja. Transferdienste geben schlichte Download-Links aus, und Google Drive, OneDrive, Dropbox Transfer und Proton Drive lassen den Absender jeweils einen Link erzeugen, der ohne Anmeldung aufgeht."
       },
       "2": {
-        "q": "Ist es ohne Konto trotzdem privat?",
-        "a": "Ja — wohl sogar privater. Es gibt kein Profil, das an deine Übertragung gebunden ist, Sendungen in der Nähe sind Ende-zu-Ende verschlüsselt und werden nie hochgeladen, und Freigabelinks laufen nach 24 Stunden automatisch ab."
+        "q": "Wie groß darf eine Datei sein, die ich ohne Anmeldung sende?",
+        "a": "Per Link: BIShare mit 100 GB, dann SwissTransfer mit 50 GB und Wormhole mit 10 GB. Smash nennt keine Obergrenze, stellt kostenlose Transfers über 2 GB aber in die Warteschlange. Zwischen zwei Geräten im selben Netz hat BIShare gar keine Grenze."
       },
       "3": {
-        "q": "Wie große Dateien kann ich ohne Anmeldung senden?",
-        "a": "Bis zu 100 GB kostenlos über einen Freigabelink, ohne Konto. Übertragungen in der Nähe von Gerät zu Gerät über dein eigenes Wi-Fi haben überhaupt keine Größenbeschränkung."
+        "q": "Ist es sicher, Dateien ohne Konto zu teilen?",
+        "a": "So sicher wie der Link, den Sie senden. Wählen Sie einen Dienst, der im Browser verschlüsselt, wenn die Datei privat ist, senden Sie den Link über einen privaten Kanal und nehmen Sie eine kurze Ablaufzeit oder einen Einmal-Download. Das fehlende Konto schwächt die Verschlüsselung nicht."
       },
       "4": {
-        "q": "Wo ist der Haken — ist es wirklich kostenlos?",
-        "a": "Es ist wirklich kostenlos und ohne Konto. Du kannst BIShare für die schnellsten Übertragungen in der Nähe installieren, aber Senden und Empfangen über einen Browser-Link kostet nichts und braucht keine Anmeldung."
+        "q": "Kann ich Dateien anonym teilen?",
+        "a": "Sie können darauf verzichten, Name oder E-Mail anzugeben, und ein im Browser verschlüsselnder Dienst kann den Inhalt nicht lesen. Ihre IP-Adresse bleibt für den Dienst sichtbar, Dateinamen meist ebenfalls. Cloud-Speicher-Links sind die am wenigsten anonyme Option, weil sie Ihren Kontonamen als Eigentümer zeigen."
+      },
+      "5": {
+        "q": "Wie teile ich eine Google-Drive-Datei mit jemandem ohne Google-Konto?",
+        "a": "Öffnen Sie Freigeben an der Datei, stellen Sie den allgemeinen Zugriff auf „Jeder, der über den Link verfügt“ und wählen Sie Betrachter. Googles Hilfeseite bestätigt, dass dann jeder mit dem Link die Datei ohne Anmeldung nutzen kann. Ihr Name und Ihre E-Mail bleiben als Eigentümer sichtbar."
+      },
+      "6": {
+        "q": "Braucht WeTransfer ein Konto?",
+        "a": "WeTransfers Gratis-Tarif läuft inzwischen über ein Monatskontingent von 10 Transfers oder insgesamt 3 GB, mit Links, die drei Tage halten. Sind diese Grenzen das Problem, sendet SwissTransfer 50 GB ohne Konto und hält sie wochenlang vor."
+      },
+      "7": {
+        "q": "Wie lange halten kontolose Links?",
+        "a": "Das schwankt stärker, als man denkt: 24 Stunden bei BIShare und Wormhole, bis zu drei Tage auf der öffentlichen Send-Instanz, sieben bei Smash, Filemail und TransferNow, 15 bis 30 bei SwissTransfer. Cloud-Speicher-Links in Gratis-Tarifen laufen gar nicht ab."
+      },
+      "8": {
+        "q": "Kann ich eine Datei ohne Konto mit einem Passwort schützen?",
+        "a": "SwissTransfer bietet ein Passwort für kostenlose Transfers. Bei BIShare und Wormhole trägt der Link den Entschlüsselungsschlüssel, der Schutz kommt also daher, den Link privat zu senden, plus Einmal- oder 24-Stunden-Ablauf. Smash, Dropbox und OneDrive behalten Passwörter den Bezahltarifen vor."
+      },
+      "9": {
+        "q": "Ist BIShare wirklich kostenlos und ohne Konto?",
+        "a": "Ja. Der Quellcode ist unter der MIT-Lizenz öffentlich, es gibt keine Werbung und keinen Bezahltarif, und nichts auf der Website oder in der App fordert zur Registrierung auf. Links tragen bis zu 100 GB für 24 Stunden; direkte Transfers zwischen Geräten im selben Netz haben keine Grenze."
       }
     }
   },
   "cta": {
-    "title": "Sende eine Datei — kein Konto erforderlich",
-    "body": "Keine Anmeldung, keine E-Mail, keine Reibung für dich oder den Empfänger. Hol dir BIShare oder teile einfach einen Link aus dem Browser.",
+    "title": "Jetzt senden, ohne Anmeldung auf beiden Seiten",
+    "body": "Datei ablegen, Link oder sechsstelligen Code teilen, fertig. Vor dem Upload verschlüsselt, bis 100 GB, nach 24 Stunden weg. Kostenlos und Open Source.",
     "download": "BIShare herunterladen"
   },
   "a11y": {
     "yes": "Ja",
     "no": "Nein"
+  },
+  "art": {
+    "hero": {
+      "alt": "Ein Browserfenster sendet eine Datei per Link an ein Handy, daneben ein durchgestrichenes Anmeldeformular, mit dem Titel Dateien ohne Konto teilen",
+      "title": "Dateien ohne Konto teilen",
+      "sub": "8 Wege ohne Anmeldung, geprüft im September 2026",
+      "left": "Jeder Browser",
+      "right": "Jedes Handy",
+      "badge": "Keine Anmeldung"
+    },
+    "sides": {
+      "alt": "Welche Seite sich anmelden muss: keine bei BIShare, SwissTransfer, Wormhole, Smash, Filemail und TransferNow; nur der Absender bei Google Drive, OneDrive, Dropbox Transfer und Proton Drive; niemand und kein Server, wenn Geräte ein Netz teilen und BIShare oder LocalSend nutzen",
+      "title": "Wer muss sich anmelden?",
+      "sub": "Die drei Gruppen hinter einer Suche",
+      "z1": "Keine Seite",
+      "z1apps": "BIShare · SwissTransfer · Wormhole · Smash · Filemail · TransferNow",
+      "z2": "Nur der Absender",
+      "z2apps": "Google Drive · OneDrive · Dropbox Transfer · Proton Drive",
+      "z3": "Niemand, und kein Server",
+      "z3apps": "BIShare oder LocalSend im selben WLAN oder Hotspot",
+      "foot": "Gratis-Tarife laut Dokumentation der Dienste im September 2026"
+    },
+    "limits": {
+      "alt": "Kostenlose Größe pro Transfer ohne Konto, logarithmische Skala: Dropbox Transfer Basic 2 GB, Smash 2 GB vor der Warteschlange, öffentliche Send-Instanz 2,5 GB, Filemail und TransferNow 5 GB, Wormhole 10 GB, SwissTransfer 50 GB, BIShare 100 GB",
+      "title": "Kostenlose Größe pro Transfer, ohne Konto",
+      "sub": "Logarithmische Skala, September 2026",
+      "dropbox": "Dropbox Transfer Basic",
+      "dropboxv": "2 GB · 7 Tage",
+      "smash": "Smash (vor der Warteschlange)",
+      "smashv": "2 GB · 7 Tage",
+      "send": "Öffentliche Send-Instanz",
+      "sendv": "2,5 GB · 3 Tage",
+      "filemail": "Filemail · TransferNow",
+      "filemailv": "5 GB · 7 Tage",
+      "wormhole": "Wormhole",
+      "wormholev": "10 GB · 24 Stunden",
+      "swiss": "SwissTransfer",
+      "swissv": "50 GB · 15 bis 30 Tage",
+      "bishare": "BIShare",
+      "bisharev": "100 GB · 24 Stunden",
+      "foot": "Smash nimmt größere Transfers an, stellt sie aber hinter die Bezahltarife"
+    },
+    "controls": {
+      "alt": "Kontrolle bei kostenlosen Links ohne Konto: Ablauf beim Senden festgelegt bei BIShare, Wormhole, SwissTransfer und Smash; Einmal-Download bei BIShare; Passwort bei SwissTransfer und Proton Drive; Verlängerung nur bei SwissTransfer; Download-Bestätigungen in keinem Gratis-Tarif",
+      "title": "Was Sie ohne Konto noch steuern können",
+      "sub": "Beim Senden festgelegt, denn danach gibt es kein Dashboard",
+      "r0": "Ablauf beim Senden gewählt",
+      "r1": "Einmal-Download",
+      "r2": "Passwort am Link",
+      "r3": "Nach dem Senden verlängern",
+      "r4": "Download-Bestätigungen",
+      "c0": "BIShare",
+      "c1": "Wormhole",
+      "c2": "SwissTransfer",
+      "c3": "Smash",
+      "foot": "Nur Gratis-Tarife; Smash und Dropbox verkaufen Passwörter und Bestätigungen in Bezahltarifen"
+    }
   }
 }

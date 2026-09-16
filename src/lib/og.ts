@@ -18,8 +18,6 @@ const OG_IMAGE = {
  */
 const ROUTE_FIGURES = new Set([
   "/firefox-send-alternative",
-  "/send-files-without-internet",
-  "/share-files-without-account",
   "/smash-alternative",
   "/wormhole-alternative",
 ]);
