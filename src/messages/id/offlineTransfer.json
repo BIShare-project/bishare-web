@@ -1,84 +1,356 @@
 {
   "meta": {
-    "title": "Kirim File Tanpa Internet: Transfer Offline Lewat Wi-Fi",
-    "description": "Tidak ada internet? BIShare mentransfer lewat Wi-Fi lokal atau hotspot ponsel dengan kecepatan penuh, terenkripsi, dan QR Beam mengirim file kecil tanpa jaringan. Gratis.",
-    "ogTitle": "Kirim file tanpa internet — offline, terenkripsi, gratis"
+    "title": "Kirim File Tanpa Internet: 7 Cara Offline yang Terbukti (2026)",
+    "description": "Tanpa internet? File tetap berpindah. Wi-Fi yang sama, hotspot, AirDrop, Quick Share, kabel, atau Bluetooth: apa syaratnya, seberapa cepat, dan kenapa perangkat tidak muncul."
   },
   "hero": {
     "eyebrow": "Transfer file offline",
     "title": "Kirim file tanpa internet",
-    "body": "Tanpa kata sandi Wi-Fi, tanpa kuota, mode pesawat, atau jaringan sedang mati — Anda tetap perlu memindahkan file. <strong>BIShare</strong> mengirimnya <strong>langsung antarperangkat</strong> lewat Wi-Fi lokal atau hotspot ponsel, terenkripsi ujung ke ujung, dengan kecepatan penuh tanpa internet. Dan saat <highlight>tidak ada jaringan sama sekali</highlight>, QR Beam mengalirkan file kecil lewat kode QR yang dipindai kamera perangkat lain.",
+    "body": "Perlu kirim file tanpa internet karena koneksi putus, pesawat tanpa Wi-Fi, kuota habis, atau Anda memang tidak ingin video 4 GB naik ke server lalu turun lagi? Tidak satu pun dari itu menghalangi file berpindah antara dua perangkat di ruangan yang sama. Setiap ponsel dan komputer yang dijual dalam sepuluh tahun terakhir membawa radio yang bisa saling bicara langsung, dan sebagian besar aplikasi yang sudah dimiliki orang bisa memakainya. Panduan ini mengurutkan jalur offline berdasarkan apa yang dibutuhkan, dari <strong>Wi-Fi atau hotspot bersama</strong> sampai <strong>tidak butuh apa pun selain kabel</strong>, lengkap dengan kecepatan yang bisa diharapkan dan pengaturan yang paling sering merusak pendeteksian.",
     "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
-  "why": {
-    "title": "Mengapa Anda tidak butuh internet",
-    "body": "Kebanyakan alat \"berbagi\" mengunggah file Anda ke server lalu mengembalikannya — tidak berguna begitu Anda offline. BIShare berbeda: pada jaringan yang sama, file berpindah <strong>langsung antarperangkat</strong> dan tidak pernah menyentuh cloud, jadi berfungsi di hotspot tanpa kuota, di pesawat, atau saat internet mati. Tidak ada yang diunggah berarti tidak ada yang ditunggu — dan tidak ada yang bisa dibaca server."
+  "updated": "Diperbarui September 2026 · persyaratan diambil dari halaman dukungan Apple, Google, dan Microsoft bulan ini, kecepatan diukur di perangkat kami sendiri",
+  "disclosure": "BIShare adalah produk kami, jadi baca posisinya di daftar ini dengan itu dalam benak. BIShare butuh jaringan Wi-Fi atau hotspot, yang tidak dibutuhkan AirDrop dan Quick Share; kalau alat bawaan sudah mencakup perangkat Anda, kami akan bilang begitu.",
+  "quick": {
+    "title": "Jawaban singkat",
+    "items": {
+      "0": "<strong>Dua perangkat di satu Wi-Fi, atau satu ponsel jadi hotspot:</strong> pasang <goTransfer>BIShare</goTransfer> atau <goLocalsend>LocalSend</goLocalsend> di keduanya dan kirim langsung. Tidak ada yang lewat internet, tidak ada batas ukuran, dan video 1 GB sampai dalam 10 sampai 30 detik di router yang layak.",
+      "1": "<strong>Dua perangkat Apple:</strong> AirDrop sudah bekerja cukup dengan Wi-Fi dan Bluetooth menyala, tanpa jaringan sama sekali, dalam jarak sekitar 10 meter. Pixel dan Galaxy terbaru bisa ikut lewat Quick Share.",
+      "2": "<strong>Dua ponsel Android, atau Android ke PC Windows:</strong> Quick Share memakai Bluetooth untuk menemukan perangkat lain dan tidak butuh internet antar-ponsel Android. Jalur ke iPhone lewat kode QR adalah pengecualian: kedua sisi harus online.",
+      "3": "<strong>Tidak ada radio yang bisa dipercaya, atau laptop yang dikunci:</strong> kabel USB atau flash drive USB-C tetap pilihan tercepat dan paling privat, dan bekerja di semua sistem operasi.",
+      "4": "<strong>File kecil tanpa jaringan sama sekali:</strong> QR Beam di BIShare mengubah apa pun hingga 100 KB menjadi rangkaian kode QR yang dibaca kamera ponsel lain.",
+      "5": "<strong>Perangkat lain tidak muncul:</strong> sembilan dari sepuluh kasus, router mengisolasi klien, iPhone belum diberi izin Jaringan Lokal, atau Windows menganggap Wi-Fi sebagai jaringan Publik. Solusinya ada di bagian bawah."
+    }
   },
-  "how": {
-    "title": "Tiga cara mengirim offline",
+  "modes": {
+    "title": "Offline berarti tiga situasi yang berbeda",
+    "body": "Saat bilang offline, orang biasanya memaksudkan salah satu dari tiga hal, dan alat yang tepat bergantung pada situasi mana yang Anda alami. Wi-Fi hotel dengan uplink rusak tetaplah jaringan: perangkat di dalamnya bisa saling menemukan meski tidak ada halaman yang bisa dibuka. Lapangan tanpa Wi-Fi sama sekali beda cerita, karena sekarang harus ada sesuatu yang menciptakan sambungan antara kedua perangkat. Dan komputer yang melarang nirkabel sepenuhnya hanya menyisakan kabel. Pastikan dulu Anda ada di situasi yang mana sebelum memilih aplikasi.",
     "items": {
       "0": {
-        "h": "Wi-Fi sama atau hotspot",
-        "b": "Hubungkan kedua perangkat ke Wi-Fi yang sama — atau jadikan salah satunya hotspot pribadi dengan data seluler dimatikan. BIShare menemukan perangkat lain dan mengalirkan file secara langsung, terenkripsi ujung ke ujung, dengan kecepatan lokal penuh. Tanpa internet, tanpa batas ukuran."
+        "h": "Ada jaringan, hanya tidak ada internet",
+        "b": "Jaringan Wi-Fi apa pun berfungsi sebagai jaringan lokal meski jalur ke luar mati: router rumah saat gangguan, Wi-Fi kantor dengan uplink bermasalah, hotspot ponsel dengan data seluler yang sudah habis. Aplikasi yang mentransfer lewat jaringan lokal, seperti BIShare dan LocalSend, tidak peduli apakah internet bisa dijangkau. Mereka mencari perangkat lain di jaringan yang sama dan mengalirkan file langsung ke sana."
       },
       "1": {
-        "h": "Tidak ada jaringan sama sekali? QR Beam",
-        "b": "Saat tidak ada Wi-Fi, hotspot, atau Bluetooth, QR Beam mengubah file kecil menjadi aliran kode QR beranimasi di satu layar; kamera perangkat lain memindainya untuk menyusun ulang. Murni layar ke kamera — cocok untuk teks, kunci, dan dokumen kecil."
+        "h": "Tidak ada jaringan sama sekali",
+        "b": "Sekarang salah satu perangkat harus membuatnya. AirDrop dan Quick Share melakukannya sendiri, diam-diam, dengan Bluetooth untuk pendeteksian dan sambungan Wi-Fi peer-to-peer untuk datanya. Yang lain mengharuskan Anda membuat jaringan secara manual: nyalakan hotspot ponsel, atau colokkan travel router ke power bank. Begitu hotspot ada, Anda kembali ke situasi pertama."
       },
       "2": {
-        "h": "Di platform apa pun",
-        "b": "iPhone, Android, Mac, Windows, dan Linux — transfer offline berfungsi ke segala arah, termasuk yang tak bisa dilakukan AirDrop: iPhone ke Android."
+        "h": "Nirkabel bukan pilihan",
+        "b": "Sebagian laptop kantor memblokir Bluetooth dan jaringan tak dikenal, dan sebagian tempat meminta radio tetap mati. Kabel antara kedua perangkat, atau flash drive yang berpindah dari satu ke yang lain, memindahkan file dengan kecepatan USB tanpa apa pun di udara. Ini jalur yang paling tidak elegan dan sering kali paling cepat untuk folder berisi file besar."
       }
     }
   },
-  "comparison": {
-    "title": "Bluetooth vs Email vs BIShare",
+  "methods": {
+    "title": "Tujuh cara mengirim file tanpa internet, diurutkan",
+    "consLabel": "Batasnya:",
+    "items": {
+      "0": {
+        "name": "BIShare lewat Wi-Fi atau hotspot",
+        "tag": "Terbaik saat kedua perangkat beda merek, atau salah satunya komputer",
+        "facts": "iPhone, Android, Windows, macOS, Linux · open source (MIT) · Wi-Fi atau hotspot yang sama · tanpa batas ukuran · pertukaran kunci X25519 dan AES-256-GCM di setiap transfer · tanpa akun",
+        "body": "Buka BIShare di kedua perangkat saat keduanya berbagi jaringan, dan masing-masing muncul di daftar terdekat yang lain dalam satu dua detik. Pilih file, pilih perangkat, terima di sisi lain, dan data mengalir dari satu ke yang lain lewat jaringan lokal. Tidak ada yang diunggah, jadi transfer berjalan secepat apa pun yang diberikan router dan tidak ada batas ukuran. Koneksinya terenkripsi end-to-end, yang penting di hotspot yang bukan Anda sendiri yang menyiapkan. Kalau Wi-Fi putus di tengah folder 20 GB, transfer <goLargeFiles>melanjutkan dari titik berhentinya</goLargeFiles> begitu perangkat saling melihat lagi, bukan mengulang dari awal.",
+        "cons": "Butuh jaringan yang ada, jadi tanpa Wi-Fi di sekitar Anda nyalakan hotspot dulu. Link, room, dan versi browser dari berbagi terdekat lewat internet dan tidak tersedia offline."
+      },
+      "1": {
+        "name": "AirDrop",
+        "tag": "Terbaik antar-perangkat Apple, dan kini sebagian ponsel Android",
+        "facts": "iPhone, iPad, Mac · ponsel Android dengan dukungan AirDrop di Quick Share · Wi-Fi dan Bluetooth menyala, tanpa jaringan · dalam 30 kaki, sekitar 10 meter · tanpa batas ukuran",
+        "body": "AirDrop adalah yang paling mendekati transfer offline sejati: halaman dukungan Apple hanya meminta kedua perangkat menyalakan Wi-Fi dan Bluetooth dan berada dalam jarak sekitar 10 meter. Tidak ada router yang terlibat; perangkat membentuk sambungannya sendiri. Sejak akhir 2025 <goAirdropAndroid>makin banyak ponsel Android yang bisa AirDrop juga</goAirdropAndroid>, dimulai dari seri Pixel 10 dan meluas ke Galaxy terbaru serta flagship lain, asalkan iPhone disetel menerima dari Semua Orang selama 10 Menit. Di Mac file masuk ke Unduhan; di iPhone foto masuk ke Foto dan yang lain ke File.",
+        "cons": "Windows dan Linux sepenuhnya di luar jangkauan, dan ponsel Android yang tidak ada di daftar Google tidak bisa ikut. Hotspot Pribadi harus mati di iPhone, yang menyebalkan kalau hotspot itu justru yang dipakai orang seruangan."
+      },
+      "2": {
+        "name": "Quick Share",
+        "tag": "Terbaik antar-ponsel Android, dan dari Android ke PC Windows",
+        "facts": "Android 6 ke atas, Chromebook, Windows 10 dan 11 lewat aplikasi Google · Bluetooth menyala, perangkat berdekatan · Windows butuh jaringan yang sama dan adaptor Bluetooth · 10 GB per 24 jam ke iPhone lewat QR, jalur itu butuh internet",
+        "body": "<goNearby>Quick Share</goNearby> tertanam di Android dan memakai Bluetooth untuk menemukan ponsel lain, lalu sambungan tercepat yang bisa dibuat untuk datanya. Langkah pemecahan masalah dari Google cukup menjelaskan: nyalakan Bluetooth di kedua perangkat dan dekatkan hingga 30 cm agar tersambung. Tidak ada internet yang diminta antara dua ponsel Android. Aplikasi Windows-nya memperluas hal yang sama ke PC yang berbagi jaringan dengan ponsel dan punya Bluetooth, dan file masuk ke Downloads. Visibilitas terserah Anda: hanya perangkat sendiri, kontak, atau semua orang selama sepuluh menit.",
+        "cons": "Jalur ke iPhone berupa link web: iPhone memindai kode QR dan mengunduh lewat browser, dan halaman Google menyebut kedua perangkat butuh akses internet untuk itu. Mac dan mesin Linux tidak punya klien resmi, dan ponsel tanpa layanan Google tidak punya Quick Share."
+      },
+      "3": {
+        "name": "LocalSend",
+        "tag": "Terbaik kalau Anda ingin aplikasi open source yang tidak pernah bicara dengan server",
+        "facts": "Android, iPhone, Windows, macOS, Linux, Fire OS · open source (Apache 2.0) · hanya jaringan lokal yang sama · HTTPS dengan sertifikat yang dibuat tiap perangkat · port 53317",
+        "body": "<goLocalsend>LocalSend</goLocalsend> mengerjakan satu hal dan sama sekali tidak punya server di belakangnya: perangkat di satu jaringan saling menemukan lewat multicast dan mengirim lewat HTTPS. Bisa dipasang dari toko aplikasi, Winget, Homebrew, dan Flathub, dan tidak ada akun yang perlu dibuat. Di hotspot tanpa data ia berperilaku persis seperti di rumah. Ini pilihan alami kalau Anda ingin seluruh aplikasinya bisa dibaca di GitHub dan tidak pernah perlu menjangkau perangkat di tempat lain.",
+        "cons": "Pendeteksian bergantung pada multicast, yang diblokir jaringan tamu dan banyak router hotel, dan tidak ada jalur cadangan saat gagal. Mode berbagi lewat link-nya juga hanya bisa dibuka di jaringan yang sama."
+      },
+      "4": {
+        "name": "Nearby Sharing di Windows",
+        "tag": "Terbaik antara dua PC Windows yang sama-sama punya Bluetooth",
+        "facts": "Windows 10 versi 1803 ke atas, Windows 11 · Bluetooth, atau Wi-Fi di jaringan pribadi yang sama · menyimpan ke Downloads secara bawaan · Semua orang di sekitar atau Hanya perangkat saya",
+        "body": "Windows punya fitur ala AirDrop sendiri, dan kebanyakan orang tidak pernah membukanya. Nyalakan Nearby Sharing di Pengaturan, klik kanan file, pilih Bagikan, dan PC lain muncul kalau Bluetooth-nya menyala. Halaman Microsoft menambahkan bahwa Windows 11 terbaru juga bisa mengirim lewat Wi-Fi saat kedua PC ada di jaringan pribadi yang sama, yang jauh lebih cepat daripada Bluetooth untuk apa pun di atas beberapa megabyte. File yang diterima masuk ke Downloads kecuali Anda mengubah foldernya.",
+        "cons": "Hanya Windows ke Windows; tidak ada sisi ponsel. Memilih Semua orang di sekitar menyiarkan nama PC dan alamat Bluetooth ke siapa pun di sekitar, dan jalur Wi-Fi mengharuskan jaringan ditandai Pribadi."
+      },
+      "5": {
+        "name": "Kabel USB atau drive USB-C",
+        "tag": "Terbaik untuk folder besar, komputer yang dikunci, dan tempat yang mewajibkan radio mati",
+        "facts": "Semua ponsel dan komputer · USB 2.0 480 Mb/s di atas kertas, USB 3 jauh lebih cepat · exFAT untuk file di atas 4 GB di drive bersama · tanpa radio, tanpa jaringan",
+        "body": "Kabel antara ponsel dan komputer, atau flash drive USB-C kecil yang dibawa dari satu perangkat ke yang lain, adalah jalur yang selalu bekerja. Ponsel Android muncul sebagai drive di File Explorer, sedangkan Finder butuh aplikasi bantu; iPhone menampilkan fotonya ke Windows dan bisa menyalin apa pun lewat aplikasi File ke drive yang dicolokkan ke iPhone USB-C. Format drive bersama sebagai exFAT supaya Windows dan macOS sama-sama bisa menulis ke sana dan satu file bisa lebih besar dari 4 GB. Untuk folder proyek 100 GB, ini biasanya opsi tercepat di seluruh gedung, dan tidak ada bagiannya yang bergantung pada jaringan yang sehat.",
+        "cons": "Ponsel ke ponsel lewat kabel butuh konektor yang tepat dan ponsel yang mendukungnya, dan drive adalah satu barang lagi untuk dibawa dan bisa hilang."
+      },
+      "6": {
+        "name": "Bluetooth",
+        "tag": "Terbaik sebagai cadangan saat tidak ada apa pun yang terpasang",
+        "facts": "Android, Windows, macOS, Linux · Bluetooth klasik mentok di 3 Mb/s · perlu dipasangkan · iPhone tidak mengirim file lewat Bluetooth",
+        "body": "Transfer file Bluetooth biasa lebih tua dari semua aplikasi di halaman ini dan masih tersedia di Android, Windows, macOS, dan sebagian besar desktop Linux: pasangkan kedua perangkat, bagikan file, terima di sisi lain. Tidak butuh jaringan dan tidak butuh aplikasi, itulah sebabnya ia layak ada di sini. Masalahnya kecepatan. Bluetooth klasik memindahkan data paling banter beberapa megabit per detik, jadi video 100 MB adalah urusan sepanjang jeda kopi dan film panjang tidak masuk hitungan.",
+        "cons": "iPhone sama sekali tidak menerima file lewat Bluetooth; Apple menyimpannya khusus untuk langkah pendeteksian AirDrop. Siapkan hitungan menit per 100 MB dan permintaan pemasangan di kedua ujung."
+      }
+    }
+  },
+  "beam": {
+    "title": "File tanpa jaringan, tanpa kabel, tanpa pemasangan: QR Beam",
+    "body": "Ada satu jalur lagi untuk file paling kecil. QR Beam di BIShare mengodekan file hingga 100 KB menjadi rangkaian kode QR yang diputar di satu layar sementara kamera ponsel lain membacanya kembali menjadi file. Kata sandi Wi-Fi, kartu kontak, kunci publik, teks pendek, atau PDF kecil muat. Tidak ada yang dipancarkan lewat radio apa pun, jadi ia bekerja di basemen, di pesawat, atau antara dua ponsel yang menolak saling melihat. Windows dan Linux bisa menampilkan kodenya tetapi tidak punya kamera untuk memindai, jadi sisi penerima adalah ponsel."
+  },
+  "table": {
+    "title": "Sekilas",
     "cols": {
-      "airdrop": "Bluetooth",
-      "quick": "Email",
-      "bishare": "BIShare"
+      "feature": "Jalur offline",
+      "bishare": "BIShare",
+      "airdrop": "AirDrop",
+      "quick": "Quick Share",
+      "localsend": "LocalSend",
+      "bluetooth": "Bluetooth",
+      "usb": "USB"
     },
     "rows": {
-      "r0": "Berfungsi tanpa internet",
-      "r1": "Kirim iPhone ↔ Android ↔ PC",
-      "r2": "Cepat untuk file besar",
-      "r3": "Terenkripsi ujung ke ujung",
-      "r4": "Berfungsi tanpa jaringan sama sekali (QR Beam)"
+      "r0": "Bekerja tanpa internet",
+      "r1": "Ponsel ke PC Windows",
+      "r2": "iPhone ke Android",
+      "r3": "Tanpa batas ukuran",
+      "r4": "Tidak butuh router atau hotspot",
+      "r5": "Terenkripsi di perjalanan"
+    },
+    "note": "Per September 2026. AirDrop menjangkau Android hanya di ponsel yang Google daftarkan sebagai mendukungnya. Quick Share ke iPhone lewat kode QR dan unduhan web yang butuh internet di kedua sisi, jadi pasangan itu ditandai tidak offline. Bluetooth terenkripsi setelah dipasangkan tetapi terlalu lambat untuk file besar. USB memindahkan data lewat kabel, jadi enkripsi tidak berlaku."
+  },
+  "hotspot": {
+    "title": "Membuat jaringan saat tidak ada: hotspot atau router",
+    "body": "Aplikasi seperti BIShare dan LocalSend butuh jaringan sebagai tempat bertemu. Saat tidak ada Wi-Fi, yang paling cepat adalah hotspot ponsel, dan hotspot tidak butuh internet yang berfungsi untuk bertindak sebagai jaringan lokal. Detailnya berbeda antar-platform, dan itulah yang menentukan apakah trik ini berhasil untuk Anda.",
+    "items": {
+      "0": {
+        "h": "iPhone sebagai hotspot",
+        "b": "Hotspot Pribadi ada di Pengaturan, atau di bawah Seluler, dan halaman Apple tegas soal dua syarat: operator Anda harus mendukung Hotspot Pribadi, dan Data Seluler harus menyala, kalau tidak opsinya redup. Data menyala bukan berarti data terpakai; transfer antara dua perangkat di hotspot tidak pernah keluar dari situ. Kata sandi Wi-Fi minimal delapan karakter. Perlu dicatat, AirDrop berhenti selama Hotspot Pribadi menyala, jadi pilih salah satu."
+      },
+      "1": {
+        "h": "Android sebagai hotspot",
+        "b": "Tekan lama ubin Hotspot di Setelan Cepat dan nyalakan Hotspot Wi-Fi; halaman Google menyebut hingga sepuluh perangkat bisa bergabung. Operator kadang membatasi atau mengenakan biaya untuk tethering, yang berpengaruh pada sisi internet, bukan jaringan lokal. Praktiknya, komputer atau ponsel kedua bergabung ke hotspot, kedua perangkat membuka aplikasi transfer, dan keduanya saling melihat persis seperti di router rumah."
+      },
+      "2": {
+        "h": "Router tanpa apa pun yang tercolok",
+        "b": "Router Wi-Fi apa pun menciptakan jaringan lokal begitu mendapat daya, ada atau tidak kabel yang masuk ke port WAN-nya. Travel router saku di power bank adalah cara paling rapi memberi sekelompok perangkat jaringan bersama di lokasi syuting, lapak pasar, atau ruang kelas tanpa internet. Laptop juga bisa menjadi host jaringan, tetapi Hotspot seluler di Windows mengharapkan koneksi internet untuk dibagikan, jadi ponsel atau router lebih bisa diandalkan."
+      },
+      "3": {
+        "h": "Saat Anda tidak boleh membuatnya",
+        "b": "Sebagian laptop perusahaan memblokir bergabung ke hotspot tak dikenal. Kalau begitu, urutan pilihannya kabel, drive USB, atau Bluetooth kalau filenya kecil. Kalau kedua perangkat nanti bisa mengakses internet, <goTransfer>link BIShare</goTransfer> dari ponsel menyusulkan file itu begitu laptop kembali ke jaringan yang diizinkan."
+      }
+    }
+  },
+  "speed": {
+    "title": "Seberapa cepat transfer offline?",
+    "body": "Lebih cepat dari yang diduga kebanyakan orang, karena tidak ada yang diunggah. Sambungan antara kedua perangkat yang menentukan tempo. Ini angka yang kami ukur antara ponsel dan PC dengan BIShare; AirDrop, Quick Share, dan LocalSend berada di rentang yang sama pada perangkat keras yang sama, karena radionya yang membatasi, bukan aplikasinya.",
+    "items": {
+      "0": {
+        "h": "Wi-Fi dan hotspot",
+        "b": "Di jaringan 2,4 GHz harapkan 3 sampai 8 MB/s, yakni 2 sampai 5 menit per gigabyte. Wi-Fi 5 di pita 5 GHz memberi 40 sampai 50 MB/s, jadi satu gigabyte butuh 20 sampai 30 detik, dan Wi-Fi 6 jarak dekat mencapai 70 sampai 110 MB/s. Hotspot ponsel biasanya berperilaku seperti router 5 GHz kelas menengah saat perangkat seruangan, dan seperti 2,4 GHz saat tidak."
+      },
+      "1": {
+        "h": "Kabel dan drive",
+        "b": "USB 2.0 berperingkat 480 Mb/s, kira-kira 35 MB/s setelah dipotong overhead, dan itulah yang ditawarkan sebagian besar ponsel lewat port pengisiannya. Port dan drive USB 3 berjalan beberapa kali lebih cepat, jadi folder yang butuh satu jam lewat Wi-Fi 2,4 GHz tersalin dalam beberapa menit. iPhone lama dengan Lightning terpaku di kecepatan USB 2; model Pro dengan USB-C jauh lebih cepat dengan kabel yang sesuai peringkatnya."
+      },
+      "2": {
+        "h": "Bluetooth",
+        "b": "Bluetooth klasik berperingkat 3 Mb/s dan kenyataannya kurang dari itu, jadi siapkan hitungan menit per 100 MB. Cukup untuk dokumen atau beberapa foto dan sia-sia untuk video. AirDrop dan Quick Share memakai Bluetooth hanya untuk menemukan perangkat lain lalu beralih ke Wi-Fi untuk datanya, itulah sebabnya keduanya jauh lebih cepat daripada kirim Bluetooth biasa."
+      }
+    }
+  },
+  "steps": {
+    "title": "Mengirim offline dengan BIShare, langkah demi langkah",
+    "items": {
+      "0": {
+        "h": "Satukan kedua perangkat di satu jaringan",
+        "b": "Sambung ke Wi-Fi yang sama, atau nyalakan hotspot di satu ponsel dan sambungkan perangkat lain ke sana. Jaringannya tidak perlu internet; BIShare tidak pernah memeriksanya selama transfer terdekat."
+      },
+      "1": {
+        "h": "Buka BIShare di keduanya",
+        "b": "Aplikasi mengumumkan dirinya di jaringan lokal dan mendaftar setiap BIShare lain yang terdengar. Beri tiap perangkat nama yang mudah dikenali di Pengaturan saat pertama kali, supaya ruangan penuh ponsel tetap mudah dibaca."
+      },
+      "2": {
+        "h": "Pilih file dan perangkat",
+        "b": "Ketuk Kirim, pilih foto, video, dokumen, atau seluruh folder, lalu pilih perangkat lain dari daftar terdekat. Di sana muncul permintaan terima dengan nama pengirim dan total ukuran; tidak ada yang masuk sampai seseorang mengetuk Terima."
+      },
+      "3": {
+        "h": "Biarkan berjalan, meski Wi-Fi tersendat",
+        "b": "Transfer besar menampilkan progres di kedua ujung. Kalau jaringan putus, aplikasi menunggu dan melanjutkan dari potongan terakhir yang terverifikasi begitu perangkat bertemu lagi. Setiap file dicocokkan dengan hash-nya sebelum ditandai selesai, dan masuk ke folder BIShare: di dalam Downloads di Android, di folder aplikasi di File pada iPhone, dan di Dokumen pada komputer kecuali Anda memilih lokasi lain di Pengaturan."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Saat perangkat lain tidak muncul",
+    "body": "Transfer offline jauh lebih sering gagal di tahap pendeteksian daripada di tahap transfer. Ini penyebab yang kami lihat di email dukungan, kira-kira diurutkan dari yang paling sering.",
+    "items": {
+      "0": {
+        "h": "Router atau hotspot mengisolasi kliennya",
+        "b": "Jaringan tamu, Wi-Fi hotel, dan banyak sistem mesh menyalakan isolasi AP atau klien, yang mencegah perangkat di jaringan yang sama saling melihat. Tidak ada apa pun di perangkat Anda yang bisa memperbaikinya. Pindahkan kedua perangkat ke hotspot ponsel, yang isolasinya mati, atau pakai kabel."
+      },
+      "1": {
+        "h": "iPhone belum mengizinkan akses Jaringan Lokal",
+        "b": "iOS bertanya sekali ke tiap aplikasi apakah boleh menemukan perangkat di jaringan lokal. Kalau permintaan itu ditutup, aplikasi tidak mendengar apa pun. Buka Pengaturan, Privasi & Keamanan, Jaringan Lokal, lalu nyalakan aplikasinya. AirDrop punya sakelar sendiri di Umum, AirDrop."
+      },
+      "2": {
+        "h": "Windows menganggap jaringan sebagai Publik",
+        "b": "Di jaringan Publik, Windows memblokir pendeteksian masuk untuk aplikasi maupun Nearby Sharing. Buka pengaturan jaringan dan setel profilnya ke Pribadi, lalu izinkan aplikasi melewati Windows Defender Firewall kalau diminta."
+      },
+      "3": {
+        "h": "VPN masih menyala",
+        "b": "Aplikasi VPN sering mengalihkan semuanya, termasuk lalu lintas lokal, ke dalam terowongan, sehingga perangkat terdekat lenyap meski Wi-Fi baik-baik saja. Jeda VPN selama transfer, atau nyalakan pengecualian jaringan lokalnya kalau ada."
+      },
+      "4": {
+        "h": "Dua jaringan yang tampak seperti satu",
+        "b": "Sebagian router menaruh pita 2,4 GHz dan 5 GHz, atau klien kabel dan nirkabel, di subnet terpisah yang tidak meneruskan paket pendeteksian. Sambungkan kedua perangkat ke pita yang sama, atau kembali ke hotspot."
+      },
+      "5": {
+        "h": "Bluetooth mati, atau perangkat terlalu berjauhan",
+        "b": "AirDrop dan Quick Share sama-sama butuh Bluetooth menyala untuk saling menemukan dan bekerja paling baik dalam jarak beberapa meter; Google menyarankan mendekatkan ponsel hingga 30 cm agar tersambung. Hotspot Pribadi di iPhone juga menonaktifkan AirDrop sampai dimatikan."
+      }
+    }
+  },
+  "security": {
+    "title": "Apakah transfer offline privat?",
+    "body": "Lebih privat daripada unggahan mana pun, karena tidak ada server yang harus dipercaya dan tidak ada yang tersimpan di mana pun selain di kedua perangkat. Yang berbeda antar-jalur adalah apa yang terjadi di perjalanan, dan itu penting di hotspot atau jaringan bersama yang tidak Anda kendalikan.",
+    "items": {
+      "0": {
+        "h": "Terenkripsi antarperangkat",
+        "b": "BIShare menegosiasikan kunci dengan X25519 di setiap transfer dan mengenkripsi alirannya dengan AES-256-GCM, jadi perangkat lain di hotspot yang sama hanya melihat ciphertext; <goEncrypted>detailnya ada di panduan transfer terenkripsi kami</goEncrypted>. LocalSend mengenkripsi dengan HTTPS dan sertifikat yang dibuat tiap perangkat untuk dirinya sendiri. AirDrop dan Quick Share juga mengenkripsi sambungan peer-to-peer mereka."
+      },
+      "1": {
+        "h": "Siapa yang bisa melihat perangkat",
+        "b": "Pendeteksian adalah bagian yang terlihat. Pengaturan Semua orang di sekitar di Windows membagikan nama PC dan alamat Bluetooth ke siapa pun dalam jangkauan; mode Semua orang di Quick Share berlaku sepuluh menit lalu kembali; Semua Orang selama 10 Menit di AirDrop berlaku sama. Kembalikan ke hanya kontak atau hanya perangkat sendiri begitu transfer selesai."
+      },
+      "2": {
+        "h": "Kata sandi hotspot adalah pintu depannya",
+        "b": "Siapa pun yang bergabung ke hotspot berada di jaringan lokal yang sama dengan perangkat Anda. Penuhi minimal delapan karakter yang diminta Apple, lebih baik lagi lebih panjang, bagikan secara langsung, dan matikan hotspot setelahnya. Kabel atau drive USB menghindari persoalan ini sama sekali, itulah sebabnya keduanya tetap jadi pilihan untuk materi rahasia."
+      }
     }
   },
   "faq": {
-    "title": "Transfer file offline: FAQ",
+    "title": "Kirim file tanpa internet: FAQ",
     "items": {
       "0": {
-        "q": "Apakah saya benar-benar bisa mengirim file tanpa internet?",
-        "a": "Ya. Pada Wi-Fi yang sama atau hotspot, BIShare mentransfer langsung antarperangkat dan tidak pernah menggunakan internet — file tidak pernah menyentuh server. Untuk file kecil tanpa jaringan sama sekali, QR Beam mengirimnya lewat aliran kode QR."
+        "q": "Bisakah saya mentransfer file tanpa internet?",
+        "a": "Bisa. Dua perangkat di Wi-Fi yang sama atau di hotspot ponsel bisa bertukar file langsung dengan aplikasi seperti BIShare atau LocalSend, tanpa internet sama sekali. AirDrop dan Quick Share tidak butuh jaringan apa pun antar-perangkat yang didukung, dan kabel atau drive USB bekerja di mana saja."
       },
       "1": {
-        "q": "Bagaimana cara berbagi file offline antara dua ponsel?",
-        "a": "Hubungkan kedua ponsel ke Wi-Fi yang sama, atau jadikan salah satunya hotspot pribadi (data seluler mati tidak masalah). Buka BIShare di keduanya, pilih file, dan kirim — mengalir langsung, terenkripsi, tanpa perlu internet."
+        "q": "Bagaimana cara kirim file dari ponsel ke ponsel tanpa internet?",
+        "a": "Dua iPhone: AirDrop. Dua ponsel Android: Quick Share dengan Bluetooth menyala. iPhone dan ponsel Android: AirDrop kalau ponsel Android-nya ada di daftar dukungan Google, kalau tidak nyalakan hotspot di satu ponsel, sambungkan yang lain, dan kirim dengan BIShare atau LocalSend."
       },
       "2": {
-        "q": "Bisakah saya mengirim file besar offline?",
-        "a": "Ya — lewat Wi-Fi lokal atau hotspot tidak ada batas ukuran dan berjalan pada kecepatan jaringan penuh. QR Beam hanya untuk file kecil (teks, kunci, dokumen kecil), karena kode QR membawa sangat sedikit data."
+        "q": "Apakah AirDrop butuh internet?",
+        "a": "Tidak. Syarat Apple hanya Wi-Fi dan Bluetooth menyala dan perangkat dalam jarak sekitar 10 meter. Sejak iOS 17.1, transfer yang dimulai dari dekat bisa diselesaikan lewat internet kalau Anda berjalan keluar jangkauan, tetapi ia tidak pernah butuh internet untuk memulai."
       },
       "3": {
-        "q": "Apakah transfer offline berfungsi antara iPhone dan Android?",
-        "a": "Ya. Tidak seperti AirDrop, BIShare lintas platform, jadi Anda bisa mengirim offline dari iPhone ke Android (dan kombinasi lainnya) lewat Wi-Fi yang sama atau hotspot."
+        "q": "Apakah Quick Share bekerja tanpa internet?",
+        "a": "Antar-ponsel Android, ya: langkah Google hanya meminta Bluetooth dan ponsel yang berdekatan. Berbagi ke iPhone lewat kode QR berbeda, karena iPhone mengunduh dari link web dan halaman Google menyebut kedua perangkat butuh internet untuk itu."
       },
       "4": {
-        "q": "Apakah tetap terenkripsi saat offline?",
-        "a": "Ya. Transfer lokal terenkripsi ujung ke ujung (X25519 + AES-256-GCM) baik saat online maupun tidak. Justru saat offline, file tidak pernah meninggalkan jaringan lokal Anda sama sekali."
+        "q": "Bisakah memakai hotspot untuk transfer file tanpa paket data?",
+        "a": "Di Android, hotspot membentuk jaringan lokal ada atau tidak internet di ponsel, jadi aplikasi transfer di kedua perangkat bekerja seperti biasa. Di iPhone, Hotspot Pribadi hanya muncul saat Data Seluler menyala dan operator mendukungnya; transfernya sendiri tetap tidak memakai data karena tetap berada di antara kedua perangkat."
+      },
+      "5": {
+        "q": "Bagaimana cara transfer file dari ponsel ke laptop tanpa internet?",
+        "a": "Sambungkan keduanya ke satu Wi-Fi atau ke hotspot ponsel dan pakai BIShare atau LocalSend, atau colokkan kabel USB. Android ke Windows juga bisa dengan Quick Share untuk Windows saat PC punya Bluetooth dan berbagi jaringan."
+      },
+      "6": {
+        "q": "Adakah batas ukuran untuk transfer offline?",
+        "a": "Tidak ada dengan BIShare, LocalSend, AirDrop, atau kabel; satu-satunya batas adalah ruang kosong di perangkat penerima. Bluetooth tidak punya batas resmi tetapi begitu lambat sehingga apa pun di atas beberapa ratus megabyte tidak praktis."
+      },
+      "7": {
+        "q": "Seberapa cepat transfer file lewat hotspot?",
+        "a": "Kurang lebih sama dengan router dari generasi yang sama: 3 sampai 8 MB/s di 2,4 GHz dan 40 sampai 50 MB/s di 5 GHz dalam satu ruangan, menurut pengukuran kami. File 1 GB butuh setengah menit di 5 GHz dan beberapa menit di 2,4 GHz."
+      },
+      "8": {
+        "q": "Apakah berbagi file offline aman di hotspot publik?",
+        "a": "Pakai aplikasi yang mengenkripsi antarperangkat. BIShare dan LocalSend melakukannya, jadi orang lain di hotspot tidak bisa membaca transfer meski berbagi jaringan. Batasi visibilitas aplikasi ke perangkat sendiri kalau pengaturannya ada, dan matikan hotspot setelah selesai."
+      },
+      "9": {
+        "q": "Aplikasi apa yang mengirim file offline antara iPhone dan Android?",
+        "a": "BIShare dan LocalSend sama-sama bisa lewat Wi-Fi atau hotspot bersama. Di Pixel 10 atau ponsel lain di daftar Google, AirDrop ke iPhone bekerja tanpa jaringan. Jalur kode QR Quick Share butuh internet di kedua ponsel, jadi tidak terhitung offline."
+      },
+      "10": {
+        "q": "Bisakah BIShare mengirim link saat saya offline?",
+        "a": "Tidak. Link, room, dan versi browser dari berbagi terdekat lewat internet. Saat offline, pakai transfer terdekat di aplikasi lewat jaringan bersama atau QR Beam untuk file hingga 100 KB, dan bagikan link nanti saat koneksi kembali."
       }
     }
   },
   "cta": {
-    "title": "Kirim file berikutnya tanpa internet",
-    "body": "Lokal, terenkripsi, dan gratis — berfungsi di jaringan apa pun, atau tanpa jaringan sama sekali. Ambil BIShare untuk ponsel atau komputer Anda.",
+    "title": "Kirim sekarang, dengan atau tanpa internet",
+    "body": "Transfer langsung dan terenkripsi di Wi-Fi atau hotspot apa pun, antara ponsel dan komputer apa pun, tanpa batas ukuran. Dan saat koneksi kembali, link untuk semua orang lain.",
     "download": "Unduh BIShare"
   },
   "a11y": {
     "yes": "Ya",
     "no": "Tidak"
+  },
+  "art": {
+    "hero": {
+      "alt": "Ponsel dan laptop bertukar file langsung lewat sambungan lokal sementara awan tercoret berada di atasnya, berjudul kirim file tanpa internet",
+      "title": "Kirim file tanpa internet",
+      "sub": "7 jalur offline, dicek September 2026",
+      "left": "Ponsel",
+      "right": "Laptop",
+      "cloud": "Tanpa internet"
+    },
+    "modes": {
+      "alt": "Tiga situasi offline dan apa yang bekerja di masing-masing: jaringan tanpa internet cocok untuk BIShare, LocalSend, dan Quick Share untuk Windows; tanpa jaringan sama sekali cocok untuk AirDrop, Quick Share, dan hotspot ponsel; nirkabel tidak diizinkan menyisakan kabel USB, drive USB, atau QR Beam",
+      "title": "Anda ada di situasi offline yang mana?",
+      "sub": "Alatnya bergantung pada apa yang masih ada",
+      "z1": "Ada jaringan, tanpa internet",
+      "z1apps": "BIShare · LocalSend · Quick Share untuk Windows",
+      "z2": "Tanpa jaringan sama sekali",
+      "z2apps": "AirDrop · Quick Share · hotspot ponsel, lalu BIShare",
+      "z3": "Nirkabel tidak diizinkan",
+      "z3apps": "Kabel USB · drive USB-C · QR Beam (100 KB)",
+      "foot": "Hotspot tanpa data tetaplah jaringan: ia mengubah kasus dua menjadi kasus satu"
+    },
+    "pairs": {
+      "alt": "Jalur offline per pasangan perangkat: iPhone ke iPhone memakai AirDrop; Android ke Android memakai Quick Share; iPhone ke Android memakai AirDrop di ponsel yang didukung atau BIShare di hotspot; ponsel ke Windows memakai BIShare, Quick Share untuk Android, atau kabel; ponsel ke Mac memakai AirDrop untuk iPhone atau BIShare; komputer ke komputer memakai BIShare, Nearby Sharing di Windows, atau drive",
+      "title": "Jalur offline untuk tiap pasangan perangkat",
+      "sub": "Bawaan dulu, lalu aplikasi, lalu kabel",
+      "a": {
+        "need": "iPhone ke iPhone atau Mac",
+        "pick": "AirDrop"
+      },
+      "b": {
+        "need": "Android ke Android",
+        "pick": "Quick Share"
+      },
+      "c": {
+        "need": "iPhone ke Android",
+        "pick": "AirDrop di ponsel terdaftar · BIShare di hotspot"
+      },
+      "d": {
+        "need": "Ponsel ke PC Windows",
+        "pick": "BIShare · Quick Share (Android) · kabel USB"
+      },
+      "e": {
+        "need": "Komputer ke komputer",
+        "pick": "BIShare · Nearby Sharing (Windows) · drive USB"
+      }
+    },
+    "speed": {
+      "alt": "Tangga kecepatan transfer offline pada skala logaritmik: Bluetooth sekitar 0,3 MB/s, Wi-Fi 2,4 GHz 3 sampai 8 MB/s, USB 2.0 sekitar 35 MB/s, Wi-Fi 5 40 sampai 50 MB/s, Wi-Fi 6 70 sampai 110 MB/s, drive USB 3 100 MB/s ke atas",
+      "title": "Seberapa cepat tiap jalur offline memindahkan 1 GB",
+      "sub": "Diukur ponsel ke PC, skala log",
+      "bt": "Bluetooth",
+      "btv": "0,3 MB/s · sekitar 1 jam",
+      "wifi24": "Wi-Fi 2,4 GHz",
+      "wifi24v": "3–8 MB/s · 2–5 menit",
+      "usb2": "Kabel USB 2.0",
+      "usb2v": "35 MB/s · 30 detik",
+      "wifi5": "Wi-Fi 5 atau hotspot",
+      "wifi5v": "40–50 MB/s · 20–30 detik",
+      "wifi6": "Wi-Fi 6, jarak dekat",
+      "wifi6v": "70–110 MB/s · 10–15 detik",
+      "usb3": "Drive USB 3",
+      "usb3v": "100 MB/s ke atas · 10 detik",
+      "foot": "Angka Wi-Fi adalah transfer BIShare yang kami ukur; AirDrop, Quick Share, dan LocalSend punya batas radio yang sama"
+    }
   }
 }

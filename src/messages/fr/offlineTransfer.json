@@ -1,84 +1,356 @@
 {
   "meta": {
-    "title": "Envoyer des fichiers sans internet, hors ligne en Wi-Fi",
-    "description": "Pas d'internet ? BIShare transfère via Wi-Fi local ou partage de connexion à pleine vitesse, chiffré, et QR Beam transmet de petits fichiers sans aucun réseau. Gratuit.",
-    "ogTitle": "Envoyer des fichiers sans internet — hors ligne, chiffré, gratuit"
+    "title": "Envoyer des fichiers sans internet : 7 méthodes hors ligne (2026)",
+    "description": "Pas d’internet ? Même Wi-Fi, partage de connexion, AirDrop, Quick Share, câble ou Bluetooth : ce que chaque méthode exige, sa vitesse et pourquoi un appareil n’apparaît pas."
   },
   "hero": {
     "eyebrow": "Transfert de fichiers hors ligne",
-    "title": "Envoyez des fichiers sans internet",
-    "body": "Pas de mot de passe Wi-Fi, pas de data, mode avion, ou le réseau est en panne — vous devez quand même déplacer un fichier. <strong>BIShare</strong> l'envoie <strong>directement d'appareil à appareil</strong> via votre Wi-Fi local ou le partage de connexion du téléphone, chiffré de bout en bout, à pleine vitesse et sans internet. Et quand il n'y a <highlight>aucun réseau</highlight>, QR Beam diffuse un petit fichier via des QR codes que l'autre caméra scanne.",
+    "title": "Envoyer des fichiers sans internet",
+    "body": "Envoyer des fichiers sans internet reste possible quand la connexion est coupée, que l’avion n’a pas de Wi-Fi, que le forfait de données est épuisé, ou que vous ne voulez tout simplement pas qu’une vidéo de 4 Go monte vers un serveur pour en redescendre : rien de tout cela n’empêche un fichier de passer entre deux appareils dans la même pièce. Tous les téléphones et ordinateurs vendus depuis dix ans embarquent des radios qui se parlent directement, et la plupart des apps que les gens ont déjà savent s’en servir. Ce guide classe les méthodes hors ligne selon ce qu’elles exigent, <strong>d’un Wi-Fi ou d’un partage de connexion commun</strong> à <strong>rien d’autre qu’un câble</strong>, avec les vitesses à attendre et les réglages qui cassent le plus souvent la détection.",
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
-  "why": {
-    "title": "Pourquoi vous n'avez pas besoin d'internet",
-    "body": "La plupart des outils de \"partage\" envoient votre fichier vers un serveur puis le renvoient — inutiles dès que vous êtes hors ligne. BIShare, non : sur le même réseau, le fichier passe <strong>directement entre les appareils</strong> et ne touche jamais le cloud, donc ça marche sur un partage de connexion sans data, dans un avion, ou quand internet est en panne. Rien à téléverser, donc rien à attendre — et rien qu'un serveur pourrait lire."
+  "updated": "Mis à jour en septembre 2026 · exigences tirées des pages d’assistance d’Apple, de Google et de Microsoft ce mois-ci, vitesses mesurées sur nos propres appareils",
+  "disclosure": "BIShare est notre produit, gardez-le en tête en lisant sa place dans la liste. Il a besoin d’un réseau Wi-Fi ou d’un partage de connexion pour exister, ce qu’AirDrop et Quick Share ne demandent pas ; quand un outil intégré couvre vos appareils, nous le disons.",
+  "quick": {
+    "title": "Réponse rapide",
+    "items": {
+      "0": "<strong>Deux appareils sur un même Wi-Fi, ou un téléphone en partage de connexion :</strong> installez <goTransfer>BIShare</goTransfer> ou <goLocalsend>LocalSend</goLocalsend> sur les deux et envoyez directement. Rien ne passe par internet, il n’y a aucune limite de taille, et une vidéo de 1 Go arrive en 10 à 30 secondes sur un routeur correct.",
+      "1": "<strong>Deux appareils Apple :</strong> AirDrop fonctionne déjà avec le Wi-Fi et le Bluetooth activés, sans aucun réseau, à environ 10 mètres. Les Pixel et Galaxy récents peuvent s’y joindre via Quick Share.",
+      "2": "<strong>Deux téléphones Android, ou Android vers un PC Windows :</strong> Quick Share trouve l’autre appareil en Bluetooth et n’a besoin d’aucun internet entre téléphones Android. La voie vers l’iPhone, par QR code, fait exception : les deux côtés doivent être en ligne.",
+      "3": "<strong>Aucune radio fiable, ou un portable verrouillé :</strong> un câble USB ou une clé USB-C reste l’option la plus rapide et la plus confidentielle, et elle fonctionne sur tous les systèmes d’exploitation.",
+      "4": "<strong>Un tout petit fichier sans le moindre réseau :</strong> le QR Beam de BIShare transforme n’importe quoi jusqu’à 100 Ko en une suite de QR codes que la caméra de l’autre téléphone lit.",
+      "5": "<strong>L’autre appareil n’apparaît pas :</strong> neuf fois sur dix, le routeur isole ses clients, l’iPhone n’a pas reçu l’autorisation Réseau local, ou Windows considère le Wi-Fi comme un réseau Public. Les solutions sont plus bas."
+    }
   },
-  "how": {
-    "title": "Trois façons d'envoyer hors ligne",
+  "modes": {
+    "title": "Hors ligne, c’est trois situations différentes",
+    "body": "Quand on dit hors ligne, on parle de l’une de trois choses, et le bon outil dépend de celle où l’on se trouve. Le Wi-Fi d’un hôtel dont la liaison est coupée reste un réseau : les appareils qui y sont peuvent se trouver, même si aucune page ne charge. Un champ sans Wi-Fi du tout, c’est autre chose, car il faut maintenant que quelque chose crée un lien entre les deux appareils. Et un ordinateur qui interdit tout sans-fil ne laisse qu’un câble. Déterminez votre cas avant de choisir une app.",
     "items": {
       "0": {
-        "h": "Même Wi-Fi ou partage de connexion",
-        "b": "Connectez les deux appareils au même Wi-Fi — ou transformez-en un en partage de connexion personnel avec les données mobiles désactivées. BIShare trouve l'autre appareil et diffuse le fichier directement, chiffré de bout en bout, à pleine vitesse locale. Aucun internet requis, aucune limite de taille."
+        "h": "Il y a un réseau, mais pas d’internet",
+        "b": "N’importe quel réseau Wi-Fi fait office de réseau local même quand la ligne vers l’extérieur est morte : un routeur domestique pendant une panne, le Wi-Fi du bureau dont la liaison a lâché, le partage de connexion d’un téléphone dont les données mobiles sont épuisées. Les apps qui transfèrent sur le réseau local, comme BIShare et LocalSend, se moquent de savoir si internet est joignable. Elles cherchent l’autre appareil sur le même réseau et lui envoient le fichier en direct."
       },
       "1": {
-        "h": "Aucun réseau ? QR Beam",
-        "b": "Quand il n'y a ni Wi-Fi, ni partage de connexion, ni Bluetooth, QR Beam transforme un petit fichier en un flux animé de QR codes sur un écran ; la caméra de l'autre appareil les scanne pour le reconstituer. Purement écran à caméra — parfait pour le texte, les clés et les petits documents."
+        "h": "Il n’y a aucun réseau",
+        "b": "Il faut alors que l’un des appareils en crée un. AirDrop et Quick Share le font seuls, en silence, avec le Bluetooth pour la détection et une liaison Wi-Fi pair-à-pair pour les données. Tout le reste vous demande de créer le réseau à la main : activer le partage de connexion d’un téléphone, ou brancher un routeur de voyage sur une batterie externe. Une fois le partage de connexion en place, vous êtes revenu à la première situation."
       },
       "2": {
-        "h": "Sur n'importe quelle plateforme",
-        "b": "iPhone, Android, Mac, Windows et Linux — le transfert hors ligne fonctionne dans toutes les directions, y compris celle qu'AirDrop ne peut pas faire : d'iPhone à Android."
+        "h": "Le sans-fil n’est pas une option",
+        "b": "Certains portables professionnels bloquent le Bluetooth et les réseaux inconnus, et certains lieux demandent de couper les radios. Un câble entre les deux appareils, ou une clé USB qui passe de l’un à l’autre, déplace les fichiers à la vitesse de l’USB sans rien dans les airs. C’est la voie la moins élégante, et souvent la plus rapide pour un dossier de gros fichiers."
       }
     }
   },
-  "comparison": {
-    "title": "Bluetooth vs E-mail vs BIShare",
+  "methods": {
+    "title": "Sept façons d’envoyer des fichiers sans internet, classées",
+    "consLabel": "Points de vigilance :",
+    "items": {
+      "0": {
+        "name": "BIShare via Wi-Fi ou partage de connexion",
+        "tag": "Le meilleur quand les deux appareils sont de marques différentes, ou que l’un d’eux est un ordinateur",
+        "facts": "iPhone, Android, Windows, macOS, Linux · open source (MIT) · même Wi-Fi ou partage de connexion · aucune limite de taille · échange de clés X25519 et AES-256-GCM à chaque transfert · sans compte",
+        "body": "Ouvrez BIShare sur les deux appareils pendant qu’ils partagent un réseau : chacun apparaît dans la liste à proximité de l’autre en une seconde ou deux. Choisissez le fichier, puis l’appareil, acceptez de l’autre côté, et les octets passent de l’un à l’autre par le réseau local. Rien n’est téléversé, donc le transfert tourne à la vitesse que le routeur vous donne, sans limite de taille. La connexion est chiffrée de bout en bout, ce qui compte sur un partage de connexion que vous n’avez pas configuré vous-même. Si le Wi-Fi lâche au milieu d’un dossier de 20 Go, le transfert <goLargeFiles>reprend là où il s’est arrêté</goLargeFiles> dès que les appareils se revoient, au lieu de repartir de zéro.",
+        "cons": "Il lui faut un réseau existant : sans Wi-Fi alentour, on active d’abord un partage de connexion. Les liens, les salles et la version navigateur du partage à proximité passent par internet et ne sont pas disponibles hors ligne."
+      },
+      "1": {
+        "name": "AirDrop",
+        "tag": "Le meilleur entre appareils Apple, et désormais certains téléphones Android",
+        "facts": "iPhone, iPad, Mac · téléphones Android compatibles AirDrop via Quick Share · Wi-Fi et Bluetooth activés, aucun réseau nécessaire · à moins de 30 pieds, environ 10 mètres · aucune limite de taille",
+        "body": "AirDrop est ce qui se rapproche le plus d’un transfert vraiment hors ligne : la page d’assistance d’Apple demande seulement que les deux appareils aient le Wi-Fi et le Bluetooth activés et se trouvent à environ 10 mètres l’un de l’autre. Aucun routeur n’intervient ; les appareils forment leur propre liaison. Depuis fin 2025, <goAirdropAndroid>une liste croissante de téléphones Android peut aussi utiliser AirDrop</goAirdropAndroid>, à commencer par la série Pixel 10, puis les Galaxy récents et d’autres haut de gamme, à condition que l’iPhone soit réglé pour recevoir de « Tout le monde pendant 10 minutes ». Sur un Mac, les fichiers vont dans Téléchargements ; sur un iPhone, les photos atterrissent dans Photos et tout le reste dans Fichiers.",
+        "cons": "Windows et Linux en sont totalement exclus, et un téléphone Android absent de la liste de Google ne peut pas participer. Le Partage de connexion doit être coupé sur l’iPhone, ce qui agace quand c’est justement lui qui sert de réseau au reste de la pièce."
+      },
+      "2": {
+        "name": "Quick Share",
+        "tag": "Le meilleur entre téléphones Android, et d’Android vers un PC Windows",
+        "facts": "Android 6 et plus, Chromebooks, Windows 10 et 11 via l’app de Google · Bluetooth activé, appareils rapprochés · Windows exige le même réseau et un adaptateur Bluetooth · 10 Go par 24 heures vers iPhone via QR, internet obligatoire pour cette voie",
+        "body": "<goNearby>Quick Share</goNearby> est intégré à Android : il trouve l’autre téléphone en Bluetooth, puis prend la liaison la plus rapide possible pour les données. Les étapes de dépannage de Google sont parlantes : activez le Bluetooth sur les deux appareils et rapprochez-les à moins de 30 cm pour connecter. Aucun internet n’est demandé entre deux téléphones Android. L’app Windows étend la même chose à un PC qui partage le réseau du téléphone et dispose du Bluetooth ; les fichiers arrivent dans Téléchargements. La visibilité est à votre choix : vos propres appareils seulement, vos contacts, ou tout le monde pendant dix minutes.",
+        "cons": "La voie vers l’iPhone est un lien web : l’iPhone scanne un QR code et télécharge dans un navigateur, et la page de Google précise que les deux appareils ont besoin d’un accès internet pour cela. Les Mac et les machines Linux n’ont pas de client officiel, et un téléphone sans services Google n’a pas de Quick Share."
+      },
+      "3": {
+        "name": "LocalSend",
+        "tag": "Le meilleur si vous voulez une app open source qui ne parle jamais à un serveur",
+        "facts": "Android, iPhone, Windows, macOS, Linux, Fire OS · open source (Apache 2.0) · même réseau local uniquement · HTTPS avec un certificat généré par chaque appareil · port 53317",
+        "body": "<goLocalsend>LocalSend</goLocalsend> ne fait qu’une chose et n’a aucun serveur derrière lui : les appareils d’un même réseau se trouvent par multicast et s’envoient les fichiers en HTTPS. Il s’installe depuis les boutiques d’applications, Winget, Homebrew et Flathub, sans compte à créer. Sur un partage de connexion sans données, il se comporte exactement comme à la maison. C’est le choix naturel si vous voulez pouvoir lire toute l’app sur GitHub et n’avez jamais besoin de joindre un appareil qui est ailleurs.",
+        "cons": "La détection repose sur le multicast, que les réseaux invités et beaucoup de routeurs d’hôtel bloquent, et il n’existe aucune voie de secours quand elle échoue. Son mode de partage par lien ne s’ouvre lui aussi que sur le même réseau."
+      },
+      "4": {
+        "name": "Partage de proximité sous Windows",
+        "tag": "Le meilleur entre deux PC Windows équipés du Bluetooth",
+        "facts": "Windows 10 version 1803 et plus, Windows 11 · Bluetooth, ou Wi-Fi sur le même réseau privé · enregistre dans Téléchargements par défaut · Tout le monde à proximité ou Mes appareils uniquement",
+        "body": "Windows a sa propre fonction façon AirDrop, et la plupart des gens ne l’ont jamais ouverte. Activez le Partage de proximité dans les Paramètres, faites un clic droit sur un fichier, choisissez Partager, et l’autre PC apparaît s’il a le Bluetooth activé. La page de Microsoft ajoute que le Windows 11 le plus récent peut aussi envoyer en Wi-Fi quand les deux PC sont sur le même réseau privé, ce qui est bien plus rapide que le Bluetooth au-delà de quelques mégaoctets. Les fichiers reçus vont dans Téléchargements, sauf si vous changez le dossier.",
+        "cons": "C’est Windows vers Windows uniquement ; aucun téléphone n’est de la partie. Choisir Tout le monde à proximité diffuse le nom du PC et son adresse Bluetooth à quiconque se trouve autour, et la voie Wi-Fi exige que le réseau soit marqué Privé."
+      },
+      "5": {
+        "name": "Un câble USB ou une clé USB-C",
+        "tag": "Le meilleur pour les gros dossiers, les ordinateurs verrouillés et partout où les radios sont coupées",
+        "facts": "Tous les téléphones et ordinateurs · USB 2.0 à 480 Mbit/s sur le papier, USB 3 bien plus rapide · exFAT pour les fichiers de plus de 4 Go sur une clé partagée · ni radio, ni réseau",
+        "body": "Un câble entre un téléphone et un ordinateur, ou une petite clé USB-C transportée d’un appareil à l’autre, c’est la voie qui marche toujours. Les téléphones Android apparaissent comme un lecteur dans l’Explorateur de fichiers, et le Finder a besoin d’une app d’aide ; les iPhone exposent leurs photos à Windows et copient n’importe quoi via l’app Fichiers vers une clé branchée sur un iPhone USB-C. Formatez une clé partagée en exFAT pour que Windows et macOS puissent y écrire et qu’un seul fichier puisse dépasser 4 Go. Pour un dossier de projet de 100 Go, c’est en général l’option la plus rapide du bâtiment, et rien n’y dépend de la santé d’un réseau.",
+        "cons": "De téléphone à téléphone par câble, il faut le bon connecteur et un téléphone qui le prend en charge, et une clé est une chose de plus à transporter, et à perdre."
+      },
+      "6": {
+        "name": "Bluetooth",
+        "tag": "Le meilleur comme solution de repli quand rien d’autre n’est installé",
+        "facts": "Android, Windows, macOS, Linux · le Bluetooth classique plafonne à 3 Mbit/s · appairage nécessaire · l’iPhone n’envoie pas de fichiers en Bluetooth",
+        "body": "Le simple transfert de fichiers en Bluetooth est plus ancien que toutes les apps de cette page et reste livré avec Android, Windows, macOS et la plupart des bureaux Linux : appairez les deux appareils, partagez le fichier, acceptez de l’autre côté. Ni réseau ni app, ce qui lui vaut sa place ici. Le hic, c’est la vitesse. Le Bluetooth classique déplace les données à quelques mégabits par seconde au mieux : une vidéo de 100 Mo, c’est le temps d’une pause café, et un film n’est pas envisageable.",
+        "cons": "Les iPhone n’acceptent aucun fichier en Bluetooth ; Apple le réserve à l’étape de détection d’AirDrop. Comptez des minutes par 100 Mo et des demandes d’appairage des deux côtés."
+      }
+    }
+  },
+  "beam": {
+    "title": "Un fichier sans réseau, sans câble et sans appairage : QR Beam",
+    "body": "Il reste une voie pour les tout petits fichiers. Le QR Beam de BIShare encode un fichier de 100 Ko au plus en une séquence de QR codes qui défilent sur un écran pendant que la caméra de l’autre téléphone les relit pour reconstituer le fichier. Un mot de passe Wi-Fi, une fiche de contact, une clé publique, un texte court ou un petit PDF y tiennent. Rien ne passe par aucune radio, donc ça fonctionne dans une cave, dans un avion, ou entre deux téléphones qui refusent de se voir. Windows et Linux peuvent afficher les codes mais n’ont pas de caméra pour les scanner, le côté récepteur est donc un téléphone."
+  },
+  "table": {
+    "title": "En un coup d’œil",
     "cols": {
-      "airdrop": "Bluetooth",
-      "quick": "E-mail",
-      "bishare": "BIShare"
+      "feature": "Méthode hors ligne",
+      "bishare": "BIShare",
+      "airdrop": "AirDrop",
+      "quick": "Quick Share",
+      "localsend": "LocalSend",
+      "bluetooth": "Bluetooth",
+      "usb": "USB"
     },
     "rows": {
       "r0": "Fonctionne sans internet",
-      "r1": "Envoi iPhone ↔ Android ↔ PC",
-      "r2": "Rapide pour les gros fichiers",
-      "r3": "Chiffré de bout en bout",
-      "r4": "Fonctionne sans aucun réseau (QR Beam)"
+      "r1": "Téléphone vers PC Windows",
+      "r2": "iPhone vers Android",
+      "r3": "Aucune limite de taille",
+      "r4": "Sans routeur ni partage de connexion",
+      "r5": "Chiffré en chemin"
+    },
+    "note": "Situation en septembre 2026. AirDrop n’atteint Android que sur les téléphones que Google déclare compatibles. Quick Share vers un iPhone passe par un QR code et un téléchargement web qui demandent internet des deux côtés, ce duo est donc marqué comme non hors ligne. Le Bluetooth est chiffré après appairage mais bien trop lent pour les gros fichiers. L’USB fait passer les données par un câble, le chiffrement ne s’applique donc pas."
+  },
+  "hotspot": {
+    "title": "Créer un réseau quand il n’y en a pas : partage de connexion ou routeur",
+    "body": "Les apps comme BIShare et LocalSend ont besoin d’un réseau pour se retrouver. Sans Wi-Fi, le plus rapide est le partage de connexion d’un téléphone, et un partage de connexion n’a pas besoin d’un internet qui fonctionne pour servir de réseau local. Les détails varient selon la plateforme, et ce sont eux qui décident si l’astuce marche pour vous.",
+    "items": {
+      "0": {
+        "h": "L’iPhone en partage de connexion",
+        "b": "Le Partage de connexion se trouve dans Réglages, ou sous Données cellulaires, et la page d’Apple est claire sur deux conditions : votre opérateur doit prendre en charge le Partage de connexion, et les Données cellulaires doivent être activées, sinon l’option est grisée. Données activées ne veut pas dire données consommées ; un transfert entre les deux appareils du partage de connexion n’en sort jamais. Le mot de passe Wi-Fi doit faire au moins huit caractères. Notez qu’AirDrop se met en pause tant que le Partage de connexion est actif : c’est l’un ou l’autre."
+      },
+      "1": {
+        "h": "Android en partage de connexion",
+        "b": "Maintenez la tuile Point d’accès dans les Réglages rapides et activez le point d’accès Wi-Fi ; la page de Google indique que jusqu’à dix appareils peuvent s’y connecter. Les opérateurs limitent ou facturent parfois le partage de connexion, ce qui touche la partie internet, pas le réseau local. En pratique, un ordinateur ou un second téléphone rejoint le partage de connexion, les deux appareils ouvrent l’app de transfert, et ils se voient exactement comme sur un routeur domestique."
+      },
+      "2": {
+        "h": "Un routeur sans rien de branché dessus",
+        "b": "N’importe quel routeur Wi-Fi crée un réseau local dès qu’il est alimenté, qu’un câble arrive ou non sur son port WAN. Un routeur de voyage de poche sur une batterie externe est le moyen le plus propre de donner un réseau commun à un groupe d’appareils sur un tournage, un stand de marché ou dans une salle de classe sans internet. Les portables peuvent aussi héberger un réseau, mais le Point d’accès sans fil mobile de Windows attend une connexion internet à partager, un téléphone ou un routeur est donc plus fiable."
+      },
+      "3": {
+        "h": "Quand vous n’avez pas le droit d’en créer un",
+        "b": "Certains portables d’entreprise interdisent de rejoindre des partages de connexion inconnus. L’ordre de préférence devient alors un câble, une clé USB, ou le Bluetooth si le fichier est petit. Si les deux appareils retrouvent internet plus tard, <goTransfer>un lien BIShare</goTransfer> depuis le téléphone rattrape le fichier une fois le portable revenu sur un réseau autorisé."
+      }
+    }
+  },
+  "speed": {
+    "title": "Quelle vitesse pour un transfert hors ligne ?",
+    "body": "Plus rapide que la plupart des gens ne l’imaginent, parce que rien n’est téléversé. C’est la liaison entre les deux appareils qui donne le rythme. Voici les chiffres que nous mesurons entre un téléphone et un PC avec BIShare ; AirDrop, Quick Share et LocalSend se situent dans les mêmes fourchettes sur le même matériel, puisque la limite est la radio, pas l’app.",
+    "items": {
+      "0": {
+        "h": "Wi-Fi et partages de connexion",
+        "b": "Sur un réseau 2,4 GHz, comptez 3 à 8 Mo/s, soit 2 à 5 minutes par gigaoctet. Le Wi-Fi 5 sur la bande 5 GHz donne 40 à 50 Mo/s, un gigaoctet prend donc 20 à 30 secondes, et le Wi-Fi 6 à courte portée atteint 70 à 110 Mo/s. Le partage de connexion d’un téléphone se comporte en général comme un routeur 5 GHz de milieu de gamme quand les appareils sont dans la même pièce, et comme du 2,4 GHz quand ils ne le sont pas."
+      },
+      "1": {
+        "h": "Câbles et clés",
+        "b": "L’USB 2.0 est donné pour 480 Mbit/s, environ 35 Mo/s une fois les surcoûts payés, et c’est ce que la plupart des téléphones offrent par leur port de charge. Les ports et clés USB 3 vont plusieurs fois plus vite, si bien qu’un dossier qui prendrait une heure en Wi-Fi 2,4 GHz se copie en quelques minutes. Les iPhone plus anciens à port Lightning restent bloqués aux vitesses de l’USB 2 ; les modèles Pro en USB-C vont bien plus vite avec un câble prévu pour ce débit."
+      },
+      "2": {
+        "h": "Bluetooth",
+        "b": "Le Bluetooth classique est donné pour 3 Mbit/s et en délivre moins, prévoyez donc des minutes par 100 Mo. Très bien pour un document ou une poignée de photos, sans espoir pour la vidéo. AirDrop et Quick Share n’utilisent le Bluetooth que pour trouver l’autre appareil, puis passent au Wi-Fi pour les octets, d’où leur avance nette sur un simple envoi Bluetooth."
+      }
+    }
+  },
+  "steps": {
+    "title": "Envoyer hors ligne avec BIShare, pas à pas",
+    "items": {
+      "0": {
+        "h": "Mettez les deux appareils sur un même réseau",
+        "b": "Rejoignez le même Wi-Fi, ou activez le partage de connexion sur un téléphone et connectez-y l’autre appareil. Le réseau n’a pas besoin d’internet ; BIShare ne le vérifie jamais pendant un transfert à proximité."
+      },
+      "1": {
+        "h": "Ouvrez BIShare sur les deux",
+        "b": "L’app s’annonce sur le réseau local et liste tous les autres BIShare qu’elle entend. Donnez à chaque appareil un nom reconnaissable dans les Réglages la première fois, pour qu’une pièce pleine de téléphones reste lisible."
+      },
+      "2": {
+        "h": "Choisissez les fichiers et l’appareil",
+        "b": "Touchez Envoyer, sélectionnez photos, vidéos, documents ou un dossier entier, puis choisissez l’autre appareil dans la liste à proximité. Celui-ci affiche une demande d’acceptation avec le nom de l’expéditeur et la taille totale ; rien n’arrive tant que personne ne touche Accepter."
+      },
+      "3": {
+        "h": "Laissez tourner, même si le Wi-Fi tousse",
+        "b": "Les gros transferts affichent la progression des deux côtés. Si le réseau lâche, l’app attend et reprend au dernier bloc vérifié quand les appareils se retrouvent. Chaque fichier est vérifié par rapport à son hash avant d’être marqué terminé, et il atterrit dans un dossier BIShare : dans Téléchargements sur Android, dans le dossier de l’app dans Fichiers sur un iPhone, et dans Documents sur un ordinateur, sauf si vous avez choisi un autre emplacement dans les Réglages."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Quand l’autre appareil n’apparaît pas",
+    "body": "Les transferts hors ligne échouent bien plus souvent à l’étape de détection qu’à celle du transfert. Voici les causes que nous voyons dans les mails au support, à peu près par ordre de fréquence.",
+    "items": {
+      "0": {
+        "h": "Le routeur ou le partage de connexion isole ses clients",
+        "b": "Les réseaux invités, le Wi-Fi des hôtels et beaucoup de systèmes mesh activent l’isolation des points d’accès ou des clients, qui empêche les appareils d’un même réseau de se voir. Rien sur votre appareil ne peut y remédier. Passez les deux appareils sur le partage de connexion d’un téléphone, où l’isolation est absente, ou prenez un câble."
+      },
+      "1": {
+        "h": "L’iPhone n’a pas autorisé l’accès au Réseau local",
+        "b": "iOS demande une fois à chaque app si elle peut trouver des appareils sur le réseau local. Si la demande a été balayée, l’app n’entend rien. Ouvrez Réglages, Confidentialité et sécurité, Réseau local, et activez l’app. AirDrop a son propre interrupteur sous Général, AirDrop."
+      },
+      "2": {
+        "h": "Windows considère le réseau comme Public",
+        "b": "Sur un réseau Public, Windows bloque la détection entrante pour les apps comme pour le Partage de proximité. Ouvrez les paramètres du réseau et passez le profil sur Privé, puis autorisez l’app dans le Pare-feu Windows Defender s’il le demande."
+      },
+      "3": {
+        "h": "Un VPN est encore actif",
+        "b": "Les apps VPN font souvent tout passer par le tunnel, trafic local compris, si bien que les appareils voisins disparaissent alors que le Wi-Fi va très bien. Mettez le VPN en pause le temps du transfert, ou activez son exception pour le réseau local s’il en a une."
+      },
+      "4": {
+        "h": "Deux réseaux qui n’en ont l’air que d’un",
+        "b": "Certains routeurs placent les bandes 2,4 GHz et 5 GHz, ou les clients filaires et sans fil, sur des sous-réseaux séparés qui ne laissent pas passer les paquets de détection. Connectez les deux appareils à la même bande, ou rabattez-vous sur le partage de connexion."
+      },
+      "5": {
+        "h": "Le Bluetooth est coupé, ou les appareils sont trop éloignés",
+        "b": "AirDrop et Quick Share ont tous deux besoin du Bluetooth activé pour se trouver et marchent le mieux à quelques mètres ; Google conseille de rapprocher les téléphones à moins de 30 cm pour connecter. Le Partage de connexion sur l’iPhone désactive aussi AirDrop tant qu’il n’est pas coupé."
+      }
+    }
+  },
+  "security": {
+    "title": "Un transfert hors ligne est-il privé ?",
+    "body": "Plus privé que n’importe quel téléversement, parce qu’il n’y a aucun serveur à qui faire confiance et rien de stocké ailleurs que sur les deux appareils. Ce qui change d’une méthode à l’autre, c’est ce qui se passe en chemin, et cela compte sur un partage de connexion ou un réseau partagé que vous ne contrôlez pas.",
+    "items": {
+      "0": {
+        "h": "Chiffré d’appareil à appareil",
+        "b": "BIShare négocie une clé en X25519 à chaque transfert et chiffre le flux en AES-256-GCM, si bien qu’un autre appareil sur le même partage de connexion ne voit que du texte chiffré ; <goEncrypted>les détails sont dans notre guide du transfert chiffré</goEncrypted>. LocalSend chiffre en HTTPS avec un certificat que chaque appareil se fabrique. AirDrop et Quick Share chiffrent aussi leurs liaisons pair-à-pair."
+      },
+      "1": {
+        "h": "Qui peut voir l’appareil",
+        "b": "La détection est la partie visible. Le réglage Tout le monde à proximité de Windows communique le nom du PC et son adresse Bluetooth à quiconque est à portée ; le mode Tout le monde de Quick Share dure dix minutes puis revient en arrière ; « Tout le monde pendant 10 minutes » d’AirDrop fait de même. Remettez-les sur contacts uniquement ou vos appareils uniquement une fois le transfert terminé."
+      },
+      "2": {
+        "h": "Le mot de passe du partage de connexion est la porte d’entrée",
+        "b": "Quiconque rejoint le partage de connexion est sur le même réseau local que vos appareils. Prenez les huit caractères minimum qu’Apple exige, et plutôt plus long, communiquez-le en personne, et coupez le partage de connexion ensuite. Un câble ou une clé USB évite complètement la question, et c’est pour cela qu’ils restent le choix pour les documents confidentiels."
+      }
     }
   },
   "faq": {
-    "title": "Transfert de fichiers hors ligne : FAQ",
+    "title": "Envoyer des fichiers sans internet : FAQ",
     "items": {
       "0": {
-        "q": "Puis-je vraiment envoyer des fichiers sans internet ?",
-        "a": "Oui. Sur le même Wi-Fi ou un partage de connexion, BIShare transfère directement entre les appareils et n'utilise jamais internet — le fichier ne touche jamais un serveur. Pour un petit fichier sans aucun réseau, QR Beam l'envoie via un flux de QR codes."
+        "q": "Peut-on transférer des fichiers sans internet ?",
+        "a": "Oui. Deux appareils sur le même Wi-Fi ou sur le partage de connexion d’un téléphone peuvent s’échanger des fichiers directement avec une app comme BIShare ou LocalSend, sans qu’internet intervienne. AirDrop et Quick Share n’ont besoin d’aucun réseau entre appareils compatibles, et un câble ou une clé USB fonctionne partout."
       },
       "1": {
-        "q": "Comment partager des fichiers hors ligne entre deux téléphones ?",
-        "a": "Connectez les deux téléphones au même Wi-Fi, ou transformez-en un en partage de connexion personnel (données mobiles désactivées, c'est très bien). Ouvrez BIShare sur les deux, choisissez le fichier et envoyez — il se diffuse directement, chiffré, sans internet."
+        "q": "Comment envoyer des fichiers de téléphone à téléphone sans internet ?",
+        "a": "Deux iPhone : AirDrop. Deux téléphones Android : Quick Share avec le Bluetooth activé. Un iPhone et un Android : AirDrop si le téléphone Android figure sur la liste de compatibilité de Google, sinon activez le partage de connexion sur un téléphone, connectez l’autre, et envoyez avec BIShare ou LocalSend."
       },
       "2": {
-        "q": "Puis-je envoyer de gros fichiers hors ligne ?",
-        "a": "Oui — via le Wi-Fi local ou un partage de connexion, il n'y a aucune limite de taille et ça tourne à pleine vitesse réseau. QR Beam sert uniquement aux petits fichiers (texte, clés, petits documents), car les QR codes transportent très peu de données."
+        "q": "AirDrop a-t-il besoin d’internet ?",
+        "a": "Non. Apple exige le Wi-Fi et le Bluetooth activés et des appareils à environ 10 mètres. Depuis iOS 17.1, un transfert commencé à proximité peut se terminer via internet si vous sortez de portée, mais il n’a jamais besoin d’internet pour démarrer."
       },
       "3": {
-        "q": "Le transfert hors ligne fonctionne-t-il entre iPhone et Android ?",
-        "a": "Oui. Contrairement à AirDrop, BIShare est multiplateforme, donc vous pouvez envoyer hors ligne d'un iPhone vers un Android (et toute autre combinaison) via le même Wi-Fi ou un partage de connexion."
+        "q": "Quick Share fonctionne-t-il sans internet ?",
+        "a": "Entre téléphones Android, oui : les étapes de Google ne demandent que le Bluetooth et des téléphones rapprochés. Partager vers un iPhone par QR code est différent, car l’iPhone télécharge depuis un lien web et la page de Google précise que les deux appareils ont besoin d’internet pour cela."
       },
       "4": {
-        "q": "Est-ce toujours chiffré hors ligne ?",
-        "a": "Oui. Les transferts locaux sont chiffrés de bout en bout (X25519 + AES-256-GCM), que vous soyez en ligne ou non. Être hors ligne signifie même que le fichier ne quitte jamais votre réseau local."
+        "q": "Peut-on transférer des fichiers via un partage de connexion sans forfait de données ?",
+        "a": "Sur Android, le partage de connexion forme un réseau local que le téléphone ait internet ou non, une app de transfert sur les deux appareils fonctionne donc comme d’habitude. Sur un iPhone, le Partage de connexion n’apparaît que si les Données cellulaires sont activées et que l’opérateur le prend en charge ; le transfert lui-même ne consomme toujours aucune donnée, puisqu’il reste entre les deux appareils."
+      },
+      "5": {
+        "q": "Comment transférer des fichiers d’un téléphone vers un portable sans internet ?",
+        "a": "Mettez les deux sur un même Wi-Fi ou sur le partage de connexion du téléphone et utilisez BIShare ou LocalSend, ou branchez un câble USB. D’Android vers Windows, Quick Share pour Windows fonctionne aussi quand le PC a le Bluetooth et partage le réseau."
+      },
+      "6": {
+        "q": "Y a-t-il une limite de taille pour les transferts hors ligne ?",
+        "a": "Pas avec BIShare, LocalSend, AirDrop ou un câble ; la seule limite est l’espace libre sur l’appareil récepteur. Le Bluetooth n’a pas de plafond officiel mais il est si lent que tout ce qui dépasse quelques centaines de mégaoctets devient impraticable."
+      },
+      "7": {
+        "q": "Quelle vitesse pour un transfert via partage de connexion ?",
+        "a": "À peu près la même qu’avec un routeur de la même génération : 3 à 8 Mo/s en 2,4 GHz et 40 à 50 Mo/s en 5 GHz dans la même pièce, d’après nos mesures. Un fichier de 1 Go prend une demi-minute en 5 GHz et quelques minutes en 2,4 GHz."
+      },
+      "8": {
+        "q": "Le partage de fichiers hors ligne est-il sûr sur un partage de connexion public ?",
+        "a": "Utilisez une app qui chiffre entre les appareils. BIShare et LocalSend le font, les autres personnes sur le partage de connexion ne peuvent donc pas lire le transfert même si elles partagent le réseau. Limitez la visibilité de l’app à vos propres appareils quand le réglage existe, et coupez le partage de connexion quand vous avez terminé."
+      },
+      "9": {
+        "q": "Quelle app envoie des fichiers hors ligne entre iPhone et Android ?",
+        "a": "BIShare et LocalSend le font tous deux sur un Wi-Fi ou un partage de connexion commun. Sur un Pixel 10 ou un autre téléphone de la liste de Google, AirDrop vers l’iPhone fonctionne sans aucun réseau. La voie par QR code de Quick Share exige internet sur les deux téléphones, elle ne compte donc pas comme hors ligne."
+      },
+      "10": {
+        "q": "BIShare peut-il envoyer un lien quand je suis hors ligne ?",
+        "a": "Non. Les liens, les salles et la version navigateur du partage à proximité passent par internet. Hors ligne, utilisez le transfert à proximité de l’app sur un réseau commun, ou QR Beam pour les fichiers jusqu’à 100 Ko, et partagez un lien plus tard, quand la connexion est revenue."
       }
     }
   },
   "cta": {
-    "title": "Envoyez votre prochain fichier sans internet",
-    "body": "Local, chiffré et gratuit — fonctionne sur n'importe quel réseau, ou sans aucun. Téléchargez BIShare pour votre téléphone ou votre ordinateur.",
+    "title": "Envoyez-le maintenant, avec ou sans internet",
+    "body": "Des transferts directs et chiffrés sur n’importe quel Wi-Fi ou partage de connexion, entre n’importe quel téléphone et n’importe quel ordinateur, sans limite de taille. Et quand la connexion revient, un lien pour tous les autres.",
     "download": "Télécharger BIShare"
   },
   "a11y": {
     "yes": "Oui",
     "no": "Non"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un téléphone et un portable échangent un fichier directement par une liaison locale, sous un nuage barré, titre : envoyer des fichiers sans internet",
+      "title": "Envoyer des fichiers sans internet",
+      "sub": "7 méthodes hors ligne, vérifiées en septembre 2026",
+      "left": "Téléphone",
+      "right": "Portable",
+      "cloud": "Pas d’internet"
+    },
+    "modes": {
+      "alt": "Trois situations hors ligne et ce qui marche dans chacune : un réseau sans internet convient à BIShare, LocalSend et Quick Share pour Windows ; aucun réseau convient à AirDrop, Quick Share et au partage de connexion d’un téléphone ; sans-fil interdit laisse un câble USB, une clé USB ou QR Beam",
+      "title": "Dans quelle situation hors ligne êtes-vous ?",
+      "sub": "L’outil dépend de ce qu’il reste",
+      "z1": "Un réseau, mais pas d’internet",
+      "z1apps": "BIShare · LocalSend · Quick Share pour Windows",
+      "z2": "Aucun réseau",
+      "z2apps": "AirDrop · Quick Share · partage de connexion, puis BIShare",
+      "z3": "Sans-fil interdit",
+      "z3apps": "Câble USB · clé USB-C · QR Beam (100 Ko)",
+      "foot": "Un partage de connexion sans données reste un réseau : il ramène le cas deux au cas un"
+    },
+    "pairs": {
+      "alt": "Méthodes hors ligne par paire d’appareils : iPhone vers iPhone, AirDrop ; Android vers Android, Quick Share ; iPhone vers Android, AirDrop sur les téléphones compatibles ou BIShare via partage de connexion ; téléphone vers Windows, BIShare, Quick Share pour Android ou un câble ; téléphone vers Mac, AirDrop pour iPhone ou BIShare ; ordinateur vers ordinateur, BIShare, Partage de proximité sous Windows ou une clé",
+      "title": "La méthode hors ligne pour chaque paire d’appareils",
+      "sub": "L’intégré d’abord, puis une app, puis un câble",
+      "a": {
+        "need": "iPhone vers iPhone ou Mac",
+        "pick": "AirDrop"
+      },
+      "b": {
+        "need": "Android vers Android",
+        "pick": "Quick Share"
+      },
+      "c": {
+        "need": "iPhone vers Android",
+        "pick": "AirDrop si listé · BIShare via partage de connexion"
+      },
+      "d": {
+        "need": "Téléphone vers PC Windows",
+        "pick": "BIShare · Quick Share (Android) · câble USB"
+      },
+      "e": {
+        "need": "Ordinateur vers ordinateur",
+        "pick": "BIShare · Partage de proximité (Windows) · clé USB"
+      }
+    },
+    "speed": {
+      "alt": "Échelle des vitesses de transfert hors ligne, sur une échelle logarithmique : Bluetooth environ 0,3 Mo/s, Wi-Fi 2,4 GHz 3 à 8 Mo/s, USB 2.0 environ 35 Mo/s, Wi-Fi 5 40 à 50 Mo/s, Wi-Fi 6 70 à 110 Mo/s, clé USB 3 100 Mo/s et plus",
+      "title": "Vitesse de chaque méthode hors ligne pour 1 Go",
+      "sub": "Mesuré de téléphone à PC, échelle log",
+      "bt": "Bluetooth",
+      "btv": "0,3 Mo/s · environ 1 heure",
+      "wifi24": "Wi-Fi 2,4 GHz",
+      "wifi24v": "3 à 8 Mo/s · 2 à 5 min",
+      "usb2": "Câble USB 2.0",
+      "usb2v": "35 Mo/s · 30 s",
+      "wifi5": "Wi-Fi 5 ou partage de connexion",
+      "wifi5v": "40 à 50 Mo/s · 20 à 30 s",
+      "wifi6": "Wi-Fi 6, courte portée",
+      "wifi6v": "70 à 110 Mo/s · 10 à 15 s",
+      "usb3": "Clé USB 3",
+      "usb3v": "100 Mo/s et plus · 10 s",
+      "foot": "Les chiffres Wi-Fi sont des transferts BIShare que nous avons mesurés ; AirDrop, Quick Share et LocalSend ont les mêmes limites radio"
+    }
   }
 }

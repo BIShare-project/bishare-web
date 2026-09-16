@@ -1,84 +1,356 @@
 {
   "meta": {
-    "title": "Enviar archivos sin internet: transferencia offline por Wi-Fi",
-    "description": "¿Sin internet? BIShare transfiere por Wi-Fi local o punto de acceso a toda velocidad, cifrado, y QR Beam pasa archivos pequeños sin ninguna red. Gratis.",
-    "ogTitle": "Enviar archivos sin internet — offline, cifrado, gratis"
+    "title": "Enviar archivos sin internet: 7 vías offline que funcionan (2026)",
+    "description": "¿Sin internet? Los archivos llegan igual. Misma Wi-Fi, punto de acceso, AirDrop, Quick Share, cable o Bluetooth: requisitos, velocidad real y por qué un dispositivo no aparece."
   },
   "hero": {
-    "eyebrow": "Transferencia de archivos offline",
-    "title": "Envía archivos sin internet",
-    "body": "Sin contraseña de Wi-Fi, sin datos, en modo avión o con la red caída — igual necesitas mover un archivo. <strong>BIShare</strong> lo envía <strong>directamente entre dispositivos</strong> por tu Wi-Fi local o el hotspot del móvil, cifrado de extremo a extremo, a máxima velocidad y sin internet. Y cuando <highlight>no hay ninguna red</highlight>, QR Beam transmite un archivo pequeño mediante códigos QR que escanea la otra cámara.",
+    "eyebrow": "Transferencia de archivos sin conexión",
+    "title": "Enviar archivos sin internet",
+    "body": "Toca enviar archivos sin internet: la conexión se ha caído, el avión no tiene Wi-Fi, se acabaron los datos o, sencillamente, no quieres que un vídeo de 4 GB suba a un servidor para volver a bajar. Nada de eso impide que un archivo pase de un dispositivo a otro en la misma habitación. Todos los móviles y ordenadores vendidos en la última década llevan radios que hablan entre sí directamente, y la mayoría de las apps que la gente ya tiene saben usarlas. Esta guía ordena las vías sin conexión según lo que necesitan, desde <strong>una Wi-Fi o un punto de acceso compartidos</strong> hasta <strong>nada más que un cable</strong>, con las velocidades que puedes esperar y los ajustes que suelen romper la detección.",
     "ctaPrimary": "Consigue BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
-  "why": {
-    "title": "Por qué no necesitas internet",
-    "body": "La mayoría de las herramientas para \"compartir\" suben tu archivo a un servidor y lo devuelven — inútiles en cuanto estás offline. BIShare no: en la misma red el archivo va <strong>directo entre dispositivos</strong> y nunca toca la nube, así que funciona en un hotspot sin datos, en un avión o con el internet caído. Nada que subir significa nada que esperar — y nada que un servidor pueda leer."
+  "updated": "Actualizado en septiembre de 2026 · requisitos tomados este mes de las páginas de soporte de Apple, Google y Microsoft, velocidades medidas en nuestros propios dispositivos",
+  "disclosure": "BIShare es nuestro, así que ten en cuenta su lugar en la lista. Necesita que exista una Wi-Fi o un punto de acceso, cosa que AirDrop y Quick Share no piden; donde una herramienta integrada cubre tus dispositivos, lo decimos.",
+  "quick": {
+    "title": "Respuesta rápida",
+    "items": {
+      "0": "<strong>Dos dispositivos en una misma Wi-Fi, o un móvil haciendo de punto de acceso:</strong> instala <goTransfer>BIShare</goTransfer> o <goLocalsend>LocalSend</goLocalsend> en ambos y envía directamente. Nada pasa por internet, no hay tope de tamaño y un vídeo de 1 GB llega en 10 a 30 segundos con un router decente.",
+      "1": "<strong>Dos dispositivos Apple:</strong> AirDrop ya funciona con Wi-Fi y Bluetooth activados y sin ninguna red, a unos 10 metros. Los Pixel y Galaxy recientes pueden sumarse mediante Quick Share.",
+      "2": "<strong>Dos móviles Android, o de Android a un PC con Windows:</strong> Quick Share usa Bluetooth para encontrar el otro dispositivo y no necesita internet entre móviles Android. La excepción es la vía al iPhone por código QR: ambos lados tienen que estar conectados.",
+      "3": "<strong>Radios en las que no confías, o un portátil bloqueado:</strong> un cable USB o una memoria USB-C siguen siendo la opción más rápida y privada, y funciona en cualquier sistema operativo.",
+      "4": "<strong>Un archivo diminuto sin red de ningún tipo:</strong> QR Beam, de BIShare, convierte cualquier cosa de hasta 100 KB en una secuencia de códigos QR que la cámara del otro móvil lee.",
+      "5": "<strong>El otro dispositivo no aparece:</strong> nueve de cada diez veces el router aísla a los clientes, el iPhone no tiene concedido el permiso de Red local o Windows trata la Wi-Fi como red pública. Las soluciones están más abajo."
+    }
   },
-  "how": {
-    "title": "Tres formas de enviar offline",
+  "modes": {
+    "title": "Sin conexión significa tres situaciones distintas",
+    "body": "Cuando alguien dice sin conexión quiere decir una de tres cosas, y la herramienta adecuada depende de en cuál estés. La Wi-Fi de un hotel con la salida a internet rota sigue siendo una red: los dispositivos conectados a ella pueden encontrarse aunque no cargue ninguna página. Un campo sin ninguna Wi-Fi es otra cosa, porque ahora algo tiene que crear la conexión entre los dos dispositivos. Y un ordenador que prohíbe todo lo inalámbrico solo deja el cable. Averigua en qué caso estás antes de elegir una app.",
     "items": {
       "0": {
-        "h": "Mismo Wi-Fi o un hotspot",
-        "b": "Conecta ambos dispositivos al mismo Wi-Fi — o convierte uno en hotspot personal con los datos móviles apagados. BIShare encuentra el otro dispositivo y transmite el archivo directamente, cifrado de extremo a extremo, a máxima velocidad local. Sin internet, sin límite de tamaño."
+        "h": "Hay red, pero no internet",
+        "b": "Cualquier red Wi-Fi funciona como red local aunque la línea hacia fuera esté muerta: el router de casa durante un corte, la Wi-Fi de la oficina con la salida caída, el punto de acceso de un móvil con los datos agotados. A las apps que transfieren por la red local, como BIShare y LocalSend, les da igual que internet esté o no al alcance. Buscan el otro dispositivo en la misma red y le envían el archivo directamente."
       },
       "1": {
-        "h": "¿Ninguna red? QR Beam",
-        "b": "Cuando no hay Wi-Fi, hotspot ni Bluetooth, QR Beam convierte un archivo pequeño en un flujo animado de códigos QR en una pantalla; la cámara del otro dispositivo los escanea para reconstruirlo. Puramente de pantalla a cámara — ideal para texto, claves y documentos pequeños."
+        "h": "No hay ninguna red",
+        "b": "Ahora uno de los dispositivos tiene que crearla. AirDrop y Quick Share lo hacen solos, en silencio, con Bluetooth para la detección y una conexión Wi-Fi de igual a igual para los datos. Todo lo demás necesita que crees la red a mano: activa el punto de acceso de un móvil o enchufa un router de viaje a una batería externa. En cuanto existe el punto de acceso, vuelves a la primera situación."
       },
       "2": {
-        "h": "En cualquier plataforma",
-        "b": "iPhone, Android, Mac, Windows y Linux — la transferencia offline funciona en todas las direcciones, incluida la que AirDrop no puede: de iPhone a Android."
+        "h": "Lo inalámbrico no es una opción",
+        "b": "Algunos portátiles de empresa bloquean el Bluetooth y las redes desconocidas, y en algunos sitios te piden mantener las radios apagadas. Un cable entre los dos dispositivos, o una memoria USB que va de uno a otro, mueve archivos a velocidad USB sin nada en el aire. Es la vía menos elegante y, a menudo, la más rápida para una carpeta de archivos grandes."
       }
     }
   },
-  "comparison": {
-    "title": "Bluetooth vs Email vs BIShare",
+  "methods": {
+    "title": "Siete formas de enviar archivos sin internet, clasificadas",
+    "consLabel": "Ojo con:",
+    "items": {
+      "0": {
+        "name": "BIShare por Wi-Fi o punto de acceso",
+        "tag": "La mejor cuando los dos dispositivos son de marcas distintas, o uno de ellos es un ordenador",
+        "facts": "iPhone, Android, Windows, macOS, Linux · código abierto (MIT) · misma Wi-Fi o punto de acceso · sin límite de tamaño · intercambio de claves X25519 y AES-256-GCM en cada transferencia · sin cuenta",
+        "body": "Abre BIShare en los dos dispositivos mientras comparten red y cada uno aparece en la lista de cercanos del otro en uno o dos segundos. Elige el archivo, elige el dispositivo, acepta en el otro lado y los bytes van de uno a otro por la red local. No se sube nada, así que la transferencia corre a la velocidad que dé el router y no hay límite de tamaño. La conexión va cifrada de extremo a extremo, algo que importa en un punto de acceso que no has montado tú. Si la Wi-Fi se cae a mitad de una carpeta de 20 GB, la transferencia <goLargeFiles>retoma donde se quedó</goLargeFiles> en cuanto los dispositivos vuelven a verse, en lugar de empezar de cero.",
+        "cons": "Necesita que exista una red, así que sin Wi-Fi alrededor primero activas un punto de acceso. Los enlaces, las salas y la versión de navegador del envío cercano pasan por internet y no están disponibles sin conexión."
+      },
+      "1": {
+        "name": "AirDrop",
+        "tag": "La mejor entre dispositivos Apple, y ahora con algunos móviles Android",
+        "facts": "iPhone, iPad, Mac · móviles Android con soporte de AirDrop en Quick Share · Wi-Fi y Bluetooth activados, sin necesidad de red · a menos de 30 pies, unos 10 metros · sin límite de tamaño",
+        "body": "AirDrop es lo más parecido a una transferencia realmente sin conexión: la página de soporte de Apple solo pide que ambos dispositivos tengan Wi-Fi y Bluetooth activados y estén a unos 10 metros el uno del otro. No interviene ningún router; los dispositivos crean su propia conexión. Desde finales de 2025 <goAirdropAndroid>una lista creciente de móviles Android también puede usar AirDrop</goAirdropAndroid>, empezando por la serie Pixel 10 y ampliándose a los Galaxy recientes y otros gama alta, siempre que el iPhone esté configurado para recibir de Todos durante 10 minutos. En un Mac los archivos van a Descargas; en un iPhone las fotos acaban en Fotos y todo lo demás en Archivos.",
+        "cons": "Windows y Linux quedan totalmente fuera, y un móvil Android que no esté en la lista de Google no puede participar. Compartir Internet tiene que estar desactivado en el iPhone, lo cual es un fastidio si ese punto de acceso es justo lo que están usando los demás."
+      },
+      "2": {
+        "name": "Quick Share",
+        "tag": "La mejor entre móviles Android, y de Android a un PC con Windows",
+        "facts": "Android 6 y posteriores, Chromebooks, Windows 10 y 11 mediante la app de Google · Bluetooth activado, dispositivos muy cerca · Windows necesita la misma red y un adaptador Bluetooth · 10 GB cada 24 horas hacia iPhone por QR, con internet obligatorio en esa vía",
+        "body": "<goNearby>Quick Share</goNearby> viene integrado en Android y usa Bluetooth para encontrar el otro móvil, y después la conexión más rápida que consiga para los datos. Los pasos de solución de problemas de Google son reveladores: activa el Bluetooth en ambos dispositivos y acércalos a menos de 30 cm para conectar. Entre dos móviles Android no se pide internet. La app de Windows lleva lo mismo a un PC que comparta la red del móvil y tenga Bluetooth, y los archivos llegan a Descargas. La visibilidad la eliges tú: solo tus dispositivos, contactos o todos durante diez minutos.",
+        "cons": "La vía al iPhone es un enlace web: el iPhone escanea un código QR y descarga desde el navegador, y la página de Google dice que ambos dispositivos necesitan acceso a internet para ello. Los Mac y los equipos Linux no tienen cliente oficial, y un móvil sin servicios de Google no tiene Quick Share."
+      },
+      "3": {
+        "name": "LocalSend",
+        "tag": "La mejor si quieres una app de código abierto que nunca habla con un servidor",
+        "facts": "Android, iPhone, Windows, macOS, Linux, Fire OS · código abierto (Apache 2.0) · solo en la misma red local · HTTPS con un certificado que genera cada dispositivo · puerto 53317",
+        "body": "<goLocalsend>LocalSend</goLocalsend> hace una sola cosa y no tiene ningún servidor detrás: los dispositivos de una misma red se encuentran por multidifusión y envían por HTTPS. Se instala desde las tiendas de apps, Winget, Homebrew y Flathub, y no hay que crear cuenta. En un punto de acceso sin datos se comporta exactamente igual que en casa. Es la elección natural si quieres poder leer la app entera en GitHub y nunca necesitas llegar a un dispositivo que está en otro sitio.",
+        "cons": "La detección depende de la multidifusión, que las redes de invitados y muchos routers de hotel bloquean, y no hay vía alternativa cuando falla. Su modo de compartir por enlace también se abre solo en la misma red."
+      },
+      "4": {
+        "name": "Uso compartido en proximidad de Windows",
+        "tag": "La mejor entre dos PC con Windows que tengan Bluetooth",
+        "facts": "Windows 10 versión 1803 y posteriores, Windows 11 · Bluetooth, o Wi-Fi en la misma red privada · guarda en Descargas por defecto · Todos los usuarios cercanos o Solo mis dispositivos",
+        "body": "Windows tiene su propia función al estilo AirDrop, y la mayoría nunca la ha abierto. Activa Uso compartido en proximidad en Configuración, haz clic derecho en un archivo, elige Compartir y el otro PC aparece si tiene el Bluetooth encendido. La página de Microsoft añade que el Windows 11 más reciente también puede enviar por Wi-Fi cuando ambos PC están en la misma red privada, mucho más rápido que por Bluetooth para cualquier cosa de más de unos pocos megabytes. Los archivos recibidos van a Descargas salvo que cambies la carpeta.",
+        "cons": "Solo funciona de Windows a Windows; no hay parte para el móvil. Elegir Todos los usuarios cercanos difunde el nombre y la dirección Bluetooth del PC a cualquiera que esté cerca, y la vía por Wi-Fi exige que la red esté marcada como Privada."
+      },
+      "5": {
+        "name": "Un cable USB o una memoria USB-C",
+        "tag": "La mejor para carpetas grandes, ordenadores bloqueados y cualquier sitio con las radios apagadas",
+        "facts": "Cualquier móvil y ordenador · USB 2.0 a 480 Mb/s sobre el papel, USB 3 mucho más rápido · exFAT para archivos de más de 4 GB en una memoria compartida · sin radios, sin red",
+        "body": "Un cable entre un móvil y un ordenador, o una pequeña memoria USB-C que va de un dispositivo al otro, es la vía que siempre funciona. Los móviles Android aparecen como una unidad en el Explorador de archivos, y Finder necesita una app auxiliar; los iPhone exponen sus fotos a Windows y copian cualquier cosa mediante la app Archivos a una memoria conectada a un iPhone con USB-C. Formatea una memoria compartida en exFAT para que Windows y macOS puedan escribir en ella y un solo archivo pueda superar los 4 GB. Para una carpeta de proyecto de 100 GB suele ser la opción más rápida del edificio, y nada en ella depende de que una red funcione bien.",
+        "cons": "De móvil a móvil por cable hace falta el conector correcto y un móvil que lo admita, y una memoria es una cosa más que llevar y que perder."
+      },
+      "6": {
+        "name": "Bluetooth",
+        "tag": "La mejor como último recurso cuando no hay nada más instalado",
+        "facts": "Android, Windows, macOS, Linux · el Bluetooth clásico no pasa de 3 Mb/s · requiere emparejar · el iPhone no envía archivos por Bluetooth",
+        "body": "El envío de archivos por Bluetooth a secas es anterior a todas las apps de esta página y sigue incluido en Android, Windows, macOS y la mayoría de escritorios Linux: empareja los dos dispositivos, comparte el archivo, acepta en el otro lado. No necesita red ni app, y por eso merece un sitio aquí. La pega es la velocidad. El Bluetooth clásico mueve datos a unos pocos megabits por segundo como mucho, así que un vídeo de 100 MB es cosa de una pausa para el café y una película, ni pensarlo.",
+        "cons": "Los iPhone no aceptan archivos por Bluetooth en absoluto; Apple lo reserva para el paso de detección de AirDrop. Cuenta con minutos por cada 100 MB y avisos de emparejamiento en ambos extremos."
+      }
+    }
+  },
+  "beam": {
+    "title": "Un archivo sin red, sin cable y sin emparejar: QR Beam",
+    "body": "Queda una vía más para los archivos más pequeños. QR Beam, de BIShare, codifica un archivo de hasta 100 KB en una secuencia de códigos QR que se reproducen en una pantalla mientras la cámara del otro móvil los vuelve a convertir en archivo. Caben una contraseña de Wi-Fi, una tarjeta de contacto, una clave pública, un texto corto o un PDF pequeño. No se transmite nada por ninguna radio, así que funciona en un sótano, en un avión o entre dos móviles que se niegan a verse. Windows y Linux pueden mostrar los códigos, pero no tienen cámara para escanearlos, así que el lado receptor es un móvil."
+  },
+  "table": {
+    "title": "De un vistazo",
     "cols": {
-      "airdrop": "Bluetooth",
-      "quick": "Email",
-      "bishare": "BIShare"
+      "feature": "Vía sin conexión",
+      "bishare": "BIShare",
+      "airdrop": "AirDrop",
+      "quick": "Quick Share",
+      "localsend": "LocalSend",
+      "bluetooth": "Bluetooth",
+      "usb": "USB"
     },
     "rows": {
       "r0": "Funciona sin internet",
-      "r1": "Envía iPhone ↔ Android ↔ PC",
-      "r2": "Rápido para archivos grandes",
-      "r3": "Cifrado de extremo a extremo",
-      "r4": "Funciona sin ninguna red (QR Beam)"
+      "r1": "De un móvil a un PC con Windows",
+      "r2": "De iPhone a Android",
+      "r3": "Sin límite de tamaño",
+      "r4": "No necesita router ni punto de acceso",
+      "r5": "Cifrado por el camino"
+    },
+    "note": "Comprobado en septiembre de 2026. AirDrop llega a Android solo en los móviles que Google lista como compatibles. Quick Share hacia un iPhone pasa por un código QR y una descarga web que necesita internet en ambos lados, así que esa combinación queda marcada como no apta sin conexión. El Bluetooth va cifrado tras el emparejamiento, pero es demasiado lento para archivos grandes. El USB mueve los datos por cable, así que el cifrado no entra en juego."
+  },
+  "hotspot": {
+    "title": "Crear una red donde no la hay: punto de acceso o router",
+    "body": "Apps como BIShare y LocalSend necesitan una red en la que encontrarse. Cuando no hay Wi-Fi, la más rápida es el punto de acceso de un móvil, y un punto de acceso no necesita internet operativo para hacer de red local. Los detalles cambian según la plataforma, y son los que deciden si el truco te sirve.",
+    "items": {
+      "0": {
+        "h": "El iPhone como punto de acceso",
+        "b": "Compartir Internet está en Ajustes, o dentro de Datos móviles, y la página de Apple es clara con dos condiciones: tu operador tiene que admitir Compartir Internet y los Datos móviles tienen que estar activados; si no, la opción aparece atenuada. Que los datos estén activados no significa que se gasten; una transferencia entre los dos dispositivos del punto de acceso nunca sale de él. La contraseña de la Wi-Fi debe tener al menos ocho caracteres. Ten en cuenta que AirDrop se pausa mientras Compartir Internet está activo, así que elige uno u otro."
+      },
+      "1": {
+        "h": "Android como punto de acceso",
+        "b": "Mantén pulsado el icono de Punto de acceso en los Ajustes rápidos y activa Punto de acceso Wi-Fi; la página de Google dice que pueden conectarse hasta diez dispositivos. Los operadores a veces limitan o cobran el compartir conexión, lo que afecta a la parte de internet, no a la red local. En la práctica, un ordenador o un segundo móvil se conecta al punto de acceso, ambos abren la app de transferencia y se ven exactamente igual que en el router de casa."
+      },
+      "2": {
+        "h": "Un router sin nada enchufado",
+        "b": "Cualquier router Wi-Fi crea una red local en cuanto tiene corriente, haya o no un cable en su puerto WAN. Un router de viaje de bolsillo con una batería externa es la forma más limpia de dar a un grupo de dispositivos una red compartida en un rodaje, un puesto de mercado o un aula sin internet. Los portátiles también pueden crear una red, pero la Zona con cobertura inalámbrica móvil de Windows espera una conexión a internet que compartir, así que un móvil o un router es más fiable."
+      },
+      "3": {
+        "h": "Cuando no te dejan crear ninguna",
+        "b": "Algunos portátiles corporativos bloquean la conexión a puntos de acceso desconocidos. Entonces el orden de preferencia es un cable, una memoria USB o Bluetooth si el archivo es pequeño. Si ambos dispositivos pueden llegar a internet más tarde, <goTransfer>un enlace de BIShare</goTransfer> desde el móvil hace llegar el archivo cuando el portátil vuelva a una red permitida."
+      }
+    }
+  },
+  "speed": {
+    "title": "¿Qué velocidad alcanza una transferencia sin conexión?",
+    "body": "Más de la que la mayoría espera, porque no se sube nada. El ritmo lo marca la conexión entre los dos dispositivos. Estas son las cifras que medimos entre un móvil y un PC con BIShare; AirDrop, Quick Share y LocalSend se mueven en los mismos rangos con el mismo hardware, porque el límite es la radio, no la app.",
+    "items": {
+      "0": {
+        "h": "Wi-Fi y puntos de acceso",
+        "b": "En una red de 2,4 GHz cuenta con 3 a 8 MB/s, es decir, de 2 a 5 minutos por gigabyte. Wi-Fi 5 en la banda de 5 GHz da de 40 a 50 MB/s, así que un gigabyte tarda de 20 a 30 segundos, y Wi-Fi 6 a corta distancia llega a 70 a 110 MB/s. El punto de acceso de un móvil suele comportarse como un router de 5 GHz de gama media cuando los dispositivos están en la misma habitación, y como uno de 2,4 GHz cuando no."
+      },
+      "1": {
+        "h": "Cables y memorias",
+        "b": "USB 2.0 está especificado a 480 Mb/s, unos 35 MB/s una vez descontada la sobrecarga, y eso es lo que ofrece la mayoría de móviles por su puerto de carga. Los puertos y memorias USB 3 van varias veces más rápido, así que una carpeta que tardaría una hora por Wi-Fi de 2,4 GHz se copia en unos minutos. Los iPhone antiguos con Lightning se quedan en velocidades USB 2; los modelos Pro con USB-C van mucho más rápido con un cable homologado."
+      },
+      "2": {
+        "h": "Bluetooth",
+        "b": "El Bluetooth clásico está especificado a 3 Mb/s y entrega menos, así que cuenta con minutos por cada 100 MB. Vale para un documento o un puñado de fotos y es inútil para vídeo. AirDrop y Quick Share usan el Bluetooth solo para encontrar el otro dispositivo y después pasan a Wi-Fi para los bytes, por eso son mucho más rápidos que un envío por Bluetooth a secas."
+      }
+    }
+  },
+  "steps": {
+    "title": "Enviar sin conexión con BIShare, paso a paso",
+    "items": {
+      "0": {
+        "h": "Pon los dos dispositivos en una misma red",
+        "b": "Conéctalos a la misma Wi-Fi, o activa un punto de acceso en un móvil y conecta el otro dispositivo a él. La red no necesita internet; BIShare nunca lo comprueba durante una transferencia cercana."
+      },
+      "1": {
+        "h": "Abre BIShare en ambos",
+        "b": "La app se anuncia en la red local y lista todos los demás BIShare que oye. Dale a cada dispositivo un nombre reconocible en Ajustes la primera vez, para que una habitación llena de móviles se lea fácil."
+      },
+      "2": {
+        "h": "Elige los archivos y el dispositivo",
+        "b": "Toca Enviar, elige fotos, vídeos, documentos o una carpeta entera y selecciona el otro dispositivo en la lista de cercanos. Le aparece un aviso para aceptar con el nombre del remitente y el tamaño total; no llega nada hasta que alguien toca Aceptar."
+      },
+      "3": {
+        "h": "Déjalo correr, aunque la Wi-Fi dé tirones",
+        "b": "Las transferencias grandes muestran el progreso en ambos extremos. Si la red se cae, la app espera y continúa desde el último fragmento verificado cuando los dispositivos vuelven a encontrarse. Cada archivo se comprueba contra su hash antes de marcarse como completo, y aterriza en una carpeta BIShare: dentro de Descargas en Android, en la carpeta de la app en Archivos en un iPhone, y en Documentos en un ordenador salvo que hayas elegido otra ubicación en Ajustes."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Cuando el otro dispositivo no aparece",
+    "body": "Las transferencias sin conexión fallan en el paso de detección mucho más a menudo que en el de transferencia. Estas son las causas que vemos en el correo de soporte, más o menos por orden de frecuencia.",
+    "items": {
+      "0": {
+        "h": "El router o el punto de acceso aísla a sus clientes",
+        "b": "Las redes de invitados, la Wi-Fi de hotel y muchos sistemas mesh activan el aislamiento de AP o de clientes, que impide que los dispositivos de la misma red se vean. Nada en tu dispositivo puede arreglarlo. Pasa ambos dispositivos al punto de acceso de un móvil, donde no hay aislamiento, o usa un cable."
+      },
+      "1": {
+        "h": "El iPhone no ha dado permiso de Red local",
+        "b": "iOS pregunta a cada app una sola vez si puede buscar dispositivos en la red local. Si el aviso se descartó, la app no oye nada. Abre Ajustes, Privacidad y seguridad, Red local, y activa la app. AirDrop tiene su propio interruptor en General, AirDrop."
+      },
+      "2": {
+        "h": "Windows trata la red como pública",
+        "b": "En una red pública Windows bloquea la detección entrante tanto para las apps como para el Uso compartido en proximidad. Abre los ajustes de la red y cambia el perfil a Privada, y luego permite la app en el Firewall de Windows Defender si lo pide."
+      },
+      "3": {
+        "h": "Hay una VPN activa",
+        "b": "Las apps de VPN suelen meter todo el tráfico en el túnel, incluido el local, así que los dispositivos cercanos desaparecen aunque la Wi-Fi vaya bien. Pausa la VPN durante la transferencia, o activa su excepción para la red local si la tiene."
+      },
+      "4": {
+        "h": "Dos redes que parecen una",
+        "b": "Algunos routers ponen las bandas de 2,4 GHz y 5 GHz, o los clientes por cable y por Wi-Fi, en subredes separadas que no dejan pasar los paquetes de detección. Conecta ambos dispositivos a la misma banda, o recurre al punto de acceso."
+      },
+      "5": {
+        "h": "El Bluetooth está apagado, o los dispositivos están demasiado lejos",
+        "b": "AirDrop y Quick Share necesitan el Bluetooth activado para encontrarse y funcionan mejor a pocos metros; Google sugiere acercar los móviles a menos de 30 cm para conectar. Compartir Internet en el iPhone también desactiva AirDrop hasta que lo apagas."
+      }
+    }
+  },
+  "security": {
+    "title": "¿Es privada una transferencia sin conexión?",
+    "body": "Más que cualquier subida, porque no hay servidor en el que confiar y nada se guarda en ningún sitio salvo en los dos dispositivos. Lo que cambia entre vías es lo que ocurre por el camino, y eso importa en un punto de acceso o una red compartida que no controlas.",
+    "items": {
+      "0": {
+        "h": "Cifrado de dispositivo a dispositivo",
+        "b": "BIShare negocia una clave con X25519 en cada transferencia y cifra el flujo con AES-256-GCM, así que otro dispositivo del mismo punto de acceso solo ve texto cifrado; <goEncrypted>los detalles están en nuestra guía de transferencia cifrada</goEncrypted>. LocalSend cifra con HTTPS y un certificado que cada dispositivo se genera. AirDrop y Quick Share también cifran sus conexiones de igual a igual."
+      },
+      "1": {
+        "h": "Quién puede ver el dispositivo",
+        "b": "La detección es la parte visible. El ajuste Todos los usuarios cercanos de Windows comparte el nombre y la dirección Bluetooth del PC con cualquiera al alcance; el modo Todos de Quick Share dura diez minutos y luego vuelve atrás; Todos durante 10 minutos de AirDrop hace lo mismo. Déjalos en solo contactos o solo tus dispositivos en cuanto termine la transferencia."
+      },
+      "2": {
+        "h": "La contraseña del punto de acceso es la puerta de entrada",
+        "b": "Cualquiera que se conecte al punto de acceso está en la misma red local que tus dispositivos. Usa el mínimo de ocho caracteres que pide Apple y algo más largo, compártela en persona y apaga el punto de acceso después. Un cable o una memoria USB esquivan la cuestión por completo, por eso siguen siendo la elección para material confidencial."
+      }
     }
   },
   "faq": {
-    "title": "Transferencia de archivos offline: preguntas frecuentes",
+    "title": "Enviar archivos sin internet: preguntas frecuentes",
     "items": {
       "0": {
-        "q": "¿De verdad puedo enviar archivos sin internet?",
-        "a": "Sí. En el mismo Wi-Fi o un hotspot, BIShare transfiere directamente entre dispositivos y nunca usa internet — el archivo nunca toca un servidor. Para un archivo pequeño sin ninguna red, QR Beam lo envía mediante un flujo de códigos QR."
+        "q": "¿Puedo transferir archivos sin internet?",
+        "a": "Sí. Dos dispositivos en la misma Wi-Fi o en el punto de acceso de un móvil pueden intercambiar archivos directamente con una app como BIShare o LocalSend, sin que internet intervenga. AirDrop y Quick Share no necesitan ninguna red entre dispositivos compatibles, y un cable o una memoria USB funcionan en todas partes."
       },
       "1": {
-        "q": "¿Cómo comparto archivos offline entre dos teléfonos?",
-        "a": "Conecta ambos teléfonos al mismo Wi-Fi, o convierte uno en hotspot personal (con los datos móviles apagados no hay problema). Abre BIShare en ambos, elige el archivo y envía — se transmite directamente, cifrado, sin necesidad de internet."
+        "q": "¿Cómo envío archivos de móvil a móvil sin internet?",
+        "a": "Dos iPhone: AirDrop. Dos móviles Android: Quick Share con el Bluetooth activado. Un iPhone y un Android: AirDrop si el Android está en la lista de compatibles de Google; si no, activa un punto de acceso en un móvil, conecta el otro y envía con BIShare o LocalSend."
       },
       "2": {
-        "q": "¿Puedo enviar archivos grandes offline?",
-        "a": "Sí — por Wi-Fi local o un hotspot no hay límite de tamaño y va a máxima velocidad de red. QR Beam es solo para archivos pequeños (texto, claves, documentos pequeños), porque los códigos QR transportan muy pocos datos."
+        "q": "¿AirDrop necesita internet?",
+        "a": "No. Los requisitos de Apple son Wi-Fi y Bluetooth activados y los dispositivos a unos 10 metros. Desde iOS 17.1 una transferencia que empezó cerca puede terminar por internet si te alejas del alcance, pero nunca necesita internet para empezar."
       },
       "3": {
-        "q": "¿La transferencia offline funciona entre iPhone y Android?",
-        "a": "Sí. A diferencia de AirDrop, BIShare es multiplataforma, así que puedes enviar offline de un iPhone a un Android (y cualquier otra combinación) por el mismo Wi-Fi o un hotspot."
+        "q": "¿Quick Share funciona sin internet?",
+        "a": "Entre móviles Android, sí: los pasos de Google solo piden Bluetooth y los móviles cerca. Compartir con un iPhone mediante el código QR es distinto, porque el iPhone descarga desde un enlace web y la página de Google dice que ambos dispositivos necesitan internet para ello."
       },
       "4": {
-        "q": "¿Sigue estando cifrado cuando estoy offline?",
-        "a": "Sí. Las transferencias locales están cifradas de extremo a extremo (X25519 + AES-256-GCM) estés o no en línea. Estar offline significa, de hecho, que el archivo nunca sale de tu red local."
+        "q": "¿Puedo usar un punto de acceso para transferir archivos sin plan de datos?",
+        "a": "En Android el punto de acceso forma una red local tenga o no internet el móvil, así que una app de transferencia en ambos dispositivos funciona como siempre. En un iPhone, Compartir Internet solo aparece con los Datos móviles activados y un operador que lo admita; la transferencia en sí sigue sin gastar datos porque se queda entre los dos dispositivos."
+      },
+      "5": {
+        "q": "¿Cómo paso archivos de un móvil a un portátil sin internet?",
+        "a": "Conecta ambos a una misma Wi-Fi o al punto de acceso del móvil y usa BIShare o LocalSend, o enchufa un cable USB. De Android a Windows también funciona Quick Share para Windows cuando el PC tiene Bluetooth y comparte la red."
+      },
+      "6": {
+        "q": "¿Hay límite de tamaño en las transferencias sin conexión?",
+        "a": "Con BIShare, LocalSend, AirDrop o un cable, no; el único límite es el espacio libre del dispositivo receptor. El Bluetooth no tiene tope formal, pero es tan lento que cualquier cosa de más de unos cientos de megabytes resulta impracticable."
+      },
+      "7": {
+        "q": "¿A qué velocidad va la transferencia por punto de acceso?",
+        "a": "Más o menos como por un router de la misma generación: de 3 a 8 MB/s en 2,4 GHz y de 40 a 50 MB/s en 5 GHz en la misma habitación, según nuestras mediciones. Un archivo de 1 GB tarda medio minuto en 5 GHz y unos minutos en 2,4 GHz."
+      },
+      "8": {
+        "q": "¿Es seguro compartir archivos sin conexión en un punto de acceso público?",
+        "a": "Usa una app que cifre entre los dispositivos. BIShare y LocalSend lo hacen, así que el resto de la gente del punto de acceso no puede leer la transferencia aunque comparta la red. Deja la visibilidad de la app en solo tus dispositivos donde exista el ajuste, y apaga el punto de acceso al terminar."
+      },
+      "9": {
+        "q": "¿Qué app envía archivos sin conexión entre iPhone y Android?",
+        "a": "BIShare y LocalSend lo hacen por una Wi-Fi o un punto de acceso compartidos. En un Pixel 10 u otro móvil de la lista de Google, AirDrop hacia el iPhone funciona sin ninguna red. La vía por código QR de Quick Share necesita internet en ambos móviles, así que no cuenta como sin conexión."
+      },
+      "10": {
+        "q": "¿BIShare puede enviar un enlace cuando estoy sin conexión?",
+        "a": "No. Los enlaces, las salas y la versión de navegador del envío cercano pasan por internet. Sin conexión, usa la transferencia cercana de la app en una red compartida o QR Beam para archivos de hasta 100 KB, y comparte un enlace más tarde cuando vuelva la conexión."
       }
     }
   },
   "cta": {
-    "title": "Envía tu próximo archivo sin internet",
-    "body": "Local, cifrado y gratis — funciona en cualquier red, o sin ninguna. Consigue BIShare para tu teléfono o computadora.",
+    "title": "Envíalo ahora, con internet o sin él",
+    "body": "Transferencias directas y cifradas en cualquier Wi-Fi o punto de acceso, entre cualquier móvil y cualquier ordenador, sin límite de tamaño. Y cuando vuelva la conexión, un enlace para todos los demás.",
     "download": "Descargar BIShare"
   },
   "a11y": {
     "yes": "Sí",
     "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un móvil y un portátil intercambiando un archivo directamente por una conexión local mientras una nube tachada flota encima, con el título enviar archivos sin internet",
+      "title": "Enviar archivos sin internet",
+      "sub": "7 vías offline, revisadas en septiembre de 2026",
+      "left": "Móvil",
+      "right": "Portátil",
+      "cloud": "Sin internet"
+    },
+    "modes": {
+      "alt": "Tres situaciones sin conexión y qué funciona en cada una: una red sin internet sirve para BIShare, LocalSend y Quick Share para Windows; sin ninguna red sirven AirDrop, Quick Share y el punto de acceso de un móvil; con lo inalámbrico prohibido quedan un cable USB, una memoria USB o QR Beam",
+      "title": "¿En qué situación sin conexión estás?",
+      "sub": "La herramienta depende de lo que quede",
+      "z1": "Red, pero sin internet",
+      "z1apps": "BIShare · LocalSend · Quick Share para Windows",
+      "z2": "Sin ninguna red",
+      "z2apps": "AirDrop · Quick Share · punto de acceso del móvil, luego BIShare",
+      "z3": "Inalámbrico prohibido",
+      "z3apps": "Cable USB · memoria USB-C · QR Beam (100 KB)",
+      "foot": "Un punto de acceso sin datos sigue siendo una red: convierte el caso dos en el caso uno"
+    },
+    "pairs": {
+      "alt": "Vías sin conexión por pareja de dispositivos: de iPhone a iPhone, AirDrop; de Android a Android, Quick Share; de iPhone a Android, AirDrop en móviles compatibles o BIShare en un punto de acceso; de móvil a Windows, BIShare, Quick Share en Android o un cable; de móvil a Mac, AirDrop para iPhone o BIShare; de ordenador a ordenador, BIShare, Uso compartido en proximidad de Windows o una memoria",
+      "title": "La vía sin conexión para cada pareja de dispositivos",
+      "sub": "Primero lo integrado, luego una app, luego un cable",
+      "a": {
+        "need": "iPhone a iPhone o Mac",
+        "pick": "AirDrop"
+      },
+      "b": {
+        "need": "Android a Android",
+        "pick": "Quick Share"
+      },
+      "c": {
+        "need": "iPhone a Android",
+        "pick": "AirDrop en móviles de la lista · BIShare con punto de acceso"
+      },
+      "d": {
+        "need": "Móvil a PC con Windows",
+        "pick": "BIShare · Quick Share (Android) · cable USB"
+      },
+      "e": {
+        "need": "Ordenador a ordenador",
+        "pick": "BIShare · Uso compartido en proximidad (Windows) · memoria USB"
+      }
+    },
+    "speed": {
+      "alt": "Escalera de velocidad de transferencia sin conexión en escala logarítmica: Bluetooth unos 0,3 MB/s, Wi-Fi de 2,4 GHz de 3 a 8 MB/s, USB 2.0 unos 35 MB/s, Wi-Fi 5 de 40 a 50 MB/s, Wi-Fi 6 de 70 a 110 MB/s, una memoria USB 3 100 MB/s o más",
+      "title": "A qué velocidad mueve 1 GB cada vía sin conexión",
+      "sub": "Medido de móvil a PC, escala logarítmica",
+      "bt": "Bluetooth",
+      "btv": "0,3 MB/s · aprox. 1 hora",
+      "wifi24": "Wi-Fi 2,4 GHz",
+      "wifi24v": "3 a 8 MB/s · 2 a 5 min",
+      "usb2": "Cable USB 2.0",
+      "usb2v": "35 MB/s · 30 s",
+      "wifi5": "Wi-Fi 5 o punto de acceso",
+      "wifi5v": "40 a 50 MB/s · 20 a 30 s",
+      "wifi6": "Wi-Fi 6, corta distancia",
+      "wifi6v": "70 a 110 MB/s · 10 a 15 s",
+      "usb3": "Memoria USB 3",
+      "usb3v": "100 MB/s o más · 10 s",
+      "foot": "Las cifras de Wi-Fi son transferencias de BIShare que medimos; AirDrop, Quick Share y LocalSend comparten los mismos límites de radio"
+    }
   }
 }
