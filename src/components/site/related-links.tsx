@@ -47,7 +47,7 @@ const CLUSTER: Record<string, string[]> = {
 export async function RelatedLinks({ current }: { current: string }) {
   const t = await getTranslations("related");
   // Callers are inconsistent: the individually-built landing pages pass
-  // "/airdrop-for-windows" while ComparisonLanding passes a bare slug. The map
+  // "/airdrop-for-windows" while older callers passed a bare slug. The map
   // is keyed by bare slug, so a leading slash silently missed every lookup and
   // this whole block — cluster links AND the Transfer/Rooms CTA — rendered
   // nothing on 19 pages across all 13 locales. Normalize instead of trusting

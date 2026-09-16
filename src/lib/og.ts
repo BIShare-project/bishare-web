@@ -11,16 +11,6 @@ const OG_IMAGE = {
 };
 
 /**
- * Landing pages still on the generic route figure (drawn by
- * tool/landing-figures.mjs). For these the page's own figure is the share
- * image, so the link previews that instead of the brand card. Keep in sync
- * with FIGURES in that script. Rebuilt pages pass a locale to
- * sharedOpenGraph and use their own hero raster instead, which is why this
- * set keeps shrinking.
- */
-const ROUTE_FIGURES = new Set(["/firefox-send-alternative"]);
-
-/**
  * Shared OpenGraph builder so every page inherits the brand og-image and
  * site name without re-declaring them (review fix #19). Spread the result
  * into a page's `metadata`:
@@ -45,9 +35,7 @@ export function sharedOpenGraph(
 ): Pick<Metadata, "openGraph" | "twitter"> {
   const image = heroLocale
     ? { url: `/img${path}/hero.${heroLocale}.jpg`, width: 1200, height: 630, alt: title }
-    : ROUTE_FIGURES.has(path)
-      ? { url: `/img${path}/route.jpg`, width: 1400, height: 700, alt: title }
-      : OG_IMAGE;
+    : OG_IMAGE;
   return {
     openGraph: {
       title,

@@ -1,84 +1,335 @@
 {
   "meta": {
-    "title": "Alternatif Firefox Send: Tautan Terenkripsi yang Masih Jalan",
-    "description": "Firefox Send ditutup pada 2020. BIShare meneruskan idenya: tautan terenkripsi end-to-end hingga 100 GB yang kedaluwarsa sendiri, plus kirim langsung di Wi-Fi yang sama.",
-    "ogTitle": "Alternatif Firefox Send — terenkripsi, berbasis tautan, gratis"
+    "title": "Alternatif Firefox Send (2026): 8 yang Masih Jalan",
+    "description": "Mozilla mematikan Send pada September 2020 karena tak ada cara melaporkan penyalahgunaan. Delapan pengganti yang menyimpan kunci di peramban Anda, September 2026."
   },
   "hero": {
-    "eyebrow": "Transfer file terenkripsi",
-    "title": "Alternatif Firefox Send",
-    "body": "Firefox Send adalah cara sederhana dan privat untuk berbagi file lewat tautan terenkripsi — sampai Mozilla menutupnya pada 2020. <strong>BIShare</strong> menghadirkannya kembali: file <strong>terenkripsi ujung-ke-ujung di browser Anda</strong>, dibagikan lewat tautan yang otomatis kedaluwarsa, dan tak pernah terikat pada akun. BIShare juga melakukan sesuatu yang tak pernah bisa dilakukan Firefox Send — mengirim <highlight>antarperangkat secara instan</highlight> saat berada di jaringan yang sama.",
+    "eyebrow": "Alternatif Firefox Send",
+    "title": "Alternatif Firefox Send terbaik",
+    "body": "Firefox Send melakukan sesuatu yang nyaris tak dilakukan layanan lain: ia mengenkripsi berkas di dalam peramban Anda, meletakkan kuncinya di bagian tautan yang tidak pernah dikirim peramban, dan tidak meminta apa pun. Lalu Mozilla mematikannya. Semua daftar artikel bilang ia ditutup karena malware, dan berhenti di situ, dan itu pelajaran yang keliru. Send dibunuh oleh sebuah tombol yang tidak ada. Ia tidak punya pendaftaran dan tidak punya cara melaporkan berkas jahat, jadi ketika seseorang memakainya untuk menampung malware, tidak ada mekanisme untuk menindaklanjuti laporan, dan layanan yang tidak bisa membaca apa yang disimpannya juga tidak bisa mengawasinya. Itu layak dipahami sebelum memilih pengganti, karena itulah yang memberi tahu janji mana yang harus Anda periksa. Halaman ini menjelaskan apa yang sebenarnya terjadi, lalu memeringkat <strong>delapan pengganti</strong> menurut apakah kuncinya benar-benar tetap di peramban Anda, dengan setiap batas dibaca dari penyedianya pada September 2026.",
     "ctaPrimary": "Dapatkan BIShare gratis",
     "ctaSecondary": "Cara kerjanya"
   },
-  "why": {
-    "title": "Apa yang terjadi pada Firefox Send?",
-    "body": "Mozilla menghentikan Firefox Send pada September 2020 setelah disalahgunakan untuk malware, dan tak pernah menghidupkannya lagi. Itu meninggalkan celah: cara yang sangat sederhana, <strong>terenkripsi ujung-ke-ujung</strong>, tanpa akun untuk mengirim file lewat tautan. BIShare mengisinya — kunci enkripsi hidup di fragmen tautan dan tak pernah sampai ke server kami, jadi kami hanya menyimpan ciphertext, persis model yang dipakai Firefox Send."
+  "updated": "Diperbarui September 2026 · kisah penutupannya dikutip dari blog Mozilla sendiri, halaman bantuannya, dan repositori yang diarsipkan; instans Send yang hidup diperiksa konfigurasinya bulan ini; angka BIShare berasal dari kode sumbernya",
+  "disclosure": "BIShare adalah produk kami. Ia bukan yang paling mirip Firefox Send di halaman ini, dan teksnya mengatakan begitu: cabang komunitas dari Send secara harfiah kode yang sama, dan kalau Anda mau persis seperti dulu, ke sanalah tempat mencari lebih dahulu.",
+  "quick": {
+    "title": "Jawaban singkat",
+    "items": {
+      "0": "<strong>Anda mau hal yang sama, tanpa perubahan:</strong> cabang komunitas dari Send masih dirawat dan masih berjalan di instans publik. Enkripsi sama, kunci di dalam tautan sama, tanpa akun.",
+      "1": "<strong>Anda mau yang dihosting pihak yang bisa dimintai tanggung jawab:</strong> <goTransfer>tautan BIShare</goTransfer> membawa 100 GB, disegel di peramban Anda dengan kunci di dalam tautan, dan bertahan 24 jam.",
+      "2": "<strong>Anda mau menjalankannya sendiri:</strong> Mozilla mencabut mereknya dari kode itu pada 2021 supaya cabang menjadi legal. Bentuknya sebuah image Docker plus Redis.",
+      "3": "<strong>Anda mau umur berkas paling panjang:</strong> Tresorit Send menyimpan 5 GB selama 7 hari, dan instans Send publik berkisar dari 3 hari sampai sebulan tergantung siapa yang mengelolanya.",
+      "4": "<strong>Hati-hati dengan kata terenkripsi:</strong> SwissTransfer dan Filemail mengenkripsi di server mereka, bukan di peramban Anda. Keduanya layanan yang baik dan tak satu pun setara dengan Send dulu.",
+      "5": "<strong>Bagian yang membunuh Send:</strong> tanpa akun, tanpa laporan penyalahgunaan, tanpa cara mencabut berkas berbahaya. Setiap penampung gratis sejenis ini hanya berjarak satu gelombang penyalahgunaan dari keputusan yang sama."
+    }
   },
-  "how": {
-    "title": "Bagaimana BIShare menjaga privasinya",
+  "why": {
+    "title": "Apa yang sebenarnya terjadi pada Firefox Send",
+    "body": "Versi pendek yang diulang semua orang adalah malware membunuhnya. Versi panjangnya lebih berguna, karena ia kisah rancangan alih-alih kisah kejahatan, dan ia menjelaskan apa yang harus dilewati pengganti mana pun. Mozilla menarik layanannya dari jaringan pada awal Juli 2020, menghabiskan musim panas membangun bagian yang hilang, lalu memutuskan tidak menyalakannya kembali. Pengumuman pada 17 September 2020 lugas soal penyebab dan lembut soal vonisnya: Send, dalam kata-kata mereka, adalah alat yang menjanjikan untuk berbagi berkas terenkripsi.",
     "items": {
       "0": {
-        "h": "Terenkripsi di browser Anda",
-        "b": "Aktifkan enkripsi ujung-ke-ujung dan file dienkripsi sebelum meninggalkan perangkat Anda. Kuncinya berjalan di #fragment tautan, yang tak pernah dikirim browser ke server — jadi kami menyimpan ciphertext yang tak bisa kami baca."
+        "h": "Lubangnya ada di tombol lapor, bukan di enkripsinya",
+        "b": "Send tidak meminta apa pun dan tidak bisa membaca apa pun, dan justru itulah intinya. Itu juga berarti ketika seseorang menemukan malware di balik sebuah tautan send.firefox.com, tidak ada akun untuk dibekukan, tidak ada formulir penyalahgunaan, dan tidak ada cara bagi Mozilla membedakan satu berkas dari berkas lain. Pernyataan yang diberikan Mozilla kepada pers waktu itu menyebut dua perbaikan sekaligus: sebuah mekanisme pelaporan penyalahgunaan, dan kewajiban masuk dengan Firefox Account sebelum berbagi."
       },
       "1": {
-        "h": "Tautan yang bisa hancur sendiri",
-        "b": "Bagikan tautan, kode QR, atau 6-character code. Penerima membukanya di browser apa pun dan mengunduh — tanpa akun, tanpa instal. Tautan otomatis kedaluwarsa setelah 24 jam alih-alih menetap di cloud."
+        "h": "Mereka nyaris merilis perbaikannya",
+        "b": "Inilah bagian yang dilewatkan daftar-daftar artikel itu. Pekerjaannya dilakukan secara terbuka di repositori sepanjang Juli 2020, dengan jalur unggah dimatikan sementara pelaporan berkas, token unduhan, dan perubahan akun dipasang. Siapa pun masih bisa membaca commit-commit itu. Mozilla sekadar memutuskan layanan itu tidak sepadan dengan perawatan yang kini dibutuhkannya, dan tulisan yang sama memensiunkan Firefox Notes bersamanya."
       },
       "2": {
-        "h": "Atau lewati cloud sepenuhnya",
-        "b": "Di Wi-Fi yang sama, BIShare mengirim file langsung antarperangkat, terenkripsi ujung-ke-ujung, tanpa unggahan sama sekali — sesuatu yang tak pernah ditawarkan Firefox Send."
+        "h": "Kodenya sengaja dibuat bisa dicabangkan",
+        "b": "Pada Mei 2021 Mozilla kembali masuk ke repositori yang sudah diarsipkan dan mencabut mereknya sendiri dari sumbernya, dengan catatan yang menjelaskan bahwa pengembang yang memakai kode itu jadi lebih kecil kemungkinannya melanggar merek tersebut. Lisensinya Mozilla Public License. Mereka tidak pernah merestui penerus, tetapi mereka membersihkan jalur hukumnya, dan itulah sebabnya cabang di bawah bisa ada dengan nama berbeda."
+      },
+      "3": {
+        "h": "Berapa sebenarnya batas Send",
+        "b": "Layak diketahui, karena pengganti biasanya diukur terhadap angka yang salah diingat orang. Membaca konfigurasi pada sumber terakhir yang diterbitkan: 1 GB dan 24 jam tanpa akun, 2,5 GB dan 7 hari dengan akun, serta penghitung unduhan yang dibatasi 5 atau 100. Halaman bantuan Mozilla sendiri tidak pernah menyusul dan masih menyebut 24 jam rata untuk semua orang."
       }
     }
   },
-  "comparison": {
-    "title": "Firefox Send vs WeTransfer vs BIShare",
+  "methods": {
+    "title": "Delapan alternatif Firefox Send, diperingkat",
+    "consLabel": "Perhatikan:",
+    "items": {
+      "0": {
+        "name": "Send, di instans publik",
+        "tag": "Kelanjutan harfiah dari yang Anda kehilangan",
+        "facts": "Kode yang sama, dirawat seorang sukarelawan sejak Mozilla berhenti · enkripsi di peramban dengan kunci di fragmen tautan, tak berubah · instans utamanya mengizinkan 2,5 GiB, 20 unduhan, dan tiga hari · yang lain sampai 8 atau 10 GB dan sebulan · tanpa akun · sumber terbuka",
+        "body": "Inilah jawaban pertama yang jujur, dan kami bukan jawaban pertama yang jujur itu. Setelah Mozilla berhenti, satu pengembang memungut proyeknya, mencabut merek Firefox sebagaimana lisensinya mengharuskan, dan menjaganya tetap mutakhir sejak itu, dengan rilis terbaru pada Juli 2025. Instans publik menjalankan kode itu hari ini. Kami membaca konfigurasi hidup dari yang paling dikenal alih-alih memercayai sebuah tabel: 2,5 GiB per transfer, sampai dua puluh unduhan, tiga hari paling lama. Yang lain jauh lebih murah hati. Kalau yang Anda rindukan adalah Firefox Send persisnya, inilah Firefox Send persisnya.",
+        "cons": "Setiap instans adalah hobi seseorang, tanpa perjanjian apa pun di belakangnya, dan daftar instans yang diterbitkan sudah usang: dua entri di dalamnya bahkan tidak lagi bisa dipetakan, dan beberapa batas di sana tidak lagi cocok dengan yang dilaporkan servernya. Pilih satu, periksa angkanya sendiri, dan jangan berharap apa-apa kalau ia lenyap."
+      },
+      "1": {
+        "name": "BIShare",
+        "tag": "Terbaik saat Anda mau model Send dengan pihak yang bisa dimintai tanggung jawab",
+        "facts": "100 GB untuk satu tautan · dikunci di dalam peramban Anda sebelum apa pun bergerak · rahasianya dibawa setelah tanda # · bisa diambil selama sehari · opsi hancur sendiri setelah pengambilan pertama · tanpa batas antara dua mesin yang berbagi jaringan · sumber publik berlisensi MIT · tidak ada yang perlu didaftarkan",
+        "body": "BIShare mempertahankan bagian Send yang penting dan menaruh layanan terawat di belakangnya. Berkas Anda dikunci di dalam peramban Anda sendiri, dan rahasia yang membukanya menumpang setelah penanda # pada tautan, sebuah bentangan yang menolak diserahkan peramban, sehingga yang duduk di penyimpanan kami adalah materi yang tidak punya cara kami baca. Yang membedakannya dari Send adalah ukuran dan waktu: sebuah tautan menampung sampai 100 GB melawan plafon 2,5 GB milik Send, dan tetap bisa diambil sehari alih-alih sepekan. Ada aplikasi sungguhan juga, dan dua mesin yang berbagi Wi-Fi melewati unggahan sepenuhnya.",
+        "cons": "Dua puluh empat jam lebih pendek dari sepekan milik Send yang sudah masuk akun, dan jauh lebih pendek dari Tresorit. Tautan menolak berkas program seperti .exe dan .msi, dan itu justru tuas yang tidak dimiliki Send, meski tuas yang tumpul."
+      },
+      "2": {
+        "name": "Menjalankan Send sendiri",
+        "tag": "Terbaik saat Anda tidak mau ada pihak ketiga sama sekali",
+        "facts": "Mozilla mencabut mereknya pada 2021 sehingga cabang bermerek lain menjadi legal · diterbitkan di bawah Mozilla Public License · sebuah image kontainer plus Redis, dengan cakram lokal atau penyimpanan apa pun yang kompatibel S3 · Anda yang menetapkan ukuran, masa berlaku, dan batas unduhan · tidak ada yang bisa mematikannya selain Anda",
+        "body": "Jawaban paling lengkap atas sebuah layanan yang lenyap adalah berhenti bergantung pada satu layanan. Cabang itu mengirimkan image kontainer dan berkas compose, butuh Redis untuk metadatanya apa pun penyimpanan yang Anda pilih, dan membiarkan Anda menetapkan sendiri plafonnya alih-alih menerima plafon orang lain. Untuk sebuah tim, kelompok kampus, atau serah terima ke klien, ini menghapus seluruh kelas masalah yang dibahas halaman ini.",
+        "cons": "Dua hal. Dokumentasi proyeknya sendiri memperingatkan bahwa masa berlaku panjang di server publik mengundang orang memakai Anda sebagai tempat gratis untuk malware, dan persis begitulah yang asli mati, jadi bacalah itu sebelum membukanya ke dunia. Dan sematkan image yang dibangun dari kode terkini alih-alih tag latest yang mengambang, yang tanggal terbitnya tertinggal bertahun-tahun dari sumbernya."
+      },
+      "3": {
+        "name": "Wormhole",
+        "tag": "Terbaik untuk serah terima rahasia yang cepat tanpa memasang apa pun",
+        "facts": "Plafon 10 GB · AES-GCM 128-bit diterapkan sebelum apa pun meninggalkan tab · kunci disembunyikan di fragmen alamat · dihapus setelah 24 jam atau 100 unduhan, mana yang lebih dulu · di atas 5 GB ia berjalan peramban ke peramban dan tab Anda harus tetap terbuka · tanpa akun",
+        "body": "<goWormhole>Wormhole</goWormhole> adalah yang paling dekat dengan Send yang dibangun orang-orang yang bukan mencabangkan Send, dan ia memakai skema dasar yang sama: enkripsi di peramban dan rahasia di bagian alamat yang tidak pernah dikirimkan. Untuk sebuah kontrak atau satu set master yang pergi ke satu orang sore ini, tidak ada yang lebih cepat.",
+        "cons": "Di atas 5 GB tidak ada apa pun yang disimpan dan transfernya berjalan antara kedua peramban, jadi pengirim harus membiarkan halamannya terbuka sampai penerima selesai. Peta jalannya tidak bergerak sejak 2021."
+      },
+      "4": {
+        "name": "Tresorit Send",
+        "tag": "Terbaik saat penerimanya lambat dan pengirimnya sebuah perusahaan",
+        "facts": "5 GB per unggahan dan 100 berkas sekaligus · dienkripsi di perangkat Anda sebelum unggah · tautan unduhnya membawa kunci, yang menurut Tresorit tidak mereka simpan · tujuh hari, atau sepuluh unduhan · perlindungan kata sandi dan pencabutan tautan, keduanya gratis · tanpa akun, meski ia meminta alamat surel Anda",
+        "body": "Dari layanan terhosting di sini, inilah yang cocok dengan janji Send dan mengalahkan sepekannya. Berkas dienkripsi sebelum meninggalkan perangkat, kuncinya berjalan di dalam tautan alih-alih di server mereka, dan Anda dapat kata sandi serta kemampuan mematikan sebuah tautan, gratis. Bagi siapa pun yang harus menjelaskan pilihannya kepada petugas kepatuhan, namanya juga bekerja dengan cara yang tidak bisa dilakukan instans sukarelawan.",
+        "cons": "Bukan sumber terbuka dan belum diaudit pihak independen, dan perusahaannya menyatakan terus terang bahwa itu masih ada di peta jalannya. Lima gigabita adalah separuh Wormhole dan seperdua puluh tautan BIShare."
+      },
+      "5": {
+        "name": "Bitwarden Send",
+        "tag": "Paling terdokumentasi di antara semuanya, dan tingkat gratisnya hanya teks",
+        "facts": "Satu rahasia 128-bit per Send, dengan kunci enkripsi diturunkan darinya dan diletakkan setelah # di tautan · kuncinya tidak pernah disertakan dalam permintaan jaringan · tanggal kedaluwarsa, tanggal penghapusan, jumlah akses maksimum, dan kata sandi opsional · bisa dihosting sendiri · Send gratis berupa teks, sampai 1.000 karakter",
+        "body": "Kalau Anda mau membaca persisnya bagaimana kunci yang dibawa tautan seharusnya bekerja, Bitwarden menerbitkan keterangan paling jernih di antara semua: sebuah rahasia dihasilkan per Send, kunci diturunkan darinya, tautan dibangun sebagai pengenal plus kunci itu setelah penanda fragmen, dan janji tegas bahwa kuncinya tidak pernah keluar dalam sebuah permintaan. Setiap kendali yang dimiliki Send, ia punya, bahkan lebih.",
+        "cons": "Mengirim berkas butuh langganan berbayar. Tingkat gratisnya hanya mencakup teks, jadi sebagai pengganti Firefox Send ia jujur bahwa dirinya separuh jawaban."
+      },
+      "6": {
+        "name": "0up",
+        "tag": "Tiruan kecil terbaik dari gagasan aslinya",
+        "facts": "Enkripsi di peramban dengan kunci dihasilkan di sana dan tidak pernah dikirim · kunci menumpang setelah # dan nama serta jenis berkasnya ikut dienkripsi · masa berlaku dari satu jam sampai sehari · batas unduhan 1, 3, 5, atau 10 · tanpa akun, tanpa iklan, tanpa paket berbayar · sumber terbuka dan bisa dihosting sendiri",
+        "body": "Sebuah proyek hobi yang menirukan model Send dengan setia, sampai ke mengenkripsi metadatanya alih-alih hanya bitanya, dan mengatakan terbuka bahwa ia tidak menghasilkan uang dan ada karena seseorang menginginkannya ada. Untuk serah terima sekali jalan di mana Anda lebih suka tidak melibatkan perusahaan sama sekali, ia mengerjakan tugasnya.",
+        "cons": "Tanpa pendanaan dan kecil, dengan ukuran berkas maksimum tidak diterbitkan di mana pun pada situsnya, jadi ujilah sebelum Anda bergantung padanya. Perlakukan seperti Anda memperlakukan instans Send sukarelawan."
+      },
+      "7": {
+        "name": "Mengirim langsung antara dua perangkat",
+        "tag": "Terbaik saat berkasnya tidak perlu meninggalkan gedung",
+        "facts": "Tidak ada yang diunggah, jadi tidak ada penampung yang bisa menariknya, tidak ada masa berlaku dan tidak ada penghitung · BIShare atau LocalSend · satu jaringan nirkabel, atau sebuah ponsel yang menjadi jaringan · terus jalan melewati gangguan · terkunci di kedua ujung · gratis, sumber diterbitkan",
+        "body": "Firefox Send lenyap karena ia layanan terhosting milik seseorang, dan layanan terhosting bisa ditarik. <goOffline>Menyerahkan berkas langsung dari satu mesin ke mesin lain melewati jaringan bersama</goOffline> memensiunkan risiko itu sekaligus: karena tidak ada yang disimpan di mana pun, tidak ada lagi yang bisa diambil. Dari dekat pada Wi-Fi 6 kami mencatat antara 70 dan 110 MB/s, jauh lebih cepat daripada unggahan apa pun yang dulu Anda suapkan ke Send.",
+        "cons": "Hanya berguna saat mesin lain berada di dekat Anda, dan itu menyingkirkan sebagian besar keperluan orang memakai Send. Kedua sisi memasang sesuatu, sedangkan Send tidak butuh apa-apa selain peramban."
+      }
+    }
+  },
+  "table": {
+    "title": "Sekilas",
     "cols": {
-      "airdrop": "Firefox Send",
-      "quick": "WeTransfer",
-      "bishare": "BIShare"
+      "feature": "Paket gratis, September 2026",
+      "bishare": "BIShare",
+      "send": "Instans Send",
+      "wormhole": "Wormhole",
+      "tresorit": "Tresorit Send",
+      "bitwarden": "Bitwarden Send",
+      "swiss": "SwissTransfer"
     },
     "rows": {
-      "r0": "Terenkripsi ujung-ke-ujung",
-      "r1": "Masih tersedia hari ini",
-      "r2": "Tanpa akun untuk mengirim",
-      "r3": "Antarperangkat instan di dekat Anda",
-      "r4": "Gratis dipakai"
+      "r0": "Disegel di peramban, kunci tak pernah dikirim",
+      "r1": "Gratis untuk berkas, bukan hanya teks",
+      "r2": "Lebih dari 5 GB dalam satu transfer",
+      "r3": "Pengirim tidak perlu akun",
+      "r4": "Bisa Anda hosting sendiri",
+      "r5": "Tersedia lebih dari 24 jam"
+    },
+    "note": "Dibaca dari tiap penyedia pada September 2026. Instans Send: angkanya berasal dari konfigurasi hidup instans publik paling dikenal, 2,5 GiB dan tiga hari; instans lain mengizinkan jauh lebih besar, dan masing-masing menetapkan sendiri. BIShare: 100 GB selama 24 jam, disegel di peramban, opsi hangus setelah unduhan pertama. Wormhole: 10 GB, dihapus setelah 24 jam atau 100 unduhan, dan di atas 5 GB tab pengirim yang membawa transfernya. Tresorit Send: 5 GB selama tujuh hari atau sepuluh unduhan, dengan kata sandi dan pencabutan gratis; ia meminta alamat surel Anda tanpa membuat akun. Bitwarden Send: Send gratis hanya membawa teks, jadi kolom berkasnya mencerminkan keharusan memakai tingkat berbayar. SwissTransfer: 50 GB disimpan 15 hari, bisa diperpanjang sampai 30, tetapi dokumentasinya sendiri menyebut berkas dienkripsi begitu tiba di server Infomaniak, dan itulah sebabnya baris pertama terbaca begitu."
+  },
+  "instances": {
+    "title": "Cabangnya hari ini, dan instans mana yang benar-benar hidup",
+    "body": "Setiap artikel soal ini menyalin tabel instans publik yang sama, dan tabel itu sudah melenceng dari kenyataan. Berikut angka yang dilaporkan tiap server tentang dirinya sendiri bulan ini, dan hanya versi itulah yang layak dipercaya.",
+    "items": {
+      "0": {
+        "h": "Proyeknya hidup, dan ia satu orang",
+        "b": "Tidak diarsipkan, tidak ada pemberitahuan penghentian, dan rilis berlanjut sampai Juli 2025, dengan repositori kanoniknya di GitLab dan cermin di GitHub. Juga tidak ada tim: ia satu perawat yang meminta donasi agar bisa terus berjalan, dan orang yang sama mengelola instans publik utamanya. Itu bukan kritik, itu profil risikonya. Rencanakan sebagaimana Anda merencanakan titik kegagalan tunggal mana pun."
+      },
+      "1": {
+        "h": "Daftar instans yang diterbitkan sudah basi",
+        "b": "Dua server di dalamnya bahkan tidak lagi bisa dipetakan di sistem nama domain, termasuk satu yang batas raksasanya sering dikutip berbagai daftar artikel. Dari yang masih hidup, beberapa melaporkan angka berbeda dari tabel itu: satu yang diiklankan 10 GiB sebenarnya mengizinkan 1 GiB, satu lagi yang tercatat tujuh hari mengizinkan tiga puluh satu hari. Bacalah halaman instansnya sendiri sebelum memercayai angka tentangnya."
+      },
+      "2": {
+        "h": "Apa yang ditawarkan yang masih hidup",
+        "b": "Lima belas menjawab bulan ini. Yang utama mengizinkan 2,5 GiB selama tiga hari. Yang paling murah hati sampai 8 dan 10 GB dengan masa simpan sepekan hingga sebulan, satu mengizinkan seribu unduhan, dan yang terkecil dibatasi 70 MiB. Semuanya membatasi satu arsip pada 64 berkas. Pilihlah berdasarkan batasnya dan siapa yang mengelolanya, karena kode di bawahnya sama di mana-mana."
+      }
+    }
+  },
+  "steps": {
+    "title": "Pindah dari Firefox Send ke BIShare",
+    "items": {
+      "0": {
+        "h": "Kebiasaannya berpindah tanpa berubah",
+        "b": "Bukalah bishare.app/transfer dan jatuhkan berkas Anda di sana. Tidak ada yang diminta menyebutkan dirinya, sama seperti tidak ada yang diminta di Send. Penguncian terjadi di dalam peramban Anda dan rahasianya ditambahkan setelah # pada alamat, jadi tautan yang Anda serahkan itu sendiri seluruh rahasianya. Itulah persis mekanisme yang sudah Anda percayai."
+      },
+      "1": {
+        "h": "Plafonnya naik dan jamnya turun",
+        "b": "Send memberi Anda 2,5 GB selama sepekan begitu Anda masuk akun. Tautan BIShare memberi 100 GB selama sehari, tanpa masuk akun di kedua ujung. Kalau sepekan itu lebih penting daripada gigabitanya, instans Send publik atau Tresorit Send adalah tukar yang lebih tepat dan halaman ini justru lebih suka Anda memakainya."
+      },
+      "2": {
+        "h": "Setel batas unduhan kalau Anda dulu memakainya",
+        "b": "Send bisa memensiunkan sebuah tautan begitu diambil sekian kali. Nyalakan opsi pengambilan tunggal dan tautan Anda mati seketika berkasnya ditarik, dan itu menutup kasus yang paling umum. Untuk apa pun antara satu sampai seratus, Bitwarden Send dan cabang Send sama-sama masih memberi Anda penghitung penuhnya."
+      },
+      "3": {
+        "h": "Untuk yang lebih besar, atau siapa pun yang dekat",
+        "b": "Pasang aplikasinya di kedua mesin. Di tempat keduanya berbagi jaringan, atau salah satunya menambatkan yang lain, mereka saling menemukan dan menyerahkan berkasnya di antara mereka tanpa apa pun menuju server, dan itulah satu-satunya susunan yang tak pernah bisa dipensiunkan perusahaan mana pun."
+      }
+    }
+  },
+  "choose": {
+    "title": "Alternatif mana untuk pekerjaan mana",
+    "body": "Urutkan berdasarkan apa yang sebenarnya hilang dari Anda. Bagi kebanyakan orang itu kunci di sisi peramban, bukan gigabitanya.",
+    "items": {
+      "0": {
+        "h": "Anda mau Firefox Send kembali, persis",
+        "b": "Instans publik dari cabang komunitasnya. Kode sama, enkripsi sama, tanpa akun. Periksa dulu batas instans itu sendiri."
+      },
+      "1": {
+        "h": "Anda mau ia masih ada tahun depan",
+        "b": "Hosting cabangnya sendiri, atau pakai layanan yang ada perusahaannya. Instans sukarelawan tidak berutang apa pun kepada Anda, dan mereka mengatakannya."
+      },
+      "2": {
+        "h": "Berkas besar, berangkat hari ini",
+        "b": "Sampai 100 GB lewat BIShare, atau sampai 10 GB lewat Wormhole. Keduanya mengunci berkas di dalam peramban sebelum satu bita pun diunggah."
+      },
+      "3": {
+        "h": "Rahasia, dan penerimanya lambat",
+        "b": "<goEncrypted>Pilih berdasarkan siapa yang memegang kunci</goEncrypted>. Tresorit Send memberi tujuh hari dengan kunci di dalam tautan; SwissTransfer memberi lima belas hari tetapi bisa membaca apa yang dipegangnya."
+      },
+      "4": {
+        "h": "Kalian berdua di gedung yang sama",
+        "b": "Kirim perangkat ke perangkat dan tidak ada layanan yang terlibat sama sekali. Tidak ada yang disimpan, tidak ada yang kedaluwarsa, tidak ada yang bisa dimatikan siapa pun."
+      }
+    }
+  },
+  "security": {
+    "title": "Apa yang bisa dibaca tiap layanan",
+    "body": "Firefox Send menetapkan standarnya dan standar itu masih benar: dienkripsi di peramban, dengan kunci di fragmen, yang tidak pernah dikirim peramban. Ukurlah semua yang lain terhadap itu alih-alih terhadap kata terenkripsi, karena kata itu mengerjakan hal yang sangat berbeda di situs yang berbeda.",
+    "items": {
+      "0": {
+        "h": "Disegel oleh Anda, kunci di dalam tautan",
+        "b": "Cabang Send, tautan BIShare, Wormhole, Bitwarden Send, Tresorit Send, dan 0up semuanya bekerja begini. Yang disimpan layanan itu adalah materi yang tidak ada rahasianya di tangan mereka, jadi membobol atau datang dengan surat perintah tidak menghasilkan apa pun yang terbaca. Harganya adalah tautan dan berkas menjadi satu hal yang sama: siapa pun yang memegangnya bisa membukanya, sehingga cara Anda meneruskannya menjadi keputusan yang benar-benar penting."
+      },
+      "1": {
+        "h": "Dienkripsi perusahaan setelah tiba",
+        "b": "SwissTransfer dan Filemail masuk ke sini, dan direktori yang menyebut keduanya ujung ke ujung itu keliru. Dokumentasi Infomaniak sendiri menyebut berkas dienkripsi begitu tiba di server penyimpanannya, dan paket gratis Filemail hanya menjelaskan enkripsi dalam perjalanan. Keduanya masuk akal untuk pekerjaan sehari-hari dan tak satu pun pengganti Firefox Send."
+      },
+      "2": {
+        "h": "Tidak ada yang disimpan di mana pun",
+        "b": "Menyerahkan berkas langsung antara dua mesin pada jaringan bersama tidak menaruh apa pun di cakram yang dikuasai kami atau siapa pun, jadi tidak ada pembobolan untuk ditanggung, tidak ada surat perintah untuk dijawab, dan tidak ada masa pemberitahuan untuk dikhawatirkan. Dari semua yang ada di sini, hanya susunan inilah yang akan selamat tanpa tersentuh pada 2020, dan satu-satunya yang masih kebal hari ini."
+      }
     }
   },
   "faq": {
-    "title": "Alternatif Firefox Send: FAQ",
+    "title": "Alternatif Firefox Send: tanya jawab",
     "items": {
       "0": {
-        "q": "Apa alternatif Firefox Send terbaik?",
-        "a": "BIShare. Ia menyamai hal yang orang cintai dari Firefox Send — berbagi file terenkripsi ujung-ke-ujung lewat tautan sederhana tanpa akun yang kedaluwarsa — dan menambahkan transfer antarperangkat instan di dekat Anda."
+        "q": "Apa yang terjadi pada Firefox Send?",
+        "a": "Mozilla menariknya dari jaringan pada awal Juli 2020 setelah ia dipakai menyebarkan malware, bekerja sepanjang musim panas pada pelaporan penyalahgunaan dan kewajiban masuk akun, lalu mengumumkan pada 17 September 2020 bahwa ia tidak akan kembali. Halaman bantuannya menyebut tanggal penghentian itu dan mengatakan semua berkas telah dihapus secara aman dari server."
       },
       "1": {
-        "q": "Apakah Firefox Send akan kembali?",
-        "a": "Tidak. Mozilla menghentikan Firefox Send secara permanen pada 2020 dan menyatakan tak akan kembali. Jika Anda mencari pengalaman tautan terenkripsi yang sama, BIShare adalah pengganti terdekatnya."
+        "q": "Kenapa Firefox Send ditutup padahal terenkripsi?",
+        "a": "Karena apa yang tidak dimilikinya, bukan apa yang dimilikinya. Tidak ada akun dan tidak ada cara melaporkan berkas jahat, dan layanan yang tidak bisa membaca apa yang disimpannya juga tidak bisa mengenalinya. Perbaikan versi Mozilla sendiri adalah menambahkan mekanisme pelaporan penyalahgunaan dan mewajibkan Firefox Account, dan setelah membangun sebagian besarnya mereka memutuskan layanan itu tidak sepadan dengan perawatan yang berkelanjutan."
       },
       "2": {
-        "q": "Apakah BIShare benar-benar terenkripsi ujung-ke-ujung seperti Firefox Send?",
-        "a": "Ya. File dienkripsi di browser Anda dengan kunci yang berjalan di fragmen tautan dan tak pernah sampai ke server kami, jadi kami hanya menyimpan ciphertext. Transfer di dekat Anda terenkripsi antarperangkat dan tak pernah menyentuh cloud sama sekali."
+        "q": "Apakah Firefox Send akan kembali?",
+        "a": "Tidak. Mozilla mengatakan dalam pengumuman yang sama bahwa ia mengambil keputusan untuk tidak meluncurkan ulang layanan itu, dan memensiunkan Firefox Notes pada saat yang sama. Yang berlanjut adalah cabang komunitas dari kodenya, dengan nama berbeda karena Mozilla mencabut mereknya dari sumbernya pada 2021."
       },
       "3": {
-        "q": "Apakah saya butuh akun?",
-        "a": "Tidak. Anda bisa mengirim dan menerima tanpa mendaftar. Anda cukup membagikan tautan, kode QR, atau 6-character code, dan penerima membukanya di browser apa pun."
+        "q": "Apa alternatif paling dekat dengan Firefox Send?",
+        "a": "Instans publik dari cabang komunitasnya, karena itu perangkat lunak yang sama. Instans utamanya saat ini mengizinkan 2,5 GiB, dua puluh unduhan, dan tiga hari. Kalau Anda mau model enkripsi yang sama dari layanan yang dirawat, BIShare memberi 100 GB selama sehari, dan Tresorit Send memberi 5 GB selama sepekan."
       },
       "4": {
-        "q": "Seberapa besar file yang bisa saya kirim?",
-        "a": "Tautan berbagi terenkripsi membawa file hingga 100 GB gratis. Untuk transfer antarperangkat di dekat Anda lewat Wi-Fi sendiri tak ada batas ukuran, karena tak ada yang diunggah ke server."
+        "q": "Apa saya masih bisa menghosting Firefox Send sendiri?",
+        "a": "Bisa, dan legal. Kodenya di bawah Mozilla Public License, dan pada Mei 2021 Mozilla mencabut mereknya dari repositori supaya cabang lebih kecil kemungkinannya melanggar, dengan syarat Anda membuang merek Mozilla dan Firefox. Dalam praktiknya Anda menjalankan image kontainer cabang komunitas itu bersama Redis, dengan cakram lokal atau penyimpanan yang kompatibel S3."
+      },
+      "5": {
+        "q": "Berapa sebenarnya batas Firefox Send?",
+        "a": "Dari konfigurasi pada sumber terakhirnya yang diterbitkan: 1 GB dan 24 jam tanpa akun, atau 2,5 GB dan 7 hari dengan akun, dengan penghitung unduhan dibatasi 5 dan 100. Halaman bantuan Mozilla tidak pernah diperbarui dan menyebut 24 jam untuk semua orang, dan karena itulah angka yang salah beredar."
+      },
+      "6": {
+        "q": "Apa instans Send publik aman dipakai?",
+        "a": "Mereka menjalankan kode yang sama, yang tidak pernah diaudit siapa pun, yang diterbitkan Mozilla, dan enkripsinya terjadi di peramban Anda, jadi pengelola instans hanya melihat sandi-teks. Risikonya soal ketersediaan dan niat, bukan kriptografi: tiap instans adalah server satu sukarelawan, dua di daftar yang diterbitkan sudah tidak ada, dan tak seorang pun berutang janji ketersediaan kepada Anda."
+      },
+      "7": {
+        "q": "Alternatif mana yang mengenkripsi di peramban seperti Send dulu?",
+        "a": "Cabang Send, Wormhole, Bitwarden Send, Tresorit Send, 0up, dan tautan BIShare. SwissTransfer dan Filemail tidak, apa pun kata tabel perbandingan. Pembedaan itu lebih penting daripada batas ukuran mana pun, karena justru itulah alasan Firefox Send ada."
+      },
+      "8": {
+        "q": "Apa ffsend masih jalan?",
+        "a": "Klien baris perintahnya masih dirawat, dengan rilis terbarunya pada Februari 2025 dan commit sesudahnya, dan ia mendukung versi protokol Send terkini yang disajikan setiap instans hidup. Kedua proyek mendokumentasikannya bekerja terhadap instans-instans itu. Perlu dicatat bahwa pengembang yang sama merawat kliennya dan instans utamanya."
+      },
+      "9": {
+        "q": "Saya harus pakai apa kalau berkasnya perlu bertahan lebih dari sepekan?",
+        "a": "Tresorit Send menyimpan 5 GB selama tujuh hari, dan beberapa instans Send publik mengizinkan sampai sebulan. Lebih dari itu, layanan tautan bentuknya salah dan yang Anda butuhkan penyimpanan: Proton Drive menyimpan berkas terenkripsi sampai Anda menghapusnya, dalam batas 5 GB pada paket gratisnya."
       }
     }
   },
   "cta": {
-    "title": "Kirim file terenkripsi dengan cara sederhana",
-    "body": "Transfer file yang privat dan tanpa akun yang Anda ingat — kini dengan pengiriman instan di dekat Anda. Gratis di iPhone, Android, Mac, Windows, dan browser apa pun.",
+    "title": "Tautan tersegel yang sama, dari sesuatu yang dirawat",
+    "body": "Seratus gigabita untuk satu tautan, dikunci di dalam peramban Anda, rahasianya dibawa setelah # tempat server tidak pernah melihatnya. Tidak ada yang perlu didaftarkan, tidak ada yang perlu dilanggan, dan sumbernya publik.",
     "download": "Unduh BIShare"
   },
   "a11y": {
     "yes": "Ya",
     "no": "Tidak"
+  },
+  "art": {
+    "hero": {
+      "alt": "Sebuah peramban menyegel berkas dan menyerahkan tautan yang kuncinya tetap bersama pengirim, berjudul alternatif Firefox Send terbaik",
+      "title": "Alternatif Firefox Send terbaik",
+      "sub": "8 pilihan dibandingkan, September 2026",
+      "left": "Berkas Anda",
+      "right": "Penerima",
+      "badge": "Kunci di dalam tautan"
+    },
+    "why": {
+      "alt": "Kenapa Firefox Send ditutup: tidak ada akun untuk dibekukan, tidak ada cara melaporkan berkas jahat, dan server yang tidak bisa membaca apa yang disimpannya, sehingga keluhan malware tidak punya apa pun untuk ditindaklanjuti",
+      "title": "Kenapa Send dimatikan",
+      "sub": "Tiga lubang, satu akibat",
+      "z1": "Tanpa akun",
+      "z1apps": "Tak ada yang bisa dibekukan saat sebuah berkas disalahgunakan",
+      "z2": "Tanpa laporan penyalahgunaan",
+      "z2apps": "Sebuah keluhan tak punya tempat tujuan",
+      "z3": "Tanpa isi yang terbaca",
+      "z3apps": "Server tak bisa membedakan satu berkas dari yang lain",
+      "foot": "Enkripsinya tidak pernah jadi masalah; tombol lapor yang hilang itulah masalahnya"
+    },
+    "limits": {
+      "alt": "Ukuran gratis untuk satu transfer digambar pada skala logaritmik: instans Send publik dan plafon Firefox Send sendiri saat sudah masuk akun di sekitar 2,5 GB, Tresorit Send di 5, Wormhole di 10, SwissTransfer di 50, tautan BIShare di 100, dan instans yang dihosting sendiri sebesar apa pun yang ditetapkan pengelolanya",
+      "title": "Ukuran gratis per transfer",
+      "sub": "Skala logaritmik, September 2026",
+      "sendvis": "Instans Send hari ini",
+      "sendvisv": "2,5 GiB · 3 hari",
+      "oldsend": "Firefox Send, masuk akun",
+      "oldsendv": "2,5 GB · 7 hari · sudah tiada",
+      "tresorit": "Tresorit Send",
+      "tresoritv": "5 GB · 7 hari",
+      "wormhole": "Wormhole",
+      "wormholev": "10 GB · 24 jam",
+      "swiss": "SwissTransfer",
+      "swissv": "50 GB · 15 sampai 30 hari",
+      "bishare": "Tautan BIShare",
+      "bisharev": "100 GB · 24 jam",
+      "selfhost": "Send yang dihosting sendiri",
+      "selfhostv": "Anda yang menetapkan batasnya",
+      "foot": "Instans publik sangat beragam: yang utama mengizinkan 2,5 GiB, yang lain sampai 8 dan 10 GB dengan masa simpan sebulan"
+    },
+    "choose": {
+      "alt": "Memilih berdasarkan apa yang hilang: ingin Firefox Send persis cocok dengan instans publik dari cabangnya, ingin ia bertahan cocok dengan hosting sendiri, berkas besar hari ini cocok dengan tautan BIShare atau Wormhole, rahasia dan lambat cocok dengan Tresorit Send, dan dua perangkat dalam satu gedung sebaiknya mengirim langsung",
+      "title": "Urutkan dari apa yang hilang",
+      "sub": "Biasanya kuncinya, bukan gigabitanya",
+      "a": {
+        "need": "Firefox Send kembali, persis",
+        "pick": "Instans Send publik"
+      },
+      "b": {
+        "need": "Masih ada tahun depan",
+        "pick": "Hosting sendiri"
+      },
+      "c": {
+        "need": "Berkas besar, berangkat hari ini",
+        "pick": "Tautan BIShare · Wormhole"
+      },
+      "d": {
+        "need": "Rahasia, penerimanya lambat",
+        "pick": "Tresorit Send"
+      },
+      "e": {
+        "need": "Kalian berdua di satu gedung",
+        "pick": "Kirim langsung, tanpa unggahan"
+      }
+    }
   }
 }

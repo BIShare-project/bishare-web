@@ -1,84 +1,335 @@
 {
   "meta": {
-    "title": "Alternativa ao Firefox Send: links criptografados que funcionam",
-    "description": "O Firefox Send fechou em 2020. O BIShare mantém a ideia: links criptografados de ponta a ponta de até 100 GB que expiram sozinhos, e envio direto no mesmo Wi-Fi. Grátis.",
-    "ogTitle": "A alternativa ao Firefox Send — criptografada, por link, grátis"
+    "title": "Alternativas ao Firefox Send (2026): 8 que ainda funcionam",
+    "description": "A Mozilla encerrou o Send em setembro de 2020 porque não havia como denunciar abusos. Oito substitutos que deixam a chave no seu navegador, conferidos em setembro de 2026."
   },
   "hero": {
-    "eyebrow": "Transferência de arquivos criptografada",
-    "title": "A alternativa ao Firefox Send",
-    "body": "O Firefox Send era o jeito simples e privado de compartilhar um arquivo com um link criptografado — até a Mozilla encerrá-lo em 2020. O <strong>BIShare</strong> traz isso de volta: os arquivos são <strong>criptografados de ponta a ponta no seu navegador</strong>, compartilhados por um link que expira sozinho e nunca ficam vinculados a uma conta. E ele faz algo que o Firefox Send nunca conseguiu — enviar <highlight>de dispositivo para dispositivo na hora</highlight> quando vocês estão na mesma rede.",
+    "eyebrow": "Alternativa ao Firefox Send",
+    "title": "As melhores alternativas ao Firefox Send",
+    "body": "O Firefox Send fazia algo que quase ninguém fazia: criptografava o arquivo no seu navegador, punha a chave na parte do link que os navegadores nunca transmitem, e não pedia nada. Aí a Mozilla desligou. Todas as listas dizem que ele fechou por causa de malware, e param por aí, e essa é a lição errada. O Send foi morto por um botão que não existia. Não tinha cadastro nem forma de denunciar um arquivo nocivo, então quando alguém o usou para hospedar malware não havia mecanismo algum para agir sobre a denúncia, e um serviço que não consegue ler o que guarda também não consegue fiscalizar. Vale entender isso antes de escolher um substituto, porque é o que diz exatamente quais promessas conferir. Esta página explica o que aconteceu de verdade e depois ordena <strong>oito substitutos</strong> conforme a chave realmente ficar no seu navegador, com cada limite lido no provedor em setembro de 2026.",
     "ctaPrimary": "Baixe o BIShare grátis",
     "ctaSecondary": "Como funciona"
   },
-  "why": {
-    "title": "O que aconteceu com o Firefox Send?",
-    "body": "A Mozilla descontinuou o Firefox Send em setembro de 2020, depois que ele passou a ser usado para malware, e nunca o trouxe de volta. Isso deixou uma lacuna: um jeito simplíssimo, <strong>criptografado de ponta a ponta</strong> e sem conta de enviar um arquivo com um link. O BIShare preenche essa lacuna — a chave de criptografia fica no fragmento do link e nunca chega aos nossos servidores, então só armazenamos texto cifrado, exatamente o modelo que o Firefox Send usava."
+  "updated": "Atualizado em setembro de 2026 · a história do encerramento está citada do próprio blog da Mozilla, da sua página de ajuda e do repositório arquivado; as instâncias vivas do Send foram consultadas neste mês sobre a configuração atual; os números do BIShare vêm do código-fonte",
+  "disclosure": "O BIShare é nosso. Ele não é o mais parecido com o Firefox Send nesta página, e o texto diz isso: a bifurcação comunitária do Send é literalmente o mesmo código, e se você quer exatamente o que tinha, é ali que se olha primeiro.",
+  "quick": {
+    "title": "Resposta rápida",
+    "items": {
+      "0": "<strong>Você quer a mesma coisa, sem mudanças:</strong> a bifurcação comunitária do Send continua mantida e continua rodando em instâncias públicas. Mesma criptografia, mesma chave no link, sem conta.",
+      "1": "<strong>Você quer hospedado por alguém responsável:</strong> <goTransfer>um link do BIShare</goTransfer> leva 100 GB, é trancado no seu navegador com a chave no link, e dura 24 horas.",
+      "2": "<strong>Você quer rodar por conta própria:</strong> a Mozilla tirou a marca dela do código em 2021 para que bifurcações fossem legais. É uma imagem Docker mais Redis.",
+      "3": "<strong>Você quer a vida mais longa para um arquivo:</strong> o Tresorit Send guarda 5 GB por 7 dias, e as instâncias públicas do Send vão de 3 dias a um mês, conforme quem as opera.",
+      "4": "<strong>Cuidado com a palavra criptografado:</strong> SwissTransfer e Filemail criptografam nos servidores deles, não no seu navegador. Os dois são bons serviços e nenhum é o que o Send era.",
+      "5": "<strong>O que matou o Send:</strong> sem conta, sem denúncia de abuso, sem jeito de tirar um arquivo malicioso do ar. Todo hospedeiro gratuito desse tipo está a uma onda de abuso da mesma decisão."
+    }
   },
-  "how": {
-    "title": "Como o BIShare mantém tudo privado",
+  "why": {
+    "title": "O que aconteceu de verdade com o Firefox Send",
+    "body": "A versão curta que todo mundo repete é que o malware matou. A versão longa serve mais, porque é uma história de projeto e não uma história de crime, e explica a que qualquer substituto precisa sobreviver. A Mozilla tirou o serviço do ar no começo de julho de 2020, passou o verão construindo as peças que faltavam, e depois decidiu não ligar de novo. O anúncio de 17 de setembro de 2020 é claro sobre a causa e gentil sobre o veredito: o Send era, nas palavras deles, uma ferramenta promissora para compartilhar arquivos criptografados.",
     "items": {
       "0": {
-        "h": "Criptografado no seu navegador",
-        "b": "Ative a criptografia de ponta a ponta e o arquivo é criptografado antes de sair do seu dispositivo. A chave viaja no #fragment do link, que os navegadores nunca enviam a um servidor — por isso armazenamos texto cifrado que não conseguimos ler."
+        "h": "O buraco era o botão de denúncia, não a criptografia",
+        "b": "O Send não pedia nada e não conseguia ler nada, e esse era justamente o ponto. Isso também significava que, quando alguém achava malware atrás de um link send.firefox.com, não havia conta para suspender, nem formulário de abuso, nem jeito de a Mozilla distinguir um arquivo do outro. A declaração que a Mozilla deu à imprensa na época citava as duas correções juntas: um mecanismo de denúncia de abuso, e a exigência de entrar com uma conta Firefox antes de compartilhar."
       },
       "1": {
-        "h": "Um link que se autodestrói",
-        "b": "Compartilhe um link, um QR code ou um código de 6 caracteres. Quem recebe abre em qualquer navegador e baixa — sem conta, sem instalação. Os links expiram sozinhos após 24 horas, em vez de ficarem parados na nuvem."
+        "h": "Eles quase entregaram a correção",
+        "b": "Essa é a parte que as listas pulam. O trabalho foi feito à vista no repositório ao longo de julho de 2020, com a rota de envio desligada enquanto a denúncia de arquivos, os tokens de download e as mudanças de conta entravam. Qualquer um ainda pode ler esses commits. A Mozilla simplesmente decidiu que o serviço não valia a manutenção que agora exigiria, e a mesma publicação aposentou o Firefox Notes junto."
       },
       "2": {
-        "h": "Ou pule a nuvem por completo",
-        "b": "No mesmo Wi-Fi, o BIShare envia o arquivo direto entre os dispositivos, criptografado de ponta a ponta, sem nenhum upload — algo que o Firefox Send nunca ofereceu."
+        "h": "O código foi deixado bifurcável de propósito",
+        "b": "Em maio de 2021 a Mozilla voltou ao repositório arquivado e retirou as próprias marcas do código, com um aviso explicando que assim quem usa o código tem menos chance de infringi-las. Está sob a Mozilla Public License. Eles nunca endossaram um sucessor, mas abriram o caminho jurídico para um, e é por isso que a bifurcação abaixo pode existir com outro nome."
+      },
+      "3": {
+        "h": "Quais eram os limites reais do Send",
+        "b": "Vale saber, porque substitutos costumam ser medidos contra um número que as pessoas lembram errado. Lendo a configuração no último código publicado: 1 GB e 24 horas sem conta, 2,5 GB e 7 dias com ela, e um contador de downloads limitado a 5 ou a 100. As próprias páginas de ajuda da Mozilla nunca se atualizaram e seguiam descrevendo 24 horas para todo mundo."
       }
     }
   },
-  "comparison": {
-    "title": "Firefox Send vs WeTransfer vs BIShare",
+  "methods": {
+    "title": "Oito alternativas ao Firefox Send, ordenadas",
+    "consLabel": "Fique de olho em:",
+    "items": {
+      "0": {
+        "name": "Send, numa instância pública",
+        "tag": "A continuação literal do que você perdeu",
+        "facts": "O mesmo código, mantido por um voluntário desde que a Mozilla parou · criptografia no navegador com a chave no fragmento do link, sem mudança · a instância principal permite 2,5 GiB, 20 downloads e três dias · outras chegam a 8 ou 10 GB e a um mês · sem conta · código aberto",
+        "body": "Esta é a primeira resposta honesta, e a primeira resposta honesta não somos nós. Depois que a Mozilla parou, um desenvolvedor pegou o projeto, tirou a marca Firefox como a licença exige, e o mantém em dia desde então, com a publicação mais recente em julho de 2025. Instâncias públicas rodam esse código hoje. Lemos a configuração ao vivo da mais conhecida em vez de confiar numa tabela: 2,5 GiB por transferência, até vinte downloads, três dias no máximo. Outras são bem mais generosas. Se o que falta para você é o Firefox Send exatamente, isto é o Firefox Send exatamente.",
+        "cons": "Cada instância é o hobby de alguém, sem acordo nenhum por trás, e a lista publicada de instâncias está desatualizada: duas entradas nem resolvem mais, e vários limites dela já não batem com o que esses servidores informam. Escolha uma, confira os números dela mesma, e não espere nada se sumir."
+      },
+      "1": {
+        "name": "BIShare",
+        "tag": "A melhor quando você quer o modelo do Send com alguém que responda por ele",
+        "facts": "100 GB por link · trancado dentro do seu navegador antes de qualquer coisa se mover · o segredo viaja depois do # · pode ser retirado por um dia · autodestruição opcional na primeira retirada · sem teto entre duas máquinas na mesma rede · código público sob licença MIT · nada para cadastrar",
+        "body": "O BIShare mantém a parte do Send que importava e põe um serviço mantido atrás dela. Seu arquivo é trancado dentro do seu próprio navegador, e o segredo que o abre viaja depois da marca # do link, um trecho que os navegadores se recusam a entregar, então o que fica no nosso armazenamento é material que não temos como ler. Onde ele se separa do Send é em tamanho e tempo: um link aceita até 100 GB contra o teto de 2,5 GB do Send, e continua disponível por um dia em vez de uma semana. Também existem aplicativos de verdade, e duas máquinas na mesma rede sem fio pulam o envio por completo.",
+        "cons": "Vinte e quatro horas é menos que a semana do Send com login, e bem menos que o Tresorit. Os links recusam executáveis como .exe e .msi, que é exatamente a alavanca que faltou ao Send, e é uma alavanca grosseira."
+      },
+      "2": {
+        "name": "Rodar o Send você mesmo",
+        "tag": "A melhor quando você não quer terceiro nenhum na história",
+        "facts": "A Mozilla tirou as marcas em 2021, então uma bifurcação renomeada é legal · publicado sob a Mozilla Public License · uma imagem de contêiner mais Redis, com disco local ou qualquer armazenamento compatível com S3 · você define tamanho, validade e limites de download · ninguém pode desligar além de você",
+        "body": "A resposta mais completa para um serviço que some é parar de depender de um. A bifurcação entrega uma imagem de contêiner e um arquivo de composição, precisa de Redis para os metadados qualquer que seja o armazenamento, e deixa você definir os tetos em vez de aceitar os de outra pessoa. Para um time, um grupo de faculdade ou uma entrega a cliente, isso elimina a classe inteira de problema de que esta página trata.",
+        "cons": "Duas coisas. A própria documentação do projeto avisa que validade longa num servidor público convida as pessoas a usarem você como hospedagem gratuita de malware, que foi exatamente como o original morreu, então leia isso antes de abrir ao mundo. E fixe uma imagem construída a partir do código atual em vez da etiqueta latest flutuante, cuja data de publicação está anos atrás do código."
+      },
+      "3": {
+        "name": "Wormhole",
+        "tag": "O melhor para uma entrega confidencial rápida sem instalar nada",
+        "facts": "Teto de 10 GB · AES-GCM de 128 bits aplicado antes de qualquer coisa sair da aba · chave escondida no fragmento do endereço · apagado depois de 24 horas ou 100 downloads, o que vier primeiro · acima de 5 GB vai de navegador para navegador e sua aba precisa ficar aberta · sem conta",
+        "body": "O <goWormhole>Wormhole</goWormhole> é o mais parecido com o Send entre o que foi construído por gente que não estava bifurcando o Send, e usa o mesmo esquema de fundo: criptografia no navegador e o segredo na parte do endereço que nunca é transmitida. Para um contrato ou um conjunto de masters indo para uma pessoa esta tarde, nada é mais rápido.",
+        "cons": "Passados 5 GB nada é guardado e a transferência corre entre os dois navegadores, então quem envia precisa deixar a página aberta até o destinatário terminar. O roteiro dele não se move desde 2021."
+      },
+      "4": {
+        "name": "Tresorit Send",
+        "tag": "O melhor quando o destinatário é lento e quem envia é uma empresa",
+        "facts": "5 GB por envio e 100 arquivos por vez · criptografado no seu aparelho antes do envio · o link de download leva a chave, que o Tresorit diz não armazenar · sete dias, ou dez downloads · proteção por senha e revogação do link, as duas grátis · sem conta, embora peça seu endereço de e-mail",
+        "body": "Entre os serviços hospedados daqui, este é o que cumpre a promessa do Send e supera a semana dele. Os arquivos são criptografados antes de deixar o aparelho, a chave viaja no link e não nos servidores deles, e você ganha senha e a possibilidade de matar um link, de graça. Para quem precisa justificar a escolha a um responsável de conformidade, o nome também faz um trabalho que uma instância voluntária não faz.",
+        "cons": "Não é de código aberto nem auditado de forma independente, e a empresa diz com todas as letras que isso ainda está no roteiro dela. Cinco gigabytes são metade do Wormhole e um vinte avos de um link do BIShare."
+      },
+      "5": {
+        "name": "Bitwarden Send",
+        "tag": "O mais bem documentado de todos, e o nível gratuito é só texto",
+        "facts": "Um segredo de 128 bits por Send, com a chave de criptografia derivada dele e colocada depois do # no link · a chave nunca entra numa requisição de rede · data de validade, data de exclusão, número máximo de acessos e senha opcional · pode ser hospedado por você · os Send gratuitos são texto, até 1.000 caracteres",
+        "body": "Se você quer ler exatamente como uma chave carregada pelo link deve funcionar, o Bitwarden publica a descrição mais clara de todos: um segredo gerado por Send, uma chave derivada dele, o link montado como identificador mais essa chave depois da marca de fragmento, e uma promessa explícita de que a chave nunca sai numa requisição. Todo controle que o Send tinha, ele tem, e mais.",
+        "cons": "Enviar um arquivo exige assinatura paga. O nível gratuito cobre só texto, então como substituto do Firefox Send ele é honesto ao ser meia resposta."
+      },
+      "6": {
+        "name": "0up",
+        "tag": "O melhor clone pequeno da ideia original",
+        "facts": "Criptografia no navegador com a chave gerada ali e nunca enviada · a chave viaja depois do # e o nome e o tipo do arquivo também são criptografados · validade de uma hora a um dia · limites de download de 1, 3, 5 ou 10 · sem conta, sem anúncios, sem plano pago · código aberto e hospedável por você",
+        "body": "Um projeto de hobby que reproduz o modelo do Send com fidelidade, até criptografar os metadados e não só os bytes, e que diz abertamente que não ganha dinheiro e existe porque alguém quis. Para uma entrega avulsa em que você preferiria não envolver empresa nenhuma, ele dá conta.",
+        "cons": "Pequeno e sem financiamento, com o tamanho máximo de arquivo não publicado em lugar nenhum do site, então teste antes de depender dele. Trate como trataria uma instância voluntária do Send."
+      },
+      "7": {
+        "name": "Mandar direto entre dois aparelhos",
+        "tag": "O melhor quando o arquivo não precisa sair do prédio",
+        "facts": "Nada é enviado, então não há hospedeiro que o retire, nem relógio nem contador · BIShare ou LocalSend · uma rede sem fio, ou um celular fazendo as vezes dela · segue durante uma queda · trancado nas duas pontas · grátis, código publicado",
+        "body": "O Firefox Send sumiu porque era o serviço hospedado de alguém, e serviços hospedados podem ser retirados. <goOffline>Passar um arquivo direto de uma máquina para outra por uma rede compartilhada</goOffline> aposenta esse risco de vez: sem nada guardado em lugar nenhum, não sobra nada para tirar. De perto no Wi-Fi 6 marcamos entre 70 e 110 MB/s, bem mais rápido que qualquer envio que você estivesse dando ao Send.",
+        "cons": "Só serve quando a outra máquina está por perto, o que exclui a maior parte do que as pessoas faziam com o Send. Os dois lados instalam algo, enquanto o Send não pedia nada além de um navegador."
+      }
+    }
+  },
+  "table": {
+    "title": "De relance",
     "cols": {
-      "airdrop": "Firefox Send",
-      "quick": "WeTransfer",
-      "bishare": "BIShare"
+      "feature": "Plano gratuito, setembro de 2026",
+      "bishare": "BIShare",
+      "send": "Instância do Send",
+      "wormhole": "Wormhole",
+      "tresorit": "Tresorit Send",
+      "bitwarden": "Bitwarden Send",
+      "swiss": "SwissTransfer"
     },
     "rows": {
-      "r0": "Criptografia de ponta a ponta",
-      "r1": "Ainda disponível hoje",
-      "r2": "Sem conta para enviar",
-      "r3": "Instantâneo, dispositivo a dispositivo por perto",
-      "r4": "Grátis para usar"
+      "r0": "Trancado no navegador, chave nunca enviada",
+      "r1": "Grátis para arquivos, não só texto",
+      "r2": "Mais de 5 GB numa transferência",
+      "r3": "Sem conta para quem envia",
+      "r4": "Você pode hospedar por conta própria",
+      "r5": "Disponível por mais de 24 horas"
+    },
+    "note": "Lido em cada provedor em setembro de 2026. Instância do Send: os números vêm da configuração ao vivo da instância pública mais conhecida, 2,5 GiB e três dias; outras permitem bem mais, e cada uma define a sua. BIShare: 100 GB por 24 horas, trancado no navegador, destruição opcional depois do primeiro download. Wormhole: 10 GB, removido depois de 24 horas ou 100 downloads, e acima de 5 GB a aba de quem envia carrega a transferência. Tresorit Send: 5 GB por sete dias ou dez downloads, com senha e revogação grátis; pede seu endereço de e-mail sem criar conta. Bitwarden Send: os Send gratuitos levam só texto, então as colunas de arquivo refletem a necessidade do nível pago. SwissTransfer: 50 GB guardados 15 dias, extensíveis a 30, mas a documentação dele diz que os arquivos são criptografados ao chegar nos servidores da Infomaniak, e por isso a primeira linha sai assim."
+  },
+  "instances": {
+    "title": "A bifurcação hoje, e quais instâncias estão mesmo de pé",
+    "body": "Todo artigo sobre isso copia a mesma tabela de instâncias públicas, e essa tabela já se afastou da realidade. Estes são os números que cada servidor informou sobre si mesmo neste mês, que é a única versão que merece confiança.",
+    "items": {
+      "0": {
+        "h": "O projeto está vivo, e é uma pessoa",
+        "b": "Não arquivado, sem aviso de abandono, e com publicações seguindo até julho de 2025, com o repositório canônico no GitLab e um espelho no GitHub. Também não há time: é um só mantenedor pedindo doações para poder continuar, e a mesma pessoa opera a instância pública principal. Não é crítica, é o perfil de risco. Planeje como planejaria diante de qualquer ponto único de falha."
+      },
+      "1": {
+        "h": "A lista publicada de instâncias está velha",
+        "b": "Dois dos servidores que ela lista nem resolvem mais no sistema de nomes de domínio, inclusive aquele cujos limites enormes são repetidos por todas as listas. Dos que seguem de pé, vários informam números diferentes da tabela: um anunciado com 10 GiB permite na verdade 1 GiB, outro listado com sete dias permite trinta e um. Leia a página da instância antes de acreditar num número sobre ela."
+      },
+      "2": {
+        "h": "O que as vivas oferecem",
+        "b": "Quinze responderam neste mês. A principal permite 2,5 GiB por três dias. As mais generosas chegam a 8 e 10 GB com uma semana a um mês de retenção, uma permite mil downloads, e a menor está limitada a 70 MiB. Todas limitam um arquivo compactado a 64 itens. Escolha pelos limites e por quem opera, já que o código por baixo é o mesmo em toda parte."
+      }
+    }
+  },
+  "steps": {
+    "title": "Saindo do Firefox Send para o BIShare",
+    "items": {
+      "0": {
+        "h": "O hábito passa sem mudar",
+        "b": "Entre em bishare.app/transfer e solte o arquivo nele. Ninguém precisa se identificar, assim como ninguém precisava no Send. O trancamento acontece dentro do seu navegador e o segredo é anexado depois do # no endereço, então o link que você entrega é, por si só, o segredo inteiro. É exatamente o mecanismo em que você já confiava."
+      },
+      "1": {
+        "h": "O teto sobe e o relógio desce",
+        "b": "O Send dava 2,5 GB por uma semana depois que você entrava na conta. Um link do BIShare dá 100 GB por um dia, sem login em nenhuma das pontas. Se a semana importava mais que os gigabytes, uma instância pública do Send ou o Tresorit Send é a troca melhor, e esta página preferiria que você usasse uma delas."
+      },
+      "2": {
+        "h": "Ajuste o limite de downloads se você usava o do Send",
+        "b": "O Send podia aposentar um link depois de um número escolhido de downloads. Ligue a opção de retirada única e o seu morre no instante em que o arquivo é puxado, o que cobre o caso comum. Para qualquer coisa entre um e cem, o Bitwarden Send e a bifurcação do Send ainda oferecem o contador inteiro."
+      },
+      "3": {
+        "h": "Para algo maior, ou para alguém por perto",
+        "b": "Ponha o aplicativo nas duas máquinas. Onde elas dividem uma rede, ou uma serve de ponto de acesso para a outra, elas se descobrem e passam o arquivo entre si sem nada ir para um servidor, que é o único arranjo que empresa nenhuma vai poder aposentar."
+      }
+    }
+  },
+  "choose": {
+    "title": "Qual alternativa para qual trabalho",
+    "body": "Ordene pelo que você realmente perdeu. Para a maioria isso é a chave do lado do navegador, não os gigabytes.",
+    "items": {
+      "0": {
+        "h": "Você quer o Firefox Send de volta, exatamente",
+        "b": "Uma instância pública da bifurcação comunitária. Mesmo código, mesma criptografia, sem conta. Confira antes os limites daquela instância."
+      },
+      "1": {
+        "h": "Você quer que ainda esteja lá daqui a um ano",
+        "b": "Hospede a bifurcação você mesmo, ou use um serviço com empresa por trás. Uma instância voluntária não lhe deve nada, e diz isso."
+      },
+      "2": {
+        "h": "Arquivo grande, que sai hoje",
+        "b": "Até 100 GB pelo BIShare, ou até 10 GB pelo Wormhole. Os dois trancam o arquivo dentro do navegador antes de um byte subir."
+      },
+      "3": {
+        "h": "Confidencial, e o destinatário é lento",
+        "b": "<goEncrypted>Escolha por quem segura a chave</goEncrypted>. O Tresorit Send dá sete dias com a chave no link; o SwissTransfer dá quinze mas consegue ler o que guarda."
+      },
+      "4": {
+        "h": "Vocês dois no mesmo prédio",
+        "b": "Mandem de aparelho para aparelho e serviço nenhum participa. Nada guardado, nada para expirar, nada que alguém possa desligar."
+      }
+    }
+  },
+  "security": {
+    "title": "O que cada serviço consegue ler",
+    "body": "O Firefox Send estabeleceu a régua e ela continua certa: criptografado no navegador, com a chave no fragmento, que os navegadores nunca enviam. Meça todo o resto por isso e não pela palavra criptografado, porque essa palavra faz trabalhos muito diferentes em sites diferentes.",
+    "items": {
+      "0": {
+        "h": "Trancado por você, chave no link",
+        "b": "A bifurcação do Send, um link do BIShare, Wormhole, Bitwarden Send, Tresorit Send e 0up funcionam todos assim. O que o serviço guarda é material do qual ele não tem segredo algum, então arrombar ou aparecer com um mandado não produz nada legível. O preço é que o link e o arquivo são a mesma coisa: quem o obtiver pode abrir, o que faz do jeito de passá-lo adiante a decisão que realmente importa."
+      },
+      "1": {
+        "h": "Criptografado pela empresa depois que chega",
+        "b": "SwissTransfer e Filemail entram aqui, e diretórios que descrevem qualquer um dos dois como ponta a ponta estão errados. A própria documentação da Infomaniak diz que os arquivos são criptografados assim que chegam aos servidores de armazenamento, e o plano gratuito do Filemail descreve só criptografia no transporte. Os dois são razoáveis para o trabalho do dia a dia e nenhum é substituto do Firefox Send."
+      },
+      "2": {
+        "h": "Nada guardado em lugar nenhum",
+        "b": "Passar um arquivo direto entre duas máquinas numa rede compartilhada não deixa nada em disco que nós ou qualquer outro controle, então não há invasão a sofrer, mandado a responder nem aviso prévio a temer. De tudo que está aqui, é o único arranjo que teria atravessado 2020 intacto, e o único ainda imune hoje."
+      }
     }
   },
   "faq": {
-    "title": "Alternativa ao Firefox Send: perguntas frequentes",
+    "title": "Alternativas ao Firefox Send: perguntas frequentes",
     "items": {
       "0": {
-        "q": "Qual é a melhor alternativa ao Firefox Send?",
-        "a": "O BIShare. Ele reproduz o que as pessoas amavam no Firefox Send — compartilhamento de arquivos com criptografia de ponta a ponta por um link simples, sem conta e que expira — e ainda acrescenta a transferência instantânea entre dispositivos por perto."
+        "q": "O que aconteceu com o Firefox Send?",
+        "a": "A Mozilla tirou do ar no começo de julho de 2020 depois de ele ser usado para distribuir malware, trabalhou o verão inteiro na denúncia de abuso e na exigência de login, e anunciou em 17 de setembro de 2020 que ele não voltaria. A página de ajuda informa a data do encerramento e diz que todos os arquivos foram apagados com segurança do servidor."
       },
       "1": {
-        "q": "O Firefox Send vai voltar?",
-        "a": "Não. A Mozilla descontinuou o Firefox Send de forma permanente em 2020 e afirmou que ele não voltará. Se você procura a mesma experiência de link criptografado, o BIShare é o substituto mais próximo."
+        "q": "Por que o Firefox Send fechou se era criptografado?",
+        "a": "Por causa do que faltava, não do que tinha. Não havia conta nem forma de denunciar um arquivo nocivo, e um serviço que não consegue ler o que guarda também não consegue identificá-lo. A correção da própria Mozilla era acrescentar um mecanismo de denúncia de abuso e exigir uma conta Firefox, e tendo construído a maior parte eles decidiram que o serviço não valia a manutenção contínua."
       },
       "2": {
-        "q": "O BIShare é mesmo criptografado de ponta a ponta como o Firefox Send?",
-        "a": "Sim. O arquivo é criptografado no seu navegador com uma chave que viaja no fragmento do link e nunca chega aos nossos servidores, então só armazenamos texto cifrado. As transferências por perto são criptografadas de dispositivo para dispositivo e nunca passam pela nuvem."
+        "q": "O Firefox Send vai voltar?",
+        "a": "Não. A Mozilla disse no mesmo anúncio que tomou a decisão de não relançar o serviço, e aposentou o Firefox Notes ao mesmo tempo. O que continua é uma bifurcação comunitária do código, com outro nome porque a Mozilla tirou as marcas dela do código-fonte em 2021."
       },
       "3": {
-        "q": "Preciso de uma conta?",
-        "a": "Não. Você pode enviar e receber sem se cadastrar. Basta compartilhar um link, um QR code ou um código de 6 caracteres, e quem recebe abre em qualquer navegador."
+        "q": "Qual é a alternativa mais próxima do Firefox Send?",
+        "a": "Uma instância pública da bifurcação comunitária, porque é o mesmo software. A instância principal permite hoje 2,5 GiB, vinte downloads e três dias. Se você quer o mesmo modelo de criptografia vindo de um serviço mantido, o BIShare dá 100 GB por um dia, e o Tresorit Send dá 5 GB por uma semana."
       },
       "4": {
-        "q": "Qual é o tamanho máximo de arquivo que posso enviar?",
-        "a": "Os links de compartilhamento criptografados suportam arquivos de até 100 GB grátis. Para transferências entre dispositivos por perto na sua própria rede Wi-Fi não há limite de tamanho, porque nada é enviado a um servidor."
+        "q": "Ainda posso hospedar o Firefox Send eu mesmo?",
+        "a": "Pode, e legalmente. O código está sob a Mozilla Public License, e em maio de 2021 a Mozilla tirou as marcas do repositório para que bifurcações tenham menos chance de infringi-las, com a condição de você largar a marca Mozilla e Firefox. Na prática você roda a imagem de contêiner da bifurcação comunitária ao lado do Redis, com disco local ou armazenamento compatível com S3."
+      },
+      "5": {
+        "q": "Quais eram os limites reais do Firefox Send?",
+        "a": "Pela configuração do último código publicado: 1 GB e 24 horas sem conta, ou 2,5 GB e 7 dias com ela, com o contador de downloads limitado a 5 e a 100. As páginas de ajuda da Mozilla nunca foram atualizadas e descreviam 24 horas para todos, e é por isso que o número errado circula."
+      },
+      "6": {
+        "q": "As instâncias públicas do Send são seguras?",
+        "a": "Elas rodam o mesmo código não auditado por ninguém que a Mozilla publicou, e a criptografia acontece no seu navegador, então quem opera a instância só vê texto cifrado. O risco é de disponibilidade e de intenção, não de criptografia: cada instância é o servidor de um voluntário, duas da lista publicada não existem mais, e ninguém lhe deve promessa de funcionamento."
+      },
+      "7": {
+        "q": "Quais alternativas criptografam no navegador como o Send fazia?",
+        "a": "A bifurcação do Send, Wormhole, Bitwarden Send, Tresorit Send, 0up e um link do BIShare. SwissTransfer e Filemail não, digam o que disserem as tabelas comparativas. Essa distinção importa mais que qualquer limite de tamanho, porque é justamente o que o Firefox Send existia para dar."
+      },
+      "8": {
+        "q": "O ffsend ainda funciona?",
+        "a": "O cliente de linha de comando segue mantido, com a publicação mais recente em fevereiro de 2025 e commits depois dela, e suporta a versão atual do protocolo do Send que toda instância viva serve. Os dois projetos documentam que ele funciona contra essas instâncias. Vale notar que o mesmo desenvolvedor mantém o cliente e a instância principal."
+      },
+      "9": {
+        "q": "O que usar se um arquivo precisa durar mais de uma semana?",
+        "a": "O Tresorit Send guarda 5 GB por sete dias, e algumas instâncias públicas do Send permitem até um mês. Além disso, um serviço de links tem o formato errado e o que você quer é armazenamento: o Proton Drive mantém um arquivo criptografado até você apagar, dentro dos 5 GB do plano gratuito."
       }
     }
   },
   "cta": {
-    "title": "Envie um arquivo criptografado do jeito simples",
-    "body": "A transferência de arquivos privada e sem conta que você lembra — com o envio instantâneo por perto de brinde. Grátis no iPhone, Android, Mac, Windows e em qualquer navegador.",
+    "title": "O mesmo link trancado, vindo de algo que é mantido",
+    "body": "Cem gigabytes por link, trancados dentro do seu navegador, com o segredo depois do # onde servidores nunca o veem. Nada para cadastrar, nada para assinar, e o código é público.",
     "download": "Baixar o BIShare"
   },
   "a11y": {
     "yes": "Sim",
     "no": "Não"
+  },
+  "art": {
+    "hero": {
+      "alt": "Um navegador trancando um arquivo e entregando um link cuja chave fica com quem envia, intitulado as melhores alternativas ao Firefox Send",
+      "title": "As melhores alternativas ao Firefox Send",
+      "sub": "8 opções comparadas, setembro de 2026",
+      "left": "Seu arquivo",
+      "right": "Destinatário",
+      "badge": "Chave no link"
+    },
+    "why": {
+      "alt": "Por que o Firefox Send foi encerrado: nenhuma conta para suspender, nenhuma forma de denunciar um arquivo nocivo, e um servidor que não conseguia ler o que guardava, então uma denúncia de malware não tinha sobre o que agir",
+      "title": "Por que o Send foi desligado",
+      "sub": "Três buracos, um desfecho",
+      "z1": "Sem conta",
+      "z1apps": "Nada para suspender quando um arquivo era abusado",
+      "z2": "Sem denúncia de abuso",
+      "z2apps": "Uma queixa não tinha para onde ir",
+      "z3": "Sem conteúdo legível",
+      "z3apps": "O servidor não distinguia um arquivo do outro",
+      "foot": "A criptografia nunca foi o problema; o botão de denúncia que faltava foi"
+    },
+    "limits": {
+      "alt": "Tamanho gratuito de uma transferência desenhado em escala logarítmica: uma instância pública do Send e o próprio teto do Firefox Send com login perto de 2,5 GB, Tresorit Send em 5, Wormhole em 10, SwissTransfer em 50, um link do BIShare em 100, e uma instância auto-hospedada onde o operador dela colocar",
+      "title": "Tamanho gratuito por transferência",
+      "sub": "Escala logarítmica, setembro de 2026",
+      "sendvis": "Instância do Send hoje",
+      "sendvisv": "2,5 GiB · 3 dias",
+      "oldsend": "Firefox Send, com login",
+      "oldsendv": "2,5 GB · 7 dias · acabou",
+      "tresorit": "Tresorit Send",
+      "tresoritv": "5 GB · 7 dias",
+      "wormhole": "Wormhole",
+      "wormholev": "10 GB · 24 horas",
+      "swiss": "SwissTransfer",
+      "swissv": "50 GB · 15 a 30 dias",
+      "bishare": "Link do BIShare",
+      "bisharev": "100 GB · 24 horas",
+      "selfhost": "Send auto-hospedado",
+      "selfhostv": "Você define os limites",
+      "foot": "As instâncias públicas variam muito: a principal permite 2,5 GiB, outras chegam a 8 e 10 GB com um mês de retenção"
+    },
+    "choose": {
+      "alt": "Escolhendo pelo que você perdeu: querer o Firefox Send exatamente combina com uma instância pública da bifurcação, querer que ele sobreviva combina com auto-hospedar, arquivo grande hoje combina com um link do BIShare ou Wormhole, confidencial e lento combina com Tresorit Send, e dois aparelhos num prédio devem mandar direto",
+      "title": "Ordene pelo que você perdeu",
+      "sub": "Em geral a chave, não os gigabytes",
+      "a": {
+        "need": "Firefox Send de volta, exatamente",
+        "pick": "Uma instância pública do Send"
+      },
+      "b": {
+        "need": "Ainda lá daqui a um ano",
+        "pick": "Hospede você mesmo"
+      },
+      "c": {
+        "need": "Arquivo grande, sai hoje",
+        "pick": "Link do BIShare · Wormhole"
+      },
+      "d": {
+        "need": "Confidencial, destinatário lento",
+        "pick": "Tresorit Send"
+      },
+      "e": {
+        "need": "Vocês dois num mesmo prédio",
+        "pick": "Mandem direto, sem envio"
+      }
+    }
   }
 }
