@@ -74,17 +74,11 @@ export function LocalRoomView({
       return;
     }
 
-    let stopped = false;
-    let reconnectTimer: ReturnType<typeof setTimeout> | undefined;
     const sig = new NearbySignaling(self, code)
       .on("open", () => setStatus("open"))
-      .on("close", () => {
-        // Mobile networks drop WebSockets often; don't strand the room — flip to
-        // "connecting" and reconnect (same signaling instance, handlers intact)
-        // unless we're intentionally leaving.
-        setStatus("connecting");
-        if (!stopped) reconnectTimer = setTimeout(() => sig.connect(), 2000);
-      })
+      // Mobile networks drop WebSockets often. NearbySignaling reconnects by
+      // itself (same instance, handlers intact); this only reflects the gap.
+      .on("close", () => setStatus("connecting"))
       .on("peers", (list) => setPeers(list.filter((p) => p.peerId !== self.peerId)))
       .on("peerJoined", (p) =>
         setPeers((cur) => (p.peerId === self.peerId ? cur : [...cur.filter((x) => x.peerId !== p.peerId), p])),
@@ -144,8 +138,6 @@ export function LocalRoomView({
     return () => {
       for (const url of previews.values()) URL.revokeObjectURL(url);
       previews.clear();
-      stopped = true;
-      if (reconnectTimer) clearTimeout(reconnectTimer);
       rtc.closeAll();
       sig.close();
       sigRef.current = null;

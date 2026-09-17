@@ -7,14 +7,17 @@ import { NearbySignaling, type NearbyPeer } from "@/lib/nearby/signaling";
 import { getNearbySelf } from "@/lib/nearby/identity";
 import { reportNearbyTelemetry } from "@/lib/api";
 import { NearbyRTC, type IncomingFile } from "@/lib/nearby/webrtc";
+import { canStageToDisk, saveToPickedLocation } from "@/lib/nearby/stage";
 import { formatFileSize } from "@/lib/format";
 
 // Code alphabet omits ambiguous chars (0/O, 1/I) so shared codes are easy to read.
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 const CODE_LEN = 6;
-// Browsers without the File System Access API buffer the whole file in memory;
-// warn the receiver before they accept something too big to hold.
+// Browsers that can't stage an incoming file on disk buffer the whole of it in
+// memory; warn the receiver before they accept something too big to hold.
 const MEMORY_WARN_BYTES = 512 * 1024 * 1024;
+// How long to keep showing "connecting" before admitting the network is gone.
+const OFFLINE_AFTER_MS = 8000;
 
 type Mode = "local" | "code";
 type Conn = "idle" | "connecting" | "online" | "offline";
@@ -28,14 +31,39 @@ interface Incoming {
   handle: IncomingFile;
 }
 
+/**
+ * A file that fully arrived and is staged on disk, waiting for the user to
+ * pick where it goes. Saving is its own step AFTER the transfer: the save
+ * dialog needs a tap, and on a phone it sends the browser to the background.
+ */
+interface Received {
+  id: string;
+  name: string;
+  size: number;
+  blob: Blob;
+  release: () => Promise<void>;
+  status: "ready" | "saving" | "saved";
+  pct: number;
+  failed?: boolean;
+}
+
+/** Hand an in-memory file to the browser's download flow. */
+function downloadBlob(blob: Blob, name: string) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  // Not at once: the download starts asynchronously (slowly, where the browser
+  // first asks the user where to save) and a revoked URL fails it.
+  window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
+}
+
 /** WebRTC is required for browser-to-browser transfer. */
 function nearbySupported(): boolean {
   return typeof window !== "undefined" && "RTCPeerConnection" in window;
-}
-
-/** File System Access API — lets the receiver stream straight to disk. */
-function canStreamToDisk(): boolean {
-  return typeof window !== "undefined" && "showSaveFilePicker" in window;
 }
 
 function randomCode(): string {
@@ -84,6 +112,7 @@ export function NearbyPanel({
   const [peers, setPeers] = useState<NearbyPeer[]>([]);
   const [sending, setSending] = useState<Record<string, number>>({}); // peerId → pct
   const [incoming, setIncoming] = useState<Incoming | null>(null);
+  const [received, setReceived] = useState<Received[]>([]);
   // Per-peer send queue. The transport allows ONE transfer per peer pair at a
   // time (starting a second tears the first down), so a multi-file pick has to
   // be drained one at a time rather than fired in parallel.
@@ -127,9 +156,28 @@ export function NearbyPanel({
     setConn("connecting");
     setPeers([]);
 
+    let failTimer = 0;
+    const armFailTimer = () => {
+      window.clearTimeout(failTimer);
+      failTimer = window.setTimeout(
+        () => setConn((c) => (c === "connecting" ? "offline" : c)),
+        OFFLINE_AFTER_MS,
+      );
+    };
+
     const sig = new NearbySignaling(self, mode === "code" ? code : undefined)
-      .on("open", () => setConn("online"))
-      .on("close", () => setConn((c) => (c === "connecting" ? "offline" : c)))
+      .on("open", () => {
+        window.clearTimeout(failTimer);
+        setConn("online");
+      })
+      // The socket reconnects by itself; until it does, say so. Leaving this at
+      // "online" with the old roster offered Send buttons that went nowhere.
+      // The fresh roster arrives with the next open.
+      .on("close", () => {
+        setConn("connecting");
+        setPeers([]);
+        armFailTimer();
+      })
       .on("peers", (p) => setPeers(p))
       .on("peerJoined", (p) =>
         setPeers((cur) => [...cur.filter((x) => x.peerId !== p.peerId), p]),
@@ -185,10 +233,7 @@ export function NearbyPanel({
       },
     });
 
-    const failTimer = window.setTimeout(
-      () => setConn((c) => (c === "connecting" ? "offline" : c)),
-      8000,
-    );
+    armFailTimer();
     sig.connect();
 
     return () => {
@@ -216,6 +261,27 @@ export function NearbyPanel({
     );
     return () => window.clearTimeout(timer);
   }, [incoming?.status, incoming?.from]);
+
+  // Received files that nobody saved yet exist only in this page's staging
+  // area: warn before a reload or close throws them away, and delete them when
+  // the panel itself goes (route change), so they don't sit on disk.
+  const receivedRef = useRef(received);
+  useEffect(() => {
+    receivedRef.current = received;
+  }, [received]);
+  const unsaved = received.some((r) => r.status !== "saved");
+  useEffect(() => {
+    if (!unsaved) return;
+    const onBeforeUnload = (e: BeforeUnloadEvent) => e.preventDefault();
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => window.removeEventListener("beforeunload", onBeforeUnload);
+  }, [unsaved]);
+  useEffect(
+    () => () => {
+      for (const r of receivedRef.current) void r.release();
+    },
+    [],
+  );
 
   const pickFileFor = useCallback((peerId: string) => {
     targetPeer.current = peerId;
@@ -293,20 +359,57 @@ export function NearbyPanel({
         cur && cur.from === inc.from ? { ...cur, received: r, status: "receiving" } : cur,
       ),
     );
-    inc.handle.onDone((blob) => {
+    inc.handle.onDone((file) => {
       reportNearbyTelemetry("receive", inc.size);
-      if (blob) {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = inc.name;
-        a.click();
-        URL.revokeObjectURL(url);
+      const { release } = file;
+      if (release) {
+        // Staged on disk — it moves to the save tray, and the prompt slot is
+        // free for the sender's next file, which may already be on its way.
+        setReceived((cur) => [
+          ...cur,
+          {
+            id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+            name: inc.name,
+            size: inc.size,
+            blob: file.blob,
+            release,
+            status: "ready",
+            pct: 0,
+          },
+        ]);
+        setIncoming((cur) => (cur && cur.from === inc.from ? null : cur));
+        return;
       }
+      downloadBlob(file.blob, inc.name);
       setIncoming((cur) => (cur && cur.from === inc.from ? { ...cur, status: "done" } : cur));
     });
     inc.handle.accept();
     setIncoming({ ...inc, status: "receiving" });
+  }
+
+  const patchReceived = (id: string, patch: Partial<Received>) =>
+    setReceived((cur) => cur.map((r) => (r.id === id ? { ...r, ...patch } : r)));
+
+  function saveReceived(r: Received) {
+    // Straight from the tap, nothing awaited first: the picker inside needs
+    // this click's user activation.
+    const saving = saveToPickedLocation(r.blob, r.name, (written) =>
+      patchReceived(r.id, { status: "saving", pct: Math.round((written / (r.size || 1)) * 100) }),
+    );
+    saving.then(
+      (saved) => {
+        if (!saved) return; // dialog dismissed — still ready
+        patchReceived(r.id, { status: "saved", pct: 100, failed: false });
+        void r.release();
+        window.setTimeout(() => setReceived((cur) => cur.filter((x) => x.id !== r.id)), 2500);
+      },
+      () => patchReceived(r.id, { status: "ready", pct: 0, failed: true }),
+    );
+  }
+
+  function discardReceived(r: Received) {
+    void r.release();
+    setReceived((cur) => cur.filter((x) => x.id !== r.id));
   }
 
   function declineIncoming() {
@@ -360,7 +463,8 @@ export function NearbyPanel({
   }
 
   const showMemoryWarn =
-    incoming?.status === "prompt" && !canStreamToDisk() && incoming.size > MEMORY_WARN_BYTES;
+    incoming?.status === "prompt" && !canStageToDisk() && incoming.size > MEMORY_WARN_BYTES;
+  const showIncoming = !!incoming && incoming.status !== "canceled";
 
   return (
     <div className="py-2">
@@ -459,14 +563,20 @@ export function NearbyPanel({
           browser OR a phone via the app bridge) can't be missed inside a
           scrolled panel. Explicit buttons only: the backdrop deliberately
           doesn't dismiss, since a stray tap would decline someone's send. */}
-      {incoming && incoming.status !== "canceled" && (
+      {(showIncoming || received.length > 0) && (
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={t("incoming", { name: incoming.name })}
+          aria-label={
+            showIncoming
+              ? t("incoming", { name: incoming.name })
+              : t("received", { name: received[0]?.name ?? "" })
+          }
           className="fixed inset-0 z-[70] flex items-end justify-center bg-black/50 p-4 backdrop-blur-sm sm:items-center"
         >
-        <div className="w-full max-w-sm rounded-2xl border border-accent-blue/40 bg-card p-5 shadow-xl">
+        <div className="max-h-full w-full max-w-sm space-y-3 overflow-y-auto">
+        {showIncoming && (
+        <div className="rounded-2xl border border-accent-blue/40 bg-card p-5 shadow-xl">
           <div className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-blue/10 text-accent-blue">
               <Download className="h-4 w-4" />
@@ -537,6 +647,69 @@ export function NearbyPanel({
               </button>
             </div>
           )}
+        </div>
+        )}
+
+        {/* Save tray — files that fully arrived and wait for a location. Saving
+            comes AFTER the transfer on purpose: the save dialog is the system
+            file manager on a phone, and opening it mid-handshake killed the
+            transfer. Several can queue here while the sender keeps going. */}
+        {received.map((r) => (
+          <div
+            key={r.id}
+            className="rounded-2xl border border-accent-blue/40 bg-card p-5 shadow-xl"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-success/10 text-success">
+                <Download className="h-4 w-4" />
+              </span>
+              <div className="min-w-0">
+                <p className="truncate text-sm font-semibold">
+                  {t("received", { name: r.name })}
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  {formatFileSize(r.size, locale)}
+                </p>
+              </div>
+            </div>
+            {r.failed && r.status === "ready" && (
+              <p className="mt-2 text-xs text-amber-500 dark:text-amber-400">{t("saveFailed")}</p>
+            )}
+            {r.status === "ready" && (
+              <div className="mt-4 flex gap-2.5">
+                <button
+                  onClick={() => discardReceived(r)}
+                  className="flex-1 rounded-lg border border-border px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
+                >
+                  {t("discard")}
+                </button>
+                <button
+                  onClick={() => saveReceived(r)}
+                  autoFocus={!showIncoming}
+                  className="flex-1 rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  {t("save")}
+                </button>
+              </div>
+            )}
+            {r.status === "saving" && (
+              <div className="mt-3">
+                <p className="text-xs text-muted-foreground">
+                  {t("saving")} {r.pct}%
+                </p>
+                <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-secondary">
+                  <div
+                    className="h-full rounded-full bg-accent-blue transition-[width] duration-200"
+                    style={{ width: `${r.pct}%` }}
+                  />
+                </div>
+              </div>
+            )}
+            {r.status === "saved" && (
+              <p className="mt-3 text-sm font-medium text-success">{t("saved")}</p>
+            )}
+          </div>
+        ))}
         </div>
         </div>
       )}

@@ -1,13 +1,15 @@
 // Nearby WebRTC transfer (P2) — one file, peer-to-peer over a DTLS DataChannel.
 // The sender initiates (offer + DataChannel); the receiver answers. Signaling
 // (SDP/ICE) is relayed through NearbySignaling; file bytes go straight peer-to-
-// peer and never touch our server. Receive is in-memory for P2 (streaming to
-// disk for big files comes in P3).
+// peer and never touch our server. The receiver stages bytes on disk where it
+// can (lib/nearby/stage) and in memory elsewhere; saving comes after the
+// transfer, never before it.
 //
 // No glare handling needed: exactly one side initiates a given transfer, so the
 // sender is always the offerer and the receiver always the answerer.
 import type { NearbySignaling, IncomingSignal } from "./signaling";
 import { getIceServers, STUN_FALLBACK } from "@/lib/webrtc/ice";
+import { openStage, type Stage } from "./stage";
 const CHUNK_SIZE = 256 * 1024;
 const BUFFER_HIGH = 8 * 1024 * 1024; // pause sending above 8 MB buffered
 const BUFFER_LOW = 1 * 1024 * 1024;
@@ -18,18 +20,16 @@ interface FileMeta {
   mime: string;
 }
 
-// Minimal File System Access API shape (avoids depending on the lib typedef,
-// which isn't in every TS lib target). Lets the receiver stream chunks straight
-// to disk so multi-GB files never sit in memory.
-interface FsWritable {
-  write: (data: BufferSource) => Promise<void>;
-  close: () => Promise<void>;
-  abort?: () => Promise<void>;
+/** A fully received file, handed to the UI to save. */
+export interface ReceivedFile {
+  blob: Blob;
+  /**
+   * Set when the bytes are staged in browser storage rather than held in
+   * memory. The caller owns them from here and MUST call this once the file is
+   * saved or dropped, or the staged copy lingers until the stale sweep.
+   */
+  release?: () => Promise<void>;
 }
-interface FsFileHandle {
-  createWritable: () => Promise<FsWritable>;
-}
-type ShowSaveFilePicker = (opts?: { suggestedName?: string }) => Promise<FsFileHandle>;
 
 export interface IncomingFile extends FileMeta {
   from: string;
@@ -37,8 +37,7 @@ export interface IncomingFile extends FileMeta {
   decline: () => void;
   cancel: () => void;
   onProgress: (cb: (received: number) => void) => void;
-  /** blob is null when the file streamed straight to disk (File System Access). */
-  onDone: (cb: (blob: Blob | null) => void) => void;
+  onDone: (cb: (file: ReceivedFile) => void) => void;
 }
 
 interface Callbacks {
@@ -60,17 +59,20 @@ interface Session {
   meta?: FileMeta; // receiver
   received: number;
   chunks: ArrayBuffer[];
-  writable?: FsWritable; // receiver: streaming straight to disk (FSA)
+  stage?: Stage; // receiver: bytes staged on disk instead of in `chunks`
   writeChain?: Promise<void>; // serializes disk writes in arrival order
+  failed?: boolean; // receiver: a staged write failed; the transfer is void
   progressCb?: (n: number) => void;
-  doneCb?: (b: Blob | null) => void;
+  doneCb?: (f: ReceivedFile) => void;
   sentComplete?: boolean; // sender: all bytes pushed to the channel
   notified?: boolean; // sender: onSendDone already fired (fire once)
 }
 
 // Tiny JSON control message the receiver sends back over the DataChannel once
-// the file is fully received AND saved, so the sender's "sent" really means
-// "delivered" rather than "handed to the transport".
+// every byte has arrived and is safely held (staged on disk, or in memory), so
+// the sender's "sent" really means "delivered" rather than "handed to the
+// transport". It does not wait for the user to pick a save location: that can
+// take minutes, and on a phone the dialog itself suspends the connection.
 const ACK_RECEIVED = "received";
 
 export class NearbyRTC {
@@ -103,7 +105,7 @@ export class NearbyRTC {
       dc.onerror = () => {
         if (!this.sessions.get(peerId)?.sentComplete) this.cb.onError?.(peerId, "channel error");
       };
-      // Delivery confirmation: the receiver acks once the file is saved. Fall
+      // Delivery confirmation: the receiver acks once it holds every byte. Fall
       // back to "channel closed after all bytes were sent" so a receiver that
       // closes without acking still resolves as delivered (never before).
       dc.onmessage = (ev) => {
@@ -184,20 +186,18 @@ export class NearbyRTC {
   private async accept(peerId: string): Promise<void> {
     const s = this.sessions.get(peerId);
     if (!s || !s.meta) return;
-    // Stream to disk when supported (Chromium) so multi-GB files never sit in
-    // memory. showSaveFilePicker MUST run in the Accept click's user gesture —
-    // it's called before the first await below. Fallback: in-memory Blob.
-    const picker = (globalThis as unknown as { showSaveFilePicker?: ShowSaveFilePicker })
-      .showSaveFilePicker;
-    if (picker) {
-      try {
-        const handle = await picker({ suggestedName: s.meta.name });
-        s.writable = await handle.createWritable();
-      } catch {
-        this.cancel(peerId); // user dismissed the save dialog → abort
-        return;
-      }
+    // Stage on disk when supported so multi-GB files never sit in memory;
+    // fallback: in-memory Blob. No save dialog here — this used to call
+    // showSaveFilePicker first, and on Android that opens the system file
+    // manager: the page went hidden, the signaling socket died within seconds,
+    // and the answer below was never delivered. The receiver sat at 0% forever
+    // and vanished from the sender's device list.
+    const stage = await openStage();
+    if (this.sessions.get(peerId) !== s) {
+      void stage?.discard(); // canceled while the stage was opening
+      return;
     }
+    s.stage = stage ?? undefined;
     const answer = await s.pc.createAnswer();
     await s.pc.setLocalDescription(answer);
     this.sig.signal(peerId, "answer", answer);
@@ -256,10 +256,13 @@ export class NearbyRTC {
     if (!s || typeof data === "string") return;
     const buf = data as ArrayBuffer;
     s.received += buf.byteLength;
-    if (s.writable) {
+    if (s.stage) {
       // Serialize disk writes in arrival order (don't await in the message
       // handler — chaining keeps them ordered without blocking).
-      s.writeChain = (s.writeChain ?? Promise.resolve()).then(() => s.writable!.write(buf));
+      const stage = s.stage;
+      s.writeChain = (s.writeChain ?? Promise.resolve())
+        .then(() => stage.write(buf))
+        .catch(() => this.failReceive(peerId, s));
     } else {
       s.chunks.push(buf);
     }
@@ -270,18 +273,22 @@ export class NearbyRTC {
   private async finishReceive(peerId: string): Promise<void> {
     const s = this.sessions.get(peerId);
     if (!s) return;
-    if (s.writable) {
+    if (s.stage) {
+      const stage = s.stage;
+      await s.writeChain;
+      if (s.failed) return;
+      let file: File;
       try {
-        await s.writeChain;
-        await s.writable.close();
+        file = await stage.finish();
       } catch {
-        /* write/close failed */
+        this.failReceive(peerId, s);
+        return;
       }
-      s.writable = undefined; // closed — keep teardown from aborting it
-      s.doneCb?.(null); // already saved to disk
+      s.stage = undefined; // handed over — keep teardown from discarding it
+      s.doneCb?.({ blob: file, release: () => stage.discard() });
     } else {
       const blob = new Blob(s.chunks, { type: s.meta?.mime || "application/octet-stream" });
-      s.doneCb?.(blob);
+      s.doneCb?.({ blob });
     }
     // Confirm delivery to the sender, then tear down after a beat so the ack
     // has time to flush over the channel.
@@ -300,6 +307,15 @@ export class NearbyRTC {
     }, 1500);
   }
 
+  /** A staged write failed (disk full, storage revoked): void the transfer on
+   *  both sides rather than ack a file that was never fully kept. */
+  private failReceive(peerId: string, s: Session): void {
+    if (s.failed || this.sessions.get(peerId) !== s) return;
+    s.failed = true;
+    this.cancel(peerId);
+    this.cb.onError?.(peerId, "could not store the file");
+  }
+
   private teardown(peerId: string): void {
     const s = this.sessions.get(peerId);
     if (!s) return;
@@ -309,7 +325,7 @@ export class NearbyRTC {
     } catch {
       /* noop */
     }
-    void s.writable?.abort?.().catch(() => {}); // discard a partial file
+    void s.stage?.discard(); // discard a partial file
     this.sessions.delete(peerId);
   }
 
