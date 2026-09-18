@@ -155,6 +155,7 @@
       "<strong>Off by default, and reversible.</strong> Turn the switch back off and the app stops reading the clipboard. The history is local, and clearing it clears it.",
       "<strong>An image is fetched once, then gone.</strong> The copy is announced with a token that the other device redeems; it works a single time and expires after a minute, so the same announcement cannot be replayed later."
     ],
+    "warning": "One limit deserves saying plainly rather than leaving you to infer it: what crosses your network is not encrypted. File transfers are, but a clipboard copy travels between the devices as plain text, so anyone capturing traffic on that network could read it. Encrypting it is the next change to this feature. Until it lands, treat clipboard sync the way you would treat saying something out loud in the room you are in.",
     "note": "The honest boundary: anyone who is already on your network and running BIShare will receive what you copy. On a home or office network that is the point. On a shared network you do not control — a co-working space, a hotel — leave it off, and read <goSecurity>how the rest of the transfer security works</goSecurity> before you decide."
   },
   "fixes": {

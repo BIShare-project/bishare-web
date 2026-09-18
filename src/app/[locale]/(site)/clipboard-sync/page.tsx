@@ -295,6 +295,12 @@ export default async function ClipboardSyncPage({
           <H2 id="privacy">{t("privacy.title")}</H2>
           <p className="mt-4 leading-relaxed text-muted-foreground">{t("privacy.body")}</p>
           <Bullets items={PRIVACY_ITEMS} read={(i) => rich(`privacy.items.${i}`)} />
+          {/* Said in its own box, not buried in a bullet: the traffic on the
+              network is not encrypted yet, and a reader would otherwise take
+              "nothing is uploaded" to mean more than it does. */}
+          <p className="mt-6 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] p-5 text-[15px] leading-relaxed text-amber-700 dark:text-amber-300">
+            {rich("privacy.warning")}
+          </p>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{rich("privacy.note")}</p>
         </section>
 
