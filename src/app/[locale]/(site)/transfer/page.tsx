@@ -8,6 +8,7 @@ import { TransferStudio } from "@/components/site/transfer-studio";
 import { InstallApp } from "@/components/site/install-app";
 import { AppPromo } from "@/components/app-promo";
 import { YourUploads } from "./your-uploads";
+import { LoopMarker } from "./loop-marker";
 
 export async function generateMetadata({
   params,
@@ -47,8 +48,10 @@ export default async function TransferToolPage({
   const t = await getTranslations("tool");
 
   // Receive-loop conversion: this visit came from a transfer's "Send a file"
-  // CTA — a recipient becoming a sender. Count it (best-effort).
-  if ((await searchParams).ref === "recv") bumpStat("loop_sends");
+  // CTA — a recipient becoming a sender. Count the click here; LoopMarker
+  // below carries it far enough to count the upload that may follow.
+  const fromLoop = (await searchParams).ref === "recv";
+  if (fromLoop) bumpStat("loop_sends");
 
   const faqLd = {
     "@context": "https://schema.org",
@@ -83,6 +86,7 @@ export default async function TransferToolPage({
         </div>
 
         <div className="mt-7">
+          {fromLoop && <LoopMarker />}
           <TransferStudio />
         </div>
         <InstallApp variant="inline" className="mt-4" />

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { useDropzone } from "react-dropzone";
 import { cn } from "@/lib/utils";
+import { reportLoopCompleted } from "@/lib/loop";
 import { formatFileSize, formatExpiry } from "@/lib/format";
 import {
   deleteTransfer,
@@ -869,6 +870,9 @@ export function FileUpload() {
           encrypted: !!result.keyEnc,
         };
         updateEntry(entry.id, done);
+        // A recipient who pressed "Send a file" has now actually sent one.
+        // No-op unless this session began on a transfer page.
+        reportLoopCompleted();
         if (result.rawCode) {
           rememberTransfer({
             rawCode: result.rawCode,
