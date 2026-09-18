@@ -38,7 +38,7 @@ const NS = "snapdropAlt";
 const LAST_UPDATED = "2026-09-13";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
-const STATUS_ITEMS = ["0", "1", "2", "3"] as const;
+const STATUS_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const KEEP_ITEMS = ["0", "1", "2", "3"] as const;
 const ALT_ITEMS = ["0", "1", "2", "3", "4", "5", "6"] as const;
 const SITUATION_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;

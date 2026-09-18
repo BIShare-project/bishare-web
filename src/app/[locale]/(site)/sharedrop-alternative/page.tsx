@@ -35,7 +35,7 @@ const NS = "sharedropAlt";
 const LAST_UPDATED = "2026-09-14";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
-const WHAT_ITEMS = ["0", "1", "2", "3", "4"] as const;
+const WHAT_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const HOW_ITEMS = ["0", "1", "2", "3"] as const;
 const LIMITS_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const ALT_ITEMS = ["0", "1", "2", "3", "4", "5", "6"] as const;
