@@ -334,7 +334,7 @@ export const POSTS: BlogPost[] = [
     faq: [
       {
         q: "What is the largest file I can send online for free?",
-        a: "It varies wildly by service: email stops around 25 MB, chat apps at 2 GB or so, and most transfer sites gate a couple of gigabytes behind their free tier. BIShare's free tier carries 10 GB per file with end-to-end encryption and resumable uploads; a few services go higher on size but without the encryption or resume.",
+        a: "It varies wildly by service: email stops around 25 MB, chat apps at 2 GB or so, and most transfer sites gate a couple of gigabytes behind their free tier. BIShare's free tier carries 100 GB per file with end-to-end encryption and resumable uploads; a few services go higher on size but without the encryption or resume.",
       },
       {
         q: "Does zipping a large video make it smaller?",
@@ -342,7 +342,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "Why do transfer sites limit file sizes on free plans?",
-        a: "Pricing, not physics. Storing and serving big files costs the provider bandwidth and disk, so the size cap is where they place the paywall. Architectures that stream uploads straight to storage keep those costs small — which is how a 10 GB free tier can exist at all.",
+        a: "Pricing, not physics. Storing and serving big files costs the provider bandwidth and disk, so the size cap is where they place the paywall. Architectures that stream uploads straight to storage keep those costs small — which is how a 100 GB free tier can exist at all.",
       },
       {
         q: "What is the fastest way to send a 10 GB file to someone?",
@@ -393,7 +393,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "What's the best free way to send a 20 GB folder?",
-        a: "Split it into logical batches under your tool's per-transfer ceiling and send each as one bundle — with BIShare that's 10 GB per transfer, free, encrypted, and resumable. If both machines share a network, skip the internet entirely: a direct local transfer moves 20 GB in minutes at router speed.",
+        a: "Split it into logical batches under your tool's per-transfer ceiling and send each as one bundle — with BIShare that's 100 GB per transfer, free, encrypted, and resumable. If both machines share a network, skip the internet entirely: a direct local transfer moves 20 GB in minutes at router speed.",
       },
       {
         q: "How do I keep the folder structure when sending?",
@@ -487,7 +487,7 @@ export const POSTS: BlogPost[] = [
     faq: [
       {
         q: "What is the best way to send a large video file to a client?",
-        a: "An encrypted, resumable transfer link with a short manifest message: file name, exact size, expiry date, and one line on what to do. The client clicks, downloads in the browser with no account, and confirms the byte count matches. For anything under 10 GB, BIShare does this free; bigger masters split by reel or deliverable.",
+        a: "An encrypted, resumable transfer link with a short manifest message: file name, exact size, expiry date, and one line on what to do. The client clicks, downloads in the browser with no account, and confirms the byte count matches. For anything under 100 GB, BIShare does this free; bigger masters split by reel or deliverable.",
       },
       {
         q: "How do professionals deliver video to clients?",
@@ -542,7 +542,7 @@ export const POSTS: BlogPost[] = [
       },
       {
         q: "Is there a file transfer method with truly no size limit?",
-        a: "Direct device-to-device transfer is bounded only by the receiver's disk space — 50 GB or 500 GB makes no difference to the method. Internet transfer links carry per-transfer ceilings (10 GB free on BIShare), so at archive scale the local route or a physical drive takes over.",
+        a: "Direct device-to-device transfer is bounded only by the receiver's disk space — 50 GB or 500 GB makes no difference to the method. Internet transfer links carry per-transfer ceilings (100 GB free on BIShare), so at archive scale the local route or a physical drive takes over.",
       },
       {
         q: "Is peer-to-peer file transfer safe?",

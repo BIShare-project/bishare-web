@@ -14,10 +14,13 @@
     "dropActive": "Drop to add files",
     "dropIdle": "Drag & drop files",
     "browse": "or <b>browse</b> from this device",
-    "limits": "Up to {size} free · Encrypted · 24h expiry",
+    "limits": "Up to {size} free · Encrypted · Expires in 6, 12 or 24 h",
     "removeAria": "Remove {name}",
     "oneTimeTitle": "One-time download",
     "oneTimeDesc": "Link stops working after the first download",
+    "expiryTitle": "Link lifetime",
+    "expiryDesc": "The link and the file are deleted when it runs out.",
+    "expiryHours": "{hours} hours",
     "uploadButton": "{count, plural, one {Upload # file · Get link} other {Upload # files · Get link}}",
     "readyTitle": "Ready to share",
     "readySingle": "Your file is live — share the link or code below",
@@ -87,7 +90,7 @@
   "expired": "Expired",
   "lessThanHour": "Less than 1 hour",
   "seo": {
-    "lead": "BIShare's online file transfer sends any file to any device in seconds — no account, no app for the recipient, and no size-gate tricks. Files are end-to-end encrypted in your browser before upload, links expire automatically after 24 hours, and on the same network you can skip the cloud entirely with Nearby or QR Beam.",
+    "lead": "BIShare's online file transfer sends any file to any device in seconds — no account, no app for the recipient, and no size-gate tricks. Files are end-to-end encrypted in your browser before upload, links expire by themselves after the 6, 12 or 24 hours you choose, and on the same network you can skip the cloud entirely with Nearby or QR Beam.",
     "how": {
       "title": "How it works",
       "items": {
@@ -101,7 +104,7 @@
         },
         "2": {
           "h": "They download — no app",
-          "b": "The recipient opens it in any browser on any device. One tap, decrypted locally, done. The link deletes itself after 24 hours."
+          "b": "The recipient opens it in any browser on any device. One tap, decrypted locally, done. The link deletes itself once the lifetime you picked runs out."
         }
       }
     },
@@ -122,7 +125,7 @@
         },
         "3": {
           "q": "How long do transfer links last?",
-          "a": "24 hours, then the file is deleted automatically. You can also make a transfer one-time so it disappears right after the first download."
+          "a": "You choose when you send: 6, 12 or 24 hours, with 12 as the default. When the time is up the file is deleted automatically. You can also make a transfer one-time so it disappears right after the first download."
         },
         "4": {
           "q": "Does the recipient need an app or account?",
@@ -138,7 +141,7 @@
   },
   "studio": {
     "linkTab": "Link",
-    "linkSub": "Uploads encrypted, works anywhere, link expires in 24 hours.",
+    "linkSub": "Uploads encrypted, works anywhere, link expires in 6, 12 or 24 hours.",
     "localSub": "No upload at all — the file never leaves your network.",
     "beamSub": "No network of any kind — screen to camera, for small files."
   }

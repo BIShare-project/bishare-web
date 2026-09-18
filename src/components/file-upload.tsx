@@ -262,6 +262,7 @@ function sendXhr(opts: {
 async function uploadMultipart(
   file: File,
   oneTime: boolean,
+  expiryHours: number,
   onProgress: (pct: number) => void,
   t: Translator,
   signal?: AbortSignal
@@ -364,6 +365,7 @@ async function uploadMultipart(
     mime_type: mimeType,
     sender_alias: "Web Upload",
     one_time: oneTime,
+    expiryHours,
   });
   if (!done.success || !done.rawCode || !done.code || !done.expiresAt || !done.deleteToken) {
     // The server answered and refused (expired upload, size mismatch, limit
@@ -394,6 +396,7 @@ async function uploadMultipart(
 async function uploadEncrypted(
   file: File,
   oneTime: boolean,
+  expiryHours: number,
   onProgress: (pct: number) => void,
   t: Translator,
   signal?: AbortSignal
@@ -475,6 +478,7 @@ async function uploadEncrypted(
       mime_type: mimeType,
       sender_alias: "Web Upload",
       one_time: oneTime,
+      expiryHours,
     });
     if (!done.success || !done.rawCode || !done.code || !done.expiresAt || !done.deleteToken) {
       throw new Error(done.error?.message || t("upload.errors.uploadFailed"));
@@ -501,6 +505,7 @@ async function uploadEncrypted(
 async function uploadEntry(
   file: File,
   oneTime: boolean,
+  expiryHours: number,
   onProgress: (pct: number) => void,
   t: Translator,
   signal?: AbortSignal,
@@ -508,11 +513,11 @@ async function uploadEntry(
 ): Promise<UploadResult & { keyEnc?: string }> {
   // End-to-end encrypted: encrypt in-browser, upload ciphertext (any size).
   if (encrypt) {
-    return uploadEncrypted(file, oneTime, onProgress, t, signal);
+    return uploadEncrypted(file, oneTime, expiryHours, onProgress, t, signal);
   }
   // Largest files: resumable multipart (survives drops + reloads).
   if (file.size > MULTIPART_THRESHOLD) {
-    return uploadMultipart(file, oneTime, onProgress, t, signal);
+    return uploadMultipart(file, oneTime, expiryHours, onProgress, t, signal);
   }
   if (file.size > PRESIGN_THRESHOLD) {
     // 1) reserve the transfer + get a presigned R2 PUT URL
@@ -525,6 +530,7 @@ async function uploadEntry(
         mime_type: file.type || "application/octet-stream",
         sender_alias: "Web Upload",
         one_time: oneTime,
+        expiryHours,
       }),
     });
     const meta = (await res.json().catch(() => ({}))) as TransferUploadResponse & {
@@ -567,6 +573,7 @@ async function uploadEntry(
       "X-File-Type": file.type || "application/octet-stream",
       "X-Sender-Alias": "Web Upload",
       ...(oneTime ? { "X-One-Time": "true" } : {}),
+      "X-Expiry-Hours": String(expiryHours),
     },
     body: file,
     onProgress,
@@ -639,6 +646,11 @@ function CodeBoxes({ code }: { code: string }) {
   );
 }
 
+/** How long a link may live. The server accepts these three and nothing else. */
+const EXPIRY_CHOICES = [6, 12, 24] as const;
+type ExpiryHours = (typeof EXPIRY_CHOICES)[number];
+const DEFAULT_EXPIRY: ExpiryHours = 12;
+
 export function FileUpload() {
   const t = useTranslations("tool");
   const locale = useLocale();
@@ -646,6 +658,9 @@ export function FileUpload() {
   const [files, setFiles] = useState<UploadEntry[]>([]);
   const [isUploading, setIsUploading] = useState(false);
   const [oneTime, setOneTime] = useState(false);
+  // Twelve hours by default: long enough to cross a working day or a time
+  // zone, short enough that a forgotten link is not still live tomorrow.
+  const [expiry, setExpiry] = useState<ExpiryHours>(DEFAULT_EXPIRY);
   // End-to-end encryption ON by default (privacy-first): the file is encrypted
   // in-browser and only ciphertext is uploaded; the key lives in the link
   // fragment (#k=), so the relay is zero-knowledge. Users can still toggle off.
@@ -761,6 +776,9 @@ export function FileUpload() {
     abortRef.current = controller;
     setIsUploading(true);
     const sendOneTime = oneTime;
+    // Frozen for the whole batch, like the other options, so changing the
+    // picker while files are going does not give one link a different life.
+    const sendExpiry = expiry;
     const sendEncrypt = encrypt;
     let snapshot = [...files];
 
@@ -827,6 +845,7 @@ export function FileUpload() {
         const result = await uploadEntry(
           entry.file,
           sendOneTime,
+          sendExpiry,
           (p) => updateEntry(entry.id, { progress: p }),
           t,
           controller.signal,
@@ -910,6 +929,7 @@ export function FileUpload() {
     setExpandedQR(null);
     setOneTime(false);
     setEncrypt(false);
+    setExpiry(DEFAULT_EXPIRY);
   }
 
   const completedFiles = files.filter((f) => f.status === "done" || f.status === "deleted");
@@ -1354,6 +1374,43 @@ export function FileUpload() {
               </span>
             </button>
           )}
+          {/* How long the link lives. A segmented control rather than a switch:
+              there are three answers, and the middle one is the default. */}
+          <div
+            role="radiogroup"
+            aria-label={t("upload.expiryTitle")}
+            className="rounded-2xl border border-border bg-card px-4 py-3"
+          >
+            <div className="flex items-center gap-3">
+              <Clock className="h-4 w-4 shrink-0 text-muted-foreground" />
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-medium">{t("upload.expiryTitle")}</span>
+                <span className="block text-xs text-muted-foreground">
+                  {t("upload.expiryDesc")}
+                </span>
+              </span>
+            </div>
+            <div className="mt-3 flex gap-1 rounded-xl border border-border bg-secondary p-1">
+              {EXPIRY_CHOICES.map((h) => (
+                <button
+                  key={h}
+                  type="button"
+                  role="radio"
+                  aria-checked={expiry === h}
+                  onClick={() => setExpiry(h)}
+                  className={cn(
+                    "flex-1 rounded-lg py-1.5 text-sm font-medium transition-colors",
+                    expiry === h
+                      ? "bg-background text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground/70"
+                  )}
+                >
+                  {t("upload.expiryHours", { hours: h })}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <button
             type="button"
             role="switch"

@@ -14,10 +14,13 @@
     "dropActive": "Déposez pour ajouter des fichiers",
     "dropIdle": "Glissez-déposez des fichiers",
     "browse": "ou <b>parcourez</b> depuis cet appareil",
-    "limits": "Jusqu'à {size} gratuit · Chiffré · Expire sous 24 h",
+    "limits": "Jusqu’à {size} gratuit · Chiffré · Expire en 6, 12 ou 24 h",
     "removeAria": "Retirer {name}",
     "oneTimeTitle": "Téléchargement unique",
     "oneTimeDesc": "Le lien cesse de fonctionner après le premier téléchargement",
+    "expiryTitle": "Durée du lien",
+    "expiryDesc": "Le lien et le fichier sont supprimés à son expiration.",
+    "expiryHours": "{hours} h",
     "uploadButton": "{count, plural, one {Envoyer # fichier · Obtenir le lien} other {Envoyer # fichiers · Obtenir le lien}}",
     "readyTitle": "Prêt à partager",
     "readySingle": "Votre fichier est en ligne — partagez le lien ou le code ci-dessous",
@@ -87,7 +90,7 @@
   "expired": "Expiré",
   "lessThanHour": "Moins d’une heure",
   "seo": {
-    "lead": "Le transfert de fichiers en ligne de BIShare envoie n’importe quel fichier vers n’importe quel appareil en quelques secondes — sans compte, sans app pour le destinataire et sans limite de taille déguisée. Les fichiers sont chiffrés de bout en bout dans votre navigateur avant l’envoi, les liens expirent automatiquement après 24 heures et, sur le même réseau, vous pouvez complètement vous passer du cloud avec le mode À proximité ou QR Beam.",
+    "lead": "Le transfert de fichiers en ligne de BIShare envoie n’importe quel fichier vers n’importe quel appareil en quelques secondes : sans compte, sans application pour le destinataire et sans piège de taille. Les fichiers sont chiffrés de bout en bout dans votre navigateur avant l’envoi, les liens expirent d’eux-mêmes au bout des 6, 12 ou 24 heures que vous choisissez, et sur le même réseau vous pouvez éviter complètement le cloud avec Nearby ou QR Beam.",
     "how": {
       "title": "Comment ça marche",
       "items": {
@@ -101,7 +104,7 @@
         },
         "2": {
           "h": "Le destinataire télécharge — sans app",
-          "b": "Il ouvre le lien dans n’importe quel navigateur, sur n’importe quel appareil. Un geste, le fichier est déchiffré en local, et c’est fait. Le lien s’efface de lui-même après 24 heures."
+          "b": "Le destinataire l’ouvre dans n’importe quel navigateur, sur n’importe quel appareil. Un geste, déchiffrement local, terminé. Le lien s’efface dès que la durée choisie expire."
         }
       }
     },
@@ -122,7 +125,7 @@
         },
         "3": {
           "q": "Combien de temps durent les liens de transfert ?",
-          "a": "24 heures, puis le fichier est supprimé automatiquement. Vous pouvez aussi rendre un transfert à téléchargement unique pour qu’il disparaisse dès le premier téléchargement."
+          "a": "Vous choisissez au moment de l’envoi : 6, 12 ou 24 heures, 12 par défaut. Le délai écoulé, le fichier est supprimé automatiquement. Vous pouvez aussi rendre le transfert à usage unique, pour qu’il disparaisse juste après le premier téléchargement."
         },
         "4": {
           "q": "Le destinataire a-t-il besoin d’une app ou d’un compte ?",
@@ -138,7 +141,7 @@
   },
   "studio": {
     "linkTab": "Lien",
-    "linkSub": "Envoi chiffré, fonctionne partout, le lien expire au bout de 24 heures.",
+    "linkSub": "Envois chiffrés, fonctionne partout, le lien expire en 6, 12 ou 24 heures.",
     "localSub": "Aucun envoi : le fichier ne quitte jamais votre réseau.",
     "beamSub": "Aucun réseau : de l'écran à la caméra, pour les petits fichiers."
   }
