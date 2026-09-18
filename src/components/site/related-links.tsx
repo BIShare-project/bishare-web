@@ -33,6 +33,7 @@ const CLUSTER: Record<string, string[]> = {
   "share-files-without-account": ["encrypted-file-transfer", "wetransfer-alternative", "send-large-files", "firefox-send-alternative"],
   "smash-alternative": ["wetransfer-alternative", "send-large-files", "wormhole-alternative", "firefox-send-alternative"],
   "wormhole-alternative": ["firefox-send-alternative", "encrypted-file-transfer", "snapdrop-alternative", "wetransfer-alternative"],
+  "clipboard-sync": ["transfer-files-phone-to-pc", "transfer-files-pc-to-phone", "localsend-alternative", "best-file-sharing-app"],
   "send-files-without-internet": ["encrypted-file-transfer", "airdrop-for-android", "share-files-without-account", "send-large-files"],
   // Best-of guide + LocalSend cluster.
   // Photo, troubleshooting, and desktop↔desktop pages.

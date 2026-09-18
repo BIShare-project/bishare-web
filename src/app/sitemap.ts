@@ -31,6 +31,7 @@ const ROUTES: Array<{
   { path: "/shareit-alternative", priority: 0.9, changeFrequency: "monthly" },
   { path: "/firefox-send-alternative", priority: 0.9, changeFrequency: "monthly" },
   { path: "/encrypted-file-transfer", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/clipboard-sync", priority: 0.9, changeFrequency: "monthly" },
   { path: "/send-anywhere-alternative", priority: 0.9, changeFrequency: "monthly" },
   { path: "/share-files-without-account", priority: 0.9, changeFrequency: "monthly" },
   { path: "/smash-alternative", priority: 0.9, changeFrequency: "monthly" },

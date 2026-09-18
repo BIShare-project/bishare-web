@@ -53,6 +53,7 @@ const COLUMNS: Array<{
         { labelKey: "ucOffline", href: "/send-files-without-internet" },
         { labelKey: "ucNoAccount", href: "/share-files-without-account" },
         { labelKey: "ucEncrypted", href: "/encrypted-file-transfer" },
+        { labelKey: "ucClipboard", href: "/clipboard-sync" },
         { labelKey: "ucAirdropFix", href: "/airdrop-not-working" },
         { labelKey: "ucAirdropAndroid", href: "/airdrop-for-android" },
       ],

@@ -1,0 +1,307 @@
+{
+  "meta": {
+    "title": "Portapapeles compartido: copia en el móvil, pega en el PC",
+    "description": "Copia texto o una imagen en un dispositivo y pégala en otro. Qué exige antes cada uno (Apple, Microsoft, Google) y cómo sincronizar el portapapeles sin cuenta."
+  },
+  "hero": {
+    "eyebrow": "Portapapeles compartido",
+    "title": "Copia en el móvil, pega en el PC",
+    "body": "Todas las grandes plataformas tienen sincronización de portapapeles, y todas piden algo primero: la misma <strong>cuenta de Apple</strong>, la misma <strong>cuenta de Microsoft</strong>, la misma cuenta de Google o una suscripción. Esta página explica qué exige realmente cada una y después muestra cómo compartir el portapapeles entre un iPhone, un móvil Android, un PC con Windows, un Mac y un equipo Linux sin registrarte en nada, porque en <goNearby>la misma wifi</goNearby> lo copiado no tiene por qué salir de la red.",
+    "ctaPrimary": "Instalar BIShare",
+    "ctaSecondaryTransfer": "Enviar un archivo"
+  },
+  "updated": "Actualizado en septiembre de 2026 · Requisitos releídos en la web de soporte de cada fabricante",
+  "quick": {
+    "title": "Respuesta rápida",
+    "items": [
+      "<strong>Entre dispositivos Apple:</strong> el Portapapeles Universal ya está activo. Apple exige que todos los dispositivos usen la misma cuenta de Apple, con Bluetooth, wifi y Handoff encendidos.",
+      "<strong>Entre PCs con Windows:</strong> pulsa la tecla Windows + V y activa «Historial del Portapapeles en todos los dispositivos». Microsoft ata esa sincronización a tu cuenta de Microsoft o del trabajo, y el historial viaja por su nube.",
+      "<strong>Entre marcas distintas — iPhone, Android, Windows, Mac, Linux:</strong> ninguna de las opciones integradas cruza esa línea. Instala BIShare en los dos dispositivos, activa la sincronización de portapapeles en Ajustes y lo que copies en uno aparece en el otro. Sin cuenta, y en la misma red no se sube nada.",
+      "<strong>La limitación que conviene saber:</strong> el portapapeles de BIShare funciona entre dispositivos de la misma wifi. Fuera de esa red, manda el texto o la imagen como <goTransfer>un enlace</goTransfer>."
+    ]
+  },
+  "loyalty": {
+    "title": "Cada portapapeles integrado es una prueba de lealtad",
+    "intro": "Sincronizar un portapapeles no es difícil. Lo difícil es hacerlo entre marcas, porque cada implementación es una función de un sistema de cuentas y no de tu red. Leído en la web de cada fabricante el 18 de septiembre de 2026:",
+    "items": [
+      "<strong>Apple.</strong> El Portapapeles Universal exige que cada dispositivo esté iniciado con la misma cuenta de Apple, con Bluetooth y wifi encendidos y Handoff activado. Alcanza un Mac, un iPhone, un iPad o un Vision Pro, y ahí se acaba. Un móvil Android en la misma mesa no es alcanzable.",
+      "<strong>Microsoft.</strong> Windows sincroniza el historial del portapapeles entre tus equipos, y su propia página de ayuda es clara sobre el precio de entrada: la función está ligada a tu cuenta de Microsoft o del trabajo, así que hay que usar el mismo inicio de sesión en todas partes. El historial se guarda en su nube, que es también la razón de que exista un botón para borrar la copia de la nube además de la local.",
+      "<strong>Google.</strong> El portapapeles compartido viaja con el teclado y una cuenta de Google, no con el sistema operativo, y por eso se comporta de forma distinta según la aplicación en la que escribas.",
+      "<strong>Pushbullet.</strong> Sí cruza plataformas, y copiar y pegar universal es una de las funciones de Pro, que según se informa cuesta 4,99 dólares al mes o 39,99 al año. El mecanismo es el mismo que el resto: tu portapapeles pasa por los servidores de una empresa.",
+      "<strong>KDE Connect.</strong> La excepción honrosa, y lo más cercano en espíritu a lo que hacemos: gratuito, de código abierto y funciona sobre tu propia red en vez de sobre una cuenta. Su alcance depende de la versión que consigas para cada plataforma, y su app de iOS está limitada por lo que iOS permite."
+    ],
+    "note": "Nada de esto es malintencionado. Una cuenta es simplemente la forma más barata que tiene una empresa grande de saber qué dispositivos son tuyos. No es la única: dos dispositivos que se ven en una red ya lo saben."
+  },
+  "table": {
+    "title": "Qué pide cada uno",
+    "intro": "Requisitos según los publica cada fabricante, leídos el 18 de septiembre de 2026.",
+    "cols": [
+      "",
+      "Dispositivos que alcanza",
+      "Necesita cuenta",
+      "Adónde va lo copiado",
+      "Coste"
+    ],
+    "rows": [
+      [
+        "Portapapeles Universal de Apple",
+        "Mac, iPhone, iPad, Vision Pro",
+        "La misma cuenta de Apple",
+        "Entre tus dispositivos",
+        "Incluido"
+      ],
+      [
+        "Historial del portapapeles de Windows",
+        "PCs con Windows",
+        "Cuenta de Microsoft o del trabajo",
+        "La nube de Microsoft",
+        "Incluido"
+      ],
+      [
+        "Compartir desde el teclado",
+        "Donde funcione ese teclado",
+        "Cuenta de Google o Microsoft",
+        "Los servidores del fabricante",
+        "Incluido"
+      ],
+      [
+        "Pushbullet",
+        "Android, Windows, Mac, Linux",
+        "Cuenta de Pushbullet",
+        "Los servidores de Pushbullet",
+        "Pro, 4,99 $/mes según se informa"
+      ],
+      [
+        "KDE Connect",
+        "Android, Linux, Windows, Mac, iOS limitado",
+        "No",
+        "Tu propia red",
+        "Gratis, código abierto"
+      ],
+      [
+        "BIShare",
+        "iPhone, Android, Windows, Mac, Linux",
+        "No",
+        "Tu propia red",
+        "Gratis, código abierto"
+      ]
+    ],
+    "note": "Dónde perdemos, sin rodeos: las cuatro opciones con cuenta siguen funcionando cuando te llevas el portátil a una cafetería, porque pasan por un servidor. El portapapeles de BIShare es una función de una misma red. Fuera de ella, mándalo como enlace."
+  },
+  "setup": {
+    "title": "Activarlo, en los dos dispositivos",
+    "intro": "La sincronización está apagada hasta que la pides. Es deliberado — leer el portapapeles no es algo que una aplicación deba empezar a hacer por su cuenta — así que hace falta un interruptor en cada dispositivo que quieras en el grupo.",
+    "items": [
+      {
+        "h": "Instala BIShare en ambos",
+        "b": "iPhone, Android, Windows, Mac o Linux. No tienen que coincidir: un portátil con Windows y un iPhone es justo el caso para el que existe esto."
+      },
+      {
+        "h": "Pon los dos en la misma wifi",
+        "b": "La misma red donde está tu impresora. Las redes de invitados suelen impedir que los dispositivos se vean entre sí, y esa es la causa más habitual de que nunca lleguen a emparejarse."
+      },
+      {
+        "h": "Ajustes, y ahí la sincronización",
+        "b": "Actívala. Las imágenes tienen su propio interruptor debajo, con un límite de tamaño, porque una captura pesa cien veces más que la frase que estabas copiando."
+      },
+      {
+        "h": "Copia algo",
+        "b": "Copia una línea de texto en el móvil y pulsa pegar en el ordenador. No hay que tocar nada en la aplicación ni pulsar enviar: copiar es el envío."
+      }
+    ]
+  },
+  "what": {
+    "title": "Qué viaja realmente",
+    "items": [
+      "<strong>Texto</strong>, incluido todo lo que se comporta como texto: una URL, una dirección, un código de un solo uso, un párrafo que quieres en la otra pantalla sin enviártelo por correo.",
+      "<strong>Imágenes</strong>, con su propio interruptor y su propio límite de tamaño. La imagen copiada se prepara en el dispositivo que envía y el otro la recoge por la red; el testigo que la recoge sirve una sola vez y caduca al minuto, así que lo anunciado en tu red no es un archivo al que alguien pueda volver después.",
+      "<strong>Un historial</strong>, guardado en el dispositivo para que puedas recuperar algo copiado hace unos minutos. Es una lista rodante, no un archivo histórico.",
+      "<strong>Nada que no hayas copiado.</strong> No hay rastreo en segundo plano de mensajes ni de fotos. La aplicación reacciona a que el portapapeles cambie, y eso solo pasa cuando pulsas copiar."
+    ],
+    "note": "Los archivos son otra cosa: un archivo copiado se manda mejor como <goTransfer>una transferencia</goTransfer>, y entre dispositivos de la misma habitación eso va a velocidad de wifi sin subir nada."
+  },
+  "pairs": {
+    "title": "Las parejas por las que la gente pregunta de verdad",
+    "intro": "Casi toda búsqueda sobre esto nombra dos dispositivos concretos. Así está hoy cada pareja.",
+    "items": [
+      {
+        "h": "Móvil Android y PC con Windows",
+        "b": "La más preguntada y la mejor atendida por las plataformas: Phone Link de Microsoft permite copiar y pegar entre un móvil Android vinculado y el PC, una vez emparejado el teléfono y activada la función. Un extremo es solo Windows, el otro solo Android, y todo pasa por una cuenta de Microsoft. BIShare cubre la misma pareja sin la cuenta, y esa misma instalación cubre además el Mac o el iPad que añadas después."
+      },
+      {
+        "h": "iPhone y PC con Windows",
+        "b": "Nada integrado hace esto. El Portapapeles Universal se detiene en el hardware de Apple y el historial de Windows se detiene en Windows. Es la pareja para la que existen las apps multiplataforma, y aquella en la que la gente acaba enviándose un enlace por correo."
+      },
+      {
+        "h": "iPhone y móvil Android",
+        "b": "Tampoco lo cubre ninguna de las dos plataformas. Dos móviles en la misma wifi con la aplicación instalada sí lo hacen; y un punto de acceso del móvil sirve cuando no hay red común."
+      },
+      {
+        "h": "Móvil y Linux",
+        "b": "KDE Connect lleva años cubriendo esto y lo hace bien. BIShare es la opción si además quieres al iPhone en el grupo, porque la app de iOS de KDE Connect está limitada por lo que iOS permite."
+      },
+      {
+        "h": "Dos ordenadores",
+        "b": "De Windows a Windows lo resuelve el historial del portapapeles; de Mac a Mac, el Portapapeles Universal. De Windows a Mac, o de cualquiera a Linux, no lo resuelve ninguno, y es el mismo muro que aparece al <goPcPc>mover archivos entre ordenadores</goPcPc>."
+      }
+    ]
+  },
+  "privacy": {
+    "title": "Qué sale del dispositivo y qué no",
+    "body": "Un portapapeles es algo inusualmente personal para sincronizar. Lleva la contraseña que acabas de pegar, la dirección del sitio al que vas esta noche, el código de tu banco. Merece precisión, así que aquí está todo.",
+    "items": [
+      "<strong>En la misma red no se sube nada.</strong> Lo copiado se anuncia directamente a los otros dispositivos por tu propia wifi. No pasa por nosotros y no queda copia en ningún servidor que borrar después.",
+      "<strong>Solo se avisa a los dispositivos que ejecutan BIShare en esa red.</strong> No a todo lo que haya en la wifi: el otro dispositivo tiene que tener la aplicación con el mismo interruptor activado.",
+      "<strong>Apagado por defecto y reversible.</strong> Vuelve a apagar el interruptor y la aplicación deja de leer el portapapeles. El historial es local, y borrarlo lo borra.",
+      "<strong>Una imagen se recoge una vez y desaparece.</strong> Se anuncia con un testigo que el otro dispositivo canjea; sirve una sola vez y caduca al minuto, así que ese anuncio no se puede repetir más tarde."
+    ],
+    "note": "El límite honesto: cualquiera que ya esté en tu red ejecutando BIShare recibirá lo que copies. En una red de casa o del trabajo eso es justo lo que quieres. En una red compartida que no controlas — un coworking, un hotel — déjalo apagado, y lee antes <goSecurity>cómo funciona el resto de la seguridad</goSecurity>."
+  },
+  "fixes": {
+    "title": "Cuando al otro dispositivo no le llega nada",
+    "intro": "Casi todos los fallos aquí son la red impidiendo que dos dispositivos se vean, no el portapapeles. Por orden de frecuencia:",
+    "items": [
+      "<strong>Wifi de invitados, o aislamiento de clientes.</strong> Muchos routers, y casi todas las cafeterías y hoteles, impiden que los dispositivos de la red se hablen. Ninguna aplicación puede arreglarlo desde dentro. Usa tu red o el punto de acceso del móvil.",
+      "<strong>Redes distintas que parecen una.</strong> Un router que anuncia el mismo nombre en 2,4 y 5 GHz suele unirlas, pero una malla con SSID de invitados aparte, o un portátil por cable mientras el móvil va por la banda de invitados, no.",
+      "<strong>Windows tiene la red marcada como pública.</strong> Con perfil público, Windows bloquea el descubrimiento local del que esto depende. Cambia la red a privada en la configuración de Windows.",
+      "<strong>Hay una VPN encendida.</strong> Una VPN que captura todo el tráfico saca al dispositivo de la red local a efectos de descubrimiento. Apágala o permite el acceso a la red local en los ajustes de la propia VPN.",
+      "<strong>iOS no tiene permiso de red local.</strong> iOS lo pregunta una vez, pronto, y si se descartó la aplicación no ve nada en la wifi. Está en Ajustes de iOS, dentro de la aplicación, como «Red local»."
+    ],
+    "note": "Las mismas condiciones deciden si funciona la transferencia entre dispositivos, así que si ya te funciona <goPhonePc>enviar un archivo del móvil al PC</goPhonePc>, el portapapeles también irá."
+  },
+  "daily": {
+    "title": "Para qué se usa cada día",
+    "intro": "La sincronización de portapapeles no entusiasma a nadie leída en una lista. Se gana el sitio quitando una molestia pequeña varias veces al día.",
+    "items": [
+      {
+        "h": "El código que llega al móvil",
+        "b": "Un código de verificación llega al móvil y hace falta en el navegador del ordenador. Copiar, pegar, listo, sin teclear seis dígitos mientras caducan."
+      },
+      {
+        "h": "El enlace que encontraste en la cama",
+        "b": "Un artículo en el móvil que en realidad quieres leer en la pantalla grande. Copiar la URL gana a enviártela por correo, que es lo que hace casi todo el mundo."
+      },
+      {
+        "h": "La dirección, el número de vuelo, el nombre",
+        "b": "Cualquier cosa que tengas en una pantalla y necesites en un formulario de otra. Es el caso que se repite todo el día y que nunca parece merecer una app hasta que deja de costar nada."
+      },
+      {
+        "h": "Una captura dentro de un documento",
+        "b": "Copia la imagen en el móvil y pégala directamente en el documento del ordenador, sin un archivo que nombrar, guardar y limpiar después."
+      },
+      {
+        "h": "Lo que ibas a reescribir",
+        "b": "La prueba real es lo que dejas de hacer. Quien tiene esto funcionando deja de enviarse enlaces por correo, deja de fotografiar su propia pantalla para leer un código y deja de buscar el cable para mover una frase."
+      }
+    ]
+  },
+  "alternatives": {
+    "title": "Las demás vías, y cuándo es cada una la buena",
+    "items": [
+      {
+        "h": "Estás solo en hardware de Apple",
+        "b": "Usa el Portapapeles Universal. Ya está encendido, es instantáneo y no hay nada que instalar. El requisito es una cuenta de Apple en todos los dispositivos más Bluetooth, wifi y Handoff, que la mayoría ya tiene."
+      },
+      {
+        "h": "Solo te mueves entre PCs con Windows",
+        "b": "El historial del portapapeles de Windows hace esto, y los elementos anclados son realmente útiles. Asume que está ligado a tu cuenta de Microsoft y que el historial vive en su nube."
+      },
+      {
+        "h": "Quieres que funcione fuera de tu red",
+        "b": "Hoy la respuesta honesta es un servicio multiplataforma de pago. Pushbullet es el más asentado, y copiar y pegar universal está detrás de Pro."
+      },
+      {
+        "h": "Vives en Linux y Android y te gusta el código abierto",
+        "b": "KDE Connect. También hace notificaciones, control remoto y transferencia de archivos, y lleva años haciéndolo."
+      },
+      {
+        "h": "Tienes una mezcla y ninguna gana de abrir otra cuenta",
+        "b": "BIShare. Cinco plataformas, sin registro, y en tu propia wifi lo copiado nunca se sube. Mira la comparación en <goBestApps>el repaso de apps para compartir archivos</goBestApps>."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Portapapeles compartido: preguntas frecuentes",
+    "items": {
+      "0": {
+        "q": "¿Cómo copio en el móvil y pego en el PC?",
+        "a": "Instala BIShare en ambos, ponlos en la misma wifi y activa la sincronización del portapapeles en Ajustes en cada uno. A partir de ahí solo copias: lo que copies en el móvil se puede pegar en el ordenador, y al revés. No hay que pulsar nada en la aplicación."
+      },
+      "1": {
+        "q": "¿Funciona entre iPhone y Windows?",
+        "a": "Con las herramientas integradas no. El Portapapeles Universal de Apple solo alcanza dispositivos Apple, y el historial de Windows solo alcanza PCs con la misma cuenta de Microsoft. Una app multiplataforma es la única vía, y BIShare cubre iPhone, Android, Windows, Mac y Linux sin cuenta."
+      },
+      "2": {
+        "q": "¿Necesito una cuenta?",
+        "a": "No. Esa es la diferencia con todas las opciones integradas. Apple exige la misma cuenta de Apple, Microsoft ata su sincronización a tu cuenta de Microsoft o del trabajo, y las opciones de teclado piden iniciar sesión en Google o Microsoft. BIShare se apoya en que ambos dispositivos están en la misma red, algo que ellos mismos pueden comprobar."
+      },
+      "3": {
+        "q": "¿Se sube mi portapapeles a algún sitio?",
+        "a": "En la misma red, no. Lo copiado se anuncia directamente entre los dispositivos por tu wifi, así que no hay nada en un servidor que se pueda filtrar ni que haya que borrar. El historial de Windows, en cambio, se guarda en la nube de Microsoft por diseño, y por eso tiene un botón para borrar también la copia de la nube."
+      },
+      "4": {
+        "q": "¿Puedo sincronizar entre dos dispositivos en redes distintas?",
+        "a": "Con el portapapeles de BIShare no, porque es una función de una misma red. Cuando estés fuera, manda el texto o la imagen como enlace de transferencia. Si cruzar redes es tu caso principal, un servicio de pago como Pushbullet Pro es la recomendación honesta."
+      },
+      "5": {
+        "q": "¿Sincroniza imágenes o solo texto?",
+        "a": "Las dos cosas, con las imágenes en su propio interruptor y su propio límite de tamaño. La imagen copiada se prepara en el dispositivo que envía y el otro la recoge por la red; el testigo que la recoge sirve una vez y caduca al minuto."
+      },
+      "6": {
+        "q": "¿Es seguro en una wifi compartida?",
+        "a": "Trátalo como cualquier compartición local. Todo dispositivo de esa red con BIShare y la sincronización activada recibirá lo que copies. En casa o en la oficina eso es lo que quieres. En la wifi de una cafetería o un hotel, déjalo apagado."
+      },
+      "7": {
+        "q": "¿Por qué no llega nada al otro dispositivo?",
+        "a": "Nueve de cada diez veces es la red impidiendo que los dos se vean: wifi de invitados con aislamiento, una VPN capturando todo el tráfico, Windows tratando la red como pública, o iOS sin permiso de red local. Cada caso está en la sección de arriba."
+      },
+      "8": {
+        "q": "¿Gasta batería?",
+        "a": "Vigila el portapapeles mientras la aplicación está en marcha y manda un mensaje pequeño cuando el contenido cambia. Los mensajes son diminutos — una frase copiada son unos cientos de bytes — y no se consulta ningún servidor, porque no hay servidor en el camino."
+      },
+      "9": {
+        "q": "¿Puedo desactivarlo?",
+        "a": "Sí, y al apagar el interruptor la aplicación deja de leer el portapapeles por completo. El historial se guarda en el dispositivo y borrarlo lo elimina. No hay nada que borrar de un servidor, porque nunca se puso nada en uno."
+      }
+    }
+  },
+  "cta": {
+    "title": "Deja de enviarte enlaces por correo",
+    "body": "Instálalo en los dos dispositivos, activa un interruptor y copia en una pantalla para pegar en la otra."
+  },
+  "a11y": {
+    "yes": "Sí",
+    "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un móvil y un portátil con Windows en la misma wifi, una línea copiada pasando directamente entre ellos sin tocar ningún servidor",
+      "left": "Móvil",
+      "right": "PC con Windows",
+      "wifi": "Misma wifi · no se sube nada",
+      "title": "Copia aquí, pega allí",
+      "sub": "Cinco plataformas, sin cuenta, sin nube por medio"
+    },
+    "gates": {
+      "alt": "Qué pide cada sincronización de portapapeles antes de funcionar: Apple quiere la misma cuenta de Apple, Windows una cuenta de Microsoft, el teclado compartido un inicio de sesión de Google o Microsoft, Pushbullet una suscripción Pro, mientras que KDE Connect y BIShare no piden ninguna cuenta",
+      "title": "Qué pide cada uno primero",
+      "apple": "La misma cuenta de Apple en cada dispositivo",
+      "ms": "Cuenta de Microsoft o del trabajo, historial en su nube",
+      "keyboard": "Teclado compartido",
+      "kb": "Inicio de sesión de Google o Microsoft",
+      "pb": "Una suscripción Pro",
+      "none": "Nada: tu propia red",
+      "bi": "Nada: los dos dispositivos en la misma wifi"
+    },
+    "reach": {
+      "alt": "Qué dispositivos alcanza cada sincronización: Apple solo iPhone y Mac, Windows solo Windows, Pushbullet cuatro plataformas, KDE Connect cuatro completas más un iOS limitado, y BIShare las cinco",
+      "title": "Hasta dónde llega cada uno",
+      "iphone": "iPhone",
+      "android": "Android",
+      "windows": "Windows",
+      "mac": "Mac",
+      "linux": "Linux",
+      "foot": "Leído en las páginas de cada fabricante, septiembre de 2026. Un anillo significa parcial: la versión iOS de KDE Connect está limitada por lo que iOS permite."
+    }
+  }
+}

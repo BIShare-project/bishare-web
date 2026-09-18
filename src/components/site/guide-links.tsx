@@ -39,6 +39,7 @@ const GUIDES = {
   goSmash: "/smash-alternative",
   goWormhole: "/wormhole-alternative",
   goFirefoxSend: "/firefox-send-alternative",
+  goClipboard: "/clipboard-sync",
   goTransfer: "/transfer",
   goRooms: "/rooms",
   goSecurity: "/security",

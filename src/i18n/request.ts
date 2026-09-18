@@ -43,6 +43,7 @@ const NAMESPACES = [
   "phoneToPc",
   "macToWindows",
   "largeFiles",
+  "clipboardSync",
   "wetransferAlt",
   "snapdropAlt",
   "sharedropAlt",
