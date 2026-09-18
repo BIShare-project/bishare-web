@@ -99,6 +99,22 @@
       "11": {
         "q": "¿BIShare es gratis de verdad — sin prueba, sin plan de pago?",
         "a": "Sí. No hay plan de pago ni nada tras un muro de pago; el límite de 100 GB por enlace y la vía cercana ilimitada son todo el producto. El código fuente es público, así que puedes comprobar qué hace."
+      },
+      "12": {
+        "q": "¿Cómo envío gratis un archivo de 8 GB?",
+        "a": "Por enlace: abre bishare.app/transfer, suelta el archivo y comparte el enlace. 8 GB queda muy por debajo de los 100 GB por transferencia y no se pide ninguna cuenta. La mayoría de planes gratuitos se detienen en 5 GB, así que 8 GB es justo el tamaño que ellos rechazan. Si los dos dispositivos están en la misma wifi, enviarlo de dispositivo a dispositivo evita la subida por completo y termina en un par de minutos."
+      },
+      "13": {
+        "q": "¿De verdad puedo enviar 100 GB gratis?",
+        "a": "Sí, ese es el límite por transferencia de un enlace gratuito de BIShare, y no hay plan de pago que lo suba. La pregunta práctica es el tiempo, no el permiso: 100 GB a 40 Mbps de subida son unas seis horas, y la conexión tiene que aguantar. Por la misma wifi no hay subida ni techo."
+      },
+      "14": {
+        "q": "¿Por qué un servicio rechaza mi archivo si estoy por debajo de su límite?",
+        "a": "Suele ser por una de tres razones. El límite es una bolsa mensual y ya la has gastado, como las 10 transferencias o 3 GB cada 30 días de WeTransfer. O hay un segundo límite más pequeño por archivo dentro de la cifra del titular, como los 200 MB de pCloud Transfer. O el tipo de archivo está bloqueado: casi todos los servicios rechazan los ejecutables, el nuestro incluido."
+      },
+      "15": {
+        "q": "¿Cuál es la forma más rápida de enviar un archivo enorme?",
+        "a": "No subirlo. En una misma red wifi, una transferencia de dispositivo a dispositivo va a entre 40 y 110 MB/s con hardware actual, así que 10 GB llegan en dos o tres minutos. Cualquier servicio basado en subir depende de tu velocidad de subida, que en la mayoría de conexiones domésticas es una fracción pequeña de la de bajada."
       }
     }
   },
@@ -111,7 +127,7 @@
     "yes": "Sí",
     "no": "No"
   },
-  "updated": "Actualizado en septiembre de 2026 · Límites de cada servicio revisados",
+  "updated": "Actualizado en septiembre de 2026 · Cada límite gratuito verificado en la web del propio proveedor",
   "quick": {
     "title": "Respuesta rápida",
     "items": [
@@ -192,88 +208,95 @@
     ]
   },
   "limits": {
-    "title": "Límites gratuitos de transferencia comparados",
-    "intro": "Planes gratuitos según las propias páginas de cada servicio, comprobados en septiembre de 2026. Tamaños por transferencia.",
+    "title": "Límites gratuitos comparados",
+    "intro": "Planes gratuitos según la página de precios o la portada de cada proveedor, consultadas el 18 de septiembre de 2026. La última columna es la parte que el titular se deja.",
     "cols": [
       "Servicio",
-      "Límite gratis por transferencia",
+      "Límite gratuito",
       "El enlace caduca",
       "Cuenta",
-      "Cifrado de extremo a extremo"
+      "La trampa"
     ],
     "rows": [
       [
-        "Correo (Gmail, Outlook)",
-        "20–25 MB",
+        "Correo (Gmail)",
+        "25 MB por mensaje",
         "—",
         "Sí",
-        "No"
+        "La codificación infla el adjunto; el servidor de quien recibe tiene su propio tope"
       ],
       [
         "WeTransfer",
-        "3 GB (10 transferencias o 3 GB al mes)",
+        "3 GB, o 10 transferencias, cada 30 días",
         "3 días",
         "No",
-        "No"
+        "Es una bolsa mensual, no un límite por envío"
       ],
       [
         "Smash",
-        "2 GB antes de que tu transferencia espere en cola",
+        "Sin límite de tamaño",
         "7 días",
         "No",
-        "No"
+        "Por encima de 2 GB la transferencia espera detrás de los clientes de pago"
+      ],
+      [
+        "pCloud Transfer",
+        "5 GB por transferencia",
+        "7 días",
+        "No",
+        "200 MB por archivo dentro de esos 5 GB"
       ],
       [
         "Filemail",
-        "5 GB",
+        "5 GB por transferencia",
         "hasta 30 días",
         "No",
-        "Solo planes de pago"
+        "El cifrado de extremo a extremo es de pago"
       ],
       [
         "TransferNow",
-        "5 GB",
+        "5 GB por transferencia",
         "7 días",
         "No",
-        "No"
+        "Los planes de pago llegan a 250 GB; la versión gratuita lleva publicidad"
       ],
       [
         "SendBig",
-        "5 GB (30 GB con cuenta gratuita)",
-        "7 días",
+        "5 GB, o 30 GB con sesión iniciada",
+        "7 días, hasta 30",
         "Opcional",
-        "Opcional, con contraseña"
+        "La caducidad más larga te vende otro producto"
       ],
       [
         "TransferXL",
-        "5 GB",
+        "5 GB por transferencia",
         "7 días",
         "Sí",
-        "Opcional, con contraseña"
+        "10 transferencias al día, y anuncios para quien recibe"
       ],
       [
         "SwissTransfer",
-        "50 GB",
+        "50 GB por transferencia",
         "hasta 30 días",
         "No",
-        "Cifrado en el navegador"
+        "Menos aplicaciones e integraciones que los rivales de pago"
       ],
       [
         "Google Drive / OneDrive",
-        "15 GB / 5 GB de almacenamiento total",
+        "15 GB / 5 GB de almacenamiento",
         "mientras siga en tu unidad",
         "Sí",
-        "No"
+        "Compartido con el correo y las fotos; 5 TB por archivo en Drive"
       ],
       [
         "BIShare",
-        "100 GB — y sin límite de dispositivo a dispositivo",
+        "100 GB por transferencia",
         "24 horas, o primera descarga",
         "No",
-        "Sí, siempre"
+        "No se guarda nada para después; 24 horas es toda la vida del enlace"
       ]
     ],
-    "note": "Los límites cambian; si una fila está desactualizada, dínoslo y la corregiremos. «De extremo a extremo» significa aquí que el servicio no puede leer el archivo, no solo que la conexión use HTTPS."
+    "note": "\"La trampa\" no es una acusación: cada línea está impresa en las páginas del propio proveedor. Simplemente nunca es la cifra del encabezado. Dónde pierde nuestra fila: un enlace de BIShare desaparece al día siguiente, así que es la herramienta equivocada para un archivo que un cliente quizá busque la semana que viene."
   },
   "speed": {
     "title": "¿Cuánto va a tardar?",
@@ -448,5 +471,89 @@
       "keyBody": "La clave que descifra el archivo",
       "foot": "Los navegadores nunca envían a un servidor lo que va después del #, así que no podemos leer la copia guardada"
     }
+  },
+  "headline": {
+    "title": "La cifra del titular casi nunca es el límite",
+    "intro": "Cada servicio de transferencia enseña un número en su portada. Cada uno lo mide de una forma distinta, y esa medida es la que decide si tu archivo pasa o no. Estos son los cuatro significados, con lo que cada proveedor publicaba el 18 de septiembre de 2026:",
+    "items": [
+      "<strong>Por transferencia.</strong> La versión honesta. Filemail indica hasta 5 GB gratis sin registro; SwissTransfer indica 50 GB. Envías un archivo de ese tamaño y sale.",
+      "<strong>Por transferencia, pero partido.</strong> pCloud Transfer ofrece 5 GB gratis y añade una segunda línea encima de la zona de carga: hasta 200 MB por archivo. Un vídeo de 1 GB no entra nunca, por muchos de esos 5 GB que queden libres.",
+      "<strong>Por mes, no por envío.</strong> El plan gratuito de <goWetransfer>WeTransfer</goWetransfer> es una bolsa común: 10 transferencias o 3 GB en 30 días móviles. Tu cuarto envío de 900 MB del mes falla por un motivo que la portada nunca menciona.",
+      "<strong>Por transferencia, y luego a la cola.</strong> <goSmash>Smash</goSmash> anuncia que no hay límite de tamaño y lo cumple, pero su propia página de precios dice que las transferencias de más de 2 GB no tienen prioridad y esperan detrás de los clientes de pago. El archivo llega; el que espera eres tú.",
+      "<strong>Por día.</strong> TransferXL da 5 GB por transferencia en la cuenta gratuita y te limita a 10 transferencias diarias, con publicidad en la página de descarga."
+    ],
+    "note": "Nada de esto está oculto: todo figura en sus páginas de precios. Simplemente nunca aparece en el titular, y por eso una transferencia que debería funcionar se niega a empezar."
+  },
+  "bysize": {
+    "title": "Empieza por el tamaño de tu archivo",
+    "intro": "Comprueba primero el archivo. En Windows, haz clic derecho y abre Propiedades; en macOS, selecciónalo y pulsa Comando-I; en el móvil, abre los detalles del archivo en la galería o el gestor de archivos. Después lee la fila que te toca.",
+    "cols": [
+      "Tu archivo",
+      "Lo que sigue funcionando",
+      "Lo que conviene evitar"
+    ],
+    "rows": [
+      [
+        "Menos de 25 MB",
+        "Correo normal. El límite publicado de Gmail para cuentas personales es de 25 MB, y la mayoría de servidores de empresa ronda esa misma cifra.",
+        "Nada: este es el único caso en que el correo es el camino más corto."
+      ],
+      [
+        "De 25 MB a 2 GB",
+        "Cualquier servicio de transferencia, incluidos los planes gratuitos con los topes más bajos. Un enlace de <goTransfer>bishare.app/transfer</goTransfer> no cuesta nada ni pide cuenta.",
+        "Adjuntarlo igualmente al correo. El mensaje rebota cuando la subida ya ha terminado, así que pierdes toda la subida."
+      ],
+      [
+        "De 2 GB a 5 GB",
+        "Filemail, SendBig, TransferNow y SwissTransfer en sus planes gratuitos; BIShare sin plan que elegir.",
+        "pCloud Transfer, cuyo techo de 200 MB por archivo muerde justo aquí, y Smash, que empieza a encolar por encima de 2 GB."
+      ],
+      [
+        "De 5 GB a 50 GB",
+        "SwissTransfer con sus 50 GB, o un enlace de BIShare de 100 GB. Ambos envían un archivo sin suscripción.",
+        "Las nubes de almacenamiento. Una subida de 30 GB tiene que caber en los 15 GB de Google o los 5 GB de OneDrive antes de que nadie pueda descargarla."
+      ],
+      [
+        "De 50 GB a 100 GB",
+        "Un enlace de BIShare, que admite hasta 100 GB por transferencia y caduca a las 24 horas.",
+        "Los planes gratuitos en general. Por encima de 50 GB casi todos pasan a ser de pago."
+      ],
+      [
+        "Más de 100 GB",
+        "La misma wifi, de dispositivo a dispositivo: sin techo alguno, porque no se sube nada. Un disco duro por mensajería sigue siendo más rápido para varios terabytes.",
+        "Cualquier ruta basada en subir. A 40 Mbps de subida, 200 GB son unas 11 horas de conexión ininterrumpida."
+      ]
+    ],
+    "note": "Las carpetas cuentan como la suma de lo que contienen, y una carpeta elegida para un enlace se comprime antes en un único archivo."
+  },
+  "email": {
+    "title": "Enviar un archivo grande por correo sin que rebote",
+    "body": "El correo no se diseñó para mover gigabytes, y el límite se aplica dos veces: una por el proveedor de quien envía y otra por quien recibe. Gmail publica 25 MB para cuentas personales. Como el correo codifica los adjuntos como texto, un archivo cercano al tope crece por el camino y puede rechazarse en torno a los 20 MB reales. El servidor que recibe tiene su propio límite, invisible para ti, así que un adjunto de 24 MB que sale de tu bandeja aún puede acabar rechazado por el correo de una empresa una hora después.",
+    "items": [
+      "<strong>Gmail.</strong> Si adjuntas un archivo por encima del límite, Gmail lo sustituye solo por un enlace de Google Drive. Funciona, pero ese archivo ya consume los 15 GB compartidos con Gmail y Fotos, y quien lo reciba quizá tenga que pedir acceso si la configuración de uso compartido no encaja.",
+      "<strong>Outlook.</strong> La misma sustitución ocurre a través de OneDrive, que parte de 5 GB gratis para toda la cuenta, no por archivo.",
+      "<strong>Cualquier cliente de correo.</strong> Pega un enlace de transferencia en el mensaje. El correo se queda en unos pocos kilobytes, pasa todos los filtros, y el archivo nunca toca un servidor de correo."
+    ],
+    "note": "Un enlace también sobrevive al reenvío. Un adjunto se vuelve a subir cada vez que alguien reenvía el mensaje, y así una presentación de 20 MB acaba ocupando varios cientos de megabytes en el correo de una empresa."
+  },
+  "phone": {
+    "title": "Desde el móvil, que es donde suele estar el archivo",
+    "body": "Hoy casi todos los archivos grandes nacen en un móvil: un clip 4K largo, una grabación de pantalla, una carpeta de fotos RAW. Allí fallan dos cosas, y ninguna tiene que ver con el tamaño.",
+    "items": [
+      "<strong>La galería recodifica.</strong> Los menús de compartir de ambas plataformas pueden entregar una copia convertida en lugar del original. El selector de BIShare en iOS pide la versión actual sin modificar, así que lo que envías es el archivo que hay en el móvil.",
+      "<strong>La pantalla se bloquea.</strong> Una subida por navegador que siga en marcha cuando el móvil se duerme puede quedarse parada. Deja la pestaña en primer plano hasta que acabe la barra de progreso, o envía de dispositivo a dispositivo por wifi, donde no hay nada que subir."
+    ],
+    "note": "Enviar del móvil a un ordenador en la misma habitación está paso a paso en <goPhonePc>pasar archivos del móvil al PC</goPhonePc>; el sentido contrario, en <goPcPhone>del PC al móvil</goPcPhone>."
+  },
+  "failed": {
+    "title": "Cuando una transferencia grande se corta a medias",
+    "intro": "Cuanto mayor es el archivo, más largo es el rato en que algo puede interrumpirlo. La solución depende de qué mitad se ha roto.",
+    "items": [
+      "<strong>Se paró la subida.</strong> Vuelve a elegir el mismo archivo en <goTransfer>bishare.app/transfer</goTransfer>. Las partes ya guardadas se reconocen y la subida continúa desde la última, en vez de empezar de cero.",
+      "<strong>Caducó el enlace.</strong> Los enlaces duran 24 horas y los de un solo uso desaparecen tras la primera descarga completa. Ambas cosas son deliberadas; manda un enlace nuevo.",
+      "<strong>La descarga murió casi al final.</strong> Los navegadores reinician una descarga en lugar de reanudarla. Con una conexión inestable, enviar de dispositivo a dispositivo por la misma wifi elimina la subida y la descarga a la vez.",
+      "<strong>Se rechazó el tipo de archivo.</strong> Los formatos ejecutables (.exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com) no se aceptan en las transferencias por enlace. Mételos en un zip o envíalos de dispositivo a dispositivo.",
+      "<strong>Se cayó la wifi a mitad.</strong> Una transferencia de dispositivo a dispositivo que pierde la red conserva lo que ya llegó y sigue desde ese punto cuando vuelve la conexión."
+    ]
   }
 }

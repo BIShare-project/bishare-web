@@ -33,7 +33,7 @@ import { guideLinks } from "@/components/site/guide-links";
  * re-checked.
  */
 
-const LAST_UPDATED = "2026-09-12";
+const LAST_UPDATED = "2026-09-18";
 const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
@@ -68,13 +68,18 @@ const COMPARISON: Array<{ id: string; airdrop: boolean; quick: boolean; bishare:
 const QUICK_ITEMS = ["0", "1", "2", "3"] as const;
 const STEP_ITEMS = ["0", "1", "2", "3"] as const;
 const SIZE_ROWS = ["0", "1", "2", "3", "4", "5"] as const;
-const LIMIT_ROWS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const LIMIT_ROWS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] as const;
+const HEADLINE_ITEMS = ["0", "1", "2", "3", "4"] as const;
+const BYSIZE_ROWS = ["0", "1", "2", "3", "4", "5"] as const;
+const EMAIL_ITEMS = ["0", "1", "2"] as const;
+const PHONE_ITEMS = ["0", "1"] as const;
+const FAILED_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const SPEED_ROWS = ["0", "1", "2", "3"] as const;
 const WAY_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2", "3"] as const;
 const TIP_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const DEVICE_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"] as const;
+const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"] as const;
 
 function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) {
   return ok ? (
@@ -273,6 +278,29 @@ export default async function SendLargeFilesPage({
           <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("why.body", { strong, ...links })}</p>
         </section>
 
+        {/* The angle: what each headline number actually measures */}
+        <section className="mt-14">
+          <H2 id="headline">{t("headline.title")}</H2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("headline.intro", { strong, ...links })}</p>
+          <ul className="mt-6 space-y-4">
+            {HEADLINE_ITEMS.map((i) => (
+              <li key={i} className="flex items-start gap-3 text-[15.5px] leading-relaxed text-muted-foreground">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" aria-hidden />
+                <span>{t.rich(`headline.items.${i}`, { strong, ...links })}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{t("headline.note")}</p>
+        </section>
+
+        {/* Pick the route from the file size — the long-tail people search with */}
+        <section className="mt-14">
+          <H2 id="bysize">{t("bysize.title")}</H2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">{t("bysize.intro")}</p>
+          <DataTable cols={cols("bysize", 3)} rows={table("bysize", BYSIZE_ROWS, 3)} minWidth={640} />
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("bysize.note")}</p>
+        </section>
+
         {/* Steps — the how-to, with the real screen */}
         <section className="mt-14">
           <H2 id="steps">{t("steps.title")}</H2>
@@ -298,6 +326,36 @@ export default async function SendLargeFilesPage({
           <H2 id="sizes">{t("sizes.title")}</H2>
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("sizes.intro")}</p>
           <DataTable cols={cols("sizes", 4)} rows={table("sizes", SIZE_ROWS, 4)} />
+        </section>
+
+        {/* By email, the route most people try first */}
+        <section className="mt-14">
+          <H2 id="email">{t("email.title")}</H2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t("email.body")}</p>
+          <ul className="mt-6 space-y-4">
+            {EMAIL_ITEMS.map((i) => (
+              <li key={i} className="flex items-start gap-3 text-[15.5px] leading-relaxed text-muted-foreground">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" aria-hidden />
+                <span>{t.rich(`email.items.${i}`, { strong, ...links })}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{t("email.note")}</p>
+        </section>
+
+        {/* From a phone */}
+        <section className="mt-14">
+          <H2 id="phone">{t("phone.title")}</H2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t("phone.body")}</p>
+          <ul className="mt-6 space-y-4">
+            {PHONE_ITEMS.map((i) => (
+              <li key={i} className="flex items-start gap-3 text-[15.5px] leading-relaxed text-muted-foreground">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" aria-hidden />
+                <span>{t.rich(`phone.items.${i}`, { strong, ...links })}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{t.rich("phone.note", { strong, ...links })}</p>
         </section>
 
         {/* Free limits compared */}
@@ -376,6 +434,20 @@ export default async function SendLargeFilesPage({
             ))}
           </ul>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("devices.note")}</p>
+        </section>
+
+        {/* When it breaks halfway */}
+        <section className="mt-14">
+          <H2 id="failed">{t("failed.title")}</H2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">{t("failed.intro")}</p>
+          <ul className="mt-6 space-y-4">
+            {FAILED_ITEMS.map((i) => (
+              <li key={i} className="flex items-start gap-3 text-[15.5px] leading-relaxed text-muted-foreground">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" aria-hidden />
+                <span>{t.rich(`failed.items.${i}`, { strong, ...links })}</span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* Security */}

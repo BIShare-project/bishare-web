@@ -99,6 +99,22 @@
       "11": {
         "q": "Apakah BIShare benar-benar gratis — tanpa uji coba, tanpa paket berbayar?",
         "a": "Ya. Tidak ada paket berbayar dan tidak ada yang di balik paywall; batas tautan 100 GB dan jalur berdekatan tanpa batas adalah seluruh produknya. Kode sumbernya terbuka, jadi Anda bisa memeriksa apa yang dilakukannya."
+      },
+      "12": {
+        "q": "Bagaimana cara mengirim file 8 GB gratis?",
+        "a": "Lewat tautan: buka bishare.app/transfer, jatuhkan filenya dan bagikan tautannya — 8 GB masih jauh di dalam 100 GB per transfer, dan tidak ada akun yang diminta. Sebagian besar tingkat gratis lain berhenti di 5 GB, jadi 8 GB justru ukuran yang mereka tolak. Kalau kedua perangkat ada di Wi-Fi yang sama, mengirim perangkat ke perangkat menghindari unggahan sepenuhnya dan selesai dalam beberapa menit."
+      },
+      "13": {
+        "q": "Benarkah bisa mengirim 100 GB gratis?",
+        "a": "Benar, itu batas per transfer pada tautan BIShare gratis, dan tidak ada tingkat berbayar yang menaikkannya. Pertanyaan sebenarnya soal waktu, bukan izin: 100 GB pada kecepatan unggah 40 Mbps memakan sekitar enam jam, dan koneksinya harus bertahan. Lewat Wi-Fi yang sama tidak ada unggahan dan tidak ada plafon."
+      },
+      "14": {
+        "q": "Kenapa situs transfer menolak file saya padahal masih di bawah batasnya?",
+        "a": "Biasanya salah satu dari tiga hal. Batas itu kuota bulanan dan kamu sudah memakainya, seperti 10 transfer atau 3 GB per 30 hari di WeTransfer. Atau ada batas kedua yang lebih kecil per file di dalam angka judulnya, seperti 200 MB di pCloud Transfer. Atau jenis filenya diblokir — berkas yang bisa dieksekusi ditolak hampir semua layanan, termasuk kami."
+      },
+      "15": {
+        "q": "Cara tercepat mengirim file yang sangat besar?",
+        "a": "Dengan tidak mengunggahnya. Di satu jaringan Wi-Fi, transfer perangkat ke perangkat berjalan 40 sampai 110 MB/d pada perangkat keras masa kini, jadi 10 GB mendarat dalam dua sampai tiga menit. Layanan berbasis unggahan dibatasi kecepatan unggah kamu, yang di sebagian besar koneksi rumah hanya sebagian kecil dari kecepatan unduh."
       }
     }
   },
@@ -111,7 +127,7 @@
     "yes": "Ya",
     "no": "Tidak"
   },
-  "updated": "Diperbarui September 2026 · Batas tiap layanan dicek ulang",
+  "updated": "Diperbarui September 2026 · Setiap batas gratis dicek ulang di halaman resmi masing-masing penyedia",
   "quick": {
     "title": "Jawaban singkat",
     "items": [
@@ -193,87 +209,94 @@
   },
   "limits": {
     "title": "Perbandingan batas transfer file gratis",
-    "intro": "Paket gratis sesuai halaman resmi tiap layanan, dicek September 2026. Ukuran per transfer.",
+    "intro": "Tingkat gratis sesuai yang tertulis di halaman harga atau beranda masing-masing penyedia, dibaca 18 September 2026. Kolom terakhir adalah bagian yang ditinggalkan judulnya.",
     "cols": [
       "Layanan",
-      "Batas gratis per transfer",
+      "Batas gratis",
       "Tautan kedaluwarsa",
       "Akun",
-      "Terenkripsi end-to-end"
+      "Jebakannya"
     ],
     "rows": [
       [
-        "Email (Gmail, Outlook)",
-        "20–25 MB",
+        "Email (Gmail)",
+        "25 MB per pesan",
         "—",
         "Ya",
-        "Tidak"
+        "Pengodean membengkakkan lampiran; server penerima punya batas sendiri"
       ],
       [
         "WeTransfer",
-        "3 GB (10 transfer atau 3 GB per bulan)",
+        "3 GB, atau 10 transfer, per 30 hari",
         "3 hari",
         "Tidak",
-        "Tidak"
+        "Kuota bulanan, bukan batas per kiriman"
       ],
       [
         "Smash",
-        "2 GB sebelum transfer Anda masuk antrean",
+        "Tanpa batas ukuran",
         "7 hari",
         "Tidak",
-        "Tidak"
+        "Di atas 2 GB transfer menunggu di belakang pelanggan berbayar"
+      ],
+      [
+        "pCloud Transfer",
+        "5 GB per transfer",
+        "7 hari",
+        "Tidak",
+        "200 MB per file di dalam 5 GB itu"
       ],
       [
         "Filemail",
-        "5 GB",
-        "hingga 30 hari",
+        "5 GB per transfer",
+        "sampai 30 hari",
         "Tidak",
-        "Hanya paket berbayar"
+        "Enkripsi ujung ke ujung hanya di paket berbayar"
       ],
       [
         "TransferNow",
-        "5 GB",
+        "5 GB per transfer",
         "7 hari",
         "Tidak",
-        "Tidak"
+        "Paket berbayar sampai 250 GB; halaman gratisnya beriklan"
       ],
       [
         "SendBig",
-        "5 GB (30 GB dengan akun gratis)",
-        "7 hari",
+        "5 GB, atau 30 GB bila masuk akun",
+        "7 hari, sampai 30",
         "Opsional",
-        "Opsional, dengan kata sandi"
+        "Masa berlaku lebih panjang menjual produk lain"
       ],
       [
         "TransferXL",
-        "5 GB",
+        "5 GB per transfer",
         "7 hari",
         "Ya",
-        "Opsional, dengan kata sandi"
+        "10 transfer per hari, dan iklan untuk penerima"
       ],
       [
         "SwissTransfer",
-        "50 GB",
-        "hingga 30 hari",
+        "50 GB per transfer",
+        "sampai 30 hari",
         "Tidak",
-        "Dienkripsi di browser"
+        "Lebih sedikit aplikasi dan integrasi dibanding pesaing berbayar"
       ],
       [
         "Google Drive / OneDrive",
-        "15 GB / 5 GB total penyimpanan",
-        "selama masih di drive Anda",
+        "15 GB / 5 GB penyimpanan akun",
+        "selama tetap di drive kamu",
         "Ya",
-        "Tidak"
+        "Dibagi dengan surat dan foto; 5 TB per file di Drive"
       ],
       [
         "BIShare",
-        "100 GB — dan tanpa batas antar perangkat",
+        "100 GB per transfer",
         "24 jam, atau unduhan pertama",
         "Tidak",
-        "Ya, selalu"
+        "Tidak ada yang disimpan untuk nanti; 24 jam adalah seluruh umur tautan"
       ]
     ],
-    "note": "Batas bisa berubah; kalau ada baris yang usang, beri tahu kami dan kami perbaiki. \"End-to-end\" di sini berarti layanan itu sendiri tidak bisa membaca file, bukan sekadar koneksinya memakai HTTPS."
+    "note": "\"Jebakannya\" bukan tuduhan — setiap barisnya tercetak di halaman resmi penyedia. Hanya saja tidak pernah jadi angka di judul. Di mana baris kami sendiri kalah: tautan BIShare hilang setelah sehari, jadi salah alat untuk file yang mungkin dicari klien lagi minggu depan."
   },
   "speed": {
     "title": "Berapa lama waktunya?",
@@ -448,5 +471,89 @@
       "keyBody": "Kunci yang mendekripsi file",
       "foot": "Browser tidak pernah mengirim bagian setelah # ke server, jadi salinan tersimpan tidak bisa kami baca"
     }
+  },
+  "headline": {
+    "title": "Angka di judul hampir tidak pernah jadi batas sebenarnya",
+    "intro": "Setiap situs transfer memasang satu angka di beranda. Cara mengukurnya berbeda-beda, dan cara ukur itulah yang menentukan file kamu lolos atau ditolak. Ada empat makna, dengan yang tertulis di halaman masing-masing penyedia pada 18 September 2026:",
+    "items": [
+      "<strong>Per transfer.</strong> Versi paling jujur. Filemail menulis sampai 5 GB gratis tanpa registrasi; SwissTransfer menulis 50 GB. Kirim satu file sebesar itu dan langsung jalan.",
+      "<strong>Per transfer, tapi terbelah.</strong> pCloud Transfer menawarkan 5 GB gratis, lalu menambah satu baris di atas kotak unggah: maksimal 200 MB per file. Video 1 GB tidak akan pernah muat, sebanyak apa pun sisa 5 GB itu.",
+      "<strong>Per bulan, bukan per kiriman.</strong> Tingkat gratis <goWetransfer>WeTransfer</goWetransfer> berupa kuota kolektif: 10 transfer atau 3 GB dalam 30 hari berjalan. Kiriman 900 MB keempatmu bulan ini gagal karena alasan yang tidak pernah disebut di beranda.",
+      "<strong>Per transfer, lalu antre.</strong> <goSmash>Smash</goSmash> mengiklankan tanpa batas ukuran dan itu ditepati, tapi halaman harganya sendiri menyebut transfer di atas 2 GB tidak diprioritaskan dan menunggu di belakang pelanggan berbayar. File sampai; kamu yang menunggu.",
+      "<strong>Per hari.</strong> TransferXL memberi 5 GB per transfer pada akun gratis dan membatasi 10 transfer per hari, dengan iklan di halaman unduhan."
+    ],
+    "note": "Tidak ada yang disembunyikan — semuanya tercetak di halaman harga mereka. Hanya saja tidak pernah masuk judul, dan itulah sebabnya transfer yang mestinya berhasil malah menolak jalan."
+  },
+  "bysize": {
+    "title": "Mulai dari ukuran file kamu",
+    "intro": "Cek dulu filenya. Di Windows, klik kanan lalu buka Properties; di macOS, pilih file lalu tekan Command-I; di ponsel, buka detail file lewat galeri atau pengelola berkas. Setelah itu baca baris yang sesuai.",
+    "cols": [
+      "File kamu",
+      "Yang masih bisa dipakai",
+      "Yang sebaiknya dihindari"
+    ],
+    "rows": [
+      [
+        "Di bawah 25 MB",
+        "Email biasa. Batas resmi Gmail untuk akun pribadi adalah 25 MB, dan sebagian besar server surat kantor berada di kisaran yang sama.",
+        "Tidak ada — ini satu-satunya kasus ketika email jadi jalur terpendek."
+      ],
+      [
+        "25 MB sampai 2 GB",
+        "Layanan transfer apa pun, termasuk tingkat gratis dengan batas terkecil. Tautan dari <goTransfer>bishare.app/transfer</goTransfer> tidak berbiaya dan tidak minta akun.",
+        "Tetap melampirkannya ke email. Pesan baru dipantulkan setelah unggahan selesai, jadi seluruh unggahan terbuang."
+      ],
+      [
+        "2 GB sampai 5 GB",
+        "Filemail, SendBig, TransferNow dan SwissTransfer di tingkat gratisnya; BIShare tanpa perlu memilih tingkat.",
+        "pCloud Transfer, yang plafon 200 MB per filenya menggigit di sini, dan Smash, yang mulai mengantrekan di atas 2 GB."
+      ],
+      [
+        "5 GB sampai 50 GB",
+        "SwissTransfer di 50 GB, atau tautan BIShare 100 GB. Keduanya mengirim satu file tanpa langganan.",
+        "Drive awan. Unggahan 30 GB harus muat dulu di jatah 15 GB Google atau 5 GB OneDrive sebelum ada yang bisa mengunduh."
+      ],
+      [
+        "50 GB sampai 100 GB",
+        "Tautan BIShare, yang membawa sampai 100 GB per transfer dan kedaluwarsa setelah 24 jam.",
+        "Tingkat gratis pada umumnya. Di atas 50 GB hampir semuanya berubah jadi paket berbayar."
+      ],
+      [
+        "Di atas 100 GB",
+        "Wi-Fi yang sama, perangkat ke perangkat: tanpa plafon sama sekali, karena tidak ada yang diunggah. Hard disk lewat pos tetap lebih cepat untuk beberapa terabita.",
+        "Semua jalur berbasis unggahan. Pada 40 Mbps ke atas, 200 GB butuh sekitar 11 jam koneksi tanpa putus."
+      ]
+    ],
+    "note": "Folder dihitung sebagai jumlah isinya, dan folder yang dipilih untuk transfer tautan dijadikan satu arsip zip lebih dulu."
+  },
+  "email": {
+    "title": "Mengirim file besar lewat email, tanpa dipantulkan",
+    "body": "Email tidak pernah dirancang memindahkan gigabita, dan batasnya diberlakukan dua kali: oleh penyedia pengirim dan oleh siapa pun yang menerima. Gmail menetapkan 25 MB untuk akun pribadi. Karena email mengubah lampiran menjadi teks, file yang mepet plafon membengkak di jalan dan bisa ditolak di sekitar 20 MB isi asli. Server penerima punya batas sendiri yang tidak terlihat olehmu, jadi lampiran 24 MB yang sudah keluar dari kotak keluar masih bisa ditolak sistem surat kantor satu jam kemudian.",
+    "items": [
+      "<strong>Gmail.</strong> Lampirkan file di atas batas dan Gmail menggantinya sendiri dengan tautan Google Drive. Itu bekerja, tapi filenya kini memakan jatah 15 GB yang dibagi dengan Gmail dan Photos, dan penerima mungkin harus meminta akses kalau setelan berbaginya tidak cocok.",
+      "<strong>Outlook.</strong> Penggantian serupa terjadi lewat OneDrive, yang mulai dari 5 GB gratis untuk seluruh akun, bukan per file.",
+      "<strong>Klien email mana pun.</strong> Tempel saja tautan transfer ke dalam pesan. Suratnya tetap beberapa kilobita, lolos semua penyaring, dan filenya sendiri tidak pernah menyentuh server surat."
+    ],
+    "note": "Tautan juga tahan diteruskan. Lampiran mengunggah ulang dirinya setiap kali pesan diteruskan, dan begitulah satu dek slide 20 MB berubah menjadi beberapa ratus megabita di penyimpanan surat sebuah kantor."
+  },
+  "phone": {
+    "title": "Dari ponsel, tempat file itu biasanya berada",
+    "body": "Sekarang file besar kebanyakan lahir di ponsel — klip 4K panjang, rekaman layar, folder foto RAW. Dua hal sering meleset di sana dan keduanya bukan soal ukuran.",
+    "items": [
+      "<strong>Galeri mengenkode ulang.</strong> Lembar berbagi di kedua platform boleh menyerahkan salinan hasil konversi, bukan berkas aslinya. Pemilih berkas BIShare di iOS meminta versi terkini yang belum diubah, jadi yang kamu kirim adalah file yang memang ada di ponsel.",
+      "<strong>Layar terkunci.</strong> Unggahan lewat peramban yang masih berjalan saat ponsel tidur bisa mandek. Biarkan tabnya di depan sampai bilah kemajuan selesai, atau kirim perangkat ke perangkat lewat Wi-Fi, yang memang tidak mengunggah apa pun."
+    ],
+    "note": "Mengirim dari ponsel ke komputer di ruangan yang sama dibahas langkah demi langkah di <goPhonePc>memindahkan file dari ponsel ke PC</goPhonePc>; arah sebaliknya ada di <goPcPhone>PC ke ponsel</goPcPhone>."
+  },
+  "failed": {
+    "title": "Kalau transfer besar putus di tengah jalan",
+    "intro": "Makin besar filenya, makin panjang jendela waktu untuk sesuatu memotongnya. Penanganannya bergantung pada sisi mana yang rusak.",
+    "items": [
+      "<strong>Unggahan berhenti.</strong> Pilih lagi file yang sama di <goTransfer>bishare.app/transfer</goTransfer>. Bagian yang sudah tersimpan dikenali dan unggahan lanjut dari potongan terakhir, bukan mengulang dari nol.",
+      "<strong>Tautan kedaluwarsa.</strong> Tautan bertahan 24 jam dan tautan sekali pakai hilang setelah unduhan pertama selesai. Keduanya memang disengaja; kirim tautan baru.",
+      "<strong>Unduhan mati menjelang akhir.</strong> Peramban mengulang unduhan, bukan melanjutkannya. Pada koneksi labil, mengirim perangkat ke perangkat lewat Wi-Fi yang sama menghapus unggahan sekaligus unduhannya.",
+      "<strong>Jenis file ditolak.</strong> Format yang bisa dieksekusi — .exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com — ditolak untuk transfer tautan. Masukkan ke zip, atau kirim perangkat ke perangkat.",
+      "<strong>Wi-Fi putus di tengah transfer.</strong> Transfer perangkat ke perangkat yang kehilangan jaringan menyimpan bagian yang sudah sampai dan melanjutkan dari titik itu begitu koneksi kembali."
+    ]
   }
 }

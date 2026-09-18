@@ -99,6 +99,22 @@
       "11": {
         "q": "Is BIShare really free — no trial, no paid tier?",
         "a": "Yes. There is no paid plan and nothing behind a paywall; the link limit of 100 GB and the unlimited nearby route are the whole product. The source code is public, so you can check what it does."
+      },
+      "12": {
+        "q": "How do I send an 8 GB file for free?",
+        "a": "By link: open bishare.app/transfer, drop the file in and share the link — 8 GB is well inside the 100 GB per transfer, and no account is asked for. Most other free tiers stop at 5 GB, so an 8 GB file is exactly the size that gets refused by them. If both devices are on the same Wi-Fi, sending device to device avoids the upload entirely and finishes in a couple of minutes."
+      },
+      "13": {
+        "q": "Can I really send 100 GB free?",
+        "a": "Yes, that is the per-transfer limit on a free BIShare link, and there is no paid tier that raises it. The practical question is time rather than permission: 100 GB at a 40 Mbps upload speed is about six hours, and the connection has to hold. Over the same Wi-Fi there is no upload and no ceiling."
+      },
+      "14": {
+        "q": "Why does a transfer site reject my file when I am under its limit?",
+        "a": "Usually one of three reasons. The limit is a monthly pool and you have used it, as with WeTransfer's 10 transfers or 3 GB per 30 days. Or there is a second, smaller limit per file inside the headline figure, as with pCloud Transfer's 200 MB. Or the file type is blocked — executables are refused by most services, ours included."
+      },
+      "15": {
+        "q": "What is the fastest way to send a very large file?",
+        "a": "Not uploading it. On one Wi-Fi network, a device-to-device transfer runs at 40 to 110 MB/s on current hardware, so 10 GB lands in two or three minutes. Any upload-based service is limited by your upstream bandwidth, which on most home connections is a small fraction of the download speed."
       }
     }
   },
@@ -111,7 +127,7 @@
     "yes": "Yes",
     "no": "No"
   },
-  "updated": "Updated September 2026 · Limits of every service re-checked",
+  "updated": "Updated September 2026 · Every free limit re-checked on each provider's own page",
   "quick": {
     "title": "Quick answer",
     "items": [
@@ -193,87 +209,94 @@
   },
   "limits": {
     "title": "Free file-transfer limits compared",
-    "intro": "Free tiers as published on each service's own pages, checked September 2026. Sizes are per transfer.",
+    "intro": "Free tiers as published on each provider's own pricing or home page, read on 18 September 2026. The last column is the part the headline leaves out.",
     "cols": [
       "Service",
-      "Free limit per transfer",
+      "Free limit",
       "Link expires",
       "Account",
-      "End-to-end encrypted"
+      "The catch"
     ],
     "rows": [
       [
-        "Email (Gmail, Outlook)",
-        "20–25 MB",
+        "Email (Gmail)",
+        "25 MB per message",
         "—",
         "Yes",
-        "No"
+        "Encoding inflates the attachment; the recipient's server has its own cap"
       ],
       [
         "WeTransfer",
-        "3 GB (10 transfers or 3 GB per month)",
+        "3 GB, or 10 transfers, per 30 days",
         "3 days",
         "No",
-        "No"
+        "A monthly pool, not a per-send limit"
       ],
       [
         "Smash",
-        "2 GB before your transfer waits in a queue",
+        "No size cap",
         "7 days",
         "No",
-        "No"
+        "Above 2 GB the transfer waits behind paying customers"
+      ],
+      [
+        "pCloud Transfer",
+        "5 GB per transfer",
+        "7 days",
+        "No",
+        "200 MB per single file inside that 5 GB"
       ],
       [
         "Filemail",
-        "5 GB",
+        "5 GB per transfer",
         "up to 30 days",
         "No",
-        "Paid plans only"
+        "End-to-end encryption is a paid feature"
       ],
       [
         "TransferNow",
-        "5 GB",
+        "5 GB per transfer",
         "7 days",
         "No",
-        "No"
+        "Paid plans go to 250 GB; the free page is ad-supported"
       ],
       [
         "SendBig",
-        "5 GB (30 GB with a free account)",
-        "7 days",
+        "5 GB, or 30 GB signed in",
+        "7 days, up to 30",
         "Optional",
-        "Optional, with a password"
+        "The longer expiry upsells a different product"
       ],
       [
         "TransferXL",
-        "5 GB",
+        "5 GB per transfer",
         "7 days",
         "Yes",
-        "Optional, with a password"
+        "10 transfers per day, and adverts for the recipient"
       ],
       [
         "SwissTransfer",
-        "50 GB",
+        "50 GB per transfer",
         "up to 30 days",
         "No",
-        "Encrypted in the browser"
+        "Fewer apps and integrations than the paid rivals"
       ],
       [
         "Google Drive / OneDrive",
-        "15 GB / 5 GB of total storage",
+        "15 GB / 5 GB of account storage",
         "while it stays in your drive",
         "Yes",
-        "No"
+        "Shared with mail and photos; 5 TB per file on Drive"
       ],
       [
         "BIShare",
-        "100 GB — and no limit device to device",
+        "100 GB per transfer",
         "24 hours, or first download",
         "No",
-        "Yes, always"
+        "Nothing is stored for later; 24 hours is the whole life of a link"
       ]
     ],
-    "note": "Limits change; if a row is out of date, tell us and we will correct it. \"End-to-end\" here means the service cannot read the file itself, not just that the connection uses HTTPS."
+    "note": "\"The catch\" is not an accusation — every line of it is printed on the provider's own pages. It is simply never the number in the heading. Where our own row loses: a BIShare link is gone after a day, so it is the wrong tool for a file a client may come back for next week."
   },
   "speed": {
     "title": "How long will it take?",
@@ -448,5 +471,89 @@
       "keyBody": "The key that decrypts the file",
       "foot": "Browsers never send the part after # to a server, so the stored copy is unreadable to us"
     }
+  },
+  "headline": {
+    "title": "The headline number is almost never the limit",
+    "intro": "Every transfer site prints one number on its home page. That number is measured in a different way by each of them, and the measurement is what decides whether your file actually goes through. These are the four meanings, with what each provider published on 18 September 2026:",
+    "items": [
+      "<strong>Per transfer.</strong> The honest version. Filemail says up to 5 GB free with no registration; SwissTransfer says 50 GB. Send one file that size and it goes.",
+      "<strong>Per transfer, but split.</strong> pCloud Transfer offers 5 GB free, then adds a second line above the drop zone: up to 200 MB per single file. A 1 GB video never fits, however much of the 5 GB is unused.",
+      "<strong>Per month, not per send.</strong> <goWetransfer>WeTransfer</goWetransfer>'s free tier is a pool: 10 transfers or 3 GB in a rolling 30 days. Your fourth 900 MB send this month fails for a reason the home page never mentions.",
+      "<strong>Per transfer, then a queue.</strong> <goSmash>Smash</goSmash> advertises no size cap and keeps that promise, but its own pricing page says transfers above 2 GB are not prioritised and wait behind paying customers. The file arrives; you wait.",
+      "<strong>Per day.</strong> TransferXL gives 5 GB per transfer on the free account and caps you at 10 transfers per day, with advertising on the download page."
+    ],
+    "note": "None of this is hidden — it is all printed on their pricing pages. It is just never in the headline, which is why a transfer that should work refuses to start."
+  },
+  "bysize": {
+    "title": "Start from the size of your file",
+    "intro": "Check the file first. On Windows, right-click it and open Properties; on macOS, select it and press Command-I; on a phone, open the file's details in the gallery or file manager. Then read the row you land in.",
+    "cols": [
+      "Your file",
+      "What still works",
+      "What to avoid"
+    ],
+    "rows": [
+      [
+        "Under 25 MB",
+        "Plain email. Gmail's published limit for personal accounts is 25 MB, and most business mail servers sit near the same mark.",
+        "Nothing — this is the one case where email is the shortest path."
+      ],
+      [
+        "25 MB to 2 GB",
+        "Any transfer service, including the free tiers with the smallest caps. A link from <goTransfer>bishare.app/transfer</goTransfer> costs nothing and asks for no account.",
+        "Attaching it to mail anyway. The message bounces after the upload finishes, which wastes the whole upload."
+      ],
+      [
+        "2 GB to 5 GB",
+        "Filemail, SendBig, TransferNow and SwissTransfer at their free tiers; BIShare with no tier to pick.",
+        "pCloud Transfer, whose 200 MB per-file ceiling bites here, and Smash, which starts queueing above 2 GB."
+      ],
+      [
+        "5 GB to 50 GB",
+        "SwissTransfer at 50 GB, or a 100 GB BIShare link. Both send one file without a subscription.",
+        "Cloud drives. A 30 GB upload has to fit inside a 15 GB Google or 5 GB OneDrive allowance before anyone can download it."
+      ],
+      [
+        "50 GB to 100 GB",
+        "A BIShare link, which carries up to 100 GB per transfer and expires after 24 hours.",
+        "Free tiers generally. Above 50 GB nearly every one of them becomes a paid plan."
+      ],
+      [
+        "Over 100 GB",
+        "Same Wi-Fi, device to device: no ceiling at all, because nothing is uploaded. A hard drive by post is still faster for several terabytes.",
+        "Any upload-based route. At 40 Mbps upstream, 200 GB takes about 11 hours of uninterrupted connection."
+      ]
+    ],
+    "note": "Folders count as the sum of what is inside them, and a folder picked for a link transfer is zipped into one archive first."
+  },
+  "email": {
+    "title": "Sending a large file by email, without the bounce",
+    "body": "Mail was never built to move gigabytes, and the limit is enforced twice: once by the sender's provider and once by whoever receives it. Gmail publishes 25 MB for personal accounts. Because mail encodes attachments as text, a file close to the ceiling grows on the way and can be refused at around 20 MB of real content. The receiving server has its own cap, which you cannot see, so a 24 MB attachment that leaves your outbox can still be rejected by a company mail system an hour later.",
+    "items": [
+      "<strong>Gmail.</strong> Attach a file over the limit and Gmail replaces it with a Google Drive link by itself. That works, but the file now counts against the 15 GB shared with Gmail and Photos, and the recipient may need to request access if the sharing setting does not match.",
+      "<strong>Outlook.</strong> The same substitution happens through OneDrive, which starts at 5 GB free for the whole account rather than per file.",
+      "<strong>Any mail client.</strong> Paste a transfer link into the message instead. The mail stays a few kilobytes, passes every filter, and the file itself never touches a mail server."
+    ],
+    "note": "A link also survives forwarding. An attachment re-uploads itself every time the message is passed on, which is how one 20 MB slide deck turns into several hundred megabytes inside a company's mail storage."
+  },
+  "phone": {
+    "title": "From a phone, where the file usually lives",
+    "body": "Most large files start on a phone now — a long 4K clip, a screen recording, a folder of RAW shots. Two things go wrong there and neither is about size.",
+    "items": [
+      "<strong>The gallery re-encodes.</strong> Share sheets on both platforms are allowed to hand over a converted copy rather than the original. BIShare's iOS picker requests the current, unmodified version, so what you send is the file that is on the phone.",
+      "<strong>The screen locks.</strong> A browser upload that is still running when the phone sleeps can stall. Keep the tab in front until the progress bar finishes, or send device to device over Wi-Fi, where there is nothing to upload in the first place."
+    ],
+    "note": "Sending from a phone to a computer in the same room is covered step by step in <goPhonePc>transferring files from a phone to a PC</goPhonePc>; the other direction is in <goPcPhone>PC to phone</goPcPhone>."
+  },
+  "failed": {
+    "title": "When a big transfer fails halfway",
+    "intro": "The larger the file, the longer the window in which something can interrupt it. The fix depends on which half broke.",
+    "items": [
+      "<strong>The upload stopped.</strong> Pick the same file again on <goTransfer>bishare.app/transfer</goTransfer>. The parts already stored are recognised and the upload continues from the last one instead of starting over.",
+      "<strong>The link expired.</strong> Links last 24 hours and one-time links disappear after the first completed download. Both are deliberate; send a fresh link.",
+      "<strong>The download died near the end.</strong> Browsers restart a download rather than resume it. On a shaky connection, sending device to device over the same Wi-Fi removes both the upload and the download.",
+      "<strong>The file type was refused.</strong> Executable formats — .exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com — are rejected for link transfers. Put them in a zip, or send them device to device.",
+      "<strong>Wi-Fi dropped mid-transfer.</strong> A device-to-device transfer that loses the network keeps what arrived and resumes from that point when the connection returns."
+    ]
   }
 }

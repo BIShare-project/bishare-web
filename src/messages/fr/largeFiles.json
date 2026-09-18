@@ -99,6 +99,22 @@
       "11": {
         "q": "BIShare est-il vraiment gratuit — sans essai, sans offre payante ?",
         "a": "Oui. Il n'y a pas d'offre payante ni rien derrière un péage ; la limite de 100 Go par lien et la voie de proximité illimitée sont tout le produit. Le code source est public, vous pouvez vérifier ce qu'il fait."
+      },
+      "12": {
+        "q": "Comment envoyer gratuitement un fichier de 8 Go ?",
+        "a": "Par lien : ouvrez bishare.app/transfer, déposez le fichier et partagez le lien. 8 Go reste largement sous les 100 Go par transfert, et aucun compte n’est demandé. La plupart des offres gratuites s’arrêtent à 5 Go : 8 Go est précisément la taille qu’elles refusent. Si les deux appareils sont sur le même Wi-Fi, l’envoi d’appareil à appareil évite complètement le téléversement et se termine en quelques minutes."
+      },
+      "13": {
+        "q": "Peut-on vraiment envoyer 100 Go gratuitement ?",
+        "a": "Oui, c’est la limite par transfert d’un lien BIShare gratuit, et aucune offre payante ne la relève. La vraie question est le temps, pas l’autorisation : 100 Go à 40 Mbit/s en émission représentent environ six heures, et la connexion doit tenir. Sur le même Wi-Fi, il n’y a ni téléversement ni plafond."
+      },
+      "14": {
+        "q": "Pourquoi un service refuse-t-il mon fichier alors que je suis sous sa limite ?",
+        "a": "En général pour l’une de ces trois raisons. La limite est une enveloppe mensuelle déjà consommée, comme les 10 transferts ou 3 Go par 30 jours de WeTransfer. Ou il existe une seconde limite, plus petite, par fichier à l’intérieur du chiffre annoncé, comme les 200 Mo de pCloud Transfer. Ou le type de fichier est bloqué : les exécutables sont refusés par la plupart des services, le nôtre compris."
+      },
+      "15": {
+        "q": "Quelle est la façon la plus rapide d’envoyer un très gros fichier ?",
+        "a": "Ne pas le téléverser. Sur un même réseau Wi-Fi, un transfert d’appareil à appareil tourne entre 40 et 110 Mo/s sur du matériel récent : 10 Go arrivent en deux ou trois minutes. Tout service passant par un téléversement dépend de votre débit montant, qui sur la plupart des connexions domestiques ne représente qu’une petite fraction du débit descendant."
       }
     }
   },
@@ -111,7 +127,7 @@
     "yes": "Oui",
     "no": "Non"
   },
-  "updated": "Mis à jour en septembre 2026 · Limites de chaque service revérifiées",
+  "updated": "Mis à jour en septembre 2026 · Chaque limite gratuite revérifiée sur le site du fournisseur",
   "quick": {
     "title": "Réponse rapide",
     "items": [
@@ -192,88 +208,95 @@
     ]
   },
   "limits": {
-    "title": "Limites gratuites des services de transfert comparées",
-    "intro": "Offres gratuites telles que publiées sur les pages de chaque service, vérifiées en septembre 2026. Tailles par transfert.",
+    "title": "Limites gratuites comparées",
+    "intro": "Offres gratuites telles que publiées sur la page tarifaire ou d’accueil de chaque fournisseur, consultées le 18 septembre 2026. La dernière colonne est ce que le titre laisse de côté.",
     "cols": [
       "Service",
-      "Limite gratuite par transfert",
+      "Limite gratuite",
       "Le lien expire",
       "Compte",
-      "Chiffré de bout en bout"
+      "Le piège"
     ],
     "rows": [
       [
-        "E-mail (Gmail, Outlook)",
-        "20–25 Mo",
+        "E-mail (Gmail)",
+        "25 Mo par message",
         "—",
         "Oui",
-        "Non"
+        "L’encodage gonfle la pièce jointe ; le serveur du destinataire a sa propre limite"
       ],
       [
         "WeTransfer",
-        "3 Go (10 transferts ou 3 Go par mois)",
+        "3 Go, ou 10 transferts, par 30 jours",
         "3 jours",
         "Non",
-        "Non"
+        "Une enveloppe mensuelle, pas une limite par envoi"
       ],
       [
         "Smash",
-        "2 Go, au-delà votre transfert attend en file",
+        "Aucune limite de taille",
         "7 jours",
         "Non",
-        "Non"
+        "Au-delà de 2 Go le transfert attend derrière les clients payants"
+      ],
+      [
+        "pCloud Transfer",
+        "5 Go par transfert",
+        "7 jours",
+        "Non",
+        "200 Mo par fichier à l’intérieur de ces 5 Go"
       ],
       [
         "Filemail",
-        "5 Go",
-        "jusqu'à 30 jours",
+        "5 Go par transfert",
+        "jusqu’à 30 jours",
         "Non",
-        "Offres payantes seulement"
+        "Le chiffrement de bout en bout est réservé aux offres payantes"
       ],
       [
         "TransferNow",
-        "5 Go",
+        "5 Go par transfert",
         "7 jours",
         "Non",
-        "Non"
+        "Les offres payantes montent à 250 Go ; la page gratuite est financée par la publicité"
       ],
       [
         "SendBig",
-        "5 Go (30 Go avec un compte gratuit)",
-        "7 jours",
+        "5 Go, ou 30 Go en étant connecté",
+        "7 jours, jusqu’à 30",
         "Facultatif",
-        "Facultatif, avec mot de passe"
+        "L’expiration plus longue sert à vendre un autre produit"
       ],
       [
         "TransferXL",
-        "5 Go",
+        "5 Go par transfert",
         "7 jours",
         "Oui",
-        "Facultatif, avec mot de passe"
+        "10 transferts par jour, et des publicités pour le destinataire"
       ],
       [
         "SwissTransfer",
-        "50 Go",
-        "jusqu'à 30 jours",
+        "50 Go par transfert",
+        "jusqu’à 30 jours",
         "Non",
-        "Chiffré dans le navigateur"
+        "Moins d’applications et d’intégrations que les concurrents payants"
       ],
       [
         "Google Drive / OneDrive",
-        "15 Go / 5 Go de stockage total",
-        "tant qu'il reste dans votre espace",
+        "15 Go / 5 Go de stockage de compte",
+        "tant qu’il reste dans votre espace",
         "Oui",
-        "Non"
+        "Partagé avec la messagerie et les photos ; 5 To par fichier sur Drive"
       ],
       [
         "BIShare",
-        "100 Go — et sans limite d'appareil à appareil",
+        "100 Go par transfert",
         "24 heures, ou premier téléchargement",
         "Non",
-        "Oui, toujours"
+        "Rien n’est conservé pour plus tard ; 24 heures, c’est toute la vie d’un lien"
       ]
     ],
-    "note": "Les limites changent ; si une ligne est dépassée, dites-le-nous et nous la corrigerons. « De bout en bout » signifie ici que le service ne peut pas lire le fichier lui-même, pas seulement que la connexion est en HTTPS."
+    "note": "« Le piège » n’est pas une accusation : chaque ligne est imprimée sur les pages du fournisseur lui-même. Elle n’est simplement jamais le chiffre du titre. Là où notre propre ligne perd : un lien BIShare disparaît au bout d’une journée, ce qui en fait le mauvais outil pour un fichier qu’un client pourrait rechercher la semaine suivante."
   },
   "speed": {
     "title": "Combien de temps ça prend ?",
@@ -448,5 +471,89 @@
       "keyBody": "La clé qui déchiffre le fichier",
       "foot": "Les navigateurs n'envoient jamais la partie après # à un serveur, la copie stockée nous est donc illisible"
     }
+  },
+  "headline": {
+    "title": "Le chiffre affiché n’est presque jamais la limite",
+    "intro": "Chaque service de transfert affiche un nombre sur sa page d’accueil. Chacun le mesure autrement, et c’est cette mesure qui décide si votre fichier passe. Voici les quatre sens possibles, avec ce que chaque fournisseur publiait le 18 septembre 2026 :",
+    "items": [
+      "<strong>Par transfert.</strong> La version honnête. Filemail annonce jusqu’à 5 Go gratuits sans inscription ; SwissTransfer annonce 50 Go. Vous envoyez un fichier de cette taille et il part.",
+      "<strong>Par transfert, mais découpé.</strong> pCloud Transfer propose 5 Go gratuits, puis ajoute une deuxième ligne au-dessus de la zone de dépôt : 200 Mo maximum par fichier. Une vidéo de 1 Go n’entrera jamais, quelle que soit la part des 5 Go encore libre.",
+      "<strong>Par mois, pas par envoi.</strong> L’offre gratuite de <goWetransfer>WeTransfer</goWetransfer> est une enveloppe : 10 transferts ou 3 Go sur 30 jours glissants. Votre quatrième envoi de 900 Mo du mois échoue pour une raison que la page d’accueil ne mentionne jamais.",
+      "<strong>Par transfert, puis file d’attente.</strong> <goSmash>Smash</goSmash> annonce l’absence de limite de taille et tient parole, mais sa propre page tarifaire précise que les transferts de plus de 2 Go ne sont pas prioritaires et attendent derrière les clients payants. Le fichier arrive ; c’est vous qui patientez.",
+      "<strong>Par jour.</strong> TransferXL accorde 5 Go par transfert sur le compte gratuit et vous plafonne à 10 transferts quotidiens, avec de la publicité sur la page de téléchargement."
+    ],
+    "note": "Rien de tout cela n’est caché : tout figure sur leurs pages tarifaires. Simplement, ce n’est jamais dans le titre, et c’est pour cette raison qu’un transfert censé fonctionner refuse de démarrer."
+  },
+  "bysize": {
+    "title": "Partez de la taille de votre fichier",
+    "intro": "Vérifiez d’abord le fichier. Sous Windows, clic droit puis Propriétés ; sous macOS, sélectionnez-le et faites Commande-I ; sur téléphone, ouvrez les détails du fichier dans la galerie ou le gestionnaire de fichiers. Lisez ensuite la ligne qui vous concerne.",
+    "cols": [
+      "Votre fichier",
+      "Ce qui marche encore",
+      "Ce qu’il vaut mieux éviter"
+    ],
+    "rows": [
+      [
+        "Moins de 25 Mo",
+        "Un simple e-mail. La limite publiée par Gmail pour les comptes personnels est de 25 Mo, et la plupart des serveurs professionnels tournent autour du même seuil.",
+        "Rien : c’est le seul cas où l’e-mail est le chemin le plus court."
+      ],
+      [
+        "De 25 Mo à 2 Go",
+        "N’importe quel service de transfert, y compris les offres gratuites aux plafonds les plus bas. Un lien depuis <goTransfer>bishare.app/transfer</goTransfer> ne coûte rien et ne demande aucun compte.",
+        "L’attacher quand même à un e-mail. Le message revient une fois l’envoi terminé, donc tout le téléversement est perdu."
+      ],
+      [
+        "De 2 Go à 5 Go",
+        "Filemail, SendBig, TransferNow et SwissTransfer dans leurs offres gratuites ; BIShare sans offre à choisir.",
+        "pCloud Transfer, dont le plafond de 200 Mo par fichier mord précisément ici, et Smash, qui commence à mettre en file au-delà de 2 Go."
+      ],
+      [
+        "De 5 Go à 50 Go",
+        "SwissTransfer et ses 50 Go, ou un lien BIShare de 100 Go. Les deux envoient un fichier sans abonnement.",
+        "Les espaces de stockage en ligne. Un envoi de 30 Go doit d’abord tenir dans les 15 Go de Google ou les 5 Go de OneDrive avant que quiconque puisse le télécharger."
+      ],
+      [
+        "De 50 Go à 100 Go",
+        "Un lien BIShare, qui accepte jusqu’à 100 Go par transfert et expire au bout de 24 heures.",
+        "Les offres gratuites en général. Au-delà de 50 Go, presque toutes deviennent payantes."
+      ],
+      [
+        "Plus de 100 Go",
+        "Le même Wi-Fi, d’appareil à appareil : aucun plafond, puisque rien n’est téléversé. Un disque dur par la poste reste plus rapide pour plusieurs téraoctets.",
+        "Toute route passant par un téléversement. À 40 Mbit/s en émission, 200 Go représentent environ 11 heures de connexion sans coupure."
+      ]
+    ],
+    "note": "Un dossier compte pour la somme de ce qu’il contient, et un dossier choisi pour un transfert par lien est d’abord compressé en une seule archive."
+  },
+  "email": {
+    "title": "Envoyer un gros fichier par e-mail sans qu’il revienne",
+    "body": "L’e-mail n’a jamais été conçu pour déplacer des gigaoctets, et la limite s’applique deux fois : chez le fournisseur de l’expéditeur, puis chez celui qui reçoit. Gmail publie 25 Mo pour les comptes personnels. Comme l’e-mail encode les pièces jointes en texte, un fichier proche du plafond grossit en route et peut être refusé autour de 20 Mo de contenu réel. Le serveur destinataire a sa propre limite, invisible pour vous : une pièce jointe de 24 Mo partie de votre boîte d’envoi peut encore être rejetée une heure plus tard par la messagerie d’une entreprise.",
+    "items": [
+      "<strong>Gmail.</strong> Joignez un fichier au-dessus de la limite et Gmail le remplace tout seul par un lien Google Drive. Cela fonctionne, mais le fichier occupe désormais les 15 Go partagés avec Gmail et Photos, et le destinataire devra peut-être demander l’accès si le réglage de partage ne correspond pas.",
+      "<strong>Outlook.</strong> Le même remplacement se fait via OneDrive, qui démarre à 5 Go gratuits pour l’ensemble du compte, et non par fichier.",
+      "<strong>N’importe quel logiciel de messagerie.</strong> Collez plutôt un lien de transfert dans le message. Le courrier reste à quelques kilo-octets, passe tous les filtres, et le fichier ne touche jamais un serveur de messagerie."
+    ],
+    "note": "Un lien survit aussi aux transferts de message. Une pièce jointe se réexpédie intégralement à chaque renvoi : c’est ainsi qu’une présentation de 20 Mo finit par occuper plusieurs centaines de mégaoctets dans la messagerie d’une entreprise."
+  },
+  "phone": {
+    "title": "Depuis le téléphone, là où se trouve le fichier",
+    "body": "Aujourd’hui, la plupart des gros fichiers naissent sur un téléphone : un long plan en 4K, un enregistrement d’écran, un dossier de photos RAW. Deux choses s’y passent mal, et aucune ne tient à la taille.",
+    "items": [
+      "<strong>La galerie réencode.</strong> Les menus de partage des deux plateformes ont le droit de remettre une copie convertie plutôt que l’original. Le sélecteur BIShare sur iOS demande la version actuelle non modifiée : ce que vous envoyez est bien le fichier présent sur le téléphone.",
+      "<strong>L’écran se verrouille.</strong> Un envoi lancé dans le navigateur peut caler si le téléphone se met en veille. Gardez l’onglet au premier plan jusqu’au bout de la barre de progression, ou passez d’appareil à appareil en Wi-Fi, où il n’y a rien à téléverser."
+    ],
+    "note": "L’envoi du téléphone vers un ordinateur dans la même pièce est détaillé dans <goPhonePc>transférer des fichiers du téléphone vers le PC</goPhonePc> ; le sens inverse se trouve dans <goPcPhone>du PC vers le téléphone</goPcPhone>."
+  },
+  "failed": {
+    "title": "Quand un gros transfert s’arrête en route",
+    "intro": "Plus le fichier est gros, plus la fenêtre pendant laquelle quelque chose peut l’interrompre est longue. La solution dépend de la moitié qui a lâché.",
+    "items": [
+      "<strong>L’envoi s’est arrêté.</strong> Reprenez le même fichier sur <goTransfer>bishare.app/transfer</goTransfer>. Les morceaux déjà stockés sont reconnus et l’envoi repart du dernier, au lieu de tout recommencer.",
+      "<strong>Le lien a expiré.</strong> Les liens durent 24 heures et les liens à usage unique disparaissent après le premier téléchargement terminé. C’est voulu dans les deux cas ; envoyez un nouveau lien.",
+      "<strong>Le téléchargement a lâché près de la fin.</strong> Les navigateurs relancent un téléchargement au lieu de le reprendre. Sur une connexion instable, passer d’appareil à appareil sur le même Wi-Fi supprime l’envoi et le téléchargement d’un coup.",
+      "<strong>Le type de fichier a été refusé.</strong> Les formats exécutables — .exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com — sont rejetés pour les transferts par lien. Mettez-les dans un zip, ou envoyez-les d’appareil à appareil.",
+      "<strong>Le Wi-Fi a coupé en plein transfert.</strong> Un transfert d’appareil à appareil qui perd le réseau conserve ce qui est arrivé et repart de ce point dès que la connexion revient."
+    ]
   }
 }
