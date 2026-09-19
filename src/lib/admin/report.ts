@@ -22,6 +22,10 @@ export type ReportBundle = {
   nearbyBytes: number; // bytes moved over LAN/nearby (anonymous telemetry)
   nearbyDownloads: number; // LAN files received (anonymous telemetry — serverless)
   nearbyRooms: number; // local/LAN rooms hosted (anonymous telemetry — serverless)
+  appDownloads: number; // App Store + Google Play first-time installs, all time
+  appDownloadsIos: number; // …of which App Store (posted daily by the app repo's job)
+  appDownloadsAndroid: number; // …of which Google Play
+  appActive30d: number; // installs opened in the last 30 days (anonymous pings)
   dailyUploads: { date: string; value: number }[];
 };
 
@@ -118,6 +122,9 @@ export async function reportBundle(): Promise<ReportBundle> {
     nearbyDownloads,
     nearbyDownloadBytes,
     nearbyRooms,
+    appDownloadsIos,
+    appDownloadsAndroid,
+    appActive30d,
   ] = await Promise.all([
     scalar("SELECT COUNT(DISTINCT sender_ip) AS n FROM transfers WHERE sender_ip IS NOT NULL"),
     // "Live transfers" = cloud transfers ACTUALLY still available (not expired,
@@ -147,6 +154,15 @@ export async function reportBundle(): Promise<ReportBundle> {
     counterTotal("nearby_downloads"),
     counterTotal("nearby_download_bytes"),
     counterTotal("nearby_rooms"),
+    // Store downloads arrive one row per day (API /stats/ingest); the total is
+    // their sum, which keeps growing after the stores drop their old reports.
+    counterTotal("store_units_ios"),
+    counterTotal("store_units_android"),
+    // An install sends the `month` flag at most once per thirty days, so the
+    // sum over the last thirty dates counts each active install exactly once.
+    scalar(
+      "SELECT COALESCE(SUM(value), 0) AS n FROM stats_daily WHERE metric = 'app_active_monthly' AND date > date('now', '-30 days')"
+    ),
   ]);
 
   // The accounts/drive teardown dropped the `files` table; server-side stored
@@ -191,6 +207,10 @@ export async function reportBundle(): Promise<ReportBundle> {
     nearbyBytes,
     nearbyDownloads,
     nearbyRooms,
+    appDownloads: appDownloadsIos + appDownloadsAndroid,
+    appDownloadsIos,
+    appDownloadsAndroid,
+    appActive30d,
     dailyUploads: (daily.results ?? []).map((r) => ({ date: r.date, value: Number(r.v) })),
   };
 }

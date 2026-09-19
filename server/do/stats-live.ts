@@ -87,7 +87,8 @@ export class StatsLiveDO {
                           WHERE metric IN ('files_uploaded','transfers_created',
                                            'transfer_downloads','share_downloads','download_bytes',
                                            'nearby_transfers','nearby_bytes',
-                                           'nearby_downloads','nearby_download_bytes','nearby_rooms'))
+                                           'nearby_downloads','nearby_download_bytes','nearby_rooms',
+                                           'store_units_ios','store_units_android','app_active_monthly'))
            AS fp`
       ).first<{ fp: string }>();
       return row?.fp ?? "";

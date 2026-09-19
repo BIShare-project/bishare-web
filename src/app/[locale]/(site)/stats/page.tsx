@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { buildAlternates } from "@/i18n/metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
+  Activity,
   ArrowLeftRight,
   CalendarDays,
   DoorOpen,
   DownloadCloud,
   HardDrive,
   Layers,
+  Smartphone,
   UploadCloud,
   Users,
   Wifi,
@@ -151,6 +153,21 @@ export default async function StatsPage({
             <Stat value={nf(r.nearbyTransfers)} label={t("cards.nearby")} sub={t("cards.nearbySub")} icon={Wifi} accent />
             <Stat value={formatBytes(r.nearbyBytes)} label={t("cards.nearbyData")} sub={t("cards.nearbyDataSub")} icon={HardDrive} />
             <Stat value={nf(r.daysLive)} label={t("cards.daysLive")} sub={r.launchDate ?? ""} icon={CalendarDays} />
+            {/* Shown only once there is something to show: the store job and the
+                app's active ping each start from nothing, and a public "0" would
+                read as a fact rather than as "not measured yet". */}
+            {r.appDownloads > 0 && (
+              <Stat
+                value={nf(r.appDownloads)}
+                label={t("cards.appDownloads")}
+                sub={t("cards.appDownloadsSub", { ios: nf(r.appDownloadsIos), android: nf(r.appDownloadsAndroid) })}
+                icon={Smartphone}
+                accent
+              />
+            )}
+            {r.appActive30d > 0 && (
+              <Stat value={nf(r.appActive30d)} label={t("cards.appActive")} sub={t("cards.appActiveSub")} icon={Activity} />
+            )}
           </section>
 
           {/* Charts */}
@@ -203,6 +220,8 @@ export default async function StatsPage({
 
           <p className="mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
             {t("footnote")}
+            {/* Only beside the tiles it explains. */}
+            {(r.appDownloads > 0 || r.appActive30d > 0) && <> {t("footnoteApps")}</>}
           </p>
         </div>
       </main>
