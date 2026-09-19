@@ -93,6 +93,16 @@ export default async function StatsPage({
     t("model.local"),
   ];
 
+  // Only the stores that have reported. One that has not (no access yet, or no
+  // installs) is left out rather than printed as "0". Store names are brands
+  // and are the same in every locale.
+  const storeSplit = [
+    r.appDownloadsIos > 0 && `App Store ${nf(r.appDownloadsIos)}`,
+    r.appDownloadsAndroid > 0 && `Google Play ${nf(r.appDownloadsAndroid)}`,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+
   // Cumulative upload curve.
   let acc = 0;
   const cumulative = r.dailyUploads.map((d) => ({ date: d.date, value: (acc += d.value) }));
@@ -143,6 +153,15 @@ export default async function StatsPage({
 
           {/* Compact KPI grid */}
           <section className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+            {/* App tiles lead the grid, and appear only once there is something to
+                show: the store job and the app's active ping each start from
+                nothing, and a public "0" reads as a fact, not as "not measured". */}
+            {r.appDownloads > 0 && (
+              <Stat value={nf(r.appDownloads)} label={t("cards.appDownloads")} sub={storeSplit} icon={Smartphone} accent />
+            )}
+            {r.appActive30d > 0 && (
+              <Stat value={nf(r.appActive30d)} label={t("cards.appActive")} sub={t("cards.appActiveSub")} icon={Activity} />
+            )}
             <Stat value={nf(r.uniqueUsers)} label={t("cards.uniqueUsers")} sub={t("cards.uniqueUsersSub")} icon={Users} accent />
             <Stat value={nf(r.totalUploads)} label={t("cards.filesShared")} sub={t("cards.sinceLaunch")} icon={UploadCloud} />
             <Stat value={nf(r.totalDownloads)} label={t("cards.downloads")} sub={t("cards.downloadsSub")} icon={DownloadCloud} accent />
@@ -153,21 +172,6 @@ export default async function StatsPage({
             <Stat value={nf(r.nearbyTransfers)} label={t("cards.nearby")} sub={t("cards.nearbySub")} icon={Wifi} accent />
             <Stat value={formatBytes(r.nearbyBytes)} label={t("cards.nearbyData")} sub={t("cards.nearbyDataSub")} icon={HardDrive} />
             <Stat value={nf(r.daysLive)} label={t("cards.daysLive")} sub={r.launchDate ?? ""} icon={CalendarDays} />
-            {/* Shown only once there is something to show: the store job and the
-                app's active ping each start from nothing, and a public "0" would
-                read as a fact rather than as "not measured yet". */}
-            {r.appDownloads > 0 && (
-              <Stat
-                value={nf(r.appDownloads)}
-                label={t("cards.appDownloads")}
-                sub={t("cards.appDownloadsSub", { ios: nf(r.appDownloadsIos), android: nf(r.appDownloadsAndroid) })}
-                icon={Smartphone}
-                accent
-              />
-            )}
-            {r.appActive30d > 0 && (
-              <Stat value={nf(r.appActive30d)} label={t("cards.appActive")} sub={t("cards.appActiveSub")} icon={Activity} />
-            )}
           </section>
 
           {/* Charts */}
