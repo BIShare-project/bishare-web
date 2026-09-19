@@ -98,7 +98,11 @@ export async function reportBundle(): Promise<ReportBundle> {
   const db = adminBindings().DB;
 
   const launch = await db
-    .prepare("SELECT MIN(date) AS d FROM stats_daily")
+    // Store rows are dated by when the download happened, which reaches back to
+    // the first App Store release — long before this service started counting
+    // anything. Leaving them in moved "days live" from 67 to 183 the day the
+    // first backfill ran.
+    .prepare("SELECT MIN(date) AS d FROM stats_daily WHERE metric NOT LIKE 'store_%'")
     .first<{ d: string | null }>();
   const launchDate = launch?.d ?? null;
   const daysLive = launchDate
