@@ -55,6 +55,10 @@ export async function generateMetadata({
     },
     other: {
       "apple-itunes-app": "app-id=6760924092",
+      // Site ownership proof for Google AdSense. It only names the publisher
+      // account: it loads no script, sets no cookie and shows no ad. Site-wide
+      // for the same reason as the Bing tag above.
+      "google-adsense-account": "ca-pub-6577854545846403",
     },
   };
 }
