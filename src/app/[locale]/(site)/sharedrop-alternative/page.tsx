@@ -32,7 +32,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/sharedrop-alternative";
 const NS = "sharedropAlt";
-const LAST_UPDATED = "2026-09-14";
+const LAST_UPDATED = "2026-09-19";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const WHAT_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;

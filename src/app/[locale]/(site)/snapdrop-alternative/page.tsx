@@ -35,7 +35,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/snapdrop-alternative";
 const NS = "snapdropAlt";
-const LAST_UPDATED = "2026-09-13";
+const LAST_UPDATED = "2026-09-19";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const STATUS_ITEMS = ["0", "1", "2", "3", "4"] as const;
