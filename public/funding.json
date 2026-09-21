@@ -1,0 +1,116 @@
+{
+  "version": "v1.1.0",
+  "entity": {
+    "type": "organisation",
+    "role": "owner",
+    "name": "PT Billion Jaya Group (BIShare)",
+    "email": "support@billiongroup.net",
+    "description": "BIShare is built and maintained by one developer in Indonesia, published through PT Billion Jaya Group, which holds the app store accounts. It is free, has no paid tier and no ads, and the client, the wire protocol and the website are all MIT-licensed. Everything so far has been self-funded: there have been no grants, sponsors or revenue. Releases for five platforms and four app stores are automated so that a single maintainer can ship them; what one person cannot give a project is independent security review and the time to do more than keep up, and that is what funding would pay for.",
+    "webpageUrl": {
+      "url": "https://bishare.app"
+    }
+  },
+  "projects": [
+    {
+      "guid": "bishare",
+      "name": "BIShare",
+      "description": "Cross-platform file transfer, like AirDrop but between iPhone, Android, Mac, Windows and Linux. Files go directly between devices on the local network, end-to-end encrypted with X25519 and AES-256-GCM, with no account and no server in the path. For someone who is not nearby it makes an encrypted link of up to 100 GB that expires within a day; the relay only ever holds ciphertext. It also offers shared rooms, clipboard sync between a person's own devices, and receiving in a plain browser tab when the other side has nothing installed. Written in Flutter with a Rust core, and distributed through the App Store, Google Play, the Microsoft Store, the Snap Store and GitHub Releases. Live usage figures are public at https://bishare.app/stats.",
+      "webpageUrl": {
+        "url": "https://bishare.app"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/BIShare-project/bishare-flutter",
+        "wellKnown": "https://github.com/BIShare-project/bishare-flutter/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["file-transfer", "file-sharing", "end-to-end-encryption", "peer-to-peer", "local-network", "privacy", "cross-platform", "flutter", "rust", "airdrop-alternative"]
+    },
+    {
+      "guid": "bishare-protocol",
+      "name": "bishare-protocol",
+      "description": "The BIShare wire protocol as a standalone Rust crate: device discovery records, message framing, X25519 key agreement, AES-256-GCM sealing with per-transfer keys, and the BSE2 container used for encrypted links. It is the single implementation shared by all five platform builds through flutter_rust_bridge, and it ships test vectors that the browser client (WebCrypto) verifies against, so the two implementations cannot drift apart.",
+      "webpageUrl": {
+        "url": "https://bishare.app/security"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/BIShare-project/bishare-protocol",
+        "wellKnown": "https://github.com/BIShare-project/bishare-protocol/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["protocol", "cryptography", "rust", "end-to-end-encryption", "x25519", "aes-gcm", "file-transfer"]
+    },
+    {
+      "guid": "bishare-web",
+      "name": "BIShare Web",
+      "description": "The browser side of BIShare: sending and receiving without installing anything (WebRTC for devices on the same network, encrypted links otherwise), shared rooms, and the public live statistics page. Next.js on Cloudflare Workers, in thirteen languages.",
+      "webpageUrl": {
+        "url": "https://bishare.app/transfer"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/BIShare-project/bishare-web",
+        "wellKnown": "https://github.com/BIShare-project/bishare-web/blob/main/.well-known/funding-manifest-urls"
+      },
+      "licenses": ["spdx:MIT"],
+      "tags": ["web-app", "webrtc", "file-transfer", "end-to-end-encryption", "nextjs", "cloudflare-workers", "privacy"]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "bank-transfer",
+        "type": "bank",
+        "description": "International bank transfer to PT Billion Jaya Group (Indonesia). Account details are shared privately with a funder on request: support@billiongroup.net."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "security-hardening",
+        "status": "active",
+        "name": "Security review and hardening",
+        "description": "An independent review of the cryptographic protocol and the on-device receiver, a published threat model, a fuzzing harness for the Rust protocol parser and the receiver's HTTP endpoints running in CI, and the time to fix what they find. Every security issue so far was found by the author reviewing his own code; this pays for someone else to look.",
+        "amount": 20000,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": ["bank-transfer"]
+      },
+      {
+        "guid": "maintainer-year",
+        "status": "active",
+        "name": "One maintainer for one year",
+        "description": "Keeps the sole maintainer working on BIShare for twelve months: releases on five platforms, the protocol crate, the web client, translations in thirteen languages, and answering users. Today this is done unpaid alongside other work.",
+        "amount": 36000,
+        "currency": "USD",
+        "frequency": "yearly",
+        "channels": ["bank-transfer"]
+      },
+      {
+        "guid": "running-costs",
+        "status": "active",
+        "name": "Running costs",
+        "description": "What it costs to keep BIShare online and in the stores for a year: Cloudflare Workers, D1 and R2 for the relay and website, the Apple and Microsoft developer accounts, and the domain.",
+        "amount": 500,
+        "currency": "USD",
+        "frequency": "yearly",
+        "channels": ["bank-transfer"]
+      },
+      {
+        "guid": "any-amount",
+        "status": "active",
+        "name": "Any amount",
+        "description": "A one-time contribution of any size towards the work above.",
+        "amount": 0,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": ["bank-transfer"]
+      }
+    ],
+    "history": [
+      {
+        "year": 2026,
+        "income": 0,
+        "currency": "USD",
+        "description": "Self-funded by the maintainer. No grants, sponsorships or revenue to date."
+      }
+    ]
+  }
+}
