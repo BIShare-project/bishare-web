@@ -16,6 +16,29 @@ import staticAssetsIncrementalCache from "@opennextjs/cloudflare/overrides/incre
  * R2 bucket, no new binding, nothing to pay for: the assets are already
  * deployed alongside the worker.
  */
+/**
+ * Cache interception: serve a prerendered page from the routing layer, before
+ * the Next server is ever loaded.
+ *
+ * Measured on production 2026-09-22: TTFB was 114ms on a warm isolate and
+ * 1.0-2.0s on a cold one, with `x-nextjs-cache: HIT` in both cases — so the
+ * cost was not the cache, it was booting the isolate. The worker entry imports
+ * the routing layer statically (749 KB) but `server-functions/default/handler.mjs`
+ * — 27.6 MB of Next server — through a dynamic `import()` that only runs when
+ * routing has not already produced a Response. Cache interception produces that
+ * Response, so the 27.6 MB import never happens for a prerendered page.
+ *
+ * It runs AFTER next-intl's middleware and after every rewrite, so locale
+ * detection, redirects and 404 handling are untouched. It keys off the
+ * prerender manifest, so the pages that must stay live — /stats (`dynamic`)
+ * and /transfer/[code] — fall through to the server as before. It answers an
+ * `RSC: 1` request with `text/x-component` and everything else with
+ * `text/html`, and it carries the cached status code and headers through.
+ *
+ * PPR is not enabled here, which is the one configuration the flag is
+ * documented as incompatible with.
+ */
 export default defineCloudflareConfig({
   incrementalCache: staticAssetsIncrementalCache,
+  enableCacheInterception: true,
 });
