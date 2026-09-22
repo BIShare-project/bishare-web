@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { MotionProvider } from "@/components/site/motion";
 import { PWARegister } from "@/components/site/pwa-register";
+import { WebAnalytics } from "@/components/site/web-analytics";
 import { CookieNotice } from "@/components/site/cookie-notice";
 import { sharedOpenGraph } from "@/lib/og";
 import { buildAlternates } from "@/i18n/metadata";
@@ -160,6 +161,7 @@ export default function SiteLayout({
       />
       <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       <PWARegister />
+      <WebAnalytics />
       <MotionProvider>{children}</MotionProvider>
       <CookieNotice />
       <div className="noise" aria-hidden />
