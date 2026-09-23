@@ -9,6 +9,7 @@ import {
   DownloadCloud,
   HardDrive,
   Layers,
+  Server,
   Smartphone,
   UploadCloud,
   Users,
@@ -17,6 +18,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { publicReportBundle } from "@/lib/admin/report";
 import { formatBytes } from "@/lib/admin/format";
+import { monthlyInfraCost } from "@/lib/infra-cost";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { StatsLiveSocket } from "@/components/site/stats-live-socket";
@@ -115,6 +117,10 @@ export default async function StatsPage({
     { label: t("breakdown.nearby"), value: r.nearbyTransfers, color: "color-mix(in srgb, var(--accent-blue) 55%, transparent)" },
   ];
 
+  // A run rate at today's stored volume, from Cloudflare's published rates —
+  // not a bill. See src/lib/infra-cost.ts.
+  const cost = monthlyInfraCost(r.storedBytes);
+
   return (
     <>
       <StatsLiveSocket />
@@ -167,6 +173,13 @@ export default async function StatsPage({
             <Stat value={nf(r.totalDownloads)} label={t("cards.downloads")} sub={t("cards.downloadsSub")} icon={DownloadCloud} accent />
             <Stat value={formatBytes(r.downloadBytes)} label={t("cards.dataDownloaded")} sub={t("cards.dataDownloadedSub")} icon={HardDrive} />
             <Stat value={nf(r.liveTransfers)} label={t("cards.liveTransfers")} sub={t("cards.liveTransfersSub")} icon={ArrowLeftRight} />
+            <Stat value={formatBytes(r.storedBytes)} label={t("cards.stored")} sub={t("cards.storedSub")} icon={HardDrive} />
+            <Stat
+              value={`$${cost.total.toFixed(2)}`}
+              label={t("cards.infraCost")}
+              sub={t("cards.infraCostSub")}
+              icon={Server}
+            />
             <Stat value={nf(r.totalRooms)} label={t("cards.rooms")} sub={t("cards.sinceLaunch")} icon={DoorOpen} />
             <Stat value="5" label={t("cards.platforms")} sub={t("cards.platformsSub")} icon={Layers} accent />
             <Stat value={nf(r.nearbyTransfers)} label={t("cards.nearby")} sub={t("cards.nearbySub")} icon={Wifi} accent />
@@ -226,6 +239,8 @@ export default async function StatsPage({
             {t("footnote")}
             {/* Only beside the tiles it explains. */}
             {(r.appDownloads > 0 || r.appActive30d > 0) && <> {t("footnoteApps")}</>}
+            {" "}
+            {t("footnoteCost")}
           </p>
         </div>
       </main>

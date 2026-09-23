@@ -143,9 +143,9 @@ export function TransferStudio() {
           the header. Both are pointer-events:none and reduced-motion aware. */}
       <div className="studio-aurora" aria-hidden />
 
-      <div className="relative lg:grid lg:grid-cols-[minmax(0,1.55fr)_minmax(300px,1fr)]">
+      <div className="relative lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
       <div className="flex min-w-0 flex-col">
-      <div className="relative border-b border-border/60 p-3.5 sm:p-5">
+      <div className="relative border-b border-border/60 p-3.5 sm:px-5 sm:pb-4 sm:pt-5">
         <div className="studio-grid" aria-hidden />
 
         {/* Plain toggle buttons with aria-pressed, matching TransferWidget —
@@ -196,7 +196,7 @@ export function TransferStudio() {
             aria-live="polite"
             className="relative mt-2.5 flex items-center gap-2 text-[12.5px] leading-snug text-muted-foreground"
           >
-            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue shadow-[0_0_8px_2px_rgba(10,132,255,0.55)]" />
+            <span className="h-1 w-1 shrink-0 rounded-full bg-accent-blue" />
             {active.hint}
           </p>
         )}
@@ -204,7 +204,7 @@ export function TransferStudio() {
 
       <section
         aria-label={active?.label ?? t("send")}
-        className="relative flex-1 p-2.5 sm:p-5 lg:p-6"
+        className="relative flex-1 p-2.5 sm:p-5 lg:px-6 lg:pb-6 lg:pt-4"
       >
         {mode === "link" && <FileUpload />}
         {/* Mounted whenever the flag allows, hidden until selected: presence
@@ -219,23 +219,26 @@ export function TransferStudio() {
       </section>
       </div>
 
-      {/* Receiving is always reachable, whichever send route is showing. */}
+      {/* Receiving is always reachable, whichever send route is showing. The
+          rail is a fixed width that sizes to its content — the previous 1fr
+          column stretched to the send side and left half a card of dead space
+          under the button. */}
       <section
         aria-label={t("receive")}
-        className="relative border-t border-border/60 bg-background-raised/30 p-3.5 backdrop-blur-sm sm:p-5 lg:border-l lg:border-t-0 lg:p-6"
+        className="relative border-t border-border/60 p-3.5 sm:p-5 lg:border-l lg:border-t-0"
       >
         <div className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-blue/10 text-accent-blue">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border-strong text-muted-foreground">
             <Download className="h-4 w-4" />
           </span>
           <div className="min-w-0">
-            <h2 className="text-[15px] font-semibold tracking-[-0.01em]">
+            <h2 className="text-[14px] font-semibold tracking-[-0.01em]">
               {t("enterCode")}
             </h2>
-            <p className="text-[12.5px] text-muted-foreground">{t("codeSub")}</p>
+            <p className="text-[12px] text-muted-foreground">{t("codeSub")}</p>
           </div>
         </div>
-        <div className="mt-4 sm:mt-5 sm:max-w-md lg:max-w-none">
+        <div className="mt-4 sm:max-w-md lg:max-w-none">
           <CodeInput />
         </div>
       </section>

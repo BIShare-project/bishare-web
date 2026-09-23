@@ -94,18 +94,18 @@ export function CodeInput({ autoFocus = false }: CodeInputProps) {
         onKeyDown={(e) => handleKeyDown(i, e)}
         onPaste={handlePaste}
         className={cn(
-          "h-14 w-11 rounded-[14px] border bg-card text-center font-mono text-2xl font-bold uppercase",
-          "caret-accent-blue outline-none transition-all duration-[180ms] ease-out",
-          "focus:border-foreground/40 focus:ring-2 focus:ring-ring/40",
-          "disabled:opacity-60 sm:h-16 sm:w-12",
-          values[i] ? "border-accent-blue/50" : "border-[var(--border-strong)]"
+          "h-12 w-10 rounded-lg border bg-secondary/40 text-center font-mono text-xl uppercase",
+          "caret-accent-blue outline-none transition-colors duration-150",
+          "focus:border-accent-blue focus:ring-0",
+          "disabled:opacity-60",
+          values[i] ? "border-accent-blue/60" : "border-[var(--border-strong)]"
         )}
       />
     );
   }
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3.5">
       <div className="flex items-center justify-center gap-1.5 sm:gap-2">
         {[0, 1, 2].map(renderBox)}
         <span aria-hidden className="w-3 text-center text-lg font-bold text-muted-foreground/50">

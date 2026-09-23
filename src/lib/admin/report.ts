@@ -14,7 +14,7 @@ export type ReportBundle = {
   totalDownloads: number; // cloud transfer/share downloads + LAN receives (telemetry)
   downloadBytes: number; // all-time bytes served to downloaders (cloud + LAN)
   liveTransfers: number;
-  liveStorageBytes: number;
+  storedBytes: number; // bytes held in R2 for transfers that are still live
   totalRooms: number; // cloud rooms (rooms_registry) + local/LAN rooms (telemetry)
   receiveViews: number; // recipients who opened a transfer link (loop impressions)
   loopSends: number; // recipients who then clicked "Send a file" (loop conversion)
@@ -129,6 +129,7 @@ export async function reportBundle(): Promise<ReportBundle> {
     appDownloadsIos,
     appDownloadsAndroid,
     appActive30d,
+    storedBytes,
   ] = await Promise.all([
     scalar("SELECT COUNT(DISTINCT sender_ip) AS n FROM transfers WHERE sender_ip IS NOT NULL"),
     // "Live transfers" = cloud transfers ACTUALLY still available (not expired,
@@ -167,11 +168,17 @@ export async function reportBundle(): Promise<ReportBundle> {
     scalar(
       "SELECT COALESCE(SUM(value), 0) AS n FROM stats_daily WHERE metric = 'app_active_monthly' AND date > date('now', '-30 days')"
     ),
+    // Bytes we are actually holding right now — the same live filter as
+    // liveTransfers, so the two numbers always describe the same set of files.
+    // This replaces a Drive-era `liveStorageBytes` that was hardcoded to 0 from
+    // the day the repo was created; the `files` table it referred to is gone,
+    // but transfers carry their own size.
+    scalar(
+      "SELECT COALESCE(SUM(file_size), 0) AS n FROM transfers WHERE expires_at > ? AND NOT (one_time = 1 AND is_downloaded = 1)",
+      nowIso
+    ),
   ]);
 
-  // The accounts/drive teardown dropped the `files` table; server-side stored
-  // files no longer exist, so live storage is always 0.
-  const liveStorageBytes = 0;
   // Downloads = cloud transfer/share downloads + LAN receives (telemetry).
   const totalDownloads = dlTransfer + dlShare + nearbyDownloads;
   const downloadBytes = downloadBytesCloud + nearbyDownloadBytes;
@@ -203,7 +210,7 @@ export async function reportBundle(): Promise<ReportBundle> {
     totalDownloads,
     downloadBytes,
     liveTransfers,
-    liveStorageBytes,
+    storedBytes,
     totalRooms,
     receiveViews,
     loopSends,

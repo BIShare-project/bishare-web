@@ -1209,34 +1209,34 @@ export function FileUpload() {
           }
         }}
         className={cn(
-          "group/zone relative block w-full cursor-pointer overflow-hidden rounded-2xl border border-dashed p-5 sm:p-9 text-center outline-none",
+          "group/zone relative block w-full cursor-pointer overflow-hidden rounded-2xl border border-dashed p-6 text-center outline-none",
           "transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ring/40",
           isDragActive
-            ? "border-foreground/40 bg-secondary"
-            : "border-border bg-card hover:border-foreground/25 hover:bg-secondary/50",
+            ? "border-accent-blue/50 bg-accent-blue/[0.06]"
+            : "border-border hover:border-accent-blue/35 hover:bg-secondary/40",
           isUploading && "pointer-events-none opacity-80"
         )}
       >
         <div className="relative flex flex-col items-center">
           <div
             className={cn(
-              "flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-blue/10 text-accent-blue transition-transform duration-200",
+              "flex h-11 w-11 items-center justify-center rounded-xl bg-accent-blue/10 text-accent-blue transition-transform duration-200",
               isDragActive ? "scale-105" : "group-hover/zone:scale-105"
             )}
           >
-            <FileUp className="h-6 w-6" strokeWidth={1.8} />
+            <FileUp className="h-[18px] w-[18px]" strokeWidth={1.8} />
           </div>
-          <p className="mt-4 font-semibold text-foreground">
+          <p className="mt-3 font-semibold text-foreground">
             {isDragActive ? t("upload.dropActive") : t("upload.dropIdle")}
           </p>
-          <p className="mt-1.5 text-sm text-muted-foreground">
+          <p className="mt-1 text-sm text-muted-foreground">
             {t.rich("upload.browse", {
               b: (chunks) => (
                 <span className="font-semibold text-primary">{chunks}</span>
               ),
             })}
           </p>
-          <p className="mt-3 font-mono text-[11px] tracking-[0.08em] text-muted-foreground/80 uppercase">
+          <p className="mt-2.5 text-[12.5px] text-muted-foreground/70">
             {t("upload.limits", { size: formatFileSize(maxFileSize, locale) })}
           </p>
           {/* Picked files live INSIDE the box as a thumbnail grid — a column
