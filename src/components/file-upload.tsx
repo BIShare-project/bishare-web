@@ -932,7 +932,11 @@ export function FileUpload() {
     setFiles([]);
     setExpandedQR(null);
     setOneTime(false);
-    setEncrypt(false);
+    // Back to the default, which is ON. This used to set false, so "Upload
+    // more files" silently turned end-to-end encryption off for every send
+    // after the first one — the two lines around it reset to their defaults,
+    // so the odd one out was a slip rather than a decision.
+    setEncrypt(true);
     setExpiry(DEFAULT_EXPIRY);
   }
 
