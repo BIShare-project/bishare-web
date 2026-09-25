@@ -3,7 +3,8 @@
 import { useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { Check, MonitorDown } from "lucide-react";
-import { Button } from "@/components/site/ui/button";
+import { Button, buttonVariants } from "@/components/site/ui/button";
+import { AppleGlyph, APP_STORE_URL, PlayGlyph, PLAY_STORE_URL } from "@/components/site/store-buttons";
 import { cn } from "@/lib/utils";
 
 /** Chromium's non-standard install event — not in lib.dom. */
@@ -53,6 +54,25 @@ const getSnapshot = () => state;
 const getServerSnapshot = (): InstallState => "unavailable";
 
 /**
+ * Phones get the native app, not the web app. On Android, Chrome fires
+ * `beforeinstallprompt` and the page used to offer "Install app" — a PWA —
+ * while a real app sits on Google Play with LAN transfers, background sends and
+ * a share-sheet target the PWA cannot have. iOS never fires the event, so it
+ * never saw the PWA button; it now gets the App Store link here as well (Safari
+ * also shows the Smart App Banner from the `apple-itunes-app` meta tag).
+ * Desktop keeps the PWA offer.
+ */
+type MobileOS = "android" | "ios" | null;
+function detectMobileOS(): MobileOS {
+  const ua = navigator.userAgent;
+  if (/Android/i.test(ua)) return "android";
+  // iPadOS reports a Mac user agent; a touch-capable "Mac" is an iPad.
+  if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return "ios";
+  return null;
+}
+const noopSubscribe = () => () => {};
+
+/**
  * "Install BIShare as an app" — rendered only when the browser has said the
  * site is installable, so on Safari/Firefox (or once installed) it takes no
  * space at all. `card` is the /download block; `inline` is the one-line nudge
@@ -67,10 +87,40 @@ export function InstallApp({
 }) {
   const t = useTranslations("chrome");
   const s = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  // null on the server and on desktop; the platform never changes mid-visit.
+  const mobile = useSyncExternalStore(noopSubscribe, detectMobileOS, () => null);
   const [busy, setBusy] = useState(false);
   // Keep the block on screen after a successful install from THIS page, so the
   // click gets an answer instead of the button silently vanishing.
   const [justInstalled, setJustInstalled] = useState(false);
+
+  if (mobile) {
+    // /download already leads with the store badges; a second card there
+    // would only repeat them.
+    if (variant === "card") return null;
+    const android = mobile === "android";
+    const store = android ? "Google Play" : "App Store";
+    const Glyph = android ? PlayGlyph : AppleGlyph;
+    return (
+      <div
+        className={cn(
+          "flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-muted-foreground",
+          className
+        )}
+      >
+        <span>{t("nativeApp.inline")}</span>
+        <a
+          href={android ? PLAY_STORE_URL : APP_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={buttonVariants({ variant: "outline", size: "sm" })}
+        >
+          <Glyph />
+          {t("nativeApp.button", { store })}
+        </a>
+      </div>
+    );
+  }
 
   if (s === "installed" && !justInstalled) return null;
   if (s === "unavailable" && !justInstalled) return null;
