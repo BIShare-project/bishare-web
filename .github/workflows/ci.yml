@@ -65,6 +65,9 @@ jobs:
             routes: [
               { pattern: "bishare.app", custom_domain: true },
               { pattern: "www.bishare.app", custom_domain: true },
+              // Receive pages: their own host, so a user-shared bad file gets
+              // flagged by Safe Browsing on this host, not the marketing site.
+              { pattern: "get.bishare.app", custom_domain: true },
             ],
             assets: { directory: ".open-next/assets", binding: "ASSETS" },
             d1_databases: [

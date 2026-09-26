@@ -4,6 +4,7 @@ import { getTransferStatus } from "@/lib/api";
 import { bumpStat } from "@/lib/stats-bump";
 import { formatFileSize } from "@/lib/format";
 import { AppPromo } from "@/components/app-promo";
+import { ReportAbuse } from "./report-abuse";
 import { FileTypeTile } from "@/components/file-icon";
 import { FlowShell, FlowStatusCard } from "@/components/flow-shell";
 import { FadeUp } from "@/components/site/motion";
@@ -165,6 +166,8 @@ export default async function TransferPage({ params }: Props) {
             </p>
           )}
         </div>
+
+        <ReportAbuse code={t.code} fileName={t.fileName} />
       </FadeUp>
       <AppPromo />
     </FlowShell>
