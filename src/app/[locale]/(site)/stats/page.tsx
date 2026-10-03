@@ -3,6 +3,7 @@ import { buildAlternates } from "@/i18n/metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   Activity,
+  Globe,
   ArrowLeftRight,
   CalendarDays,
   DoorOpen,
@@ -168,6 +169,9 @@ export default async function StatsPage({
             {r.appActive30d > 0 && (
               <Stat value={nf(r.appActive30d)} label={t("cards.appActive")} sub={t("cards.appActiveSub")} icon={Activity} />
             )}
+            {r.webVisits30d > 0 && (
+              <Stat value={nf(r.webVisits30d)} label={t("cards.webVisits")} sub={t("cards.webVisitsSub")} icon={Globe} />
+            )}
             <Stat value={nf(r.uniqueUsers)} label={t("cards.uniqueUsers")} sub={t("cards.uniqueUsersSub")} icon={Users} accent />
             <Stat value={nf(r.totalUploads)} label={t("cards.filesShared")} sub={t("cards.sinceLaunch")} icon={UploadCloud} />
             <Stat value={nf(r.totalDownloads)} label={t("cards.downloads")} sub={t("cards.downloadsSub")} icon={DownloadCloud} accent />
@@ -239,6 +243,7 @@ export default async function StatsPage({
             {t("footnote")}
             {/* Only beside the tiles it explains. */}
             {(r.appDownloads > 0 || r.appActive30d > 0) && <> {t("footnoteApps")}</>}
+            {r.webVisits30d > 0 && <> {t("footnoteWeb")}</>}
             {" "}
             {t("footnoteCost")}
           </p>

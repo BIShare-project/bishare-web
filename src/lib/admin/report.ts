@@ -26,6 +26,7 @@ export type ReportBundle = {
   appDownloadsIos: number; // …of which App Store (posted daily by the app repo's job)
   appDownloadsAndroid: number; // …of which Google Play
   appActive30d: number; // installs opened in the last 30 days (anonymous pings)
+  webVisits30d: number; // website visits in the last 30 days (Cloudflare Web Analytics, bishare.app hosts only)
   dailyUploads: { date: string; value: number }[];
 };
 
@@ -129,6 +130,7 @@ export async function reportBundle(): Promise<ReportBundle> {
     appDownloadsIos,
     appDownloadsAndroid,
     appActive30d,
+    webVisits30d,
     storedBytes,
   ] = await Promise.all([
     scalar("SELECT COUNT(DISTINCT sender_ip) AS n FROM transfers WHERE sender_ip IS NOT NULL"),
@@ -167,6 +169,11 @@ export async function reportBundle(): Promise<ReportBundle> {
     // sum over the last thirty dates counts each active install exactly once.
     scalar(
       "SELECT COALESCE(SUM(value), 0) AS n FROM stats_daily WHERE metric = 'app_active_monthly' AND date > date('now', '-30 days')"
+    ),
+    // One row per day from the API's daily job (Web Analytics beacon, no
+    // cookies, no identifiers) — "visits" in Cloudflare's sense, not people.
+    scalar(
+      "SELECT COALESCE(SUM(value), 0) AS n FROM stats_daily WHERE metric = 'web_visits' AND date > date('now', '-30 days')"
     ),
     // Bytes we are actually holding right now — the same live filter as
     // liveTransfers, so the two numbers always describe the same set of files.
@@ -222,6 +229,7 @@ export async function reportBundle(): Promise<ReportBundle> {
     appDownloadsIos,
     appDownloadsAndroid,
     appActive30d,
+    webVisits30d,
     dailyUploads: (daily.results ?? []).map((r) => ({ date: r.date, value: Number(r.v) })),
   };
 }
