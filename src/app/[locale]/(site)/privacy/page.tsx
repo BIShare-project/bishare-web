@@ -25,7 +25,7 @@ export async function generateMetadata({
     title: t("privacy.metadata.title"),
     description,
     alternates: buildAlternates(locale, "/privacy"),
-    ...sharedOpenGraph(t("privacy.metadata.ogTitle"), description, "/privacy"),
+    ...sharedOpenGraph(t("privacy.metadata.ogTitle"), description, "/privacy", undefined, locale),
   };
 }
 

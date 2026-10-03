@@ -23,7 +23,7 @@ export async function generateMetadata({
     title: { absolute: title },
     description,
     alternates: buildAlternates(locale, "/"),
-    ...sharedOpenGraph(title, description, "/"),
+    ...sharedOpenGraph(title, description, "/", undefined, locale),
   };
 }
 

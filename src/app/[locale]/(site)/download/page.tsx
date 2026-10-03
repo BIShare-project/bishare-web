@@ -53,7 +53,7 @@ export async function generateMetadata({
     title: t("meta.title"),
     description,
     alternates: buildAlternates(locale, "/download"),
-    ...sharedOpenGraph(t("meta.ogTitle"), description, "/download"),
+    ...sharedOpenGraph(t("meta.ogTitle"), description, "/download", undefined, locale),
   };
 }
 

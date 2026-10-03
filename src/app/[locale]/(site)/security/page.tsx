@@ -54,7 +54,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: buildAlternates(locale, "/security"),
-    ...sharedOpenGraph(`BIShare ${title}`, description, "/security"),
+    ...sharedOpenGraph(`BIShare ${title}`, description, "/security", undefined, locale),
   };
 }
 

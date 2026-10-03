@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { buildAlternates } from "@/i18n/metadata";
+import { sharedOpenGraph } from "@/lib/og";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   Activity,
@@ -35,12 +36,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "stats" });
+  const title = t("meta.title");
+  const description = t("meta.description");
   return {
-    title: t("meta.title"),
-    description: t("meta.description"),
+    title,
+    description,
     // Indexable: the live numbers are a real page, and a public stats page is
     // exactly the kind of thing an open-source project is asked to show.
     alternates: buildAlternates(locale, "/stats"),
+    ...sharedOpenGraph(title, description, "/stats", undefined, locale),
   };
 }
 

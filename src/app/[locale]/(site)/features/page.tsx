@@ -58,7 +58,7 @@ export async function generateMetadata({
     title: t("metadata.title"),
     description,
     alternates: buildAlternates(locale, "/features"),
-    ...sharedOpenGraph(t("metadata.ogTitle"), description, "/features"),
+    ...sharedOpenGraph(t("metadata.ogTitle"), description, "/features", undefined, locale),
   };
 }
 

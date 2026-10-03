@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { bumpStat } from "@/lib/stats-bump";
 import { buildAlternates } from "@/i18n/metadata";
+import { sharedOpenGraph } from "@/lib/og";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { TransferStudio } from "@/components/site/transfer-studio";
@@ -22,12 +23,7 @@ export async function generateMetadata({
     title: t("transferLanding.metaTitle"),
     description,
     alternates: buildAlternates(locale, "/transfer"),
-    openGraph: {
-      title: t("transferLanding.ogTitle"),
-      description,
-      type: "website",
-      siteName: "BIShare",
-    },
+    ...sharedOpenGraph(t("transferLanding.ogTitle"), description, "/transfer", undefined, locale),
   };
 }
 

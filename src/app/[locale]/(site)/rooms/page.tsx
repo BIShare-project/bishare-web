@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
+import { sharedOpenGraph } from "@/lib/og";
 import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
@@ -32,12 +33,7 @@ export async function generateMetadata({
     title: t("page.metaTitle"),
     description,
     alternates: buildAlternates(locale, "/rooms"),
-    openGraph: {
-      title: t("page.metaTitle"),
-      description,
-      type: "website",
-      siteName: "BIShare",
-    },
+    ...sharedOpenGraph(t("page.metaTitle"), description, "/rooms", undefined, locale),
   };
 }
 

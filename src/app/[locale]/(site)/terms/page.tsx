@@ -28,7 +28,7 @@ export async function generateMetadata({
     title: t("terms.metadata.title"),
     description,
     alternates: buildAlternates(locale, "/terms"),
-    ...sharedOpenGraph(t("terms.metadata.ogTitle"), description, "/terms"),
+    ...sharedOpenGraph(t("terms.metadata.ogTitle"), description, "/terms", undefined, locale),
   };
 }
 
