@@ -42,7 +42,7 @@ const LIMIT_ITEMS = ["0", "1", "2", "3"] as const;
 const ALT_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const FIX_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["10", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 
 /* Comparison truth table. Columns: Quick Share with AirDrop, Quick Share QR
    code, BIShare, the open-source local app, PairDrop, Send Anywhere.

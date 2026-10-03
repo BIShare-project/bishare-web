@@ -68,7 +68,7 @@ const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5", "6"] as const;
 const CRITERIA_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const LIST_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 const USE_CASE_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["0", "1", "2", "10", "3", "4", "5", "6", "7", "8", "9", "11"] as const;
 
 const APP_URLS: Record<string, string> = {
   "0": `${SITE}`,
