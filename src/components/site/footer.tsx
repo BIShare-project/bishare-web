@@ -56,6 +56,7 @@ const COLUMNS: Array<{
         { labelKey: "ucClipboard", href: "/clipboard-sync" },
         { labelKey: "ucAirdropFix", href: "/airdrop-not-working" },
         { labelKey: "ucAirdropOnline", href: "/airdrop-online" },
+        { labelKey: "ucHowToAirdrop", href: "/how-to-airdrop" },
         { labelKey: "ucAirdropAndroid", href: "/airdrop-for-android" },
       ],
     },

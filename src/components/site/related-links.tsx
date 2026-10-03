@@ -13,7 +13,7 @@ import { ArrowUpRight } from "lucide-react";
 // slug (without leading slash) → curated related siblings.
 const CLUSTER: Record<string, string[]> = {
   "airdrop-for-windows": ["airdrop-not-working", "airdrop-alternative", "airdrop-online", "share-files-mac-to-windows", "transfer-photos-from-iphone-to-pc"],
-  "airdrop-for-android": ["airdrop-alternative", "airdrop-for-windows", "send-files-iphone-to-android", "nearby-share-alternative"],
+  "airdrop-for-android": ["how-to-airdrop", "airdrop-alternative", "airdrop-for-windows", "send-files-iphone-to-android", "nearby-share-alternative"],
   "airdrop-alternative": ["airdrop-not-working", "airdrop-online", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android", "best-file-sharing-app", "localsend-alternative"],
   "wetransfer-alternative": ["send-large-files", "firefox-send-alternative", "smash-alternative", "share-files-without-account"],
   "snapdrop-alternative": ["sharedrop-alternative", "airdrop-online", "localsend-alternative", "nearby-share-alternative", "best-file-sharing-app", "wormhole-alternative", "shareit-alternative"],
@@ -38,9 +38,11 @@ const CLUSTER: Record<string, string[]> = {
   // Best-of guide + LocalSend cluster.
   // Photo, troubleshooting, and desktop↔desktop pages.
   "transfer-photos-from-iphone-to-pc": ["transfer-files-phone-to-pc", "airdrop-for-windows", "send-files-iphone-to-android", "send-large-files"],
-  "airdrop-not-working": ["airdrop-alternative", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android"],
+  "airdrop-not-working": ["how-to-airdrop", "airdrop-alternative", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android"],
+  // The how-to: teaches AirDrop itself, then hands over to the pages for what it cannot reach.
+  "how-to-airdrop": ["airdrop-not-working", "airdrop-for-android", "airdrop-for-windows", "airdrop-alternative", "airdrop-online"],
   // The browser version: a tool page first, so it sits next to the pages people arrive from.
-  "airdrop-online": ["airdrop-alternative", "airdrop-for-windows", "airdrop-for-android", "snapdrop-alternative", "sharedrop-alternative", "send-files-without-internet"],
+  "airdrop-online": ["airdrop-alternative", "how-to-airdrop", "airdrop-for-windows", "airdrop-for-android", "snapdrop-alternative", "sharedrop-alternative", "send-files-without-internet"],
   "transfer-files-between-computers": ["share-files-mac-to-windows", "transfer-files-pc-to-phone", "send-large-files", "send-files-without-internet"],
   pricing: ["send-large-files", "wetransfer-alternative", "smash-alternative", "best-file-sharing-app"],
   "best-file-sharing-app": ["localsend-alternative", "airdrop-for-windows", "airdrop-alternative", "snapdrop-alternative", "wetransfer-alternative"],

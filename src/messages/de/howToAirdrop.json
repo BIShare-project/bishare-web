@@ -1,0 +1,395 @@
+{
+  "meta": {
+    "title": "AirDrop auf iPhone, iPad und Mac: aktivieren, senden, empfangen",
+    "description": "So aktivieren Sie AirDrop und senden Fotos oder Dateien zwischen iPhone, iPad und Mac, Schritt für Schritt. Dazu: wo Empfangenes landet, AirDrop-Codes und die Grenzen."
+  },
+  "hero": {
+    "eyebrow": "AirDrop-Anleitung",
+    "title": "AirDrop benutzen auf iPhone, iPad und Mac",
+    "body": "AirDrop sendet Fotos, Videos, Dokumente und Links zwischen Apple-Geräten in der Nähe, ohne Kabel, ohne Anmeldemaske und ohne Internetverbindung. Die Geste ist einfach, doch die meisten Fragen drehen sich um das Drumherum: wo der Schalter sitzt, warum die andere Person nicht auftaucht, wohin das Foto verschwunden ist und warum plötzlich ein Code verlangt wird. Diese Anleitung geht den ganzen Weg auf iPhone, iPad und Mac durch, so wie Apple ihn im Oktober 2026 dokumentiert: AirDrop einschalten, senden und empfangen, mit jemandem teilen, der nicht in Ihren Kontakten steht, die wichtigen Einstellungen und die Geräte, die AirDrop bis heute nicht erreicht. Für diese erledigt <strong>BIShare</strong> dasselbe <strong>zwischen iPhone, Android, Windows, Mac und Linux</strong>. <highlight>Kostenlos, Open Source und ohne Konto.</highlight>",
+    "ctaPrimary": "BIShare kostenlos holen"
+  },
+  "updated": "Aktualisiert im Oktober 2026 · Schritte abgeglichen mit Apples iPhone- und Mac-Benutzerhandbuch und dem Apple-Supportartikel 119857, veröffentlicht am 14. September 2026",
+  "disclosure": "BIShare ist unsere App. Zwischen zwei Apple-Geräten ist AirDrop schon vorhanden und die bessere Wahl. Deshalb erklärt diese Anleitung zuerst AirDrop und nennt BIShare nur dort, wo AirDrop aufhört.",
+  "quick": {
+    "title": "AirDrop benutzen: die kurze Antwort",
+    "items": [
+      "<strong>Einschalten auf iPhone oder iPad:</strong> Kontrollzentrum öffnen, die Gruppe der Verbindungssteuerungen oben links gedrückt halten, auf AirDrop tippen und „Nur für Kontakte“ oder „Für alle für 10 Minuten“ wählen.",
+      "<strong>Einschalten am Mac:</strong> in der Menüleiste auf das Kontrollzentrum klicken, dann auf AirDrop. Ein blaues Symbol heißt eingeschaltet, über den Pfeil daneben wählen Sie „Nur Kontakte“ oder „Jeder“.",
+      "<strong>Senden:</strong> Foto oder Datei öffnen, auf die Teilen-Taste tippen, dann auf AirDrop und auf die Person oder das Gerät. Am Mac nutzen Sie die Teilen-Taste in der Symbolleiste oder ziehen die Datei im AirDrop-Fenster des Finders auf einen Empfänger.",
+      "<strong>Empfangen:</strong> in der Mitteilung auf Annehmen tippen. Fotos landen in der Fotos-App, anderes in der App, aus der es kam, oder in Dateien, und am Mac oft im Ordner „Downloads“.",
+      "<strong>Die andere Person steht nicht in Ihren Kontakten:</strong> Sie wählt „Für alle für 10 Minuten“. Ab iOS 26.2 lässt sie sich außerdem einen AirDrop-Code anzeigen und nennt ihn Ihnen zur Eingabe.",
+      "<strong>Das andere Gerät ist ein Windows-PC, ein Linux-Rechner oder eines der meisten Android-Handys:</strong> AirDrop erreicht es nicht. Nehmen Sie eine plattformübergreifende App wie BIShare oder senden Sie einen Link."
+    ]
+  },
+  "basics": {
+    "title": "Was AirDrop ist und was es braucht",
+    "body": "AirDrop ist Apples eingebauter Weg, eine Datei an ein Gerät ein paar Schritte entfernt zu übergeben. Wer weiß, wie AirDrop dieses Gerät findet, versteht fast jede Regel, die danach kommt.",
+    "items": {
+      "0": {
+        "h": "Was es tut",
+        "b": "AirDrop überträgt Fotos, Videos, Dokumente, Links, Kontaktkarten und mehr von einem Apple-Gerät auf ein anderes in der Nähe. Apples Handbuch beschreibt es als drahtloses Senden an ein iPhone, iPad oder einen Mac in der Nähe, egal ob das Gerät Ihnen gehört oder jemand anderem. Wer empfängt, bekommt eine Mitteilung und kann jede Übertragung annehmen oder ablehnen."
+      },
+      "1": {
+        "h": "Wie es funktioniert",
+        "b": "Laut Apples Leitfaden zur Plattformsicherheit nutzt AirDrop Bluetooth Low Energy, um Geräte in der Nähe zu bemerken, und eine von Apple entwickelte Peer-to-Peer-WLAN-Verbindung, um die Datei zu transportieren. Die beiden WLAN-Funkmodule sprechen direkt miteinander, ohne Internetverbindung und ohne Router dazwischen, und die Verbindung ist mit TLS verschlüsselt. Deshalb funktioniert AirDrop im Zug oder auf freiem Feld, und deshalb müssen auch beide Funkmodule eingeschaltet sein."
+      },
+      "2": {
+        "h": "Was beide Geräte brauchen",
+        "b": "WLAN und Bluetooth eingeschaltet und höchstens 10 Meter Abstand. Apples Supportartikel ergänzt, dass der Persönliche Hotspot auf beiden Geräten getrennt sein sollte, und das Handbuch warnt, dass ein VPN stören kann, wenn es lokale Netzwerke blockiert. Keines der Geräte muss mit einem WLAN-Netzwerk verbunden sein."
+      },
+      "3": {
+        "h": "Welche Geräte es haben",
+        "b": "Apple nennt iOS 7, iPadOS 13 und OS X 10.10 als Mindestvoraussetzung für AirDrop. „Nur für Kontakte“ braucht iOS 10, iPadOS 13 oder macOS 10.12, und „Für alle für 10 Minuten“ braucht iOS 16.2 oder iPadOS 16.2; auf älterer Software heißt dieselbe Option einfach „Für alle“. Praktisch hat jedes iPhone, iPad und jeder Mac aus den letzten zehn Jahren AirDrop."
+      }
+    }
+  },
+  "turnon": {
+    "title": "So schalten Sie AirDrop ein",
+    "body": "AirDrop hat keine eigene App. Es ist eine Einstellung, die festlegt, wer Ihnen etwas senden darf, und sie sitzt auf jedem Apple-Gerät im Kontrollzentrum.",
+    "items": {
+      "0": {
+        "h": "Auf iPhone oder iPad",
+        "b": "Öffnen Sie das Kontrollzentrum, indem Sie von der oberen rechten Ecke nach unten streichen, oder auf einem iPhone mit Home-Taste vom unteren Rand nach oben. Halten Sie die Gruppe der Verbindungssteuerungen oben links gedrückt, bis sie sich vergrößert, und tippen Sie dann auf AirDrop. Wählen Sie „Nur für Kontakte“ oder „Für alle für 10 Minuten“. Dieselbe Auswahl steht unter Einstellungen, Allgemein, AirDrop."
+      },
+      "1": {
+        "h": "Am Mac",
+        "b": "Klicken Sie in der Menüleiste auf das Kontrollzentrum und dann auf AirDrop. Ist das AirDrop-Symbol blau, ist es eingeschaltet. Über den Pfeil neben AirDrop wählen Sie zwischen „Nur Kontakte“ und „Jeder“. Sie können auch ein Finder-Fenster öffnen und in der Seitenleiste auf AirDrop klicken; dort sehen Sie zugleich, wer in der Nähe ist."
+      },
+      "2": {
+        "h": "„Nur für Kontakte“ oder „Für alle für 10 Minuten“?",
+        "b": "„Nur für Kontakte“ ist die Voreinstellung und im Alltag die sicherere Wahl, weil nur Personen aus Ihren Kontakten Ihr Gerät finden. „Für alle für 10 Minuten“ öffnet es für jedes Apple-Gerät in der Nähe und schließt sich dann von selbst. Laut Apple fällt die Einstellung nach zehn Minuten auf „Nur für Kontakte“ zurück, wenn Sie mit einem Apple Account angemeldet sind, und sonst auf „Empfangen aus“."
+      },
+      "3": {
+        "h": "Wenn die AirDrop-Steuerung fehlt",
+        "b": "Finden Sie AirDrop überhaupt nicht, ist es meist eingeschränkt. Sehen Sie unter Einstellungen, Bildschirmzeit, Beschränkungen, Erlaubte Apps und Funktionen nach. Auf einem iPhone vom Arbeitgeber oder von der Schule kann AirDrop außerdem von der Organisation abgeschaltet sein, die das Gerät verwaltet."
+      }
+    }
+  },
+  "send": {
+    "title": "Mit AirDrop senden von iPhone oder iPad",
+    "body": "Jede App mit Teilen-Taste kann per AirDrop senden. Die Schritte unterscheiden sich nur darin, wie Sie auswählen, was gesendet wird.",
+    "items": {
+      "0": {
+        "h": "Fotos und Videos",
+        "b": "Öffnen Sie die Fotos-App, tippen Sie auf Auswählen und dann auf jedes gewünschte Foto oder Video. Tippen Sie auf die Teilen-Taste und dann auf AirDrop. Personen aus Ihren Kontakten, die in der Nähe sind, erscheinen unter Personen; tippen Sie auf den Namen und bitten Sie die andere Person, auf Annehmen zu tippen."
+      },
+      "1": {
+        "h": "Dateien und Dokumente",
+        "b": "Tippen Sie in der Dateien-App auf die Mehr-Taste, dann auf Auswählen, und markieren Sie die Dateien. Tippen Sie auf Teilen, dann auf AirDrop, dann auf den Empfänger. Ein Dokument, das in einer anderen App geöffnet ist, geht denselben Weg über die Teilen-Taste dieser App."
+      },
+      "2": {
+        "h": "Links, Kontakte und Passwörter",
+        "b": "Eine Webseite in Safari oder eine Kontaktkarte lässt sich über ihre Teilen-Taste senden und öffnet sich auf dem anderen Gerät in der passenden App. Apple erlaubt außerdem, gespeicherte Passwörter und Passkeys per AirDrop mit vertrauten Personen zu teilen."
+      },
+      "3": {
+        "h": "Die beiden iPhones aneinanderhalten",
+        "b": "Mit iOS 17 oder neuer auf beiden Geräten können Sie bei jemandem aus Ihren Kontakten die Liste überspringen. Öffnen Sie das Objekt, das Sie teilen möchten, und halten Sie Ihr iPhone dicht an das andere, dann bietet AirDrop das Senden an. Hält man zwei iPhones aneinander, ohne etwas zu teilen, bieten sie stattdessen NameDrop an, das Kontaktkarten austauscht. Beides steuert die Option zum Aneinanderhalten der Geräte unter Einstellungen, Allgemein, AirDrop."
+      },
+      "4": {
+        "h": "An Ihre eigenen Geräte",
+        "b": "Vom iPhone an das eigene iPad oder den eigenen Mac zu senden braucht keine Bestätigung. Sind beide Geräte mit demselben Apple Account angemeldet, wird das Objekt automatisch angenommen und gesichert."
+      }
+    }
+  },
+  "mac": {
+    "title": "AirDrop vom Mac, und zwischen Mac und iPhone",
+    "body": "Ein Mac kann auf zwei Arten senden, und beim Empfangen gibt es ein Detail, das man kennen sollte.",
+    "items": {
+      "0": {
+        "h": "Mit der Teilen-Taste",
+        "b": "Öffnen Sie das Objekt, klicken Sie in der Symbolleiste der App auf die Teilen-Taste, wählen Sie AirDrop und klicken Sie auf den Empfänger. Angezeigt werden nur Geräte, die in der Nähe sind, WLAN und Bluetooth eingeschaltet haben und Dateien von Ihrem Mac annehmen können."
+      },
+      "1": {
+        "h": "Aus dem Finder",
+        "b": "Öffnen Sie ein Finder-Fenster und klicken Sie in der Seitenleiste auf AirDrop. Geräte in der Nähe erscheinen als Symbole; ziehen Sie eine oder mehrere Dateien auf das gewünschte Gerät. Das ist der schnellste Weg für Dateien, die schon auf dem Schreibtisch oder in einem Ordner liegen."
+      },
+      "2": {
+        "h": "Vom Mac auf ein iPhone",
+        "b": "Wecken Sie das iPhone auf und legen Sie es in die Nähe des Macs, dann senden Sie über die Teilen-Taste oder das Finder-Fenster. Gehört das iPhone Ihnen und nutzt denselben Apple Account, kommt das Objekt ohne Rückfrage an. Fotos landen in Fotos, andere Dateien öffnen sich in der passenden App."
+      },
+      "3": {
+        "h": "Vom iPhone auf einen Mac",
+        "b": "Schalten Sie AirDrop zuerst am Mac ein und tippen Sie dann am iPhone auf Teilen, AirDrop und den Namen des Macs. Am Mac erscheint die Anfrage als Mitteilung, oder im AirDrop-Fenster des Finders, falls dieses geöffnet ist. Viele Dateien werden direkt im Ordner „Downloads“ gesichert."
+      }
+    }
+  },
+  "receive": {
+    "title": "AirDrop empfangen, und wo die Dateien landen",
+    "body": "Ohne Ihre Zustimmung kommt nichts an, außer der Absender sind Sie selbst. Danach bleibt nur die Frage, wo das Objekt gesichert wurde.",
+    "items": {
+      "0": {
+        "h": "Annehmen oder ablehnen",
+        "b": "Eine Mitteilung erscheint, sobald Ihnen jemand etwas sendet. Tippen oder klicken Sie auf Annehmen, um es zu übernehmen, oder auf Ablehnen, um es zurückzuweisen. Meldet die Mitteilung, dass ein Code nötig ist, lassen Sie sich den angebotenen AirDrop-Code anzeigen und geben Sie ihn dem Absender."
+      },
+      "1": {
+        "h": "Fotos und Videos",
+        "b": "Apples Regel lautet: Die meisten Objekte werden in der App gesichert, aus der sie gesendet wurden. Ein Foto aus der Fotos-App wird auf Ihrem Gerät in Fotos gesichert."
+      },
+      "2": {
+        "h": "Andere Dateien auf iPhone oder iPad",
+        "b": "Ein Dokument öffnet sich in der passenden App, und manche Objekte werden in der Dateien-App gesichert. Scheint eine Datei verschwunden zu sein, öffnen Sie Dateien und sehen Sie unter „Zuletzt benutzt“ nach."
+      },
+      "3": {
+        "h": "Am Mac",
+        "b": "Manche Objekte werden automatisch im Ordner „Downloads“ gesichert. Bei anderen lässt der Mac die Wahl, zum Beispiel zwischen dem Sichern eines Fotos in „Downloads“ und dem Öffnen in Fotos."
+      }
+    }
+  },
+  "strangers": {
+    "title": "AirDrop an jemanden, der nicht in Ihren Kontakten steht",
+    "body": "Hier scheitern die meisten Versuche, denn die Voreinstellung verbirgt ein Gerät vor allen, die es nicht kennt.",
+    "items": {
+      "0": {
+        "h": "Was „Nur für Kontakte“ wirklich prüft",
+        "b": "Im Adressbuch des anderen zu stehen reicht nicht immer. Apple schreibt, dass der Empfänger die E-Mail-Adresse oder Telefonnummer des Apple Accounts des Absenders in dessen Kontaktkarte haben muss. Hat ein Freund Sie unter einer Nummer gespeichert, die nicht mit Ihrem Apple Account verknüpft ist, bleibt sein Gerät für Sie verborgen."
+      },
+      "1": {
+        "h": "Für alle für 10 Minuten",
+        "b": "Der Empfänger öffnet das Kontrollzentrum, hält die Verbindungssteuerungen gedrückt, tippt auf AirDrop und wählt „Für alle für 10 Minuten“. Sein Gerät erscheint nun bei Ihnen. Senden Sie innerhalb der zehn Minuten, denn die Einstellung fällt von selbst zurück."
+      },
+      "2": {
+        "h": "AirDrop-Codes, neu seit iOS 26.2",
+        "b": "Laufen beide Geräte mit iOS 26.2, iPadOS 26.2 oder macOS 26.2 oder neuer und ist der Absender kein Kontakt, verlangt AirDrop einen Code. Der Empfänger lässt sich den AirDrop-Code anzeigen, er erscheint auf seinem Bildschirm, und der Absender tippt ihn ein. In den folgenden 30 Tagen können Sie beide ohne weiteren Code teilen. Um das früher zu beenden, öffnen Sie Kontakte, suchen die Person in der Liste der anderen bekannten Personen und lassen sie vergessen."
+      }
+    }
+  },
+  "settings": {
+    "title": "AirDrop-Namen ändern, AirDrop ausschalten und weitere Einstellungen",
+    "body": "Eine Handvoll Einstellungen bestimmt, wie sich AirDrop verhält. Alle sind in Sekunden geändert.",
+    "items": {
+      "0": {
+        "h": "Den AirDrop-Namen ändern",
+        "b": "Wer Sie in seinen Kontakten hat, sieht den Vornamen und das Foto, die er für Sie gespeichert hat. Alle anderen sehen den Namen Ihres Geräts. Ändern Sie ihn auf iPhone oder iPad unter Einstellungen, Allgemein, Info, Name. Am Mac legen Sie den Computernamen unter Systemeinstellungen, Allgemein, Info fest."
+      },
+      "1": {
+        "h": "AirDrop ausschalten",
+        "b": "Auf iPhone oder iPad öffnen Sie die AirDrop-Steuerung im Kontrollzentrum oder gehen zu Einstellungen, Allgemein, AirDrop und wählen „Empfangen aus“. Am Mac klicken Sie im Kontrollzentrum auf AirDrop, bis das Symbol nicht mehr blau ist. Soll das Gerät eines Kindes AirDrop gar nicht nutzen, schalten Sie es unter Bildschirmzeit, Beschränkungen, Erlaubte Apps und Funktionen ab."
+      },
+      "2": {
+        "h": "Geräte aneinanderhalten",
+        "b": "Diese Option unter Einstellungen, Allgemein, AirDrop steuert das Teilen durch Aneinanderhalten zweier iPhones, NameDrop eingeschlossen. Schalten Sie sie aus, wenn Sie jede Übertragung lieber über die Teilen-Taste starten."
+      },
+      "3": {
+        "h": "Mobile Daten",
+        "b": "Verlassen Sie die Reichweite, nachdem eine Übertragung begonnen hat, beendet AirDrop sie über das Internet, und Apple weist darauf hin, dass dabei Kosten für mobile Daten anfallen können. Damit AirDrop keine mobilen Daten nutzt, schalten Sie die entsprechende Option unter Einstellungen, Allgemein, AirDrop aus."
+      }
+    }
+  },
+  "reach": {
+    "title": "Was AirDrop erreicht und was nicht",
+    "body": "AirDrop wurde für Apple-Geräte im selben Raum gebaut. Seit Ende 2025 gibt es eine Öffnung in Richtung Android, und mehrere Grenzen bleiben bestehen.",
+    "items": {
+      "0": {
+        "h": "Android-Handys auf Googles Liste",
+        "b": "Googles Quick Share spricht AirDrop auf den Handys, die Google nennt: Pixel-10- und Pixel-9-Serie sowie Pixel 8a, aktuelle Galaxy-S- und Z-Modelle und einige Geräte von Xiaomi, OnePlus, OPPO, HONOR und vivo. <goAirdropAndroid>Das Apple-Gerät muss auf „Für alle für 10 Minuten“ stehen</goAirdropAndroid>, und auf einem Galaxy muss der Schalter zum Teilen mit Apple-Geräten eingeschaltet sein. Ein Android-Handy, das nicht auf der Liste steht, taucht in AirDrop nie auf."
+      },
+      "1": {
+        "h": "Windows-PCs, Chromebooks und Linux",
+        "b": "<goAirdropWindows>Apple hat AirDrop nie für Windows veröffentlicht</goAirdropWindows>, und auf einem Chromebook oder Linux-Rechner antwortet nichts auf eine AirDrop-Anfrage. Dateien für diese Geräte brauchen ein Kabel, einen Cloud-Link oder eine App, die auf beiden Seiten läuft."
+      },
+      "2": {
+        "h": "Jemand an einem anderen Ort",
+        "b": "AirDrop startet nur zwischen Geräten, die höchstens etwa 10 Meter voneinander entfernt sind. Das Internet dient allein dazu, eine in Reichweite begonnene Übertragung zu beenden. Für eine andere Stadt <goLargeFiles>nehmen Sie besser einen Link</goLargeFiles>."
+      },
+      "3": {
+        "h": "Sehr viele Dateien",
+        "b": "Apple selbst beschreibt AirDrop als am besten geeignet für eine kleine Auswahl von Dateien und verweist für größere Mengen auf andere Wege. Für Hunderte Fotos oder ein sehr langes Video ist der Import per Kabel oder <goIphonePhotos>ein Weg, der für große Mengen gedacht ist</goIphonePhotos>, verlässlicher."
+      }
+    }
+  },
+  "table": {
+    "title": "AirDrop und BIShare auf einen Blick",
+    "cols": {
+      "feature": "Was Sie brauchen",
+      "airdrop": "AirDrop",
+      "bishare": "BIShare"
+    },
+    "rows": {
+      "r0": "Schon auf dem Gerät, nichts zu installieren",
+      "r1": "iPhone, iPad und Mac untereinander",
+      "r2": "Android-Handys auf Googles Quick-Share-Liste",
+      "r3": "Jedes andere Android-Handy",
+      "r4": "Windows-PCs",
+      "r5": "Linux-Rechner",
+      "r6": "Funktioniert ohne Internetverbindung",
+      "r7": "Erreicht jemanden in einer anderen Stadt"
+    },
+    "note": "Stand Oktober 2026. AirDrop erreicht die gelisteten Android-Handys nur, solange das Apple-Gerät auf „Für alle für 10 Minuten“ steht. BIShare braucht für eine Übertragung in der Nähe seine App auf beiden Geräten; sie läuft über ein gemeinsames WLAN oder den Hotspot eines Handys und kommt ohne Internet aus. Für jemanden in der Ferne erstellt BIShare einen Link, der sich in jedem Browser öffnet, bis zu 100 GB fasst, bis zu 24 Stunden gilt und an beiden Enden Internet braucht."
+  },
+  "steps": {
+    "title": "So senden Sie an ein Gerät, das AirDrop nicht erreicht",
+    "items": {
+      "0": {
+        "h": "BIShare auf beiden Geräten installieren",
+        "b": "Die App ist kostenlos im App Store, bei Google Play, im Microsoft Store und im Mac App Store, dazu gibt es einen Download für Linux. Es wird kein Konto angelegt und nichts muss gekoppelt werden."
+      },
+      "1": {
+        "h": "Ins selbe Netzwerk gehen",
+        "b": "Verbinden Sie beide Geräte mit demselben WLAN. Ist kein Router da, schalten Sie den Hotspot eines Handys ein und verbinden das andere Gerät damit; <goOffline>Internet ist dafür nicht nötig</goOffline>."
+      },
+      "2": {
+        "h": "Gerät wählen und senden",
+        "b": "Wählen Sie die Dateien, tippen Sie in der Liste der Geräte in der Nähe auf das andere Gerät und nehmen Sie auf der Empfängerseite an. Für jemanden an einem anderen Ort erstellen Sie stattdessen einen Link: <goEncrypted>Die Dateien werden vor dem Hochladen auf Ihrem Gerät verschlüsselt</goEncrypted>, und der Link öffnet sich in jedem Browser."
+      }
+    }
+  },
+  "trouble": {
+    "title": "Wenn AirDrop nicht funktioniert",
+    "body": "Drei Prüfungen klären die meisten Fälle. Den ausführlichen Gang durch jedes Symptom finden Sie in <goAirdropFix>unserer Anleitung zur AirDrop-Fehlersuche</goAirdropFix>.",
+    "items": {
+      "0": {
+        "h": "Das andere Gerät erscheint nicht",
+        "b": "Bitten Sie den Besitzer, erneut „Für alle für 10 Minuten“ zu wählen, den Bildschirm aufzuwecken und näher zu kommen. Ein Gerät auf „Nur für Kontakte“ bleibt verborgen, solange die E-Mail-Adresse oder Nummer Ihres Apple Accounts nicht auf Ihrer Karte in den Kontakten des Besitzers steht."
+      },
+      "1": {
+        "h": "Es erscheint, aber nichts kommt an",
+        "b": "Die Anfrage wartet auf dem anderen Bildschirm auf eine Antwort. Prüfen Sie, ob die Mitteilung übersehen wurde, und trennen Sie auf beiden Geräten den Persönlichen Hotspot, wie Apple es empfiehlt."
+      },
+      "2": {
+        "h": "Es geht immer noch nicht",
+        "b": "Prüfen Sie in den Einstellungen, ob WLAN und Bluetooth auf beiden Geräten eingeschaltet sind, und starten Sie beide neu. Apples letzter Schritt ist derselbe: neu starten und noch einmal versuchen."
+      }
+    }
+  },
+  "security": {
+    "title": "AirDrop sicher verwenden",
+    "body": "AirDrop ist verschlüsselt und fragt, bevor es etwas sichert. Damit ist der größte Teil des Risikos abgedeckt. Der Rest hängt davon ab, wer Ihr Gerät finden kann.",
+    "items": {
+      "0": {
+        "h": "Bei „Nur für Kontakte“ bleiben",
+        "b": "Das ist nicht ohne Grund die Voreinstellung. Öffnen Sie das Gerät nur dann für „Für alle für 10 Minuten“, wenn Sie gleich etwas empfangen, und lassen Sie den Timer es wieder schließen."
+      },
+      "1": {
+        "h": "Ablehnen, was Sie nicht erwartet haben",
+        "b": "An einem belebten Ort kann jeder in der Nähe eine Anfrage an ein Gerät schicken, das für alle offen ist. Lehnen Sie Anfragen von Unbekannten ab. Ab iOS 26.2 braucht ein Fremder außerdem den Code, den nur Ihr Bildschirm zeigt."
+      },
+      "2": {
+        "h": "Geräte von Kindern",
+        "b": "Apples Kommunikationssicherheit kann ein Kind warnen und den Inhalt unscharf darstellen, wenn sensible Bilder per AirDrop ankommen oder gesendet werden sollen. Die Bildschirmzeit kann AirDrop auf dem Gerät eines Kindes auch ganz entfernen."
+      }
+    }
+  },
+  "faq": {
+    "title": "AirDrop benutzen: häufige Fragen",
+    "items": {
+      "0": {
+        "q": "Was ist AirDrop?",
+        "a": "AirDrop ist die drahtlose Teilen-Funktion, die in iPhone, iPad und Mac eingebaut ist. Sie sendet Fotos, Videos, Dokumente und Links per Bluetooth und einer direkten WLAN-Verbindung an ein Apple-Gerät in der Nähe, ohne Internetverbindung, und der Empfänger entscheidet, ob er annimmt."
+      },
+      "1": {
+        "q": "Wie schalte ich AirDrop ein?",
+        "a": "Auf iPhone oder iPad öffnen Sie das Kontrollzentrum, halten die Verbindungssteuerungen oben links gedrückt, tippen auf AirDrop und wählen „Nur für Kontakte“ oder „Für alle für 10 Minuten“. Am Mac klicken Sie in der Menüleiste auf das Kontrollzentrum und auf AirDrop, bis das Symbol blau ist."
+      },
+      "2": {
+        "q": "Wo finde ich AirDrop auf meinem iPhone?",
+        "a": "An zwei Stellen: im Kontrollzentrum, in der Gruppe der Verbindungssteuerungen, die sich beim Gedrückthalten vergrößert, und in den Einstellungen unter Allgemein, AirDrop. Zum Senden finden Sie AirDrop, nachdem Sie in einer beliebigen App auf die Teilen-Taste getippt haben."
+      },
+      "3": {
+        "q": "Wie sende ich Fotos per AirDrop?",
+        "a": "Öffnen Sie Fotos, tippen Sie auf Auswählen und markieren Sie die Fotos, tippen Sie auf die Teilen-Taste und dann auf AirDrop, und tippen Sie auf die Person oder das Gerät. Sie tippt auf Annehmen, und die Fotos werden in ihrer Fotos-App gesichert."
+      },
+      "4": {
+        "q": "Wie sende ich per AirDrop vom Mac auf ein iPhone?",
+        "a": "Wecken Sie das iPhone auf und legen Sie es neben den Mac. Klicken Sie am Mac auf die Teilen-Taste und wählen Sie AirDrop, oder öffnen Sie AirDrop in der Finder-Seitenleiste und ziehen Sie die Datei auf das iPhone. Nutzen beide denselben Apple Account, wird das Objekt automatisch angenommen."
+      },
+      "5": {
+        "q": "Wie sende ich per AirDrop vom iPhone auf einen Mac?",
+        "a": "Schalten Sie AirDrop am Mac im Kontrollzentrum ein und tippen Sie am iPhone auf Teilen, AirDrop und den Mac. Nehmen Sie die Mitteilung am Mac an; viele Dateien werden in seinem Ordner „Downloads“ gesichert."
+      },
+      "6": {
+        "q": "Wo landen AirDrop-Dateien?",
+        "a": "Die meisten Objekte werden in der App gesichert, aus der sie gesendet wurden, Fotos also in Fotos. Auf iPhone oder iPad werden manche Objekte in der Dateien-App gesichert, und am Mac manche automatisch im Ordner „Downloads“."
+      },
+      "7": {
+        "q": "Wie ändere ich meinen AirDrop-Namen?",
+        "a": "Auf iPhone oder iPad gehen Sie zu Einstellungen, Allgemein, Info, Name und geben einen neuen Namen ein. Am Mac ändern Sie den Computernamen unter Systemeinstellungen, Allgemein, Info. Wer Sie in seinen Kontakten hat, sieht weiterhin den Namen, den er für Sie gespeichert hat."
+      },
+      "8": {
+        "q": "Wie schalte ich AirDrop aus?",
+        "a": "Auf iPhone oder iPad wählen Sie „Empfangen aus“ in der AirDrop-Steuerung im Kontrollzentrum oder unter Einstellungen, Allgemein, AirDrop. Am Mac klicken Sie im Kontrollzentrum auf AirDrop, bis das Symbol nicht mehr blau ist."
+      },
+      "9": {
+        "q": "Nutzt AirDrop WLAN oder mobile Daten?",
+        "a": "WLAN und Bluetooth müssen eingeschaltet sein, aber eine Übertragung zwischen Geräten, die in Reichweite bleiben, nutzt weder ein WLAN-Netzwerk noch das Internet. Verlassen Sie mittendrin die Reichweite, kann sie über das Internet fertig laufen, außer die Option für mobile Daten ist unter Einstellungen, Allgemein, AirDrop ausgeschaltet."
+      },
+      "10": {
+        "q": "Kann ich per AirDrop an Android oder Windows senden?",
+        "a": "An Android nur, wenn das Handy auf Googles Quick-Share-Liste steht und das Apple-Gerät auf „Für alle für 10 Minuten“ eingestellt ist. Windows-PCs, Chromebooks, Linux-Rechner und andere Android-Handys können AirDrop nicht empfangen; dafür gibt es plattformübergreifende Apps wie BIShare."
+      },
+      "11": {
+        "q": "Kann ich einen AirDrop nach dem Senden abbrechen?",
+        "a": "Der Empfänger kann die Anfrage ablehnen, wenn sie erscheint. Apples Handbücher beschreiben keinen Weg, ein angenommenes Objekt zurückzuholen, die andere Person müsste es also selbst löschen."
+      }
+    }
+  },
+  "cta": {
+    "title": "AirDrop für Apple-Geräte. BIShare für den Rest.",
+    "body": "Bleiben Sie für iPhone, iPad und Mac bei AirDrop. Ist das andere Gerät ein Windows-PC, ein Android-Handy oder ein Linux-Notebook, sendet BIShare dieselben Dateien direkt, kostenlos und ohne Konto.",
+    "download": "BIShare kostenlos holen",
+    "transfer": "Datei aus dem Browser senden"
+  },
+  "a11y": {
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "art": {
+    "hero": {
+      "alt": "AirDrop benutzen: Ein iPhone sendet per AirDrop eine Datei an einen Mac, mit den Schritten einschalten, senden, annehmen und Datei finden",
+      "title": "AirDrop benutzen",
+      "sub": "Einschalten · senden · annehmen · Datei finden",
+      "left": "iPhone oder iPad",
+      "right": "Mac"
+    },
+    "options": {
+      "alt": "Die drei Empfangseinstellungen von AirDrop und wer Ihnen jeweils senden kann: Empfangen aus, Nur für Kontakte und Für alle für 10 Minuten",
+      "title": "Wer Ihnen per AirDrop senden kann",
+      "sub": "Die drei Empfangseinstellungen auf iPhone und iPad",
+      "o0": "Empfangen aus",
+      "o0d": "Niemand kann Ihnen etwas senden",
+      "o1": "Nur für Kontakte",
+      "o1d": "Personen aus Ihren Kontakten, erkannt an E-Mail oder Nummer ihres Apple Accounts",
+      "o2": "Für alle für 10 Minuten",
+      "o2d": "Jedes Apple-Gerät in der Nähe, danach schließt es sich von selbst",
+      "foot": "Nach 10 Minuten: Nur für Kontakte, wenn Sie angemeldet sind, sonst Empfangen aus"
+    },
+    "landing": {
+      "alt": "Wo AirDrop Empfangenes sichert: Fotos in der Fotos-App, andere Dateien in ihrer eigenen App oder in Dateien, der Ordner Downloads am Mac und automatisches Sichern zwischen Ihren eigenen Geräten",
+      "title": "Wo AirDrop-Dateien landen",
+      "sub": "Die meisten Objekte werden in der App gesichert, aus der sie gesendet wurden",
+      "items": {
+        "0": {
+          "q": "Ein Foto oder Video",
+          "a": "Die Fotos-App"
+        },
+        "1": {
+          "q": "Ein Dokument oder eine andere Datei, auf iPhone oder iPad",
+          "a": "Die eigene App oder Dateien"
+        },
+        "2": {
+          "q": "Etwas, das an einen Mac geht",
+          "a": "Oft der Ordner Downloads"
+        },
+        "3": {
+          "q": "Von einem Ihrer Geräte auf ein anderes",
+          "a": "Automatisch angenommen und gesichert"
+        }
+      }
+    },
+    "reach": {
+      "alt": "Was AirDrop 2026 erreicht: iPhone, iPad und Mac direkt, Android-Handys auf Googles Liste nur mit Für alle für 10 Minuten, und keine anderen Android-Handys, Windows-PCs oder Linux",
+      "title": "Was AirDrop erreicht",
+      "sub": "Stand Oktober 2026",
+      "yes": "Eingebaut",
+      "cond": "Nur mit Für alle für 10 Minuten",
+      "no": "Braucht ein anderes Werkzeug",
+      "d0": "iPhone",
+      "d1": "iPad",
+      "d2": "Mac",
+      "d3": "Android-Handys auf Googles Liste",
+      "d4": "Andere Android-Handys",
+      "d5": "Windows-PC",
+      "d6": "Linux"
+    }
+  }
+}

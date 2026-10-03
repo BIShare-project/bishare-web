@@ -29,6 +29,7 @@ const GUIDES = {
   goLocalsend: "/localsend-alternative",
   goAirdropAndroid: "/airdrop-for-android",
   goAirdropOnline: "/airdrop-online",
+  goHowToAirdrop: "/how-to-airdrop",
   goAirdropFix: "/airdrop-not-working",
   goShareit: "/shareit-alternative",
   goNearby: "/nearby-share-alternative",

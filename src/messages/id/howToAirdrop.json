@@ -1,0 +1,395 @@
+{
+  "meta": {
+    "title": "Cara AirDrop di iPhone, iPad, dan Mac: Nyalakan, Kirim, Terima",
+    "description": "Cara menyalakan AirDrop dan mengirim foto atau file antara iPhone, iPad, dan Mac, langkah demi langkah. Juga ke mana file tersimpan, kode AirDrop, dan batasnya."
+  },
+  "hero": {
+    "eyebrow": "Panduan AirDrop",
+    "title": "Cara AirDrop di iPhone, iPad, dan Mac",
+    "body": "AirDrop mengirim foto, video, dokumen, dan tautan antarperangkat Apple yang berdekatan tanpa kabel, tanpa layar masuk akun, dan tanpa koneksi internet. Gerakannya sederhana, tetapi kebanyakan pertanyaan orang justru soal hal di sekelilingnya: di mana tombolnya, kenapa orang lain tidak muncul, ke mana fotonya pergi, dan kenapa tiba-tiba diminta kode. Panduan ini mengikuti seluruh alurnya di iPhone, iPad, dan Mac sesuai dokumentasi Apple per Oktober 2026: menyalakan AirDrop, mengirim dan menerima, berbagi dengan orang yang tidak ada di kontak, pengaturan yang perlu diketahui, dan perangkat yang masih belum terjangkau AirDrop. Untuk perangkat itu, <strong>BIShare</strong> melakukan pekerjaan yang sama <strong>antara iPhone, Android, Windows, Mac, dan Linux</strong>. <highlight>Gratis, open source, dan tidak meminta akun.</highlight>",
+    "ctaPrimary": "Dapatkan BIShare gratis"
+  },
+  "updated": "Diperbarui Oktober 2026 · langkah dicocokkan dengan Petunjuk Pengguna iPhone dan Mac dari Apple serta artikel Dukungan Apple 119857 yang terbit 14 September 2026",
+  "disclosure": "BIShare adalah aplikasi kami. Antara dua perangkat Apple, AirDrop sudah terpasang dan merupakan pilihan yang lebih baik, jadi panduan ini mengajarkan AirDrop lebih dulu dan baru menyebut BIShare di titik AirDrop berhenti.",
+  "quick": {
+    "title": "Cara AirDrop: jawaban singkat",
+    "items": [
+      "<strong>Menyalakan di iPhone atau iPad:</strong> buka Pusat Kontrol, sentuh lama kelompok kontrol koneksi di sudut kiri atas, ketuk AirDrop, lalu pilih \"Hanya Kontak\" atau \"Semua Orang selama 10 Menit\".",
+      "<strong>Menyalakan di Mac:</strong> klik Pusat Kontrol di bar menu, lalu AirDrop. Ikon biru berarti menyala, dan panah di sampingnya untuk memilih Hanya Kontak atau Semua Orang.",
+      "<strong>Mengirim:</strong> buka foto atau file, ketuk tombol Bagikan, ketuk AirDrop, lalu ketuk orang atau perangkatnya. Di Mac, pakai tombol Bagikan di bar alat atau seret file ke penerima di jendela AirDrop pada Finder.",
+      "<strong>Menerima:</strong> ketuk Terima pada notifikasi. Foto masuk ke app Foto, item lain ke app asalnya atau ke File, dan di Mac sering kali ke folder Unduhan.",
+      "<strong>Orangnya tidak ada di kontak Anda:</strong> ia memilih \"Semua Orang selama 10 Menit\". Di iOS 26.2 atau lebih baru, ia juga mengambil kode AirDrop dan membacakannya untuk Anda ketik.",
+      "<strong>Perangkat lawannya PC Windows, komputer Linux, atau kebanyakan HP Android:</strong> AirDrop tidak bisa menjangkaunya. Pakai aplikasi lintas platform seperti BIShare, atau kirim tautan."
+    ]
+  },
+  "basics": {
+    "title": "Apa itu AirDrop dan apa yang dibutuhkannya",
+    "body": "AirDrop adalah cara bawaan Apple untuk menyerahkan file ke perangkat yang berjarak beberapa langkah. Begitu tahu cara AirDrop menemukan perangkat itu, hampir semua aturan berikutnya jadi masuk akal.",
+    "items": {
+      "0": {
+        "h": "Apa fungsinya",
+        "b": "AirDrop memindahkan foto, video, dokumen, tautan, kartu kontak, dan lainnya dari satu perangkat Apple ke perangkat Apple lain di dekatnya. Petunjuk Apple menyebutnya pengiriman nirkabel ke iPhone, iPad, atau Mac terdekat, baik perangkat itu milik Anda sendiri maupun milik orang lain. Penerima mendapat notifikasi dan bisa menerima atau menolak setiap kiriman."
+      },
+      "1": {
+        "h": "Cara kerjanya",
+        "b": "Menurut panduan keamanan platform Apple, AirDrop memakai Bluetooth Low Energy untuk mendeteksi perangkat di sekitar dan sambungan Wi-Fi peer-to-peer buatan Apple untuk membawa filenya. Kedua radio Wi-Fi berbicara langsung satu sama lain, tanpa koneksi internet dan tanpa router di tengah, dan sambungannya dienkripsi dengan TLS. Itu sebabnya AirDrop tetap jalan di kereta atau di tengah lapangan, dan itu juga sebabnya kedua radio harus menyala."
+      },
+      "2": {
+        "h": "Yang dibutuhkan kedua perangkat",
+        "b": "Wi-Fi dan Bluetooth menyala, dan jarak di antara keduanya tidak lebih dari 10 meter. Artikel dukungan Apple menambahkan bahwa Hotspot Pribadi sebaiknya diputus di kedua perangkat, dan petunjuk penggunanya mengingatkan bahwa VPN yang diatur untuk memblokir jaringan lokal bisa mengganggu. Tidak satu pun perangkat perlu tersambung ke jaringan Wi-Fi."
+      },
+      "3": {
+        "h": "Perangkat mana yang punya",
+        "b": "Apple mencantumkan iOS 7, iPadOS 13, dan OS X 10.10 sebagai syarat minimum AirDrop. Hanya Kontak butuh iOS 10, iPadOS 13, atau macOS 10.12, dan \"Semua Orang selama 10 Menit\" butuh iOS 16.2 atau iPadOS 16.2; di perangkat lunak yang lebih lama, pilihan yang sama cukup bernama Semua Orang. Praktisnya, setiap iPhone, iPad, atau Mac yang dijual sepuluh tahun terakhir punya AirDrop."
+      }
+    }
+  },
+  "turnon": {
+    "title": "Cara menyalakan AirDrop",
+    "body": "AirDrop tidak punya app sendiri. Ia berupa pengaturan yang menentukan siapa yang boleh mengirim kepada Anda, dan letaknya di Pusat Kontrol pada setiap perangkat Apple.",
+    "items": {
+      "0": {
+        "h": "Di iPhone atau iPad",
+        "b": "Buka Pusat Kontrol dengan menggesek turun dari sudut kanan atas, atau naik dari tepi bawah pada iPhone yang punya tombol Utama. Sentuh lama kelompok kontrol koneksi di sudut kiri atas sampai melebar, lalu ketuk AirDrop. Pilih \"Hanya Kontak\" atau \"Semua Orang selama 10 Menit\". Pilihan yang sama ada di Pengaturan, Umum, AirDrop."
+      },
+      "1": {
+        "h": "Di Mac",
+        "b": "Klik ikon Pusat Kontrol di bar menu, lalu klik AirDrop. Jika ikon AirDrop berwarna biru, AirDrop menyala. Klik panah di samping AirDrop untuk memilih antara Hanya Kontak dan Semua Orang. Anda juga bisa membuka jendela Finder dan mengeklik AirDrop di bar samping, yang sekaligus menampilkan siapa saja yang ada di dekat Anda."
+      },
+      "2": {
+        "h": "Hanya Kontak atau Semua Orang selama 10 Menit?",
+        "b": "Hanya Kontak adalah bawaan dan pilihan sehari-hari yang lebih aman, karena hanya orang di Kontak Anda yang bisa menemukan perangkat Anda. \"Semua Orang selama 10 Menit\" membukanya untuk perangkat Apple mana pun di sekitar, lalu menutup sendiri. Menurut Apple, setelah sepuluh menit pengaturan ini kembali ke Hanya Kontak jika Anda masuk dengan Akun Apple, dan ke Penerimaan Mati jika tidak."
+      },
+      "3": {
+        "h": "Kalau kontrol AirDrop tidak ada",
+        "b": "Jika AirDrop sama sekali tidak ditemukan, biasanya ia sedang dibatasi. Periksa Pengaturan, Durasi Layar, Pembatasan Konten & Privasi, App & Fitur yang Diizinkan. iPhone dari kantor atau sekolah juga bisa dimatikan AirDrop-nya oleh organisasi yang mengelolanya."
+      }
+    }
+  },
+  "send": {
+    "title": "Cara AirDrop dari iPhone atau iPad",
+    "body": "Setiap app yang punya tombol Bagikan bisa mengirim lewat AirDrop. Langkahnya hanya berbeda pada cara memilih apa yang dikirim.",
+    "items": {
+      "0": {
+        "h": "Foto dan video",
+        "b": "Buka app Foto, ketuk Pilih, lalu ketuk setiap foto atau video yang diinginkan. Ketuk tombol Bagikan, lalu AirDrop. Orang dari kontak Anda yang berada di dekat Anda muncul di bagian Orang; ketuk namanya, dan minta ia mengetuk Terima."
+      },
+      "1": {
+        "h": "File dan dokumen",
+        "b": "Di app File, ketuk tombol Lainnya, ketuk Pilih, lalu pilih filenya. Ketuk Bagikan, lalu AirDrop, lalu penerimanya. Dokumen yang sedang terbuka di app lain dikirim dengan cara yang sama lewat tombol Bagikan milik app itu."
+      },
+      "2": {
+        "h": "Tautan, kontak, dan kata sandi",
+        "b": "Halaman web di Safari atau kartu kontak bisa dikirim dari tombol Bagikannya, dan terbuka di app yang sesuai di perangkat penerima. Apple juga mengizinkan kata sandi dan kunci sandi yang tersimpan dibagikan lewat AirDrop kepada orang yang Anda percaya."
+      },
+      "3": {
+        "h": "Dekatkan kedua iPhone",
+        "b": "Dengan iOS 17 atau lebih baru di kedua ponsel, Anda bisa melewati daftar untuk orang yang ada di kontak Anda. Buka item yang ingin dibagikan dan dekatkan iPhone Anda ke iPhone miliknya, lalu AirDrop menawarkan untuk mengirimnya. Jika didekatkan tanpa ada yang dibagikan, dua iPhone menawarkan NameDrop, yang bertukar kartu kontak. Keduanya diatur oleh opsi mendekatkan perangkat di Pengaturan, Umum, AirDrop."
+      },
+      "4": {
+        "h": "Ke perangkat Anda sendiri",
+        "b": "Mengirim dari iPhone ke iPad atau Mac milik sendiri tidak perlu persetujuan. Jika kedua perangkat masuk dengan Akun Apple yang sama, item diterima dan disimpan otomatis."
+      }
+    }
+  },
+  "mac": {
+    "title": "Cara AirDrop dari Mac, dan antara Mac dan iPhone",
+    "body": "Mac bisa mengirim dengan dua cara, dan saat menerima ada satu detail yang perlu diketahui.",
+    "items": {
+      "0": {
+        "h": "Dengan tombol Bagikan",
+        "b": "Buka itemnya, klik tombol Bagikan di bar alat app, pilih AirDrop, lalu klik penerimanya. Yang tampil hanya perangkat yang berada di dekat Anda, Wi-Fi dan Bluetooth-nya menyala, dan bisa menerima file dari Mac Anda."
+      },
+      "1": {
+        "h": "Dari Finder",
+        "b": "Buka jendela Finder dan klik AirDrop di bar samping. Perangkat di sekitar muncul sebagai ikon; seret satu atau beberapa file ke perangkat yang dituju. Ini jalur tercepat untuk file yang sudah ada di desktop atau di sebuah folder."
+      },
+      "2": {
+        "h": "Dari Mac ke iPhone",
+        "b": "Bangunkan iPhone dan letakkan dekat Mac, lalu kirim dari tombol Bagikan atau jendela Finder. Jika iPhone itu milik Anda dan memakai Akun Apple yang sama, item tiba tanpa pertanyaan. Foto masuk ke Foto, dan file lain terbuka di app yang menanganinya."
+      },
+      "3": {
+        "h": "Dari iPhone ke Mac",
+        "b": "Nyalakan AirDrop di Mac lebih dulu, lalu di iPhone ketuk Bagikan, AirDrop, dan nama Mac itu. Di Mac, permintaannya datang sebagai notifikasi, atau muncul di dalam jendela AirDrop pada Finder jika jendela itu sedang terbuka. Banyak file langsung disimpan ke folder Unduhan."
+      }
+    }
+  },
+  "receive": {
+    "title": "Cara menerima AirDrop, dan ke mana filenya pergi",
+    "body": "Tidak ada yang masuk tanpa persetujuan Anda, kecuali pengirimnya Anda sendiri. Setelah itu, satu-satunya teka-teki adalah di mana itemnya disimpan.",
+    "items": {
+      "0": {
+        "h": "Terima atau tolak",
+        "b": "Notifikasi muncul saat seseorang mengirim sesuatu kepada Anda. Ketuk atau klik Terima untuk mengambilnya, atau Tolak untuk menolaknya. Jika notifikasi menyebut perlu kode, ambil kode AirDrop yang ditawarkan dan berikan kepada pengirim."
+      },
+      "1": {
+        "h": "Foto dan video",
+        "b": "Aturan Apple: sebagian besar item disimpan di app asal pengirimannya. Foto yang dikirim dari app Foto disimpan di Foto pada perangkat Anda."
+      },
+      "2": {
+        "h": "File lain di iPhone atau iPad",
+        "b": "Dokumen terbuka di app yang cocok dengannya, dan sebagian item disimpan di app File. Jika sebuah file seperti menghilang, buka File dan lihat bagian Terbaru."
+      },
+      "3": {
+        "h": "Di Mac",
+        "b": "Sebagian item disimpan otomatis di folder Unduhan. Untuk yang lain, Mac memberi pilihan, misalnya antara menyimpan foto di Unduhan dan membukanya di Foto."
+      }
+    }
+  },
+  "strangers": {
+    "title": "Cara AirDrop ke orang yang tidak ada di kontak Anda",
+    "body": "Di sinilah kebanyakan percobaan gagal, karena pengaturan bawaan menyembunyikan perangkat dari siapa pun yang tidak dikenalnya.",
+    "items": {
+      "0": {
+        "h": "Yang sebenarnya diperiksa Hanya Kontak",
+        "b": "Saling menyimpan nomor tidak selalu cukup. Apple menyatakan bahwa penerima harus menyimpan alamat email atau nomor telepon Akun Apple pengirim di kartu kontak pengirim itu. Jika teman menyimpan Anda dengan nomor yang tidak terkait Akun Apple Anda, perangkatnya tetap tersembunyi dari Anda."
+      },
+      "1": {
+        "h": "Semua Orang selama 10 Menit",
+        "b": "Penerima membuka Pusat Kontrol, menyentuh lama kontrol koneksi, mengetuk AirDrop, lalu memilih \"Semua Orang selama 10 Menit\". Perangkatnya kini muncul di perangkat Anda. Kirim dalam sepuluh menit itu, karena pengaturannya kembali sendiri."
+      },
+      "2": {
+        "h": "Kode AirDrop, baru di iOS 26.2",
+        "b": "Jika kedua perangkat memakai iOS 26.2, iPadOS 26.2, atau macOS 26.2 atau lebih baru dan pengirim bukan kontak, AirDrop meminta kode. Penerima mengambil kode AirDrop, kodenya muncul di layarnya, lalu pengirim mengetiknya. Selama 30 hari berikutnya kalian bisa berbagi tanpa kode lagi. Untuk mengakhirinya lebih cepat, buka Kontak, cari orang itu di daftar orang lain yang dikenal, lalu pilih untuk melupakan orang itu."
+      }
+    }
+  },
+  "settings": {
+    "title": "Mengganti nama AirDrop, mematikan AirDrop, dan pengaturan lain",
+    "body": "Beberapa pengaturan menentukan perilaku AirDrop. Semuanya bisa diubah dalam hitungan detik.",
+    "items": {
+      "0": {
+        "h": "Mengganti nama AirDrop",
+        "b": "Orang yang menyimpan Anda di kontaknya melihat nama depan dan foto yang ia simpan untuk Anda. Orang lain melihat nama perangkat Anda. Ubah di Pengaturan, Umum, Mengenai, Nama pada iPhone atau iPad. Di Mac, nama komputer diatur di Pengaturan Sistem, Umum, Mengenai."
+      },
+      "1": {
+        "h": "Mematikan AirDrop",
+        "b": "Di iPhone atau iPad, buka kontrol AirDrop di Pusat Kontrol, atau buka Pengaturan, Umum, AirDrop, lalu pilih Penerimaan Mati. Di Mac, klik AirDrop di Pusat Kontrol sampai ikonnya tidak lagi biru. Agar perangkat anak sama sekali tidak memakai AirDrop, matikan di Durasi Layar, Pembatasan Konten & Privasi, App & Fitur yang Diizinkan."
+      },
+      "2": {
+        "h": "Mendekatkan perangkat",
+        "b": "Opsi ini di Pengaturan, Umum, AirDrop mengatur berbagi dengan mendekatkan dua iPhone, termasuk NameDrop. Matikan jika Anda lebih suka memulai setiap kiriman dari tombol Bagikan."
+      },
+      "3": {
+        "h": "Data seluler",
+        "b": "Jika Anda keluar dari jangkauan setelah kiriman dimulai, AirDrop menyelesaikannya lewat internet, dan Apple mencatat bahwa biaya data seluler bisa berlaku. Agar AirDrop tidak memakai data seluler, matikan opsi data seluler di Pengaturan, Umum, AirDrop."
+      }
+    }
+  },
+  "reach": {
+    "title": "Yang bisa dan tidak bisa dijangkau AirDrop",
+    "body": "AirDrop dibuat untuk perangkat Apple di ruangan yang sama. Sejak akhir 2025 ada satu celah ke Android, dan beberapa batas masih bertahan.",
+    "items": {
+      "0": {
+        "h": "HP Android di daftar Google",
+        "b": "Quick Share dari Google bisa berbahasa AirDrop di HP yang disebut Google: seri Pixel 10 dan 9 serta Pixel 8a, model Galaxy S dan Z terbaru, dan beberapa HP dari Xiaomi, OnePlus, OPPO, HONOR, dan vivo. <goAirdropAndroid>Perangkat Apple harus berada di \"Semua Orang selama 10 Menit\"</goAirdropAndroid>, dan Galaxy perlu menyalakan sakelar berbagi dengan perangkat Apple. HP Android yang tidak ada di daftar tidak pernah muncul di AirDrop."
+      },
+      "1": {
+        "h": "PC Windows, Chromebook, dan Linux",
+        "b": "<goAirdropWindows>Apple tidak pernah merilis AirDrop untuk Windows</goAirdropWindows>, dan tidak ada apa pun di Chromebook atau komputer Linux yang menjawab permintaan AirDrop. File untuk mesin-mesin itu butuh kabel, tautan cloud, atau aplikasi yang berjalan di kedua sisi."
+      },
+      "2": {
+        "h": "Orang di tempat lain",
+        "b": "AirDrop hanya bisa dimulai antara perangkat yang berjarak sekitar 10 meter atau kurang. Internet hanya dipakai untuk menyelesaikan kiriman yang sudah dimulai dalam jangkauan. Untuk mengirim ke kota lain, <goLargeFiles>pakai tautan saja</goLargeFiles>."
+      },
+      "3": {
+        "h": "File dalam jumlah besar",
+        "b": "Apple sendiri menyebut AirDrop paling cocok untuk berbagi sedikit file dan menunjuk cara lain untuk memindahkan banyak file. Untuk ratusan foto atau video yang sangat panjang, impor lewat kabel atau <goIphonePhotos>jalur yang memang dibuat untuk jumlah besar</goIphonePhotos> lebih bisa diandalkan."
+      }
+    }
+  },
+  "table": {
+    "title": "AirDrop dan BIShare sekilas",
+    "cols": {
+      "feature": "Yang Anda butuhkan",
+      "airdrop": "AirDrop",
+      "bishare": "BIShare"
+    },
+    "rows": {
+      "r0": "Sudah ada di perangkat, tanpa memasang apa pun",
+      "r1": "iPhone, iPad, dan Mac satu sama lain",
+      "r2": "HP Android di daftar Quick Share Google",
+      "r3": "Semua HP Android lainnya",
+      "r4": "PC Windows",
+      "r5": "Komputer Linux",
+      "r6": "Jalan tanpa koneksi internet",
+      "r7": "Menjangkau orang di kota lain"
+    },
+    "note": "Per Oktober 2026. AirDrop menjangkau HP Android yang terdaftar hanya selama perangkat Apple diatur ke \"Semua Orang selama 10 Menit\". BIShare butuh aplikasinya di kedua perangkat untuk transfer jarak dekat, yang berjalan lewat jaringan Wi-Fi yang sama atau hotspot HP tanpa perlu internet. Untuk orang yang jauh, BIShare membuat tautan yang terbuka di browser apa pun, memuat hingga 100 GB, bertahan hingga 24 jam, dan butuh internet di kedua ujung."
+  },
+  "steps": {
+    "title": "Cara mengirim ke perangkat yang tidak terjangkau AirDrop",
+    "items": {
+      "0": {
+        "h": "Pasang BIShare di kedua perangkat",
+        "b": "BIShare gratis di App Store, Google Play, Microsoft Store, dan Mac App Store, dengan unduhan untuk Linux. Tidak ada akun yang dibuat dan tidak ada yang perlu dipasangkan."
+      },
+      "1": {
+        "h": "Masuk ke jaringan yang sama",
+        "b": "Sambungkan kedua perangkat ke satu jaringan Wi-Fi. Jika tidak ada router, nyalakan hotspot di salah satu HP dan sambungkan perangkat lain ke sana; <goOffline>untuk itu tidak perlu internet</goOffline>."
+      },
+      "2": {
+        "h": "Pilih perangkat lalu kirim",
+        "b": "Pilih filenya, ketuk perangkat lain di daftar perangkat terdekat, dan terima di sisi penerima. Untuk orang yang berada di tempat lain, buat tautan saja: <goEncrypted>file dienkripsi di perangkat Anda sebelum diunggah</goEncrypted>, dan tautannya terbuka di browser apa pun."
+      }
+    }
+  },
+  "trouble": {
+    "title": "Kalau AirDrop tidak berfungsi",
+    "body": "Tiga pemeriksaan menyelesaikan sebagian besar kasus. Pembahasan lengkap setiap gejala ada di <goAirdropFix>panduan mengatasi masalah AirDrop kami</goAirdropFix>.",
+    "items": {
+      "0": {
+        "h": "Perangkat lain tidak muncul",
+        "b": "Minta pemiliknya memilih lagi \"Semua Orang selama 10 Menit\", menyalakan layarnya, dan mendekat. Perangkat yang memakai Hanya Kontak tetap tersembunyi kecuali alamat email atau nomor Akun Apple Anda ada di kartu Anda pada kontak pemiliknya."
+      },
+      "1": {
+        "h": "Muncul, tetapi tidak ada yang sampai",
+        "b": "Permintaannya sedang menunggu jawaban di layar seberang. Pastikan notifikasinya tidak terlewat, dan putuskan Hotspot Pribadi di kedua perangkat, sesuai saran Apple."
+      },
+      "2": {
+        "h": "Masih macet",
+        "b": "Pastikan di Pengaturan bahwa Wi-Fi dan Bluetooth menyala di kedua perangkat, lalu mulai ulang keduanya. Langkah terakhir dari Apple pun sama: mulai ulang dan coba lagi."
+      }
+    }
+  },
+  "security": {
+    "title": "Memakai AirDrop dengan aman",
+    "body": "AirDrop terenkripsi dan bertanya dulu sebelum menyimpan apa pun, dan itu sudah menutup sebagian besar risiko. Sisanya soal siapa yang bisa menemukan perangkat Anda.",
+    "items": {
+      "0": {
+        "h": "Tetap di Hanya Kontak",
+        "b": "Ada alasannya pilihan ini jadi bawaan. Buka perangkat ke \"Semua Orang selama 10 Menit\" hanya saat Anda akan menerima sesuatu, dan biarkan pewaktunya menutup kembali."
+      },
+      "1": {
+        "h": "Tolak yang tidak Anda harapkan",
+        "b": "Di tempat ramai, siapa pun di sekitar bisa mengirim permintaan ke perangkat yang terbuka untuk semua orang. Tolak permintaan dari orang yang tidak Anda kenal. Dengan iOS 26.2 atau lebih baru, orang asing juga butuh kode yang hanya tampil di layar Anda."
+      },
+      "2": {
+        "h": "Perangkat anak",
+        "b": "Keamanan Komunikasi dari Apple bisa memperingatkan anak dan memburamkan konten saat gambar sensitif tiba, atau hendak dikirim, lewat AirDrop. Durasi Layar juga bisa menghilangkan AirDrop sepenuhnya dari perangkat anak."
+      }
+    }
+  },
+  "faq": {
+    "title": "Cara AirDrop: FAQ",
+    "items": {
+      "0": {
+        "q": "Apa itu AirDrop?",
+        "a": "AirDrop adalah fitur berbagi nirkabel bawaan iPhone, iPad, dan Mac. AirDrop mengirim foto, video, dokumen, dan tautan ke perangkat Apple terdekat lewat Bluetooth dan sambungan Wi-Fi langsung, tanpa perlu koneksi internet, dan penerima memilih mau menerima atau tidak."
+      },
+      "1": {
+        "q": "Bagaimana cara menyalakan AirDrop?",
+        "a": "Di iPhone atau iPad, buka Pusat Kontrol, sentuh lama kontrol koneksi di sudut kiri atas, ketuk AirDrop, lalu pilih \"Hanya Kontak\" atau \"Semua Orang selama 10 Menit\". Di Mac, klik Pusat Kontrol di bar menu lalu klik AirDrop sampai ikonnya biru."
+      },
+      "2": {
+        "q": "Di mana AirDrop di iPhone saya?",
+        "a": "Di dua tempat: di Pusat Kontrol, di dalam kelompok kontrol koneksi yang melebar saat disentuh lama, dan di Pengaturan pada Umum, AirDrop. Untuk mengirim, cari AirDrop setelah mengetuk tombol Bagikan di app apa pun."
+      },
+      "3": {
+        "q": "Bagaimana cara AirDrop foto?",
+        "a": "Buka Foto, ketuk Pilih dan pilih fotonya, ketuk tombol Bagikan lalu AirDrop, lalu ketuk orang atau perangkatnya. Ia mengetuk Terima, dan fotonya tersimpan di app Foto miliknya."
+      },
+      "4": {
+        "q": "Bagaimana cara AirDrop dari Mac ke iPhone?",
+        "a": "Bangunkan iPhone dan letakkan dekat Mac. Di Mac, klik tombol Bagikan dan pilih AirDrop, atau buka AirDrop di bar samping Finder lalu seret file ke iPhone. Jika keduanya memakai Akun Apple yang sama, item diterima otomatis."
+      },
+      "5": {
+        "q": "Bagaimana cara AirDrop dari iPhone ke Mac?",
+        "a": "Nyalakan AirDrop di Mac dari Pusat Kontrol, lalu di iPhone ketuk Bagikan, AirDrop, dan Mac itu. Terima notifikasinya di Mac; banyak file disimpan di folder Unduhan."
+      },
+      "6": {
+        "q": "Ke mana file AirDrop tersimpan?",
+        "a": "Sebagian besar item disimpan di app asal pengirimannya, jadi foto masuk ke Foto. Di iPhone atau iPad sebagian item disimpan di app File, dan di Mac sebagian disimpan otomatis di folder Unduhan."
+      },
+      "7": {
+        "q": "Bagaimana cara mengganti nama AirDrop saya?",
+        "a": "Di iPhone atau iPad, buka Pengaturan, Umum, Mengenai, Nama, lalu ketik nama baru. Di Mac, ubah nama komputer di Pengaturan Sistem, Umum, Mengenai. Orang yang menyimpan Anda di kontaknya tetap melihat nama yang ia simpan untuk Anda."
+      },
+      "8": {
+        "q": "Bagaimana cara mematikan AirDrop?",
+        "a": "Di iPhone atau iPad, pilih Penerimaan Mati pada kontrol AirDrop di Pusat Kontrol, atau di Pengaturan, Umum, AirDrop. Di Mac, klik AirDrop di Pusat Kontrol sampai ikonnya tidak lagi biru."
+      },
+      "9": {
+        "q": "Apakah AirDrop memakai Wi-Fi atau data seluler?",
+        "a": "Wi-Fi dan Bluetooth harus menyala, tetapi kiriman antara perangkat yang tetap dalam jangkauan tidak memakai jaringan Wi-Fi maupun internet. Jika Anda keluar dari jangkauan di tengah jalan, kiriman bisa selesai lewat internet, kecuali opsi data seluler dimatikan di Pengaturan, Umum, AirDrop."
+      },
+      "10": {
+        "q": "Bisakah AirDrop ke Android atau Windows?",
+        "a": "Ke Android hanya jika HP-nya ada di daftar Quick Share Google dan perangkat Apple diatur ke \"Semua Orang selama 10 Menit\". PC Windows, Chromebook, komputer Linux, dan HP Android lain tidak bisa menerima AirDrop; aplikasi lintas platform seperti BIShare menutup celah itu."
+      },
+      "11": {
+        "q": "Bisakah AirDrop dibatalkan setelah dikirim?",
+        "a": "Penerima bisa menolak permintaannya saat muncul. Petunjuk Apple tidak menyebut cara menarik kembali item yang sudah diterima, jadi orang itu sendiri yang harus menghapusnya."
+      }
+    }
+  },
+  "cta": {
+    "title": "AirDrop untuk perangkat Apple. BIShare untuk sisanya.",
+    "body": "Tetap pakai AirDrop untuk iPhone, iPad, dan Mac Anda. Saat perangkat lawannya PC Windows, HP Android, atau laptop Linux, BIShare mengirim file yang sama secara langsung, gratis dan tanpa akun.",
+    "download": "Dapatkan BIShare gratis",
+    "transfer": "Kirim file dari browser"
+  },
+  "a11y": {
+    "yes": "Ya",
+    "no": "Tidak"
+  },
+  "art": {
+    "hero": {
+      "alt": "Cara AirDrop: iPhone mengirim file ke Mac lewat AirDrop, dengan langkah nyalakan, kirim, terima, dan temukan filenya",
+      "title": "Cara AirDrop",
+      "sub": "Nyalakan · kirim · terima · temukan filenya",
+      "left": "iPhone atau iPad",
+      "right": "Mac"
+    },
+    "options": {
+      "alt": "Tiga pengaturan penerimaan AirDrop dan siapa yang bisa mengirim kepada Anda di tiap pengaturan: Penerimaan Mati, Hanya Kontak, dan Semua Orang selama 10 Menit",
+      "title": "Siapa yang bisa AirDrop ke Anda",
+      "sub": "Tiga pengaturan penerimaan di iPhone dan iPad",
+      "o0": "Penerimaan Mati",
+      "o0d": "Tidak ada yang bisa mengirim kepada Anda",
+      "o1": "Hanya Kontak",
+      "o1d": "Orang di Kontak Anda, dicocokkan lewat email atau nomor Akun Apple",
+      "o2": "Semua Orang selama 10 Menit",
+      "o2d": "Perangkat Apple mana pun di sekitar, lalu menutup sendiri",
+      "foot": "Setelah 10 menit: Hanya Kontak jika Anda masuk akun, selain itu Penerimaan Mati"
+    },
+    "landing": {
+      "alt": "Tempat AirDrop menyimpan kiriman yang Anda terima: foto di app Foto, file lain di app-nya sendiri atau di File, folder Unduhan di Mac, dan penyimpanan otomatis antara perangkat Anda sendiri",
+      "title": "Ke mana file AirDrop pergi",
+      "sub": "Sebagian besar item disimpan di app asal pengirimannya",
+      "items": {
+        "0": {
+          "q": "Foto atau video",
+          "a": "App Foto"
+        },
+        "1": {
+          "q": "Dokumen atau file lain, di iPhone atau iPad",
+          "a": "App-nya sendiri, atau File"
+        },
+        "2": {
+          "q": "Kiriman ke Mac",
+          "a": "Sering kali folder Unduhan"
+        },
+        "3": {
+          "q": "Dari satu perangkat Anda ke perangkat Anda yang lain",
+          "a": "Diterima dan disimpan otomatis"
+        }
+      }
+    },
+    "reach": {
+      "alt": "Yang dijangkau AirDrop di 2026: iPhone, iPad, dan Mac secara langsung, HP Android di daftar Google hanya dengan Semua Orang selama 10 Menit, dan tidak untuk HP Android lain, PC Windows, atau Linux",
+      "title": "Yang dijangkau AirDrop",
+      "sub": "Per Oktober 2026",
+      "yes": "Bawaan",
+      "cond": "Hanya dengan Semua Orang selama 10 Menit",
+      "no": "Butuh alat lain",
+      "d0": "iPhone",
+      "d1": "iPad",
+      "d2": "Mac",
+      "d3": "HP Android di daftar Google",
+      "d4": "HP Android lain",
+      "d5": "PC Windows",
+      "d6": "Linux"
+    }
+  }
+}
