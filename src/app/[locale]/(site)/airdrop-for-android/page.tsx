@@ -31,7 +31,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/airdrop-for-android";
 const NS = "airdrop";
-const LAST_UPDATED = "2026-09-13";
+const LAST_UPDATED = "2026-10-03";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const MEANING_ITEMS = ["0", "1", "2"] as const;
