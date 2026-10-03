@@ -28,6 +28,7 @@ const GUIDES = {
   goPcPc: "/transfer-files-between-computers",
   goLocalsend: "/localsend-alternative",
   goAirdropAndroid: "/airdrop-for-android",
+  goAirdropOnline: "/airdrop-online",
   goAirdropFix: "/airdrop-not-working",
   goShareit: "/shareit-alternative",
   goNearby: "/nearby-share-alternative",

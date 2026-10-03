@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "title": "AirDrop online: envía archivos entre navegadores, sin instalar",
+    "description": "Apple no tiene AirDrop para la web. Cinco herramientas de navegador hacen lo mismo entre iPhone, Android, Windows, Mac y Linux. Probadas en octubre de 2026, con sus límites."
+  },
+  "hero": {
+    "eyebrow": "En el navegador, sin instalar nada",
+    "title": "AirDrop online para cualquier dispositivo",
+    "body": "AirDrop nunca sale del hardware de Apple, y Apple no ofrece una versión web. Quien busca AirDrop online, AirDrop web o una página de AirDrop encuentra un sitio que se abre en dos dispositivos para que un archivo salte de uno a otro. Eso existe, no cuesta nada y le da igual que los dispositivos sean un iPhone, un móvil Android, un PC con Windows, un Mac o un portátil con Linux. <strong>BIShare</strong> lo hace en bishare.app/transfer y aquí mismo, en esta página. Más abajo lo comparamos con otras cuatro herramientas que abrimos y probamos este mes. <highlight>Sin cuenta, sin instalación y sin copia guardada en un servidor.</highlight>",
+    "ctaPrimary": "Descargar la app de BIShare"
+  },
+  "updated": "Actualizado en octubre de 2026 · Las cinco herramientas se abrieron y probaron el 3 de octubre de 2026",
+  "disclosure": "BIShare es nuestro, así que lee la clasificación con eso presente. Cada afirmación sobre otra herramienta sale de su propia página o repositorio, y cuando alguna encaja mejor lo decimos.",
+  "quick": {
+    "title": "Respuesta rápida",
+    "items": [
+      "<strong>No existe un AirDrop online oficial.</strong> La página de soporte de Apple describe AirDrop como algo para dispositivos Apple cercanos con Wi-Fi y Bluetooth activados. No hay versión web ni versión para Windows o Linux.",
+      "<strong>El sustituto en el navegador funciona así:</strong> abres la misma página en los dos dispositivos, cada uno ve al otro y eliges un archivo. El archivo viaja directamente entre los dos navegadores.",
+      "<strong>La forma más rápida de probarlo:</strong> abre bishare.app/transfer en ambos y elige Cerca. En una misma Wi-Fi se ven sin configurar nada. En dos redes distintas, escribe el mismo código de 6 caracteres en los dos.",
+      "<strong>Lo más parecido a la página clásica de código abierto:</strong> PairDrop. La misma idea, GPL-3.0, con un código de emparejamiento de 6 dígitos para dispositivos en redes distintas.",
+      "<strong>Si la otra persona va a recogerlo más tarde:</strong> ninguna página tipo AirDrop puede, porque las dos pestañas deben estar abiertas a la vez. Un enlace de BIShare guarda hasta 100 GB, cifrados, durante 6, 12 o 24 horas."
+    ]
+  },
+  "try": {
+    "title": "Pruébalo en esta página",
+    "body": "Abre esta página también en el segundo dispositivo y luego inicia Cerca en los dos. Cada dispositivo muestra al otro por su nombre.",
+    "start": "Iniciar Cerca aquí",
+    "note": "Al iniciarlo, este dispositivo queda visible para quienes tengan BIShare abierto en tu red, hasta que cierres la pestaña.",
+    "full": "Abrir el envío completo",
+    "off": "Cerca está desactivado en este momento. El envío completo sigue funcionando."
+  },
+  "reality": {
+    "title": "¿Existe un AirDrop online de verdad?",
+    "body": "No, y conviene saber por qué antes de elegir un sustituto.",
+    "items": {
+      "0": {
+        "h": "AirDrop está dentro de los dispositivos Apple, no en un sitio web",
+        "b": "El artículo de soporte de Apple \"How to use AirDrop on iPhone and iPad\", con fecha de 14 de septiembre de 2026, pide dos cosas: que la otra persona esté cerca y que ambos tengan activados el Wi-Fi y el Bluetooth. El Bluetooth localiza el otro dispositivo y un enlace Wi-Fi directo transporta el archivo. Una página web no puede usar ninguna de las dos radios de ese modo, así que Apple no podría meter AirDrop en un navegador aunque quisiera."
+      },
+      "1": {
+        "h": "Qué son en realidad los sitios que se llaman AirDrop online",
+        "b": "Son aplicaciones web independientes que toman prestada la idea. Dos navegadores abren una página, un pequeño servidor avisa a cada uno de que el otro existe y entonces WebRTC, un estándar incluido en Chrome, Safari, Firefox y Edge, los conecta directamente. Ninguna es de Apple y ninguna se comunica con el AirDrop de tu iPhone."
+      },
+      "2": {
+        "h": "El único puente que sí llega al AirDrop real",
+        "b": "En noviembre de 2025 Google añadió compatibilidad con AirDrop a Quick Share en la familia Pixel 10, y <goAirdropAndroid>la lista de móviles Android compatibles</goAirdropAndroid> ha crecido desde entonces. Eso es solo de móvil a dispositivo Apple. Un <goAirdropWindows>PC con Windows</goAirdropWindows> o un equipo con Linux siguen sin poder entrar, y ese es el hueco que cubre una página en el navegador."
+      }
+    }
+  },
+  "how": {
+    "title": "Cómo hace un navegador el trabajo de AirDrop",
+    "body": "Una transferencia de archivos tipo AirDrop en el navegador ocurre en tres pasos, alrededor de un segundo en total, y solo en el primero interviene un servidor.",
+    "items": {
+      "0": {
+        "h": "Las dos páginas se encuentran",
+        "b": "Cada página avisa a un servidor de señalización de que está ahí. La mayoría de herramientas agrupan a los visitantes por red, de modo que dos dispositivos detrás de un mismo router caen en la misma lista. ShareDrop y AirDrop Web dicen abiertamente que usan la dirección IP pública para esto. BIShare hace lo mismo en IPv4 y compara el prefijo de red en IPv6."
+      },
+      "1": {
+        "h": "Se conectan directamente",
+        "b": "WebRTC abre un canal cifrado de un navegador al otro. Cuando esa ruta directa funciona, los datos se quedan en tu propia red, la velocidad es la que dé la Wi-Fi y el servidor que presentó a las dos páginas no ve nada del archivo."
+      },
+      "2": {
+        "h": "Cuando la ruta directa está bloqueada",
+        "b": "La Wi-Fi de invitados, las redes de oficina y algunos operadores móviles impiden que los dispositivos se alcancen entre sí. Las herramientas con relay hacen pasar por él el flujo, que sigue cifrado, y no guardan copia. El README de PairDrop dice que los dispositivos detrás de un NAT se conectan a través de su servidor TURN, y BIShare reenvía de la misma forma. Una herramienta sin relay simplemente falla aquí."
+      }
+    }
+  },
+  "tools": {
+    "title": "Cinco formas de hacer AirDrop online, comparadas",
+    "consLabel": "Dónde se queda corto:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "La mejor en conjunto: misma red, otra red o un enlace para después",
+        "facts": "bishare.app/transfer · cualquier navegador actual · gratis, licencia MIT · misma Wi-Fi o código de 6 caracteres · enlace de hasta 100 GB · sin cuenta",
+        "body": "La pestaña Cerca es la parte AirDrop. Abre la página en dos dispositivos que comparten Wi-Fi y cada uno muestra al otro por su nombre; suelta un archivo sobre el nombre y el otro lado pulsa Aceptar. Para dos redes distintas, cambia a Código privado e introduce los mismos seis caracteres en ambos. Lo que las demás no tienen es la tercera vía: la pestaña Enlace sella el archivo en tu navegador, sube la copia sellada y te da un enlace que sirve durante 6, 12 o 24 horas, así que la otra persona no tiene que estar conectada cuando envías. Un móvil con la app de BIShare instalada también aparece en la lista Cerca de la página, lo que deja <goPcPhone>de ordenador a móvil</goPcPhone> en dos toques.",
+        "cons": "Chrome y Edge escriben el archivo entrante directamente en disco. Safari y Firefox lo mantienen en memoria hasta que lo guardas, así que un archivo muy grande puede fallar en esos dos. Para decenas de gigabytes entre tus propios dispositivos, la app es mejor herramienta."
+      },
+      "1": {
+        "name": "PairDrop",
+        "tag": "El fork de código abierto que se mantiene, el más fiel a la idea original",
+        "facts": "pairdrop.net · cualquier navegador · gratis, GPL-3.0, autoalojable · misma red, código de emparejamiento de 6 dígitos o sala pública de 5 letras · sin cuenta",
+        "body": "PairDrop se describe como intercambio local de archivos en el navegador, inspirado en AirDrop y fork de Snapdrop. Los dispositivos de una misma red se listan solos. Para lo demás ofrece dos recursos: emparejar dos dispositivos de forma permanente con un código de 6 dígitos o un código QR, o encontrarse una vez en una sala pública con un código de 5 letras. Si lo único que quieres es una página que haga transferencias directas y nada más, esta es la que conviene guardar en favoritos.",
+        "cons": "La pestaña debe seguir abierta en ambos lados durante toda la transferencia, y no hay forma de dejar un archivo para que alguien lo recoja después. No tiene apps nativas."
+      },
+      "2": {
+        "name": "Snapdrop",
+        "tag": "La página que popularizó la idea, ahora propiedad de LimeWire",
+        "facts": "snapdrop.net · cualquier navegador · gratis · solo misma red · sin cuenta",
+        "body": "Snapdrop sigue cargando y sigue mostrando los dispositivos de tu red. Su README en GitHub anuncia que LimeWire lo adquirió, y el logotipo de la página en producción se sirve como snapdrop_by_lw.svg. Para dos dispositivos en una Wi-Fi hace lo que siempre hizo. <goSnapdrop>Lo que cambió tras la venta</goSnapdrop> lo tratamos en una página aparte.",
+        "cons": "El código que ejecuta el sitio en producción no está publicado, así que nadie de fuera puede comprobar qué hace hoy. Solo misma red, sin código ni sala para pasar a otra."
+      },
+      "3": {
+        "name": "ShareDrop",
+        "tag": "La misma idea con enlace de sala, también bajo LimeWire",
+        "facts": "sharedrop.io · cualquier navegador · gratis · misma dirección IP pública o enlace de sala · sin cuenta para transferencias directas",
+        "body": "ShareDrop pone en una misma sala a todos los que comparten dirección IP pública, y su botón + crea un enlace de sala que puedes mandar a un dispositivo que esté en otro sitio. Soltar un archivo sobre el avatar de alguien es una transferencia directa. La página tiene además una zona Upload Files, y esa es otra cosa: guarda el archivo en LimeWire. <goSharedrop>Nuestra página sobre ShareDrop</goSharedrop> recoge qué más añadió el nuevo dueño.",
+        "cons": "La propia página avisa de que no funciona con VPN. Carga publicidad, y un botón equivocado manda el archivo a un servidor en vez de al dispositivo que tienes al lado."
+      },
+      "4": {
+        "name": "AirDrop Web",
+        "tag": "Una página pequeña, de un solo desarrollador, que hace una sola cosa",
+        "facts": "airdrop.io.vn · cualquier navegador · gratis · misma dirección IP pública · sin inicio de sesión",
+        "body": "La más sencilla de las cinco. Su página dice que los archivos van directamente entre dispositivos por WebRTC, que ningún servidor intermedio los almacena y que dos dispositivos cuentan como cercanos cuando comparten dirección IP pública. No declara límite de tamaño y no pide iniciar sesión.",
+        "cons": "No ofrece código de emparejamiento ni sala, así que dos dispositivos en redes distintas no pueden encontrarse. Es el proyecto de una sola persona, sin apps y sin la alternativa del enlace."
+      }
+    }
+  },
+  "table": {
+    "title": "Las cinco, lado a lado",
+    "cols": {
+      "feature": "Qué hace",
+      "bishare": "BIShare",
+      "pairdrop": "PairDrop",
+      "snapdrop": "Snapdrop",
+      "sharedrop": "ShareDrop",
+      "airdropweb": "AirDrop Web"
+    },
+    "rows": {
+      "r0": "Nada que instalar en ninguno de los dos dispositivos",
+      "r1": "Encuentra por sí sola los dispositivos de la misma red",
+      "r2": "Conecta dos dispositivos en redes distintas",
+      "r3": "La otra persona puede recogerlo después, con tu pestaña cerrada",
+      "r4": "Código abierto de la página que estás usando",
+      "r5": "También tiene apps nativas para móvil y ordenador"
+    },
+    "note": "Comprobado el 3 de octubre de 2026 abriendo cada sitio y leyendo su repositorio cuando existe. PairDrop cruza redes con un código de emparejamiento de 6 dígitos o una sala pública de 5 letras, ShareDrop con un enlace de sala y BIShare con un código de 6 caracteres. La zona Upload Files de ShareDrop es el servicio de almacenamiento de LimeWire, no parte de la transferencia directa, por lo que no cuenta como recoger después. Snapdrop y ShareDrop pertenecen a LimeWire y el código de sus páginas en producción no está publicado. No encontramos ningún repositorio público de AirDrop Web, y su página solo describe transferencias en la misma red. La aplicación web y las apps de BIShare tienen licencia MIT en GitHub; su servidor de API no es público."
+  },
+  "steps": {
+    "title": "AirDrop online con BIShare, paso a paso",
+    "items": {
+      "0": {
+        "h": "Abre la misma dirección en los dos dispositivos",
+        "b": "Entra en bishare.app/transfer en el dispositivo que tiene el archivo y en el que va a recibirlo, y elige la pestaña Cerca en ambos. Cada navegador recibe un nombre, que aparece arriba como \"Eres …\", para que sepas cuál es cuál."
+      },
+      "1": {
+        "h": "Elige el dispositivo y luego el archivo",
+        "b": "Si los dos están en una misma Wi-Fi, el otro dispositivo aparece en la lista en uno o dos segundos. Arrastra archivos a la página y elige a dónde van, o suéltalos directamente sobre el nombre del dispositivo. Varios archivos se ponen en cola y salen uno tras otro."
+      },
+      "2": {
+        "h": "Acepta en el otro lado",
+        "b": "El dispositivo receptor muestra el nombre del archivo y pregunta si Aceptar o Rechazar. No se conserva nada hasta que alguien acepta. Chrome y Edge escriben el archivo en disco mientras llega y después preguntan dónde guardarlo; otros navegadores lo mantienen en memoria y muestran un botón Guardar cuando está completo."
+      },
+      "3": {
+        "h": "¿No aparece ningún dispositivo?",
+        "b": "Pasa los dos dispositivos a Código privado, crea un código en uno y escribe sus seis caracteres en el otro. Eso los une desde dos redes cualesquiera. Si la otra persona no puede conectarse ahora, usa la pestaña Enlace y mándale la dirección."
+      }
+    }
+  },
+  "trouble": {
+    "title": "Cuando los dos dispositivos no se ven",
+    "body": "Es la queja más habitual sobre todas las herramientas de esta página, y la causa casi siempre es la red y no el sitio.",
+    "items": {
+      "0": {
+        "h": "La Wi-Fi de invitados y la de oficina aíslan a sus clientes",
+        "b": "Hoteles, cafeterías, universidades y muchas empresas impiden a propósito que un dispositivo hable con otro. Están en la misma Wi-Fi de nombre y aun así no pueden conectarse. Usa un código de emparejamiento para que la conexión pase por un relay."
+      },
+      "1": {
+        "h": "Una VPN o los datos móviles sitúan el dispositivo en otra parte",
+        "b": "El descubrimiento agrupa los dispositivos por la dirección que ve el servidor. Un portátil con VPN, o un móvil que ha pasado sin avisar a datos móviles, muestra otra dirección y cae en otra lista. La propia página de ShareDrop advierte de que no funciona con VPN. Desactiva la VPN o empareja por código."
+      },
+      "2": {
+        "h": "Aparecen desconocidos en la lista",
+        "b": "El problema contrario: un campus, una oficina o un operador móvil pueden poner a miles de personas detrás de una sola dirección pública, y las herramientas que agrupan solo por dirección las mostrarán entre sí. Comprueba el nombre antes de enviar, o usa un código privado para que en la sala solo estén tus dos dispositivos."
+      },
+      "3": {
+        "h": "El navegador es antiguo o está restringido",
+        "b": "WebRTC está en todos los navegadores actuales, pero algunas políticas corporativas y extensiones de privacidad lo desactivan. Si la página dice que la transferencia cercana no es compatible, prueba con Chrome o Edge, o envía un enlace, que solo necesita una descarga normal."
+      }
+    }
+  },
+  "situations": {
+    "title": "Qué vía usar, según la situación",
+    "items": {
+      "0": {
+        "h": "Del móvil al portátil en casa",
+        "b": "Pestaña Cerca en los dos, misma Wi-Fi. Es el caso para el que se creó AirDrop, y la versión de navegador es igual de corta."
+      },
+      "1": {
+        "h": "De un iPhone a un PC con Windows en el trabajo",
+        "b": "Las redes de oficina suelen aislar los dispositivos, así que ve directamente a Código privado. Seis caracteres en cada lado y quedan conectados."
+      },
+      "2": {
+        "h": "Alguien en otra ciudad",
+        "b": "Si los dos estáis libres ahora, compartid un código privado. Si no, <goTransfer>envía un enlace</goTransfer>: lo abre en cualquier navegador cuando le venga bien."
+      },
+      "3": {
+        "h": "Un ordenador prestado o restringido",
+        "b": "Nada que instalar y ninguna cuenta de la que salir después, así que sirve el PC de una biblioteca o el portátil de un cliente. Guarda el archivo donde quieras y cierra la pestaña."
+      },
+      "4": {
+        "h": "Decenas de gigabytes entre tus propios dispositivos",
+        "b": "Instala la app en los dos. Escribe en disco sobre la marcha, sigue funcionando con la pantalla apagada y <goLargeFiles>maneja archivos que no conviene confiar a una pestaña del navegador</goLargeFiles>."
+      },
+      "5": {
+        "h": "Sin ninguna red",
+        "b": "Una página web necesita llegar a su servidor una vez para hacer la presentación. Sin internet, convierte un móvil en punto de acceso y <goOffline>usa la app en los dos</goOffline>. Para una contraseña o una nota corta, la pestaña QR Beam envía de pantalla a cámara sin red alguna."
+      }
+    }
+  },
+  "limits": {
+    "title": "Lo que una pestaña del navegador no puede hacer y AirDrop sí",
+    "body": "Una comparación justa tiene que incluir los puntos en los que el original es mejor.",
+    "items": {
+      "0": {
+        "h": "Necesita la página abierta en los dos lados",
+        "b": "AirDrop forma parte del sistema y siempre está escuchando. Una herramienta web solo existe mientras su pestaña está abierta, y la transferencia se detiene si alguno cierra la pestaña, bloquea el móvil o pierde la conexión."
+      },
+      "1": {
+        "h": "Necesita internet durante el primer segundo",
+        "b": "AirDrop encuentra dispositivos por Bluetooth y funciona en lo alto de una montaña. La versión de navegador tiene que llegar a un servidor de señalización antes de que los dos dispositivos se conecten, aunque después el archivo se quede en local."
+      },
+      "2": {
+        "h": "No está en el menú de compartir",
+        "b": "Desde una foto en un iPhone, AirDrop queda a un toque. Una página web obliga a abrir antes el navegador. La app de BIShare sí aparece en el menú de compartir de iPhone y Android, y ese es el motivo para instalarla si envías archivos a diario."
+      }
+    }
+  },
+  "security": {
+    "title": "¿Es seguro el AirDrop online?",
+    "body": "Depende de qué página abras y de qué botón pulses.",
+    "items": {
+      "0": {
+        "h": "Las transferencias directas van cifradas y no dejan copia",
+        "b": "WebRTC cifra todo lo que transporta. En la pestaña Cerca de BIShare y en PairDrop el archivo va de un navegador al otro y nunca se almacena en un servidor. Un relay, cuando hace falta, reenvía datos que no puede leer."
+      },
+      "1": {
+        "h": "Los enlaces son otra cosa: comprueba cómo se sellan",
+        "b": "Un enlace significa que hay una copia en un servidor hasta que caduca. BIShare <goEncrypted>cifra primero el archivo en tu navegador</goEncrypted> y guarda la clave en la parte del enlace que va después del signo #, que los navegadores nunca envían a un servidor. Lo que almacenamos no se puede abrir sin tu enlace."
+      },
+      "2": {
+        "h": "Acepta solo lo que esperas",
+        "b": "En una red compartida, cualquiera que tenga la misma página abierta puede mandarte una solicitud. Todas las herramientas de aquí preguntan antes de guardar, así que lee el nombre del remitente y rechaza lo que no pediste, igual que harías con AirDrop configurado en Todos."
+      }
+    }
+  },
+  "faq": {
+    "title": "AirDrop online: preguntas frecuentes",
+    "items": {
+      "0": {
+        "q": "¿Existe un AirDrop online oficial?",
+        "a": "No. Apple ofrece AirDrop solo en sus propios dispositivos, y su página de soporte pide Wi-Fi y Bluetooth en ambos. Los sitios que salen en esta búsqueda son aplicaciones web independientes que copian la idea con WebRTC, un estándar integrado en los navegadores. Funcionan entre cualquier dispositivo, incluidos los que AirDrop ignora."
+      },
+      "1": {
+        "q": "¿Cómo hago AirDrop desde un PC?",
+        "a": "Un PC con Windows o Linux no puede enviar al AirDrop real. Abre bishare.app/transfer o pairdrop.net en el PC y en el otro dispositivo, elige ese dispositivo en la lista y suelta el archivo encima. Si no se ven, introduce el mismo código de emparejamiento en los dos."
+      },
+      "2": {
+        "q": "¿El AirDrop online es gratis?",
+        "a": "Las cinco herramientas de esta página son gratuitas. BIShare y PairDrop son de código abierto y no tienen plan de pago. Snapdrop y ShareDrop también son gratuitas, aunque ahora pertenecen a LimeWire y ShareDrop muestra publicidad."
+      },
+      "3": {
+        "q": "¿Funciona el AirDrop online entre iPhone y Android?",
+        "a": "Sí, y en los dos sentidos. Abre la misma página en Safari en el iPhone y en Chrome en el móvil Android. El navegador se encarga de la transferencia, así que la marca del teléfono no importa."
+      },
+      "4": {
+        "q": "¿Tienen que estar los dos dispositivos en la misma Wi-Fi?",
+        "a": "Para el descubrimiento automático, sí. Para conectar entre dos redes necesitas una herramienta con código o sala: BIShare usa un código de 6 caracteres, PairDrop un código de emparejamiento de 6 dígitos o una sala de 5 letras, y ShareDrop un enlace de sala. Snapdrop y AirDrop Web solo funcionan en una misma red."
+      },
+      "5": {
+        "q": "¿A dónde van mis archivos cuando uso AirDrop online?",
+        "a": "En una transferencia directa van de un navegador al otro, cifrados, y ningún servidor guarda copia. La excepción es cualquier botón de subida: la zona Upload Files de ShareDrop almacena el archivo en LimeWire, y un enlace de BIShare guarda una copia cifrada hasta 24 horas."
+      },
+      "6": {
+        "q": "¿Hay un límite de tamaño de archivo?",
+        "a": "Las herramientas no declaran límite para las transferencias directas. El límite práctico es el navegador: Chrome y Edge pueden escribir el archivo en disco mientras llega, y los navegadores que lo mantienen en memoria pueden fallar con archivos muy grandes. Un enlace de BIShare admite hasta 100 GB."
+      },
+      "7": {
+        "q": "¿Por qué no se ven los dos dispositivos?",
+        "a": "Normalmente la red aísla a sus clientes, como hacen la Wi-Fi de invitados y la de oficina, o uno de los dispositivos está en una VPN o con datos móviles y parece estar en otro sitio. Desactiva la VPN y comprueba que ambos están en la misma Wi-Fi. Si no es posible, conéctalos con un código de emparejamiento."
+      },
+      "8": {
+        "q": "¿Funciona el AirDrop online sin internet?",
+        "a": "No desde una página web pública, porque la página debe llegar a su servidor para presentar a los dos dispositivos. Una vez conectados en una misma red, el archivo no usa internet. Para transferencias sin ninguna conexión, usa una app instalada sobre el punto de acceso de un móvil."
+      },
+      "9": {
+        "q": "PairDrop, Snapdrop o BIShare: ¿cuál abro?",
+        "a": "Para dos dispositivos en una misma Wi-Fi, cualquiera sirve. PairDrop si quieres una herramienta que solo haga transferencias directas y se pueda autoalojar. BIShare si además quieres un enlace para quien no está conectado ahora, o apps para el uso diario. Snapdrop si es la que ya conoces y el cambio de dueño no te preocupa."
+      }
+    }
+  },
+  "cta": {
+    "title": "Ábrelo en los dos dispositivos y envía",
+    "body": "Gratis, de código abierto, sin cuenta. La página web funciona ya; la app está ahí para cuando quieras toda la velocidad de la Wi-Fi y transferencias en segundo plano.",
+    "download": "Descargar BIShare"
+  },
+  "a11y": {
+    "yes": "Sí",
+    "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un móvil y un portátil, cada uno con una página del navegador, y un archivo que pasa directamente entre ambos, bajo el título AirDrop online: cualquier dispositivo, en un navegador.",
+      "title": "AirDrop online",
+      "sub": "Dos dispositivos cualesquiera, una página web, nada que instalar",
+      "left": "Cualquier móvil",
+      "right": "Cualquier ordenador"
+    },
+    "flow": {
+      "alt": "Diagrama de una transferencia por navegador: los dos dispositivos avisan a un servidor de señalización de que están presentes, el servidor los presenta y el archivo viaja directamente entre los dos navegadores sin pasar por el servidor.",
+      "title": "Cómo funciona la versión de navegador",
+      "sub": "El servidor hace la presentación; el archivo toma la ruta directa",
+      "a": "Tu navegador",
+      "b": "El otro navegador",
+      "server": "Servidor de señalización",
+      "hello": "Solo dice quién está",
+      "direct": "El archivo va por aquí, cifrado",
+      "foot": "Si la ruta directa está bloqueada, un relay reenvía el flujo cifrado y no guarda nada"
+    },
+    "choose": {
+      "alt": "Esquema que empareja seis situaciones con una vía: la pestaña Cerca para móvil a portátil en casa, un código privado para una red de oficina, un código o un enlace para alguien en otra ciudad, la página web para un ordenador prestado, la app para decenas de gigabytes y un punto de acceso con la app cuando no hay red.",
+      "title": "Qué vía usar",
+      "sub": "Seis situaciones y el camino más corto en cada una",
+      "items": {
+        "0": {
+          "q": "Del móvil al portátil con la Wi-Fi de casa",
+          "a": "Pestaña Cerca en los dos"
+        },
+        "1": {
+          "q": "De un iPhone a un PC con Windows en el trabajo",
+          "a": "Código privado, 6 caracteres"
+        },
+        "2": {
+          "q": "Alguien en otra ciudad",
+          "a": "Un código ahora o un enlace para después"
+        },
+        "3": {
+          "q": "Ordenador prestado o restringido",
+          "a": "Basta con la página web"
+        },
+        "4": {
+          "q": "Decenas de gigabytes, tus propios dispositivos",
+          "a": "La app en los dos"
+        },
+        "5": {
+          "q": "Sin ninguna red",
+          "a": "Punto de acceso más la app"
+        }
+      }
+    }
+  }
+}

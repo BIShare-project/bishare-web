@@ -67,6 +67,7 @@ const NAMESPACES = [
   "localsendAlt",
   "photosIphonePc",
   "airdropFix",
+  "airdropOnline",
   "pcToPc",
 ] as const;
 

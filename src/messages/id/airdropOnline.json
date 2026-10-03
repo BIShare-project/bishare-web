@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "title": "AirDrop Online: Kirim File Antar-Browser Tanpa Instal",
+    "description": "Apple tidak punya AirDrop versi web. Lima alat browser ini melakukan hal yang sama antara iPhone, Android, Windows, Mac dan Linux. Diuji Oktober 2026, berikut batasnya."
+  },
+  "hero": {
+    "eyebrow": "Di browser, tanpa instal apa pun",
+    "title": "AirDrop online untuk semua perangkat",
+    "body": "AirDrop tidak pernah keluar dari perangkat Apple, dan Apple tidak punya versi webnya. Kalau Anda mencari AirDrop online, AirDrop web atau situs AirDrop, yang Anda temukan adalah halaman yang dibuka di dua perangkat supaya file bisa berpindah dari satu ke yang lain. Alat seperti itu memang ada, gratis, dan tidak peduli apakah perangkatnya iPhone, ponsel Android, PC Windows, Mac atau laptop Linux. <strong>BIShare</strong> melakukannya di bishare.app/transfer dan langsung di halaman ini. Di bawah, kami membandingkannya dengan empat alat lain yang kami buka dan coba bulan ini. <highlight>Tanpa akun, tanpa instal, dan tidak ada salinan yang disimpan di server.</highlight>",
+    "ctaPrimary": "Unduh aplikasi BIShare"
+  },
+  "updated": "Diperbarui Oktober 2026 · Kelima alat dibuka dan dicoba pada 3 Oktober 2026",
+  "disclosure": "BIShare buatan kami, jadi bacalah urutan di bawah dengan catatan itu. Setiap klaim tentang alat lain berasal dari halaman atau repositorinya sendiri, dan kalau ada yang lebih cocok, kami sebutkan.",
+  "quick": {
+    "title": "Jawaban singkat",
+    "items": [
+      "<strong>AirDrop online yang resmi tidak ada.</strong> Halaman dukungan Apple sendiri menjelaskan AirDrop sebagai fitur untuk perangkat Apple yang berdekatan dengan Wi-Fi dan Bluetooth menyala. Tidak ada versi web, juga tidak ada versi Windows atau Linux.",
+      "<strong>Penggantinya di browser bekerja begini:</strong> buka halaman yang sama di kedua perangkat, keduanya saling muncul, lalu pilih file. File berpindah langsung antara kedua browser.",
+      "<strong>Cara tercepat mencobanya:</strong> buka bishare.app/transfer di kedua perangkat dan pilih Terdekat. Di satu Wi-Fi, keduanya saling terlihat tanpa pengaturan. Di dua jaringan berbeda, ketik kode 6 karakter yang sama di keduanya.",
+      "<strong>Paling dekat dengan halaman open source klasik:</strong> PairDrop. Idenya sama, berlisensi GPL-3.0, dengan kode pasangan 6 digit untuk perangkat di jaringan berbeda.",
+      "<strong>Kalau penerima baru bisa mengambil nanti:</strong> halaman ala AirDrop tidak bisa, karena kedua tab harus terbuka bersamaan. Link BIShare menyimpan hingga 100 GB, terenkripsi, selama 6, 12 atau 24 jam."
+    ]
+  },
+  "try": {
+    "title": "Coba langsung di halaman ini",
+    "body": "Buka halaman ini juga di perangkat kedua, lalu mulai Terdekat di keduanya. Tiap perangkat menampilkan nama perangkat lainnya.",
+    "start": "Mulai Terdekat di sini",
+    "note": "Begitu dimulai, perangkat ini terlihat oleh orang lain di jaringan Anda yang sedang membuka BIShare, sampai tab ditutup.",
+    "full": "Buka halaman kirim lengkap",
+    "off": "Terdekat sedang dimatikan. Halaman kirim lengkap tetap bisa dipakai."
+  },
+  "reality": {
+    "title": "Apakah AirDrop online yang asli itu ada?",
+    "body": "Tidak, dan alasannya perlu diketahui sebelum memilih pengganti.",
+    "items": {
+      "0": {
+        "h": "AirDrop tertanam di perangkat Apple, bukan di situs web",
+        "b": "Artikel dukungan Apple \"How to use AirDrop on iPhone and iPad\", tertanggal 14 September 2026, meminta dua hal: orang yang dituju berada di dekat Anda, dan Wi-Fi serta Bluetooth menyala di kedua perangkat. Bluetooth menemukan perangkat lain, lalu sambungan Wi-Fi langsung membawa filenya. Halaman web tidak bisa memakai kedua radio itu dengan cara tersebut, jadi Apple tidak bisa menaruh AirDrop di browser sekalipun mau."
+      },
+      "1": {
+        "h": "Situs yang disebut AirDrop online itu sebenarnya apa",
+        "b": "Semuanya aplikasi web independen yang meminjam idenya. Dua browser membuka satu halaman, server kecil memberi tahu masing-masing bahwa yang lain ada, lalu WebRTC, standar yang sudah ada di Chrome, Safari, Firefox dan Edge, menyambungkan keduanya secara langsung. Tidak satu pun buatan Apple, dan tidak satu pun terhubung dengan AirDrop di iPhone Anda."
+      },
+      "2": {
+        "h": "Satu-satunya jembatan ke AirDrop yang asli",
+        "b": "Pada November 2025 Google menambahkan kompatibilitas AirDrop ke Quick Share di keluarga Pixel 10, dan <goAirdropAndroid>daftar ponsel Android yang didukung</goAirdropAndroid> terus bertambah. Itu hanya dari ponsel ke perangkat Apple. <goAirdropWindows>PC Windows</goAirdropWindows> atau mesin Linux tetap tidak punya jalan masuk, dan celah itulah yang diisi halaman browser."
+      }
+    }
+  },
+  "how": {
+    "title": "Cara browser mengerjakan tugas AirDrop",
+    "body": "Transfer file ala AirDrop di browser terjadi dalam tiga langkah, kira-kira satu detik, dan hanya langkah pertama yang melibatkan server.",
+    "items": {
+      "0": {
+        "h": "Kedua halaman saling menemukan",
+        "b": "Tiap halaman memberi tahu server pensinyalan bahwa ia ada. Kebanyakan alat lalu mengelompokkan pengunjung per jaringan, sehingga dua perangkat di belakang satu router masuk ke daftar yang sama. ShareDrop dan AirDrop Web terang-terangan menyebut memakai alamat IP publik untuk ini. BIShare melakukan hal yang sama di IPv4 dan membandingkan prefiks jaringan di IPv6."
+      },
+      "1": {
+        "h": "Keduanya tersambung langsung",
+        "b": "WebRTC membuka saluran terenkripsi dari satu browser ke browser lain. Kalau jalur langsung itu berhasil, datanya tetap berada di jaringan Anda sendiri, kecepatannya sebatas kemampuan Wi-Fi, dan server yang memperkenalkan kedua halaman tidak melihat isi file sama sekali."
+      },
+      "2": {
+        "h": "Kalau jalur langsung diblokir",
+        "b": "Wi-Fi tamu, jaringan kantor dan sebagian operator seluler mencegah perangkat saling menjangkau. Alat yang punya relay meneruskan aliran yang tetap terenkripsi lewat relay itu tanpa menyimpan salinan. README PairDrop menyebut perangkat di belakang NAT disambungkan lewat server TURN miliknya, dan BIShare meneruskan dengan cara yang sama. Alat tanpa relay akan gagal di sini."
+      }
+    }
+  },
+  "tools": {
+    "title": "Lima cara AirDrop online, dibandingkan",
+    "consLabel": "Kekurangannya:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Terbaik secara keseluruhan: jaringan sama, jaringan lain, atau link untuk nanti",
+        "facts": "bishare.app/transfer · browser modern apa pun · gratis, lisensi MIT · Wi-Fi sama atau kode 6 karakter · link hingga 100 GB · tanpa akun",
+        "body": "Tab Terdekat adalah bagian AirDrop-nya. Buka halaman di dua perangkat yang memakai satu Wi-Fi dan masing-masing menampilkan nama yang lain; jatuhkan file ke nama itu, lalu sisi seberang mengetuk Terima. Untuk dua jaringan berbeda, pindah ke Kode privat dan masukkan enam karakter yang sama di keduanya. Yang tidak dimiliki alat lain adalah jalur ketiga: tab Link menyegel file di browser Anda, mengunggah salinan tersegel itu, dan memberi link yang berlaku 6, 12 atau 24 jam, jadi penerima tidak perlu sedang online saat Anda mengirim. Ponsel dengan aplikasi BIShare juga muncul di daftar Terdekat pada halaman ini, sehingga <goPcPhone>komputer ke ponsel</goPcPhone> selesai dalam dua ketukan.",
+        "cons": "Chrome dan Edge menulis file masuk langsung ke disk. Safari dan Firefox menahannya di memori sampai Anda menyimpannya, jadi file yang sangat besar bisa gagal di keduanya. Untuk puluhan gigabyte antar perangkat sendiri, aplikasinya lebih tepat."
+      },
+      "1": {
+        "name": "PairDrop",
+        "tag": "Fork open source yang masih dirawat, paling dekat dengan ide aslinya",
+        "facts": "pairdrop.net · browser apa pun · gratis, GPL-3.0, bisa di-host sendiri · jaringan sama, kode pasangan 6 digit, atau room publik 5 huruf · tanpa akun",
+        "body": "PairDrop menyebut dirinya berbagi file lokal di browser, terinspirasi AirDrop, dan fork dari Snapdrop. Perangkat di satu jaringan otomatis saling muncul. Untuk kondisi lain ada dua cara: memasangkan dua perangkat secara tetap dengan kode 6 digit atau kode QR, atau bertemu sekali di room publik dengan kode 5 huruf. Kalau yang Anda cari hanya halaman untuk transfer langsung tanpa fitur lain, inilah yang layak di-bookmark.",
+        "cons": "Tab di kedua sisi harus tetap terbuka selama transfer, dan tidak ada cara menitipkan file untuk diambil nanti. Tidak ada aplikasi native."
+      },
+      "2": {
+        "name": "Snapdrop",
+        "tag": "Halaman yang mempopulerkan idenya, kini milik LimeWire",
+        "facts": "snapdrop.net · browser apa pun · gratis · hanya jaringan sama · tanpa akun",
+        "body": "Snapdrop masih bisa dibuka dan masih menampilkan perangkat di jaringan Anda. README GitHub-nya mengumumkan bahwa LimeWire telah mengakuisisinya, dan logo di halaman aslinya disajikan sebagai snapdrop_by_lw.svg. Untuk dua perangkat di satu Wi-Fi, fungsinya tetap seperti dulu. <goSnapdrop>Apa yang berubah setelah penjualan itu</goSnapdrop> kami bahas di halaman tersendiri.",
+        "cons": "Kode yang menjalankan situs aslinya tidak dipublikasikan, jadi pihak luar tidak bisa memeriksa apa yang dilakukannya sekarang. Hanya jaringan sama, tanpa kode atau room untuk menyeberang ke jaringan lain."
+      },
+      "3": {
+        "name": "ShareDrop",
+        "tag": "Ide yang sama dengan link room, juga di bawah LimeWire",
+        "facts": "sharedrop.io · browser apa pun · gratis · alamat IP publik yang sama, atau link room · tanpa akun untuk transfer langsung",
+        "body": "ShareDrop menaruh semua orang dengan alamat IP publik yang sama dalam satu room, dan tombol + membuat link room yang bisa dikirim ke perangkat di tempat lain. Menjatuhkan file ke avatar seseorang adalah transfer langsung. Halamannya juga punya area Upload Files, dan yang ini berbeda: file disimpan di LimeWire. <goSharedrop>Halaman ShareDrop kami</goSharedrop> memuat apa lagi yang ditambahkan pemilik barunya.",
+        "cons": "Halaman aslinya memperingatkan bahwa ia tidak bekerja dengan VPN. Ada iklan, dan satu tombol yang salah mengirim file ke server, bukan ke perangkat di sebelah Anda."
+      },
+      "4": {
+        "name": "AirDrop Web",
+        "tag": "Halaman kecil buatan satu pengembang dengan satu fungsi",
+        "facts": "airdrop.io.vn · browser apa pun · gratis · alamat IP publik yang sama · tanpa login",
+        "body": "Yang paling sederhana dari kelimanya. Halamannya menyebut file berpindah langsung antar perangkat lewat WebRTC, tidak ada server perantara yang menyimpannya, dan perangkat dianggap berdekatan bila memakai alamat IP publik yang sama. Tidak ada batas ukuran yang disebut dan tidak perlu login.",
+        "cons": "Tidak ada kode pasangan atau room, jadi dua perangkat di jaringan berbeda tidak bisa bertemu. Ini proyek satu orang, tanpa aplikasi dan tanpa cadangan berupa link."
+      }
+    }
+  },
+  "table": {
+    "title": "Kelimanya berdampingan",
+    "cols": {
+      "feature": "Kemampuan",
+      "bishare": "BIShare",
+      "pairdrop": "PairDrop",
+      "snapdrop": "Snapdrop",
+      "sharedrop": "ShareDrop",
+      "airdropweb": "AirDrop Web"
+    },
+    "rows": {
+      "r0": "Tanpa instal di kedua perangkat",
+      "r1": "Menemukan sendiri perangkat di jaringan yang sama",
+      "r2": "Menyambungkan dua perangkat di jaringan berbeda",
+      "r3": "Penerima bisa mengambil nanti, tab Anda sudah ditutup",
+      "r4": "Kode open source untuk halaman yang Anda pakai",
+      "r5": "Ada juga aplikasi native untuk ponsel dan komputer"
+    },
+    "note": "Diperiksa pada 3 Oktober 2026 dengan membuka tiap situs dan membaca repositorinya bila ada. PairDrop menyeberang jaringan dengan kode pasangan 6 digit atau room publik 5 huruf, ShareDrop dengan link room, BIShare dengan kode 6 karakter. Area Upload Files di ShareDrop adalah layanan penyimpanan LimeWire, bukan bagian dari transfer langsung, jadi tidak dihitung sebagai ambil nanti. Snapdrop dan ShareDrop dimiliki LimeWire dan kode di balik halaman aslinya tidak dipublikasikan. Kami tidak menemukan repositori publik untuk AirDrop Web, dan halamannya hanya menjelaskan transfer di jaringan yang sama. Aplikasi web dan aplikasi BIShare berlisensi MIT di GitHub; server API-nya tidak publik."
+  },
+  "steps": {
+    "title": "AirDrop online dengan BIShare, langkah demi langkah",
+    "items": {
+      "0": {
+        "h": "Buka satu alamat di kedua perangkat",
+        "b": "Buka bishare.app/transfer di perangkat yang punya file dan di perangkat yang akan menerima, lalu pilih tab Terdekat di keduanya. Tiap browser mendapat nama, tampil di atas sebagai \"Anda adalah …\", supaya jelas mana perangkat yang mana."
+      },
+      "1": {
+        "h": "Pilih perangkat, lalu filenya",
+        "b": "Kalau keduanya di satu Wi-Fi, perangkat lain muncul di daftar dalam satu atau dua detik. Seret file ke halaman lalu pilih tujuannya, atau jatuhkan langsung ke nama perangkat. Beberapa file akan antre dan terkirim satu per satu."
+      },
+      "2": {
+        "h": "Terima di sisi seberang",
+        "b": "Perangkat penerima menampilkan nama file dan menawarkan Terima atau Tolak. Tidak ada yang disimpan sebelum ada yang menerima. Chrome dan Edge menulis file ke disk selagi datang lalu menanyakan lokasi simpannya; browser lain menahannya di memori dan menampilkan tombol Simpan setelah selesai."
+      },
+      "3": {
+        "h": "Tidak ada perangkat di daftar?",
+        "b": "Pindahkan kedua perangkat ke Kode privat, buat kode di satu perangkat dan ketik enam karakternya di perangkat lain. Itu menyambungkan keduanya dari dua jaringan mana pun. Kalau orangnya tidak bisa online sekarang, pakai tab Link dan kirimkan alamatnya."
+      }
+    }
+  },
+  "trouble": {
+    "title": "Kalau kedua perangkat tidak saling terlihat",
+    "body": "Ini keluhan paling umum untuk semua alat di halaman ini, dan penyebabnya hampir selalu jaringan, bukan situsnya.",
+    "items": {
+      "0": {
+        "h": "Wi-Fi tamu dan kantor mengisolasi perangkatnya",
+        "b": "Hotel, kafe, kampus dan banyak perusahaan sengaja mencegah satu perangkat berbicara dengan perangkat lain. Namanya Wi-Fi yang sama, tetapi tetap tidak bisa tersambung. Pakai kode pasangan supaya sambungan bisa lewat relay."
+      },
+      "1": {
+        "h": "VPN atau data seluler membuat perangkat tampak di tempat lain",
+        "b": "Penemuan perangkat mengelompokkan berdasarkan alamat yang dilihat server. Laptop yang memakai VPN, atau ponsel yang diam-diam pindah ke data seluler, menunjukkan alamat lain dan masuk ke daftar lain. Halaman ShareDrop sendiri memperingatkan bahwa ia tidak bekerja dengan VPN. Matikan VPN, atau pasangkan dengan kode."
+      },
+      "2": {
+        "h": "Orang asing muncul di daftar",
+        "b": "Masalah sebaliknya: kampus, kantor atau operator seluler bisa menaruh ribuan orang di belakang satu alamat publik, dan alat yang hanya mengelompokkan berdasarkan alamat akan menampilkan mereka satu sama lain. Periksa namanya sebelum mengirim, atau pakai kode privat supaya hanya dua perangkat Anda yang ada di room."
+      },
+      "3": {
+        "h": "Browser lama atau dikunci",
+        "b": "WebRTC ada di semua browser terbaru, tetapi sebagian kebijakan perusahaan dan ekstensi privasi mematikannya. Kalau halaman menyebut transfer terdekat tidak didukung, coba Chrome atau Edge, atau kirim link, yang hanya membutuhkan unduhan biasa."
+      }
+    }
+  },
+  "situations": {
+    "title": "Jalur mana yang dipakai, menurut situasi",
+    "items": {
+      "0": {
+        "h": "Ponsel ke laptop di rumah",
+        "b": "Tab Terdekat di keduanya, Wi-Fi yang sama. Inilah kasus yang membuat AirDrop diciptakan, dan versi browsernya sama ringkasnya."
+      },
+      "1": {
+        "h": "iPhone ke PC Windows di kantor",
+        "b": "Jaringan kantor biasanya mengisolasi perangkat, jadi langsung saja ke Kode privat. Enam karakter di tiap sisi dan keduanya tersambung."
+      },
+      "2": {
+        "h": "Seseorang di kota lain",
+        "b": "Kalau sama-sama senggang sekarang, bagikan kode privat. Kalau tidak, <goTransfer>kirim link</goTransfer>: ia membukanya di browser apa pun kapan saja sempat."
+      },
+      "3": {
+        "h": "Komputer pinjaman atau yang dikunci",
+        "b": "Tidak ada yang diinstal dan tidak ada akun yang perlu dikeluarkan sesudahnya, jadi PC perpustakaan atau laptop klien bisa dipakai. Simpan file di tempat yang Anda mau lalu tutup tabnya."
+      },
+      "4": {
+        "h": "Puluhan gigabyte antar perangkat sendiri",
+        "b": "Pasang aplikasinya di keduanya. Ia menulis ke disk selagi berjalan, tetap bekerja saat layar mati, dan <goLargeFiles>menangani file yang tidak layak dipercayakan ke tab browser</goLargeFiles>."
+      },
+      "5": {
+        "h": "Tidak ada jaringan sama sekali",
+        "b": "Halaman web perlu menjangkau servernya sekali untuk memperkenalkan kedua perangkat. Tanpa internet, jadikan satu ponsel sebagai hotspot dan <goOffline>pakai aplikasinya di keduanya</goOffline>. Untuk kata sandi atau catatan pendek, tab QR Beam mengirim dari layar ke kamera tanpa jaringan sama sekali."
+      }
+    }
+  },
+  "limits": {
+    "title": "Yang tidak bisa dilakukan tab browser, tapi bisa oleh AirDrop",
+    "body": "Perbandingan yang adil harus memuat hal-hal yang membuat versi aslinya lebih unggul.",
+    "items": {
+      "0": {
+        "h": "Halamannya harus terbuka di kedua sisi",
+        "b": "AirDrop bagian dari sistem dan selalu siaga. Alat web hanya ada selama tabnya terbuka, dan transfer berhenti kalau salah satu sisi menutup tab, mengunci ponsel atau kehilangan sambungan."
+      },
+      "1": {
+        "h": "Perlu internet di detik pertama",
+        "b": "AirDrop menemukan perangkat lewat Bluetooth dan tetap jalan di puncak gunung. Versi browser harus menjangkau server pensinyalan dulu sebelum kedua perangkat tersambung, walaupun filenya sendiri kemudian tetap lokal."
+      },
+      "2": {
+        "h": "Tidak ada di menu bagikan",
+        "b": "Dari sebuah foto di iPhone, AirDrop tinggal satu ketukan. Halaman web berarti membuka browser dulu. Aplikasi BIShare memang muncul di menu bagikan iPhone dan Android, dan itulah alasan memasangnya kalau Anda mengirim file setiap hari."
+      }
+    }
+  },
+  "security": {
+    "title": "Apakah AirDrop online aman?",
+    "body": "Tergantung halaman mana yang dibuka dan tombol mana yang ditekan.",
+    "items": {
+      "0": {
+        "h": "Transfer langsung terenkripsi dan tidak meninggalkan salinan",
+        "b": "WebRTC mengenkripsi semua yang dibawanya. Di tab Terdekat BIShare dan di PairDrop, file berpindah dari satu browser ke browser lain dan tidak pernah disimpan di server. Relay, kalau dibutuhkan, hanya meneruskan data yang tidak bisa dibacanya."
+      },
+      "1": {
+        "h": "Link itu hal lain, jadi periksa cara penyegelannya",
+        "b": "Link berarti ada salinan di server sampai masa berlakunya habis. BIShare <goEncrypted>mengenkripsi file di browser Anda lebih dulu</goEncrypted> dan menyimpan kuncinya di bagian link setelah tanda #, yang tidak pernah dikirim browser ke server. Yang kami simpan tidak bisa dibuka tanpa link Anda."
+      },
+      "2": {
+        "h": "Terima hanya yang memang Anda tunggu",
+        "b": "Di jaringan bersama, siapa pun yang membuka halaman yang sama bisa mengirimi Anda permintaan. Semua alat di sini bertanya sebelum menyimpan, jadi baca nama pengirim dan tolak yang tidak Anda minta, sama seperti saat AirDrop disetel ke Semua Orang."
+      }
+    }
+  },
+  "faq": {
+    "title": "AirDrop online: tanya jawab",
+    "items": {
+      "0": {
+        "q": "Apakah ada AirDrop online yang resmi?",
+        "a": "Tidak. Apple hanya menyediakan AirDrop di perangkatnya sendiri, dan halaman dukungannya meminta Wi-Fi dan Bluetooth menyala di keduanya. Situs yang muncul untuk pencarian ini adalah aplikasi web independen yang meniru idenya dengan WebRTC, standar bawaan browser. Semuanya bekerja antar perangkat apa pun, termasuk yang diabaikan AirDrop."
+      },
+      "1": {
+        "q": "Bagaimana cara AirDrop dari PC?",
+        "a": "PC Windows atau Linux tidak bisa mengirim ke AirDrop yang asli. Buka bishare.app/transfer atau pairdrop.net di PC dan di perangkat lain, pilih perangkat itu dari daftar lalu jatuhkan filenya. Kalau keduanya tidak saling terlihat, masukkan kode pasangan yang sama di keduanya."
+      },
+      "2": {
+        "q": "Apakah AirDrop online gratis?",
+        "a": "Kelima alat di halaman ini gratis. BIShare dan PairDrop open source tanpa paket berbayar. Snapdrop dan ShareDrop juga gratis, walaupun keduanya kini milik LimeWire dan ShareDrop menampilkan iklan."
+      },
+      "3": {
+        "q": "Apakah AirDrop online bekerja antara iPhone dan Android?",
+        "a": "Ya, ke dua arah. Buka halaman yang sama di Safari pada iPhone dan Chrome pada ponsel Android. Browser yang menangani transfernya, jadi merek ponsel tidak berpengaruh."
+      },
+      "4": {
+        "q": "Apakah kedua perangkat harus di Wi-Fi yang sama?",
+        "a": "Untuk penemuan otomatis, ya. Untuk menyambung lintas dua jaringan diperlukan alat yang punya kode atau room: BIShare memakai kode 6 karakter, PairDrop kode pasangan 6 digit atau room 5 huruf, ShareDrop link room. Snapdrop dan AirDrop Web hanya bekerja di satu jaringan."
+      },
+      "5": {
+        "q": "Ke mana file saya pergi saat memakai AirDrop online?",
+        "a": "Pada transfer langsung, file berpindah dari satu browser ke browser lain dalam keadaan terenkripsi, dan tidak ada server yang menyimpan salinannya. Pengecualiannya adalah tombol unggah: area Upload Files di ShareDrop menyimpan file di LimeWire, dan link BIShare menyimpan salinan terenkripsi hingga 24 jam."
+      },
+      "6": {
+        "q": "Apakah ada batas ukuran file?",
+        "a": "Alat-alat ini tidak menyebut batas untuk transfer langsung. Batas praktisnya ada di browser: Chrome dan Edge bisa menulis file ke disk selagi datang, sedangkan browser yang menahannya di memori bisa gagal pada file yang sangat besar. Link BIShare memuat hingga 100 GB."
+      },
+      "7": {
+        "q": "Kenapa kedua perangkat tidak saling terlihat?",
+        "a": "Biasanya jaringannya mengisolasi perangkat, seperti Wi-Fi tamu dan kantor, atau salah satu perangkat memakai VPN atau data seluler sehingga tampak berada di tempat lain. Matikan VPN dan pastikan keduanya di Wi-Fi yang sama. Kalau tidak memungkinkan, sambungkan dengan kode pasangan."
+      },
+      "8": {
+        "q": "Apakah AirDrop online bekerja tanpa internet?",
+        "a": "Tidak dari halaman web publik, karena halaman itu harus menjangkau servernya untuk memperkenalkan kedua perangkat. Setelah tersambung di satu jaringan, filenya tidak memakai internet. Untuk transfer tanpa koneksi sama sekali, pakai aplikasi terpasang lewat hotspot ponsel."
+      },
+      "9": {
+        "q": "PairDrop, Snapdrop atau BIShare: mana yang sebaiknya dibuka?",
+        "a": "Untuk dua perangkat di satu Wi-Fi, semuanya bisa. PairDrop kalau Anda mau alat yang hanya melakukan transfer langsung dan bisa di-host sendiri. BIShare kalau Anda juga butuh link untuk orang yang sedang tidak online, atau aplikasi untuk pemakaian harian. Snapdrop kalau itu yang sudah Anda kenal dan pergantian pemiliknya tidak jadi soal."
+      }
+    }
+  },
+  "cta": {
+    "title": "Buka di kedua perangkat, lalu kirim",
+    "body": "Gratis, open source, tanpa akun. Halaman webnya bisa dipakai sekarang; aplikasinya menunggu saat Anda ingin kecepatan Wi-Fi penuh dan transfer di latar belakang.",
+    "download": "Unduh BIShare"
+  },
+  "a11y": {
+    "yes": "Ya",
+    "no": "Tidak"
+  },
+  "art": {
+    "hero": {
+      "alt": "Sebuah ponsel dan laptop masing-masing menampilkan halaman browser dengan file berpindah langsung di antaranya, di bawah judul AirDrop online: perangkat apa pun, di browser.",
+      "title": "AirDrop online",
+      "sub": "Dua perangkat apa pun, satu halaman web, tanpa instal",
+      "left": "Ponsel apa pun",
+      "right": "Komputer apa pun"
+    },
+    "flow": {
+      "alt": "Diagram transfer lewat browser: kedua perangkat memberi tahu server pensinyalan bahwa mereka ada, server memperkenalkan keduanya, lalu file berjalan langsung antara dua browser tanpa melewati server.",
+      "title": "Cara kerja versi browser",
+      "sub": "Server hanya memperkenalkan; file mengambil jalur langsung",
+      "a": "Browser Anda",
+      "b": "Browser lainnya",
+      "server": "Server pensinyalan",
+      "hello": "Hanya memberi tahu siapa yang ada",
+      "direct": "File lewat sini, terenkripsi",
+      "foot": "Kalau jalur langsung diblokir, relay meneruskan aliran terenkripsi dan tidak menyimpan apa pun"
+    },
+    "choose": {
+      "alt": "Bagan yang memasangkan enam situasi dengan jalurnya: tab Terdekat untuk ponsel ke laptop di rumah, kode privat untuk jaringan kantor, kode atau link untuk orang di kota lain, halaman web untuk komputer pinjaman, aplikasi untuk puluhan gigabyte, dan hotspot dengan aplikasi saat tidak ada jaringan.",
+      "title": "Jalur mana yang dipakai",
+      "sub": "Enam situasi dan cara tercepat untuk masing-masing",
+      "items": {
+        "0": {
+          "q": "Ponsel ke laptop di Wi-Fi rumah",
+          "a": "Tab Terdekat di keduanya"
+        },
+        "1": {
+          "q": "iPhone ke PC Windows di kantor",
+          "a": "Kode privat, 6 karakter"
+        },
+        "2": {
+          "q": "Seseorang di kota lain",
+          "a": "Kode sekarang, atau link untuk nanti"
+        },
+        "3": {
+          "q": "Komputer pinjaman atau yang dikunci",
+          "a": "Cukup halaman webnya"
+        },
+        "4": {
+          "q": "Puluhan gigabyte, perangkat sendiri",
+          "a": "Aplikasi di keduanya"
+        },
+        "5": {
+          "q": "Tidak ada jaringan sama sekali",
+          "a": "Hotspot plus aplikasi"
+        }
+      }
+    }
+  }
+}

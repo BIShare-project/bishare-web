@@ -55,6 +55,7 @@ const COLUMNS: Array<{
         { labelKey: "ucEncrypted", href: "/encrypted-file-transfer" },
         { labelKey: "ucClipboard", href: "/clipboard-sync" },
         { labelKey: "ucAirdropFix", href: "/airdrop-not-working" },
+        { labelKey: "ucAirdropOnline", href: "/airdrop-online" },
         { labelKey: "ucAirdropAndroid", href: "/airdrop-for-android" },
       ],
     },

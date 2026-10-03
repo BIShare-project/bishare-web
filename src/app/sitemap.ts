@@ -39,6 +39,7 @@ const ROUTES: Array<{
   { path: "/send-files-without-internet", priority: 0.9, changeFrequency: "monthly" },
   { path: "/transfer-photos-from-iphone-to-pc", priority: 0.9, changeFrequency: "monthly" },
   { path: "/airdrop-not-working", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/airdrop-online", priority: 0.9, changeFrequency: "monthly" },
   { path: "/transfer-files-between-computers", priority: 0.9, changeFrequency: "monthly" },
   { path: "/how-it-works", priority: 0.9, changeFrequency: "monthly" },
   { path: "/security", priority: 0.8, changeFrequency: "monthly" },
