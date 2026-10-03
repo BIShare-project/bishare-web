@@ -2,7 +2,7 @@
   "meta": {
     "title": "File Transfer FAQ: Limits, Privacy, Devices",
     "ogTitle": "BIShare FAQ",
-    "description": "Answers about getting started, transfers, privacy, and troubleshooting — file sizes, the same-network rule, 24-hour share links, end-to-end encryption, and rooms."
+    "description": "Answers about getting started, transfers, privacy, and troubleshooting — file sizes, the same-network rule, expiring share links, end-to-end encryption, and rooms."
   },
   "hero": {
     "eyebrow": "FAQ",
@@ -77,10 +77,10 @@
         },
         {
           "q": "Can BIShare see the files I send?",
-          "a": "No. Nearby transfers never touch a server — they travel straight between your devices. Remote shares are encrypted in transit and at rest, are never scanned or opened, and are permanently deleted after 24 hours."
+          "a": "No. Nearby transfers never touch a server — they travel straight between your devices. Remote shares are encrypted in transit and at rest, are never scanned or opened, and are permanently deleted after 6, 12 or 24 hours."
         },
         {
-          "q": "What happens to a remote share after 24 hours?",
+          "q": "What happens to a remote share when it expires?",
           "a": "The file is permanently deleted from cloud storage, and the link, QR code, and share code all stop working. One-time links go further: they delete themselves right after the first download."
         },
         {
@@ -104,7 +104,7 @@
         },
         {
           "q": "A link or code isn't working. Why?",
-          "a": "Remote shares expire after 24 hours, and one-time links stop working after their first download — an expired share can't be revived, so ask the sender to share again. For six-character codes, double-check the characters. For nearby transfers, the sending device must be online and on your network."
+          "a": "Remote shares expire after 6, 12 or 24 hours, and one-time links stop working after their first download — an expired share can't be revived, so ask the sender to share again. For six-character codes, double-check the characters. For nearby transfers, the sending device must be online and on your network."
         }
       ]
     }

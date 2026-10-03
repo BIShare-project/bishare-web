@@ -15,7 +15,7 @@
   "quick": {
     "title": "Réponse rapide",
     "items": {
-      "0": "<strong>Vous voulez la même confidentialité sans onglet ouvert :</strong> <goTransfer>un lien BIShare</goTransfer> verrouille le fichier dans votre navigateur exactement comme Wormhole, porte jusqu’à 100 Go, et ensuite vous pouvez tout fermer. La récupération reste possible pendant 24 heures.",
+      "0": "<strong>Vous voulez la même confidentialité sans onglet ouvert :</strong> <goTransfer>un lien BIShare</goTransfer> verrouille le fichier dans votre navigateur exactement comme Wormhole, porte jusqu’à 100 Go, et ensuite vous pouvez tout fermer. La récupération reste possible pendant 6, 12 ou 24 heures.",
       "1": "<strong>Vous butez sur le plafond de 10 Go :</strong> un lien BIShare monte à 100 Go, et transfer.zip n’annonce aucun plafond dans son mode gratuit de navigateur à navigateur. Ce mode conserve l’exigence de l’onglet.",
       "2": "<strong>Votre destinataire est lent :</strong> rien ici n’est plus lent qu’un lien mort. SwissTransfer garde 50 Go pendant 15 jours, et Proton Drive conserve un fichier partagé jusqu’à ce que vous le supprimiez.",
       "3": "<strong>Vous ne vouliez aucun serveur dans l’histoire :</strong> <goOffline>deux appareils sur un même réseau s’envoient les fichiers directement</goOffline>, ou passez par FilePizza dans un navigateur. Aucun téléversement, aucun stockage, rien qui expire.",
@@ -52,7 +52,7 @@
       "0": {
         "name": "BIShare",
         "tag": "La meilleure si vous voulez le modèle de confidentialité de Wormhole et la liberté de fermer l’onglet",
-        "facts": "100 Go par lien · verrouillé dans votre propre navigateur avant l’envoi · clé garée dans le fragment du lien · une journée pour récupérer · un interrupteur de destruction après le premier téléchargement · aucun plafond entre deux appareils d’un même réseau · code sous licence MIT · sans compte et sans palier payant",
+        "facts": "100 Go par lien · verrouillé dans votre propre navigateur avant l’envoi · clé garée dans le fragment du lien · jusqu’à une journée pour récupérer · un interrupteur de destruction après le premier téléchargement · aucun plafond entre deux appareils d’un même réseau · code sous licence MIT · sans compte et sans palier payant",
         "body": "BIShare copie la partie de Wormhole qui mérite de l’être et laisse tomber celle qui fait mal. Le fichier est verrouillé dans votre navigateur d’abord, et la clé vit après le repère # du lien, une portion de l’adresse que les navigateurs gardent pour eux, si bien que notre stockage détient des octets que nous ne pouvons pas ouvrir. La différence vient ensuite : l’envoi se termine vers le stockage à n’importe quelle taille jusqu’à 100 Go, vous pouvez donc refermer l’écran et le destinataire récupère plus tard, sans qu’une seconde machine attende la vôtre. Il existe aussi de vraies applications, et quand les deux appareils partagent un Wi-Fi ils sautent complètement Internet et poussent le fichier à travers la pièce.",
         "cons": "Une journée est une fenêtre courte, plus courte que SwissTransfer ou Proton Drive. Les liens refusent les exécutables comme .exe et .msi. Et sous 5 Go, Wormhole fait déjà ce travail parfaitement."
       },
@@ -126,7 +126,7 @@
       "r4": "Disponible plus de trois jours",
       "r5": "Code ouvert"
     },
-    "note": "Relevé chez chaque fournisseur en septembre 2026. Wormhole : 10 Go sur la page d’accueil, jusqu’à une journée choisie à l’envoi, un compteur de téléchargements qui démarre à un, et du stockage uniquement sous 5 Go, au-delà de quoi l’onglet de l’expéditeur porte le transfert. BIShare : 100 Go, une journée pour récupérer, verrouillé dans le navigateur, destruction facultative après le premier téléchargement, et aucun plafond entre deux appareils d’un même réseau. transfer.zip : le mode gratuit Quick Transfer diffuse entre navigateurs sans rien stocker, d’où la colonne de l’onglet ; les transferts stockés payants se comportent autrement. SwissTransfer : 50 Go pendant 15 jours, extensibles à 30, mais chiffrés à l’arrivée chez Infomaniak et non par vous, et un code par courriel est désormais exigé. Instance Send : chiffres lus en direct sur l’instance publique la plus connue, 2,5 Gio et trois jours. Proton Drive : 5 Go de stockage de compte, gardés jusqu’à suppression. Wormhole publie sa bibliothèque de chiffrement mais pas le service, d’où sa colonne code ouvert."
+    "note": "Relevé chez chaque fournisseur en septembre 2026. Wormhole : 10 Go sur la page d’accueil, jusqu’à une journée choisie à l’envoi, un compteur de téléchargements qui démarre à un, et du stockage uniquement sous 5 Go, au-delà de quoi l’onglet de l’expéditeur porte le transfert. BIShare : 100 Go, jusqu’à une journée pour récupérer, verrouillé dans le navigateur, destruction facultative après le premier téléchargement, et aucun plafond entre deux appareils d’un même réseau. transfer.zip : le mode gratuit Quick Transfer diffuse entre navigateurs sans rien stocker, d’où la colonne de l’onglet ; les transferts stockés payants se comportent autrement. SwissTransfer : 50 Go pendant 15 jours, extensibles à 30, mais chiffrés à l’arrivée chez Infomaniak et non par vous, et un code par courriel est désormais exigé. Instance Send : chiffres lus en direct sur l’instance publique la plus connue, 2,5 Gio et trois jours. Proton Drive : 5 Go de stockage de compte, gardés jusqu’à suppression. Wormhole publie sa bibliothèque de chiffrement mais pas le service, d’où sa colonne code ouvert."
   },
   "whichone": {
     "title": "Trois choses différentes s’appellent Wormhole",
@@ -155,7 +155,7 @@
       },
       "1": {
         "h": "Puis fermez l’onglet",
-        "b": "C’est tout l’intérêt du changement. L’envoi se termine vers le stockage à n’importe quelle taille jusqu’à 100 Go, il n’y a donc aucun pair qui attend votre machine ni de ligne au-delà de laquelle les règles changent. Refermez le portable et le destinataire récupère quand même, pendant les 24 heures qui suivent."
+        "b": "C’est tout l’intérêt du changement. L’envoi se termine vers le stockage à n’importe quelle taille jusqu’à 100 Go, il n’y a donc aucun pair qui attend votre machine ni de ligne au-delà de laquelle les règles changent. Refermez le portable et le destinataire récupère quand même, pendant les 6, 12 ou 24 heures qui suivent."
       },
       "2": {
         "h": "Activez l’interrupteur de destruction si vous utilisiez un compteur bas",
@@ -185,7 +185,7 @@
       },
       "3": {
         "h": "Confidentiel, et le destinataire est lent",
-        "b": "<goEncrypted>Choisissez selon qui détient la clé, pas selon le discours commercial</goEncrypted>. Proton Drive garde un fichier verrouillé disponible indéfiniment ; un lien BIShare vous donne une journée ; SwissTransfer donne quinze jours mais peut lire ce qu’il détient."
+        "b": "<goEncrypted>Choisissez selon qui détient la clé, pas selon le discours commercial</goEncrypted>. Proton Drive garde un fichier verrouillé disponible indéfiniment ; un lien BIShare vous donne jusqu’à une journée ; SwissTransfer donne quinze jours mais peut lire ce qu’il détient."
       },
       "4": {
         "h": "Vous deux dans la même pièce",
@@ -216,7 +216,7 @@
     "items": {
       "0": {
         "q": "Quelle est la meilleure alternative à Wormhole ?",
-        "a": "Si vous voulez le même chiffrement dans le navigateur sans garder un onglet ouvert, BIShare : 100 Go par lien, verrouillé avant l’envoi, sans compte, 24 heures pour récupérer. Si vous voulez le même fonctionnement de navigateur à navigateur sans plafond, le Quick Transfer gratuit de transfer.zip ou FilePizza. Si une longue fenêtre vous manque plus que le verrouillage, SwissTransfer."
+        "a": "Si vous voulez le même chiffrement dans le navigateur sans garder un onglet ouvert, BIShare : 100 Go par lien, verrouillé avant l’envoi, sans compte, 6, 12 ou 24 heures pour récupérer. Si vous voulez le même fonctionnement de navigateur à navigateur sans plafond, le Quick Transfer gratuit de transfer.zip ou FilePizza. Si une longue fenêtre vous manque plus que le verrouillage, SwissTransfer."
       },
       "1": {
         "q": "Pourquoi mon transfert Wormhole a-t-il échoué quand j’ai fermé l’onglet ?",
@@ -240,7 +240,7 @@
       },
       "6": {
         "q": "Quelles alternatives à Wormhole gardent les fichiers plus d’une journée ?",
-        "a": "SwissTransfer garde 50 Go pendant 15 jours avec une prolongation à 30 proposée avant l’échéance, et Proton Drive conserve un fichier partagé jusqu’à suppression, dans la limite de ses 5 Go gratuits. Une instance Send publique autorise jusqu’à trois jours. BIShare, comme Wormhole, vous donne 24 heures."
+        "a": "SwissTransfer garde 50 Go pendant 15 jours avec une prolongation à 30 proposée avant l’échéance, et Proton Drive conserve un fichier partagé jusqu’à suppression, dans la limite de ses 5 Go gratuits. Une instance Send publique autorise jusqu’à trois jours. BIShare, comme Wormhole, vous donne 24 heures au maximum."
       },
       "7": {
         "q": "Existe-t-il une alternative à Wormhole sans limite de taille ?",
@@ -301,7 +301,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 Go · 15 à 30 jours",
       "bishare": "Lien BIShare",
-      "bisharev": "100 Go · 24 heures",
+      "bisharev": "100 Go · 6 à 24 heures",
       "stream": "De navigateur à navigateur",
       "streamv": "Sans plafond · les deux onglets ouverts",
       "foot": "Wormhole ne stocke qu’en dessous de 5 Go ; au-delà il diffuse entre onglets, et c’est pourquoi il figure dans les deux moitiés de ce graphique"

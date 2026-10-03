@@ -18,7 +18,7 @@
       "<strong>Batas gratis paling longgar dengan penyimpanan lama:</strong> SwissTransfer mengirim hingga 50 GB dan menyimpan file 15 hari, bisa diperpanjang jadi 30.",
       "<strong>Tanpa batas ukuran:</strong> Smash menerima ukuran berapa pun di paket gratis, tetapi transfer di atas 2 GB mengantre di belakang pengguna berbayar; file disimpan 7 hari.",
       "<strong>Privat sejak awal, dari browser:</strong> Wormhole mengenkripsi file sebelum diupload, hingga 10 GB, dan menghapusnya setelah 24 jam.",
-      "<strong>File besar, dienkripsi di perangkat, tanpa akun:</strong> link BIShare membawa hingga 100 GB selama 24 jam, dan perangkat di jaringan yang sama mengirim langsung tanpa batas ukuran.",
+      "<strong>File besar, dienkripsi di perangkat, tanpa akun:</strong> link BIShare membawa hingga 100 GB selama 6, 12, atau 24 jam, dan perangkat di jaringan yang sama mengirim langsung tanpa batas ukuran.",
       "<strong>File yang sebaiknya tinggal di folder, bukan link:</strong> Proton Drive membagikan link terenkripsi end-to-end dengan kata sandi dan tanggal kedaluwarsa dari penyimpanan gratis 5 GB.",
       "<strong>Anda suka WeTransfer dan cuma butuh lebih:</strong> paket Ultimate-nya mengirim hingga 1 TB per transfer, dengan masa berlaku kustom."
     ]
@@ -66,9 +66,9 @@
       "0": {
         "name": "BIShare",
         "tag": "Terbaik secara umum: link besar terenkripsi, plus transfer langsung saat berdekatan",
-        "facts": "Browser, iPhone, Android, Windows, Mac, Linux · open source (MIT) · link hingga 100 GB, 24 jam · langsung di satu jaringan tanpa batas ukuran · dienkripsi di perangkat Anda · tanpa akun, tanpa iklan",
+        "facts": "Browser, iPhone, Android, Windows, Mac, Linux · open source (MIT) · link hingga 100 GB, 6, 12, atau 24 jam · langsung di satu jaringan tanpa batas ukuran · dienkripsi di perangkat Anda · tanpa akun, tanpa iklan",
         "body": "BIShare bekerja seperti WeTransfer saat penerima jauh: buka bishare.app/transfer atau aplikasinya, tambahkan file, lalu bagikan link, kode QR, atau kode 6 karakter. Bedanya ada pada apa yang terjadi sebelum upload. File dienkripsi di perangkat Anda, dan kuncinya ikut di bagian link setelah tanda #, yang tidak pernah dikirim browser ke server, jadi yang disimpan BIShare tidak bisa dibaca oleh BIShare sendiri. Penerima mengunduh di browser apa pun tanpa login dan tanpa iklan. Kalau orangnya ada di kantor yang sama atau Wi-Fi yang sama, aplikasi melewati internet sepenuhnya dan mengirim antarperangkat dengan kecepatan jaringan lokal, tanpa batas ukuran.",
-        "cons": "Link berhenti berfungsi setelah 24 jam, lebih pendek dari tiga hari di WeTransfer, jadi ini alat untuk mengantar, bukan tempat menitipkan file. Belum ada halaman unduhan bermerek untuk pekerjaan klien."
+        "cons": "Link berhenti berfungsi setelah 6, 12, atau 24 jam, lebih pendek dari tiga hari di WeTransfer, jadi ini alat untuk mengantar, bukan tempat menitipkan file. Belum ada halaman unduhan bermerek untuk pekerjaan klien."
       },
       "1": {
         "name": "SwissTransfer",
@@ -139,7 +139,7 @@
       "r3": "Opsi transfer langsung antarperangkat",
       "r4": "Open source"
     },
-    "note": "Paket gratis sesuai dokumentasi per September 2026. BIShare: link 100 GB selama 24 jam, transfer langsung tanpa batas ukuran saat perangkat berada di satu jaringan. WeTransfer gratis: 10 transfer atau total 3 GB per 30 hari, link 3 hari. SwissTransfer: 50 GB, 15 hari, bisa diperpanjang jadi 30. Smash: tanpa batas ukuran, transfer di atas 2 GB mengantre, 7 hari. Wormhole: 10 GB, 24 jam; file di atas 5 GB dikirim peer-to-peer selama kedua browser tetap terbuka. Filemail: 5 GB, 2 transfer per 24 jam, 7 hari. Baris enkripsi menandai layanan yang mendokumentasikan enkripsi di browser sebelum upload; yang lain menyebut enkripsi saat transit dan di server mereka."
+    "note": "Paket gratis sesuai dokumentasi per September 2026. BIShare: link 100 GB selama 6, 12, atau 24 jam, transfer langsung tanpa batas ukuran saat perangkat berada di satu jaringan. WeTransfer gratis: 10 transfer atau total 3 GB per 30 hari, link 3 hari. SwissTransfer: 50 GB, 15 hari, bisa diperpanjang jadi 30. Smash: tanpa batas ukuran, transfer di atas 2 GB mengantre, 7 hari. Wormhole: 10 GB, 24 jam; file di atas 5 GB dikirim peer-to-peer selama kedua browser tetap terbuka. Filemail: 5 GB, 2 transfer per 24 jam, 7 hari. Baris enkripsi menandai layanan yang mendokumentasikan enkripsi di browser sebelum upload; yang lain menyebut enkripsi saat transit dan di server mereka."
   },
   "choose": {
     "title": "Alternatif mana untuk kebutuhan apa",
@@ -147,7 +147,7 @@
     "items": {
       "0": {
         "h": "Mengirim proyek jadi ke klien",
-        "b": "Pilih layanan yang menyimpan file cukup lama untuk klien yang telat membuka email: SwissTransfer untuk hingga 50 GB dan dua sampai empat minggu, atau paket berbayar WeTransfer kalau klien mengharapkan nama itu. Link BIShare juga bisa, tetapi pasang pengingat, karena link hanya bertahan 24 jam."
+        "b": "Pilih layanan yang menyimpan file cukup lama untuk klien yang telat membuka email: SwissTransfer untuk hingga 50 GB dan dua sampai empat minggu, atau paket berbayar WeTransfer kalau klien mengharapkan nama itu. Link BIShare juga bisa, tetapi pasang pengingat, karena link hanya bertahan 6, 12, atau 24 jam."
       },
       "1": {
         "h": "Mengirim kontrak, KTP, atau dokumen medis",
@@ -203,7 +203,7 @@
     "items": {
       "0": {
         "h": "Link bilang sudah kedaluwarsa",
-        "b": "Tiap layanan menghapus file sesuai jadwal: 24 jam untuk BIShare dan Wormhole, 3 hari untuk WeTransfer gratis, 7 hari untuk Smash, Filemail, dan TransferNow, 15 sampai 30 hari untuk SwissTransfer. Minta link baru, dan untuk penerima yang lambat, pilih layanan dengan penyimpanan lebih lama."
+        "b": "Tiap layanan menghapus file sesuai jadwal: 6 sampai 24 jam untuk BIShare, 24 jam untuk Wormhole, 3 hari untuk WeTransfer gratis, 7 hari untuk Smash, Filemail, dan TransferNow, 15 sampai 30 hari untuk SwissTransfer. Minta link baru, dan untuk penerima yang lambat, pilih layanan dengan penyimpanan lebih lama."
       },
       "1": {
         "h": "WeTransfer tidak mengizinkan Anda mengirim",

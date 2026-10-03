@@ -52,8 +52,8 @@
       "0": {
         "name": "BIShare",
         "tag": "综合最佳：Windows、Mac、Linux之间的日常传输",
-        "facts": "Windows（Microsoft Store）、Mac App Store、Linux · MIT许可开源 · 同一网络直传，不限大小 · 单个链接最多100 GB，有效期一天 · 端到端加密 · 无需注册",
-        "body": "两台电脑都装上BIShare，把文件或文件夹拖进应用窗口，再从附近设备列表里选中另一台电脑；接收端确认后，文件就写入BIShare的保存文件夹。因为不上传任何东西，40 GB的项目也按局域网速度传输，而且无论Windows、macOS、Linux怎么组合，步骤都一样。附近没有路由器时，<goOffline>手机热点就能充当网络</goOffline>。另一台电脑在别的楼里的话，就生成链接，那台电脑在接下来24小时内<goTransfer>用任意浏览器都能打开</goTransfer>。",
+        "facts": "Windows（Microsoft Store）、Mac App Store、Linux · MIT许可开源 · 同一网络直传，不限大小 · 单个链接最多100 GB，有效期最长一天 · 端到端加密 · 无需注册",
+        "body": "两台电脑都装上BIShare，把文件或文件夹拖进应用窗口，再从附近设备列表里选中另一台电脑；接收端确认后，文件就写入BIShare的保存文件夹。因为不上传任何东西，40 GB的项目也按局域网速度传输，而且无论Windows、macOS、Linux怎么组合，步骤都一样。附近没有路由器时，<goOffline>手机热点就能充当网络</goOffline>。另一台电脑在别的楼里的话，就生成链接，那台电脑在接下来6、12或24小时内<goTransfer>用任意浏览器都能打开</goTransfer>。",
         "cons": "它传的是文件，不是已安装的应用或设置，所以替代不了新电脑的迁移工具。文件夹传输时会打包成一个zip压缩包，直传时两台电脑都需要安装应用。"
       },
       "1": {
@@ -125,7 +125,7 @@
       "r3": "随时可用，不限于初始设置",
       "r4": "无需额外硬件或存储套餐"
     },
-    "note": "以上为2026年9月的情况。BIShare直传需要两台电脑都装应用，同一网络内不限大小；BIShare链接最多100 GB，一天后失效。Windows 备份迁移在新电脑的设置过程中进行，新电脑需要Windows 11 24H2或更高版本。就近共享仅限Windows，没有共同专用网络时改走蓝牙。网络共享设置好后可在Windows、Mac和Linux之间使用。也要接Mac的移动硬盘应格式化为exFAT。云盘文件夹需要账户和足够的存储空间。"
+    "note": "以上为2026年9月的情况。BIShare直传需要两台电脑都装应用，同一网络内不限大小；BIShare链接最多100 GB，一天之内失效。Windows 备份迁移在新电脑的设置过程中进行，新电脑需要Windows 11 24H2或更高版本。就近共享仅限Windows，没有共同专用网络时改走蓝牙。网络共享设置好后可在Windows、Mac和Linux之间使用。也要接Mac的移动硬盘应格式化为exFAT。云盘文件夹需要账户和足够的存储空间。"
   },
   "migrate": {
     "title": "把一切搬到新电脑",
@@ -249,7 +249,7 @@
       },
       "2": {
         "h": "清楚副本会留在哪里",
-        "b": "云盘文件夹会在服务商那里留一份副本。用BIShare、LocalSend、就近共享或网络共享直传，文件只在两台电脑之间移动，<goEncrypted>BIShare链接在上传前就已加密</goEncrypted>，24小时后删除。"
+        "b": "云盘文件夹会在服务商那里留一份副本。用BIShare、LocalSend、就近共享或网络共享直传，文件只在两台电脑之间移动，<goEncrypted>BIShare链接在上传前就已加密</goEncrypted>，6、12或24小时后删除。"
       }
     }
   },

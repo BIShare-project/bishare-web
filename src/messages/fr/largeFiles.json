@@ -1,12 +1,12 @@
 {
   "meta": {
     "title": "Envoyer de gros fichiers gratuitement : 100 Go, sans compte (2026)",
-    "description": "Envoyez de gros fichiers gratuitement : jusqu'à 100 Go par transfert via un lien, sans inscription, chiffré de bout en bout, expire en 24 h — ou toute taille sur votre Wi-Fi."
+    "description": "Envoyez de gros fichiers gratuitement : jusqu'à 100 Go par transfert via un lien, sans inscription, chiffré de bout en bout, expire en 24 h max — ou toute taille sur votre Wi-Fi."
   },
   "hero": {
     "eyebrow": "Transfert de gros fichiers",
     "title": "Envoyez de gros fichiers, gratuitement",
-    "body": "L'e-mail s'arrête vers 25 Mo, l'offre gratuite de WeTransfer à 3 Go, la plupart des sites d'envoi à 5 Go. <strong>BIShare</strong> envoie les gros fichiers sans ce plafond : jusqu'à <strong>100 Go par un lien</strong> que l'autre personne ouvre dans n'importe quel navigateur, sans appli ni inscription — ou n'importe quelle taille quand vous êtes à côté, directement par votre Wi-Fi. <highlight>Gratuit, open source, chiffré avant l'envoi, et le lien expire de lui-même au bout de 24 heures.</highlight>",
+    "body": "L'e-mail s'arrête vers 25 Mo, l'offre gratuite de WeTransfer à 3 Go, la plupart des sites d'envoi à 5 Go. <strong>BIShare</strong> envoie les gros fichiers sans ce plafond : jusqu'à <strong>100 Go par un lien</strong> que l'autre personne ouvre dans n'importe quel navigateur, sans appli ni inscription — ou n'importe quelle taille quand vous êtes à côté, directement par votre Wi-Fi. <highlight>Gratuit, open source, chiffré avant l'envoi, et le lien expire de lui-même au bout de 6, 12 ou 24 heures.</highlight>",
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche",
     "ctaSecondaryTransfer": "Envoyer un fichier maintenant — dans le navigateur"
@@ -24,7 +24,7 @@
       },
       "1": {
         "h": "Quand vous êtes loin",
-        "b": "Vous recevez un lien de partage, un QR code et un code à 6 caractères. Le destinataire ouvre le lien dans n'importe quel navigateur et télécharge : jusqu'à 100 Go, sans appli, sans inscription. Le lien expire tout seul après 24 heures, donc rien ne traîne en ligne."
+        "b": "Vous recevez un lien de partage, un QR code et un code à 6 caractères. Le destinataire ouvre le lien dans n'importe quel navigateur et télécharge : jusqu'à 100 Go, sans appli, sans inscription. Le lien expire tout seul après 6, 12 ou 24 heures, donc rien ne traîne en ligne."
       },
       "2": {
         "h": "Toutes les plateformes",
@@ -66,7 +66,7 @@
       },
       "3": {
         "q": "Comment envoyer un fichier de plus de 25 Mo par e-mail ?",
-        "a": "Vous ne le joignez pas — Gmail et Outlook refusent tout ce qui dépasse nettement 20–25 Mo. Déposez-le sur bishare.app/transfer et collez le lien dans l'e-mail. Le destinataire clique et télécharge dans son navigateur ; le lien fonctionne 24 heures."
+        "a": "Vous ne le joignez pas — Gmail et Outlook refusent tout ce qui dépasse nettement 20–25 Mo. Déposez-le sur bishare.app/transfer et collez le lien dans l'e-mail. Le destinataire clique et télécharge dans son navigateur ; le lien fonctionne 6, 12 ou 24 heures."
       },
       "4": {
         "q": "Le destinataire a-t-il besoin d'une appli ou d'un compte ?",
@@ -74,7 +74,7 @@
       },
       "5": {
         "q": "Combien de temps le lien de téléchargement reste-t-il actif ?",
-        "a": "24 heures à partir de sa création ; ensuite le fichier est supprimé. Si vous activez l'option usage unique, le fichier est supprimé dès la fin du premier téléchargement, et un lien transféré plus tard ne mène nulle part."
+        "a": "6, 12 ou 24 heures à partir de sa création ; ensuite le fichier est supprimé. Si vous activez l'option usage unique, le fichier est supprimé dès la fin du premier téléchargement, et un lien transféré plus tard ne mène nulle part."
       },
       "6": {
         "q": "Est-ce sûr d'envoyer de gros fichiers ainsi ?",
@@ -133,7 +133,7 @@
     "items": [
       "<strong>Pour envoyer un gros fichier gratuitement :</strong> ouvrez <goTransfer>bishare.app/transfer</goTransfer>, déposez le fichier et partagez le lien, le QR code ou le code à 6 caractères. Jusqu'à 100 Go par transfert, <goNoAccount>aucun compte d'aucun côté</goNoAccount>, rien à installer.",
       "<strong>Plus de 100 Go, ou un dossier entier de vidéo brute ?</strong> Mettez les deux appareils sur le même Wi-Fi (ou <goOffline>un partage de connexion</goOffline>) et envoyez d'appareil à appareil — sans limite de taille, sans aucun envoi vers le cloud.",
-      "<strong>Ce qui change par rapport à WeTransfer et aux autres :</strong> le fichier est chiffré dans votre navigateur avant l'envoi et la clé n'atteint jamais notre serveur ; pas de publicité, pas d'offre payante, et le lien s'efface seul après 24 heures — ou après le premier téléchargement, si vous le choisissez.",
+      "<strong>Ce qui change par rapport à WeTransfer et aux autres :</strong> le fichier est chiffré dans votre navigateur avant l'envoi et la clé n'atteint jamais notre serveur ; pas de publicité, pas d'offre payante, et le lien s'efface seul après 6, 12 ou 24 heures — ou après le premier téléchargement, si vous le choisissez.",
       "<strong>Vitesse :</strong> par lien, celle que permet votre débit montant (1 Go ≈ 3 minutes à 50 Mbit/s) ; à proximité, 40–110 Mo/s en Wi-Fi moderne, donc un gigaoctet en bien moins d'une minute."
     ]
   },
@@ -155,7 +155,7 @@
       },
       {
         "h": "Téléchargement dans n'importe quel navigateur — sans appli, sans compte",
-        "b": "Chrome, Safari, Edge, Firefox, sur n'importe quel appareil. Les grosses vidéos se lancent avant la fin du téléchargement. Le lien expire 24 heures après sa création ; cochez l'option usage unique et il meurt après le premier téléchargement."
+        "b": "Chrome, Safari, Edge, Firefox, sur n'importe quel appareil. Les grosses vidéos se lancent avant la fin du téléchargement. Le lien expire 6, 12 ou 24 heures après sa création ; cochez l'option usage unique et il meurt après le premier téléchargement."
       }
     ]
   },
@@ -291,12 +291,12 @@
       [
         "BIShare",
         "100 Go par transfert",
-        "24 heures, ou premier téléchargement",
+        "6, 12 ou 24 heures, ou premier téléchargement",
         "Non",
-        "Rien n’est conservé pour plus tard ; 24 heures, c’est toute la vie d’un lien"
+        "Rien n’est conservé pour plus tard ; 6, 12 ou 24 heures, c’est toute la vie d’un lien"
       ]
     ],
-    "note": "« Le piège » n’est pas une accusation : chaque ligne est imprimée sur les pages du fournisseur lui-même. Elle n’est simplement jamais le chiffre du titre. Là où notre propre ligne perd : un lien BIShare disparaît au bout d’une journée, ce qui en fait le mauvais outil pour un fichier qu’un client pourrait rechercher la semaine suivante."
+    "note": "« Le piège » n’est pas une accusation : chaque ligne est imprimée sur les pages du fournisseur lui-même. Elle n’est simplement jamais le chiffre du titre. Là où notre propre ligne perd : un lien BIShare disparaît en moins d’une journée, ce qui en fait le mauvais outil pour un fichier qu’un client pourrait rechercher la semaine suivante."
   },
   "speed": {
     "title": "Combien de temps ça prend ?",
@@ -336,7 +336,7 @@
     "items": [
       {
         "h": "Un lien BIShare (jusqu'à 100 Go)",
-        "b": "Le réflexe pour quiconque n'est pas à côté de vous. Chiffré avant l'envoi, sans compte, sans publicité, expire en 24 heures. Idéal pour : <blogClientVideo>une vidéo pour un client</blogClientVideo>, <blogPhotos>un dossier de photos pour la famille</blogPhotos>, une sauvegarde vers votre autre ordinateur."
+        "b": "Le réflexe pour quiconque n'est pas à côté de vous. Chiffré avant l'envoi, sans compte, sans publicité, expire en 6, 12 ou 24 heures. Idéal pour : <blogClientVideo>une vidéo pour un client</blogClientVideo>, <blogPhotos>un dossier de photos pour la famille</blogPhotos>, une sauvegarde vers votre autre ordinateur."
       },
       {
         "h": "BIShare d'appareil à appareil (toute taille)",
@@ -364,7 +364,7 @@
     "title": "Ce qu'il advient de votre fichier",
     "items": [
       "Par lien : <goEncrypted>le fichier est chiffré dans votre navigateur avec une clé générée sur votre appareil</goEncrypted>. La clé voyage dans le lien après le signe #, que les navigateurs n'envoient jamais à un serveur ; notre stockage ne détient donc qu'un chiffré qu'il ne peut pas ouvrir — et ce stockage est dans la région la plus proche de vous.",
-      "Les liens expirent 24 heures après leur création et le fichier est supprimé avec eux. Activez l'usage unique et le fichier est supprimé dès la fin du premier téléchargement.",
+      "Les liens expirent 6, 12 ou 24 heures après leur création et le fichier est supprimé avec eux. Activez l'usage unique et le fichier est supprimé dès la fin du premier téléchargement.",
       "À proximité : le fichier va directement d'un appareil à l'autre, chiffré pour ce transfert, et n'est stocké nulle part ailleurs que sur l'appareil qui reçoit.",
       "Pas de compte, pas d'adresse e-mail, pas de SDK publicitaire, pas d'offre payante. Les applis et le client web sont open source ; le format de chiffrement est publié et identique sur chaque plateforme."
     ]
@@ -515,7 +515,7 @@
       ],
       [
         "De 50 Go à 100 Go",
-        "Un lien BIShare, qui accepte jusqu’à 100 Go par transfert et expire au bout de 24 heures.",
+        "Un lien BIShare, qui accepte jusqu’à 100 Go par transfert et expire au bout de 6, 12 ou 24 heures.",
         "Les offres gratuites en général. Au-delà de 50 Go, presque toutes deviennent payantes."
       ],
       [
@@ -550,7 +550,7 @@
     "intro": "Plus le fichier est gros, plus la fenêtre pendant laquelle quelque chose peut l’interrompre est longue. La solution dépend de la moitié qui a lâché.",
     "items": [
       "<strong>L’envoi s’est arrêté.</strong> Reprenez le même fichier sur <goTransfer>bishare.app/transfer</goTransfer>. Les morceaux déjà stockés sont reconnus et l’envoi repart du dernier, au lieu de tout recommencer.",
-      "<strong>Le lien a expiré.</strong> Les liens durent 24 heures et les liens à usage unique disparaissent après le premier téléchargement terminé. C’est voulu dans les deux cas ; envoyez un nouveau lien.",
+      "<strong>Le lien a expiré.</strong> Les liens durent 6, 12 ou 24 heures et les liens à usage unique disparaissent après le premier téléchargement terminé. C’est voulu dans les deux cas ; envoyez un nouveau lien.",
       "<strong>Le téléchargement a lâché près de la fin.</strong> Les navigateurs relancent un téléchargement au lieu de le reprendre. Sur une connexion instable, passer d’appareil à appareil sur le même Wi-Fi supprime l’envoi et le téléchargement d’un coup.",
       "<strong>Le type de fichier a été refusé.</strong> Les formats exécutables — .exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com — sont rejetés pour les transferts par lien. Mettez-les dans un zip, ou envoyez-les d’appareil à appareil.",
       "<strong>Le Wi-Fi a coupé en plein transfert.</strong> Un transfert d’appareil à appareil qui perd le réseau conserve ce qui est arrivé et repart de ce point dès que la connexion revient."

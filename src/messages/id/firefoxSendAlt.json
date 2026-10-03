@@ -16,7 +16,7 @@
     "title": "Jawaban singkat",
     "items": {
       "0": "<strong>Anda mau hal yang sama, tanpa perubahan:</strong> cabang komunitas dari Send masih dirawat dan masih berjalan di instans publik. Enkripsi sama, kunci di dalam tautan sama, tanpa akun.",
-      "1": "<strong>Anda mau yang dihosting pihak yang bisa dimintai tanggung jawab:</strong> <goTransfer>tautan BIShare</goTransfer> membawa 100 GB, disegel di peramban Anda dengan kunci di dalam tautan, dan bertahan 24 jam.",
+      "1": "<strong>Anda mau yang dihosting pihak yang bisa dimintai tanggung jawab:</strong> <goTransfer>tautan BIShare</goTransfer> membawa 100 GB, disegel di peramban Anda dengan kunci di dalam tautan, dan bertahan 6, 12, atau 24 jam.",
       "2": "<strong>Anda mau menjalankannya sendiri:</strong> Mozilla mencabut mereknya dari kode itu pada 2021 supaya cabang menjadi legal. Bentuknya sebuah image Docker plus Redis.",
       "3": "<strong>Anda mau umur berkas paling panjang:</strong> Tresorit Send menyimpan 5 GB selama 7 hari, dan instans Send publik berkisar dari 3 hari sampai sebulan tergantung siapa yang mengelolanya.",
       "4": "<strong>Hati-hati dengan kata terenkripsi:</strong> SwissTransfer dan Filemail mengenkripsi di server mereka, bukan di peramban Anda. Keduanya layanan yang baik dan tak satu pun setara dengan Send dulu.",
@@ -59,8 +59,8 @@
       "1": {
         "name": "BIShare",
         "tag": "Terbaik saat Anda mau model Send dengan pihak yang bisa dimintai tanggung jawab",
-        "facts": "100 GB untuk satu tautan · dikunci di dalam peramban Anda sebelum apa pun bergerak · rahasianya dibawa setelah tanda # · bisa diambil selama sehari · opsi hancur sendiri setelah pengambilan pertama · tanpa batas antara dua mesin yang berbagi jaringan · sumber publik berlisensi MIT · tidak ada yang perlu didaftarkan",
-        "body": "BIShare mempertahankan bagian Send yang penting dan menaruh layanan terawat di belakangnya. Berkas Anda dikunci di dalam peramban Anda sendiri, dan rahasia yang membukanya menumpang setelah penanda # pada tautan, sebuah bentangan yang menolak diserahkan peramban, sehingga yang duduk di penyimpanan kami adalah materi yang tidak punya cara kami baca. Yang membedakannya dari Send adalah ukuran dan waktu: sebuah tautan menampung sampai 100 GB melawan plafon 2,5 GB milik Send, dan tetap bisa diambil sehari alih-alih sepekan. Ada aplikasi sungguhan juga, dan dua mesin yang berbagi Wi-Fi melewati unggahan sepenuhnya.",
+        "facts": "100 GB untuk satu tautan · dikunci di dalam peramban Anda sebelum apa pun bergerak · rahasianya dibawa setelah tanda # · bisa diambil selama 6, 12, atau 24 jam · opsi hancur sendiri setelah pengambilan pertama · tanpa batas antara dua mesin yang berbagi jaringan · sumber publik berlisensi MIT · tidak ada yang perlu didaftarkan",
+        "body": "BIShare mempertahankan bagian Send yang penting dan menaruh layanan terawat di belakangnya. Berkas Anda dikunci di dalam peramban Anda sendiri, dan rahasia yang membukanya menumpang setelah penanda # pada tautan, sebuah bentangan yang menolak diserahkan peramban, sehingga yang duduk di penyimpanan kami adalah materi yang tidak punya cara kami baca. Yang membedakannya dari Send adalah ukuran dan waktu: sebuah tautan menampung sampai 100 GB melawan plafon 2,5 GB milik Send, dan tetap bisa diambil paling lama sehari alih-alih sepekan. Ada aplikasi sungguhan juga, dan dua mesin yang berbagi Wi-Fi melewati unggahan sepenuhnya.",
         "cons": "Dua puluh empat jam lebih pendek dari sepekan milik Send yang sudah masuk akun, dan jauh lebih pendek dari Tresorit. Tautan menolak berkas program seperti .exe dan .msi, dan itu justru tuas yang tidak dimiliki Send, meski tuas yang tumpul."
       },
       "2": {
@@ -126,7 +126,7 @@
       "r4": "Bisa Anda hosting sendiri",
       "r5": "Tersedia lebih dari 24 jam"
     },
-    "note": "Dibaca dari tiap penyedia pada September 2026. Instans Send: angkanya berasal dari konfigurasi hidup instans publik paling dikenal, 2,5 GiB dan tiga hari; instans lain mengizinkan jauh lebih besar, dan masing-masing menetapkan sendiri. BIShare: 100 GB selama 24 jam, disegel di peramban, opsi hangus setelah unduhan pertama. Wormhole: 10 GB, dihapus setelah 24 jam atau 100 unduhan, dan di atas 5 GB tab pengirim yang membawa transfernya. Tresorit Send: 5 GB selama tujuh hari atau sepuluh unduhan, dengan kata sandi dan pencabutan gratis; ia meminta alamat surel Anda tanpa membuat akun. Bitwarden Send: Send gratis hanya membawa teks, jadi kolom berkasnya mencerminkan keharusan memakai tingkat berbayar. SwissTransfer: 50 GB disimpan 15 hari, bisa diperpanjang sampai 30, tetapi dokumentasinya sendiri menyebut berkas dienkripsi begitu tiba di server Infomaniak, dan itulah sebabnya baris pertama terbaca begitu."
+    "note": "Dibaca dari tiap penyedia pada September 2026. Instans Send: angkanya berasal dari konfigurasi hidup instans publik paling dikenal, 2,5 GiB dan tiga hari; instans lain mengizinkan jauh lebih besar, dan masing-masing menetapkan sendiri. BIShare: 100 GB selama 6, 12, atau 24 jam, disegel di peramban, opsi hangus setelah unduhan pertama. Wormhole: 10 GB, dihapus setelah 24 jam atau 100 unduhan, dan di atas 5 GB tab pengirim yang membawa transfernya. Tresorit Send: 5 GB selama tujuh hari atau sepuluh unduhan, dengan kata sandi dan pencabutan gratis; ia meminta alamat surel Anda tanpa membuat akun. Bitwarden Send: Send gratis hanya membawa teks, jadi kolom berkasnya mencerminkan keharusan memakai tingkat berbayar. SwissTransfer: 50 GB disimpan 15 hari, bisa diperpanjang sampai 30, tetapi dokumentasinya sendiri menyebut berkas dienkripsi begitu tiba di server Infomaniak, dan itulah sebabnya baris pertama terbaca begitu."
   },
   "instances": {
     "title": "Cabangnya hari ini, dan instans mana yang benar-benar hidup",
@@ -155,7 +155,7 @@
       },
       "1": {
         "h": "Plafonnya naik dan jamnya turun",
-        "b": "Send memberi Anda 2,5 GB selama sepekan begitu Anda masuk akun. Tautan BIShare memberi 100 GB selama sehari, tanpa masuk akun di kedua ujung. Kalau sepekan itu lebih penting daripada gigabitanya, instans Send publik atau Tresorit Send adalah tukar yang lebih tepat dan halaman ini justru lebih suka Anda memakainya."
+        "b": "Send memberi Anda 2,5 GB selama sepekan begitu Anda masuk akun. Tautan BIShare memberi 100 GB selama paling lama sehari, tanpa masuk akun di kedua ujung. Kalau sepekan itu lebih penting daripada gigabitanya, instans Send publik atau Tresorit Send adalah tukar yang lebih tepat dan halaman ini justru lebih suka Anda memakainya."
       },
       "2": {
         "h": "Setel batas unduhan kalau Anda dulu memakainya",
@@ -228,7 +228,7 @@
       },
       "3": {
         "q": "Apa alternatif paling dekat dengan Firefox Send?",
-        "a": "Instans publik dari cabang komunitasnya, karena itu perangkat lunak yang sama. Instans utamanya saat ini mengizinkan 2,5 GiB, dua puluh unduhan, dan tiga hari. Kalau Anda mau model enkripsi yang sama dari layanan yang dirawat, BIShare memberi 100 GB selama sehari, dan Tresorit Send memberi 5 GB selama sepekan."
+        "a": "Instans publik dari cabang komunitasnya, karena itu perangkat lunak yang sama. Instans utamanya saat ini mengizinkan 2,5 GiB, dua puluh unduhan, dan tiga hari. Kalau Anda mau model enkripsi yang sama dari layanan yang dirawat, BIShare memberi 100 GB selama paling lama sehari, dan Tresorit Send memberi 5 GB selama sepekan."
       },
       "4": {
         "q": "Apa saya masih bisa menghosting Firefox Send sendiri?",
@@ -301,7 +301,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 GB · 15 sampai 30 hari",
       "bishare": "Tautan BIShare",
-      "bisharev": "100 GB · 24 jam",
+      "bisharev": "100 GB · 6–24 jam",
       "selfhost": "Send yang dihosting sendiri",
       "selfhostv": "Anda yang menetapkan batasnya",
       "foot": "Instans publik sangat beragam: yang utama mengizinkan 2,5 GiB, yang lain sampai 8 dan 10 GB dengan masa simpan sebulan"

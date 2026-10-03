@@ -16,7 +16,7 @@
     "title": "Quick answer",
     "items": {
       "0": "<strong>You want the same thing, unchanged:</strong> the community fork of Send is still maintained and still running on public instances. Same encryption, same key in the link, no account.",
-      "1": "<strong>You want it hosted by someone answerable:</strong> <goTransfer>a BIShare link</goTransfer> carries 100 GB, is sealed in your browser with the key in the link, and lasts 24 hours.",
+      "1": "<strong>You want it hosted by someone answerable:</strong> <goTransfer>a BIShare link</goTransfer> carries 100 GB, is sealed in your browser with the key in the link, and lasts 6, 12 or 24 hours.",
       "2": "<strong>You want to run it yourself:</strong> Mozilla stripped its branding from the code in 2021 so forks are legal. It is a Docker image plus Redis.",
       "3": "<strong>You want the longest life for a file:</strong> Tresorit Send holds 5 GB for 7 days, and public Send instances range from 3 days to a month depending on who runs them.",
       "4": "<strong>Careful with the word encrypted:</strong> SwissTransfer and Filemail encrypt on their servers, not in your browser. Both are fine services and neither is what Send was.",
@@ -59,8 +59,8 @@
       "1": {
         "name": "BIShare",
         "tag": "Best when you want Send's model with someone answerable for it",
-        "facts": "100 GB to a link · locked inside your browser before anything moves · secret carried after the # · collectable for one day · optional self-destruct on first collection · unlimited between two machines sharing a network · source public under MIT · nothing to register for",
-        "body": "BIShare keeps the part of Send that mattered and puts a maintained service behind it. Your file is locked inside your own browser, and the secret that opens it rides after the link's # marker, a stretch browsers refuse to hand over, so what sits in our storage is material we have no way of reading. Where it parts company with Send is size and time: a link takes up to 100 GB against Send's 2.5 GB ceiling, and stays collectable for a day rather than a week. Proper apps exist too, and two machines sharing Wi-Fi bypass the upload completely.",
+        "facts": "100 GB to a link · locked inside your browser before anything moves · secret carried after the # · collectable for 6, 12 or 24 hours · optional self-destruct on first collection · unlimited between two machines sharing a network · source public under MIT · nothing to register for",
+        "body": "BIShare keeps the part of Send that mattered and puts a maintained service behind it. Your file is locked inside your own browser, and the secret that opens it rides after the link's # marker, a stretch browsers refuse to hand over, so what sits in our storage is material we have no way of reading. Where it parts company with Send is size and time: a link takes up to 100 GB against Send's 2.5 GB ceiling, and stays collectable for a day at most rather than a week. Proper apps exist too, and two machines sharing Wi-Fi bypass the upload completely.",
         "cons": "Twenty-four hours is shorter than Send's signed-in week and much shorter than Tresorit's. Links refuse executables such as .exe and .msi, which is exactly the lever Send lacked, and it is a blunt one."
       },
       "2": {
@@ -126,7 +126,7 @@
       "r4": "You can host it yourself",
       "r5": "Available longer than 24 hours"
     },
-    "note": "Read from each provider in September 2026. Send instance: the figures are from the best-known public instance's own live configuration, 2.5 GiB and three days; other instances allow far more, and each sets its own. BIShare: 100 GB for 24 hours, sealed in the browser, optional burn after the first download. Wormhole: 10 GB, removed after 24 hours or 100 downloads, and above 5 GB the sender's tab carries the transfer. Tresorit Send: 5 GB for seven days or ten downloads, with password and revocation free; it asks for your email address without creating an account. Bitwarden Send: free Sends carry text only, so the file columns reflect the paid tier being required. SwissTransfer: 50 GB held 15 days, extendable to 30, but its own documentation says files are encrypted once they arrive on Infomaniak's servers, which is why the first row reads as it does."
+    "note": "Read from each provider in September 2026. Send instance: the figures are from the best-known public instance's own live configuration, 2.5 GiB and three days; other instances allow far more, and each sets its own. BIShare: 100 GB for 6, 12 or 24 hours, sealed in the browser, optional burn after the first download. Wormhole: 10 GB, removed after 24 hours or 100 downloads, and above 5 GB the sender's tab carries the transfer. Tresorit Send: 5 GB for seven days or ten downloads, with password and revocation free; it asks for your email address without creating an account. Bitwarden Send: free Sends carry text only, so the file columns reflect the paid tier being required. SwissTransfer: 50 GB held 15 days, extendable to 30, but its own documentation says files are encrypted once they arrive on Infomaniak's servers, which is why the first row reads as it does."
   },
   "instances": {
     "title": "The fork today, and which instances are actually up",
@@ -155,7 +155,7 @@
       },
       "1": {
         "h": "The ceiling moves up and the clock moves down",
-        "b": "Send gave you 2.5 GB for a week once you had signed in. A BIShare link gives you 100 GB for a day, with no sign-in at either end. If the week mattered more than the gigabytes, a public Send instance or Tresorit Send is the better swap and this page would rather you used one."
+        "b": "Send gave you 2.5 GB for a week once you had signed in. A BIShare link gives you 100 GB for up to a day, with no sign-in at either end. If the week mattered more than the gigabytes, a public Send instance or Tresorit Send is the better swap and this page would rather you used one."
       },
       "2": {
         "h": "Set the download limit if you used Send's",
@@ -228,7 +228,7 @@
       },
       "3": {
         "q": "What is the closest alternative to Firefox Send?",
-        "a": "A public instance of the community fork, because it is the same software. The flagship instance currently allows 2.5 GiB, twenty downloads and three days. If you want the same encryption model from a maintained service instead, BIShare gives 100 GB for a day, and Tresorit Send gives 5 GB for a week."
+        "a": "A public instance of the community fork, because it is the same software. The flagship instance currently allows 2.5 GiB, twenty downloads and three days. If you want the same encryption model from a maintained service instead, BIShare gives 100 GB for up to a day, and Tresorit Send gives 5 GB for a week."
       },
       "4": {
         "q": "Can I still self-host Firefox Send?",
@@ -301,7 +301,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 GB · 15 to 30 days",
       "bishare": "BIShare link",
-      "bisharev": "100 GB · 24 hours",
+      "bisharev": "100 GB · 6–24 hours",
       "selfhost": "Self-hosted Send",
       "selfhostv": "You set the limits",
       "foot": "Public instances vary widely: the flagship allows 2.5 GiB, others run to 8 and 10 GB with a month of retention"

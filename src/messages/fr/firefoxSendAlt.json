@@ -16,7 +16,7 @@
     "title": "Réponse rapide",
     "items": {
       "0": "<strong>Vous voulez la même chose, inchangée :</strong> le fork communautaire de Send est toujours maintenu et tourne encore sur des instances publiques. Même chiffrement, même clé dans le lien, sans compte.",
-      "1": "<strong>Vous le voulez hébergé par quelqu’un de responsable :</strong> <goTransfer>un lien BIShare</goTransfer> porte 100 Go, est verrouillé dans votre navigateur avec la clé dans le lien, et dure 24 heures.",
+      "1": "<strong>Vous le voulez hébergé par quelqu’un de responsable :</strong> <goTransfer>un lien BIShare</goTransfer> porte 100 Go, est verrouillé dans votre navigateur avec la clé dans le lien, et dure 6, 12 ou 24 heures.",
       "2": "<strong>Vous voulez le faire tourner vous-même :</strong> Mozilla a retiré sa marque du code en 2021 pour rendre les forks légaux. C’est une image Docker plus Redis.",
       "3": "<strong>Vous voulez la plus longue durée de vie :</strong> Tresorit Send garde 5 Go pendant 7 jours, et les instances publiques de Send vont de 3 jours à un mois selon qui les tient.",
       "4": "<strong>Attention au mot chiffré :</strong> SwissTransfer et Filemail chiffrent sur leurs serveurs, pas dans votre navigateur. Ce sont de bons services et aucun n’est ce qu’était Send.",
@@ -59,8 +59,8 @@
       "1": {
         "name": "BIShare",
         "tag": "La meilleure si vous voulez le modèle de Send avec quelqu’un qui en répond",
-        "facts": "100 Go par lien · verrouillé dans votre navigateur avant que quoi que ce soit bouge · le secret voyage après le # · récupérable pendant une journée · autodestruction facultative à la première récupération · sans plafond entre deux machines partageant un réseau · code public sous licence MIT · rien à créer",
-        "body": "BIShare garde la partie de Send qui comptait et met derrière un service maintenu. Votre fichier est verrouillé dans votre propre navigateur, et le secret qui l’ouvre voyage après le repère # du lien, une portion que les navigateurs refusent de livrer, si bien que ce qui repose dans notre stockage est une matière que nous n’avons aucun moyen de lire. Là où il quitte Send, c’est sur la taille et le temps : un lien accepte jusqu’à 100 Go contre le plafond de 2,5 Go de Send, et reste récupérable une journée plutôt qu’une semaine. De vraies applications existent aussi, et deux machines partageant un Wi-Fi sautent complètement l’envoi.",
+        "facts": "100 Go par lien · verrouillé dans votre navigateur avant que quoi que ce soit bouge · le secret voyage après le # · récupérable pendant 6, 12 ou 24 heures · autodestruction facultative à la première récupération · sans plafond entre deux machines partageant un réseau · code public sous licence MIT · rien à créer",
+        "body": "BIShare garde la partie de Send qui comptait et met derrière un service maintenu. Votre fichier est verrouillé dans votre propre navigateur, et le secret qui l’ouvre voyage après le repère # du lien, une portion que les navigateurs refusent de livrer, si bien que ce qui repose dans notre stockage est une matière que nous n’avons aucun moyen de lire. Là où il quitte Send, c’est sur la taille et le temps : un lien accepte jusqu’à 100 Go contre le plafond de 2,5 Go de Send, et reste récupérable une journée au plus plutôt qu’une semaine. De vraies applications existent aussi, et deux machines partageant un Wi-Fi sautent complètement l’envoi.",
         "cons": "Vingt-quatre heures, c’est moins que la semaine de Send une fois connecté, et bien moins que Tresorit. Les liens refusent les exécutables comme .exe et .msi, ce qui est précisément le levier qui manquait à Send, et c’est un levier grossier."
       },
       "2": {
@@ -126,7 +126,7 @@
       "r4": "Vous pouvez l’héberger vous-même",
       "r5": "Disponible plus de 24 heures"
     },
-    "note": "Relevé chez chaque fournisseur en septembre 2026. Instance Send : les chiffres viennent de la configuration en direct de l’instance publique la plus connue, 2,5 Gio et trois jours ; d’autres permettent bien davantage, chacune fixant la sienne. BIShare : 100 Go pendant 24 heures, verrouillé dans le navigateur, destruction facultative après le premier téléchargement. Wormhole : 10 Go, supprimé au bout de 24 heures ou de 100 téléchargements, et au-dessus de 5 Go c’est l’onglet de l’expéditeur qui porte le transfert. Tresorit Send : 5 Go pendant sept jours ou dix téléchargements, avec mot de passe et révocation gratuits ; il demande votre adresse e-mail sans créer de compte. Bitwarden Send : les Send gratuits ne portent que du texte, d’où des colonnes de fichiers qui reflètent l’offre payante nécessaire. SwissTransfer : 50 Go gardés 15 jours, extensibles à 30, mais sa propre documentation dit que les fichiers sont chiffrés en arrivant sur les serveurs d’Infomaniak, d’où la première ligne."
+    "note": "Relevé chez chaque fournisseur en septembre 2026. Instance Send : les chiffres viennent de la configuration en direct de l’instance publique la plus connue, 2,5 Gio et trois jours ; d’autres permettent bien davantage, chacune fixant la sienne. BIShare : 100 Go pendant 6, 12 ou 24 heures, verrouillé dans le navigateur, destruction facultative après le premier téléchargement. Wormhole : 10 Go, supprimé au bout de 24 heures ou de 100 téléchargements, et au-dessus de 5 Go c’est l’onglet de l’expéditeur qui porte le transfert. Tresorit Send : 5 Go pendant sept jours ou dix téléchargements, avec mot de passe et révocation gratuits ; il demande votre adresse e-mail sans créer de compte. Bitwarden Send : les Send gratuits ne portent que du texte, d’où des colonnes de fichiers qui reflètent l’offre payante nécessaire. SwissTransfer : 50 Go gardés 15 jours, extensibles à 30, mais sa propre documentation dit que les fichiers sont chiffrés en arrivant sur les serveurs d’Infomaniak, d’où la première ligne."
   },
   "instances": {
     "title": "Le fork aujourd’hui, et quelles instances tiennent debout",
@@ -155,7 +155,7 @@
       },
       "1": {
         "h": "Le plafond monte et l’horloge descend",
-        "b": "Send vous donnait 2,5 Go pendant une semaine une fois connecté. Un lien BIShare donne 100 Go pendant une journée, sans connexion d’aucun côté. Si la semaine comptait plus que les gigaoctets, une instance publique de Send ou Tresorit Send est le meilleur échange, et cette page préférerait que vous en utilisiez un."
+        "b": "Send vous donnait 2,5 Go pendant une semaine une fois connecté. Un lien BIShare donne 100 Go pendant une journée au maximum, sans connexion d’aucun côté. Si la semaine comptait plus que les gigaoctets, une instance publique de Send ou Tresorit Send est le meilleur échange, et cette page préférerait que vous en utilisiez un."
       },
       "2": {
         "h": "Réglez la limite de téléchargements si vous utilisiez celle de Send",
@@ -228,7 +228,7 @@
       },
       "3": {
         "q": "Quelle est l’alternative la plus proche de Firefox Send ?",
-        "a": "Une instance publique du fork communautaire, puisque c’est le même logiciel. L’instance phare autorise actuellement 2,5 Gio, vingt téléchargements et trois jours. Si vous préférez le même modèle de chiffrement depuis un service maintenu, BIShare donne 100 Go pendant une journée, et Tresorit Send 5 Go pendant une semaine."
+        "a": "Une instance publique du fork communautaire, puisque c’est le même logiciel. L’instance phare autorise actuellement 2,5 Gio, vingt téléchargements et trois jours. Si vous préférez le même modèle de chiffrement depuis un service maintenu, BIShare donne 100 Go pendant une journée au maximum, et Tresorit Send 5 Go pendant une semaine."
       },
       "4": {
         "q": "Puis-je encore héberger Firefox Send moi-même ?",
@@ -301,7 +301,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 Go · 15 à 30 jours",
       "bishare": "Lien BIShare",
-      "bisharev": "100 Go · 24 heures",
+      "bisharev": "100 Go · 6 à 24 heures",
       "selfhost": "Send auto-hébergé",
       "selfhostv": "Vous fixez les limites",
       "foot": "Les instances publiques varient beaucoup : la phare autorise 2,5 Gio, d’autres montent à 8 et 10 Go avec un mois de conservation"

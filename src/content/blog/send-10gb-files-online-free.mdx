@@ -57,7 +57,7 @@ So the payload goes through [bishare.app/transfer](/transfer), and it's worth na
 1. **Drop the folder in.** Files are encrypted *in the browser* before a byte leaves — the relay stores ciphertext it cannot read, and the key travels only inside the link you'll share. (The [encryption explainer](/encrypted-file-transfer) has the full model.) No account precedes this; nobody's inbox is involved.
 2. **The upload streams in chunks.** Big files go up as a sequence of parts rather than one fragile monolith. This is the unglamorous engineering that changes everything at 10 GB scale: when your Wi-Fi blips at part 143 of 200, the upload resumes at part 143 — not at zero. Refresh the tab, re-pick the same file: it continues. We built it this way after watching exactly one too many multi-hour uploads die at 97%.
 3. **You get a link, a QR, and a 6-character code.** Send whichever suits the recipient — the link through the chat app that couldn't carry the file, the code read aloud on a call, the QR across a desk.
-4. **They download in any browser.** No app, no account, original bytes — the 4K file arrives at its full bitrate, RAW files arrive bit-identical. The link expires after 24 hours, or after the first download if you flipped the one-time toggle. The handoff leaves no standing storage anywhere.
+4. **They download in any browser.** No app, no account, original bytes — the 4K file arrives at its full bitrate, RAW files arrive bit-identical. The link expires after 6, 12 or 24 hours, whichever you picked, or after the first download if you flipped the one-time toggle. The handoff leaves no standing storage anywhere.
 
 That's the gauntlet, completed: free, uncompressed, encrypted, resumable — and nothing to clean up afterward.
 

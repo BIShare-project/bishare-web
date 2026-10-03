@@ -52,8 +52,8 @@
       "0": {
         "name": "BIShare",
         "tag": "綜合最佳：Windows、Mac、Linux之間的日常傳輸",
-        "facts": "Windows（Microsoft Store）、Mac App Store、Linux · MIT授權開源 · 同一網路直傳，不限大小 · 單一連結最多100 GB，有效期一天 · 端對端加密 · 不需註冊",
-        "body": "兩台電腦都裝上BIShare，把檔案或資料夾拖進App視窗，再從附近裝置清單選擇另一台電腦；接收端確認後，檔案就寫入BIShare的儲存資料夾。因為不上傳任何東西，40 GB的專案也以區域網路的速度傳輸，而且無論Windows、macOS、Linux怎麼組合，步驟都一樣。附近沒有路由器時，<goOffline>手機熱點就能當作網路</goOffline>。另一台電腦在別棟大樓的話，就產生連結，那台電腦在接下來24小時內<goTransfer>用任何瀏覽器都能開啟</goTransfer>。",
+        "facts": "Windows（Microsoft Store）、Mac App Store、Linux · MIT授權開源 · 同一網路直傳，不限大小 · 單一連結最多100 GB，有效期最長一天 · 端對端加密 · 不需註冊",
+        "body": "兩台電腦都裝上BIShare，把檔案或資料夾拖進App視窗，再從附近裝置清單選擇另一台電腦；接收端確認後，檔案就寫入BIShare的儲存資料夾。因為不上傳任何東西，40 GB的專案也以區域網路的速度傳輸，而且無論Windows、macOS、Linux怎麼組合，步驟都一樣。附近沒有路由器時，<goOffline>手機熱點就能當作網路</goOffline>。另一台電腦在別棟大樓的話，就產生連結，那台電腦在接下來6、12或24小時內<goTransfer>用任何瀏覽器都能開啟</goTransfer>。",
         "cons": "它傳的是檔案，不是已安裝的App或設定，所以取代不了新電腦的移轉工具。資料夾傳輸時會打包成一個zip壓縮檔，直傳時兩台電腦都需要安裝App。"
       },
       "1": {
@@ -125,7 +125,7 @@
       "r3": "隨時可用，不限於初始設定",
       "r4": "不需額外硬體或儲存方案"
     },
-    "note": "以上為2026年9月的狀況。BIShare直傳需要兩台電腦都安裝App，同一網路內不限大小；BIShare連結最多100 GB，一天後失效。Windows 備份移轉在新電腦的設定過程中進行，新電腦需要Windows 11 24H2或更新版本。鄰近分享僅限Windows，沒有共同私人網路時改走藍牙。網路共用設定好後可在Windows、Mac和Linux之間使用。也會接Mac的外接硬碟應格式化為exFAT。雲端資料夾需要帳號和足夠的儲存空間。"
+    "note": "以上為2026年9月的狀況。BIShare直傳需要兩台電腦都安裝App，同一網路內不限大小；BIShare連結最多100 GB，一天之內失效。Windows 備份移轉在新電腦的設定過程中進行，新電腦需要Windows 11 24H2或更新版本。鄰近分享僅限Windows，沒有共同私人網路時改走藍牙。網路共用設定好後可在Windows、Mac和Linux之間使用。也會接Mac的外接硬碟應格式化為exFAT。雲端資料夾需要帳號和足夠的儲存空間。"
   },
   "migrate": {
     "title": "把一切搬到新電腦",
@@ -249,7 +249,7 @@
       },
       "2": {
         "h": "清楚副本會留在哪裡",
-        "b": "雲端資料夾會在業者那裡留一份副本。用BIShare、LocalSend、鄰近分享或網路共用直傳，檔案只在兩台電腦之間移動，<goEncrypted>BIShare連結在上傳前就已加密</goEncrypted>，24小時後刪除。"
+        "b": "雲端資料夾會在業者那裡留一份副本。用BIShare、LocalSend、鄰近分享或網路共用直傳，檔案只在兩台電腦之間移動，<goEncrypted>BIShare連結在上傳前就已加密</goEncrypted>，6、12或24小時後刪除。"
       }
     }
   },

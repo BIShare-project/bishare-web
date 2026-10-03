@@ -20,7 +20,7 @@
       "<strong>安卓到iPhone：</strong>只有Google名单里的手机能用Quick Share发到AirDrop。BIShare、LocalSend和PairDrop在任何安卓手机上都能用。",
       "<strong>没有蓝牙或装着32位Windows的电脑：</strong>Google的应用在上面跑不起来，改用BIShare或LocalSend通过网络发送。",
       "<strong>没有Google服务的手机：</strong>Quick Share随Google Play服务提供，所以要选能单独安装的应用，比如BIShare、LocalSend或KDE Connect。",
-      "<strong>在另一个城市的人：</strong>Quick Share只能在附近用。发一个BIShare链接，24小时内最多可装100 GB，或者用PairDrop把两个浏览器配对。"
+      "<strong>在另一个城市的人：</strong>Quick Share只能在附近用。发一个BIShare链接，6、12或24小时内最多可装100 GB，或者用PairDrop把两个浏览器配对。"
     ]
   },
   "what": {
@@ -105,7 +105,7 @@
       "0": {
         "name": "BIShare",
         "tag": "五个平台通用的最佳替代，近处远处都能发",
-        "facts": "Android、iPhone、Windows、macOS和Linux · MIT许可 · 通过Wi-Fi或手机热点直连，不限大小 · 100 GB加密链接，一天后过期 · GitHub提供APK和Linux安装包 · 无需账号",
+        "facts": "Android、iPhone、Windows、macOS和Linux · MIT许可 · 通过Wi-Fi或手机热点直连，不限大小 · 100 GB加密链接，一天之内过期 · GitHub提供APK和Linux安装包 · 无需账号",
         "body": "BIShare补上了Quick Share在Google平台边界止步的那一块。在Pixel和MacBook上，或者Galaxy手机和Ubuntu笔记本上打开它，只要两台设备连着同一个Wi-Fi，或者其中一台连上另一台的热点，就会出现在对方的列表里。它既不需要蓝牙也不需要Google账号，所以在Google应用拒绝安装的Windows电脑上也能用，在没有Play服务的安卓手机上从GitHub的APK安装同样可以。对方在远处时，同一个应用可以生成在浏览器里打开的链接。",
         "cons": "近距离传输时对方设备也得装BIShare，而Quick Share已经内置在大多数安卓手机里。"
       },
@@ -175,7 +175,7 @@
       "r6": "能发给远方的人",
       "r7": "开源"
     },
-    "note": "2026年9月核实。Quick Share只能通过Google名单上手机的AirDrop或它的二维码发到iPhone；Google的电脑应用要求64位Windows 10或更新版本、带蓝牙并与手机处于同一网络。PairDrop在浏览器中运行，连接设备需要联网。NearDrop和RQuickShare是非官方客户端，只在共享Wi-Fi下回应手机自带的Quick Share。KDE Connect的iOS应用功能比安卓版少。BIShare链接24小时内最多可装100 GB。"
+    "note": "2026年9月核实。Quick Share只能通过Google名单上手机的AirDrop或它的二维码发到iPhone；Google的电脑应用要求64位Windows 10或更新版本、带蓝牙并与手机处于同一网络。PairDrop在浏览器中运行，连接设备需要联网。NearDrop和RQuickShare是非官方客户端，只在共享Wi-Fi下回应手机自带的Quick Share。KDE Connect的iOS应用功能比安卓版少。BIShare链接6、12或24小时内最多可装100 GB。"
   },
   "unofficial": {
     "title": "让手机的Quick Share配合Mac或Linux电脑",
@@ -225,7 +225,7 @@
       },
       "5": {
         "h": "远方的人",
-        "b": "生成一个BIShare链接：能装100 GB，一天后过期，<goTransfer>接收方只要有浏览器</goTransfer>。PairDrop也能在两个标签页都开着时，把不同网络中的两台设备配对。"
+        "b": "生成一个BIShare链接：能装100 GB，一天之内过期，<goTransfer>接收方只要有浏览器</goTransfer>。PairDrop也能在两个标签页都开着时，把不同网络中的两台设备配对。"
       }
     }
   },

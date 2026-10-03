@@ -15,7 +15,7 @@
   "quick": {
     "title": "Réponse rapide",
     "items": {
-      "0": "<strong>Un fichier, une personne, rien à créer d’aucun côté :</strong> <goTransfer>ouvrez bishare.app/transfer</goTransfer>, déposez le fichier, partagez le lien, le QR code ou le code à 6 caractères. Jusqu’à 100 Go, chiffré avant l’envoi, disparu au bout de 24 heures.",
+      "0": "<strong>Un fichier, une personne, rien à créer d’aucun côté :</strong> <goTransfer>ouvrez bishare.app/transfer</goTransfer>, déposez le fichier, partagez le lien, le QR code ou le code à 6 caractères. Jusqu’à 100 Go, chiffré avant l’envoi, disparu au bout de 6, 12 ou 24 heures.",
       "1": "<strong>Un fichier que le destinataire ouvrira peut-être tard :</strong> SwissTransfer garde jusqu’à 50 Go pendant 15 jours, prolongeables à 30, sans compte.",
       "2": "<strong>Un document privé qui ne doit jamais rester lisible sur un serveur :</strong> Wormhole ou un lien BIShare, tous deux chiffrés dans votre navigateur avec la clé dans le lien lui-même.",
       "3": "<strong>Vous avez un compte Google, Microsoft ou Dropbox et seul le destinataire doit s’en passer :</strong> un partage « Toute personne disposant du lien » lui fonctionne sans connexion, au prix de votre nom sur le fichier et d’une absence d’expiration sur les offres gratuites.",
@@ -48,8 +48,8 @@
       "0": {
         "name": "BIShare",
         "tag": "Le meilleur dans l’ensemble : sans compte des deux côtés, chiffré avant l’envoi, liens jusqu’à 100 Go",
-        "facts": "Navigateur, iPhone, Android, Windows, macOS, Linux · open source (MIT) · 100 Go par lien, 24 heures · téléchargement unique en option · chiffré sur votre appareil · sans compte, sans publicité",
-        "body": "Rien sur BIShare ne demande qui vous êtes. Vous déposez un fichier sur la page ou dans l’application et obtenez trois façons de le remettre : un lien, un QR code que l’autre téléphone scanne, et un code de six caractères, lettres et chiffres, facile à dicter au téléphone. Le destinataire l’ouvre dans n’importe quel navigateur et télécharge. Avant l’envoi, le fichier est chiffré dans votre navigateur et la clé voyage dans la partie du lien située après le signe #, que les navigateurs n’envoient jamais aux serveurs ; ce qui repose sur le stockage de BIShare est donc illisible pour BIShare. Une option de téléchargement unique supprime le fichier après la première récupération, et chaque lien expire au bout de 24 heures, utilisé ou non. Quand l’autre personne est dans la pièce, l’application envoie en direct, sans téléversement ni lien.",
+        "facts": "Navigateur, iPhone, Android, Windows, macOS, Linux · open source (MIT) · 100 Go par lien, 6, 12 ou 24 heures · téléchargement unique en option · chiffré sur votre appareil · sans compte, sans publicité",
+        "body": "Rien sur BIShare ne demande qui vous êtes. Vous déposez un fichier sur la page ou dans l’application et obtenez trois façons de le remettre : un lien, un QR code que l’autre téléphone scanne, et un code de six caractères, lettres et chiffres, facile à dicter au téléphone. Le destinataire l’ouvre dans n’importe quel navigateur et télécharge. Avant l’envoi, le fichier est chiffré dans votre navigateur et la clé voyage dans la partie du lien située après le signe #, que les navigateurs n’envoient jamais aux serveurs ; ce qui repose sur le stockage de BIShare est donc illisible pour BIShare. Une option de téléchargement unique supprime le fichier après la première récupération, et chaque lien expire au bout de 6, 12 ou 24 heures, utilisé ou non. Quand l’autre personne est dans la pièce, l’application envoie en direct, sans téléversement ni lien.",
         "cons": "Vingt-quatre heures, c’est court pour quelqu’un qui consulte ses e-mails une fois par semaine ; renvoyez si le délai est passé. Les exécutables comme .exe, .msi et .sh sont refusés, et c’est voulu."
       },
       "1": {
@@ -122,7 +122,7 @@
       "r4": "Le lien expire de lui-même",
       "r5": "Open source"
     },
-    "note": "Relevé sur les pages de chaque service en septembre 2026. BIShare : liens de 100 Go pendant 24 heures, chiffrés dans le navigateur, licence MIT. SwissTransfer : 50 Go pendant 15 à 30 jours. Wormhole : 10 Go pendant 24 heures, chiffré dans le navigateur. Smash : pas de limite de taille, transferts de plus de 2 Go mis en file d’attente, 7 jours. Google Drive : expéditeur connecté, destinataire non, pas d’expiration sur les offres gratuites. Dropbox Transfer Basic : 2 Go, 7 jours, expéditeur connecté."
+    "note": "Relevé sur les pages de chaque service en septembre 2026. BIShare : liens de 100 Go pendant 6, 12 ou 24 heures, chiffrés dans le navigateur, licence MIT. SwissTransfer : 50 Go pendant 15 à 30 jours. Wormhole : 10 Go pendant 24 heures, chiffré dans le navigateur. Smash : pas de limite de taille, transferts de plus de 2 Go mis en file d’attente, 7 jours. Google Drive : expéditeur connecté, destinataire non, pas d’expiration sur les offres gratuites. Dropbox Transfer Basic : 2 Go, 7 jours, expéditeur connecté."
   },
   "controls": {
     "title": "Ce que vous perdez sans compte, et comment le récupérer",
@@ -130,7 +130,7 @@
     "items": {
       "0": {
         "h": "Révoquer un lien",
-        "b": "Les services avec connexion permettent de supprimer un transfert avant l’heure. Les services anonymes, le plus souvent, ne le peuvent pas, puisque rien ne relie le transfert à vous. La parade est une expiration courte choisie à l’envoi : les 24 heures de BIShare ou de Wormhole mettent fin à l’exposition, que vous pensiez à agir ou non. Si un lien doit pouvoir être tué, utilisez le téléchargement unique pour qu’il meure à la première récupération."
+        "b": "Les services avec connexion permettent de supprimer un transfert avant l’heure. Les services anonymes, le plus souvent, ne le peuvent pas, puisque rien ne relie le transfert à vous. La parade est une expiration courte choisie à l’envoi : les 6, 12 ou 24 heures de BIShare ou les 24 heures de Wormhole mettent fin à l’exposition, que vous pensiez à agir ou non. Si un lien doit pouvoir être tué, utilisez le téléchargement unique pour qu’il meure à la première récupération."
       },
       "1": {
         "h": "Prolonger un délai",
@@ -177,7 +177,7 @@
       },
       "2": {
         "h": "Remettez-le de trois façons",
-        "b": "Copiez le lien, montrez le QR code au téléphone d’à côté, ou dictez le code à six caractères. Le destinataire l’ouvre dans un navigateur et télécharge, sans rien installer ni rejoindre. Le lien cesse de fonctionner 24 heures plus tard."
+        "b": "Copiez le lien, montrez le QR code au téléphone d’à côté, ou dictez le code à six caractères. Le destinataire l’ouvre dans un navigateur et télécharge, sans rien installer ni rejoindre. Le lien cesse de fonctionner 6, 12 ou 24 heures plus tard."
       },
       "3": {
         "h": "Pour un groupe, ouvrez plutôt une salle",
@@ -262,21 +262,21 @@
       },
       "7": {
         "q": "Combien de temps durent les liens sans compte ?",
-        "a": "Plus variable qu’on ne le croit : 24 heures chez BIShare et Wormhole, jusqu’à trois jours sur l’instance publique de Send, sept chez Smash, Filemail et TransferNow, 15 à 30 chez SwissTransfer. Les liens de stockage en ligne sur les offres gratuites n’expirent pas du tout."
+        "a": "Plus variable qu’on ne le croit : 6 à 24 heures chez BIShare, 24 chez Wormhole, jusqu’à trois jours sur l’instance publique de Send, sept chez Smash, Filemail et TransferNow, 15 à 30 chez SwissTransfer. Les liens de stockage en ligne sur les offres gratuites n’expirent pas du tout."
       },
       "8": {
         "q": "Puis-je protéger un fichier par mot de passe sans compte ?",
-        "a": "SwissTransfer propose un mot de passe sur les transferts gratuits. Chez BIShare et Wormhole, le lien porte la clé de déchiffrement : la protection vient de l’envoi du lien en privé et de l’expiration unique ou à 24 heures. Smash, Dropbox et OneDrive réservent le mot de passe aux offres payantes."
+        "a": "SwissTransfer propose un mot de passe sur les transferts gratuits. Chez BIShare et Wormhole, le lien porte la clé de déchiffrement : la protection vient de l’envoi du lien en privé et des liens à usage unique ou d’une expiration courte. Smash, Dropbox et OneDrive réservent le mot de passe aux offres payantes."
       },
       "9": {
         "q": "BIShare est-il vraiment gratuit et sans compte ?",
-        "a": "Oui. Le code source est public sous licence MIT, il n’y a ni publicité ni offre payante, et rien sur le site ou dans l’application ne vous demande de vous inscrire. Les liens transportent jusqu’à 100 Go pendant 24 heures ; les transferts directs entre appareils sur un même réseau n’ont pas de limite."
+        "a": "Oui. Le code source est public sous licence MIT, il n’y a ni publicité ni offre payante, et rien sur le site ou dans l’application ne vous demande de vous inscrire. Les liens transportent jusqu’à 100 Go pendant 6, 12 ou 24 heures ; les transferts directs entre appareils sur un même réseau n’ont pas de limite."
       }
     }
   },
   "cta": {
     "title": "Envoyez-le, sans inscription d’aucun côté",
-    "body": "Déposez un fichier, partagez un lien ou un code à six caractères, c’est fait. Chiffré avant l’envoi, jusqu’à 100 Go, disparu en 24 heures. Gratuit et open source.",
+    "body": "Déposez un fichier, partagez un lien ou un code à six caractères, c’est fait. Chiffré avant l’envoi, jusqu’à 100 Go, disparu en 6, 12 ou 24 heures. Gratuit et open source.",
     "download": "Télécharger BIShare"
   },
   "a11y": {
@@ -321,7 +321,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 Go · 15 à 30 jours",
       "bishare": "BIShare",
-      "bisharev": "100 Go · 24 heures",
+      "bisharev": "100 Go · 6 à 24 heures",
       "foot": "Smash accepte des transferts plus gros mais les place en file derrière les offres payantes"
     },
     "controls": {

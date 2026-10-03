@@ -79,9 +79,9 @@
       "0": {
         "name": "BIShare",
         "tag": "Terbaik secara keseluruhan: tautan terenkripsi di browser dan transfer langsung antarperangkat",
-        "facts": "Browser di bishare.app, aplikasi Android, iPhone, Windows, macOS, Linux · MIT · tautan: AES-256-GCM di browser, kunci setelah #k= di URL, hingga 100 GB selama 24 jam · langsung: kesepakatan kunci X25519, HKDF-SHA256, AES-256-GCM · tanpa akun",
+        "facts": "Browser di bishare.app, aplikasi Android, iPhone, Windows, macOS, Linux · MIT · tautan: AES-256-GCM di browser, kunci setelah #k= di URL, hingga 100 GB selama 6, 12, atau 24 jam · langsung: kesepakatan kunci X25519, HKDF-SHA256, AES-256-GCM · tanpa akun",
         "body": "BIShare mencakup dua cara orang mengirim file. Untuk tautan, browser atau aplikasi membuat kunci acak 256-bit, mengenkripsi file dalam blok 1 MiB dengan AES-GCM, hanya mengunggah ciphertext, dan menaruh kunci di fragmen tautan yang tak pernah sampai ke server. Untuk perangkat berdekatan, aplikasi menyepakati kunci lewat X25519, menurunkannya dengan HKDF-SHA256, dan mengenkripsi tiap blok dengan AES-256-GCM, dan tiap perangkat menampilkan sidik jari singkat untuk dicocokkan. Kriptografinya ada di pustaka Rust yang publik.",
-        "cons": "Nama dan ukuran file yang diunggah lewat tautan terlihat oleh server, kode protokolnya belum menjalani audit eksternal formal, dan tautan kedaluwarsa setelah 24 jam."
+        "cons": "Nama dan ukuran file yang diunggah lewat tautan terlihat oleh server, kode protokolnya belum menjalani audit eksternal formal, dan tautan kedaluwarsa setelah 6, 12, atau 24 jam."
       },
       "1": {
         "name": "Wormhole",
@@ -184,7 +184,7 @@
       },
       "2": {
         "h": "Apa yang disimpan dan dilihat server",
-        "b": "Untuk tautan, server menyimpan ciphertext beserta nama, ukuran, dan jenis file yang diunggah, lalu menghapusnya setelah sehari atau, jika memilih sekali unduh, begitu diunduh. Untuk transfer langsung di jaringan yang sama, tak ada yang melewati server kami."
+        "b": "Untuk tautan, server menyimpan ciphertext beserta nama, ukuran, dan jenis file yang diunggah, lalu menghapusnya setelah masa tautan 6, 12, atau 24 jam habis atau, jika memilih sekali unduh, begitu diunduh. Untuk transfer langsung di jaringan yang sama, tak ada yang melewati server kami."
       },
       "3": {
         "h": "Yang belum dilakukan",

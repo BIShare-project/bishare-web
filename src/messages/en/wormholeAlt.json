@@ -15,7 +15,7 @@
   "quick": {
     "title": "Quick answer",
     "items": {
-      "0": "<strong>You want the same privacy without the open tab:</strong> <goTransfer>a BIShare link</goTransfer> locks the file in your browser exactly the way Wormhole does, carries up to 100 GB, and then you can close everything. Collection stays possible for 24 hours.",
+      "0": "<strong>You want the same privacy without the open tab:</strong> <goTransfer>a BIShare link</goTransfer> locks the file in your browser exactly the way Wormhole does, carries up to 100 GB, and then you can close everything. Collection stays possible for 6, 12 or 24 hours.",
       "1": "<strong>You hit the 10 GB ceiling:</strong> a BIShare link goes to 100 GB, and transfer.zip has no stated ceiling in its free browser-to-browser mode. That mode keeps the tab requirement.",
       "2": "<strong>Your recipient is slow:</strong> nothing here is slower than a dead link. SwissTransfer holds 50 GB for 15 days, and Proton Drive holds a shared file until you delete it.",
       "3": "<strong>You never wanted a server involved at all:</strong> <goOffline>two devices on one network send straight to each other</goOffline>, or use FilePizza in a browser. No upload, no storage, nothing to expire.",
@@ -52,7 +52,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Best when you want Wormhole's privacy model and the freedom to close the tab",
-        "facts": "100 GB a link · sealed in your own browser before upload · key parked in the link fragment · one day to collect · a burn-after-first-download switch · no ceiling at all between two devices on one network · MIT-licensed source · no account, no paid tier",
+        "facts": "100 GB a link · sealed in your own browser before upload · key parked in the link fragment · up to one day to collect · a burn-after-first-download switch · no ceiling at all between two devices on one network · MIT-licensed source · no account, no paid tier",
         "body": "BIShare copies the part of Wormhole worth copying and drops the part that hurts. The file is sealed inside your browser first, and the key lives after the link's # marker, a stretch of the address that browsers keep to themselves, so what our storage holds is bytes we cannot open. The difference is what happens next: the upload completes to storage at any size up to 100 GB, so you can close the lid and the recipient collects later, with no second machine waiting on yours. There are real apps too, and when both devices sit on one Wi-Fi they skip the internet entirely and push the file across the room.",
         "cons": "A day is a short window, shorter than SwissTransfer or Proton Drive. Links refuse executables such as .exe and .msi. And below 5 GB, Wormhole already does this job perfectly well."
       },
@@ -126,7 +126,7 @@
       "r4": "Available for longer than three days",
       "r5": "Open source"
     },
-    "note": "Read from each provider in September 2026. Wormhole: 10 GB on the home page, up to a day chosen at send time, a download counter starting at one, and storage only below 5 GB, above which the sender's tab carries the transfer. BIShare: 100 GB, a day to collect, sealed in the browser, optional burn after the first download, and no ceiling between two devices on one network. transfer.zip: the free Quick Transfer mode streams between browsers with nothing stored, so the tab column is what it is; paid stored transfers behave differently. SwissTransfer: 50 GB for 15 days, extendable to 30, but encrypted on arrival at Infomaniak rather than by you, and an emailed code is now required. Send instance: figures read live from the best-known public instance, 2.5 GiB and three days. Proton Drive: 5 GB of account storage, kept until deleted. Wormhole publishes its encryption library but not the service, which is why its open source column reads as it does."
+    "note": "Read from each provider in September 2026. Wormhole: 10 GB on the home page, up to a day chosen at send time, a download counter starting at one, and storage only below 5 GB, above which the sender's tab carries the transfer. BIShare: 100 GB, up to a day to collect, sealed in the browser, optional burn after the first download, and no ceiling between two devices on one network. transfer.zip: the free Quick Transfer mode streams between browsers with nothing stored, so the tab column is what it is; paid stored transfers behave differently. SwissTransfer: 50 GB for 15 days, extendable to 30, but encrypted on arrival at Infomaniak rather than by you, and an emailed code is now required. Send instance: figures read live from the best-known public instance, 2.5 GiB and three days. Proton Drive: 5 GB of account storage, kept until deleted. Wormhole publishes its encryption library but not the service, which is why its open source column reads as it does."
   },
   "whichone": {
     "title": "Three different things are called Wormhole",
@@ -155,7 +155,7 @@
       },
       "1": {
         "h": "Then close the tab",
-        "b": "This is the whole point of the move. The upload finishes to storage at any size up to 100 GB, so there is no peer waiting on your machine and no line above which the rules change. Shut the laptop and the recipient still collects, for the next 24 hours."
+        "b": "This is the whole point of the move. The upload finishes to storage at any size up to 100 GB, so there is no peer waiting on your machine and no line above which the rules change. Shut the laptop and the recipient still collects, for the next 6, 12 or 24 hours."
       },
       "2": {
         "h": "Set the burn switch if you wanted a low download count",
@@ -185,7 +185,7 @@
       },
       "3": {
         "h": "Confidential, and the recipient is slow",
-        "b": "<goEncrypted>Pick on who holds the key, not on the marketing</goEncrypted>. Proton Drive keeps a sealed file available indefinitely; a BIShare link gives you a day; SwissTransfer gives a fortnight but can read what it holds."
+        "b": "<goEncrypted>Pick on who holds the key, not on the marketing</goEncrypted>. Proton Drive keeps a sealed file available indefinitely; a BIShare link gives you up to a day; SwissTransfer gives a fortnight but can read what it holds."
       },
       "4": {
         "h": "Both of you in the same room",
@@ -216,7 +216,7 @@
     "items": {
       "0": {
         "q": "What is the best alternative to Wormhole?",
-        "a": "If you want the same in-browser encryption without keeping a tab open, BIShare: 100 GB a link, sealed before upload, no account, 24 hours to collect. If you want the same browser-to-browser behaviour with no ceiling, transfer.zip's free Quick Transfer or FilePizza. If you need a long window more than you need sealing, SwissTransfer."
+        "a": "If you want the same in-browser encryption without keeping a tab open, BIShare: 100 GB a link, sealed before upload, no account, up to 24 hours to collect. If you want the same browser-to-browser behaviour with no ceiling, transfer.zip's free Quick Transfer or FilePizza. If you need a long window more than you need sealing, SwissTransfer."
       },
       "1": {
         "q": "Why did my Wormhole transfer fail when I closed the tab?",
@@ -240,7 +240,7 @@
       },
       "6": {
         "q": "Which Wormhole alternatives keep files for more than a day?",
-        "a": "SwissTransfer holds 50 GB for 15 days with an extension to 30 offered before it lapses, and Proton Drive keeps a shared file until you delete it, within 5 GB of free storage. A public Send instance allows up to three days. BIShare, like Wormhole, gives you 24 hours."
+        "a": "SwissTransfer holds 50 GB for 15 days with an extension to 30 offered before it lapses, and Proton Drive keeps a shared file until you delete it, within 5 GB of free storage. A public Send instance allows up to three days. BIShare, like Wormhole, gives you 24 hours at most."
       },
       "7": {
         "q": "Is there a Wormhole alternative with no size limit?",
@@ -301,7 +301,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 GB · 15 to 30 days",
       "bishare": "BIShare link",
-      "bisharev": "100 GB · 24 hours",
+      "bisharev": "100 GB · 6–24 hours",
       "stream": "Browser to browser",
       "streamv": "No ceiling · both tabs open",
       "foot": "Wormhole stores only below 5 GB; past that it streams between tabs, which is why it sits in both halves of this chart"

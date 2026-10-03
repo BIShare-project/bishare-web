@@ -15,7 +15,7 @@
   "quick": {
     "title": "Kurze Antwort",
     "items": {
-      "0": "<strong>Eine Datei, eine Person, auf keiner Seite etwas zum Anmelden:</strong> <goTransfer>bishare.app/transfer öffnen</goTransfer>, Datei ablegen, Link, QR-Code oder 6-stelligen Code teilen. Bis 100 GB, vor dem Upload verschlüsselt, nach 24 Stunden weg.",
+      "0": "<strong>Eine Datei, eine Person, auf keiner Seite etwas zum Anmelden:</strong> <goTransfer>bishare.app/transfer öffnen</goTransfer>, Datei ablegen, Link, QR-Code oder 6-stelligen Code teilen. Bis 100 GB, vor dem Upload verschlüsselt, nach 6, 12 oder 24 Stunden weg.",
       "1": "<strong>Etwas, das der Empfänger vielleicht erst spät öffnet:</strong> SwissTransfer hält bis zu 50 GB 15 Tage lang bereit, verlängerbar auf 30, ohne Konto.",
       "2": "<strong>Etwas Privates, das nie lesbar auf einem Server liegen darf:</strong> Wormhole oder ein BIShare-Link, beide im Browser verschlüsselt, mit dem Schlüssel im Link selbst.",
       "3": "<strong>Sie haben ein Google-, Microsoft- oder Dropbox-Konto und nur der Empfänger soll ohne auskommen:</strong> ein Link für „Jeder, der über den Link verfügt“ funktioniert für ihn ohne Anmeldung, um den Preis Ihres Namens an der Datei und ohne Ablauf in den Gratis-Tarifen.",
@@ -48,8 +48,8 @@
       "0": {
         "name": "BIShare",
         "tag": "Insgesamt am besten: kein Konto auf beiden Seiten, vor dem Upload verschlüsselt, Links bis 100 GB",
-        "facts": "Browser, iPhone, Android, Windows, macOS, Linux · Open Source (MIT) · 100 GB pro Link, 24 Stunden · optionaler Einmal-Download · auf Ihrem Gerät verschlüsselt · kein Konto, keine Werbung",
-        "body": "Nichts an BIShare fragt, wer Sie sind. Sie legen eine Datei auf der Seite oder in der App ab und bekommen drei Wege, sie zu übergeben: einen Link, einen QR-Code, den das andere Handy scannt, und einen sechsstelligen Code aus Buchstaben und Ziffern, der sich leicht am Telefon vorlesen lässt. Der Empfänger öffnet ihn in jedem Browser und lädt herunter. Vor dem Upload wird die Datei im Browser verschlüsselt, und der Schlüssel steckt im Teil des Links nach dem Zeichen #, den Browser nie an Server senden; was auf BIShares Speicher liegt, ist für BIShare also unlesbar. Eine Einmal-Option löscht die Datei nach dem ersten Download, und jeder Link läuft nach 24 Stunden ab, ob genutzt oder nicht. Ist die andere Person im selben Raum, sendet die App direkt, ohne Upload und ganz ohne Link.",
+        "facts": "Browser, iPhone, Android, Windows, macOS, Linux · Open Source (MIT) · 100 GB pro Link, 6, 12 oder 24 Stunden · optionaler Einmal-Download · auf Ihrem Gerät verschlüsselt · kein Konto, keine Werbung",
+        "body": "Nichts an BIShare fragt, wer Sie sind. Sie legen eine Datei auf der Seite oder in der App ab und bekommen drei Wege, sie zu übergeben: einen Link, einen QR-Code, den das andere Handy scannt, und einen sechsstelligen Code aus Buchstaben und Ziffern, der sich leicht am Telefon vorlesen lässt. Der Empfänger öffnet ihn in jedem Browser und lädt herunter. Vor dem Upload wird die Datei im Browser verschlüsselt, und der Schlüssel steckt im Teil des Links nach dem Zeichen #, den Browser nie an Server senden; was auf BIShares Speicher liegt, ist für BIShare also unlesbar. Eine Einmal-Option löscht die Datei nach dem ersten Download, und jeder Link läuft nach 6, 12 oder 24 Stunden ab, ob genutzt oder nicht. Ist die andere Person im selben Raum, sendet die App direkt, ohne Upload und ganz ohne Link.",
         "cons": "Vierundzwanzig Stunden sind kurz für jemanden, der einmal die Woche in die Mails schaut; senden Sie dann einfach erneut. Ausführbare Dateien wie .exe, .msi und .sh werden abgelehnt, und das mit Absicht."
       },
       "1": {
@@ -122,7 +122,7 @@
       "r4": "Link läuft von selbst ab",
       "r5": "Open Source"
     },
-    "note": "Im September 2026 von den Seiten der Dienste abgelesen. BIShare: 100-GB-Links für 24 Stunden, im Browser verschlüsselt, MIT-lizenziert. SwissTransfer: 50 GB für 15 bis 30 Tage. Wormhole: 10 GB für 24 Stunden, im Browser verschlüsselt. Smash: keine Größengrenze, Transfers über 2 GB in der Warteschlange, 7 Tage. Google Drive: Absender angemeldet, Empfänger nicht, kein Ablauf in Gratis-Tarifen. Dropbox Transfer Basic: 2 GB, 7 Tage, Absender angemeldet."
+    "note": "Im September 2026 von den Seiten der Dienste abgelesen. BIShare: 100-GB-Links für 6, 12 oder 24 Stunden, im Browser verschlüsselt, MIT-lizenziert. SwissTransfer: 50 GB für 15 bis 30 Tage. Wormhole: 10 GB für 24 Stunden, im Browser verschlüsselt. Smash: keine Größengrenze, Transfers über 2 GB in der Warteschlange, 7 Tage. Google Drive: Absender angemeldet, Empfänger nicht, kein Ablauf in Gratis-Tarifen. Dropbox Transfer Basic: 2 GB, 7 Tage, Absender angemeldet."
   },
   "controls": {
     "title": "Was ohne Konto fehlt, und wie man es zurückholt",
@@ -130,7 +130,7 @@
     "items": {
       "0": {
         "h": "Einen Link widerrufen",
-        "b": "Dienste mit Anmeldung lassen einen Transfer vorzeitig löschen. Anonyme können das meist nicht, weil nichts den Transfer mit Ihnen verbindet. Der Ausweg ist eine kurze Ablaufzeit, beim Senden gewählt: Die 24 Stunden von BIShare oder Wormhole beenden die Sichtbarkeit, ob Sie nun daran denken oder nicht. Muss ein Link abschaltbar sein, nehmen Sie den Einmal-Download, damit er mit dem ersten Abruf stirbt."
+        "b": "Dienste mit Anmeldung lassen einen Transfer vorzeitig löschen. Anonyme können das meist nicht, weil nichts den Transfer mit Ihnen verbindet. Der Ausweg ist eine kurze Ablaufzeit, beim Senden gewählt: Die 6, 12 oder 24 Stunden von BIShare oder die 24 Stunden von Wormhole beenden die Sichtbarkeit, ob Sie nun daran denken oder nicht. Muss ein Link abschaltbar sein, nehmen Sie den Einmal-Download, damit er mit dem ersten Abruf stirbt."
       },
       "1": {
         "h": "Eine Frist verlängern",
@@ -177,7 +177,7 @@
       },
       "2": {
         "h": "Auf drei Wegen übergeben",
-        "b": "Kopieren Sie den Link, zeigen Sie den QR-Code dem Handy nebenan oder lesen Sie den sechsstelligen Code vor. Der Empfänger öffnet ihn im Browser und lädt herunter, ohne etwas zu installieren oder beizutreten. Nach 24 Stunden funktioniert der Link nicht mehr."
+        "b": "Kopieren Sie den Link, zeigen Sie den QR-Code dem Handy nebenan oder lesen Sie den sechsstelligen Code vor. Der Empfänger öffnet ihn im Browser und lädt herunter, ohne etwas zu installieren oder beizutreten. Nach 6, 12 oder 24 Stunden funktioniert der Link nicht mehr."
       },
       "3": {
         "h": "Für eine Gruppe lieber einen Raum öffnen",
@@ -262,21 +262,21 @@
       },
       "7": {
         "q": "Wie lange halten kontolose Links?",
-        "a": "Das schwankt stärker, als man denkt: 24 Stunden bei BIShare und Wormhole, bis zu drei Tage auf der öffentlichen Send-Instanz, sieben bei Smash, Filemail und TransferNow, 15 bis 30 bei SwissTransfer. Cloud-Speicher-Links in Gratis-Tarifen laufen gar nicht ab."
+        "a": "Das schwankt stärker, als man denkt: 6 bis 24 Stunden bei BIShare, 24 bei Wormhole, bis zu drei Tage auf der öffentlichen Send-Instanz, sieben bei Smash, Filemail und TransferNow, 15 bis 30 bei SwissTransfer. Cloud-Speicher-Links in Gratis-Tarifen laufen gar nicht ab."
       },
       "8": {
         "q": "Kann ich eine Datei ohne Konto mit einem Passwort schützen?",
-        "a": "SwissTransfer bietet ein Passwort für kostenlose Transfers. Bei BIShare und Wormhole trägt der Link den Entschlüsselungsschlüssel, der Schutz kommt also daher, den Link privat zu senden, plus Einmal- oder 24-Stunden-Ablauf. Smash, Dropbox und OneDrive behalten Passwörter den Bezahltarifen vor."
+        "a": "SwissTransfer bietet ein Passwort für kostenlose Transfers. Bei BIShare und Wormhole trägt der Link den Entschlüsselungsschlüssel, der Schutz kommt also daher, den Link privat zu senden, plus Einmal-Links oder ein kurzer Ablauf. Smash, Dropbox und OneDrive behalten Passwörter den Bezahltarifen vor."
       },
       "9": {
         "q": "Ist BIShare wirklich kostenlos und ohne Konto?",
-        "a": "Ja. Der Quellcode ist unter der MIT-Lizenz öffentlich, es gibt keine Werbung und keinen Bezahltarif, und nichts auf der Website oder in der App fordert zur Registrierung auf. Links tragen bis zu 100 GB für 24 Stunden; direkte Transfers zwischen Geräten im selben Netz haben keine Grenze."
+        "a": "Ja. Der Quellcode ist unter der MIT-Lizenz öffentlich, es gibt keine Werbung und keinen Bezahltarif, und nichts auf der Website oder in der App fordert zur Registrierung auf. Links tragen bis zu 100 GB für 6, 12 oder 24 Stunden; direkte Transfers zwischen Geräten im selben Netz haben keine Grenze."
       }
     }
   },
   "cta": {
     "title": "Jetzt senden, ohne Anmeldung auf beiden Seiten",
-    "body": "Datei ablegen, Link oder sechsstelligen Code teilen, fertig. Vor dem Upload verschlüsselt, bis 100 GB, nach 24 Stunden weg. Kostenlos und Open Source.",
+    "body": "Datei ablegen, Link oder sechsstelligen Code teilen, fertig. Vor dem Upload verschlüsselt, bis 100 GB, nach 6, 12 oder 24 Stunden weg. Kostenlos und Open Source.",
     "download": "BIShare herunterladen"
   },
   "a11y": {
@@ -321,7 +321,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 GB · 15 bis 30 Tage",
       "bishare": "BIShare",
-      "bisharev": "100 GB · 24 Stunden",
+      "bisharev": "100 GB · 6–24 Stunden",
       "foot": "Smash nimmt größere Transfers an, stellt sie aber hinter die Bezahltarife"
     },
     "controls": {

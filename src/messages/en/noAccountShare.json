@@ -15,7 +15,7 @@
   "quick": {
     "title": "Quick answer",
     "items": {
-      "0": "<strong>One file, one person, nothing to sign up for on either side:</strong> <goTransfer>open bishare.app/transfer</goTransfer>, drop the file, share the link, QR code or 6-character code. Up to 100 GB, encrypted before upload, gone after 24 hours.",
+      "0": "<strong>One file, one person, nothing to sign up for on either side:</strong> <goTransfer>open bishare.app/transfer</goTransfer>, drop the file, share the link, QR code or 6-character code. Up to 100 GB, encrypted before upload, gone after 6, 12 or 24 hours.",
       "1": "<strong>Something the recipient may open late:</strong> SwissTransfer keeps up to 50 GB for 15 days and can extend to 30, with no account.",
       "2": "<strong>Something private that must never sit readable on a server:</strong> Wormhole or a BIShare link, both encrypted in your browser with the key in the link itself.",
       "3": "<strong>You have a Google, Microsoft or Dropbox account and only the recipient must stay out of one:</strong> an Anyone-with-the-link share works for them without signing in, at the cost of your name on the file and no expiry on the free plans.",
@@ -48,8 +48,8 @@
       "0": {
         "name": "BIShare",
         "tag": "Best all-round: no account on either side, encrypted before upload, links up to 100 GB",
-        "facts": "Browser, iPhone, Android, Windows, macOS, Linux · open source (MIT) · 100 GB per link, 24 hours · optional one-time download · encrypted on your device · no account, no ads",
-        "body": "Nothing on BIShare asks who you are. You drop a file into the page or the app and get three ways to hand it over: a link, a QR code the other phone scans, and a six-character code made of letters and digits that is easy to read out over the phone. The recipient opens it in any browser and downloads. Before upload the file is encrypted in your browser and the key rides in the part of the link after the # sign, which browsers never send to servers, so what sits on BIShare's storage is unreadable to BIShare. A one-time option deletes the file after the first download, and every link expires after 24 hours whether or not it was used. When the other person is in the room, the app sends directly with no upload and no link at all.",
+        "facts": "Browser, iPhone, Android, Windows, macOS, Linux · open source (MIT) · 100 GB per link, 6, 12 or 24 hours · optional one-time download · encrypted on your device · no account, no ads",
+        "body": "Nothing on BIShare asks who you are. You drop a file into the page or the app and get three ways to hand it over: a link, a QR code the other phone scans, and a six-character code made of letters and digits that is easy to read out over the phone. The recipient opens it in any browser and downloads. Before upload the file is encrypted in your browser and the key rides in the part of the link after the # sign, which browsers never send to servers, so what sits on BIShare's storage is unreadable to BIShare. A one-time option deletes the file after the first download, and every link expires after 6, 12 or 24 hours whether or not it was used. When the other person is in the room, the app sends directly with no upload and no link at all.",
         "cons": "Twenty-four hours is short for a recipient who checks email once a week; send again if they miss it. Executables such as .exe, .msi and .sh are refused, which is deliberate."
       },
       "1": {
@@ -122,7 +122,7 @@
       "r4": "Link expires by itself",
       "r5": "Open source"
     },
-    "note": "Read from each service's own pages in September 2026. BIShare: 100 GB links for 24 hours, encrypted in the browser, MIT-licensed. SwissTransfer: 50 GB for 15 to 30 days. Wormhole: 10 GB for 24 hours, encrypted in the browser. Smash: no size cap, transfers over 2 GB queued, 7 days. Google Drive: sender signed in, recipient not, no expiry on free plans. Dropbox Transfer Basic: 2 GB, 7 days, sender signed in."
+    "note": "Read from each service's own pages in September 2026. BIShare: 100 GB links for 6, 12 or 24 hours, encrypted in the browser, MIT-licensed. SwissTransfer: 50 GB for 15 to 30 days. Wormhole: 10 GB for 24 hours, encrypted in the browser. Smash: no size cap, transfers over 2 GB queued, 7 days. Google Drive: sender signed in, recipient not, no expiry on free plans. Dropbox Transfer Basic: 2 GB, 7 days, sender signed in."
   },
   "controls": {
     "title": "What you give up without an account, and how to get it back",
@@ -130,7 +130,7 @@
     "items": {
       "0": {
         "h": "Revoking a link",
-        "b": "Signed-in services let you delete a transfer early. Anonymous ones mostly cannot, because nothing ties the transfer to you. The workaround is a short expiry chosen at send time: BIShare's 24 hours or Wormhole's 24 hours end the exposure whether or not you remember to act. If a link must be killable, use a one-time download so it dies with the first fetch."
+        "b": "Signed-in services let you delete a transfer early. Anonymous ones mostly cannot, because nothing ties the transfer to you. The workaround is a short expiry chosen at send time: BIShare's 6, 12 or 24 hours or Wormhole's 24 hours end the exposure whether or not you remember to act. If a link must be killable, use a one-time download so it dies with the first fetch."
       },
       "1": {
         "h": "Extending a deadline",
@@ -177,7 +177,7 @@
       },
       "2": {
         "h": "Hand it over three ways",
-        "b": "Copy the link, show the QR code to the phone next to you, or read out the six-character code. The recipient opens it in a browser and downloads, with nothing to install and nothing to join. The link stops working 24 hours later."
+        "b": "Copy the link, show the QR code to the phone next to you, or read out the six-character code. The recipient opens it in a browser and downloads, with nothing to install and nothing to join. The link stops working 6, 12 or 24 hours later."
       },
       "3": {
         "h": "For a group, open a room instead",
@@ -262,21 +262,21 @@
       },
       "7": {
         "q": "How long do account-free links last?",
-        "a": "It varies more than people expect: 24 hours on BIShare and Wormhole, up to three days on the public Send instance, seven on Smash, Filemail and TransferNow, 15 to 30 on SwissTransfer. Cloud drive links on free plans do not expire at all."
+        "a": "It varies more than people expect: 6 to 24 hours on BIShare, 24 on Wormhole, up to three days on the public Send instance, seven on Smash, Filemail and TransferNow, 15 to 30 on SwissTransfer. Cloud drive links on free plans do not expire at all."
       },
       "8": {
         "q": "Can I password-protect a file without an account?",
-        "a": "SwissTransfer offers a password on free transfers. On BIShare and Wormhole the link carries the decryption key, so protection comes from sending the link privately and from one-time or 24-hour expiry. Smash, Dropbox and OneDrive reserve passwords for paid plans."
+        "a": "SwissTransfer offers a password on free transfers. On BIShare and Wormhole the link carries the decryption key, so protection comes from sending the link privately and from one-time links or a short expiry. Smash, Dropbox and OneDrive reserve passwords for paid plans."
       },
       "9": {
         "q": "Is BIShare really free with no account?",
-        "a": "Yes. The source code is public under the MIT licence, there are no ads and no paid tier, and nothing on the site or in the app asks you to register. Links carry up to 100 GB for 24 hours; nearby transfers between devices on one network have no limit."
+        "a": "Yes. The source code is public under the MIT licence, there are no ads and no paid tier, and nothing on the site or in the app asks you to register. Links carry up to 100 GB for 6, 12 or 24 hours; nearby transfers between devices on one network have no limit."
       }
     }
   },
   "cta": {
     "title": "Send it, no sign-up on either side",
-    "body": "Drop a file, share a link or a six-character code, done. Encrypted before upload, up to 100 GB, gone in 24 hours. Free and open source.",
+    "body": "Drop a file, share a link or a six-character code, done. Encrypted before upload, up to 100 GB, gone in 6, 12 or 24 hours. Free and open source.",
     "download": "Download BIShare"
   },
   "a11y": {
@@ -321,7 +321,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 GB · 15 to 30 days",
       "bishare": "BIShare",
-      "bisharev": "100 GB · 24 hours",
+      "bisharev": "100 GB · 6–24 hours",
       "foot": "Smash accepts larger transfers but queues them behind paid plans"
     },
     "controls": {

@@ -18,7 +18,7 @@
       "<strong>Most generous free limit with long storage:</strong> SwissTransfer sends up to 50 GB and keeps files for 15 days, extendable to 30.",
       "<strong>No size cap at all:</strong> Smash accepts any size on its free plan, but transfers over 2 GB wait in a queue behind paying users; files stay 7 days.",
       "<strong>Private by design, from a browser:</strong> Wormhole encrypts files before upload, up to 10 GB, and deletes them after 24 hours.",
-      "<strong>Big files, encrypted on your device, no account:</strong> BIShare links carry up to 100 GB for 24 hours, and devices on the same network send directly with no size limit.",
+      "<strong>Big files, encrypted on your device, no account:</strong> BIShare links carry up to 100 GB for 6, 12 or 24 hours, and devices on the same network send directly with no size limit.",
       "<strong>Files that should live in a folder, not a link:</strong> Proton Drive shares end-to-end encrypted links with passwords and expiry dates from 5 GB of free storage.",
       "<strong>You like WeTransfer and just need more:</strong> its Ultimate plan sends up to 1 TB per transfer, with custom expiry."
     ]
@@ -66,9 +66,9 @@
       "0": {
         "name": "BIShare",
         "tag": "Best overall: big encrypted links, plus direct transfer when you are nearby",
-        "facts": "Browser, iPhone, Android, Windows, Mac, Linux · open source (MIT) · links up to 100 GB, 24 hours · direct on one network with no size limit · encrypted on your device · no account, no ads",
+        "facts": "Browser, iPhone, Android, Windows, Mac, Linux · open source (MIT) · links up to 100 GB, 6, 12 or 24 hours · direct on one network with no size limit · encrypted on your device · no account, no ads",
         "body": "BIShare works like WeTransfer when the recipient is far away: open bishare.app/transfer or the app, add files, and share the link, QR code or 6-character code. The difference is what happens before upload. The file is encrypted on your device, and the key travels in the part of the link after the # sign, which browsers never send to a server, so what BIShare stores is unreadable to it. The recipient downloads in any browser without signing in or seeing ads. When the other person is in the same office or on the same Wi-Fi, the app skips the internet entirely and sends device to device at local network speed, with no limit on size.",
-        "cons": "Links stop working after 24 hours, which is shorter than WeTransfer's three days, so it is a delivery tool rather than a place to leave files. There is no branded download page for client work."
+        "cons": "Links stop working after 6, 12 or 24 hours, which is shorter than WeTransfer's three days, so it is a delivery tool rather than a place to leave files. There is no branded download page for client work."
       },
       "1": {
         "name": "SwissTransfer",
@@ -139,7 +139,7 @@
       "r3": "Direct device-to-device option",
       "r4": "Open source"
     },
-    "note": "Free plans as documented in September 2026. BIShare: 100 GB links for 24 hours, direct transfer with no size limit when devices share a network. WeTransfer free: 10 transfers or 3 GB in total per 30 days, 3-day links. SwissTransfer: 50 GB, 15 days, extendable to 30. Smash: no size limit, transfers over 2 GB queued, 7 days. Wormhole: 10 GB, 24 hours; files over 5 GB are sent peer to peer while both browsers stay open. Filemail: 5 GB, 2 transfers per 24 hours, 7 days. The encryption row marks services that document encryption in the browser before upload; the others describe encryption in transit and on their servers."
+    "note": "Free plans as documented in September 2026. BIShare: 100 GB links for 6, 12 or 24 hours, direct transfer with no size limit when devices share a network. WeTransfer free: 10 transfers or 3 GB in total per 30 days, 3-day links. SwissTransfer: 50 GB, 15 days, extendable to 30. Smash: no size limit, transfers over 2 GB queued, 7 days. Wormhole: 10 GB, 24 hours; files over 5 GB are sent peer to peer while both browsers stay open. Filemail: 5 GB, 2 transfers per 24 hours, 7 days. The encryption row marks services that document encryption in the browser before upload; the others describe encryption in transit and on their servers."
   },
   "choose": {
     "title": "Which alternative for which job",
@@ -147,7 +147,7 @@
     "items": {
       "0": {
         "h": "Sending a finished project to a client",
-        "b": "Pick something that keeps the file long enough for a client who opens email late: SwissTransfer for up to 50 GB and two to four weeks, or WeTransfer's paid plan if the client expects that name. A BIShare link works too, but set a reminder, because it lasts 24 hours."
+        "b": "Pick something that keeps the file long enough for a client who opens email late: SwissTransfer for up to 50 GB and two to four weeks, or WeTransfer's paid plan if the client expects that name. A BIShare link works too, but set a reminder, because it lasts 24 hours at most."
       },
       "1": {
         "h": "Sending a contract, ID or medical file",
@@ -203,7 +203,7 @@
     "items": {
       "0": {
         "h": "The link says it has expired",
-        "b": "Each service deletes files on a schedule: 24 hours for BIShare and Wormhole, 3 days for WeTransfer free, 7 days for Smash, Filemail and TransferNow, 15 to 30 days for SwissTransfer. Ask for a new link, and for slow recipients pick a service with longer storage."
+        "b": "Each service deletes files on a schedule: 6 to 24 hours for BIShare, 24 for Wormhole, 3 days for WeTransfer free, 7 days for Smash, Filemail and TransferNow, 15 to 30 days for SwissTransfer. Ask for a new link, and for slow recipients pick a service with longer storage."
       },
       "1": {
         "h": "WeTransfer will not let you send",

@@ -15,7 +15,7 @@
   "quick": {
     "title": "Resposta rápida",
     "items": {
-      "0": "<strong>Você saiu por causa da fila:</strong> <goTransfer>um link do BIShare</goTransfer> carrega até 100 GB e começa a baixar no instante em que o envio termina, sem esperar atrás de ninguém. Ele expira em 24 horas.",
+      "0": "<strong>Você saiu por causa da fila:</strong> <goTransfer>um link do BIShare</goTransfer> carrega até 100 GB e começa a baixar no instante em que o envio termina, sem esperar atrás de ninguém. Ele expira em 6, 12 ou 24 horas.",
       "1": "<strong>Você saiu porque 7 dias é pouco:</strong> o SwissTransfer guarda 50 GB por 15 dias e estende para 30, de graça e sem conta.",
       "2": "<strong>O arquivo precisa continuar privado, não só chegar:</strong> Wormhole ou um link do BIShare. Os dois embaralham o arquivo dentro do navegador e mantêm a chave fora do alcance do servidor, então nenhum deles consegue abrir o que guarda.",
       "3": "<strong>Você realmente precisa de zero teto:</strong> fique no Smash, ou pule o envio inteiro. <goOffline>Dois aparelhos na mesma rede mandam direto um para o outro</goOffline>, sem limite e sem fila, porque nada é enviado para a nuvem.",
@@ -52,7 +52,7 @@
       "0": {
         "name": "BIShare",
         "tag": "A melhor quando a entrega precisa ser previsível, e grátis em qualquer velocidade",
-        "facts": "Sem fila e sem nível prioritário para esperar atrás · 100 GB por link, vivo por um dia · ilimitado assim que dois aparelhos dividem uma rede · embaralhado antes de sair de você · código sob licença MIT · celulares, computadores, qualquer navegador · nada para cadastrar",
+        "facts": "Sem fila e sem nível prioritário para esperar atrás · 100 GB por link, vivo por até um dia · ilimitado assim que dois aparelhos dividem uma rede · embaralhado antes de sair de você · código sob licença MIT · celulares, computadores, qualquer navegador · nada para cadastrar",
         "body": "O BIShare responde à fila não tendo uma. Não existe nível pago para esperar atrás, porque não existe nível pago nenhum: o código é público sob licença MIT, nada tem anúncio e nenhuma tela pede cadastro. Solte até 100 GB em bishare.app/transfer e a retirada pode começar no instante em que seu envio acaba. O arquivo é embaralhado dentro do seu próprio navegador primeiro, e a chave fica estacionada depois da marca # do link, um trecho que os navegadores guardam para si, então nosso armazenamento segura bytes que não temos como abrir. Se a outra pessoa estiver no mesmo Wi-Fi, o aplicativo elimina a etapa de envio e empurra o arquivo pela sala, onde teto nenhum existe.",
         "cons": "Vinte e quatro horas é a janela mais curta desta página. Se seu destinatário abre o e-mail uma vez por semana, esta é a ferramenta errada e o SwissTransfer é a certa. Executáveis como .exe e .msi são recusados nos links."
       },
@@ -126,7 +126,7 @@
       "r4": "Criptografado antes do envio",
       "r5": "Guardado por mais de 24 horas"
     },
-    "note": "Retirado das páginas oficiais de cada serviço durante setembro de 2026. Smash no gratuito: nenhum teto nomeado, tudo acima de 2 GB espera atrás do Pro, uma semana na prateleira, senha incluída. BIShare: um link de 100 GB vivo por um dia, embaralhado no navegador, opção de apagar depois da primeira leitura e teto nenhum entre dois aparelhos que dividem uma rede. SwissTransfer: 50 GB guardados quinze dias, esticáveis para um mês. Wormhole: 10 GB por um dia, embaralhado no navegador. Filemail: 5 GB por uma semana. WeTransfer no gratuito: uma cota de dez envios ou três gigabytes por mês, com links que duram três dias."
+    "note": "Retirado das páginas oficiais de cada serviço durante setembro de 2026. Smash no gratuito: nenhum teto nomeado, tudo acima de 2 GB espera atrás do Pro, uma semana na prateleira, senha incluída. BIShare: um link de 100 GB vivo por até um dia, embaralhado no navegador, opção de apagar depois da primeira leitura e teto nenhum entre dois aparelhos que dividem uma rede. SwissTransfer: 50 GB guardados quinze dias, esticáveis para um mês. Wormhole: 10 GB por um dia, embaralhado no navegador. Filemail: 5 GB por uma semana. WeTransfer no gratuito: uma cota de dez envios ou três gigabytes por mês, com links que duram três dias."
   },
   "predict": {
     "title": "Quanto tempo cada rota leva de verdade",
@@ -301,7 +301,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 GB · 15 a 30 dias",
       "bishare": "Link do BIShare",
-      "bisharev": "100 GB · 24 horas",
+      "bisharev": "100 GB · 6 a 24 horas",
       "direct": "Aparelho para aparelho",
       "directv": "Sem limite · nada enviado",
       "foot": "O Smash aceita mais de 2 GB de graça, mas essas transferências entram em fila atrás dos clientes pagantes"

@@ -79,9 +79,9 @@
       "0": {
         "name": "BIShare",
         "tag": "Best all-round: encrypted links in a browser and direct transfers between devices",
-        "facts": "Browser at bishare.app, apps for Android, iPhone, Windows, macOS, Linux · MIT · links: AES-256-GCM in the browser, key after #k= in the URL, up to 100 GB for 24 hours · direct: X25519 key agreement, HKDF-SHA256, AES-256-GCM · no account",
+        "facts": "Browser at bishare.app, apps for Android, iPhone, Windows, macOS, Linux · MIT · links: AES-256-GCM in the browser, key after #k= in the URL, up to 100 GB for 6, 12 or 24 hours · direct: X25519 key agreement, HKDF-SHA256, AES-256-GCM · no account",
         "body": "BIShare covers both ways people send files. For a link, the browser or app generates a random 256-bit key, encrypts the file in 1 MiB records with AES-GCM, uploads only ciphertext and places the key in the link fragment, which never reaches the server. For devices near each other, the apps agree on a key with X25519, derive it with HKDF-SHA256 and encrypt each chunk with AES-256-GCM, and each device shows a short fingerprint you can compare. The cryptography lives in a public Rust crate.",
-        "cons": "File names and sizes of link uploads are visible to the server, the protocol code has not had a formal external audit, and links expire after 24 hours."
+        "cons": "File names and sizes of link uploads are visible to the server, the protocol code has not had a formal external audit, and links expire after 6, 12 or 24 hours."
       },
       "1": {
         "name": "Wormhole",
@@ -184,7 +184,7 @@
       },
       "2": {
         "h": "What the server stores and sees",
-        "b": "For links, the server stores ciphertext plus the name, size and type you uploaded, and removes it once a day has passed, or as soon as it is fetched when you picked one-time. For direct transfers on the same network, nothing passes through our servers at all."
+        "b": "For links, the server stores ciphertext plus the name, size and type you uploaded, and removes it once the link's 6, 12 or 24 hours have passed, or as soon as it is fetched when you picked one-time. For direct transfers on the same network, nothing passes through our servers at all."
       },
       "3": {
         "h": "What has not been done yet",

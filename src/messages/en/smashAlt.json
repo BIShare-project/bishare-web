@@ -15,7 +15,7 @@
   "quick": {
     "title": "Quick answer",
     "items": {
-      "0": "<strong>You left because of the queue:</strong> <goTransfer>a BIShare link</goTransfer> carries up to 100 GB and starts downloading the moment the upload finishes, with nothing waiting behind anyone. It expires after 24 hours.",
+      "0": "<strong>You left because of the queue:</strong> <goTransfer>a BIShare link</goTransfer> carries up to 100 GB and starts downloading the moment the upload finishes, with nothing waiting behind anyone. It expires after 6, 12 or 24 hours.",
       "1": "<strong>You left because 7 days is not long enough:</strong> SwissTransfer keeps 50 GB for 15 days and will extend that to 30, free, without an account.",
       "2": "<strong>You need the file to stay private, not just delivered:</strong> Wormhole or a BIShare link. Both scramble the file inside the browser and keep the key out of the server's reach, so neither service can open what it is holding.",
       "3": "<strong>You genuinely need no size ceiling:</strong> stay on Smash, or skip the upload entirely. <goOffline>Two devices on one network send directly</goOffline> with no cap and no queue, because nothing is uploaded.",
@@ -52,7 +52,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Best when delivery has to be predictable, and free at any speed",
-        "facts": "No queue and no priority tier to wait behind · 100 GB a link, live for a day · unlimited once two devices share a network · scrambled before it leaves you · MIT-licensed source · phones, desktops, any browser · nothing to sign up for",
+        "facts": "No queue and no priority tier to wait behind · 100 GB a link, live for up to a day · unlimited once two devices share a network · scrambled before it leaves you · MIT-licensed source · phones, desktops, any browser · nothing to sign up for",
         "body": "BIShare answers the queue by not having one. There is no paid tier to wait behind, because there is no paid tier at all: the source is public under the MIT licence, nothing carries an advert, and no screen asks you to register. Drop up to 100 GB at bishare.app/transfer and collection can begin the instant your upload ends. The file is scrambled inside your own browser first, and the key is parked after the link's # marker, a segment browsers keep to themselves, so our storage holds bytes we have no way to open. Should the other person be on the same Wi-Fi, the app drops the upload step altogether and pushes the file across the room, where no ceiling exists.",
         "cons": "Twenty-four hours is the shortest window on this page. If your recipient opens email once a week, this is the wrong tool and SwissTransfer is the right one. Executables such as .exe and .msi are refused on links."
       },
@@ -126,7 +126,7 @@
       "r4": "Encrypted before upload",
       "r5": "Kept longer than 24 hours"
     },
-    "note": "Checked against each provider's published pricing during September 2026. Smash on free: no ceiling named, anything past 2 GB waits behind Pro, a week on the shelf, password included. BIShare: a 100 GB link alive for a day, scrambled in the browser, a burn-after-reading option, and no ceiling at all between two devices sharing a network. SwissTransfer: 50 GB held a fortnight, stretchable to a month. Wormhole: 10 GB for a day, scrambled in the browser. Filemail: 5 GB for a week. WeTransfer on free: an allowance of ten sends or three gigabytes a month, links lasting three days."
+    "note": "Checked against each provider's published pricing during September 2026. Smash on free: no ceiling named, anything past 2 GB waits behind Pro, a week on the shelf, password included. BIShare: a 100 GB link alive for up to a day, scrambled in the browser, a burn-after-reading option, and no ceiling at all between two devices sharing a network. SwissTransfer: 50 GB held a fortnight, stretchable to a month. Wormhole: 10 GB for a day, scrambled in the browser. Filemail: 5 GB for a week. WeTransfer on free: an allowance of ten sends or three gigabytes a month, links lasting three days."
   },
   "predict": {
     "title": "How long each route really takes",
@@ -301,7 +301,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 GB · 15 to 30 days",
       "bishare": "BIShare link",
-      "bisharev": "100 GB · 24 hours",
+      "bisharev": "100 GB · 6–24 hours",
       "direct": "Device to device",
       "directv": "No limit · nothing uploaded",
       "foot": "Smash accepts more than 2 GB free, but those transfers are queued behind paying customers"

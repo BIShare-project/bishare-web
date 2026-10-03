@@ -16,7 +16,7 @@
     "title": "Resposta rápida",
     "items": {
       "0": "<strong>Você quer a mesma coisa, sem mudanças:</strong> a bifurcação comunitária do Send continua mantida e continua rodando em instâncias públicas. Mesma criptografia, mesma chave no link, sem conta.",
-      "1": "<strong>Você quer hospedado por alguém responsável:</strong> <goTransfer>um link do BIShare</goTransfer> leva 100 GB, é trancado no seu navegador com a chave no link, e dura 24 horas.",
+      "1": "<strong>Você quer hospedado por alguém responsável:</strong> <goTransfer>um link do BIShare</goTransfer> leva 100 GB, é trancado no seu navegador com a chave no link, e dura 6, 12 ou 24 horas.",
       "2": "<strong>Você quer rodar por conta própria:</strong> a Mozilla tirou a marca dela do código em 2021 para que bifurcações fossem legais. É uma imagem Docker mais Redis.",
       "3": "<strong>Você quer a vida mais longa para um arquivo:</strong> o Tresorit Send guarda 5 GB por 7 dias, e as instâncias públicas do Send vão de 3 dias a um mês, conforme quem as opera.",
       "4": "<strong>Cuidado com a palavra criptografado:</strong> SwissTransfer e Filemail criptografam nos servidores deles, não no seu navegador. Os dois são bons serviços e nenhum é o que o Send era.",
@@ -59,8 +59,8 @@
       "1": {
         "name": "BIShare",
         "tag": "A melhor quando você quer o modelo do Send com alguém que responda por ele",
-        "facts": "100 GB por link · trancado dentro do seu navegador antes de qualquer coisa se mover · o segredo viaja depois do # · pode ser retirado por um dia · autodestruição opcional na primeira retirada · sem teto entre duas máquinas na mesma rede · código público sob licença MIT · nada para cadastrar",
-        "body": "O BIShare mantém a parte do Send que importava e põe um serviço mantido atrás dela. Seu arquivo é trancado dentro do seu próprio navegador, e o segredo que o abre viaja depois da marca # do link, um trecho que os navegadores se recusam a entregar, então o que fica no nosso armazenamento é material que não temos como ler. Onde ele se separa do Send é em tamanho e tempo: um link aceita até 100 GB contra o teto de 2,5 GB do Send, e continua disponível por um dia em vez de uma semana. Também existem aplicativos de verdade, e duas máquinas na mesma rede sem fio pulam o envio por completo.",
+        "facts": "100 GB por link · trancado dentro do seu navegador antes de qualquer coisa se mover · o segredo viaja depois do # · pode ser retirado por 6, 12 ou 24 horas · autodestruição opcional na primeira retirada · sem teto entre duas máquinas na mesma rede · código público sob licença MIT · nada para cadastrar",
+        "body": "O BIShare mantém a parte do Send que importava e põe um serviço mantido atrás dela. Seu arquivo é trancado dentro do seu próprio navegador, e o segredo que o abre viaja depois da marca # do link, um trecho que os navegadores se recusam a entregar, então o que fica no nosso armazenamento é material que não temos como ler. Onde ele se separa do Send é em tamanho e tempo: um link aceita até 100 GB contra o teto de 2,5 GB do Send, e continua disponível por no máximo um dia em vez de uma semana. Também existem aplicativos de verdade, e duas máquinas na mesma rede sem fio pulam o envio por completo.",
         "cons": "Vinte e quatro horas é menos que a semana do Send com login, e bem menos que o Tresorit. Os links recusam executáveis como .exe e .msi, que é exatamente a alavanca que faltou ao Send, e é uma alavanca grosseira."
       },
       "2": {
@@ -126,7 +126,7 @@
       "r4": "Você pode hospedar por conta própria",
       "r5": "Disponível por mais de 24 horas"
     },
-    "note": "Lido em cada provedor em setembro de 2026. Instância do Send: os números vêm da configuração ao vivo da instância pública mais conhecida, 2,5 GiB e três dias; outras permitem bem mais, e cada uma define a sua. BIShare: 100 GB por 24 horas, trancado no navegador, destruição opcional depois do primeiro download. Wormhole: 10 GB, removido depois de 24 horas ou 100 downloads, e acima de 5 GB a aba de quem envia carrega a transferência. Tresorit Send: 5 GB por sete dias ou dez downloads, com senha e revogação grátis; pede seu endereço de e-mail sem criar conta. Bitwarden Send: os Send gratuitos levam só texto, então as colunas de arquivo refletem a necessidade do nível pago. SwissTransfer: 50 GB guardados 15 dias, extensíveis a 30, mas a documentação dele diz que os arquivos são criptografados ao chegar nos servidores da Infomaniak, e por isso a primeira linha sai assim."
+    "note": "Lido em cada provedor em setembro de 2026. Instância do Send: os números vêm da configuração ao vivo da instância pública mais conhecida, 2,5 GiB e três dias; outras permitem bem mais, e cada uma define a sua. BIShare: 100 GB por 6, 12 ou 24 horas, trancado no navegador, destruição opcional depois do primeiro download. Wormhole: 10 GB, removido depois de 24 horas ou 100 downloads, e acima de 5 GB a aba de quem envia carrega a transferência. Tresorit Send: 5 GB por sete dias ou dez downloads, com senha e revogação grátis; pede seu endereço de e-mail sem criar conta. Bitwarden Send: os Send gratuitos levam só texto, então as colunas de arquivo refletem a necessidade do nível pago. SwissTransfer: 50 GB guardados 15 dias, extensíveis a 30, mas a documentação dele diz que os arquivos são criptografados ao chegar nos servidores da Infomaniak, e por isso a primeira linha sai assim."
   },
   "instances": {
     "title": "A bifurcação hoje, e quais instâncias estão mesmo de pé",
@@ -155,7 +155,7 @@
       },
       "1": {
         "h": "O teto sobe e o relógio desce",
-        "b": "O Send dava 2,5 GB por uma semana depois que você entrava na conta. Um link do BIShare dá 100 GB por um dia, sem login em nenhuma das pontas. Se a semana importava mais que os gigabytes, uma instância pública do Send ou o Tresorit Send é a troca melhor, e esta página preferiria que você usasse uma delas."
+        "b": "O Send dava 2,5 GB por uma semana depois que você entrava na conta. Um link do BIShare dá 100 GB por até um dia, sem login em nenhuma das pontas. Se a semana importava mais que os gigabytes, uma instância pública do Send ou o Tresorit Send é a troca melhor, e esta página preferiria que você usasse uma delas."
       },
       "2": {
         "h": "Ajuste o limite de downloads se você usava o do Send",
@@ -228,7 +228,7 @@
       },
       "3": {
         "q": "Qual é a alternativa mais próxima do Firefox Send?",
-        "a": "Uma instância pública da bifurcação comunitária, porque é o mesmo software. A instância principal permite hoje 2,5 GiB, vinte downloads e três dias. Se você quer o mesmo modelo de criptografia vindo de um serviço mantido, o BIShare dá 100 GB por um dia, e o Tresorit Send dá 5 GB por uma semana."
+        "a": "Uma instância pública da bifurcação comunitária, porque é o mesmo software. A instância principal permite hoje 2,5 GiB, vinte downloads e três dias. Se você quer o mesmo modelo de criptografia vindo de um serviço mantido, o BIShare dá 100 GB por até um dia, e o Tresorit Send dá 5 GB por uma semana."
       },
       "4": {
         "q": "Ainda posso hospedar o Firefox Send eu mesmo?",
@@ -301,7 +301,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 GB · 15 a 30 dias",
       "bishare": "Link do BIShare",
-      "bisharev": "100 GB · 24 horas",
+      "bisharev": "100 GB · 6 a 24 horas",
       "selfhost": "Send auto-hospedado",
       "selfhostv": "Você define os limites",
       "foot": "As instâncias públicas variam muito: a principal permite 2,5 GiB, outras chegam a 8 e 10 GB com um mês de retenção"

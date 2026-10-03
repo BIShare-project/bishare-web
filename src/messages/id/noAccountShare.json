@@ -15,7 +15,7 @@
   "quick": {
     "title": "Jawaban singkat",
     "items": {
-      "0": "<strong>Satu file, satu orang, tidak ada yang perlu mendaftar di kedua sisi:</strong> <goTransfer>buka bishare.app/transfer</goTransfer>, jatuhkan file, lalu bagikan link, kode QR, atau kode 6 karakternya. Sampai 100 GB, dienkripsi sebelum upload, lenyap setelah 24 jam.",
+      "0": "<strong>Satu file, satu orang, tidak ada yang perlu mendaftar di kedua sisi:</strong> <goTransfer>buka bishare.app/transfer</goTransfer>, jatuhkan file, lalu bagikan link, kode QR, atau kode 6 karakternya. Sampai 100 GB, dienkripsi sebelum upload, lenyap setelah 6, 12, atau 24 jam.",
       "1": "<strong>File yang mungkin baru dibuka penerima belakangan:</strong> SwissTransfer menyimpan sampai 50 GB selama 15 hari dan bisa diperpanjang jadi 30, tanpa akun.",
       "2": "<strong>File pribadi yang tidak boleh tersimpan terbaca di server mana pun:</strong> Wormhole atau link BIShare, keduanya dienkripsi di browser Anda dengan kunci yang ada di dalam link itu sendiri.",
       "3": "<strong>Anda punya akun Google, Microsoft, atau Dropbox dan hanya penerima yang harus bebas akun:</strong> link Siapa saja yang memiliki link bekerja untuk mereka tanpa login, dengan harga nama Anda tercantum di file dan tidak ada masa kedaluwarsa di paket gratis.",
@@ -48,8 +48,8 @@
       "0": {
         "name": "BIShare",
         "tag": "Terbaik secara keseluruhan: tanpa akun di kedua sisi, dienkripsi sebelum upload, link sampai 100 GB",
-        "facts": "Browser, iPhone, Android, Windows, macOS, Linux · open source (MIT) · 100 GB per link, 24 jam · opsi unduhan sekali pakai · dienkripsi di perangkat Anda · tanpa akun, tanpa iklan",
-        "body": "Tidak ada apa pun di BIShare yang menanyakan siapa Anda. Anda menjatuhkan file ke halaman atau aplikasi dan mendapat tiga cara menyerahkannya: link, kode QR yang dipindai ponsel lain, dan kode enam karakter dari huruf dan angka yang mudah dibacakan lewat telepon. Penerima membukanya di browser apa pun dan mengunduh. Sebelum upload, file dienkripsi di browser Anda dan kuncinya menumpang di bagian link setelah tanda #, yang tidak pernah dikirim browser ke server, jadi yang tersimpan di penyimpanan BIShare tidak bisa dibaca oleh BIShare. Opsi sekali pakai menghapus file setelah unduhan pertama, dan setiap link kedaluwarsa setelah 24 jam, dipakai atau tidak. Kalau orangnya ada di ruangan yang sama, aplikasinya mengirim langsung tanpa upload dan tanpa link sama sekali.",
+        "facts": "Browser, iPhone, Android, Windows, macOS, Linux · open source (MIT) · 100 GB per link, 6, 12, atau 24 jam · opsi unduhan sekali pakai · dienkripsi di perangkat Anda · tanpa akun, tanpa iklan",
+        "body": "Tidak ada apa pun di BIShare yang menanyakan siapa Anda. Anda menjatuhkan file ke halaman atau aplikasi dan mendapat tiga cara menyerahkannya: link, kode QR yang dipindai ponsel lain, dan kode enam karakter dari huruf dan angka yang mudah dibacakan lewat telepon. Penerima membukanya di browser apa pun dan mengunduh. Sebelum upload, file dienkripsi di browser Anda dan kuncinya menumpang di bagian link setelah tanda #, yang tidak pernah dikirim browser ke server, jadi yang tersimpan di penyimpanan BIShare tidak bisa dibaca oleh BIShare. Opsi sekali pakai menghapus file setelah unduhan pertama, dan setiap link kedaluwarsa setelah 6, 12, atau 24 jam, dipakai atau tidak. Kalau orangnya ada di ruangan yang sama, aplikasinya mengirim langsung tanpa upload dan tanpa link sama sekali.",
         "cons": "Dua puluh empat jam itu singkat untuk penerima yang mengecek email seminggu sekali; kirim ulang kalau mereka melewatkannya. File executable seperti .exe, .msi, dan .sh ditolak, dan itu memang disengaja."
       },
       "1": {
@@ -122,7 +122,7 @@
       "r4": "Link kedaluwarsa sendiri",
       "r5": "Open source"
     },
-    "note": "Dibaca dari halaman resmi tiap layanan pada September 2026. BIShare: link 100 GB selama 24 jam, dienkripsi di browser, berlisensi MIT. SwissTransfer: 50 GB selama 15 sampai 30 hari. Wormhole: 10 GB selama 24 jam, dienkripsi di browser. Smash: tanpa batas ukuran, transfer di atas 2 GB mengantre, 7 hari. Google Drive: pengirim login, penerima tidak, tanpa kedaluwarsa di paket gratis. Dropbox Transfer Basic: 2 GB, 7 hari, pengirim login."
+    "note": "Dibaca dari halaman resmi tiap layanan pada September 2026. BIShare: link 100 GB selama 6, 12, atau 24 jam, dienkripsi di browser, berlisensi MIT. SwissTransfer: 50 GB selama 15 sampai 30 hari. Wormhole: 10 GB selama 24 jam, dienkripsi di browser. Smash: tanpa batas ukuran, transfer di atas 2 GB mengantre, 7 hari. Google Drive: pengirim login, penerima tidak, tanpa kedaluwarsa di paket gratis. Dropbox Transfer Basic: 2 GB, 7 hari, pengirim login."
   },
   "controls": {
     "title": "Yang hilang tanpa akun, dan cara mendapatkannya kembali",
@@ -130,7 +130,7 @@
     "items": {
       "0": {
         "h": "Mencabut link",
-        "b": "Layanan dengan login membolehkan Anda menghapus transfer lebih awal. Yang anonim umumnya tidak bisa, karena tidak ada yang mengaitkan transfer itu dengan Anda. Jalan keluarnya adalah masa berlaku pendek yang dipilih saat mengirim: 24 jam BIShare atau 24 jam Wormhole mengakhiri paparan, entah Anda ingat bertindak atau tidak. Kalau link harus bisa dimatikan, pakai unduhan sekali pakai supaya ia mati bersama pengambilan pertama."
+        "b": "Layanan dengan login membolehkan Anda menghapus transfer lebih awal. Yang anonim umumnya tidak bisa, karena tidak ada yang mengaitkan transfer itu dengan Anda. Jalan keluarnya adalah masa berlaku pendek yang dipilih saat mengirim: 6, 12, atau 24 jam BIShare atau 24 jam Wormhole mengakhiri paparan, entah Anda ingat bertindak atau tidak. Kalau link harus bisa dimatikan, pakai unduhan sekali pakai supaya ia mati bersama pengambilan pertama."
       },
       "1": {
         "h": "Memperpanjang tenggat",
@@ -177,7 +177,7 @@
       },
       "2": {
         "h": "Serahkan dengan tiga cara",
-        "b": "Salin link-nya, tunjukkan kode QR ke ponsel di sebelah Anda, atau bacakan kode enam karakternya. Penerima membukanya di browser dan mengunduh, tanpa memasang apa pun dan tanpa bergabung ke mana pun. Link berhenti bekerja 24 jam kemudian."
+        "b": "Salin link-nya, tunjukkan kode QR ke ponsel di sebelah Anda, atau bacakan kode enam karakternya. Penerima membukanya di browser dan mengunduh, tanpa memasang apa pun dan tanpa bergabung ke mana pun. Link berhenti bekerja 6, 12, atau 24 jam kemudian."
       },
       "3": {
         "h": "Untuk kelompok, buka ruang saja",
@@ -262,21 +262,21 @@
       },
       "7": {
         "q": "Berapa lama link tanpa akun bertahan?",
-        "a": "Lebih beragam dari yang orang kira: 24 jam di BIShare dan Wormhole, sampai tiga hari di instans publik Send, tujuh di Smash, Filemail, dan TransferNow, 15 sampai 30 di SwissTransfer. Link cloud drive di paket gratis tidak kedaluwarsa sama sekali."
+        "a": "Lebih beragam dari yang orang kira: 6 sampai 24 jam di BIShare, 24 jam di Wormhole, sampai tiga hari di instans publik Send, tujuh di Smash, Filemail, dan TransferNow, 15 sampai 30 di SwissTransfer. Link cloud drive di paket gratis tidak kedaluwarsa sama sekali."
       },
       "8": {
         "q": "Bisakah melindungi file dengan kata sandi tanpa akun?",
-        "a": "SwissTransfer menyediakan kata sandi di transfer gratis. Di BIShare dan Wormhole, link membawa kunci dekripsinya, jadi perlindungannya datang dari mengirim link secara privat dan dari kedaluwarsa sekali pakai atau 24 jam. Smash, Dropbox, dan OneDrive menyimpan kata sandi untuk paket berbayar."
+        "a": "SwissTransfer menyediakan kata sandi di transfer gratis. Di BIShare dan Wormhole, link membawa kunci dekripsinya, jadi perlindungannya datang dari mengirim link secara privat dan dari tautan sekali pakai atau masa berlaku yang pendek. Smash, Dropbox, dan OneDrive menyimpan kata sandi untuk paket berbayar."
       },
       "9": {
         "q": "Apakah BIShare benar-benar gratis tanpa akun?",
-        "a": "Ya. Kode sumbernya publik di bawah lisensi MIT, tidak ada iklan dan tidak ada paket berbayar, dan tidak ada apa pun di situs atau aplikasi yang meminta Anda mendaftar. Link memuat sampai 100 GB selama 24 jam; transfer antarperangkat di satu jaringan tidak punya batas."
+        "a": "Ya. Kode sumbernya publik di bawah lisensi MIT, tidak ada iklan dan tidak ada paket berbayar, dan tidak ada apa pun di situs atau aplikasi yang meminta Anda mendaftar. Link memuat sampai 100 GB selama 6, 12, atau 24 jam; transfer antarperangkat di satu jaringan tidak punya batas."
       }
     }
   },
   "cta": {
     "title": "Kirim sekarang, tanpa daftar di kedua sisi",
-    "body": "Jatuhkan file, bagikan link atau kode enam karakter, selesai. Dienkripsi sebelum upload, sampai 100 GB, lenyap dalam 24 jam. Gratis dan open source.",
+    "body": "Jatuhkan file, bagikan link atau kode enam karakter, selesai. Dienkripsi sebelum upload, sampai 100 GB, lenyap dalam 6, 12, atau 24 jam. Gratis dan open source.",
     "download": "Unduh BIShare"
   },
   "a11y": {
@@ -321,7 +321,7 @@
       "swiss": "SwissTransfer",
       "swissv": "50 GB · 15 sampai 30 hari",
       "bishare": "BIShare",
-      "bisharev": "100 GB · 24 jam",
+      "bisharev": "100 GB · 6–24 jam",
       "foot": "Smash menerima transfer lebih besar tetapi mengantrekannya di belakang paket berbayar"
     },
     "controls": {

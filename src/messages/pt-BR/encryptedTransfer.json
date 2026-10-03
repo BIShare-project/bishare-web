@@ -79,9 +79,9 @@
       "0": {
         "name": "BIShare",
         "tag": "Melhor no geral: links criptografados no navegador e envios diretos entre aparelhos",
-        "facts": "Navegador em bishare.app, apps para Android, iPhone, Windows, macOS, Linux · MIT · links: AES-256-GCM no navegador, chave depois de #k= na URL, até 100 GB por 24 horas · direto: acordo de chaves X25519, HKDF-SHA256, AES-256-GCM · sem conta",
+        "facts": "Navegador em bishare.app, apps para Android, iPhone, Windows, macOS, Linux · MIT · links: AES-256-GCM no navegador, chave depois de #k= na URL, até 100 GB por 6, 12 ou 24 horas · direto: acordo de chaves X25519, HKDF-SHA256, AES-256-GCM · sem conta",
         "body": "O BIShare cobre os dois jeitos de enviar arquivos. Para um link, o navegador ou app gera uma chave aleatória de 256 bits, criptografa o arquivo em blocos de 1 MiB com AES-GCM, sobe só texto cifrado e coloca a chave no fragmento do link, que nunca chega ao servidor. Para aparelhos próximos, os apps combinam uma chave com X25519, derivam com HKDF-SHA256 e criptografam cada bloco com AES-256-GCM, e cada aparelho mostra uma impressão digital curta para comparar. A criptografia está numa biblioteca Rust pública.",
-        "cons": "Nomes e tamanhos de arquivos enviados por link ficam visíveis ao servidor, o código do protocolo ainda não passou por auditoria externa formal e os links expiram em 24 horas."
+        "cons": "Nomes e tamanhos de arquivos enviados por link ficam visíveis ao servidor, o código do protocolo ainda não passou por auditoria externa formal e os links expiram em 6, 12 ou 24 horas."
       },
       "1": {
         "name": "Wormhole",
@@ -184,7 +184,7 @@
       },
       "2": {
         "h": "O que o servidor guarda e vê",
-        "b": "Nos links, o servidor guarda o texto cifrado mais o nome, tamanho e tipo do arquivo enviado, e apaga tudo depois de um dia ou, no download único, assim que o arquivo é baixado. Nos envios diretos pela mesma rede, nada passa pelos nossos servidores."
+        "b": "Nos links, o servidor guarda o texto cifrado mais o nome, tamanho e tipo do arquivo enviado, e apaga tudo quando acabam as 6, 12 ou 24 horas do link ou, no download único, assim que o arquivo é baixado. Nos envios diretos pela mesma rede, nada passa pelos nossos servidores."
       },
       "3": {
         "h": "O que ainda não foi feito",

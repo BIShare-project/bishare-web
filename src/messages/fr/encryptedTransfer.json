@@ -79,9 +79,9 @@
       "0": {
         "name": "BIShare",
         "tag": "Meilleur choix polyvalent : liens chiffrés dans le navigateur et transferts directs entre appareils",
-        "facts": "Navigateur sur bishare.app, applications Android, iPhone, Windows, macOS, Linux · MIT · liens : AES-256-GCM dans le navigateur, clé après #k= dans l'URL, jusqu'à 100 Go pendant 24 heures · direct : accord de clés X25519, HKDF-SHA256, AES-256-GCM · sans compte",
+        "facts": "Navigateur sur bishare.app, applications Android, iPhone, Windows, macOS, Linux · MIT · liens : AES-256-GCM dans le navigateur, clé après #k= dans l'URL, jusqu'à 100 Go pendant 6, 12 ou 24 heures · direct : accord de clés X25519, HKDF-SHA256, AES-256-GCM · sans compte",
         "body": "BIShare couvre les deux manières d'envoyer des fichiers. Pour un lien, le navigateur ou l'application génère une clé aléatoire de 256 bits, chiffre le fichier par blocs de 1 Mio en AES-GCM, n'envoie que du texte chiffré et place la clé dans le fragment du lien, qui n'atteint jamais le serveur. Pour des appareils proches, les applications s'accordent sur une clé via X25519, la dérivent avec HKDF-SHA256 et chiffrent chaque bloc en AES-256-GCM, et chaque appareil affiche une courte empreinte à comparer. La cryptographie se trouve dans une bibliothèque Rust publique.",
-        "cons": "Le serveur voit les noms et tailles des fichiers envoyés par lien, le code du protocole n'a pas encore fait l'objet d'un audit externe formel, et les liens expirent après 24 heures."
+        "cons": "Le serveur voit les noms et tailles des fichiers envoyés par lien, le code du protocole n'a pas encore fait l'objet d'un audit externe formel, et les liens expirent après 6, 12 ou 24 heures."
       },
       "1": {
         "name": "Wormhole",
@@ -184,7 +184,7 @@
       },
       "2": {
         "h": "Ce que le serveur stocke et voit",
-        "b": "Pour les liens, le serveur stocke le texte chiffré ainsi que le nom, la taille et le type du fichier envoyé, et le supprime au bout d'une journée ou, en téléchargement unique, dès qu'il a été récupéré. Pour les transferts directs sur le même réseau, rien ne passe par nos serveurs."
+        "b": "Pour les liens, le serveur stocke le texte chiffré ainsi que le nom, la taille et le type du fichier envoyé, et le supprime une fois écoulées les 6, 12 ou 24 heures du lien ou, en téléchargement unique, dès qu'il a été récupéré. Pour les transferts directs sur le même réseau, rien ne passe par nos serveurs."
       },
       "3": {
         "h": "Ce qui n'a pas encore été fait",

@@ -18,7 +18,7 @@
       "<strong>Limite gratuite la plus généreuse avec stockage long :</strong> SwissTransfer envoie jusqu'à 50 Go et garde les fichiers 15 jours, prolongeables à 30.",
       "<strong>Aucune limite de taille :</strong> Smash accepte toutes les tailles en gratuit, mais les transferts de plus de 2 Go attendent dans une file derrière les abonnés payants ; les fichiers restent 7 jours.",
       "<strong>Privé par conception, depuis un navigateur :</strong> Wormhole chiffre les fichiers avant l'envoi, jusqu'à 10 Go, et les supprime au bout de 24 heures.",
-      "<strong>Gros fichiers, chiffrés sur l'appareil, sans compte :</strong> les liens BIShare transportent jusqu'à 100 Go pendant 24 heures, et les appareils sur le même réseau s'envoient les fichiers en direct sans limite de taille.",
+      "<strong>Gros fichiers, chiffrés sur l'appareil, sans compte :</strong> les liens BIShare transportent jusqu'à 100 Go pendant 6, 12 ou 24 heures, et les appareils sur le même réseau s'envoient les fichiers en direct sans limite de taille.",
       "<strong>Des fichiers qui doivent vivre dans un dossier, pas dans un lien :</strong> Proton Drive partage des liens chiffrés de bout en bout, avec mot de passe et date d'expiration, à partir de 5 Go de stockage gratuit.",
       "<strong>Vous aimez WeTransfer et voulez juste plus :</strong> son offre Ultimate envoie jusqu'à 1 To par transfert, avec expiration personnalisée."
     ]
@@ -66,9 +66,9 @@
       "0": {
         "name": "BIShare",
         "tag": "Meilleur choix global : gros liens chiffrés, plus transfert direct à proximité",
-        "facts": "Navigateur, iPhone, Android, Windows, Mac, Linux · open source (MIT) · liens jusqu'à 100 Go, 24 heures · direct sur un même réseau sans limite de taille · chiffré sur votre appareil · sans compte, sans publicité",
+        "facts": "Navigateur, iPhone, Android, Windows, Mac, Linux · open source (MIT) · liens jusqu'à 100 Go, 6, 12 ou 24 heures · direct sur un même réseau sans limite de taille · chiffré sur votre appareil · sans compte, sans publicité",
         "body": "BIShare fonctionne comme WeTransfer quand le destinataire est loin : ouvrez bishare.app/transfer ou l'application, ajoutez des fichiers et partagez le lien, le QR code ou le code de 6 caractères. La différence tient à ce qui se passe avant l'envoi. Le fichier est chiffré sur votre appareil, et la clé voyage dans la partie du lien située après le signe #, que les navigateurs n'envoient jamais à un serveur ; ce que BIShare stocke lui est donc illisible. Le destinataire télécharge dans n'importe quel navigateur, sans connexion ni publicité. Quand l'autre personne est dans le même bureau ou sur le même Wi-Fi, l'application se passe d'internet et envoie d'appareil à appareil à la vitesse du réseau local, sans limite de taille.",
-        "cons": "Les liens cessent de fonctionner après 24 heures, moins que les trois jours de WeTransfer : c'est un outil de livraison, pas un endroit où laisser des fichiers. Il n'existe pas de page de téléchargement personnalisée à vos couleurs pour le travail client."
+        "cons": "Les liens cessent de fonctionner après 6, 12 ou 24 heures, moins que les trois jours de WeTransfer : c'est un outil de livraison, pas un endroit où laisser des fichiers. Il n'existe pas de page de téléchargement personnalisée à vos couleurs pour le travail client."
       },
       "1": {
         "name": "SwissTransfer",
@@ -139,7 +139,7 @@
       "r3": "Option de transfert direct entre appareils",
       "r4": "Open source"
     },
-    "note": "Offres gratuites telles que documentées en septembre 2026. BIShare : liens de 100 Go pendant 24 heures, transfert direct sans limite de taille quand les appareils partagent un réseau. WeTransfer gratuit : 10 transferts ou 3 Go au total par 30 jours, liens de 3 jours. SwissTransfer : 50 Go, 15 jours, prolongeable à 30. Smash : aucune limite de taille, transferts de plus de 2 Go en file, 7 jours. Wormhole : 10 Go, 24 heures ; les fichiers de plus de 5 Go passent en pair-à-pair tant que les deux navigateurs restent ouverts. Filemail : 5 Go, 2 transferts par 24 heures, 7 jours. La ligne chiffrement signale les services qui documentent un chiffrement dans le navigateur avant l'envoi ; les autres décrivent un chiffrement en transit et sur leurs serveurs."
+    "note": "Offres gratuites telles que documentées en septembre 2026. BIShare : liens de 100 Go pendant 6, 12 ou 24 heures, transfert direct sans limite de taille quand les appareils partagent un réseau. WeTransfer gratuit : 10 transferts ou 3 Go au total par 30 jours, liens de 3 jours. SwissTransfer : 50 Go, 15 jours, prolongeable à 30. Smash : aucune limite de taille, transferts de plus de 2 Go en file, 7 jours. Wormhole : 10 Go, 24 heures ; les fichiers de plus de 5 Go passent en pair-à-pair tant que les deux navigateurs restent ouverts. Filemail : 5 Go, 2 transferts par 24 heures, 7 jours. La ligne chiffrement signale les services qui documentent un chiffrement dans le navigateur avant l'envoi ; les autres décrivent un chiffrement en transit et sur leurs serveurs."
   },
   "choose": {
     "title": "Quelle alternative pour quel usage",
@@ -147,7 +147,7 @@
     "items": {
       "0": {
         "h": "Livrer un projet terminé à un client",
-        "b": "Choisissez un service qui garde le fichier assez longtemps pour un client qui ouvre ses e-mails en retard : SwissTransfer jusqu'à 50 Go et deux à quatre semaines, ou l'offre payante de WeTransfer si le client attend ce nom. Un lien BIShare convient aussi, mais programmez un rappel, car il dure 24 heures."
+        "b": "Choisissez un service qui garde le fichier assez longtemps pour un client qui ouvre ses e-mails en retard : SwissTransfer jusqu'à 50 Go et deux à quatre semaines, ou l'offre payante de WeTransfer si le client attend ce nom. Un lien BIShare convient aussi, mais programmez un rappel, car il dure 6, 12 ou 24 heures."
       },
       "1": {
         "h": "Envoyer un contrat, une pièce d'identité ou un dossier médical",
@@ -203,7 +203,7 @@
     "items": {
       "0": {
         "h": "Le lien indique qu'il a expiré",
-        "b": "Chaque service supprime selon son calendrier : 24 heures pour BIShare et Wormhole, 3 jours pour WeTransfer gratuit, 7 jours pour Smash, Filemail et TransferNow, 15 à 30 jours pour SwissTransfer. Demandez un nouveau lien et, pour les destinataires lents, choisissez un service à stockage plus long."
+        "b": "Chaque service supprime selon son calendrier : 6 à 24 heures pour BIShare, 24 pour Wormhole, 3 jours pour WeTransfer gratuit, 7 jours pour Smash, Filemail et TransferNow, 15 à 30 jours pour SwissTransfer. Demandez un nouveau lien et, pour les destinataires lents, choisissez un service à stockage plus long."
       },
       "1": {
         "h": "WeTransfer refuse l'envoi",
