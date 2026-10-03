@@ -313,6 +313,8 @@ export async function completeTransferMultipart(input: {
   one_time?: boolean;
   /** 6, 12 or 24. Anything else and the server uses its own default. */
   expiryHours?: number;
+  /** The File's lastModified (Unix ms), so an app on the other end can keep "Date modified". */
+  mtime_ms?: number;
 }): Promise<TransferMultipartComplete> {
   try {
     const res = await fetch(`${API_URL}/api/v1/transfer/multipart/complete`, {

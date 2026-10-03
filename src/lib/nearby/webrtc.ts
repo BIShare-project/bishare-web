@@ -122,7 +122,13 @@ export class NearbyRTC {
       // they accept and answer, so metadata can't travel over the channel first.
       this.sig.signal(peerId, "offer", {
         sdp: offer,
-        meta: { name: file.name, size: file.size, mime: file.type },
+        meta: {
+          name: file.name,
+          size: file.size,
+          mime: file.type,
+          // An app receiver stamps the saved file with it; a browser cannot.
+          ...(file.lastModified > 0 ? { mtimeMs: file.lastModified } : {}),
+        },
       });
     } catch (e) {
       this.cb.onError?.(peerId, e instanceof Error ? e.message : "send failed");

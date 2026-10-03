@@ -119,6 +119,17 @@ interface MpState {
   createdAt: number;
 }
 
+/**
+ * The browser File's lastModified as the server's `mtime_ms`, so an app on the
+ * receiving end can stamp the saved file with the original "Date modified"
+ * (a browser receiver cannot — downloads always get the download time). A
+ * bundle ZIP is a new file, but its entries carry their own dates (zip.ts).
+ */
+function mtimeOf(file: File): number | undefined {
+  const ms = file.lastModified;
+  return Number.isInteger(ms) && ms > 0 ? ms : undefined;
+}
+
 /** Per-file fingerprint so a re-selected same file resumes its upload. */
 function mpKey(file: File): string {
   return `${MP_RESUME_PREFIX}${file.name}:${file.size}:${file.lastModified}`;
@@ -367,6 +378,7 @@ async function uploadMultipart(
     sender_alias: "Web Upload",
     one_time: oneTime,
     expiryHours,
+    mtime_ms: mtimeOf(file),
   });
   if (!done.success || !done.rawCode || !done.code || !done.expiresAt || !done.deleteToken) {
     // The server answered and refused (expired upload, size mismatch, limit
@@ -480,6 +492,7 @@ async function uploadEncrypted(
       sender_alias: "Web Upload",
       one_time: oneTime,
       expiryHours,
+      mtime_ms: mtimeOf(file),
     });
     if (!done.success || !done.rawCode || !done.code || !done.expiresAt || !done.deleteToken) {
       throw new Error(done.error?.message || t("upload.errors.uploadFailed"));
@@ -532,6 +545,7 @@ async function uploadEntry(
         sender_alias: "Web Upload",
         one_time: oneTime,
         expiryHours,
+        mtime_ms: mtimeOf(file),
       }),
     });
     const meta = (await res.json().catch(() => ({}))) as TransferUploadResponse & {
@@ -575,6 +589,7 @@ async function uploadEntry(
       "X-Sender-Alias": "Web Upload",
       ...(oneTime ? { "X-One-Time": "true" } : {}),
       "X-Expiry-Hours": String(expiryHours),
+      ...(mtimeOf(file) ? { "X-File-Mtime": String(mtimeOf(file)) } : {}),
     },
     body: file,
     onProgress,
