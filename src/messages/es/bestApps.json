@@ -34,7 +34,7 @@
       "r7": "Apps nativas en todas las plataformas",
       "r8": "Gratis, sin anuncios, código abierto"
     },
-    "note": "Comprobado en septiembre de 2026. Quick Share: Android y Windows (cuenta de Google); los Pixel recientes pueden pasar archivos a un iPhone vía AirDrop; sin Mac. PairDrop: solo navegador, se empareja entre redes con un código. WeTransfer gratis: 3 GB, 3 días. Wormhole: 10 GB, 24 horas, solo navegador."
+    "note": "Comprobado en octubre de 2026. Quick Share: Android y Windows (cuenta de Google); los Pixel recientes pueden pasar archivos a un iPhone vía AirDrop; sin Mac. PairDrop: solo navegador, se empareja entre redes con un código. WeTransfer gratis: 3 GB, 3 días. Wormhole: 10 GB, 24 horas, solo navegador."
   },
   "list": {
     "title": "Las diez, clasificadas",
@@ -44,7 +44,7 @@
         "tag": "Mejor en general — velocidad local más un enlace para cualquiera",
         "best": "Ideal para: quien comparte entre distintas plataformas y quiere una app que funcione en todas partes, incluso con gente que no instala nada.",
         "facts": "iPhone, Android, Windows, Mac, Linux, navegador · gratis, código abierto (MIT) · 100 GB por enlace, sin límite cerca · cifrado de extremo a extremo · sin cuenta",
-        "body": "BIShare es la única herramienta de aquí que cubre ambos casos a la vez. En la misma Wi-Fi envía de dispositivo a dispositivo a velocidad de red local, cifrado de extremo a extremo, como AirDrop — pero entre cualquier mezcla de iPhone, Android, Windows, Mac y Linux. Cuando la otra persona está lejos, envías un enlace que abre en cualquier navegador, sin app ni cuenta por su parte, hasta 100 GB, cifrado antes de subir con la clave en el enlace. Los enlaces caducan en 24 horas, o tras la primera descarga si lo eliges. Las salas permiten a un grupo dejar archivos para los demás con un código, también cifradas de extremo a extremo. Lo que no hace: guardar archivos de forma permanente (es una herramienta de transferencia, no una unidad) ni colaborar en documentos.",
+        "body": "BIShare es la única herramienta de aquí que cubre ambos casos a la vez. En la misma Wi-Fi envía de dispositivo a dispositivo a velocidad de red local, cifrado de extremo a extremo, como AirDrop — pero entre cualquier mezcla de iPhone, Android, Windows, Mac y Linux. Cuando la otra persona está lejos, envías un enlace que abre en cualquier navegador, sin app ni cuenta por su parte, hasta 100 GB, cifrado antes de subir con la clave en el enlace. Los enlaces caducan a las 6, 12 o 24 horas, según elijas, o tras la primera descarga si lo prefieres. Las salas permiten a un grupo dejar archivos para los demás con un código, también cifradas de extremo a extremo. Lo que no hace: guardar archivos de forma permanente (es una herramienta de transferencia, no una unidad) ni colaborar en documentos.",
         "cons": "No es una unidad en la nube; una transferencia en el navegador mantiene el archivo en memoria, así que los archivos más grandes van mejor cerca."
       },
       "1": {
@@ -176,6 +176,18 @@
       "11": {
         "q": "¿En qué se diferencia una app para compartir archivos de una app de transferencia de archivos?",
         "a": "Los dos nombres se solapan. Una app de transferencia mueve una copia de un dispositivo a otro y ahí termina: así funcionan BIShare, LocalSend, AirDrop, Quick Share y Send Anywhere. Compartir archivos incluye también el almacenamiento que se queda en un sitio para que lo abran varias personas, como Google Drive, Dropbox y OneDrive. Esta guía ordena los dos tipos y dice cuál es cuál."
+      },
+      "12": {
+        "q": "¿Qué app para compartir archivos es la más rápida?",
+        "a": "En la misma red, cualquier app que envíe de dispositivo a dispositivo: BIShare, LocalSend, AirDrop o Quick Share alcanzan de 40 a 110 MB/s por Wi-Fi 5 y Wi-Fi 6 en nuestras mediciones. Todo lo que sube primero, incluidos los servicios de enlaces y las nubes, está limitado por tu velocidad de subida."
+      },
+      "13": {
+        "q": "¿Cuál es la mejor app P2P para compartir archivos?",
+        "a": "Para dispositivos en una misma red, BIShare o LocalSend, que funcionan en todas las plataformas y envían directamente sin subir nada. A través de internet, PairDrop o la herramienta de navegador de BIShare emparejan dos dispositivos con un código y los conectan directamente, y solo usan un relé cuando la vía directa está bloqueada."
+      },
+      "14": {
+        "q": "¿Cuál es el mejor software para compartir archivos en equipo?",
+        "a": "Para documentos que un equipo edita en común, una nube: Google Drive (15 GB gratis), Dropbox (2 GB) u OneDrive (5 GB), cada una con carpetas compartidas y unos 30 días de historial de versiones en el plan gratuito. Una app de transferencia como BIShare sirve para enviar una copia, no para guardarla."
       }
     }
   },
@@ -188,7 +200,7 @@
     "yes": "Sí",
     "no": "No"
   },
-  "updated": "Actualizado en septiembre de 2026 · Plataformas, límites y precios de cada app revisados",
+  "updated": "Actualizado en octubre de 2026 · Plataformas, límites y precios de cada app revisados",
   "disclosure": "Nosotros hacemos BIShare, así que lee nuestra clasificación con eso en mente. Cada afirmación de abajo se puede comprobar en las páginas de cada app, y donde BIShare pierde — velocidad solo Apple, almacenamiento permanente, funciones de equipo — lo decimos.",
   "quick": {
     "title": "Respuesta rápida",
@@ -227,7 +239,7 @@
       },
       {
         "h": "¿Cuánto cuesta de verdad?",
-        "b": "Los planes gratuitos con topes, colas o anuncios son planes de pago disfrazados. Indicamos el límite gratuito de cada app tal como se publica en septiembre de 2026."
+        "b": "Los planes gratuitos con topes, colas o anuncios son planes de pago disfrazados. Indicamos el límite gratuito de cada app tal como se publica en octubre de 2026."
       }
     ]
   },
@@ -341,6 +353,90 @@
           "q": "Un equipo compartiendo archivos toda la semana",
           "a": "Google Drive, Dropbox u OneDrive"
         }
+      }
+    }
+  },
+  "speed": {
+    "title": "¿Qué app para compartir archivos es la más rápida?",
+    "body": "La velocidad depende mucho más de la ruta que de la marca. Una app que envía de dispositivo a dispositivo dentro de tu propia red está limitada por la Wi-Fi; una que sube a un servidor está limitada por tu línea de internet.",
+    "items": {
+      "0": {
+        "h": "La más rápida: de dispositivo a dispositivo en la misma red",
+        "b": "BIShare, LocalSend, AirDrop y Quick Share envían directamente de un dispositivo al otro. Con hardware actual medimos 40–50 MB/s por Wi-Fi 5 y 70–110 MB/s por Wi-Fi 6, así que una carpeta de 10 GB tarda de dos a cuatro minutos. El ritmo lo marca la radio, y por eso las cuatro quedan en el mismo rango."
+      },
+      "1": {
+        "h": "Más lenta: todo lo que sube primero",
+        "b": "Un enlace de BIShare, Wormhole o WeTransfer, y una carpeta en Google Drive, Dropbox u OneDrive, tienen que subir por tu línea antes de que nadie pueda descargarlos. Con una subida de 40 Mbps eso son unos 5 MB/s, así que los mismos 10 GB necesitan más de media hora, por rápido que sea el servicio."
+      },
+      "2": {
+        "h": "Lo que decide en un equipo",
+        "b": "Las suites de colaboración parecen rápidas porque los archivos se sincronizan en segundo plano mientras sigues trabajando. En la primera subida de un vídeo grande dependen de la misma velocidad de subida que cualquier enlace."
+      }
+    }
+  },
+  "p2p": {
+    "title": "Apps P2P para compartir archivos: cuáles de estas son entre pares",
+    "body": "Entre pares, o peer to peer, significa que el archivo viaja de un dispositivo al otro sin guardarse en el servidor de una empresa. No tiene nada que ver con las redes de torrents; aquí describe una transferencia privada entre dos dispositivos que tú eliges.",
+    "items": {
+      "0": {
+        "h": "Entre pares en una misma red",
+        "b": "BIShare, LocalSend, AirDrop y Quick Share envían directamente entre dispositivos que están cerca. No se sube nada, y la transferencia funciona con internet desconectado."
+      },
+      "1": {
+        "h": "Entre pares a través de internet",
+        "b": "PairDrop conecta dos navegadores directamente con WebRTC y recurre a un relé cuando una red bloquea la vía directa. La herramienta de navegador de BIShare empareja dos dispositivos de redes distintas con un código de seis caracteres, del mismo modo. Wormhole pasa a una transferencia entre pares con archivos de más de 5 GB, y la clave de seis dígitos de Send Anywhere envía directamente mientras los dos lados sigan conectados."
+      },
+      "2": {
+        "h": "No son entre pares",
+        "b": "WeTransfer, los enlaces de Wormhole de menos de 5 GB, los enlaces de BIShare, los de Send Anywhere y todas las nubes guardan el archivo en un servidor hasta que se descarga o caduca. Eso es lo que permite que el destinatario lo recoja más tarde, y por eso el cifrado importa más en esta vía."
+      },
+      "3": {
+        "h": "Cuál elegir",
+        "b": "Para dos dispositivos en la misma habitación, cualquiera del primer grupo; BIShare y LocalSend son las dos que cubren todas las plataformas. Para alguien que está lejos y conectado ahora mismo, una transferencia emparejada entre navegadores. Para alguien que descargará mañana, un enlace."
+      }
+    }
+  },
+  "teams": {
+    "title": "Software para compartir archivos en equipo: cuando los archivos tienen que quedarse",
+    "body": "Las herramientas de transferencia mueven una copia y se olvidan de ella. Un equipo que edita los mismos documentos toda la semana necesita lo contrario: almacenamiento, un historial de cambios y control sobre quién puede abrir qué. BIShare no hace nada de eso, y los tres servicios siguientes sí.",
+    "items": {
+      "0": {
+        "h": "Google Drive",
+        "b": "15 GB gratis, compartidos con Gmail y Google Fotos. Cada persona es Lector, Comentador o Editor, y un archivo puede limitarse a personas concretas o abrirse a cualquiera que tenga el enlace. En archivos subidos, como los PDF, Google puede eliminar una versión antigua pasados 30 días o cuando existan 100 versiones más recientes, salvo que la marques para conservarla."
+      },
+      "1": {
+        "h": "Dropbox",
+        "b": "2 GB gratis. Su punto fuerte es la carpeta sincronizada que se ve igual en todos los ordenadores. Dropbox conserva las versiones anteriores durante 30 días en los planes Basic, Plus y Family, y durante 180 días en Professional, Essentials, Business y Standard."
+      },
+      "2": {
+        "h": "OneDrive",
+        "b": "5 GB gratis, e integrado en Windows y Microsoft 365. Microsoft conserva el historial de versiones de un archivo durante 30 días, para todos los tipos de archivo, aunque un administrador puede desactivar las versiones en una cuenta profesional o educativa."
+      },
+      "3": {
+        "h": "Dónde sigue encajando una app de transferencia",
+        "b": "Incluso dentro de un equipo, una exportación de vídeo de 40 GB o una carpeta para un cliente que no tiene cuenta es una transferencia, no una colaboración. Envíala con una app de transferencia y deja los documentos de trabajo en la nube."
+      }
+    }
+  },
+  "safety": {
+    "title": "Compartir archivos sensibles: qué comprobar antes",
+    "body": "Todos los servicios de esta lista dicen ser seguros. Cuatro preguntas separan a los que lo son de los que solo usan HTTPS.",
+    "items": {
+      "0": {
+        "h": "¿Puede el servicio leer el archivo?",
+        "b": "Con cifrado de extremo a extremo, no. BIShare, LocalSend, AirDrop, PairDrop y Wormhole cifran de modo que solo los dos extremos tienen la clave. WeTransfer, Send Anywhere, Google Drive y SHAREit protegen la conexión con HTTPS, y el proveedor puede abrir lo que almacena."
+      },
+      "1": {
+        "h": "¿Cuánto tiempo existe el archivo?",
+        "b": "Un enlace de BIShare caduca a las 6, 12 o 24 horas, según elija quien envía, o tras la primera descarga. Los enlaces de Wormhole duran 24 horas, los de Send Anywhere 48 horas y los enlaces gratuitos de WeTransfer tres días. Un archivo en una nube sigue ahí hasta que alguien lo borra."
+      },
+      "2": {
+        "h": "¿Quién puede abrir el enlace?",
+        "b": "En BIShare y Wormhole la clave forma parte del propio enlace, así que el enlace es el secreto: envíalo por un canal de confianza. WeTransfer permite poner contraseña a una transferencia en todos los planes, incluido el gratuito. En Google Drive puedes restringir un archivo a cuentas concretas, que es el control más fuerte cuando todos los destinatarios tienen una."
+      },
+      "3": {
+        "h": "¿Qué más se lleva la app?",
+        "b": "Las apps de código abierto se pueden inspeccionar, y BIShare, LocalSend y PairDrop lo son. Las apps con anuncios viven de la atención y de los datos: cuando lo comprobamos en octubre de 2026, la sección de seguridad de los datos de SHAREit en Google Play decía que sus datos no se cifran. Lee esa sección antes de instalar cualquier app para compartir."
       }
     }
   }

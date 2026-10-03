@@ -25,7 +25,7 @@ import { guideLinks } from "@/components/site/guide-links";
  * `LAST_UPDATED` whenever the facts about other apps are re-checked.
  */
 
-const LAST_UPDATED = "2026-09-12";
+const LAST_UPDATED = "2026-10-03";
 const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
@@ -68,7 +68,11 @@ const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5", "6"] as const;
 const CRITERIA_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const LIST_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 const USE_CASE_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "10", "3", "4", "5", "6", "7", "8", "9", "11"] as const;
+const SPEED_ITEMS = ["0", "1", "2"] as const;
+const P2P_ITEMS = ["0", "1", "2", "3"] as const;
+const TEAM_ITEMS = ["0", "1", "2", "3"] as const;
+const SAFETY_ITEMS = ["0", "1", "2", "3"] as const;
+const FAQ_ITEMS = ["0", "12", "1", "2", "10", "13", "3", "4", "5", "6", "7", "8", "9", "14", "11"] as const;
 
 const APP_URLS: Record<string, string> = {
   "0": `${SITE}`,
@@ -304,6 +308,34 @@ export default async function BestFileSharingAppPage({
           </ol>
         </section>
 
+        {/* speed */}
+        <section className="mt-14">
+          <H2 id="speed">{t("speed.title")}</H2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t("speed.body")}</p>
+          <div className="mt-6 space-y-7">
+            {SPEED_ITEMS.map((i) => (
+              <div key={i}>
+                <h3 className="font-semibold">{t(`speed.items.${i}.h`)}</h3>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`speed.items.${i}.b`, links)}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* p2p */}
+        <section className="mt-14">
+          <H2 id="p2p">{t("p2p.title")}</H2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t("p2p.body")}</p>
+          <div className="mt-6 space-y-7">
+            {P2P_ITEMS.map((i) => (
+              <div key={i}>
+                <h3 className="font-semibold">{t(`p2p.items.${i}.h`)}</h3>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`p2p.items.${i}.b`, links)}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Which app for which situation */}
         <section className="mt-14">
           <H2 id="situations">{t("useCases.title")}</H2>
@@ -322,6 +354,34 @@ export default async function BestFileSharingAppPage({
               <div key={i} >
                 <h3 className="font-semibold">{t(`useCases.items.${i}.h`)}</h3>
                 <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`useCases.items.${i}.b`, links)}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* teams */}
+        <section className="mt-14">
+          <H2 id="teams">{t("teams.title")}</H2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t("teams.body")}</p>
+          <div className="mt-6 space-y-7">
+            {TEAM_ITEMS.map((i) => (
+              <div key={i}>
+                <h3 className="font-semibold">{t(`teams.items.${i}.h`)}</h3>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`teams.items.${i}.b`, links)}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* safety */}
+        <section className="mt-14">
+          <H2 id="safety">{t("safety.title")}</H2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t("safety.body")}</p>
+          <div className="mt-6 space-y-7">
+            {SAFETY_ITEMS.map((i) => (
+              <div key={i}>
+                <h3 className="font-semibold">{t(`safety.items.${i}.h`)}</h3>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`safety.items.${i}.b`, links)}</p>
               </div>
             ))}
           </div>
