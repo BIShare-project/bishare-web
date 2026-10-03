@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
-import { sharedOpenGraph } from "@/lib/og";
+import { sharedOpenGraph, pageUrl } from "@/lib/og";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { RelatedLinks } from "@/components/site/related-links";
@@ -164,7 +164,7 @@ export default async function HowToAirdropPage({
     "@type": "WebPage",
     name: t("meta.title"),
     description: t("meta.description"),
-    url: `https://bishare.app${SLUG}`,
+    url: pageUrl(SLUG, locale),
     dateModified: LAST_UPDATED,
     isPartOf: { "@type": "WebSite", name: "BIShare", url: "https://bishare.app" },
   };

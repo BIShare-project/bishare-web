@@ -11,6 +11,16 @@ const OG_IMAGE = {
 };
 
 /**
+ * A page's own absolute URL: the English page has no prefix, every other
+ * locale carries one. Structured data uses it so a translated page names
+ * itself rather than its English sibling.
+ */
+export function pageUrl(path: string, locale?: string): string {
+  const prefix = locale && locale !== "en" ? `/${locale}` : "";
+  return `${SITE_URL}${prefix}${prefix && path === "/" ? "" : path}`;
+}
+
+/**
  * Shared OpenGraph builder so every page inherits the brand og-image and
  * site name without re-declaring them (review fix #19). Spread the result
  * into a page's `metadata`:

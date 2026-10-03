@@ -19,7 +19,9 @@ import { routing } from "@/i18n/routing";
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-const MAIN_HOSTS = new Set(["bishare.app", "www.bishare.app"]);
+const APEX_HOST = "bishare.app";
+const WWW_HOST = "www.bishare.app";
+const MAIN_HOSTS = new Set([APEX_HOST, WWW_HOST]);
 const RECEIVE_HOST = "get.bishare.app";
 
 // /transfer/<code>, with or without a locale prefix. `/transfer` itself (the
@@ -27,13 +29,16 @@ const RECEIVE_HOST = "get.bishare.app";
 // it only forwards to the retired Drive share page, so it stays put.
 const RECEIVE_PATH = new RegExp(`^/(?:(?:${routing.locales.join("|")})/)?transfer/[^/]+$`);
 
-/** 302, not 308: cheap to roll back, and easy to upgrade once this has soaked. */
-function moveTo(host: string, request: NextRequest): NextResponse {
+/**
+ * 302 by default, not 308: cheap to roll back, and easy to upgrade once this
+ * has soaked. The www → apex move passes 301 because that one is permanent.
+ */
+function moveTo(host: string, request: NextRequest, status: 301 | 302 = 302): NextResponse {
   const url = request.nextUrl.clone();
   url.protocol = "https:";
   url.host = host;
   url.port = "";
-  return NextResponse.redirect(url, 302);
+  return NextResponse.redirect(url, status);
 }
 
 export function middleware(request: NextRequest): NextResponse {
@@ -41,8 +46,13 @@ export function middleware(request: NextRequest): NextResponse {
   const path = request.nextUrl.pathname;
 
   if (MAIN_HOSTS.has(host)) {
-    if (path === "/robots.txt") return NextResponse.next(); // app/robots.ts as before
     if (RECEIVE_PATH.test(path)) return moveTo(RECEIVE_HOST, request);
+    // www answered 200 with a canonical pointing at the apex. Crawlers still
+    // counted every page twice, and the hreflang set on the www copy named
+    // apex URLs only, which a site audit on 2026-10-03 reported as 33 hreflang
+    // conflicts. One host, one copy.
+    if (host === WWW_HOST) return moveTo(APEX_HOST, request, 301);
+    if (path === "/robots.txt") return NextResponse.next(); // app/robots.ts as before
     return intlMiddleware(request);
   }
 

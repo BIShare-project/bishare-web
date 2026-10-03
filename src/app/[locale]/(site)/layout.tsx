@@ -123,6 +123,7 @@ const JSON_LD = {
     },
     {
       "@type": "SoftwareApplication",
+      "@id": "https://bishare.app/#app",
       name: "BIShare",
       operatingSystem: "iOS, Android, macOS, Windows, Linux",
       applicationCategory: "UtilitiesApplication",
@@ -134,12 +135,22 @@ const JSON_LD = {
       publisher: { "@id": "https://bishare.app/#org" },
       // The prose says "open source" a dozen times and links the repos, but a
       // machine reading this page had nothing structured to go on — and search
-      // summaries were concluding the opposite. These four properties are the
-      // ones that answer it without inference.
+      // summaries were concluding the opposite. These properties are the ones
+      // that answer it without inference. No aggregateRating: validators ask
+      // for one on every SoftwareApplication, and we do not publish a rating
+      // we cannot back with real reviews.
       license: "https://opensource.org/licenses/MIT",
-      codeRepository: "https://github.com/BIShare-project",
       isAccessibleForFree: true,
       applicationSuite: "BIShare",
+    },
+    {
+      // codeRepository belongs to SoftwareSourceCode, not SoftwareApplication;
+      // on the app node validators reject it as an unknown property.
+      "@type": "SoftwareSourceCode",
+      name: "BIShare source code",
+      codeRepository: "https://github.com/BIShare-project",
+      license: "https://opensource.org/licenses/MIT",
+      targetProduct: { "@id": "https://bishare.app/#app" },
     },
   ],
 };

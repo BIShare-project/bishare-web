@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
-import { sharedOpenGraph } from "@/lib/og";
+import { sharedOpenGraph, pageUrl } from "@/lib/og";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { RelatedLinks } from "@/components/site/related-links";
@@ -146,6 +146,8 @@ export default async function AirdropOnlinePage({
   const yes = t("a11y.yes");
   const no = t("a11y.no");
 
+  const selfUrl = pageUrl(SLUG, locale);
+
   const listLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -155,6 +157,8 @@ export default async function AirdropOnlinePage({
       position: n + 1,
       name: t(`tools.items.${i}.name`),
       description: t(`tools.items.${i}.tag`),
+      // Each entry needs an address of its own: the anchor on its card below.
+      url: `${selfUrl}#item-${n + 1}`,
     })),
   };
 
@@ -173,7 +177,7 @@ export default async function AirdropOnlinePage({
     "@type": "WebPage",
     name: t("meta.title"),
     description: t("meta.description"),
-    url: `https://bishare.app${SLUG}`,
+    url: selfUrl,
     dateModified: LAST_UPDATED,
     isPartOf: { "@type": "WebSite", name: "BIShare", url: "https://bishare.app" },
   };
@@ -318,7 +322,8 @@ export default async function AirdropOnlinePage({
                 {TOOL_ITEMS.map((i, n) => (
                   <div
                     key={i}
-                    className="border-b border-border pb-8 last:border-0 last:pb-0"
+                    id={`item-${n + 1}`}
+                    className="scroll-mt-28 border-b border-border pb-8 last:border-0 last:pb-0"
                   >
                     <div className="flex items-baseline gap-3">
                       <span className="font-mono text-sm font-semibold text-accent-blue">
