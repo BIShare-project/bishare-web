@@ -30,6 +30,7 @@ const GUIDES = {
   goAirdropAndroid: "/airdrop-for-android",
   goAirdropOnline: "/airdrop-online",
   goHowToAirdrop: "/how-to-airdrop",
+  goWifiTransfer: "/wifi-file-transfer",
   goAirdropFix: "/airdrop-not-working",
   goShareit: "/shareit-alternative",
   goNearby: "/nearby-share-alternative",

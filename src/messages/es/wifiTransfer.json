@@ -1,0 +1,382 @@
+{
+  "meta": {
+    "title": "Transferir archivos por WiFi entre cualquier dispositivo",
+    "description": "Comparte archivos por Wi-Fi desde esta misma página: ábrela en dos dispositivos de la misma red. Además: cómo funciona, velocidades reales y por qué no se ven."
+  },
+  "hero": {
+    "eyebrow": "Transferencia por Wi-Fi",
+    "title": "Transferir archivos por WiFi: comparte por Wi-Fi entre dos dispositivos cualesquiera",
+    "body": "Dos dispositivos en la misma Wi-Fi pueden pasarse un archivo a la velocidad del router, sin subir nada y sin tocar la tarifa de datos. Esa es toda la promesa de compartir por Wi-Fi, y casi siempre se cumple. Cuando no, la causa suele ser una de tres: la herramienta pasó a Bluetooth sin avisar, la red mantiene separados sus dispositivos, o el archivo salió a internet y volvió sin que nadie lo notara. Esta página te deja compartir por Wi-Fi ahora mismo con la herramienta de abajo, y después explica qué abarca «por Wi-Fi», qué velocidad da de verdad, cuál de seis herramientas encaja con cada pareja de dispositivos y qué hacer cuando dos dispositivos de una misma red no se ven. La herramienta es <strong>BIShare</strong>, que funciona <strong>entre iPhone, Android, Windows, Mac y Linux</strong>. <highlight>Gratis, de código abierto y sin cuenta.</highlight>",
+    "ctaPrimary": "Consigue BIShare gratis"
+  },
+  "updated": "Actualizado en octubre de 2026 · reglas del Uso compartido cercano del Soporte de Microsoft, requisitos de Quick Share de la Ayuda de Android de Google, AirDrop de los manuales de Apple, velocidades de nuestras propias mediciones",
+  "disclosure": "BIShare es nuestra app, y la herramienta de esta página es su versión para navegador. AirDrop y Quick Share no necesitan ninguna red, algo que BIShare no iguala, y la comparativa de abajo lo dice.",
+  "quick": {
+    "title": "Compartir por Wi-Fi: respuesta rápida",
+    "items": [
+      "<strong>Dos dispositivos, sin instalar nada:</strong> abre esta página en los dos mientras están en la misma Wi-Fi, inicia la herramienta de abajo y elige el otro dispositivo. El archivo va de navegador a navegador.",
+      "<strong>Tu móvil y tu ordenador, todas las semanas:</strong> instala BIShare o LocalSend en ambos. Se encuentran en la red y envían directamente, sin límite de tamaño y sin internet.",
+      "<strong>De Apple a Apple, o de Android a Android:</strong> <goHowToAirdrop>AirDrop</goHowToAirdrop> y Quick Share vienen integrados y crean su propio enlace Wi-Fi, así que no hace falta router.",
+      "<strong>Dos PC con Windows:</strong> el Uso compartido cercano solo usa Wi-Fi cuando el PC que envía tiene el Windows 11 más reciente y los dos PC están en la misma red privada. Si no, baja a Bluetooth, que es muchísimo más lento.",
+      "<strong>Ninguna red Wi-Fi al alcance:</strong> activa el punto de acceso de un móvil y conecta a él el otro dispositivo. Un punto de acceso es una red, y los datos móviles pueden seguir apagados.",
+      "<strong>Wi-Fi de hotel, de oficina o de invitados donde los dispositivos nunca aparecen:</strong> la red los está separando. Empareja con un código privado en la herramienta o envía un enlace."
+    ]
+  },
+  "try": {
+    "title": "Comparte por Wi-Fi desde esta página",
+    "body": "Conecta los dos dispositivos a la misma Wi-Fi, abre esta página en cada uno e inicia la herramienta. Todos los dispositivos de tu red que la tengan abierta aparecen por su nombre; elige uno y escoge los archivos.",
+    "start": "Empezar a compartir aquí",
+    "note": "Al iniciarla, este dispositivo queda visible para quienes tengan BIShare abierto en tu red. Deja de estarlo cuando cierras la pestaña.",
+    "full": "Abrir el envío completo",
+    "off": "La herramienta Cerca está desactivada en este momento. El envío completo sigue funcionando."
+  },
+  "meaning": {
+    "title": "Qué significa de verdad «por Wi-Fi»",
+    "body": "La expresión cubre tres caminos distintos. Solo los dos primeros mantienen el archivo fuera de internet, y se comportan de forma muy diferente cuando algo falla.",
+    "items": {
+      "0": {
+        "h": "A través de tu router",
+        "b": "Los dos dispositivos están conectados a la misma red, y el archivo viaja de uno a otro dentro de ella. El router reenvía el tráfico pero nada sale del edificio, así que la línea de internet puede ser lenta, tener tope o estar caída sin afectar a la transferencia. BIShare, LocalSend y el uso compartido en red de Windows funcionan así."
+      },
+      "1": {
+        "h": "Directamente de un dispositivo al otro",
+        "b": "AirDrop y Quick Share se saltan el router. Se encuentran por Bluetooth y luego abren un enlace Wi-Fi privado entre los dos dispositivos, y por eso funcionan en un aparcamiento. El punto de acceso de un móvil hace algo parecido a mano: un dispositivo se convierte en la red y el otro se une a ella."
+      },
+      "2": {
+        "h": "Salir a internet y volver",
+        "b": "Subir a una nube o a un sitio de transferencias mientras estás conectado a una Wi-Fi no es una transferencia por Wi-Fi. El archivo sube por tu línea hasta un servidor y vuelve a bajar en el otro dispositivo, así que la velocidad de subida marca el ritmo, incluso con los dos dispositivos uno al lado del otro. Es el camino correcto solo cuando la otra persona está en otro lugar."
+      }
+    }
+  },
+  "speed": {
+    "title": "¿Qué velocidad tiene la transferencia por Wi-Fi?",
+    "body": "En una transferencia local el límite es el enlace de radio, no la app. Estas son las cifras que medimos con BIShare entre un móvil y un PC con Windows; AirDrop, Quick Share y LocalSend quedan en los mismos rangos con el mismo hardware.",
+    "cols": {
+      "link": "Enlace entre los dispositivos",
+      "rate": "Velocidad habitual",
+      "time": "1 GB tarda unos"
+    },
+    "rows": {
+      "r0": {
+        "link": "Wi-Fi 6 en 5 o 6 GHz, misma habitación",
+        "rate": "70–110 MB/s",
+        "time": "10–15 segundos"
+      },
+      "r1": {
+        "link": "Wi-Fi 5 en 5 GHz",
+        "rate": "40–50 MB/s",
+        "time": "20–30 segundos"
+      },
+      "r2": {
+        "link": "El punto de acceso de un móvil",
+        "rate": "10–30 MB/s",
+        "time": "35–100 segundos"
+      },
+      "r3": {
+        "link": "Wi-Fi en 2,4 GHz",
+        "rate": "3–8 MB/s",
+        "time": "2–5 minutos"
+      },
+      "r4": {
+        "link": "Bluetooth, como referencia",
+        "rate": "menos de 0,4 MB/s",
+        "time": "45 minutos o más"
+      }
+    },
+    "note": "La fila de Bluetooth se calcula a partir de sus 3 Mb/s nominales; las demás están medidas. Miles de fotos pequeñas van más despacio que un solo vídeo grande del mismo tamaño total, porque cada archivo tiene un coste fijo.",
+    "items": {
+      "0": {
+        "h": "Qué la frena",
+        "b": "Sobre todo la distancia y las paredes. Un móvil a dos habitaciones del router suele caer de 5 GHz a 2,4 GHz y pierde casi toda su velocidad. Una red saturada y un router de hace diez años hacen el resto."
+      },
+      "1": {
+        "h": "Qué la acelera",
+        "b": "Ponte en la misma habitación que el router, comprueba que los dos dispositivos están en la banda de 5 GHz y conecta el ordenador al router por cable si puedes. Con el PC en Gigabit Ethernet y el móvil en 5 GHz medimos 50–70 MB/s."
+      },
+      "2": {
+        "h": "Por qué la nube parece más lenta",
+        "b": "Un enlace o una carpeta en la nube dependen de la velocidad de subida, que en la mayoría de las líneas domésticas es una fracción de la de bajada. El gigabyte que cruza la habitación en 20 segundos puede tardar muchos minutos en subirse antes."
+      }
+    }
+  },
+  "tools": {
+    "title": "Seis formas de transferir archivos por Wi-Fi",
+    "consLabel": "Ten en cuenta:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "La mejor para cualquier mezcla de dispositivos, instalando o sin instalar",
+        "facts": "iPhone, Android, Windows, Mac, Linux, navegador · licencia MIT · directo por una Wi-Fi común o un punto de acceso, sin límite de tamaño · la herramienta web empareja por código entre redes · enlaces de hasta 100 GB · sin cuenta",
+        "body": "Las apps se encuentran en una red común y envían directamente, con cifrado de extremo a extremo, en cualquier sentido y con cualquier tamaño. La herramienta de navegador de esta página hace lo mismo sin instalar nada, siempre que los dos dispositivos tengan internet para presentarse. Cuando una red separa los dispositivos, un código privado de seis caracteres conecta los dos navegadores igualmente, y para alguien que está lejos toma el relevo un enlace.",
+        "cons": "Las apps necesitan que exista una red Wi-Fi o un punto de acceso; no crean su propio enlace como hace AirDrop. La herramienta de navegador necesita internet para presentar los dispositivos."
+      },
+      "1": {
+        "name": "LocalSend",
+        "tag": "La mejor app de código abierto para una red doméstica",
+        "facts": "iPhone, Android, Windows, Mac, Linux · Apache 2.0 · solo la misma red local · HTTPS entre dispositivos · sin cuenta",
+        "body": "<goLocalsend>LocalSend</goLocalsend> muestra todos los dispositivos de la red que la tienen abierta y envía con un toque. No interviene ningún servidor en ningún momento, y ese es a la vez su atractivo y su límite.",
+        "cons": "Los dos lados necesitan la app, nada llega a un dispositivo de otra red y la detección falla en redes que bloquean el multicast, entre ellas las Wi-Fi de invitados."
+      },
+      "2": {
+        "name": "PairDrop",
+        "tag": "La mejor herramienta solo de navegador",
+        "facts": "pairdrop.net · cualquier navegador actual · GPL-3.0, autoalojable · misma red, o emparejado con un código de 6 dígitos · sin cuenta",
+        "body": "Abre la página en los dos dispositivos y se ven entre sí cuando comparten red. ShareDrop funciona igual y ahora pertenece a LimeWire. <goAirdropOnline>Las herramientas de navegador de este tipo</goAirdropOnline> van bien para un intercambio puntual con un ordenador prestado.",
+        "cons": "Las dos pestañas deben seguir abiertas, los dispositivos necesitan internet para encontrarse y los archivos muy grandes pueden agotar la memoria del navegador de un móvil."
+      },
+      "3": {
+        "name": "AirDrop",
+        "tag": "La mejor entre iPhone, iPad y Mac",
+        "facts": "Integrado en los dispositivos Apple · Bluetooth para detectar, Wi-Fi entre iguales para enviar · sin router, sin internet · a unos 10 metros como mucho",
+        "body": "Nada que configurar y ninguna red a la que unirse. Los dos dispositivos montan su propio enlace Wi-Fi cifrado, así que funciona en cualquier sitio donde estén cerca el uno del otro.",
+        "cons": "Solo dispositivos Apple, salvo los móviles Android de la lista de Google, y no llega en absoluto a Windows ni a Linux."
+      },
+      "4": {
+        "name": "Quick Share",
+        "tag": "La mejor entre móviles Android, Chromebook y PC con Windows",
+        "facts": "Integrado en Android 6 y posteriores y en ChromeOS · app para Windows 10 de 64 bits y posteriores · Bluetooth más Wi-Fi · con un PC con Windows: misma red, a menos de 5 metros",
+        "body": "Comparte un archivo con Quick Share y elige el dispositivo cercano. Entre dos móviles Android no necesita red: Bluetooth encuentra el otro móvil y Wi-Fi transporta el archivo. La app de Google para Windows es más estricta y pide que los dos dispositivos estén en la misma red y a menos de 5 metros. Los archivos llegan a Descargas, en una carpeta Quick Share.",
+        "cons": "Ni iPhone, ni Mac, ni Linux, salvo <goAirdropAndroid>el puente con AirDrop en los móviles de la lista</goAirdropAndroid>. Con la Wi-Fi apagada, Google avisa de que pueden aplicarse cargos por datos móviles."
+      },
+      "5": {
+        "name": "Uso compartido cercano de Windows",
+        "tag": "La mejor para unos pocos archivos entre dos PC con Windows",
+        "facts": "Windows 11, o Windows 10 versión 1803 y posteriores · Bluetooth, o Wi-Fi en la misma red privada · Solo mis dispositivos o Todos los que estén cerca",
+        "body": "Haz clic derecho en un archivo, elige Compartir y selecciona el otro PC. La regla de Microsoft para la Wi-Fi es estrecha: el PC que envía tiene que llevar el Windows 11 más reciente, y el que recibe tiene que estar en la misma red Wi-Fi privada. En cualquier otro caso la transferencia va por Bluetooth.",
+        "cons": "Solo Windows, y desesperadamente lento cada vez que acaba en Bluetooth. Poner los dos PC en el perfil de red Privada es la solución habitual."
+      }
+    }
+  },
+  "table": {
+    "title": "Las seis, comparadas",
+    "cols": {
+      "feature": "Qué hace",
+      "bishare": "BIShare",
+      "localsend": "LocalSend",
+      "pairdrop": "PairDrop",
+      "airdrop": "AirDrop",
+      "quickshare": "Quick Share",
+      "nearby": "Uso compartido cercano"
+    },
+    "rows": {
+      "r0": "iPhone, Android, Windows, Mac y Linux en cualquier combinación",
+      "r1": "Funciona sin conexión a internet",
+      "r2": "Funciona sin router ni punto de acceso",
+      "r3": "Nada que instalar",
+      "r4": "Llega a un dispositivo de otra red"
+    },
+    "note": "A octubre de 2026. Las marcas de BIShare combinan sus dos formas: las apps envían sin internet por una Wi-Fi común o un punto de acceso, mientras que la herramienta de navegador no requiere instalar nada pero sí necesita internet para presentar los dispositivos. PairDrop necesita internet por la misma razón. Quick Share viene integrado en Android y ChromeOS y no necesita red entre dos dispositivos Android; su app para Windows hay que instalarla y espera que ambos dispositivos estén en la misma red. El Uso compartido cercano funciona sin red solo por Bluetooth. PairDrop y BIShare llegan a otra red mediante un código de emparejamiento, y BIShare también mediante un enlace."
+  },
+  "steps": {
+    "title": "Cómo compartir archivos por Wi-Fi con BIShare",
+    "items": {
+      "0": {
+        "h": "En el navegador, sin instalar nada",
+        "b": "Abre bishare.app/transfer, o esta página, en los dos dispositivos y elige la pestaña Cerca. Cada navegador recibe un nombre. Toca el otro dispositivo, elige los archivos y acepta en el lado que recibe. Chrome y Edge preguntan entonces dónde guardar; los demás navegadores ofrecen un botón Guardar cuando el archivo está completo."
+      },
+      "1": {
+        "h": "Con las apps, para el uso habitual",
+        "b": "Instala BIShare en los dos dispositivos y conéctalos a la misma Wi-Fi. Abre la app, elige los archivos y toca el otro dispositivo en la lista de cercanos. No hay límite de tamaño, y la transferencia sigue adelante aunque se caiga la conexión a internet."
+      },
+      "2": {
+        "h": "Con un punto de acceso, cuando no hay Wi-Fi",
+        "b": "Activa el punto de acceso de un móvil y conecta a él el otro dispositivo. Las apps se comportan entonces exactamente igual que en una red doméstica. <goOffline>Los datos móviles pueden estar apagados</goOffline>; basta con que el punto de acceso exista."
+      },
+      "3": {
+        "h": "En una red que aísla los dispositivos",
+        "b": "En la herramienta de navegador, pasa los dos dispositivos a Código privado, crea un código en uno y escribe sus seis caracteres en el otro. La conexión pasa entonces por un relé que no puede leer el archivo. Si la otra persona no está conectada, crea un enlace."
+      }
+    }
+  },
+  "hidden": {
+    "title": "Misma Wi-Fi, pero los dispositivos no se ven",
+    "body": "Es la queja más habitual sobre cualquier herramienta para compartir por Wi-Fi, y la causa casi nunca es la herramienta.",
+    "items": {
+      "0": {
+        "h": "La red aísla a sus clientes",
+        "b": "Hoteles, cafeterías, campus, oficinas y la red de invitados de muchos routers domésticos impiden que un dispositivo hable con otro. Los dos muestran el mismo nombre de red y aun así no pueden conectar. En casa, usa la red principal; fuera, empareja por código o usa un punto de acceso."
+      },
+      "1": {
+        "h": "Windows trata la red como pública",
+        "b": "En el perfil de red Pública, Windows oculta el PC y rechaza las conexiones entrantes. Abre las propiedades de la red Wi-Fi en Configuración y elige Privada. El mismo interruptor decide si el Uso compartido cercano puede usar Wi-Fi."
+      },
+      "2": {
+        "h": "La app del iPhone no tiene acceso a la red local",
+        "b": "La primera vez que una app busca dispositivos, iOS pide permiso para usar la red local. Si se rechazó, la app no encuentra nada. Vuelve a activarlo en Ajustes, Privacidad y seguridad, Red local."
+      },
+      "3": {
+        "h": "Los dos dispositivos no están realmente en una misma red",
+        "b": "Un portátil con VPN, un móvil que se ha pasado a los datos móviles o un router que mantiene separadas las bandas de 2,4 GHz y 5 GHz ponen los dispositivos en lugares distintos. Apaga la VPN, confirma que ambos muestran el mismo nombre de red y vuelve a intentarlo."
+      }
+    }
+  },
+  "situations": {
+    "title": "Qué vía Wi-Fi encaja con cada situación",
+    "items": {
+      "0": {
+        "h": "Móvil y ordenador en casa, a diario",
+        "b": "Instala una app en los dos. BIShare o LocalSend encuentra el otro dispositivo en un segundo y envía <goPhonePc>fotos y vídeos con toda su calidad</goPhonePc>, sin cable y sin límite de tamaño."
+      },
+      "1": {
+        "h": "El móvil de una visita, o un portátil prestado",
+        "b": "Usa la herramienta de navegador. Nadie instala nada ni inicia sesión, y basta con que los dispositivos estén en la misma Wi-Fi."
+      },
+      "2": {
+        "h": "Wi-Fi de hotel, cafetería u oficina",
+        "b": "Cuenta con el aislamiento. Empareja los dos navegadores con un código privado, o activa el punto de acceso de un móvil y úsalo como red."
+      },
+      "3": {
+        "h": "Al aire libre, sin ninguna red",
+        "b": "Entre dispositivos Apple usa AirDrop, y entre móviles Android, Quick Share. Para una pareja mixta, el punto de acceso de un móvil más BIShare lo resuelve."
+      },
+      "4": {
+        "h": "Dos PC con Windows",
+        "b": "Pon los dos en el perfil Privada para que el Uso compartido cercano pueda usar Wi-Fi, o <goPcPc>abre una carpeta compartida</goPcPc> para lo que vayas a necesitar otra vez. Para una carpeta grande y puntual, una app directa se prepara antes."
+      },
+      "5": {
+        "h": "La otra persona está en otro lugar",
+        "b": "Compartir por Wi-Fi termina donde termina la red. Envía <goLargeFiles>un enlace</goLargeFiles>; un enlace de BIShare admite hasta 100 GB y se cifra antes de subirse."
+      }
+    }
+  },
+  "security": {
+    "title": "¿Es segura la transferencia por Wi-Fi?",
+    "body": "Un archivo que nunca sale de la habitación no puede leerse en un servidor. Lo que queda es la propia red y la gente que hay en ella.",
+    "items": {
+      "0": {
+        "h": "La transferencia va cifrada",
+        "b": "Las apps de BIShare cifran cada transferencia de extremo a extremo, WebRTC cifra todo lo que envían las herramientas de navegador, y Apple indica que la conexión de AirDrop usa TLS. Otra persona en la misma Wi-Fi ve que se mueven datos, no qué son."
+      },
+      "1": {
+        "h": "En las redes compartidas hay más gente",
+        "b": "En una Wi-Fi pública, otros usuarios de la misma herramienta pueden aparecer en tu lista. Comprueba el nombre del dispositivo antes de enviar y rechaza las solicitudes que no esperabas. Un código privado deja la sala solo para tus dos dispositivos."
+      },
+      "2": {
+        "h": "Cierra la puerta al terminar",
+        "b": "Cierra la pestaña o la app al acabar, devuelve AirDrop a Solo contactos y cambia el Uso compartido cercano de Todos los que estén cerca a Solo mis dispositivos. Microsoft señala que Todos los que estén cerca pone el nombre del PC y su dirección Bluetooth a disposición de los dispositivos que te rodean."
+      }
+    }
+  },
+  "faq": {
+    "title": "Transferencia de archivos por WiFi: preguntas frecuentes",
+    "items": {
+      "0": {
+        "q": "¿Qué es la transferencia de archivos por WiFi?",
+        "a": "Es enviar un archivo de un dispositivo a otro por un enlace Wi-Fi en lugar de un cable o internet. O bien los dos dispositivos usan la misma red, o bien uno crea una conexión Wi-Fi directa con el otro, como hacen AirDrop y Quick Share."
+      },
+      "1": {
+        "q": "¿Cómo comparto archivos por Wi-Fi?",
+        "a": "Conecta los dos dispositivos a la misma Wi-Fi, abre bishare.app/transfer en cada uno, elige la pestaña Cerca y selecciona el otro dispositivo. Para el uso habitual, instala en ambos una app como BIShare o LocalSend; se encuentran en la red y envían directamente."
+      },
+      "2": {
+        "q": "¿La transferencia por WiFi gasta internet o datos móviles?",
+        "a": "Una transferencia dentro de una misma red, o por AirDrop o Quick Share, no usa internet. Las herramientas de navegador necesitan conexión para presentar los dispositivos, y los enlaces se suben por internet. En un móvil, deja la Wi-Fi activada para que la transferencia no pase a datos móviles."
+      },
+      "3": {
+        "q": "¿Es más rápida la Wi-Fi que el Bluetooth para enviar archivos?",
+        "a": "Mucho más. Medimos 40–50 MB/s con Wi-Fi 5 y 70–110 MB/s con Wi-Fi 6, mientras que Bluetooth tiene 3 Mb/s nominales, muy por debajo de 1 MB/s. Un gigabyte tarda segundos por Wi-Fi y casi una hora por Bluetooth."
+      },
+      "4": {
+        "q": "¿Puedo transferir archivos por Wi-Fi sin router?",
+        "a": "Sí. AirDrop y Quick Share crean un enlace Wi-Fi directo entre dos dispositivos. Para otras parejas, activa el punto de acceso de un móvil y conecta a él el segundo dispositivo; apps como BIShare funcionan entonces como en cualquier red, con los datos móviles apagados."
+      },
+      "5": {
+        "q": "¿Por qué mis dispositivos no se ven en la misma Wi-Fi?",
+        "a": "Lo normal es que la red aísle sus dispositivos, como suelen hacer las Wi-Fi de invitados, de hotel y de oficina. Otras causas: una red de Windows marcada como Pública, una app del iPhone sin permiso de Red local o una VPN. Usa la red principal, un punto de acceso o un código de emparejamiento."
+      },
+      "6": {
+        "q": "¿Cómo paso archivos del móvil al PC por Wi-Fi?",
+        "a": "Pon los dos en la misma Wi-Fi y usa una herramienta que funcione en ambos: BIShare en cualquier móvil y cualquier ordenador, Quick Share entre Android y Windows, o una herramienta de navegador sin instalar nada. Las fotos y los vídeos llegan con toda su calidad."
+      },
+      "7": {
+        "q": "¿Qué es Wi-Fi Direct?",
+        "a": "Wi-Fi Direct es un estándar que permite que dos dispositivos se conecten entre sí por Wi-Fi sin router. Los móviles usan este tipo de enlace directo detrás de funciones como Quick Share, y AirDrop se apoya en la versión propia de Apple."
+      },
+      "8": {
+        "q": "¿Hay límite de tamaño al compartir por Wi-Fi?",
+        "a": "Con las apps, no: BIShare y LocalSend envían archivos de cualquier tamaño por una red local. Las herramientas de navegador dependen del navegador. Chrome y Edge escriben los archivos grandes en disco según llegan, mientras que los demás los mantienen en memoria hasta que están completos."
+      },
+      "9": {
+        "q": "¿BIShare es gratis?",
+        "a": "Sí. Las apps y la herramienta de navegador son gratuitas y de código abierto con licencia MIT, sin cuenta, sin anuncios y sin tope en las transferencias entre dispositivos de la misma red."
+      }
+    }
+  },
+  "cta": {
+    "title": "Comparte por Wi-Fi ahora",
+    "body": "Abre el envío en dos dispositivos de la misma red, o instala la app para la pareja que usas a diario.",
+    "download": "Consigue BIShare gratis"
+  },
+  "a11y": {
+    "yes": "Sí",
+    "no": "No"
+  },
+  "art": {
+    "hero": {
+      "alt": "Transferir archivos por WiFi: un móvil y un portátil en la misma Wi-Fi se envían un archivo directamente, sin subir nada",
+      "title": "Transferir archivos por WiFi",
+      "sub": "Misma red · directo · nada se sube",
+      "left": "Móvil",
+      "right": "Ordenador"
+    },
+    "paths": {
+      "alt": "Los tres caminos a los que se llama por Wi-Fi: a través de tu router, directamente de un dispositivo al otro, y salir a internet y volver",
+      "title": "Tres caminos llamados «por Wi-Fi»",
+      "sub": "Solo los dos primeros mantienen el archivo fuera de internet",
+      "p0": "A través de tu router",
+      "p0d": "Misma red, nada sale de ella",
+      "p1": "De dispositivo a dispositivo",
+      "p1d": "AirDrop, Quick Share o un punto de acceso",
+      "p2": "A internet y vuelta",
+      "p2d": "La velocidad de subida marca el ritmo",
+      "foot": "Los caminos locales van a la velocidad del enlace de radio, no a la de tu línea de internet"
+    },
+    "speed": {
+      "alt": "Tiempo para mover 1 GB por cada enlace: Wi-Fi 6 en 10 a 15 segundos, Wi-Fi 5 en 20 a 30 segundos, el punto de acceso de un móvil en 35 a 100 segundos, Wi-Fi de 2,4 GHz en 2 a 5 minutos, Bluetooth en 45 minutos o más",
+      "title": "Cuánto tarda 1 GB",
+      "sub": "Medido con BIShare entre un móvil y un PC con Windows",
+      "b0": "Wi-Fi 6",
+      "b0v": "10–15 s",
+      "b1": "Wi-Fi 5",
+      "b1v": "20–30 s",
+      "b2": "Punto de acceso móvil",
+      "b2v": "35–100 s",
+      "b3": "Wi-Fi 2,4 GHz",
+      "b3v": "2–5 min",
+      "b4": "Bluetooth",
+      "b4v": "45 min o más",
+      "foot": "Bluetooth se calcula a partir de sus 3 Mb/s nominales; las demás filas están medidas"
+    },
+    "choose": {
+      "alt": "Qué vía Wi-Fi usar en seis situaciones, desde un móvil y un ordenador en casa hasta la Wi-Fi de un hotel y una persona que está lejos",
+      "title": "Qué vía Wi-Fi para cada situación",
+      "sub": "Empieza por donde estás",
+      "items": {
+        "0": {
+          "q": "Móvil y ordenador en casa",
+          "a": "Una app en los dos"
+        },
+        "1": {
+          "q": "Una visita, o un portátil prestado",
+          "a": "La herramienta de navegador"
+        },
+        "2": {
+          "q": "Wi-Fi de hotel, cafetería u oficina",
+          "a": "Código privado, o punto de acceso"
+        },
+        "3": {
+          "q": "Ninguna red",
+          "a": "AirDrop, Quick Share o punto de acceso"
+        },
+        "4": {
+          "q": "Dos PC con Windows",
+          "a": "Perfil Privada y Uso compartido cercano"
+        },
+        "5": {
+          "q": "Alguien que está lejos",
+          "a": "Un enlace"
+        }
+      }
+    }
+  }
+}

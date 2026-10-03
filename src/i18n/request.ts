@@ -69,6 +69,7 @@ const NAMESPACES = [
   "airdropFix",
   "airdropOnline",
   "howToAirdrop",
+  "wifiTransfer",
   "pcToPc",
 ] as const;
 

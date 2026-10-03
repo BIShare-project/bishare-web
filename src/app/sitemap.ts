@@ -41,6 +41,7 @@ const ROUTES: Array<{
   { path: "/airdrop-not-working", priority: 0.9, changeFrequency: "monthly" },
   { path: "/airdrop-online", priority: 0.9, changeFrequency: "monthly" },
   { path: "/how-to-airdrop", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/wifi-file-transfer", priority: 0.9, changeFrequency: "monthly" },
   { path: "/transfer-files-between-computers", priority: 0.9, changeFrequency: "monthly" },
   { path: "/how-it-works", priority: 0.9, changeFrequency: "monthly" },
   { path: "/security", priority: 0.8, changeFrequency: "monthly" },

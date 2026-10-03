@@ -1,0 +1,382 @@
+{
+  "meta": {
+    "title": "Transfer File Lewat WiFi: Kirim File Antar-Perangkat Tanpa Kabel",
+    "description": "Kirim file lewat Wi-Fi langsung dari halaman ini: buka di dua perangkat pada jaringan yang sama. Juga cara kerjanya, kecepatan nyata, dan sebab perangkat tak muncul."
+  },
+  "hero": {
+    "eyebrow": "Transfer file lewat Wi-Fi",
+    "title": "Transfer file lewat WiFi: kirim file lewat Wi-Fi antara dua perangkat apa pun",
+    "body": "Dua perangkat di Wi-Fi yang sama bisa saling mengirim file secepat routernya, tanpa ada yang diunggah dan tanpa menyentuh kuota. Itulah janji berbagi lewat Wi-Fi, dan biasanya janji itu ditepati. Kalau tidak, penyebabnya hampir selalu satu dari tiga hal: alatnya diam-diam beralih ke Bluetooth, jaringannya memisahkan perangkat-perangkatnya, atau filenya pergi ke internet lalu kembali tanpa disadari siapa pun. Halaman ini memungkinkan Anda berbagi lewat Wi-Fi sekarang juga dengan alat di bawah, lalu menjelaskan apa saja yang dimaksud \"lewat Wi-Fi\", seberapa cepat sebenarnya, alat mana dari enam pilihan yang cocok untuk pasangan perangkat mana, dan apa yang harus dilakukan saat dua perangkat di satu jaringan tidak saling melihat. Alatnya adalah <strong>BIShare</strong>, yang bekerja <strong>antara iPhone, Android, Windows, Mac, dan Linux</strong>. <highlight>Gratis, open source, tanpa akun.</highlight>",
+    "ctaPrimary": "Dapatkan BIShare gratis"
+  },
+  "updated": "Diperbarui Oktober 2026 · aturan Berbagi di sekitar dari Dukungan Microsoft, syarat Quick Share dari Bantuan Android milik Google, AirDrop dari petunjuk Apple, kecepatan dari pengukuran kami sendiri",
+  "disclosure": "BIShare adalah aplikasi kami, dan alat di halaman ini adalah versi browsernya. AirDrop dan Quick Share tidak butuh jaringan sama sekali, hal yang tidak bisa ditandingi BIShare, dan perbandingan di bawah menyebutkannya.",
+  "quick": {
+    "title": "Berbagi lewat Wi-Fi: jawaban singkat",
+    "items": [
+      "<strong>Dua perangkat, tanpa memasang apa pun:</strong> buka halaman ini di keduanya saat berada di Wi-Fi yang sama, mulai alat di bawah, lalu pilih perangkat satunya. File berpindah dari browser ke browser.",
+      "<strong>HP dan komputer Anda sendiri, tiap minggu:</strong> pasang BIShare atau LocalSend di keduanya. Keduanya saling menemukan di jaringan dan mengirim langsung, tanpa batas ukuran dan tanpa internet.",
+      "<strong>Apple ke Apple, atau Android ke Android:</strong> <goHowToAirdrop>AirDrop</goHowToAirdrop> dan Quick Share sudah bawaan dan membuat sambungan Wi-Fi sendiri, jadi tidak perlu router.",
+      "<strong>Dua PC Windows:</strong> Berbagi di sekitar memakai Wi-Fi hanya jika PC pengirim menjalankan Windows 11 terbaru dan kedua PC berada di jaringan privat yang sama. Selain itu ia turun ke Bluetooth, yang jauh lebih lambat.",
+      "<strong>Tidak ada jaringan Wi-Fi yang terjangkau:</strong> nyalakan hotspot di satu HP dan sambungkan perangkat lain ke sana. Hotspot adalah jaringan, dan data seluler boleh tetap mati.",
+      "<strong>Wi-Fi hotel, kantor, atau tamu, dan perangkat tak pernah muncul:</strong> jaringannya memisahkan perangkat. Pasangkan dengan kode privat di alat ini, atau kirim tautan."
+    ]
+  },
+  "try": {
+    "title": "Berbagi lewat Wi-Fi dari halaman ini",
+    "body": "Sambungkan kedua perangkat ke Wi-Fi yang sama, buka halaman ini di masing-masing, lalu mulai alatnya. Setiap perangkat di jaringan Anda yang sedang membukanya muncul dengan namanya; pilih satu dan pilih filenya.",
+    "start": "Mulai berbagi di sini",
+    "note": "Begitu dimulai, perangkat ini terlihat oleh orang lain di jaringan Anda yang sedang membuka BIShare. Ini berhenti saat tab ditutup.",
+    "full": "Buka halaman kirim lengkap",
+    "off": "Alat Terdekat sedang dimatikan. Halaman kirim lengkap tetap bisa dipakai."
+  },
+  "meaning": {
+    "title": "Apa arti \"lewat Wi-Fi\" sebenarnya",
+    "body": "Frasa itu mencakup tiga jalur yang berbeda. Hanya dua yang pertama yang menjaga file tetap di luar internet, dan perilakunya sangat berbeda saat ada yang salah.",
+    "items": {
+      "0": {
+        "h": "Lewat router Anda",
+        "b": "Kedua perangkat tersambung ke jaringan yang sama, dan file berjalan dari satu ke yang lain di dalam jaringan itu. Router meneruskan lalu lintasnya, tetapi tidak ada yang keluar dari gedung, jadi sambungan internet boleh lambat, berkuota, atau mati tanpa memengaruhi transfer. BIShare, LocalSend, dan berbagi jaringan di Windows bekerja dengan cara ini."
+      },
+      "1": {
+        "h": "Langsung dari satu perangkat ke perangkat lain",
+        "b": "AirDrop dan Quick Share melewati router. Keduanya saling menemukan lewat Bluetooth lalu membuka sambungan Wi-Fi pribadi antara kedua perangkat, dan itu sebabnya keduanya tetap jalan di tempat parkir. Hotspot HP melakukan hal serupa secara manual: satu perangkat menjadi jaringan dan yang lain bergabung."
+      },
+      "2": {
+        "h": "Keluar ke internet lalu kembali",
+        "b": "Mengunggah ke cloud drive atau situs transfer saat tersambung ke Wi-Fi bukanlah transfer Wi-Fi. File naik lewat jalur unggah ke server lalu turun lagi di perangkat lain, jadi kecepatan unggah yang menentukan, bahkan saat kedua perangkat bersebelahan. Jalur ini tepat hanya jika orang yang dituju berada di tempat lain."
+      }
+    }
+  },
+  "speed": {
+    "title": "Seberapa cepat transfer file lewat Wi-Fi?",
+    "body": "Pada transfer lokal, batasnya adalah sambungan radio, bukan aplikasinya. Inilah angka yang kami ukur dengan BIShare antara HP dan PC Windows; AirDrop, Quick Share, dan LocalSend berada di rentang yang sama pada perangkat keras yang sama.",
+    "cols": {
+      "link": "Sambungan antarperangkat",
+      "rate": "Kecepatan umum",
+      "time": "1 GB butuh sekitar"
+    },
+    "rows": {
+      "r0": {
+        "link": "Wi-Fi 6 di 5 atau 6 GHz, seruangan",
+        "rate": "70–110 MB/s",
+        "time": "10–15 detik"
+      },
+      "r1": {
+        "link": "Wi-Fi 5 di 5 GHz",
+        "rate": "40–50 MB/s",
+        "time": "20–30 detik"
+      },
+      "r2": {
+        "link": "Hotspot HP",
+        "rate": "10–30 MB/s",
+        "time": "35–100 detik"
+      },
+      "r3": {
+        "link": "Wi-Fi di 2,4 GHz",
+        "rate": "3–8 MB/s",
+        "time": "2–5 menit"
+      },
+      "r4": {
+        "link": "Bluetooth, sebagai pembanding",
+        "rate": "di bawah 0,4 MB/s",
+        "time": "45 menit atau lebih"
+      }
+    },
+    "note": "Baris Bluetooth dihitung dari kecepatan nominalnya, 3 Mb/s; baris lain hasil pengukuran. Ribuan foto kecil berpindah lebih lambat daripada satu video besar dengan ukuran total yang sama, karena setiap file membawa biaya tetap.",
+    "items": {
+      "0": {
+        "h": "Yang memperlambat",
+        "b": "Terutama jarak dan tembok. HP yang berjarak dua ruangan dari router sering turun dari 5 GHz ke 2,4 GHz dan kehilangan sebagian besar kecepatannya. Jaringan yang padat dan router berumur sepuluh tahun melengkapi sisanya."
+      },
+      "1": {
+        "h": "Yang mempercepat",
+        "b": "Berdirilah seruangan dengan router, pastikan kedua perangkat berada di pita 5 GHz, dan sambungkan komputer ke router dengan kabel kalau bisa. Dengan PC di Gigabit Ethernet dan HP di 5 GHz, kami mengukur 50–70 MB/s."
+      },
+      "2": {
+        "h": "Kenapa cloud terasa lebih lambat",
+        "b": "Tautan atau folder cloud bergantung pada kecepatan unggah, yang di kebanyakan sambungan rumah hanya sebagian kecil dari kecepatan unduh. Satu gigabyte yang menyeberangi ruangan dalam 20 detik bisa butuh bermenit-menit untuk diunggah dulu."
+      }
+    }
+  },
+  "tools": {
+    "title": "Enam cara transfer file lewat Wi-Fi",
+    "consLabel": "Perlu diingat:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Terbaik untuk campuran perangkat apa pun, dengan atau tanpa memasang",
+        "facts": "iPhone, Android, Windows, Mac, Linux, browser · lisensi MIT · langsung lewat Wi-Fi yang sama atau hotspot, tanpa batas ukuran · alat browser berpasangan dengan kode lintas jaringan · tautan hingga 100 GB · tanpa akun",
+        "body": "Aplikasinya saling menemukan di jaringan yang sama dan mengirim langsung, terenkripsi ujung ke ujung, ke dua arah dan berapa pun ukurannya. Alat browser di halaman ini melakukan hal yang sama tanpa memasang apa pun, asalkan kedua perangkat bisa menjangkau internet untuk dipertemukan. Saat jaringan memisahkan perangkat, kode privat enam karakter tetap menyambungkan kedua browser, dan untuk orang yang jauh, tautan mengambil alih.",
+        "cons": "Aplikasinya butuh jaringan Wi-Fi atau hotspot yang sudah ada; ia tidak membuat sambungan sendiri seperti AirDrop. Alat browser butuh internet untuk mempertemukan perangkat."
+      },
+      "1": {
+        "name": "LocalSend",
+        "tag": "Aplikasi open source terbaik untuk satu jaringan rumah",
+        "facts": "iPhone, Android, Windows, Mac, Linux · Apache 2.0 · hanya jaringan lokal yang sama · HTTPS antarperangkat · tanpa akun",
+        "body": "<goLocalsend>LocalSend</goLocalsend> menampilkan setiap perangkat yang menjalankannya di jaringan dan mengirim dengan satu ketukan. Tidak ada server yang terlibat sama sekali, dan itu sekaligus daya tarik dan batasnya.",
+        "cons": "Kedua sisi butuh aplikasinya, tidak ada yang sampai ke perangkat di jaringan lain, dan penemuan gagal di jaringan yang memblokir multicast, termasuk Wi-Fi tamu."
+      },
+      "2": {
+        "name": "PairDrop",
+        "tag": "Alat khusus browser terbaik",
+        "facts": "pairdrop.net · browser terkini apa pun · GPL-3.0, bisa di-host sendiri · jaringan yang sama, atau dipasangkan dengan kode 6 digit · tanpa akun",
+        "body": "Buka halamannya di kedua perangkat, dan keduanya saling muncul saat berada di satu jaringan. ShareDrop bekerja dengan cara yang sama dan kini milik LimeWire. <goAirdropOnline>Alat browser semacam ini</goAirdropOnline> cocok untuk pertukaran sekali jalan dengan komputer pinjaman.",
+        "cons": "Kedua tab harus tetap terbuka, perangkat butuh internet untuk saling menemukan, dan file yang sangat besar bisa membebani memori browser HP."
+      },
+      "3": {
+        "name": "AirDrop",
+        "tag": "Terbaik antara iPhone, iPad, dan Mac",
+        "facts": "Bawaan perangkat Apple · Bluetooth untuk menemukan, Wi-Fi peer-to-peer untuk mengirim · tanpa router, tanpa internet · dalam jarak sekitar 10 meter",
+        "body": "Tidak ada yang perlu disiapkan dan tidak ada jaringan yang perlu dimasuki. Kedua perangkat membangun sambungan Wi-Fi terenkripsi sendiri, jadi AirDrop jalan di mana saja selama keduanya berdekatan.",
+        "cons": "Hanya perangkat Apple, kecuali HP Android di daftar Google, dan sama sekali tidak menjangkau Windows atau Linux."
+      },
+      "4": {
+        "name": "Quick Share",
+        "tag": "Terbaik antara HP Android, Chromebook, dan PC Windows",
+        "facts": "Bawaan Android 6 ke atas dan ChromeOS · aplikasi untuk Windows 10 64-bit ke atas · Bluetooth plus Wi-Fi · dengan PC Windows: jaringan yang sama, dalam jarak 5 meter",
+        "body": "Bagikan file ke Quick Share dan pilih perangkat di dekat Anda. Antara dua HP Android, Quick Share tidak butuh jaringan: Bluetooth menemukan HP lain dan Wi-Fi membawa filenya. Aplikasi Windows dari Google lebih ketat dan meminta kedua perangkat berada di jaringan yang sama serta dalam jarak 5 meter. File masuk ke Downloads, di folder Quick Share.",
+        "cons": "Tidak ada iPhone, Mac, atau Linux, kecuali lewat <goAirdropAndroid>jembatan AirDrop di HP yang terdaftar</goAirdropAndroid>. Jika Wi-Fi dimatikan, Google mengingatkan bahwa biaya data seluler bisa berlaku."
+      },
+      "5": {
+        "name": "Berbagi di sekitar di Windows",
+        "tag": "Terbaik untuk beberapa file antara dua PC Windows",
+        "facts": "Windows 11, atau Windows 10 versi 1803 ke atas · Bluetooth, atau Wi-Fi di jaringan privat yang sama · Hanya perangkat saya atau Semua orang di sekitar",
+        "body": "Klik kanan file, pilih Bagikan, lalu pilih PC lainnya. Aturan Microsoft untuk Wi-Fi sempit: PC pengirim harus menjalankan Windows 11 terbaru, dan PC penerima harus berada di jaringan Wi-Fi privat yang sama. Di luar itu, transfer berjalan lewat Bluetooth.",
+        "cons": "Hanya Windows, dan sangat lambat setiap kali jatuh ke Bluetooth. Mengubah kedua PC ke profil jaringan Privat adalah perbaikan yang biasa."
+      }
+    }
+  },
+  "table": {
+    "title": "Perbandingan keenamnya",
+    "cols": {
+      "feature": "Kemampuan",
+      "bishare": "BIShare",
+      "localsend": "LocalSend",
+      "pairdrop": "PairDrop",
+      "airdrop": "AirDrop",
+      "quickshare": "Quick Share",
+      "nearby": "Berbagi di sekitar"
+    },
+    "rows": {
+      "r0": "iPhone, Android, Windows, Mac, dan Linux dalam campuran apa pun",
+      "r1": "Jalan tanpa koneksi internet",
+      "r2": "Jalan tanpa router atau hotspot",
+      "r3": "Tanpa memasang apa pun",
+      "r4": "Menjangkau perangkat di jaringan lain"
+    },
+    "note": "Per Oktober 2026. Centang BIShare menggabungkan dua bentuknya: aplikasinya mengirim tanpa internet lewat Wi-Fi yang sama atau hotspot, sedangkan alat browsernya tidak perlu dipasang tetapi butuh internet untuk mempertemukan perangkat. PairDrop butuh internet karena alasan yang sama. Quick Share adalah bawaan Android dan ChromeOS dan tidak butuh jaringan antara dua perangkat Android; aplikasi Windows-nya harus dipasang dan meminta kedua perangkat di jaringan yang sama. Berbagi di sekitar jalan tanpa jaringan hanya lewat Bluetooth. PairDrop dan BIShare menjangkau jaringan lain lewat kode pemasangan, dan BIShare juga lewat tautan."
+  },
+  "steps": {
+    "title": "Cara berbagi file lewat Wi-Fi dengan BIShare",
+    "items": {
+      "0": {
+        "h": "Di browser, tanpa memasang apa pun",
+        "b": "Buka bishare.app/transfer, atau halaman ini, di kedua perangkat dan pilih tab Terdekat. Tiap browser diberi nama. Ketuk perangkat lainnya, pilih filenya, lalu terima di sisi penerima. Chrome dan Edge kemudian menanyakan tempat menyimpan; browser lain menampilkan tombol Simpan setelah file lengkap."
+      },
+      "1": {
+        "h": "Dengan aplikasi, untuk pemakaian rutin",
+        "b": "Pasang BIShare di kedua perangkat dan sambungkan ke Wi-Fi yang sama. Buka aplikasinya, pilih file, lalu ketuk perangkat lain di daftar perangkat terdekat. Tidak ada batas ukuran, dan transfer tetap berjalan kalau koneksi internet putus."
+      },
+      "2": {
+        "h": "Dengan hotspot, saat tidak ada Wi-Fi",
+        "b": "Nyalakan hotspot di satu HP dan sambungkan perangkat lain ke sana. Aplikasinya lalu berperilaku persis seperti di jaringan rumah. <goOffline>Data seluler boleh dimatikan</goOffline>; hotspotnya cukup ada saja."
+      },
+      "3": {
+        "h": "Di jaringan yang mengisolasi perangkat",
+        "b": "Di alat browser, pindahkan kedua perangkat ke Kode privat, buat kode di satu perangkat, dan ketik enam karakternya di perangkat lain. Sambungan lalu berjalan lewat relai yang tidak bisa membaca filenya. Kalau orangnya sedang tidak online, buat tautan saja."
+      }
+    }
+  },
+  "hidden": {
+    "title": "Wi-Fi sama, tetapi perangkat tidak saling melihat",
+    "body": "Inilah keluhan paling umum tentang semua alat berbagi lewat Wi-Fi, dan penyebabnya jarang ada di alatnya.",
+    "items": {
+      "0": {
+        "h": "Jaringan mengisolasi kliennya",
+        "b": "Hotel, kafe, kampus, kantor, dan jaringan tamu di banyak router rumah mencegah satu perangkat berbicara dengan perangkat lain. Keduanya menampilkan nama jaringan yang sama, tetapi tetap tidak bisa tersambung. Di rumah, pakai jaringan utama; di tempat lain, pasangkan dengan kode atau pakai hotspot."
+      },
+      "1": {
+        "h": "Windows menganggap jaringannya publik",
+        "b": "Pada profil jaringan Publik, Windows menyembunyikan PC dan menolak koneksi masuk. Buka properti jaringan Wi-Fi di Pengaturan dan pilih Privat. Sakelar yang sama menentukan apakah Berbagi di sekitar boleh memakai Wi-Fi."
+      },
+      "2": {
+        "h": "Aplikasi di iPhone tidak punya akses jaringan lokal",
+        "b": "Saat pertama kali sebuah aplikasi mencari perangkat, iOS meminta izin memakai jaringan lokal. Kalau izin itu ditolak, aplikasinya tidak menemukan apa pun. Nyalakan lagi di Pengaturan, Privasi & Keamanan, Jaringan Lokal."
+      },
+      "3": {
+        "h": "Kedua perangkat sebenarnya tidak di satu jaringan",
+        "b": "Laptop yang memakai VPN, HP yang diam-diam pindah ke data seluler, atau router yang memisahkan pita 2,4 GHz dan 5 GHz, semuanya menempatkan perangkat di tempat berbeda. Matikan VPN, pastikan keduanya menampilkan nama jaringan yang sama, lalu coba lagi."
+      }
+    }
+  },
+  "situations": {
+    "title": "Jalur Wi-Fi mana untuk situasi mana",
+    "items": {
+      "0": {
+        "h": "HP dan komputer di rumah, setiap hari",
+        "b": "Pasang aplikasi di keduanya. BIShare atau LocalSend menemukan perangkat lain dalam sedetik dan mengirim <goPhonePc>foto dan video dengan kualitas penuh</goPhonePc>, tanpa kabel dan tanpa batas ukuran."
+      },
+      "1": {
+        "h": "HP tamu, atau laptop pinjaman",
+        "b": "Pakai alat browser. Tidak ada yang perlu memasang apa pun atau masuk akun, dan perangkatnya cukup berada di Wi-Fi yang sama."
+      },
+      "2": {
+        "h": "Wi-Fi hotel, kafe, atau kantor",
+        "b": "Bersiaplah untuk isolasi. Pasangkan kedua browser dengan kode privat, atau nyalakan hotspot HP dan jadikan itu jaringannya."
+      },
+      "3": {
+        "h": "Di luar ruangan, tanpa jaringan sama sekali",
+        "b": "Antara perangkat Apple pakai AirDrop, dan antara HP Android pakai Quick Share. Untuk pasangan campuran, hotspot satu HP ditambah BIShare sudah cukup."
+      },
+      "4": {
+        "h": "Dua PC Windows",
+        "b": "Ubah keduanya ke profil Privat supaya Berbagi di sekitar bisa memakai Wi-Fi, atau <goPcPc>buka folder bersama</goPcPc> untuk apa pun yang akan dipakai lagi. Untuk folder besar sekali kirim, aplikasi langsung lebih cepat disiapkan."
+      },
+      "5": {
+        "h": "Orangnya berada di tempat lain",
+        "b": "Berbagi lewat Wi-Fi berakhir di tepi jaringan. Kirim <goLargeFiles>tautan</goLargeFiles> saja; tautan BIShare memuat hingga 100 GB dan dienkripsi sebelum diunggah."
+      }
+    }
+  },
+  "security": {
+    "title": "Amankah transfer file lewat Wi-Fi?",
+    "body": "File yang tidak pernah meninggalkan ruangan tidak bisa dibaca di server. Yang tersisa adalah jaringannya sendiri dan orang-orang di dalamnya.",
+    "items": {
+      "0": {
+        "h": "Transfernya terenkripsi",
+        "b": "Aplikasi BIShare mengenkripsi setiap transfer dari ujung ke ujung, WebRTC mengenkripsi semua yang dikirim alat browser, dan Apple menyatakan sambungan AirDrop memakai TLS. Orang lain di Wi-Fi yang sama hanya bisa melihat bahwa ada data yang bergerak, bukan isinya."
+      },
+      "1": {
+        "h": "Jaringan bersama berisi orang lain",
+        "b": "Di Wi-Fi publik, pengguna lain dari alat yang sama bisa muncul di daftar Anda. Periksa nama perangkat sebelum mengirim, dan tolak permintaan yang tidak Anda harapkan. Kode privat membuat ruangannya hanya berisi dua perangkat Anda."
+      },
+      "2": {
+        "h": "Tutup pintunya setelah selesai",
+        "b": "Tutup tab browser atau aplikasinya setelah selesai, kembalikan AirDrop ke Hanya Kontak, dan ubah Berbagi di sekitar dari Semua orang di sekitar ke Hanya perangkat saya. Microsoft mencatat bahwa Semua orang di sekitar membuat nama PC dan alamat Bluetooth-nya tersedia bagi perangkat di sekitar Anda."
+      }
+    }
+  },
+  "faq": {
+    "title": "Transfer file lewat WiFi: FAQ",
+    "items": {
+      "0": {
+        "q": "Apa itu transfer file lewat WiFi?",
+        "a": "Mengirim file dari satu perangkat ke perangkat lain lewat sambungan Wi-Fi, bukan lewat kabel atau internet. Kedua perangkat memakai jaringan yang sama, atau satu perangkat membuat sambungan Wi-Fi langsung ke yang lain, seperti yang dilakukan AirDrop dan Quick Share."
+      },
+      "1": {
+        "q": "Bagaimana cara berbagi file lewat Wi-Fi?",
+        "a": "Sambungkan kedua perangkat ke Wi-Fi yang sama, buka bishare.app/transfer di masing-masing, pilih tab Terdekat, lalu pilih perangkat lainnya. Untuk pemakaian rutin, pasang aplikasi seperti BIShare atau LocalSend di keduanya; keduanya saling menemukan di jaringan dan mengirim langsung."
+      },
+      "2": {
+        "q": "Apakah transfer file lewat WiFi memakai internet atau data seluler?",
+        "a": "Transfer di dalam satu jaringan, atau lewat AirDrop maupun Quick Share, tidak memakai internet. Alat browser butuh koneksi untuk mempertemukan perangkat, dan tautan diunggah lewat internet. Di HP, biarkan Wi-Fi menyala supaya transfer tidak beralih ke data seluler."
+      },
+      "3": {
+        "q": "Apakah Wi-Fi lebih cepat dari Bluetooth untuk mengirim file?",
+        "a": "Jauh lebih cepat. Kami mengukur 40–50 MB/s di Wi-Fi 5 dan 70–110 MB/s di Wi-Fi 6, sedangkan Bluetooth bernilai nominal 3 Mb/s, jauh di bawah 1 MB/s. Satu gigabyte butuh beberapa detik lewat Wi-Fi dan hampir satu jam lewat Bluetooth."
+      },
+      "4": {
+        "q": "Bisakah transfer file lewat Wi-Fi tanpa router?",
+        "a": "Bisa. AirDrop dan Quick Share membuat sambungan Wi-Fi langsung antara dua perangkat. Untuk pasangan lain, nyalakan hotspot HP dan sambungkan perangkat kedua ke sana; aplikasi seperti BIShare lalu bekerja seperti di jaringan mana pun, dengan data seluler mati."
+      },
+      "5": {
+        "q": "Kenapa perangkat saya tidak saling melihat di Wi-Fi yang sama?",
+        "a": "Biasanya jaringannya mengisolasi perangkat, seperti yang sering dilakukan Wi-Fi tamu, hotel, dan kantor. Penyebab lain: jaringan Windows diatur ke Publik, aplikasi di iPhone tanpa izin Jaringan Lokal, atau VPN. Pakai jaringan utama, hotspot, atau kode pemasangan."
+      },
+      "6": {
+        "q": "Bagaimana cara transfer file dari HP ke PC lewat Wi-Fi?",
+        "a": "Sambungkan keduanya ke Wi-Fi yang sama dan pakai alat yang berjalan di keduanya: BIShare di HP dan komputer apa pun, Quick Share antara Android dan Windows, atau alat browser tanpa memasang apa pun. Foto dan video tiba dengan kualitas penuh."
+      },
+      "7": {
+        "q": "Apa itu Wi-Fi Direct?",
+        "a": "Wi-Fi Direct adalah standar yang memungkinkan dua perangkat tersambung satu sama lain lewat Wi-Fi tanpa router. HP memakai sambungan langsung semacam ini di balik fitur seperti Quick Share, dan AirDrop mengandalkan versi buatan Apple sendiri."
+      },
+      "8": {
+        "q": "Adakah batas ukuran file saat berbagi lewat Wi-Fi?",
+        "a": "Tidak dengan aplikasi: BIShare dan LocalSend mengirim file berukuran berapa pun di jaringan lokal. Alat browser bergantung pada browsernya. Chrome dan Edge menulis file besar ke disk selagi file datang, sedangkan browser lain menahannya di memori sampai lengkap."
+      },
+      "9": {
+        "q": "Apakah BIShare gratis?",
+        "a": "Ya. Aplikasi dan alat browsernya gratis dan open source dengan lisensi MIT, tanpa akun, tanpa iklan, dan tanpa batas untuk transfer antarperangkat di jaringan yang sama."
+      }
+    }
+  },
+  "cta": {
+    "title": "Berbagi lewat Wi-Fi sekarang",
+    "body": "Buka halaman kirim di dua perangkat pada jaringan yang sama, atau pasang aplikasinya untuk pasangan perangkat yang Anda pakai setiap hari.",
+    "download": "Dapatkan BIShare gratis"
+  },
+  "a11y": {
+    "yes": "Ya",
+    "no": "Tidak"
+  },
+  "art": {
+    "hero": {
+      "alt": "Transfer file lewat WiFi: HP dan laptop di Wi-Fi yang sama saling mengirim file secara langsung, tanpa ada yang diunggah",
+      "title": "Transfer file lewat WiFi",
+      "sub": "Jaringan sama · langsung · tanpa unggah",
+      "left": "HP",
+      "right": "Komputer"
+    },
+    "paths": {
+      "alt": "Tiga jalur yang disebut lewat Wi-Fi: lewat router Anda, langsung dari satu perangkat ke perangkat lain, dan keluar ke internet lalu kembali",
+      "title": "Tiga jalur yang disebut \"lewat Wi-Fi\"",
+      "sub": "Hanya dua yang pertama yang menjaga file di luar internet",
+      "p0": "Lewat router Anda",
+      "p0d": "Jaringan sama, tidak ada yang keluar",
+      "p1": "Perangkat ke perangkat",
+      "p1d": "AirDrop, Quick Share, atau hotspot",
+      "p2": "Ke internet lalu kembali",
+      "p2d": "Kecepatan unggah yang menentukan",
+      "foot": "Jalur lokal berjalan secepat sambungan radio, bukan secepat internet Anda"
+    },
+    "speed": {
+      "alt": "Waktu memindahkan 1 GB di tiap sambungan: Wi-Fi 6 dalam 10 sampai 15 detik, Wi-Fi 5 dalam 20 sampai 30 detik, hotspot HP dalam 35 sampai 100 detik, Wi-Fi 2,4 GHz dalam 2 sampai 5 menit, Bluetooth 45 menit atau lebih",
+      "title": "Berapa lama 1 GB berpindah",
+      "sub": "Diukur dengan BIShare antara HP dan PC Windows",
+      "b0": "Wi-Fi 6",
+      "b0v": "10–15 dtk",
+      "b1": "Wi-Fi 5",
+      "b1v": "20–30 dtk",
+      "b2": "Hotspot HP",
+      "b2v": "35–100 dtk",
+      "b3": "Wi-Fi 2,4 GHz",
+      "b3v": "2–5 mnt",
+      "b4": "Bluetooth",
+      "b4v": "45 mnt atau lebih",
+      "foot": "Bluetooth dihitung dari nilai nominalnya, 3 Mb/s; baris lain hasil pengukuran"
+    },
+    "choose": {
+      "alt": "Jalur Wi-Fi yang dipakai dalam enam situasi, dari HP dan komputer di rumah sampai Wi-Fi hotel dan orang yang jauh",
+      "title": "Jalur Wi-Fi mana untuk situasi mana",
+      "sub": "Mulai dari tempat Anda berada",
+      "items": {
+        "0": {
+          "q": "HP dan komputer di rumah",
+          "a": "Aplikasi di keduanya"
+        },
+        "1": {
+          "q": "Tamu, atau laptop pinjaman",
+          "a": "Alat browser"
+        },
+        "2": {
+          "q": "Wi-Fi hotel, kafe, atau kantor",
+          "a": "Kode privat, atau hotspot"
+        },
+        "3": {
+          "q": "Tanpa jaringan sama sekali",
+          "a": "AirDrop, Quick Share, atau hotspot"
+        },
+        "4": {
+          "q": "Dua PC Windows",
+          "a": "Profil Privat, lalu Berbagi di sekitar"
+        },
+        "5": {
+          "q": "Orang yang jauh",
+          "a": "Tautan"
+        }
+      }
+    }
+  }
+}

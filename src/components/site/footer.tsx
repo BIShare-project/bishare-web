@@ -51,6 +51,7 @@ const COLUMNS: Array<{
         { labelKey: "ucPhotos", href: "/transfer-photos-from-iphone-to-pc" },
         { labelKey: "ucLargeFiles", href: "/send-large-files" },
         { labelKey: "ucOffline", href: "/send-files-without-internet" },
+        { labelKey: "ucWifiTransfer", href: "/wifi-file-transfer" },
         { labelKey: "ucNoAccount", href: "/share-files-without-account" },
         { labelKey: "ucEncrypted", href: "/encrypted-file-transfer" },
         { labelKey: "ucClipboard", href: "/clipboard-sync" },

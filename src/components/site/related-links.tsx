@@ -23,7 +23,7 @@ const CLUSTER: Record<string, string[]> = {
   "send-files-iphone-to-android": ["send-files-android-to-iphone", "airdrop-alternative", "airdrop-for-android", "transfer-files-pc-to-phone"],
   "send-files-android-to-iphone": ["send-files-iphone-to-android", "airdrop-for-android", "nearby-share-alternative", "airdrop-alternative"],
   "transfer-files-pc-to-phone": ["transfer-files-phone-to-pc", "share-files-mac-to-windows", "send-large-files", "airdrop-for-windows"],
-  "transfer-files-phone-to-pc": ["transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-pc-to-phone", "share-files-mac-to-windows"],
+  "transfer-files-phone-to-pc": ["transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-pc-to-phone", "share-files-mac-to-windows", "wifi-file-transfer"],
   "share-files-mac-to-windows": ["transfer-files-between-computers", "airdrop-for-windows", "transfer-files-pc-to-phone", "send-large-files"],
   "send-large-files": ["wetransfer-alternative", "send-files-without-internet", "encrypted-file-transfer", "share-files-without-account"],
   // New: encrypted / competitor pages.
@@ -34,7 +34,9 @@ const CLUSTER: Record<string, string[]> = {
   "smash-alternative": ["wetransfer-alternative", "send-large-files", "wormhole-alternative", "firefox-send-alternative"],
   "wormhole-alternative": ["firefox-send-alternative", "encrypted-file-transfer", "snapdrop-alternative", "wetransfer-alternative"],
   "clipboard-sync": ["transfer-files-phone-to-pc", "transfer-files-pc-to-phone", "localsend-alternative", "best-file-sharing-app"],
-  "send-files-without-internet": ["encrypted-file-transfer", "airdrop-for-android", "share-files-without-account", "send-large-files"],
+  "send-files-without-internet": ["wifi-file-transfer", "encrypted-file-transfer", "airdrop-for-android", "share-files-without-account", "send-large-files"],
+  // Over Wi-Fi: a tool page like /airdrop-online, next to the offline and computer guides.
+  "wifi-file-transfer": ["send-files-without-internet", "airdrop-online", "transfer-files-phone-to-pc", "transfer-files-between-computers", "localsend-alternative", "send-large-files"],
   // Best-of guide + LocalSend cluster.
   // Photo, troubleshooting, and desktop↔desktop pages.
   "transfer-photos-from-iphone-to-pc": ["transfer-files-phone-to-pc", "airdrop-for-windows", "send-files-iphone-to-android", "send-large-files"],
@@ -42,8 +44,8 @@ const CLUSTER: Record<string, string[]> = {
   // The how-to: teaches AirDrop itself, then hands over to the pages for what it cannot reach.
   "how-to-airdrop": ["airdrop-not-working", "airdrop-for-android", "airdrop-for-windows", "airdrop-alternative", "airdrop-online"],
   // The browser version: a tool page first, so it sits next to the pages people arrive from.
-  "airdrop-online": ["airdrop-alternative", "how-to-airdrop", "airdrop-for-windows", "airdrop-for-android", "snapdrop-alternative", "sharedrop-alternative", "send-files-without-internet"],
-  "transfer-files-between-computers": ["share-files-mac-to-windows", "transfer-files-pc-to-phone", "send-large-files", "send-files-without-internet"],
+  "airdrop-online": ["airdrop-alternative", "how-to-airdrop", "airdrop-for-windows", "airdrop-for-android", "snapdrop-alternative", "sharedrop-alternative", "send-files-without-internet", "wifi-file-transfer"],
+  "transfer-files-between-computers": ["share-files-mac-to-windows", "transfer-files-pc-to-phone", "send-large-files", "send-files-without-internet", "wifi-file-transfer"],
   pricing: ["send-large-files", "wetransfer-alternative", "smash-alternative", "best-file-sharing-app"],
   "best-file-sharing-app": ["localsend-alternative", "airdrop-for-windows", "airdrop-alternative", "snapdrop-alternative", "wetransfer-alternative"],
   "localsend-alternative": ["snapdrop-alternative", "airdrop-for-windows", "nearby-share-alternative", "best-file-sharing-app", "send-files-without-internet"],
