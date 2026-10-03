@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { Home } from "@/components/home/home";
 import { IntlScope } from "@/components/intl-scope";
+import { AppJsonLd } from "@/lib/app-ld";
 
 export async function generateMetadata({
   params,
@@ -37,6 +38,7 @@ export default async function HomePage({
 
   return (
     <div className="min-h-screen bg-background">
+      <AppJsonLd />
       <SiteHeader />
       {/* The live widget lazy-loads TransferStudio (a client tree that reads
           these namespaces); the site-wide provider only carries chrome/common. */}

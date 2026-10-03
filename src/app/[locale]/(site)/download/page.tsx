@@ -25,6 +25,7 @@ import { sharedOpenGraph } from "@/lib/og";
 import { staggerDelay } from "@/lib/motion";
 import { DownloadHero } from "./download-hero";
 import { RELEASES_URL } from "./availability";
+import { AppJsonLd } from "@/lib/app-ld";
 import {
   HardDriveDownload,
   Laptop,
@@ -203,6 +204,7 @@ export default async function DownloadPage({
 
   return (
     <div className="min-h-screen overflow-x-clip bg-background">
+      <AppJsonLd />
       <SiteHeader />
 
       <main>

@@ -21,6 +21,7 @@ import { ArrowRight, Check, Download, X } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { publishedSlugs } from "@/content/blog/registry";
 import { guideLinks } from "@/components/site/guide-links";
+import { APP_ID } from "@/lib/app-ld";
 
 const SPEED_POST = "airdrop-for-windows-speeds";
 
@@ -141,17 +142,7 @@ export default async function AirdropForWindowsPage({
     inLanguage: locale,
     datePublished: FIRST_PUBLISHED,
     dateModified: LAST_UPDATED,
-    about: {
-      "@type": "SoftwareApplication",
-      name: "BIShare",
-      applicationCategory: "UtilitiesApplication",
-      operatingSystem: "Windows 10, Windows 11, iOS, Android, macOS, Linux",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      license: "https://opensource.org/licenses/MIT",
-      downloadUrl: MICROSOFT_STORE_URL,
-      installUrl: MICROSOFT_STORE_URL,
-      url: SITE,
-    },
+    about: { "@id": APP_ID },
   };
 
   return (

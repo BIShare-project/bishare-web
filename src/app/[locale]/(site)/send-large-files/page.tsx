@@ -19,6 +19,7 @@ const SPEED_POST = "airdrop-for-windows-speeds";
 const SLUG = "/send-large-files";
 import { ArrowRight, Check, X } from "lucide-react";
 import { guideLinks } from "@/components/site/guide-links";
+import { APP_ID } from "@/lib/app-ld";
 
 /**
  * High-intent SEO landing for "send large files (free)" and its size
@@ -197,15 +198,7 @@ export default async function SendLargeFilesPage({
     inLanguage: locale,
     datePublished: FIRST_PUBLISHED,
     dateModified: LAST_UPDATED,
-    about: {
-      "@type": "SoftwareApplication",
-      name: "BIShare",
-      applicationCategory: "UtilitiesApplication",
-      operatingSystem: "Web, Windows, macOS, Linux, iOS, Android",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      license: "https://opensource.org/licenses/MIT",
-      url: `${SITE}/transfer`,
-    },
+    about: { "@id": APP_ID },
   };
 
   return (

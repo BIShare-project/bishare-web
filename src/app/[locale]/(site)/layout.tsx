@@ -7,6 +7,7 @@ import { sharedOpenGraph } from "@/lib/og";
 import { buildAlternates } from "@/i18n/metadata";
 import { plexSans, plexMono } from "../fonts";
 import "./site.css";
+import { APP_ID } from "@/lib/app-ld";
 
 // Nightglass marketing shell. The IBM Plex fonts are declared once in
 // ../fonts.ts and applied to <body> by the [locale] layout (so next/font can
@@ -122,35 +123,13 @@ const JSON_LD = {
       publisher: { "@id": "https://bishare.app/#org" },
     },
     {
-      "@type": "SoftwareApplication",
-      "@id": "https://bishare.app/#app",
-      name: "BIShare",
-      operatingSystem: "iOS, Android, macOS, Windows, Linux",
-      applicationCategory: "UtilitiesApplication",
-      description:
-        "BIShare sends files across any device — iPhone, Android, Windows, Mac, Linux. Like AirDrop, but cross-platform: instant over your local Wi-Fi, or a link the recipient opens in any browser with no app needed on their end. Free, no account.",
-      url: "https://bishare.app",
-      downloadUrl: "https://bishare.app/download",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      publisher: { "@id": "https://bishare.app/#org" },
-      // The prose says "open source" a dozen times and links the repos, but a
-      // machine reading this page had nothing structured to go on — and search
-      // summaries were concluding the opposite. These properties are the ones
-      // that answer it without inference. No aggregateRating: validators ask
-      // for one on every SoftwareApplication, and we do not publish a rating
-      // we cannot back with real reviews.
-      license: "https://opensource.org/licenses/MIT",
-      isAccessibleForFree: true,
-      applicationSuite: "BIShare",
-    },
-    {
-      // codeRepository belongs to SoftwareSourceCode, not SoftwareApplication;
-      // on the app node validators reject it as an unknown property.
+      // The open-source facts, on every page. The app node itself lives on the
+      // home page and /download only (see lib/app-ld.tsx); this points at it.
       "@type": "SoftwareSourceCode",
       name: "BIShare source code",
       codeRepository: "https://github.com/BIShare-project",
       license: "https://opensource.org/licenses/MIT",
-      targetProduct: { "@id": "https://bishare.app/#app" },
+      targetProduct: { "@id": APP_ID },
     },
   ],
 };

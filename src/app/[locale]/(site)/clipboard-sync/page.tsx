@@ -17,6 +17,7 @@ import { Link } from "@/i18n/navigation";
 const SLUG = "/clipboard-sync";
 import { ArrowRight } from "lucide-react";
 import { guideLinks } from "@/components/site/guide-links";
+import { APP_ID } from "@/lib/app-ld";
 
 /**
  * "Clipboard sync" / "copy and paste between phone and PC", in all 13 locales
@@ -191,15 +192,7 @@ export default async function ClipboardSyncPage({
     inLanguage: locale,
     datePublished: FIRST_PUBLISHED,
     dateModified: LAST_UPDATED,
-    about: {
-      "@type": "SoftwareApplication",
-      name: "BIShare",
-      applicationCategory: "UtilitiesApplication",
-      operatingSystem: "Web, Windows, macOS, Linux, iOS, Android",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      license: "https://opensource.org/licenses/MIT",
-      url: `${SITE}/download`,
-    },
+    about: { "@id": APP_ID },
   };
 
   return (
