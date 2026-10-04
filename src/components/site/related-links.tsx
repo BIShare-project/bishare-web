@@ -21,8 +21,8 @@ const CLUSTER: Record<string, string[]> = {
   "nearby-share-alternative": ["airdrop-for-android", "shareit-alternative", "snapdrop-alternative", "airdrop-alternative"],
   "shareit-alternative": ["nearby-share-alternative", "airdrop-for-android", "send-anywhere-alternative", "sharedrop-alternative"],
   "send-files-iphone-to-android": ["send-files-android-to-iphone", "airdrop-alternative", "airdrop-for-android", "transfer-files-pc-to-phone"],
-  "send-files-android-to-iphone": ["send-files-iphone-to-android", "airdrop-for-android", "nearby-share-alternative", "airdrop-alternative"],
-  "transfer-files-pc-to-phone": ["transfer-files-phone-to-pc", "share-files-mac-to-windows", "send-large-files", "airdrop-for-windows"],
+  "send-files-android-to-iphone": ["send-files-iphone-to-android", "airdrop-for-android", "nearby-share-alternative", "airdrop-alternative", "transfer-files-to-ipad"],
+  "transfer-files-pc-to-phone": ["transfer-files-phone-to-pc", "share-files-mac-to-windows", "send-large-files", "airdrop-for-windows", "transfer-files-to-ipad"],
   "transfer-files-phone-to-pc": ["transfer-files-iphone-to-pc", "transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-pc-to-phone", "share-files-mac-to-windows", "wifi-file-transfer"],
   "share-files-mac-to-windows": ["transfer-files-between-computers", "airdrop-for-windows", "transfer-files-pc-to-phone", "send-large-files"],
   "send-large-files": ["wetransfer-alternative", "send-files-without-internet", "encrypted-file-transfer", "share-files-without-account"],
@@ -41,7 +41,9 @@ const CLUSTER: Record<string, string[]> = {
   // Photo, troubleshooting, and desktop↔desktop pages.
   "transfer-photos-from-iphone-to-pc": ["transfer-files-iphone-to-pc", "transfer-files-phone-to-pc", "airdrop-for-windows", "send-files-iphone-to-android", "send-large-files"],
   // Any file, not only photos: the twin of the photos page.
-  "transfer-files-iphone-to-pc": ["transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-phone-to-pc", "transfer-files-pc-to-phone", "wifi-file-transfer", "send-large-files"],
+  "transfer-files-iphone-to-pc": ["transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-phone-to-pc", "transfer-files-pc-to-phone", "wifi-file-transfer", "send-large-files", "transfer-files-to-ipad"],
+  // Into the iPad: where a file lands decides the route, so it sits with the iPhone, PC-to-phone and AirDrop guides.
+  "transfer-files-to-ipad": ["transfer-files-iphone-to-pc", "transfer-files-pc-to-phone", "how-to-airdrop", "send-files-android-to-iphone", "wifi-file-transfer", "send-large-files"],
   "airdrop-not-working": ["how-to-airdrop", "airdrop-alternative", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android"],
   // The how-to: teaches AirDrop itself, then hands over to the pages for what it cannot reach.
   "how-to-airdrop": ["airdrop-not-working", "airdrop-for-android", "airdrop-for-windows", "airdrop-alternative", "airdrop-online"],

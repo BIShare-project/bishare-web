@@ -1,0 +1,385 @@
+{
+  "meta": {
+    "title": "電腦檔案傳到iPad的8種方法：含隨身碟（2026）",
+    "description": "從Windows電腦、Mac、Android手機或隨身碟把檔案放進iPad：Finder、Apple Devices、AirDrop、iCloud雲碟、共用資料夾和免費的Wi-Fi App，附操作步驟。"
+  },
+  "hero": {
+    "eyebrow": "把檔案放進iPad",
+    "title": "如何把檔案傳到iPad",
+    "body": "把檔案放進iPad，其實要回答兩個問題，不是一個。第一個大家都熟：怎麼從Windows電腦、Mac或手機傳過去。第二個才是讓人卡關的地方：檔案到了之後要放在哪裡。要讀的PDF該在「檔案」App裡，給影片播放器看的電影該在那個播放器裡，照片該在「照片」圖庫裡，每個位置都有自己最好走的入口。這篇指南先回答第二個問題，再根據Apple和Microsoft公布的限制替8種方法排名，說明怎麼在任何一台iPad上用隨身碟並附上各型號的連接埠速度，最後也講從iPad傳回電腦。<strong>BIShare</strong>也在這8種方法裡，而且只有它<strong>從Windows、Mac、Android和Linux透過Wi-Fi傳到iPad</strong>時用法完全相同；對於在另一個房間或另一座城市的電腦，還能用在瀏覽器開啟的加密連結。<highlight>免費、開放原始碼、<goNoAccount>不必註冊</goNoAccount>。</highlight>",
+    "ctaPrimary": "免費取得BIShare",
+    "ctaSecondary": "運作方式"
+  },
+  "updated": "2026年10月更新 · 步驟取自iPadOS 27的iPad使用手冊、Apple關於Finder與Apple Devices的說明，以及iPad技術規格",
+  "disclosure": "BIShare是我們的產品。在Apple裝置之間，AirDrop和Finder常常更省事，排名裡寫明了是哪些情況。",
+  "quick": {
+    "title": "怎麼把檔案傳到iPad？簡短回答",
+    "items": [
+      "<strong>從Mac或iPhone：</strong>用AirDrop。選好檔案，點「分享」，再點「AirDrop」，然後選擇iPad。",
+      "<strong>從Windows電腦、不接線：</strong>在電腦和iPad上安裝BIShare，同一個Wi-Fi下什麼檔案都能傳；兩台裝置距離很遠時，用Safari開啟連結也行。",
+      "<strong>傳進特定App，例如影片播放器：</strong>連接iPad，在Mac上開Finder或在Windows上開Apple Devices，選「檔案」，把檔案拖到那個App上。",
+      "<strong>沒有網路：</strong>把檔案拷貝到隨身碟或SD卡，在iPad的「檔案」App裡開啟。",
+      "<strong>從Android手機：</strong>用BIShare或LocalSend這類跨平台App，或是在Google列為支援AirDrop的手機上用Quick Share。",
+      "<strong>檔案到了卻打不開：</strong>它在「檔案」App裡；在那裡點「分享」，把它傳給能讀這種格式的App。"
+    ]
+  },
+  "where": {
+    "title": "檔案該放在iPad的哪裡？",
+    "body": "iPad沒有一個所有App都會讀的共同下載資料夾。檔案該放在哪裡，要看你打算拿它做什麼，而這在你拿起傳輸線之前就決定了該用哪種方法。",
+    "items": {
+      "0": {
+        "h": "文件和下載項目：「檔案」App",
+        "b": "PDF、試算表、ZIP壓縮檔，以及任何想以檔案形式保存的東西，都放進「檔案」裡的「我的iPad」或iCloud雲碟。多數方法預設就送到這裡：AirDrop會問要用哪個App開啟文件，Safari會存到「下載項目」，隨身碟或共用資料夾則在「檔案」裡瀏覽和拷貝。之後用「分享」按鈕把檔案交給該開啟它的App就好。"
+      },
+      "1": {
+        "h": "給某個App的檔案：那個App自己的資料夾",
+        "b": "影片播放器、繪圖App和音樂製作App都把資料庫放在App裡面。Apple的iPad使用手冊把透過傳輸線的拷貝限定在支援檔案共享的App，Finder的支援文章也補充說，只應拷貝這個App用得到的檔案。在Mac上入口是Finder的「檔案」標籤頁，在Windows上是Apple Devices的「檔案」標籤頁。許多這類App也會在「檔案」App裡顯示自己的資料夾，所以任何無線方式都能把檔案直接放進去。"
+      },
+      "2": {
+        "h": "照片和影片：「照片」圖庫",
+        "b": "想出現在相機膠捲裡的圖片要放進「照片」，而不是「檔案」。從Mac或iPhone用AirDrop會直接放進去，iCloud照片會讓兩邊圖庫保持一致，經由其他方式到達「檔案」的照片，可以點「分享」再點「儲存影像」或「儲存影片」加進去。插在讀卡機裡的相機記憶卡也能直接匯入「照片」。"
+      }
+    }
+  },
+  "methods": {
+    "title": "把檔案放進iPad的8種方法，依推薦排名",
+    "consLabel": "注意：",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "從Windows、Android或Linux最適合：任何檔案透過Wi-Fi傳到iPad",
+        "facts": "iPad和iPhone App、Windows／macOS／Linux App、Android App，或用任何瀏覽器開連結 · MIT授權 · 同一網路內沒有大小上限 · 連結最多100 GB，保留6、12或24小時 · 端對端加密 · 免帳號",
+        "body": "在iPad和負責傳送的電腦或手機上安裝BIShare，讓兩台連上同一個Wi-Fi，然後在傳送端選好檔案，在附近裝置清單裡點iPad。檔案以原始大小和格式抵達iPad，不會上傳任何東西，<goOffline>行動網路機型可用iPad自己的個人熱點</goOffline>，或是任何沒接網際網路的路由器也行。傳送方在別的地方時，就改用連結：檔案先在傳送裝置上加密封裝，<goTransfer>iPad再用Safari下載</goTransfer>，這條路線的兩端都不必安裝任何東西。",
+        "cons": "收到的檔案會留在App的收件匣，直到你把它們移到「檔案」、「照片」或其他App。直接傳輸需要兩台裝置都裝App。"
+      },
+      "1": {
+        "name": "從Mac或iPhone用AirDrop",
+        "tag": "Apple裝置之間最適合",
+        "facts": "Mac、iPhone或另一台iPad · 內建 · 開啟藍牙和Wi-Fi · 近距離 · 未標示大小上限 · 不需要網際網路",
+        "body": "Apple自己的iPad使用手冊就把AirDrop列為和附近Apple裝置分享檔案的方式。在Mac上按住Control鍵點按檔案，選「分享」，再選「AirDrop」和iPad；在iPhone上點「分享」，再點「AirDrop」。照片和影片會進「照片」App，文件則由iPad詢問要用哪個App開啟。因為什麼都不必設定，它是Apple裝置之間最快的方法。<goHowToAirdrop>AirDrop指南</goHowToAirdrop>說明了接收設定。",
+        "cons": "只能在Apple裝置之間使用：Windows電腦、Android手機、Linux都不行。iPad要設為接收「僅限聯絡人」或「所有人（10分鐘）」。"
+      },
+      "2": {
+        "name": "Mac上的Finder",
+        "tag": "從Mac傳要放進某個App的檔案最適合",
+        "facts": "macOS Catalina或以上版本 · USB傳輸線，第一次連接後也可用Wi-Fi · iPad需為最新iPadOS · 僅限支援檔案共享的App",
+        "body": "連接iPad，在Finder側邊欄選取它，點「檔案」標籤頁。Apple支援文章說，清單裡列出的是能共享檔案的App；把檔案拖到其中一個上，Finder就會把它拷貝到iPad。把電影放進影片播放器、把專案放進剪輯App，又不用繞道「檔案」App，靠的就是這個方法。如果沒有出現「檔案」區塊，代表已安裝的App裡沒有任何一個支援檔案共享。",
+        "cons": "只有開發者開啟了檔案共享的App會出現，也只該拷貝這些App讀得懂的檔案。macOS Mojave或更早版本使用iTunes。"
+      },
+      "3": {
+        "name": "Windows上的Apple Devices",
+        "tag": "從Windows電腦傳App用的檔案最適合",
+        "facts": "Windows 10或以上版本 · Microsoft Store的免費App · 先用傳輸線，開啟後也能改用Wi-Fi · 「檔案」標籤頁只顯示支援檔案共享的App",
+        "body": "Apple的iPad使用手冊把Windows 10以上的使用者導向Apple Devices。在側邊欄選iPad，選「檔案」，把Windows資料夾裡的文件拖到清單中的某個App上；拷貝立刻完成，不需要同步。這是Finder方法的Windows版，用途也相同：給離線播放器放一整季影集，或給樂譜App放一整個樂譜資料夾。",
+        "cons": "限制也一樣：不支援檔案共享的App不會出現，用這個方式也不會在「檔案」App自己的資料夾裡放進任何東西。Windows 7或更早版本使用iTunes。"
+      },
+      "4": {
+        "name": "iCloud雲碟",
+        "tag": "需要每台裝置上的檔案都保持最新時最適合",
+        "facts": "Mac、iPhone和iPad內建 · Windows透過Windows版iCloud · 任何瀏覽器開iCloud.com · 免費5 GB · 每台裝置使用同一個Apple帳號 · 需要網際網路",
+        "body": "在電腦上把檔案放進iCloud雲碟，它就會出現在iPad「檔案」App的iCloud雲碟裡。在Mac上它是Finder裡的一個位置；在Windows上，Windows版iCloud會把資料夾加進檔案總管；在借來的電腦上，就到iCloud.com上傳。變更會雙向同步，適合你在兩台裝置上都會繼續編輯的資料夾。",
+        "cons": "檔案要先上傳到Apple的伺服器再下載回來，用家用上傳頻寬傳大影片會很慢，而且免費的5 GB要和備份、照片共用。"
+      },
+      "5": {
+        "name": "隨身碟或SD卡",
+        "tag": "沒有網路也不想裝軟體時最適合",
+        "facts": "「檔案」App · 目前所有iPad的USB-C連接埠都能直接插 · Lightning機型需要轉接器 · APFS、HFS+、exFAT、FAT32或FAT · 只有一個資料分割區",
+        "body": "在任何一台電腦上把檔案拷貝到隨身碟，插到iPad上，打開「檔案」：隨身碟會出現在「位置」底下，你可以從那裡拷貝或開啟檔案。Apple的使用手冊列出了iPad讀得懂的格式，並說明磁碟只能有一個資料分割區。下方關於磁碟的段落會講格式、供電和各型號的連接埠速度。",
+        "cons": "要跑兩趟，傳統硬碟可能還需要另外供電。有多個分割區的磁碟，或NTFS格式（Windows內建磁碟的預設格式）的磁碟都不會出現。"
+      },
+      "6": {
+        "name": "用「連接伺服器」開啟共用資料夾",
+        "tag": "電腦上什麼都不能裝時最適合",
+        "facts": "Windows、macOS和iPadOS內建 · 同一個區域網路 · 「檔案」›「連接伺服器」 · 電腦的使用者名稱和密碼 · 不需要網際網路",
+        "body": "在電腦上共用一個資料夾，然後在iPad上打開「檔案」，點側邊欄頂端的更多按鈕，選「連接伺服器」，輸入電腦的網路名稱或IP位址，再用這台電腦的帳號登入。資料夾會出現在「已分享」底下，你可以像從其他位置一樣把檔案拷貝出來。Mac透過「系統設定」裡的「檔案共享」來共用，Windows則透過資料夾的「共用」標籤頁。<goIphonePc>iPhone傳電腦指南</goIphonePc>說明了Windows那一端的設定。",
+        "cons": "第一次要花幾分鐘，而且每次需要檔案時，電腦都得開著並在同一個網路裡。"
+      },
+      "7": {
+        "name": "電子郵件、Mail Drop和雲端硬碟",
+        "tag": "從不是自己的電腦傳單一檔案最適合",
+        "facts": "Mail Drop：最大5 GB，連結保留30天 · Google Drive、OneDrive和Dropbox的App會出現在「檔案」裡 · 需要帳號 · 需要網際網路",
+        "body": "把檔案寄給自己，在iPad上點「分享」再點「儲存到『檔案』」把附件存下來。超過一般附件大小的，Mac上的Mail Drop能把最大5 GB的檔案當成有效30天的連結寄出。雲端硬碟App更方便：裝進iPad後，Google Drive、OneDrive和Dropbox會以「檔案」裡的位置出現。",
+        "cons": "所有東西都要經過別家公司的伺服器，所以得等上傳，也需要帳號。一般附件大約25 MB就到頂了。"
+      }
+    }
+  },
+  "table": {
+    "title": "一覽",
+    "cols": {
+      "feature": "項目",
+      "bishare": "BIShare",
+      "airdrop": "AirDrop",
+      "cable": "Finder或Apple Devices",
+      "icloud": "iCloud雲碟",
+      "server": "共用資料夾",
+      "drive": "隨身碟"
+    },
+    "rows": {
+      "r0": "可從Windows電腦傳",
+      "r1": "可從Android手機傳",
+      "r2": "任何檔案，不限某個App的檔案",
+      "r3": "不需要網際網路",
+      "r4": "不需要帳號或密碼"
+    },
+    "note": "截至2026年10月。BIShare可在Windows、macOS、Linux、Android、iPhone和iPad上執行，直接傳輸需要兩端都裝App；連結用Safari開啟，最多100 GB，保留6、12或24小時。AirDrop只能在Apple裝置之間使用。Finder（macOS Catalina或以上版本）和Apple Devices（Windows 10或以上版本）只能拷貝到支援檔案共享的App。iCloud雲碟要求兩台裝置登入同一個Apple帳號，免費5 GB。共用資料夾需要電腦的使用者名稱和密碼。隨身碟必須只有一個資料分割區，格式為APFS、HFS+、exFAT、FAT32或FAT。在Android手機上，可以用瀏覽器開啟iCloud.com使用iCloud雲碟，Google Quick Share名單上的手機也能傳到AirDrop。"
+  },
+  "choose": {
+    "title": "該用哪種方法？",
+    "body": "先看檔案在哪台裝置上，再看它最後要放在iPad的哪裡。",
+    "items": {
+      "0": {
+        "h": "從Windows電腦",
+        "b": "任何檔案都能在同一個Wi-Fi下用BIShare或<goLocalsend>LocalSend</goLocalsend>，要放進App的檔案就接線用Apple Devices，兩邊都要繼續編輯的資料夾用iCloud雲碟。電腦沒有網路時，用隨身碟就夠了。"
+      },
+      "1": {
+        "h": "從Mac",
+        "b": "幾個檔案用AirDrop，App的資料庫用Finder的「檔案」標籤頁，兩邊都想留一份的東西用iCloud雲碟。從Mac到iPad不必另外安裝任何東西。"
+      },
+      "2": {
+        "h": "從Android手機",
+        "b": "沒有AirDrop可用，所以要在兩台裝置上都裝跨平台App。在Google名單上的手機，只要iPad設為「所有人（10分鐘）」，也能透過Quick Share傳給iPad；<goAirdropAndroid>Android版AirDrop指南</goAirdropAndroid>有最新名單。"
+      },
+      "3": {
+        "h": "大影片或整個資料夾",
+        "b": "選直接的方法。Wi-Fi直傳、接線傳進App或高速USB-C隨身碟，幾個GB幾分鐘就搞定；走雲端得先等上傳。<goLargeFiles>傳送大檔案</goLargeFiles>比較了各家的上限。"
+      }
+    }
+  },
+  "drive": {
+    "title": "如何在iPad上使用隨身碟或SD卡",
+    "body": "執行iPadOS 27的iPad，除了iPad（第9代）以外都有USB-C連接埠，所以現在的USB-C隨身碟可以直接插。會不會出現取決於格式和供電，拷貝速度則取決於連接埠。",
+    "items": {
+      "0": {
+        "h": "插上並打開「檔案」",
+        "b": "把隨身碟或讀卡機接到充電連接埠；Lightning的iPad需要Lightning對USB相機轉接器之類的配件。在「檔案」裡點「瀏覽」，在「位置」底下找到磁碟名稱。要拷貝到iPad，就按住檔案選「拷貝」或「搬移」，或拖到第二個視窗。"
+      },
+      "1": {
+        "h": "使用iPad讀得懂的格式",
+        "b": "Apple的使用手冊列出APFS、APFS（加密）、Mac OS擴充格式（HFS+）、exFAT、FAT32和FAT，並要求磁碟只有一個資料分割區。和Windows共用的隨身碟，選exFAT最保險。USB-C的iPad可以自己重新格式化磁碟：在「位置」底下按住它的名稱，點「清除」，裡面的內容會全部刪除。"
+      },
+      "2": {
+        "h": "替傳統硬碟供電",
+        "b": "Apple提到，在iPad上使用外接硬碟時常常需要另外供電。不出現的傳統硬碟，通常接上有電源的USB集線器就能用；USB-C隨身碟或SSD一般靠iPad供電就夠了。"
+      },
+      "3": {
+        "h": "認識你這台的連接埠",
+        "b": "根據Apple的規格：iPad（A16）的USB-C連接埠跑USB 2，最高480Mb/s；iPad mini（A17 Pro）和iPad Air（M4）是USB 3，最高10Gb/s；iPad Pro（M5）走Thunderbolt／USB 4，最高40Gb/s。在入門款iPad上，再快的隨身碟也只能用USB 2的速度拷貝。"
+      }
+    }
+  },
+  "reverse": {
+    "title": "反方向：從iPad傳到電腦",
+    "body": "從iPad把檔案拿出來也走同樣的路線，檔案通常從「檔案」或某個App的資料夾出發。",
+    "items": {
+      "0": {
+        "h": "傳到Windows電腦",
+        "b": "在同一個Wi-Fi下用BIShare從iPad傳到電腦，或接上傳輸線、打開Apple Devices，從「檔案」底下某個App的清單把檔案拖到資料夾。照片可以用傳輸線和Windows「相片」App的匯入功能取出；<goIphonePhotos>照片指南</goIphonePhotos>有詳細說明。"
+      },
+      "1": {
+        "h": "傳到Mac",
+        "b": "用「分享」按鈕裡的AirDrop傳給附近的Mac。在Finder的「檔案」標籤頁，把App的文件從App拖到資料夾，就能反方向拷貝。"
+      },
+      "2": {
+        "h": "不裝App，傳到任何電腦",
+        "b": "在「檔案」裡把檔案拷貝到隨身碟，或透過「連接伺服器」拷貝進電腦的共用資料夾。兩種方式都不經過網際網路和雲端。"
+      },
+      "3": {
+        "h": "傳給別人",
+        "b": "在iPad上建立一條BIShare連結：對方在任何電腦的任何瀏覽器都能開啟，不必安裝，最多100 GB。"
+      }
+    }
+  },
+  "steps": {
+    "title": "用BIShare把檔案傳到iPad",
+    "items": {
+      "0": {
+        "h": "兩台裝置都安裝",
+        "b": "iPad從App Store下載BIShare，傳送端從它自己的商店下載：Microsoft Store、Mac App Store或Google Play，或是Linux版下載。讓兩台裝置連上同一個Wi-Fi，iPadOS詢問時在iPad上允許存取區域網路。"
+      },
+      "1": {
+        "h": "在傳送端選檔案",
+        "b": "在電腦或手機上選好文件、影片或整個資料夾，從附近裝置裡選iPad。在iPad上接受後，檔案會原樣抵達，<blogPhotos>保持原始大小和原始格式</blogPhotos>。"
+      },
+      "2": {
+        "h": "放到該放的地方",
+        "b": "在iPad上開啟收到的檔案，存到「檔案」，把照片加進圖庫，或點「分享」把檔案交給要用它的App。傳送方在別處時，建立連結，並在到期前用iPad的Safari開啟。"
+      }
+    }
+  },
+  "speed": {
+    "title": "要花多久？",
+    "body": "決定時間的有三件事：兩台裝置之間最慢的那一段、檔案是否經過伺服器，以及接線或用隨身碟時iPad的連接埠。",
+    "items": {
+      "0": {
+        "h": "傳輸線或隨身碟",
+        "b": "上限是iPad的連接埠。iPad（A16）的USB 2下，一部4 GB的電影在最理想的情況下大約要一分半鐘；在iPad Air或mini的10Gb/s下，瓶頸通常是隨身碟本身。"
+      },
+      "1": {
+        "h": "裝置之間的Wi-Fi",
+        "b": "直接傳輸以區域網路的速度進行。在我們的測試裡，裝置之間Wi-Fi 5能跑40到50 MB/s，Wi-Fi 6能跑70到110 MB/s，所以同一部4 GB電影一兩分鐘就能進iPad。<goWifiTransfer>我們的Wi-Fi傳輸指南</goWifiTransfer>把數字拆開說明。"
+      },
+      "2": {
+        "h": "經過雲端",
+        "b": "iCloud雲碟、Mail Drop和雲端硬碟都要先完整上傳，iPad才能下載。上傳40 Mbps時，那部4 GB電影光上傳就要大約一刻鐘，之後才開始下載。"
+      }
+    }
+  },
+  "fixes": {
+    "title": "檔案傳不過去時",
+    "items": {
+      "0": {
+        "h": "Finder或Apple Devices裡看不到iPad",
+        "b": "解鎖iPad，問到這台電腦時點「信任」。換一條傳輸線試試，因為有些線只能充電，再把iPad更新到最新的iPadOS，Apple的Finder文章把這列為前提。"
+      },
+      "1": {
+        "h": "沒有「檔案」標籤頁，或清單裡沒有那個App",
+        "b": "只會列出支援檔案共享的App，如果已安裝的App一個都不支援，這個標籤頁就不會出現。改把檔案傳到「檔案」App，再在「檔案」裡用「分享」交給那個App。"
+      },
+      "2": {
+        "h": "隨身碟沒出現在「位置」底下",
+        "b": "確認它只有一個資料分割區且格式受支援；多數Windows磁碟用的NTFS不在Apple的名單上。在電腦上重新格式化為exFAT，或用集線器替傳統硬碟供電。"
+      },
+      "3": {
+        "h": "AirDrop裡找不到iPad",
+        "b": "喚醒iPad，打開Wi-Fi和藍牙，在控制中心或「設定」›「一般」›「AirDrop」裡設為「所有人（10分鐘）」。<goAirdropFix>AirDrop疑難排解指南</goAirdropFix>說明了其他情況。"
+      },
+      "4": {
+        "h": "檔案到了，但沒有App能開",
+        "b": "iPad上還沒有處理這種格式的App。裝一個讀得懂的App，然後打開「檔案」，按住檔案，選「分享」傳過去。"
+      },
+      "5": {
+        "h": "空間不夠",
+        "b": "查看「設定」›「一般」›「iPad儲存空間」。電影可以留在隨身碟上，直接在「檔案」裡播放，完全不必拷貝進iPad。"
+      }
+    }
+  },
+  "security": {
+    "title": "路上誰會留著副本？",
+    "body": "這些方法真正的差別不在速度。不同的是傳輸過程中有哪些公司拿著你的檔案，或者根本沒有公司經手。",
+    "items": {
+      "0": {
+        "h": "AirDrop、傳輸線、隨身碟和共用資料夾",
+        "b": "檔案只在你自己的裝置之間流動。Apple會加密AirDrop的傳輸，傳輸線和隨身碟根本不碰網路。共用資料夾對這個網路上任何知道電腦密碼的人開放，所以用完記得關掉共用。"
+      },
+      "1": {
+        "h": "iCloud雲碟、Mail Drop和雲端硬碟",
+        "b": "服務商會在你的帳號裡存一份副本，傳輸和儲存時都有保護，直到你刪除為止；Mail Drop的連結30天後會自動失效。"
+      },
+      "2": {
+        "h": "BIShare",
+        "b": "在同一個網路裡，檔案從傳送端直接到iPad，端對端加密，中間沒有伺服器。<goEncrypted>連結在上傳前就於傳送裝置上加密封裝</goEncrypted>，金鑰放在連結裡，所以伺服器只保存密文，到期就刪除。"
+      }
+    }
+  },
+  "faq": {
+    "title": "常見問題",
+    "items": {
+      "0": {
+        "q": "怎麼把檔案傳到iPad？",
+        "a": "從Mac或iPhone用AirDrop。從Windows電腦，BIShare能透過Wi-Fi傳任何檔案；App用的檔案可以接線用Apple Devices，也可以用iCloud雲碟。沒有網路時，把檔案拷貝到隨身碟，在「檔案」App裡開啟。"
+      },
+      "1": {
+        "q": "不用iTunes怎麼把電腦裡的檔案放進iPad？",
+        "a": "在Windows 10或以上版本，Apple Devices在這件事上取代了iTunes：連接iPad，選「檔案」，把文件拖到某個App上。BIShare、iCloud雲碟或共用資料夾這些無線方式，兩者都不需要。"
+      },
+      "2": {
+        "q": "怎麼從Mac傳檔案到iPad？",
+        "a": "AirDrop最快：按住Control鍵點按檔案，選「分享」，再選「AirDrop」和iPad。要放進App的檔案，就連接iPad，在Finder裡選取它，用「檔案」標籤頁。"
+      },
+      "3": {
+        "q": "可以無線把檔案傳到iPad嗎？",
+        "a": "可以。Apple裝置用AirDrop，Windows、Android和Linux在同一個Wi-Fi下用BIShare或LocalSend。不在身邊的裝置可以用iCloud雲碟或在Safari開啟連結。"
+      },
+      "4": {
+        "q": "iPad怎麼用隨身碟？",
+        "a": "插到USB-C連接埠，Lightning的iPad就透過轉接器，然後打開「檔案」，在「位置」底下找。隨身碟需要一個格式為APFS、HFS+、exFAT、FAT32或FAT的資料分割區。"
+      },
+      "5": {
+        "q": "傳到iPad的檔案跑去哪裡了？",
+        "a": "文件通常在「檔案」App的「我的iPad」、iCloud雲碟或「下載項目」裡。透過Finder或Apple Devices傳的檔案在你選的那個App裡，用AirDrop傳的照片在「照片」圖庫裡。"
+      },
+      "6": {
+        "q": "怎麼把電影放進iPad離線看？",
+        "a": "安裝一個支援檔案共享的影片播放器，連接iPad，在Finder或Apple Devices裡把電影拖到那個App上。也可以用Wi-Fi傳到「檔案」，或把電影留在隨身碟上直接播放。"
+      },
+      "7": {
+        "q": "怎麼把Android手機的檔案傳到iPad？",
+        "a": "在兩台裝置上安裝同一款跨平台App，例如BIShare或LocalSend，連上同一個Wi-Fi使用。Google Quick Share名單上的手機，也能傳給設為「所有人（10分鐘）」的iPad。"
+      },
+      "8": {
+        "q": "把大檔案放進iPad最快的方法是什麼？",
+        "a": "留在本地：在我們的量測中，裝置之間的Wi-Fi在Wi-Fi 6下達到70到110 MB/s，而插在iPad Pro的Thunderbolt連接埠上的高速隨身碟還要更快。走雲端的方法會被你家的上傳速度卡住。"
+      },
+      "9": {
+        "q": "怎麼把iPad的檔案傳到電腦？",
+        "a": "用BIShare透過Wi-Fi傳送，接線在Apple Devices裡從App拖出來，或在「檔案」裡拷貝到隨身碟。照片可以讓Windows的「相片」App透過傳輸線匯入。"
+      },
+      "10": {
+        "q": "為什麼iPad讀不到隨身碟？",
+        "a": "多半是格式問題：不支援NTFS，所以要重新格式化為exFAT。有多個分割區的磁碟也不會出現，傳統硬碟可能還需要有電源的集線器。"
+      }
+    }
+  },
+  "cta": {
+    "title": "從任何電腦，把任何東西傳到iPad",
+    "body": "免費且開放原始碼。從Windows、Mac、Linux或Android透過Wi-Fi原尺寸傳輸，或用在Safari開啟的加密連結。",
+    "download": "下載BIShare"
+  },
+  "a11y": {
+    "yes": "是",
+    "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "一台Windows筆電把文件傳到iPad，標題為如何把檔案傳到iPad，2026年的8種方法。",
+      "title": "把檔案傳到iPad",
+      "sub": "從電腦、Mac或手機：2026年的8種方法",
+      "left": "Windows電腦",
+      "right": "iPad"
+    },
+    "where": {
+      "alt": "檔案在iPad上該放哪裡以及最好走的入口：文件和下載項目透過Wi-Fi、AirDrop或隨身碟放進「檔案」App；給某個App的檔案透過Finder或Apple Devices放進那個App的資料夾；照片和影片透過AirDrop、iCloud照片或儲存影像放進「照片」圖庫。",
+      "title": "先決定檔案落在哪裡",
+      "sub": "iPad上的三個位置，各有各的入口",
+      "c0": "文件和下載項目",
+      "c1": "給某個App的檔案",
+      "c2": "照片和影片",
+      "lands": "落在",
+      "l0": "「檔案」App",
+      "l1": "那個App的資料夾",
+      "l2": "「照片」圖庫",
+      "way": "最好走的入口",
+      "w0": "Wi-Fi App、AirDrop、隨身碟",
+      "w1": "Finder或Apple Devices",
+      "w2": "AirDrop、iCloud照片"
+    },
+    "routes": {
+      "alt": "用三個問題選出傳到iPad的方法：從Mac或iPhone，用AirDrop；檔案要放進某個App，用Mac上的Finder或Windows上的Apple Devices；兩台裝置不在同一個網路，用Safari裡的連結或iCloud雲碟；否則用Wi-Fi上的BIShare或LocalSend。",
+      "title": "三個問題選出方法",
+      "sub": "從什麼裝置傳、傳到哪裡、是否在同一個網路",
+      "q1": "從Mac或iPhone傳送？",
+      "q2": "要放進某個App裡？",
+      "q3": "和iPad在同一個Wi-Fi？",
+      "yes": "是",
+      "no": "否",
+      "r1": "AirDrop",
+      "r2": "Finder或Apple Devices的「檔案」標籤頁",
+      "r3": "Safari裡的連結，或iCloud雲碟",
+      "r4": "Wi-Fi上的BIShare或LocalSend"
+    },
+    "ports": {
+      "alt": "根據Apple技術規格，目前各款iPad的連接埠和最高速度：iPad（A16）USB-C，USB 2，480Mb/s；iPad mini（A17 Pro）USB-C，USB 3，10Gb/s；iPad Air（M4）USB-C，USB 3，10Gb/s；iPad Pro（M5）Thunderbolt／USB 4，40Gb/s。iPad（第9代）是Lightning連接埠，用隨身碟需要轉接器。",
+      "title": "每款iPad的連接埠有多快",
+      "sub": "連接埠最高速度，依據Apple技術規格，對數刻度",
+      "m0": "iPad（A16）",
+      "m1": "iPad mini（A17 Pro）",
+      "m2": "iPad Air（M4）",
+      "m3": "iPad Pro（M5）",
+      "v0": "USB 2 · 480Mb/s",
+      "v1": "USB 3 · 10Gb/s",
+      "v2": "USB 3 · 10Gb/s",
+      "v3": "Thunderbolt / USB 4 · 40Gb/s",
+      "foot": "iPad（第9代）：Lightning連接埠，用隨身碟需要轉接器"
+    }
+  }
+}

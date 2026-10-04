@@ -1,0 +1,385 @@
+{
+  "meta": {
+    "title": "电脑文件传到iPad的8种方法：含U盘（2026）",
+    "description": "从Windows电脑、Mac、安卓手机或U盘把文件传到iPad：Finder、Apple Devices、隔空投送、iCloud云盘、共享文件夹和免费Wi-Fi应用，附操作步骤。"
+  },
+  "hero": {
+    "eyebrow": "把文件放进iPad",
+    "title": "怎么把文件传到iPad",
+    "body": "往iPad里传文件，其实要回答两个问题，而不是一个。第一个是常见的：怎么从Windows电脑、Mac或手机传过去。第二个才是让人卡住的：文件到了以后该放在哪里。要读的PDF应该在“文件”App里，给视频播放器看的电影应该在那个播放器里面，照片应该在“照片”图库里，每个位置都有自己最合适的入口。本指南先回答第二个问题，再结合Apple和Microsoft公布的限制给8种方法排序，说明怎样在任何一台iPad上使用U盘并列出每个型号的接口速度，最后讲讲从iPad传回电脑。<strong>BIShare</strong>也在这8种方法里，而且只有它<strong>从Windows、Mac、安卓和Linux通过Wi-Fi传到iPad</strong>时用法完全一样，对于在另一个房间或另一座城市的电脑，还可以用在浏览器里打开的加密链接。<highlight>免费，开源，<goNoAccount>无需注册</goNoAccount>。</highlight>",
+    "ctaPrimary": "免费获取BIShare",
+    "ctaSecondary": "工作原理"
+  },
+  "updated": "2026年10月更新 · 步骤来自iPadOS 27的iPad使用手册、Apple关于Finder和Apple Devices的说明以及iPad技术规格",
+  "disclosure": "BIShare是我们的产品。在Apple设备之间，隔空投送和Finder往往更省事，排名里写明了什么情况下是这样。",
+  "quick": {
+    "title": "怎么把文件传到iPad？简短回答",
+    "items": [
+      "<strong>从Mac或iPhone：</strong>用隔空投送。选中文件，轻点“共享”，再点“隔空投送”，然后选择iPad。",
+      "<strong>从Windows电脑、不用数据线：</strong>在电脑和iPad上装BIShare，同一个Wi-Fi下什么文件都能传；两台设备离得远时，在Safari里打开链接也可以。",
+      "<strong>传进某个App，比如视频播放器：</strong>连接iPad，在Mac上打开Finder或在Windows上打开Apple Devices，选择“文件”，把文件拖到那个App上。",
+      "<strong>没有网络：</strong>把文件拷到U盘或SD卡，在iPad的“文件”App里打开。",
+      "<strong>从安卓手机：</strong>用BIShare或LocalSend这类跨平台应用，或者在Google列为支持隔空投送的手机上用Quick Share。",
+      "<strong>文件到了却打不开：</strong>它在“文件”App里；在那里轻点“共享”，把它发给能读取这种格式的App。"
+    ]
+  },
+  "where": {
+    "title": "文件应该放在iPad的哪里？",
+    "body": "iPad没有一个所有App都读取的统一下载文件夹。文件该放在哪里，取决于你要拿它做什么，这在你拿起数据线之前就决定了用哪种方法。",
+    "items": {
+      "0": {
+        "h": "文档和下载：“文件”App",
+        "b": "PDF、表格、ZIP压缩包，以及任何想作为文件保存的东西，都放进“文件”里的“我的iPad”或iCloud云盘。大多数方法默认就送到这里：隔空投送会问用哪个App打开文档，Safari会存到“下载”，U盘或共享文件夹则在“文件”里浏览和拷贝。之后用“共享”按钮把文件交给该打开它的App即可。"
+      },
+      "1": {
+        "h": "给某个App的文件：那个App自己的文件夹",
+        "b": "视频播放器、绘画App和音乐制作App都把资料库放在App内部。Apple的iPad使用手册把通过数据线拷贝限定在支持文件共享的App，Finder的支持文章还补充说，只应拷贝该App能用的文件。在Mac上入口是Finder的“文件”标签，在Windows上是Apple Devices的“文件”标签。很多这类App也会在“文件”App里显示自己的文件夹，所以任何无线方式都能把文件直接放进去。"
+      },
+      "2": {
+        "h": "照片和视频：“照片”图库",
+        "b": "想出现在相机胶卷里的图片要进“照片”，而不是“文件”。从Mac或iPhone用隔空投送会直接放进去，iCloud照片会让两边的图库保持一致，通过其他方式到达“文件”的照片，可以用“共享”再点“存储图像”或“存储视频”加进去。插在读卡器里的相机存储卡也能直接导入“照片”。"
+      }
+    }
+  },
+  "methods": {
+    "title": "把文件放进iPad的8种方法，按推荐排序",
+    "consLabel": "注意：",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "从Windows、安卓或Linux传最合适：任何文件通过Wi-Fi传到iPad",
+        "facts": "iPad和iPhone应用、Windows/macOS/Linux应用、安卓应用，或用任意浏览器打开链接 · MIT许可证 · 同一网络内不限大小 · 链接最多100 GB，保留6、12或24小时 · 端到端加密 · 无需账号",
+        "body": "在iPad和发送端的电脑或手机上安装BIShare，让两者连上同一个Wi-Fi，然后在发送端选好文件，在附近设备列表里点iPad。文件以原始大小和格式到达iPad，不上传任何东西，<goOffline>蜂窝网络机型用iPad自己的个人热点</goOffline>或者任何没有互联网的路由器都能用。发送方在别处时，就改用链接：文件在发送设备上先被加密封装，<goTransfer>iPad在Safari里下载</goTransfer>，这条路线的两端都不用安装任何东西。",
+        "cons": "收到的文件会留在应用的收件箱里，直到你把它们移到“文件”“照片”或其他App。直传需要两台设备都装应用。"
+      },
+      "1": {
+        "name": "从Mac或iPhone用隔空投送",
+        "tag": "Apple设备之间最合适",
+        "facts": "Mac、iPhone或另一台iPad · 系统自带 · 打开蓝牙和Wi-Fi · 近距离 · 未注明大小限制 · 不需要互联网",
+        "body": "Apple自己的iPad使用手册就把隔空投送列为与附近Apple设备共享文件的方式。在Mac上按住Control键点按文件，选“共享”，再选“隔空投送”和iPad；在iPhone上轻点“共享”，再点“隔空投送”。照片和视频会进入“照片”App，文档则由iPad询问用哪个App打开。因为什么都不用设置，它是Apple设备之间最快的方法。<goHowToAirdrop>隔空投送指南</goHowToAirdrop>讲解了接收设置。",
+        "cons": "只能在Apple设备之间用：Windows电脑、安卓手机、Linux都不行。iPad要设为接收“仅限联系人”或“所有人（10分钟）”。"
+      },
+      "2": {
+        "name": "Mac上的Finder",
+        "tag": "从Mac传要放进某个App的文件最合适",
+        "facts": "macOS Catalina或更新版本 · USB数据线，首次连接后也可用Wi-Fi · iPad需为最新iPadOS · 仅限支持文件共享的App",
+        "body": "连接iPad，在Finder边栏里选中它，点“文件”标签。Apple支持文章说，列表里显示的是能共享文件的App；把文件拖到其中一个上，Finder就会把它拷到iPad。把电影放进视频播放器、把项目放进剪辑App，而不用绕道“文件”App，靠的就是这个方法。如果没有出现“文件”部分，说明已安装的App里没有一个支持文件共享。",
+        "cons": "只有开发者开启了文件共享的App才会出现，而且只应拷贝这些App能读取的文件。macOS Mojave及更早版本用iTunes。"
+      },
+      "3": {
+        "name": "Windows上的Apple Devices",
+        "tag": "从Windows电脑传App用的文件最合适",
+        "facts": "Windows 10及更新版本 · Microsoft Store里的免费应用 · 先用数据线，打开后可改用Wi-Fi · “文件”标签只显示支持文件共享的App",
+        "body": "Apple的iPad使用手册把Windows 10及以上的用户指向Apple Devices。在边栏选中iPad，选“文件”，把Windows文件夹里的文档拖到列表中的某个App上；拷贝立即完成，不需要同步。这是Finder方法的Windows版本，用途也一样：给离线播放器放一整季剧集，或者给乐谱App放一个乐谱文件夹。",
+        "cons": "限制也一样：不支持文件共享的App不会出现，用这种方式也不会往“文件”App自己的文件夹里放任何东西。Windows 7及更早版本用iTunes。"
+      },
+      "4": {
+        "name": "iCloud云盘",
+        "tag": "需要所有设备上的文件都保持最新时最合适",
+        "facts": "Mac、iPhone和iPad自带 · Windows通过Windows版iCloud · 任意浏览器访问iCloud.com · 免费5 GB · 所有设备使用同一个Apple账户 · 需要互联网",
+        "body": "在电脑上把文件放进iCloud云盘，它就会出现在iPad“文件”App的iCloud云盘里。在Mac上它是Finder里的一个位置；在Windows上，Windows版iCloud会把文件夹加进文件资源管理器；在借来的电脑上，就到iCloud.com上传。改动会双向同步，适合你在两台设备上都会继续编辑的文件夹。",
+        "cons": "文件要先上传到Apple的服务器再下载回来，用家庭上行带宽传大视频会很慢，而且免费的5 GB要和备份、照片共用。"
+      },
+      "5": {
+        "name": "U盘或SD卡",
+        "tag": "没有网络也不想装软件时最合适",
+        "facts": "“文件”App · 现行所有iPad的USB-C接口都能直接插 · 闪电接口机型需要转换器 · APFS、HFS+、exFAT、FAT32或FAT · 只有一个数据分区",
+        "body": "在任何一台电脑上把文件拷到U盘，插到iPad上，打开“文件”：U盘会出现在“位置”下面，你可以从那里拷贝或打开文件。Apple的使用手册列出了iPad能读取的格式，并说明驱动器只能有一个数据分区。下面关于驱动器的部分会讲格式、供电和每个型号的接口速度。",
+        "cons": "要跑两趟，机械硬盘可能还需要单独供电。有多个分区的驱动器，或者NTFS格式（Windows内置磁盘的默认格式）的驱动器都不会出现。"
+      },
+      "6": {
+        "name": "用“连接服务器”访问共享文件夹",
+        "tag": "电脑上什么都不能装时最合适",
+        "facts": "Windows、macOS和iPadOS自带 · 同一个局域网 · “文件”›“连接服务器” · 电脑的用户名和密码 · 不需要互联网",
+        "body": "在电脑上共享一个文件夹，然后在iPad上打开“文件”，轻点边栏顶部的更多按钮，选“连接服务器”，输入电脑的网络名称或IP地址，用这台电脑的账户登录。文件夹会出现在“已共享”下面，你可以像从其他位置一样把文件拷出来。Mac通过“系统设置”里的“文件共享”来共享，Windows则通过文件夹的“共享”选项卡。<goIphonePc>iPhone传电脑指南</goIphonePc>讲了Windows那一侧的设置。",
+        "cons": "第一次要花几分钟，而且每次需要文件时，电脑都得开着并在同一个网络里。"
+      },
+      "7": {
+        "name": "邮件、邮件附件快传和云盘",
+        "tag": "从不是自己的电脑传一个文件最合适",
+        "facts": "邮件附件快传：最大5 GB，链接保留30天 · Google Drive、OneDrive和Dropbox的应用会出现在“文件”里 · 需要账号 · 需要互联网",
+        "body": "把文件用邮件发给自己，在iPad上通过“共享”再点“存储到‘文件’”保存附件。超过普通附件大小的，Mac上的邮件附件快传（Mail Drop）可以把最大5 GB的文件作为有效期30天的链接发出去。云盘应用更进一步：装到iPad上以后，Google Drive、OneDrive和Dropbox会作为“文件”里的位置出现。",
+        "cons": "所有东西都要经过别家的服务器，所以要等上传，也需要账号。普通附件大约25 MB就到顶了。"
+      }
+    }
+  },
+  "table": {
+    "title": "一览",
+    "cols": {
+      "feature": "项目",
+      "bishare": "BIShare",
+      "airdrop": "隔空投送",
+      "cable": "Finder或Apple Devices",
+      "icloud": "iCloud云盘",
+      "server": "共享文件夹",
+      "drive": "U盘"
+    },
+    "rows": {
+      "r0": "可以从Windows电脑传",
+      "r1": "可以从安卓手机传",
+      "r2": "任何文件，不限某个App的文件",
+      "r3": "不需要互联网",
+      "r4": "不需要账号或密码"
+    },
+    "note": "截至2026年10月。BIShare可在Windows、macOS、Linux、安卓、iPhone和iPad上运行，直传需要两端都装应用；链接在Safari里打开，最多100 GB，保留6、12或24小时。隔空投送只能在Apple设备之间使用。Finder（macOS Catalina或更新版本）和Apple Devices（Windows 10或更新版本）只能拷贝到支持文件共享的App。iCloud云盘要求两台设备登录同一个Apple账户，免费5 GB。共享文件夹需要电脑的用户名和密码。U盘必须只有一个数据分区，格式为APFS、HFS+、exFAT、FAT32或FAT。在安卓手机上，可以用浏览器打开iCloud.com使用iCloud云盘，Google Quick Share名单上的手机也能发到隔空投送。"
+  },
+  "choose": {
+    "title": "该用哪种方法？",
+    "body": "先看文件在哪台设备上，再看它最后要放在iPad的哪里。",
+    "items": {
+      "0": {
+        "h": "从Windows电脑",
+        "b": "任何文件都可以在同一个Wi-Fi下用BIShare或<goLocalsend>LocalSend</goLocalsend>，要放进App的文件用数据线连Apple Devices，两边都要继续编辑的文件夹用iCloud云盘。电脑离线时，U盘就够了。"
+      },
+      "1": {
+        "h": "从Mac",
+        "b": "几个文件用隔空投送，App的资料库用Finder的“文件”标签，两边都想要的东西用iCloud云盘。从Mac到iPad不需要另装任何东西。"
+      },
+      "2": {
+        "h": "从安卓手机",
+        "b": "没有隔空投送，所以要在两台设备上都装跨平台应用。Google名单上的手机在iPad设为“所有人（10分钟）”时，也可以通过Quick Share发给iPad；<goAirdropAndroid>安卓隔空投送指南</goAirdropAndroid>里有最新名单。"
+      },
+      "3": {
+        "h": "大视频或整个文件夹",
+        "b": "选直连的方法。Wi-Fi直传、用数据线传进App或者高速USB-C U盘，几个GB几分钟就能搞定；走云端要先等上传。<goLargeFiles>发送大文件</goLargeFiles>比较了各家的限制。"
+      }
+    }
+  },
+  "drive": {
+    "title": "怎么在iPad上使用U盘或SD卡",
+    "body": "运行iPadOS 27的iPad，除了iPad（第9代）以外都有USB-C接口，所以现在的USB-C U盘可以直接插。会不会显示取决于格式和供电，拷贝速度取决于接口。",
+    "items": {
+      "0": {
+        "h": "插上并打开“文件”",
+        "b": "把U盘或读卡器插到充电接口上；闪电接口的iPad需要闪电转USB相机转换器之类的配件。在“文件”里轻点“浏览”，在“位置”下面找到驱动器名称。要拷到iPad上，按住文件选“拷贝”或“移动”，或者拖到第二个窗口里。"
+      },
+      "1": {
+        "h": "用iPad能读的格式",
+        "b": "Apple的使用手册列出了APFS、APFS（加密）、Mac OS扩展（HFS+）、exFAT、FAT32和FAT，并要求驱动器只有一个数据分区。和Windows共用的U盘，选exFAT最稳妥。USB-C接口的iPad可以自己重新格式化驱动器：在“位置”下按住它的名称，轻点“抹掉”，里面的内容会全部删除。"
+      },
+      "2": {
+        "h": "给机械硬盘供电",
+        "b": "Apple提到，在iPad上用外置硬盘时往往需要单独供电。不显示的机械硬盘，通常接上带电源的USB集线器就能用；USB-C U盘或SSD一般靠iPad供电就够了。"
+      },
+      "3": {
+        "h": "了解你这台的接口",
+        "b": "根据Apple的规格：iPad（A16）的USB-C接口跑USB 2，最高480Mb/s；iPad mini（A17 Pro）和iPad Air（M4）是USB 3，最高10Gb/s；iPad Pro（M5）走雷雳/USB 4，最高40Gb/s。在入门款iPad上，再快的U盘也只能按USB 2的速度拷贝。"
+      }
+    }
+  },
+  "reverse": {
+    "title": "反方向：从iPad传到电脑",
+    "body": "从iPad往外传文件也走同样的路线，文件通常从“文件”或某个App的文件夹出发。",
+    "items": {
+      "0": {
+        "h": "传到Windows电脑",
+        "b": "在同一个Wi-Fi下用BIShare从iPad发到电脑，或者连上数据线、打开Apple Devices，从“文件”下某个App的列表里把文件拖到文件夹。照片可以用数据线和Windows“照片”应用的导入功能导出；<goIphonePhotos>照片指南</goIphonePhotos>有详细说明。"
+      },
+      "1": {
+        "h": "传到Mac",
+        "b": "用“共享”按钮里的隔空投送发给附近的Mac。在Finder的“文件”标签里，把App的文档从App拖到文件夹，就能反方向拷贝。"
+      },
+      "2": {
+        "h": "不装应用，传到任何电脑",
+        "b": "在“文件”里把文件拷到U盘，或者通过“连接服务器”拷进电脑的共享文件夹。两种方式都不经过互联网和云端。"
+      },
+      "3": {
+        "h": "传给别人",
+        "b": "在iPad上生成一个BIShare链接：对方在任何电脑的任何浏览器里都能打开，不用安装，最多100 GB。"
+      }
+    }
+  },
+  "steps": {
+    "title": "用BIShare把文件发到iPad",
+    "items": {
+      "0": {
+        "h": "两台设备都安装",
+        "b": "iPad从App Store下载BIShare，发送端从它自己的应用商店下载：Microsoft Store、Mac App Store或Google Play，或者Linux版下载。让两台设备连同一个Wi-Fi，iPadOS询问时在iPad上允许访问本地网络。"
+      },
+      "1": {
+        "h": "在发送端选文件",
+        "b": "在电脑或手机上选好文档、视频或整个文件夹，从附近设备里选iPad。在iPad上接受后，文件会原样到达，<blogPhotos>保持原始大小和原始格式</blogPhotos>。"
+      },
+      "2": {
+        "h": "放到该放的地方",
+        "b": "在iPad上打开收到的文件，存到“文件”，把照片加进图库，或者轻点“共享”把文件交给要用它的App。发送方在别处时，生成链接，并在过期前用iPad的Safari打开。"
+      }
+    }
+  },
+  "speed": {
+    "title": "要多长时间？",
+    "body": "决定时间的有三点：两台设备之间最慢的那一段、文件是否经过服务器，以及用数据线或U盘时iPad的接口。",
+    "items": {
+      "0": {
+        "h": "数据线或U盘",
+        "b": "上限是iPad的接口。iPad（A16）的USB 2下，一部4 GB的电影在最理想的情况下大约要一分半钟；在iPad Air或mini的10Gb/s下，瓶颈通常是U盘本身。"
+      },
+      "1": {
+        "h": "设备之间的Wi-Fi",
+        "b": "直传按局域网的速度进行。在我们的测试中，设备之间Wi-Fi 5能跑40到50 MB/s，Wi-Fi 6能跑70到110 MB/s，所以同样那部4 GB电影一两分钟就能进iPad。<goWifiTransfer>我们的Wi-Fi传输指南</goWifiTransfer>把数字拆开讲了。"
+      },
+      "2": {
+        "h": "经过云端",
+        "b": "iCloud云盘、邮件附件快传和云盘都要先完整上传，iPad才能下载。上行40 Mbps时，那部4 GB电影光上传就要一刻钟左右，之后才开始下载。"
+      }
+    }
+  },
+  "fixes": {
+    "title": "文件传不过来时",
+    "items": {
+      "0": {
+        "h": "Finder或Apple Devices里看不到iPad",
+        "b": "解锁iPad，它问到这台电脑时轻点“信任”。换一根数据线试试，因为有些线只能充电，再把iPad更新到最新的iPadOS，Apple的Finder文章把这一点列为前提。"
+      },
+      "1": {
+        "h": "没有“文件”标签，或者列表里没有那个App",
+        "b": "只会列出支持文件共享的App，如果已安装的App一个都不支持，这个标签就不会出现。改为把文件发到“文件”App，再在“文件”里用“共享”交给那个App。"
+      },
+      "2": {
+        "h": "U盘没有出现在“位置”下",
+        "b": "确认它只有一个数据分区且格式受支持；大多数Windows驱动器用的NTFS不在Apple的名单里。在电脑上重新格式化为exFAT，或者用集线器给机械硬盘供电。"
+      },
+      "3": {
+        "h": "隔空投送里找不到iPad",
+        "b": "唤醒iPad，打开Wi-Fi和蓝牙，在控制中心或“设置”›“通用”›“隔空投送”里设为“所有人（10分钟）”。<goAirdropFix>隔空投送故障排除指南</goAirdropFix>讲了其余情况。"
+      },
+      "4": {
+        "h": "文件到了，但没有App能打开",
+        "b": "iPad上还没有能处理这种格式的App。装一个能读取它的App，然后打开“文件”，按住文件，选“共享”发过去。"
+      },
+      "5": {
+        "h": "空间不够",
+        "b": "查看“设置”›“通用”›“iPad储存空间”。电影可以留在U盘上，直接在“文件”里播放，完全不用拷进iPad。"
+      }
+    }
+  },
+  "security": {
+    "title": "路上谁会留着副本？",
+    "body": "这些方法真正的区别不在速度。不同的是传输过程中哪些公司持有你的文件，或者根本没有公司经手。",
+    "items": {
+      "0": {
+        "h": "隔空投送、数据线、U盘和共享文件夹",
+        "b": "文件只在你自己的设备之间流转。Apple会加密隔空投送的传输，数据线和U盘根本不碰网络。共享文件夹对这个网络里任何知道电脑密码的人开放，所以用完记得关掉共享。"
+      },
+      "1": {
+        "h": "iCloud云盘、邮件附件快传和云盘",
+        "b": "服务商会在你的账户里存一份副本，传输和存储时都有保护，直到你删掉为止；邮件附件快传的链接30天后会自动失效。"
+      },
+      "2": {
+        "h": "BIShare",
+        "b": "在同一个网络里，文件从发送端直接到iPad，端到端加密，中间没有服务器。<goEncrypted>链接在上传前就在发送设备上加密封装</goEncrypted>，密钥放在链接里，所以服务器只保存密文，到期就删除。"
+      }
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "items": {
+      "0": {
+        "q": "怎么把文件传到iPad？",
+        "a": "从Mac或iPhone用隔空投送。从Windows电脑，BIShare可以通过Wi-Fi传任何文件；App用的文件可以用数据线连Apple Devices，也可以用iCloud云盘。没有网络时，把文件拷到U盘，在“文件”App里打开。"
+      },
+      "1": {
+        "q": "不用iTunes怎么把电脑里的文件放进iPad？",
+        "a": "在Windows 10及更新版本上，Apple Devices在这件事上取代了iTunes：连接iPad，选“文件”，把文档拖到某个App上。BIShare、iCloud云盘或共享文件夹这些无线方式，两者都不需要。"
+      },
+      "2": {
+        "q": "怎么从Mac往iPad发文件？",
+        "a": "隔空投送最快：按住Control键点按文件，选“共享”，再选“隔空投送”和iPad。要放进App的文件，连接iPad，在Finder里选中它，用“文件”标签。"
+      },
+      "3": {
+        "q": "能无线把文件传到iPad吗？",
+        "a": "能。Apple设备用隔空投送，Windows、安卓和Linux在同一个Wi-Fi下用BIShare或LocalSend。不在身边的设备可以用iCloud云盘或在Safari里打开链接。"
+      },
+      "4": {
+        "q": "iPad怎么用U盘？",
+        "a": "插到USB-C接口上，闪电接口的iPad用转换器，然后打开“文件”，在“位置”下面找。U盘需要一个格式为APFS、HFS+、exFAT、FAT32或FAT的数据分区。"
+      },
+      "5": {
+        "q": "传到iPad的文件去哪儿了？",
+        "a": "文档一般在“文件”App的“我的iPad”、iCloud云盘或“下载”里。通过Finder或Apple Devices发的文件在你选的那个App里，用隔空投送发的照片在“照片”图库里。"
+      },
+      "6": {
+        "q": "怎么把电影放进iPad离线看？",
+        "a": "装一个支持文件共享的视频播放器，连接iPad，在Finder或Apple Devices里把电影拖到那个App上。也可以用Wi-Fi传到“文件”，或者把电影留在U盘上直接播放。"
+      },
+      "7": {
+        "q": "怎么把安卓手机的文件传到iPad？",
+        "a": "在两台设备上装同一款跨平台应用，比如BIShare或LocalSend，连同一个Wi-Fi使用。Google Quick Share名单上的手机，也能发给设为“所有人（10分钟）”的iPad。"
+      },
+      "8": {
+        "q": "把大文件传进iPad最快的方法是什么？",
+        "a": "留在本地：在我们的测量中，设备之间的Wi-Fi在Wi-Fi 6下达到70到110 MB/s，而插在iPad Pro雷雳接口上的高速U盘还要更快。走云端的方法受限于你家的上行速度。"
+      },
+      "9": {
+        "q": "怎么把iPad里的文件传到电脑？",
+        "a": "用BIShare通过Wi-Fi发送，用数据线在Apple Devices里从App拖出来，或者在“文件”里拷到U盘。照片可以让Windows的“照片”应用通过数据线导入。"
+      },
+      "10": {
+        "q": "为什么iPad识别不了U盘？",
+        "a": "多半是格式问题：不支持NTFS，所以要重新格式化为exFAT。有多个分区的驱动器也不会显示，机械硬盘可能还需要带电源的集线器。"
+      }
+    }
+  },
+  "cta": {
+    "title": "从任何电脑，把任何东西发到iPad",
+    "body": "免费开源。从Windows、Mac、Linux或安卓通过Wi-Fi原尺寸传输，或者用在Safari里打开的加密链接。",
+    "download": "下载BIShare"
+  },
+  "a11y": {
+    "yes": "是",
+    "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "一台Windows笔记本把文档发到iPad，标题为怎么把文件传到iPad，2026年的8种方法。",
+      "title": "把文件传到iPad",
+      "sub": "从电脑、Mac或手机：2026年的8种方法",
+      "left": "Windows电脑",
+      "right": "iPad"
+    },
+    "where": {
+      "alt": "文件在iPad上该放在哪里以及最合适的入口：文档和下载通过Wi-Fi、隔空投送或U盘放进“文件”App；给某个App的文件通过Finder或Apple Devices放进那个App的文件夹；照片和视频通过隔空投送、iCloud照片或存储图像放进“照片”图库。",
+      "title": "先决定文件落在哪里",
+      "sub": "iPad上的三个位置，各有各的入口",
+      "c0": "文档和下载",
+      "c1": "给某个App的文件",
+      "c2": "照片和视频",
+      "lands": "落在",
+      "l0": "“文件”App",
+      "l1": "那个App的文件夹",
+      "l2": "“照片”图库",
+      "way": "最合适的入口",
+      "w0": "Wi-Fi应用、隔空投送、U盘",
+      "w1": "Finder或Apple Devices",
+      "w2": "隔空投送、iCloud照片"
+    },
+    "routes": {
+      "alt": "用三个问题选出传到iPad的方法：从Mac或iPhone，用隔空投送；文件要放进某个App，用Mac上的Finder或Windows上的Apple Devices；两台设备不在同一个网络，用Safari里的链接或iCloud云盘；否则用Wi-Fi上的BIShare或LocalSend。",
+      "title": "三个问题选出方法",
+      "sub": "从什么设备发、发到哪里、是否在同一个网络",
+      "q1": "从Mac或iPhone发送？",
+      "q2": "要放进某个App里？",
+      "q3": "和iPad在同一个Wi-Fi？",
+      "yes": "是",
+      "no": "否",
+      "r1": "隔空投送",
+      "r2": "Finder或Apple Devices的“文件”标签",
+      "r3": "Safari里的链接，或iCloud云盘",
+      "r4": "Wi-Fi上的BIShare或LocalSend"
+    },
+    "ports": {
+      "alt": "根据Apple技术规格，当前各款iPad的接口和最高速度：iPad（A16）USB-C，USB 2，480Mb/s；iPad mini（A17 Pro）USB-C，USB 3，10Gb/s；iPad Air（M4）USB-C，USB 3，10Gb/s；iPad Pro（M5）雷雳/USB 4，40Gb/s。iPad（第9代）是闪电接口，用U盘需要转换器。",
+      "title": "每款iPad的接口有多快",
+      "sub": "接口最高速度，依据Apple技术规格，对数刻度",
+      "m0": "iPad（A16）",
+      "m1": "iPad mini（A17 Pro）",
+      "m2": "iPad Air（M4）",
+      "m3": "iPad Pro（M5）",
+      "v0": "USB 2 · 480Mb/s",
+      "v1": "USB 3 · 10Gb/s",
+      "v2": "USB 3 · 10Gb/s",
+      "v3": "雷雳 / USB 4 · 40Gb/s",
+      "foot": "iPad（第9代）：闪电接口，用U盘需要转换器"
+    }
+  }
+}

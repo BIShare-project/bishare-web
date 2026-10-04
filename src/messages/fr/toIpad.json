@@ -1,0 +1,385 @@
+{
+  "meta": {
+    "title": "Transférer des fichiers sur iPad : PC, Mac, clé USB (2026)",
+    "description": "Mettre des fichiers sur un iPad depuis un PC Windows, un Mac, un Android ou une clé USB : Finder, Apple Devices, AirDrop, iCloud Drive, dossier partagé et une app Wi-Fi gratuite."
+  },
+  "hero": {
+    "eyebrow": "Des fichiers vers l'iPad",
+    "title": "Comment transférer des fichiers sur iPad",
+    "body": "Mettre un fichier sur un iPad pose deux questions, pas une. La première est classique : comment l'envoyer depuis un PC Windows, un Mac ou un téléphone. La seconde est celle qui piège : où il doit atterrir une fois arrivé. Un PDF à lire va dans l'app Fichiers, un film pour un lecteur vidéo va dans ce lecteur, une photo va dans la photothèque, et chaque destination a sa meilleure porte d'entrée. Ce guide répond d'abord à la seconde question, puis classe huit méthodes avec les limites publiées par Apple et Microsoft, montre comment utiliser une clé USB sur n'importe quel iPad avec le débit du port de chaque modèle, et couvre le trajet retour de l'iPad vers un ordinateur. <strong>BIShare</strong> figure aussi dans la liste ; des huit méthodes, elle seule fonctionne de la même façon <strong>depuis Windows, Mac, Android et Linux vers un iPad en Wi-Fi</strong>, avec un lien chiffré dans le navigateur pour un ordinateur dans une autre pièce ou une autre ville. <highlight>Gratuit, open source, <goNoAccount>sans inscription</goNoAccount>.</highlight>",
+    "ctaPrimary": "Obtenir BIShare gratuitement",
+    "ctaSecondary": "Comment ça marche"
+  },
+  "updated": "Mis à jour en octobre 2026 · étapes issues du Guide d'utilisation de l'iPad pour iPadOS 27, des guides Apple sur le Finder et Apple Devices et des caractéristiques techniques de l'iPad",
+  "disclosure": "BIShare est notre app. Entre appareils Apple, AirDrop et le Finder sont souvent plus simples, et le classement dit quand.",
+  "quick": {
+    "title": "Comment transférer des fichiers sur un iPad ? La réponse courte",
+    "items": [
+      "<strong>Depuis un Mac ou un iPhone :</strong> utilisez AirDrop. Choisissez le fichier, touchez Partager, puis AirDrop, et sélectionnez l'iPad.",
+      "<strong>Depuis un PC Windows, sans câble :</strong> BIShare sur le PC et sur l'iPad envoie n'importe quel fichier sur le même Wi-Fi ; s'ils sont éloignés, un lien ouvert dans Safari fait l'affaire.",
+      "<strong>Dans une app précise, comme un lecteur vidéo :</strong> branchez l'iPad, ouvrez le Finder sur Mac ou Apple Devices sous Windows, choisissez Fichiers et déposez le fichier sur cette app.",
+      "<strong>Hors réseau :</strong> copiez les fichiers sur une clé USB ou une carte SD et ouvrez-la dans l'app Fichiers de l'iPad.",
+      "<strong>Depuis un téléphone Android :</strong> une app multiplateforme comme BIShare ou LocalSend, ou Quick Share sur les téléphones que Google déclare compatibles AirDrop.",
+      "<strong>Le fichier est arrivé mais ne s'ouvre pas :</strong> il est dans l'app Fichiers ; touchez Partager et envoyez-le à l'app qui lit ce format."
+    ]
+  },
+  "where": {
+    "title": "Où le fichier doit-il se retrouver sur l'iPad ?",
+    "body": "L'iPad n'a pas de dossier Téléchargements unique que toutes les apps lisent. L'endroit où un fichier doit vivre dépend de ce que vous allez en faire, et cela décide de la méthode avant même de sortir un câble.",
+    "items": {
+      "0": {
+        "h": "Documents et téléchargements : l'app Fichiers",
+        "b": "Les PDF, tableurs, archives ZIP et tout ce que vous voulez garder sous forme de fichier vont dans Fichiers, soit Sur mon iPad, soit iCloud Drive. La plupart des méthodes y déposent par défaut : AirDrop demande avec quelle app ouvrir un document, Safari enregistre dans Téléchargements, et une clé USB ou un dossier partagé se parcourent et se copient depuis Fichiers. De là, le bouton Partager transmet le fichier à l'app qui doit l'ouvrir."
+      },
+      "1": {
+        "h": "Un fichier pour une seule app : le dossier de cette app",
+        "b": "Un lecteur vidéo, une app de dessin ou une station audio gardent leur bibliothèque dans l'app. Le guide de l'iPad d'Apple limite les copies par câble aux apps qui proposent le partage de fichiers, et l'article d'assistance sur le Finder précise de ne copier que des fichiers compatibles avec l'app. Sur Mac, c'est l'onglet Fichiers du Finder ; sous Windows, l'onglet Fichiers d'Apple Devices. Beaucoup de ces apps affichent aussi leur dossier dans l'app Fichiers, ce qui permet à n'importe quelle méthode sans fil d'y déposer le fichier directement."
+      },
+      "2": {
+        "h": "Photos et vidéos pour la photothèque",
+        "b": "Les images que vous voulez dans la pellicule vont dans Photos, pas dans Fichiers. AirDrop depuis un Mac ou un iPhone les y place directement, Photos iCloud garde les photothèques identiques, et les photos arrivées dans Fichiers par une autre voie s'ajoutent avec Partager, puis Enregistrer l'image ou Enregistrer la vidéo. Une carte d'appareil photo dans un lecteur s'importe aussi directement dans Photos."
+      }
+    }
+  },
+  "methods": {
+    "title": "Huit façons de mettre des fichiers sur un iPad, classées",
+    "consLabel": "Points de vigilance :",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Le meilleur depuis Windows, Android ou Linux : tout fichier vers l'iPad en Wi-Fi",
+        "facts": "App iPad et iPhone, apps Windows, macOS et Linux, app Android, ou tout navigateur pour un lien · licence MIT · aucune limite de taille sur un même réseau · les liens contiennent 100 Go pendant 6, 12 ou 24 heures · chiffré de bout en bout · sans compte",
+        "body": "Installez BIShare sur l'iPad et sur l'ordinateur ou le téléphone qui envoie, reliez les deux au même Wi-Fi, puis choisissez les fichiers sur l'expéditeur et touchez l'iPad dans la liste des appareils à proximité. Les fichiers arrivent sur l'iPad à leur taille et dans leur format d'origine, sans rien téléverser, et cela marche <goOffline>via le partage de connexion de l'iPad lui-même sur les modèles cellulaires</goOffline> ou n'importe quel routeur sans internet. Quand l'expéditeur est ailleurs, un lien prend le relais : le fichier est scellé sur l'appareil qui l'envoie et <goTransfer>l'iPad le télécharge dans Safari</goTransfer>, sans rien installer aux deux bouts de ce trajet.",
+        "cons": "Les fichiers reçus attendent dans la boîte de réception de l'app jusqu'à ce que vous les déplaciez vers Fichiers, Photos ou une autre app. La voie directe exige l'app sur les deux appareils."
+      },
+      "1": {
+        "name": "AirDrop depuis un Mac ou un iPhone",
+        "tag": "Le meilleur entre appareils Apple",
+        "facts": "Mac, iPhone ou autre iPad · intégré · Bluetooth et Wi-Fi activés · à courte distance · aucune limite de taille annoncée · sans internet",
+        "body": "Le guide de l'iPad d'Apple cite lui-même AirDrop pour partager un fichier avec un appareil Apple à proximité. Sur Mac, cliquez sur le fichier en maintenant la touche Contrôle, choisissez Partager, puis AirDrop et l'iPad ; sur iPhone, touchez Partager, puis AirDrop. Photos et vidéos arrivent dans l'app Photos, et pour les documents l'iPad demande avec quelle app les ouvrir. C'est la méthode la plus rapide entre appareils Apple, car il n'y a rien à configurer. <goHowToAirdrop>Le guide AirDrop</goHowToAirdrop> détaille les réglages de réception.",
+        "cons": "Ne fonctionne qu'entre appareils Apple : ni PC Windows, ni téléphone Android, ni Linux. L'iPad doit être réglé pour recevoir de Contacts uniquement ou de Tout le monde pendant 10 minutes."
+      },
+      "2": {
+        "name": "Le Finder sur Mac",
+        "tag": "Le meilleur pour des fichiers destinés à une app, depuis un Mac",
+        "facts": "macOS Catalina ou ultérieur · câble USB, ou Wi-Fi après la première connexion · iPad sous la dernière version d'iPadOS · uniquement avec les apps compatibles avec le partage de fichiers",
+        "body": "Branchez l'iPad, sélectionnez-le dans la barre latérale du Finder et cliquez sur l'onglet Fichiers. L'article d'assistance d'Apple indique que la liste montre les apps capables de partager des fichiers ; faites glisser un fichier sur l'une d'elles et le Finder le copie sur l'iPad. C'est ainsi qu'un film entre dans un lecteur vidéo ou un projet dans une app de montage, sans détour par l'app Fichiers. Si la section Fichiers n'apparaît pas, aucune des apps installées ne partage de fichiers.",
+        "cons": "Seules les apps dont les développeurs ont activé le partage de fichiers apparaissent, et seuls les fichiers qu'elles savent lire doivent être copiés. macOS Mojave et antérieur passent par iTunes."
+      },
+      "3": {
+        "name": "Apple Devices sous Windows",
+        "tag": "Le meilleur pour des fichiers d'app depuis un PC Windows",
+        "facts": "Windows 10 et ultérieur · app gratuite sur le Microsoft Store · d'abord par câble, puis en Wi-Fi si vous l'activez · l'onglet Fichiers ne montre que les apps avec partage de fichiers",
+        "body": "Le guide de l'iPad d'Apple oriente les utilisateurs de Windows 10 et ultérieur vers Apple Devices. Sélectionnez l'iPad dans la barre latérale, choisissez Fichiers et faites glisser des documents depuis un dossier Windows sur une app de la liste ; la copie est immédiate et ne demande aucune synchronisation. C'est l'équivalent Windows de la méthode du Finder, pour les mêmes usages : une saison de série pour un lecteur hors ligne, un dossier de partitions pour un lecteur de musique.",
+        "cons": "Même limite : les apps sans partage de fichiers n'apparaissent pas, et rien ne va dans les dossiers propres à l'app Fichiers par ce biais. Windows 7 et antérieur passent par iTunes."
+      },
+      "4": {
+        "name": "iCloud Drive",
+        "tag": "Le meilleur quand les fichiers doivent rester à jour partout",
+        "facts": "Intégré sur Mac, iPhone et iPad · Windows via iCloud pour Windows · tout navigateur sur iCloud.com · 5 Go gratuits · même compte Apple partout · internet requis",
+        "body": "Placez le fichier dans iCloud Drive sur l'ordinateur, et il apparaît dans l'app Fichiers de l'iPad sous iCloud Drive. Sur Mac, c'est un emplacement du Finder ; sous Windows, iCloud pour Windows ajoute le dossier à l'Explorateur de fichiers ; sur un ordinateur emprunté, téléversez sur iCloud.com. Les modifications se synchronisent dans les deux sens, ce qui convient à un dossier sur lequel vous continuez de travailler depuis les deux appareils.",
+        "cons": "Les fichiers montent sur les serveurs d'Apple puis redescendent, ce qui est lent pour une grosse vidéo avec un débit montant domestique, et les 5 Go gratuits sont partagés avec les sauvegardes et les photos."
+      },
+      "5": {
+        "name": "Une clé USB ou une carte SD",
+        "tag": "Le meilleur sans réseau ni logiciel",
+        "facts": "App Fichiers · se branche sur le port USB-C de tous les iPad actuels · les modèles Lightning demandent un adaptateur · APFS, HFS+, exFAT, FAT32 ou FAT · une seule partition de données",
+        "body": "Copiez les fichiers sur une clé depuis n'importe quel ordinateur, branchez-la à l'iPad et ouvrez Fichiers : la clé apparaît sous Emplacements, et vous copiez ou ouvrez les fichiers depuis là. Le guide d'Apple liste les formats que l'iPad sait lire et précise que le support doit avoir une seule partition de données. La section sur les clés plus bas couvre les formats, l'alimentation et le débit du port de chaque modèle.",
+        "cons": "Deux allers-retours, et un disque dur peut demander sa propre alimentation. Un support à plusieurs partitions, ou en NTFS, le format par défaut des disques internes Windows, n'apparaîtra pas."
+      },
+      "6": {
+        "name": "Un dossier partagé via Se connecter au serveur",
+        "tag": "Le meilleur pour un ordinateur sur lequel rien ne peut être installé",
+        "facts": "Intégré à Windows, macOS et iPadOS · même réseau local · Fichiers › Se connecter au serveur · nom d'utilisateur et mot de passe de l'ordinateur · sans internet",
+        "body": "Partagez un dossier sur l'ordinateur, puis sur l'iPad ouvrez Fichiers, touchez le bouton Plus en haut de la barre latérale, choisissez Se connecter au serveur, tapez le nom réseau ou l'adresse IP de l'ordinateur et identifiez-vous avec le compte de cet ordinateur. Le dossier apparaît sous Partagés, et vous en copiez les fichiers comme depuis n'importe quel emplacement. Un Mac partage via Partage de fichiers dans Réglages Système ; Windows via l'onglet Partage d'un dossier. <goIphonePc>Le guide iPhone vers PC</goIphonePc> détaille le côté Windows.",
+        "cons": "Quelques minutes la première fois, et l'ordinateur doit être allumé et sur le même réseau chaque fois que vous voulez un fichier."
+      },
+      "7": {
+        "name": "E-mail, Mail Drop et services cloud",
+        "tag": "Le meilleur pour un seul fichier depuis un ordinateur qui n'est pas le vôtre",
+        "facts": "Mail Drop : jusqu'à 5 Go, lien conservé 30 jours · les apps Google Drive, OneDrive et Dropbox apparaissent dans Fichiers · compte requis · internet requis",
+        "body": "Envoyez-vous le fichier par e-mail et enregistrez la pièce jointe sur l'iPad avec Partager, puis Enregistrer dans Fichiers. Au-delà d'une pièce jointe ordinaire, Mail Drop sur Mac envoie jusqu'à 5 Go sous forme de lien valable 30 jours. Les apps cloud vont plus loin : une fois installées sur l'iPad, Google Drive, OneDrive et Dropbox apparaissent comme emplacements dans Fichiers.",
+        "cons": "Tout transite par les serveurs d'un tiers, donc on attend le téléversement et il faut un compte. Les pièces jointes ordinaires plafonnent vers 25 Mo."
+      }
+    }
+  },
+  "table": {
+    "title": "En un coup d'œil",
+    "cols": {
+      "feature": "Critère",
+      "bishare": "BIShare",
+      "airdrop": "AirDrop",
+      "cable": "Finder ou Apple Devices",
+      "icloud": "iCloud Drive",
+      "server": "Dossier partagé",
+      "drive": "Clé USB"
+    },
+    "rows": {
+      "r0": "Fonctionne depuis un PC Windows",
+      "r1": "Fonctionne depuis un téléphone Android",
+      "r2": "Tout fichier, pas seulement ceux d'une app",
+      "r3": "Fonctionne sans internet",
+      "r4": "Ni compte ni mot de passe"
+    },
+    "note": "En octobre 2026. BIShare fonctionne sous Windows, macOS, Linux, Android, iPhone et iPad et demande l'app aux deux bouts pour un transfert direct ; un lien s'ouvre dans Safari et contient jusqu'à 100 Go, conservés 6, 12 ou 24 heures. AirDrop ne fonctionne qu'entre appareils Apple. Le Finder (macOS Catalina ou ultérieur) et Apple Devices (Windows 10 ou ultérieur) ne copient que vers les apps compatibles avec le partage de fichiers. iCloud Drive exige un même compte Apple connecté des deux côtés, avec 5 Go gratuits. Un dossier partagé demande le nom d'utilisateur et le mot de passe de l'ordinateur. Une clé USB doit avoir une partition de données au format APFS, HFS+, exFAT, FAT32 ou FAT. Depuis un téléphone Android, iCloud Drive fonctionne via iCloud.com dans un navigateur, et les téléphones de la liste Quick Share de Google peuvent atteindre AirDrop."
+  },
+  "choose": {
+    "title": "Quelle méthode choisir ?",
+    "body": "Partez de l'appareil où se trouvent les fichiers, puis de l'endroit où ils doivent finir sur l'iPad.",
+    "items": {
+      "0": {
+        "h": "Depuis un PC Windows",
+        "b": "BIShare ou <goLocalsend>LocalSend</goLocalsend> sur un même Wi-Fi pour tout fichier, Apple Devices par câble pour les fichiers destinés à une app, et iCloud Drive pour les dossiers que vous modifiez des deux côtés. Une clé USB couvre le cas d'un PC hors ligne."
+      },
+      "1": {
+        "h": "Depuis un Mac",
+        "b": "AirDrop pour quelques fichiers, l'onglet Fichiers du Finder pour la bibliothèque d'une app, iCloud Drive pour tout ce que vous voulez des deux côtés. Du Mac à l'iPad, rien d'autre à installer."
+      },
+      "2": {
+        "h": "Depuis un téléphone Android",
+        "b": "AirDrop n'est pas disponible, alors utilisez une app multiplateforme sur les deux appareils. Les téléphones de la liste de Google peuvent aussi envoyer vers un iPad via Quick Share quand l'iPad est ouvert à Tout le monde pendant 10 minutes ; <goAirdropAndroid>le guide AirDrop pour Android</goAirdropAndroid> donne la liste à jour."
+      },
+      "3": {
+        "h": "Une grosse vidéo ou un dossier entier",
+        "b": "Choisissez une voie directe. Un transfert Wi-Fi, un câble vers une app ou une clé USB-C rapide déplacent des gigaoctets en quelques minutes ; une voie cloud attend d'abord le téléversement. <goLargeFiles>Envoyer de gros fichiers</goLargeFiles> compare les limites."
+      }
+    }
+  },
+  "drive": {
+    "title": "Comment utiliser une clé USB ou une carte SD sur iPad",
+    "body": "Tous les iPad sous iPadOS 27 sauf l'iPad (9e génération) ont un port USB-C, donc une clé USB-C récente se branche directement. Ce qui décide si elle apparaît, c'est le format et l'alimentation ; ce qui décide de la vitesse de copie, c'est le port.",
+    "items": {
+      "0": {
+        "h": "Branchez-la et ouvrez Fichiers",
+        "b": "Reliez la clé ou le lecteur de cartes au port de charge ; un iPad Lightning demande un adaptateur Lightning vers USB pour appareil photo ou équivalent. Dans Fichiers, touchez Explorer et cherchez le nom de la clé sous Emplacements. Copiez des fichiers sur l'iPad en les touchant longuement puis en choisissant Copier ou Déplacer, ou faites-les glisser dans une seconde fenêtre."
+      },
+      "1": {
+        "h": "Utilisez un format lisible par l'iPad",
+        "b": "Le guide d'Apple liste APFS, APFS chiffré, Mac OS étendu (HFS+), exFAT, FAT32 et FAT, sur un support à une seule partition de données. Pour une clé partagée avec Windows, exFAT est le choix sûr. Un iPad USB-C peut reformater lui-même une clé : touchez longuement son nom sous Emplacements et touchez Effacer, ce qui supprime tout son contenu."
+      },
+      "2": {
+        "h": "Alimentez un disque dur",
+        "b": "Apple note que les disques durs externes ont souvent besoin de leur propre alimentation avec un iPad. Un disque mécanique qui n'apparaît pas fonctionne généralement via un hub USB alimenté ; une clé USB-C ou un SSD se contente d'ordinaire de l'iPad."
+      },
+      "3": {
+        "h": "Connaissez le port de votre modèle",
+        "b": "D'après les caractéristiques d'Apple : l'iPad (A16) fait tourner son port USB-C en USB 2, jusqu'à 480 Mb/s ; l'iPad mini (A17 Pro) et l'iPad Air (M4) en USB 3, jusqu'à 10 Gb/s ; l'iPad Pro (M5) en Thunderbolt / USB 4 jusqu'à 40 Gb/s. Une clé rapide sur l'iPad d'entrée de gamme copie toujours à la vitesse de l'USB 2."
+      }
+    }
+  },
+  "reverse": {
+    "title": "Dans l'autre sens : de l'iPad vers l'ordinateur",
+    "body": "Sortir des fichiers d'un iPad passe par les mêmes voies, et le fichier part en général de Fichiers ou du dossier d'une app.",
+    "items": {
+      "0": {
+        "h": "Vers un PC Windows",
+        "b": "Envoyez-le avec BIShare de l'iPad au PC sur le même Wi-Fi, ou branchez un câble, ouvrez Apple Devices et faites-le glisser depuis la liste d'une app sous Fichiers vers un dossier. Les photos sortent par câble avec Importer dans l'app Photos de Windows ; <goIphonePhotos>le guide photos</goIphonePhotos> détaille la marche à suivre."
+      },
+      "1": {
+        "h": "Vers un Mac",
+        "b": "AirDrop depuis le bouton Partager envoie vers un Mac à proximité. L'onglet Fichiers du Finder copie les documents d'une app dans l'autre sens quand vous les faites glisser de l'app vers un dossier."
+      },
+      "2": {
+        "h": "Vers n'importe quel ordinateur, sans app",
+        "b": "Copiez les fichiers sur une clé USB dans Fichiers, ou dans un dossier partagé de l'ordinateur via Se connecter au serveur. Ni internet ni cloud n'entrent en jeu."
+      },
+      "3": {
+        "h": "Vers quelqu'un d'autre",
+        "b": "Créez un lien BIShare sur l'iPad : le destinataire l'ouvre dans n'importe quel navigateur, sur n'importe quel ordinateur, sans rien installer, jusqu'à 100 Go."
+      }
+    }
+  },
+  "steps": {
+    "title": "Envoyer des fichiers vers un iPad avec BIShare",
+    "items": {
+      "0": {
+        "h": "Installez-le sur les deux appareils",
+        "b": "Prenez BIShare sur l'iPad dans l'App Store, et sur l'appareil qui envoie dans sa propre boutique : Microsoft Store, Mac App Store ou Google Play, ou le téléchargement Linux. Reliez les deux au même Wi-Fi et, sur l'iPad, autorisez l'accès au réseau local quand iPadOS le demande."
+      },
+      "1": {
+        "h": "Choisissez les fichiers sur l'appareil expéditeur",
+        "b": "Sélectionnez des documents, des vidéos ou des dossiers entiers sur l'ordinateur ou le téléphone, puis choisissez l'iPad parmi les appareils à proximité. Acceptez sur l'iPad, et les fichiers arrivent tels qu'envoyés, <blogPhotos>en taille réelle et dans leur format d'origine</blogPhotos>."
+      },
+      "2": {
+        "h": "Rangez-les au bon endroit",
+        "b": "Ouvrez les fichiers reçus sur l'iPad et enregistrez-les dans Fichiers, ajoutez les photos à la photothèque, ou touchez Partager pour confier un fichier à l'app qui s'en servira. Pour un expéditeur ailleurs, créez un lien et ouvrez-le dans Safari sur l'iPad avant son expiration."
+      }
+    }
+  },
+  "speed": {
+    "title": "Combien de temps ça prend ?",
+    "body": "Trois facteurs fixent la durée : le maillon le plus lent entre les deux appareils, le passage ou non par un serveur, et, pour un câble ou une clé, le port de l'iPad.",
+    "items": {
+      "0": {
+        "h": "Par câble ou clé USB",
+        "b": "Le port de l'iPad fixe le plafond. En USB 2 sur l'iPad (A16), un film de 4 Go prend environ une minute et demie dans le meilleur des cas ; à 10 Gb/s sur un iPad Air ou mini, c'est en général la clé elle-même qui limite."
+      },
+      "1": {
+        "h": "En Wi-Fi entre appareils",
+        "b": "Un transfert direct va à la vitesse du réseau local. Lors de nos tests, le Wi-Fi 5 donne 40 à 50 Mo/s entre appareils et le Wi-Fi 6 donne 70 à 110, si bien que le même film de 4 Go est sur l'iPad en une ou deux minutes. <goWifiTransfer>Notre guide du transfert Wi-Fi</goWifiTransfer> détaille les chiffres."
+      },
+      "2": {
+        "h": "Par un cloud",
+        "b": "iCloud Drive, Mail Drop et les services cloud exigent un téléversement complet avant que l'iPad puisse télécharger quoi que ce soit. Avec 40 Mbit/s en montant, le film de 4 Go met environ un quart d'heure rien que pour monter, avant même le début du téléchargement."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Quand le fichier n'arrive pas",
+    "items": {
+      "0": {
+        "h": "L'iPad n'apparaît pas dans le Finder ou Apple Devices",
+        "b": "Déverrouillez l'iPad et touchez Se fier quand il interroge sur l'ordinateur. Essayez un autre câble, car certains ne font que charger, et mettez l'iPad à jour vers la dernière version d'iPadOS, que l'article d'Apple sur le Finder cite comme condition."
+      },
+      "1": {
+        "h": "Pas d'onglet Fichiers, ou l'app n'y figure pas",
+        "b": "Seules les apps compatibles avec le partage de fichiers sont listées, et l'onglet disparaît quand aucune app installée ne l'est. Envoyez plutôt le fichier dans l'app Fichiers, puis utilisez Partager dans Fichiers pour le passer à l'app."
+      },
+      "2": {
+        "h": "La clé USB n'apparaît pas sous Emplacements",
+        "b": "Vérifiez qu'elle n'a qu'une partition de données et un format pris en charge ; le NTFS, format de la plupart des disques Windows, n'est pas dans la liste d'Apple. Reformatez-la en exFAT sur un ordinateur, ou alimentez un disque dur via un hub."
+      },
+      "3": {
+        "h": "L'iPad n'apparaît pas dans AirDrop",
+        "b": "Réveillez l'iPad, activez le Wi-Fi et le Bluetooth, et réglez AirDrop sur Tout le monde pendant 10 minutes dans le Centre de contrôle ou dans Réglages, Général, AirDrop. <goAirdropFix>Le guide de dépannage AirDrop</goAirdropFix> couvre le reste."
+      },
+      "4": {
+        "h": "Le fichier est arrivé mais rien ne l'ouvre",
+        "b": "L'iPad n'a pas encore d'app pour ce format. Installez-en une qui le lit, puis ouvrez Fichiers, touchez longuement le fichier et choisissez Partager pour l'y envoyer."
+      },
+      "5": {
+        "h": "L'espace manque",
+        "b": "Regardez Réglages, Général, Stockage iPad. Un film peut rester sur une clé USB et se lire depuis Fichiers, sans jamais être copié sur l'iPad."
+      }
+    }
+  },
+  "security": {
+    "title": "Qui garde une copie en chemin ?",
+    "body": "Ce n'est pas la vitesse qui distingue vraiment ces méthodes. Ce qui change, c'est quelles entreprises, s'il y en a, détiennent votre fichier pendant le trajet.",
+    "items": {
+      "0": {
+        "h": "AirDrop, câble, clé USB et dossier partagé",
+        "b": "Le fichier reste entre vos propres appareils. Apple chiffre les transferts AirDrop, et un câble ou une clé ne touchent jamais un réseau. Un dossier partagé est ouvert à toute personne du réseau qui connaît le mot de passe de l'ordinateur, alors arrêtez le partage une fois terminé."
+      },
+      "1": {
+        "h": "iCloud Drive, Mail Drop et services cloud",
+        "b": "Le fournisseur conserve une copie dans votre compte, protégée en transit et au repos, jusqu'à ce que vous la supprimiez ; un lien Mail Drop expire tout seul au bout de 30 jours."
+      },
+      "2": {
+        "h": "BIShare",
+        "b": "Sur un même réseau, les fichiers passent directement de l'expéditeur à l'iPad, chiffrés de bout en bout, sans serveur au milieu. <goEncrypted>Un lien est scellé sur l'appareil expéditeur avant l'envoi</goEncrypted>, et la clé voyage dans le lien, si bien que le serveur ne garde que du texte chiffré et l'efface à l'expiration."
+      }
+    }
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": {
+      "0": {
+        "q": "Comment transférer des fichiers sur un iPad ?",
+        "a": "Depuis un Mac ou un iPhone, utilisez AirDrop. Depuis un PC Windows, BIShare en Wi-Fi envoie n'importe quel fichier ; Apple Devices par câble convient aux fichiers d'app, et iCloud Drive aussi. Sans réseau, copiez les fichiers sur une clé USB et ouvrez-la dans l'app Fichiers."
+      },
+      "1": {
+        "q": "Comment mettre des fichiers sur un iPad depuis un PC sans iTunes ?",
+        "a": "Sous Windows 10 et ultérieur, Apple Devices remplace iTunes pour cela : branchez l'iPad, choisissez Fichiers et faites glisser des documents sur une app. Les voies sans fil comme BIShare, iCloud Drive ou un dossier partagé ne demandent ni l'un ni l'autre."
+      },
+      "2": {
+        "q": "Comment envoyer des fichiers d'un Mac vers un iPad ?",
+        "a": "AirDrop est le plus rapide : Contrôle-clic sur le fichier, Partager, puis AirDrop et l'iPad. Pour des fichiers destinés à une app, branchez l'iPad, sélectionnez-le dans le Finder et utilisez l'onglet Fichiers."
+      },
+      "3": {
+        "q": "Peut-on transférer des fichiers sur un iPad sans fil ?",
+        "a": "Oui. AirDrop marche depuis les appareils Apple, et BIShare ou LocalSend depuis Windows, Android et Linux sur le même Wi-Fi. iCloud Drive et un lien dans Safari couvrent les appareils éloignés."
+      },
+      "4": {
+        "q": "Comment utiliser une clé USB sur un iPad ?",
+        "a": "Branchez-la sur le port USB-C, ou via un adaptateur sur un iPad Lightning, puis ouvrez Fichiers et regardez sous Emplacements. La clé doit avoir une partition de données au format APFS, HFS+, exFAT, FAT32 ou FAT."
+      },
+      "5": {
+        "q": "Où vont les fichiers transférés sur un iPad ?",
+        "a": "Les documents arrivent en général dans l'app Fichiers, sous Sur mon iPad, iCloud Drive ou Téléchargements. Les fichiers envoyés via le Finder ou Apple Devices vont dans l'app choisie, et les photos reçues par AirDrop vont dans la photothèque."
+      },
+      "6": {
+        "q": "Comment mettre des films sur un iPad pour les regarder hors ligne ?",
+        "a": "Installez un lecteur vidéo compatible avec le partage de fichiers, branchez l'iPad et déposez le film sur cette app dans le Finder ou Apple Devices. Un transfert Wi-Fi vers Fichiers marche aussi, ou gardez le film sur une clé USB et lisez-le depuis là."
+      },
+      "7": {
+        "q": "Comment transférer des fichiers d'Android vers un iPad ?",
+        "a": "Utilisez une app multiplateforme sur les deux appareils, comme BIShare ou LocalSend, sur le même Wi-Fi. Les téléphones de la liste Quick Share de Google peuvent aussi envoyer vers un iPad réglé sur Tout le monde pendant 10 minutes."
+      },
+      "8": {
+        "q": "Quel est le moyen le plus rapide de mettre de gros fichiers sur un iPad ?",
+        "a": "Rester en local : le Wi-Fi entre appareils a atteint 70 à 110 Mo/s en Wi-Fi 6 lors de nos mesures, et une clé rapide sur le port Thunderbolt d'un iPad Pro va plus vite encore. Une voie cloud est freinée par votre débit montant."
+      },
+      "9": {
+        "q": "Comment transférer des fichiers d'un iPad vers un PC ?",
+        "a": "Envoyez-les avec BIShare en Wi-Fi, faites-les glisser depuis une app dans Apple Devices par câble, ou copiez-les sur une clé USB dans Fichiers. Pour les photos, l'app Photos de Windows les importe par câble."
+      },
+      "10": {
+        "q": "Pourquoi mon iPad ne voit-il pas ma clé USB ?",
+        "a": "Le plus souvent à cause du format : le NTFS n'est pas pris en charge, reformatez donc en exFAT. Une clé à plusieurs partitions n'apparaît pas non plus, et un disque dur peut demander un hub alimenté."
+      }
+    }
+  },
+  "cta": {
+    "title": "Envoyez tout vers votre iPad, depuis n'importe quel ordinateur",
+    "body": "Gratuit et open source. Des transferts Wi-Fi en taille réelle depuis Windows, Mac, Linux ou Android, ou un lien chiffré qui s'ouvre dans Safari.",
+    "download": "Télécharger BIShare"
+  },
+  "a11y": {
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un portable Windows envoie des documents vers un iPad, avec le titre comment transférer des fichiers sur iPad, huit méthodes pour 2026.",
+      "title": "Transférer des fichiers sur iPad",
+      "sub": "Depuis un PC, un Mac ou un téléphone : 8 méthodes pour 2026",
+      "left": "PC Windows",
+      "right": "iPad"
+    },
+    "where": {
+      "alt": "Où un fichier doit finir sur un iPad et la meilleure voie d'entrée : documents et téléchargements dans l'app Fichiers, via Wi-Fi, AirDrop ou une clé USB ; un fichier pour une app dans le dossier de cette app via le Finder ou Apple Devices ; photos et vidéos dans la photothèque via AirDrop, Photos iCloud ou Enregistrer l'image.",
+      "title": "Décidez d'abord où le fichier atterrit",
+      "sub": "Trois endroits sur l'iPad, chacun avec sa propre porte d'entrée",
+      "c0": "Documents et téléchargements",
+      "c1": "Un fichier pour une app",
+      "c2": "Photos et vidéos",
+      "lands": "Atterrit dans",
+      "l0": "App Fichiers",
+      "l1": "Le dossier de l'app",
+      "l2": "Photothèque",
+      "way": "Meilleure voie d'entrée",
+      "w0": "App Wi-Fi, AirDrop, clé USB",
+      "w1": "Finder ou Apple Devices",
+      "w2": "AirDrop, Photos iCloud"
+    },
+    "routes": {
+      "alt": "Choisir une voie vers l'iPad en trois questions : depuis un Mac ou un iPhone, AirDrop ; si le fichier va dans une app, le Finder sur Mac ou Apple Devices sous Windows ; si les deux sont sur des réseaux différents, un lien dans Safari ou iCloud Drive ; sinon BIShare ou LocalSend en Wi-Fi.",
+      "title": "Choisir une voie en trois questions",
+      "sub": "D'où vous envoyez, où va le fichier, et si vous êtes sur un même réseau",
+      "q1": "Envoi depuis un Mac ou un iPhone ?",
+      "q2": "Destiné à une seule app ?",
+      "q3": "Sur le même Wi-Fi que l'iPad ?",
+      "yes": "Oui",
+      "no": "Non",
+      "r1": "AirDrop",
+      "r2": "Finder ou Apple Devices, onglet Fichiers",
+      "r3": "Un lien dans Safari, ou iCloud Drive",
+      "r4": "BIShare ou LocalSend en Wi-Fi"
+    },
+    "ports": {
+      "alt": "Le port de chaque iPad actuel et son débit maximal selon les caractéristiques d'Apple : iPad (A16) USB-C en USB 2, 480 Mb/s ; iPad mini (A17 Pro) USB-C en USB 3, 10 Gb/s ; iPad Air (M4) USB-C en USB 3, 10 Gb/s ; iPad Pro (M5) Thunderbolt / USB 4, 40 Gb/s. L'iPad (9e génération) a un port Lightning et demande un adaptateur pour une clé USB.",
+      "title": "La vitesse du port de chaque iPad",
+      "sub": "Débit maximal du port, selon les caractéristiques techniques d'Apple, échelle logarithmique",
+      "m0": "iPad (A16)",
+      "m1": "iPad mini (A17 Pro)",
+      "m2": "iPad Air (M4)",
+      "m3": "iPad Pro (M5)",
+      "v0": "USB 2 · 480 Mb/s",
+      "v1": "USB 3 · 10 Gb/s",
+      "v2": "USB 3 · 10 Gb/s",
+      "v3": "Thunderbolt / USB 4 · 40 Gb/s",
+      "foot": "iPad (9e génération) : port Lightning, adaptateur nécessaire pour une clé USB"
+    }
+  }
+}

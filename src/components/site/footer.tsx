@@ -50,6 +50,7 @@ const COLUMNS: Array<{
         { labelKey: "ucPcToPc", href: "/transfer-files-between-computers" },
         { labelKey: "ucPhotos", href: "/transfer-photos-from-iphone-to-pc" },
         { labelKey: "ucIphonePc", href: "/transfer-files-iphone-to-pc" },
+        { labelKey: "ucIpad", href: "/transfer-files-to-ipad" },
         { labelKey: "ucLargeFiles", href: "/send-large-files" },
         { labelKey: "ucOffline", href: "/send-files-without-internet" },
         { labelKey: "ucWifiTransfer", href: "/wifi-file-transfer" },
