@@ -66,6 +66,7 @@ const NAMESPACES = [
   "bestApps",
   "localsendAlt",
   "photosIphonePc",
+  "iphoneToPc",
   "airdropFix",
   "airdropOnline",
   "howToAirdrop",

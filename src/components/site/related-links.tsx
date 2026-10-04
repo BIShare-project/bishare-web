@@ -12,7 +12,7 @@ import { ArrowUpRight } from "lucide-react";
 
 // slug (without leading slash) → curated related siblings.
 const CLUSTER: Record<string, string[]> = {
-  "airdrop-for-windows": ["airdrop-not-working", "airdrop-alternative", "airdrop-online", "share-files-mac-to-windows", "transfer-photos-from-iphone-to-pc"],
+  "airdrop-for-windows": ["airdrop-not-working", "airdrop-alternative", "airdrop-online", "share-files-mac-to-windows", "transfer-files-iphone-to-pc", "transfer-photos-from-iphone-to-pc"],
   "airdrop-for-android": ["how-to-airdrop", "airdrop-alternative", "airdrop-for-windows", "send-files-iphone-to-android", "nearby-share-alternative"],
   "airdrop-alternative": ["airdrop-not-working", "airdrop-online", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android", "best-file-sharing-app", "localsend-alternative"],
   "wetransfer-alternative": ["send-large-files", "firefox-send-alternative", "smash-alternative", "share-files-without-account"],
@@ -23,7 +23,7 @@ const CLUSTER: Record<string, string[]> = {
   "send-files-iphone-to-android": ["send-files-android-to-iphone", "airdrop-alternative", "airdrop-for-android", "transfer-files-pc-to-phone"],
   "send-files-android-to-iphone": ["send-files-iphone-to-android", "airdrop-for-android", "nearby-share-alternative", "airdrop-alternative"],
   "transfer-files-pc-to-phone": ["transfer-files-phone-to-pc", "share-files-mac-to-windows", "send-large-files", "airdrop-for-windows"],
-  "transfer-files-phone-to-pc": ["transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-pc-to-phone", "share-files-mac-to-windows", "wifi-file-transfer"],
+  "transfer-files-phone-to-pc": ["transfer-files-iphone-to-pc", "transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-pc-to-phone", "share-files-mac-to-windows", "wifi-file-transfer"],
   "share-files-mac-to-windows": ["transfer-files-between-computers", "airdrop-for-windows", "transfer-files-pc-to-phone", "send-large-files"],
   "send-large-files": ["wetransfer-alternative", "send-files-without-internet", "encrypted-file-transfer", "share-files-without-account"],
   // New: encrypted / competitor pages.
@@ -39,7 +39,9 @@ const CLUSTER: Record<string, string[]> = {
   "wifi-file-transfer": ["send-files-without-internet", "airdrop-online", "transfer-files-phone-to-pc", "transfer-files-between-computers", "localsend-alternative", "send-large-files"],
   // Best-of guide + LocalSend cluster.
   // Photo, troubleshooting, and desktop↔desktop pages.
-  "transfer-photos-from-iphone-to-pc": ["transfer-files-phone-to-pc", "airdrop-for-windows", "send-files-iphone-to-android", "send-large-files"],
+  "transfer-photos-from-iphone-to-pc": ["transfer-files-iphone-to-pc", "transfer-files-phone-to-pc", "airdrop-for-windows", "send-files-iphone-to-android", "send-large-files"],
+  // Any file, not only photos: the twin of the photos page.
+  "transfer-files-iphone-to-pc": ["transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-phone-to-pc", "transfer-files-pc-to-phone", "wifi-file-transfer", "send-large-files"],
   "airdrop-not-working": ["how-to-airdrop", "airdrop-alternative", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android"],
   // The how-to: teaches AirDrop itself, then hands over to the pages for what it cannot reach.
   "how-to-airdrop": ["airdrop-not-working", "airdrop-for-android", "airdrop-for-windows", "airdrop-alternative", "airdrop-online"],

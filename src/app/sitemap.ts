@@ -38,6 +38,7 @@ const ROUTES: Array<{
   { path: "/wormhole-alternative", priority: 0.9, changeFrequency: "monthly" },
   { path: "/send-files-without-internet", priority: 0.9, changeFrequency: "monthly" },
   { path: "/transfer-photos-from-iphone-to-pc", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/transfer-files-iphone-to-pc", priority: 0.9, changeFrequency: "monthly" },
   { path: "/airdrop-not-working", priority: 0.9, changeFrequency: "monthly" },
   { path: "/airdrop-online", priority: 0.9, changeFrequency: "monthly" },
   { path: "/how-to-airdrop", priority: 0.9, changeFrequency: "monthly" },
