@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { GridBackdrop } from "@/components/site/grid-backdrop";
 import { Section, SectionHeading } from "@/components/site/section";
-import { FadeUp, RevealBlur } from "@/components/site/motion";
+import { FadeUp } from "@/components/site/motion";
 import { SpotlightCard } from "@/components/site/spotlight-card";
 import { TagBadge } from "@/components/site/status-pill";
 import { Beam } from "@/components/site/beam";
@@ -28,6 +28,7 @@ import {
   ChevronDown,
   ArrowRight,
 } from "lucide-react";
+import { HeroRise } from "@/components/site/hero-rise";
 
 export async function generateMetadata({
   params,
@@ -102,7 +103,7 @@ export default async function HowItWorksPage({
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
-            <RevealBlur>
+            <HeroRise>
               <p className="mb-5 flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                 <span
                   className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -116,7 +117,7 @@ export default async function HowItWorksPage({
               <p className="text-lg text-muted-foreground max-w-xl mx-auto mt-5 leading-relaxed text-balance">
                 {t("hero.sub")}
               </p>
-            </RevealBlur>
+            </HeroRise>
           </div>
         </section>
 

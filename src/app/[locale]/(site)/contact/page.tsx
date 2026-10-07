@@ -13,6 +13,7 @@ import { SpotlightCard } from "@/components/site/spotlight-card";
 import { StatusPill } from "@/components/site/status-pill";
 import { sharedOpenGraph } from "@/lib/og";
 import { ContactForm } from "./contact-form";
+import { HeroRise } from "@/components/site/hero-rise";
 
 const SUPPORT_EMAIL = "support@billiongroup.net";
 
@@ -72,7 +73,7 @@ export default async function ContactPage({
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="mx-auto max-w-3xl px-6 pt-16 pb-12 text-center md:pt-24 md:pb-16">
-            <FadeUp y={16}>
+            <HeroRise>
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background-raised px-3 py-1 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                 <span
                   className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -91,7 +92,7 @@ export default async function ContactPage({
                   {t("hero.statusPill")}
                 </StatusPill>
               </div>
-            </FadeUp>
+            </HeroRise>
           </div>
         </section>
 

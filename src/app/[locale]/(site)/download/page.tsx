@@ -5,7 +5,7 @@ import type { LucideIcon } from "lucide-react";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { Section, SectionHeading } from "@/components/site/section";
-import { FadeUp, RevealBlur } from "@/components/site/motion";
+import { FadeUp } from "@/components/site/motion";
 import { GradientBorderCard } from "@/components/site/gradient-border-card";
 import { QRDisplay } from "@/components/site/qr-display";
 import { GridBackdrop } from "@/components/site/grid-backdrop";
@@ -34,6 +34,7 @@ import {
   TabletSmartphone,
   Terminal,
 } from "lucide-react";
+import { HeroRise } from "@/components/site/hero-rise";
 
 /** Translator bound to the "download" namespace. */
 type T = Awaited<ReturnType<typeof getTranslations>>;
@@ -213,7 +214,7 @@ export default async function DownloadPage({
           <GridBackdrop pattern="dots" />
           <div className="mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pb-16 pt-16 md:pt-24 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10 lg:pb-24">
             <div>
-              <RevealBlur>
+              <HeroRise>
                 <p className="mb-4 flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                   <span
                     className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -227,7 +228,7 @@ export default async function DownloadPage({
                 <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground text-balance">
                   {t("hero.sub")}
                 </p>
-              </RevealBlur>
+              </HeroRise>
               <FadeUp delay={0.15} className="mt-9">
                 <DownloadHero />
                 <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">

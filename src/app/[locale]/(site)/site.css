@@ -1367,16 +1367,16 @@
     transform: translateX(-50%);
   }
 }
+/* Movement only, never opacity or blur: an element that starts at opacity 0
+   is not a Largest Contentful Paint candidate until it turns visible, so the
+   home <h1> lost LCP to whatever painted later (the idle-time cookie notice,
+   the lazy transfer studio) and field LCP landed seconds after first paint. */
 @keyframes hero-rise {
   from {
-    opacity: 0;
-    transform: translateY(24px);
-    filter: blur(10px);
+    transform: translateY(14px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
-    filter: blur(0px);
   }
 }
 @keyframes pulse-dot {

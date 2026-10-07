@@ -5,12 +5,13 @@ import { Link } from "@/i18n/navigation";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { Section } from "@/components/site/section";
-import { FadeUp, RevealBlur } from "@/components/site/motion";
+import { FadeUp } from "@/components/site/motion";
 import { VButton } from "@/components/site/vbutton";
 import { WebQuickCta } from "@/components/site/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { FAQ_GROUPS } from "./faq-data";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { HeroRise } from "@/components/site/hero-rise";
 
 const SUPPORT_EMAIL = "support@billiongroup.net";
 
@@ -108,7 +109,7 @@ export default async function FaqPage({
         {/* Hero */}
         <section className="relative border-b border-border">
           <div className="mx-auto max-w-7xl px-6 pb-10 pt-16 text-center md:pt-24">
-            <RevealBlur>
+            <HeroRise>
               <p className="mb-5 inline-flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                 <span
                   className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -142,7 +143,7 @@ export default async function FaqPage({
                   ))}
                 </ul>
               </nav>
-            </RevealBlur>
+            </HeroRise>
           </div>
         </section>
 

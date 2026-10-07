@@ -19,6 +19,7 @@ import { RelatedLinks } from "@/components/site/related-links";
 import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
 import { Check } from "lucide-react";
+import { HeroRise } from "@/components/site/hero-rise";
 
 export async function generateMetadata({
   params,
@@ -88,7 +89,7 @@ export default async function PricingPage({
       <SiteHeader />
       <main>
         <Section className="border-b border-border pt-24 pb-16 text-center">
-          <FadeUp>
+          <HeroRise>
             <p className="mb-5 inline-flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue" aria-hidden />
               {t("eyebrow")}
@@ -99,7 +100,7 @@ export default async function PricingPage({
             <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
               {t("description")}
             </p>
-          </FadeUp>
+          </HeroRise>
         </Section>
 
         <Section className="pb-14">

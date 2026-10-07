@@ -3,7 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { ArrowRight, Globe, Mail, MessageSquare } from "lucide-react";
 import { GridBackdrop } from "@/components/site/grid-backdrop";
-import { FadeUp } from "@/components/site/motion";
+import { HeroRise } from "@/components/site/hero-rise";
 import type { TocItem } from "./legal-toc";
 
 /**
@@ -28,7 +28,7 @@ export function LegalHero({
     <section className="relative isolate overflow-hidden border-b border-border">
       <GridBackdrop pattern="lines" />
       <div className="mx-auto w-full max-w-6xl px-6 pt-16 pb-12 md:pt-24 md:pb-16">
-        <FadeUp y={16}>
+        <HeroRise>
           <p className="mb-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue" aria-hidden />
             {badge}
@@ -46,7 +46,7 @@ export function LegalHero({
               </span>
             ))}
           </div>
-        </FadeUp>
+        </HeroRise>
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ import type { LucideIcon } from "lucide-react";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { Section, SectionHeading } from "@/components/site/section";
-import { FadeUp, RevealBlur } from "@/components/site/motion";
+import { FadeUp } from "@/components/site/motion";
 import { Beam } from "@/components/site/beam";
 import {
   IconTile,
@@ -45,6 +45,7 @@ import {
   FileUp,
   KeyRound,
 } from "lucide-react";
+import { HeroRise } from "@/components/site/hero-rise";
 
 export async function generateMetadata({
   params,
@@ -462,7 +463,7 @@ export default async function FeaturesPage({
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
-            <RevealBlur>
+            <HeroRise>
               <p className="mb-5 flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                 <span
                   className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -476,7 +477,7 @@ export default async function FeaturesPage({
               <p className="text-lg text-muted-foreground max-w-xl mx-auto mt-5 leading-relaxed">
                 {t("hero.subtitle")}
               </p>
-            </RevealBlur>
+            </HeroRise>
           </div>
         </section>
 

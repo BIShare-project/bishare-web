@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
 import { GridBackdrop } from "@/components/site/grid-backdrop";
 import { Section, SectionHeading } from "@/components/site/section";
-import { FadeUp, RevealBlur } from "@/components/site/motion";
+import { FadeUp } from "@/components/site/motion";
 import { GlassCard } from "@/components/site/glass-card";
 import { GradientBorderCard } from "@/components/site/gradient-border-card";
 import { SpotlightCard } from "@/components/site/spotlight-card";
@@ -24,6 +24,7 @@ import {
   EyeOff,
   ArrowRight,
 } from "lucide-react";
+import { HeroRise } from "@/components/site/hero-rise";
 
 export async function generateMetadata({
   params,
@@ -156,7 +157,7 @@ export default async function PhilosophyPage({
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
-            <RevealBlur>
+            <HeroRise>
               <div className="mb-8 inline-block">
                 <AppIcon
                   id="hero"
@@ -184,7 +185,7 @@ export default async function PhilosophyPage({
                 <FeaturePill icon={Lock}>{t("hero.pills.private")}</FeaturePill>
                 <FeaturePill icon={Zap}>{t("hero.pills.instant")}</FeaturePill>
               </div>
-            </RevealBlur>
+            </HeroRise>
           </div>
         </section>
 
