@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Transferência de arquivos criptografada",
     "title": "Transferência de arquivos criptografada, bem explicada",
-    "body": "Quase todo serviço de envio de arquivos diz hoje que é criptografado, e quase todos falam a verdade sobre alguma coisa. A questão é sobre o quê. Um link pode estar protegido por HTTPS até o servidor, ficar criptografado num disco que o provedor consegue abrir ou ser trancado no seu aparelho com uma chave que o provedor nunca vê. Só a última opção mantém longe do seu arquivo a própria empresa, quem a invadir e quem puder obrigá-la a entregar. Este guia separa os três tipos de criptografia, dá um teste para diferenciá-los em qualquer serviço em um minuto, classifica sete formas de enviar um arquivo que o intermediário não consegue ler e é honesto sobre o que a criptografia não esconde, inclusive no nosso produto. O nosso <strong>BIShare</strong> está entre os sete: <strong>gratuito e com licença MIT, criptografa links no navegador com AES-256-GCM e envia de aparelho a aparelho com chaves combinadas entre os dois aparelhos</strong>. <highlight><goNoAccount>Sem conta</goNoAccount>.</highlight>",
+    "body": "Quase todo serviço de envio de arquivos diz hoje que é criptografado, e quase todos falam a verdade sobre alguma coisa. A questão é sobre o quê. Um link pode estar protegido por HTTPS até o servidor, ficar criptografado num disco que o provedor consegue abrir ou ser trancado no seu aparelho com uma chave que o provedor nunca vê. Só a última opção mantém longe do seu arquivo a própria empresa, quem a invadir e quem puder obrigá-la a entregar. Este guia separa os três tipos de criptografia, dá um teste para diferenciá-los em qualquer serviço em um minuto, classifica sete formas de enviar um arquivo que o intermediário não consegue ler e é honesto sobre o que a criptografia não esconde, inclusive no nosso produto. O nosso <strong>BIShare</strong> está entre os sete: <strong>gratuito e com licença Apache 2.0, criptografa links no navegador com AES-256-GCM e envia de aparelho a aparelho com chaves combinadas entre os dois aparelhos</strong>. <highlight><goNoAccount>Sem conta</goNoAccount>.</highlight>",
     "ctaPrimary": "Baixe o BIShare grátis",
     "ctaSecondary": "Como funciona"
   },
@@ -79,7 +79,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Melhor no geral: links criptografados no navegador e envios diretos entre aparelhos",
-        "facts": "Navegador em bishare.app, apps para Android, iPhone, Windows, macOS, Linux · MIT · links: AES-256-GCM no navegador, chave depois de #k= na URL, até 100 GB por 6, 12 ou 24 horas · direto: acordo de chaves X25519, HKDF-SHA256, AES-256-GCM · sem conta",
+        "facts": "Navegador em bishare.app, apps para Android, iPhone, Windows, macOS, Linux · Apache 2.0 · links: AES-256-GCM no navegador, chave depois de #k= na URL, até 100 GB por 6, 12 ou 24 horas · direto: acordo de chaves X25519, HKDF-SHA256, AES-256-GCM · sem conta",
         "body": "O BIShare cobre os dois jeitos de enviar arquivos. Para um link, o navegador ou app gera uma chave aleatória de 256 bits, criptografa o arquivo em blocos de 1 MiB com AES-GCM, sobe só texto cifrado e coloca a chave no fragmento do link, que nunca chega ao servidor. Para aparelhos próximos, os apps combinam uma chave com X25519, derivam com HKDF-SHA256 e criptografam cada bloco com AES-256-GCM, e cada aparelho mostra uma impressão digital curta para comparar. A criptografia está numa biblioteca Rust pública.",
         "cons": "Nomes e tamanhos de arquivos enviados por link ficam visíveis ao servidor, o código do protocolo ainda não passou por auditoria externa formal e os links expiram em 6, 12 ou 24 horas."
       },
@@ -307,7 +307,7 @@
       },
       "9": {
         "q": "O BIShare é gratuito?",
-        "a": "Sim. Não custa nada, o código é publicado sob MIT e ele funciona sem cadastro nem anúncios."
+        "a": "Sim. Não custa nada, o código é publicado sob Apache 2.0 e ele funciona sem cadastro nem anúncios."
       }
     }
   },

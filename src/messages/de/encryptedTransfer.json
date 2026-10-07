@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Verschlüsselte Dateiübertragung",
     "title": "Verschlüsselte Dateiübertragung, richtig erklärt",
-    "body": "Fast jeder Dateiübertragungsdienst nennt sich inzwischen verschlüsselt, und fast alle sagen damit über irgendetwas die Wahrheit. Die Frage ist, worüber. Ein Link kann auf dem Weg zum Server per HTTPS geschützt sein, verschlüsselt auf einer Festplatte liegen, die der Anbieter öffnen kann, oder auf Ihrem Gerät mit einem Schlüssel verschlossen werden, den der Anbieter nie sieht. Nur die letzte Variante hält das Unternehmen selbst, jeden, der es hackt, und jeden, der es zur Herausgabe zwingen kann, von Ihrer Datei fern. Dieser Ratgeber trennt die drei Arten der Verschlüsselung, gibt Ihnen einen Test, mit dem Sie sie bei jedem Dienst in einer Minute unterscheiden, bewertet sieben Wege, eine Datei zu senden, die der Transporteur nicht lesen kann, und sagt ehrlich, was Verschlüsselung nicht verbirgt, auch bei unserem eigenen Produkt. Unser eigenes <strong>BIShare</strong> ist unter den sieben: <strong>kostenlos und MIT-lizenziert, verschlüsselt es Links im Browser mit AES-256-GCM und sendet von Gerät zu Gerät mit Schlüsseln, die die beiden Geräte untereinander aushandeln</strong>. <highlight><goNoAccount>Kein Konto nötig</goNoAccount>.</highlight>",
+    "body": "Fast jeder Dateiübertragungsdienst nennt sich inzwischen verschlüsselt, und fast alle sagen damit über irgendetwas die Wahrheit. Die Frage ist, worüber. Ein Link kann auf dem Weg zum Server per HTTPS geschützt sein, verschlüsselt auf einer Festplatte liegen, die der Anbieter öffnen kann, oder auf Ihrem Gerät mit einem Schlüssel verschlossen werden, den der Anbieter nie sieht. Nur die letzte Variante hält das Unternehmen selbst, jeden, der es hackt, und jeden, der es zur Herausgabe zwingen kann, von Ihrer Datei fern. Dieser Ratgeber trennt die drei Arten der Verschlüsselung, gibt Ihnen einen Test, mit dem Sie sie bei jedem Dienst in einer Minute unterscheiden, bewertet sieben Wege, eine Datei zu senden, die der Transporteur nicht lesen kann, und sagt ehrlich, was Verschlüsselung nicht verbirgt, auch bei unserem eigenen Produkt. Unser eigenes <strong>BIShare</strong> ist unter den sieben: <strong>kostenlos und Apache-2.0-lizenziert, verschlüsselt es Links im Browser mit AES-256-GCM und sendet von Gerät zu Gerät mit Schlüsseln, die die beiden Geräte untereinander aushandeln</strong>. <highlight><goNoAccount>Kein Konto nötig</goNoAccount>.</highlight>",
     "ctaPrimary": "BIShare kostenlos laden",
     "ctaSecondary": "So funktioniert es"
   },
@@ -79,7 +79,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Bester Allrounder: verschlüsselte Links im Browser und direkte Übertragung zwischen Geräten",
-        "facts": "Browser unter bishare.app, Apps für Android, iPhone, Windows, macOS, Linux · MIT · Links: AES-256-GCM im Browser, Schlüssel nach #k= in der URL, bis 100 GB für 6, 12 oder 24 Stunden · direkt: X25519-Schlüsseleinigung, HKDF-SHA256, AES-256-GCM · kein Konto",
+        "facts": "Browser unter bishare.app, Apps für Android, iPhone, Windows, macOS, Linux · Apache 2.0 · Links: AES-256-GCM im Browser, Schlüssel nach #k= in der URL, bis 100 GB für 6, 12 oder 24 Stunden · direkt: X25519-Schlüsseleinigung, HKDF-SHA256, AES-256-GCM · kein Konto",
         "body": "BIShare deckt beide Arten ab, wie Menschen Dateien senden. Für einen Link erzeugt Browser oder App einen zufälligen 256-Bit-Schlüssel, verschlüsselt die Datei in 1-MiB-Blöcken mit AES-GCM, lädt nur Chiffretext hoch und legt den Schlüssel ins Link-Fragment, das den Server nie erreicht. Für Geräte in der Nähe einigen sich die Apps per X25519 auf einen Schlüssel, leiten ihn mit HKDF-SHA256 ab und verschlüsseln jeden Block mit AES-256-GCM, und jedes Gerät zeigt einen kurzen Fingerabdruck zum Vergleichen. Die Kryptografie steckt in einer öffentlichen Rust-Bibliothek.",
         "cons": "Dateinamen und Größen von Link-Uploads sieht der Server, der Protokollcode hatte noch kein formelles externes Audit, und Links laufen nach 6, 12 oder 24 Stunden ab."
       },
@@ -307,7 +307,7 @@
       },
       "9": {
         "q": "Ist BIShare kostenlos?",
-        "a": "Ja. Es kostet nichts, der Quellcode steht unter MIT, und es läuft ohne Anmeldung und ohne Werbung."
+        "a": "Ja. Es kostet nichts, der Quellcode steht unter Apache 2.0, und es läuft ohne Anmeldung und ohne Werbung."
       }
     }
   },

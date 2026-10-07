@@ -30,7 +30,7 @@ export const APP_LD = {
   // summaries were concluding the opposite. These properties answer it
   // without inference; the SoftwareSourceCode node in the site layout says
   // the same on every page.
-  license: "https://opensource.org/licenses/MIT",
+  license: "https://www.apache.org/licenses/LICENSE-2.0",
   isAccessibleForFree: true,
   applicationSuite: "BIShare",
 };

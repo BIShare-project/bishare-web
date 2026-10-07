@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Encrypted file transfer",
     "title": "Encrypted file transfer, explained properly",
-    "body": "Almost every file transfer service now calls itself encrypted, and almost all of them are telling the truth about something. The question is what. A link can be protected by HTTPS on the way to the server, sit encrypted on a disk the provider can unlock, or be locked on your device with a key the provider never sees. Only the last one keeps the company itself, anyone who breaches it, and anyone who can compel it out of your file. This guide separates the three kinds of encryption, gives you a test to tell them apart on any service in a minute, ranks seven ways to send a file that the carrier cannot read, and is honest about what encryption does not hide, including on our own product. Our own <strong>BIShare</strong> is among the seven: <strong>free and MIT-licensed, it encrypts links in your browser with AES-256-GCM and sends device to device with keys agreed between the two devices</strong>. <highlight><goNoAccount>No account needed</goNoAccount>.</highlight>",
+    "body": "Almost every file transfer service now calls itself encrypted, and almost all of them are telling the truth about something. The question is what. A link can be protected by HTTPS on the way to the server, sit encrypted on a disk the provider can unlock, or be locked on your device with a key the provider never sees. Only the last one keeps the company itself, anyone who breaches it, and anyone who can compel it out of your file. This guide separates the three kinds of encryption, gives you a test to tell them apart on any service in a minute, ranks seven ways to send a file that the carrier cannot read, and is honest about what encryption does not hide, including on our own product. Our own <strong>BIShare</strong> is among the seven: <strong>free and licensed under Apache 2.0, it encrypts links in your browser with AES-256-GCM and sends device to device with keys agreed between the two devices</strong>. <highlight><goNoAccount>No account needed</goNoAccount>.</highlight>",
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
@@ -79,7 +79,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Best all-round: encrypted links in a browser and direct transfers between devices",
-        "facts": "Browser at bishare.app, apps for Android, iPhone, Windows, macOS, Linux · MIT · links: AES-256-GCM in the browser, key after #k= in the URL, up to 100 GB for 6, 12 or 24 hours · direct: X25519 key agreement, HKDF-SHA256, AES-256-GCM · no account",
+        "facts": "Browser at bishare.app, apps for Android, iPhone, Windows, macOS, Linux · Apache 2.0 · links: AES-256-GCM in the browser, key after #k= in the URL, up to 100 GB for 6, 12 or 24 hours · direct: X25519 key agreement, HKDF-SHA256, AES-256-GCM · no account",
         "body": "BIShare covers both ways people send files. For a link, the browser or app generates a random 256-bit key, encrypts the file in 1 MiB records with AES-GCM, uploads only ciphertext and places the key in the link fragment, which never reaches the server. For devices near each other, the apps agree on a key with X25519, derive it with HKDF-SHA256 and encrypt each chunk with AES-256-GCM, and each device shows a short fingerprint you can compare. The cryptography lives in a public Rust crate.",
         "cons": "File names and sizes of link uploads are visible to the server, the protocol code has not had a formal external audit, and links expire after 6, 12 or 24 hours."
       },
@@ -307,7 +307,7 @@
       },
       "9": {
         "q": "Is BIShare free?",
-        "a": "Yes. It costs nothing, its source is published under MIT, and it runs without sign-up or advertising."
+        "a": "Yes. It costs nothing, its source is published under Apache 2.0, and it runs without sign-up or advertising."
       }
     }
   },

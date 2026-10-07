@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Transfert de fichiers chiffré",
     "title": "Le transfert de fichiers chiffré, bien expliqué",
-    "body": "Presque tous les services d'envoi de fichiers se disent aujourd'hui chiffrés, et presque tous disent vrai sur quelque chose. Reste à savoir quoi. Un lien peut être protégé par HTTPS jusqu'au serveur, dormir chiffré sur un disque que le fournisseur sait ouvrir, ou être verrouillé sur votre appareil avec une clé que le fournisseur ne voit jamais. Seule la dernière option tient à l'écart de votre fichier l'entreprise elle-même, quiconque la pirate et quiconque peut la contraindre à le livrer. Ce guide distingue les trois types de chiffrement, vous donne un test pour les reconnaître sur n'importe quel service en une minute, classe sept façons d'envoyer un fichier que l'intermédiaire ne peut pas lire, et dit honnêtement ce que le chiffrement ne cache pas, y compris pour notre propre produit. Notre <strong>BIShare</strong> fait partie des sept : <strong>gratuit et sous licence MIT, il chiffre les liens dans votre navigateur avec AES-256-GCM et envoie d'appareil à appareil avec des clés négociées entre les deux appareils</strong>. <highlight><goNoAccount>Aucun compte requis</goNoAccount>.</highlight>",
+    "body": "Presque tous les services d'envoi de fichiers se disent aujourd'hui chiffrés, et presque tous disent vrai sur quelque chose. Reste à savoir quoi. Un lien peut être protégé par HTTPS jusqu'au serveur, dormir chiffré sur un disque que le fournisseur sait ouvrir, ou être verrouillé sur votre appareil avec une clé que le fournisseur ne voit jamais. Seule la dernière option tient à l'écart de votre fichier l'entreprise elle-même, quiconque la pirate et quiconque peut la contraindre à le livrer. Ce guide distingue les trois types de chiffrement, vous donne un test pour les reconnaître sur n'importe quel service en une minute, classe sept façons d'envoyer un fichier que l'intermédiaire ne peut pas lire, et dit honnêtement ce que le chiffrement ne cache pas, y compris pour notre propre produit. Notre <strong>BIShare</strong> fait partie des sept : <strong>gratuit et sous licence Apache 2.0, il chiffre les liens dans votre navigateur avec AES-256-GCM et envoie d'appareil à appareil avec des clés négociées entre les deux appareils</strong>. <highlight><goNoAccount>Aucun compte requis</goNoAccount>.</highlight>",
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
@@ -79,7 +79,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Meilleur choix polyvalent : liens chiffrés dans le navigateur et transferts directs entre appareils",
-        "facts": "Navigateur sur bishare.app, applications Android, iPhone, Windows, macOS, Linux · MIT · liens : AES-256-GCM dans le navigateur, clé après #k= dans l'URL, jusqu'à 100 Go pendant 6, 12 ou 24 heures · direct : accord de clés X25519, HKDF-SHA256, AES-256-GCM · sans compte",
+        "facts": "Navigateur sur bishare.app, applications Android, iPhone, Windows, macOS, Linux · Apache 2.0 · liens : AES-256-GCM dans le navigateur, clé après #k= dans l'URL, jusqu'à 100 Go pendant 6, 12 ou 24 heures · direct : accord de clés X25519, HKDF-SHA256, AES-256-GCM · sans compte",
         "body": "BIShare couvre les deux manières d'envoyer des fichiers. Pour un lien, le navigateur ou l'application génère une clé aléatoire de 256 bits, chiffre le fichier par blocs de 1 Mio en AES-GCM, n'envoie que du texte chiffré et place la clé dans le fragment du lien, qui n'atteint jamais le serveur. Pour des appareils proches, les applications s'accordent sur une clé via X25519, la dérivent avec HKDF-SHA256 et chiffrent chaque bloc en AES-256-GCM, et chaque appareil affiche une courte empreinte à comparer. La cryptographie se trouve dans une bibliothèque Rust publique.",
         "cons": "Le serveur voit les noms et tailles des fichiers envoyés par lien, le code du protocole n'a pas encore fait l'objet d'un audit externe formel, et les liens expirent après 6, 12 ou 24 heures."
       },
@@ -307,7 +307,7 @@
       },
       "9": {
         "q": "BIShare est-il gratuit ?",
-        "a": "Oui. Il ne coûte rien, son code est publié sous MIT, et il fonctionne sans inscription ni publicité."
+        "a": "Oui. Il ne coûte rien, son code est publié sous Apache 2.0, et il fonctionne sans inscription ni publicité."
       }
     }
   },

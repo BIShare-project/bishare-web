@@ -12,7 +12,7 @@ nothing stored in the clear. The web app + marketing site behind
 **Cloudflare Workers**.
 
 [![CI](https://github.com/BIShare-project/bishare-web/actions/workflows/ci.yml/badge.svg)](https://github.com/BIShare-project/bishare-web/actions/workflows/ci.yml)
-![License](https://img.shields.io/badge/license-MIT-blue)
+![License](https://img.shields.io/badge/license-Apache%202.0-blue)
 ![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)
 ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)
 ![Languages](https://img.shields.io/badge/i18n-13_languages-2563eb)
@@ -253,7 +253,7 @@ zero-install, works-anywhere companion.
 
 ## License
 
-Released under the [MIT License](LICENSE) — free to use, modify, and self-host.
+Licensed under the [Apache License 2.0](LICENSE): free to use, modify and self-host. Keep the [NOTICE](NOTICE) file with any copy. The BIShare name and logo are not covered by the license; see [TRADEMARKS.md](TRADEMARKS.md). Releases before 7 October 2026 were MIT-licensed.
 
 ---
 

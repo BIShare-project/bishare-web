@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Transferencia de archivos cifrada",
     "title": "Transferencia de archivos cifrada, bien explicada",
-    "body": "Casi todos los servicios de envío de archivos dicen ahora que están cifrados, y casi todos dicen la verdad sobre algo. La pregunta es sobre qué. Un enlace puede ir protegido por HTTPS de camino al servidor, quedarse cifrado en un disco que el proveedor puede abrir o cerrarse en tu dispositivo con una clave que el proveedor nunca ve. Solo lo último mantiene fuera de tu archivo a la propia empresa, a quien la vulnere y a quien pueda obligarla a entregarlo. Esta guía separa los tres tipos de cifrado, te da una prueba para distinguirlos en cualquier servicio en un minuto, clasifica siete formas de enviar un archivo que el intermediario no puede leer y cuenta con honestidad lo que el cifrado no oculta, también en nuestro producto. Nuestro <strong>BIShare</strong> está entre los siete: <strong>gratis y con licencia MIT, cifra los enlaces en tu navegador con AES-256-GCM y envía de dispositivo a dispositivo con claves que acuerdan los dos dispositivos</strong>. <highlight><goNoAccount>Sin cuenta</goNoAccount>.</highlight>",
+    "body": "Casi todos los servicios de envío de archivos dicen ahora que están cifrados, y casi todos dicen la verdad sobre algo. La pregunta es sobre qué. Un enlace puede ir protegido por HTTPS de camino al servidor, quedarse cifrado en un disco que el proveedor puede abrir o cerrarse en tu dispositivo con una clave que el proveedor nunca ve. Solo lo último mantiene fuera de tu archivo a la propia empresa, a quien la vulnere y a quien pueda obligarla a entregarlo. Esta guía separa los tres tipos de cifrado, te da una prueba para distinguirlos en cualquier servicio en un minuto, clasifica siete formas de enviar un archivo que el intermediario no puede leer y cuenta con honestidad lo que el cifrado no oculta, también en nuestro producto. Nuestro <strong>BIShare</strong> está entre los siete: <strong>gratis y con licencia Apache 2.0, cifra los enlaces en tu navegador con AES-256-GCM y envía de dispositivo a dispositivo con claves que acuerdan los dos dispositivos</strong>. <highlight><goNoAccount>Sin cuenta</goNoAccount>.</highlight>",
     "ctaPrimary": "Consigue BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
@@ -79,7 +79,7 @@
       "0": {
         "name": "BIShare",
         "tag": "El mejor en conjunto: enlaces cifrados en el navegador y envíos directos entre dispositivos",
-        "facts": "Navegador en bishare.app, apps para Android, iPhone, Windows, macOS, Linux · MIT · enlaces: AES-256-GCM en el navegador, clave tras #k= en la URL, hasta 100 GB durante 6, 12 o 24 horas · directo: acuerdo de claves X25519, HKDF-SHA256, AES-256-GCM · sin cuenta",
+        "facts": "Navegador en bishare.app, apps para Android, iPhone, Windows, macOS, Linux · Apache 2.0 · enlaces: AES-256-GCM en el navegador, clave tras #k= en la URL, hasta 100 GB durante 6, 12 o 24 horas · directo: acuerdo de claves X25519, HKDF-SHA256, AES-256-GCM · sin cuenta",
         "body": "BIShare cubre las dos maneras en que la gente envía archivos. Para un enlace, el navegador o la app genera una clave aleatoria de 256 bits, cifra el archivo en bloques de 1 MiB con AES-GCM, sube solo texto cifrado y coloca la clave en el fragmento del enlace, que nunca llega al servidor. Para dispositivos cercanos, las apps acuerdan una clave con X25519, la derivan con HKDF-SHA256 y cifran cada bloque con AES-256-GCM, y cada dispositivo muestra una huella corta para compararla. La criptografía está en una biblioteca Rust pública.",
         "cons": "El servidor ve los nombres y tamaños de los archivos subidos por enlace, el código del protocolo no ha pasado una auditoría externa formal y los enlaces caducan a las 6, 12 o 24 horas."
       },
@@ -307,7 +307,7 @@
       },
       "9": {
         "q": "¿BIShare es gratis?",
-        "a": "Sí. No cuesta nada, su código se publica bajo MIT y funciona sin registro ni publicidad."
+        "a": "Sí. No cuesta nada, su código se publica bajo Apache 2.0 y funciona sin registro ni publicidad."
       }
     }
   },

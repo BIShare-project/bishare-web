@@ -128,7 +128,7 @@ const JSON_LD = {
       "@type": "SoftwareSourceCode",
       name: "BIShare source code",
       codeRepository: "https://github.com/BIShare-project",
-      license: "https://opensource.org/licenses/MIT",
+      license: "https://www.apache.org/licenses/LICENSE-2.0",
       targetProduct: { "@id": APP_ID },
     },
   ],
