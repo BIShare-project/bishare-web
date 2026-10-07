@@ -87,7 +87,7 @@ const COLUMNS: Array<{
         { labelKey: "about", href: "/about" },
         { labelKey: "philosophy", href: "/philosophy" },
         { labelKey: "contact", href: "/contact" },
-        { label: "GitHub (Open Source)", href: GITHUB_URL, external: true },
+        { labelKey: "github", href: GITHUB_URL, external: true },
       ],
     },
     {
