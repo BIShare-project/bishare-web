@@ -328,7 +328,7 @@ export default async function HowToAirdropPage({
               <ProseList
                 items={RECEIVE_ITEMS}
                 head={(i) => t(`receive.items.${i}.h`)}
-                body={(i) => t(`receive.items.${i}.b`)}
+                body={(i) => t.rich(`receive.items.${i}.b`, links)}
               />
             </section>
 
