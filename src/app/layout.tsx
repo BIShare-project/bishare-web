@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 
-// Passthrough root. It intentionally does NOT render <html>/<body>: the three
-// surfaces own their own document root so each can set the right attributes —
-//   • marketing  → src/app/[locale]/layout.tsx  (<html lang dir> per locale)
-//   • admin      → src/app/admin/layout.tsx      (<html class="dark">)
-//   • Web Drive  → src/app/app/layout.tsx        (<html class="dark">)
-// This "multiple root layouts" split is what lets the marketing surface carry
-// a per-locale lang/dir while admin/app stay single-<html>, untouched.
+// Passthrough root. It intentionally does NOT render <html>/<body>: the
+// site's document root is src/app/[locale]/layout.tsx, so <html lang dir> can
+// vary per locale.
 export const metadata: Metadata = {
   title: "BIShare",
   description: "Fast, private file sharing.",

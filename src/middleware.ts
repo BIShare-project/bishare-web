@@ -25,8 +25,7 @@ const MAIN_HOSTS = new Set([APEX_HOST, WWW_HOST]);
 const RECEIVE_HOST = "get.bishare.app";
 
 // /transfer/<code>, with or without a locale prefix. `/transfer` itself (the
-// send tool) stays on the marketing host. /s/<token> is not a receive surface:
-// it only forwards to the retired Drive share page, so it stays put.
+// send tool) stays on the marketing host.
 const RECEIVE_PATH = new RegExp(`^/(?:(?:${routing.locales.join("|")})/)?transfer/[^/]+$`);
 
 /**

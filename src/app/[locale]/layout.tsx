@@ -10,8 +10,7 @@ import { NavigationProgress } from "@/components/site/navigation-progress";
 /**
  * Root layout for the MARKETING surface (bishare.app). This is where the
  * marketing subtree owns <html>/<body> — moved off the shared
- * src/app/layout.tsx so `lang`/`dir` can vary per locale. admin.bishare.app
- * and app.bishare.app own their own <html> in their respective root layouts.
+ * src/app/layout.tsx so `lang`/`dir` can vary per locale.
  *
  * `className="dark"` is the server-rendered default (Nightglass is dark-first);
  * the theme-boot script in (site)/layout.tsx reconciles it to the stored/OS

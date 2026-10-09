@@ -1,9 +1,7 @@
 import { defineRouting } from "next-intl/routing";
 
 /**
- * Locale routing for the MARKETING surface only (bishare.app / (site)).
- * admin.bishare.app and app.bishare.app are NOT localized — the middleware
- * excludes them from next-intl and they keep their unprefixed paths.
+ * Locale routing for the site (bishare.app / (site)).
  *
  * Order matters: `en` is the default and renders WITHOUT a URL prefix
  * (localePrefix "as-needed" → "/features"); every other locale is prefixed

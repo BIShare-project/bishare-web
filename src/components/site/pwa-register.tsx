@@ -4,8 +4,7 @@ import { useEffect } from "react";
 
 /**
  * Registers the marketing PWA service worker (public/sw.js). Rendered only in
- * the (site) layout, so it never runs on the admin or (dormant) Web Drive
- * surfaces. Registration is best-effort — a failure (unsupported browser,
+ * the (site) layout. Registration is best-effort — a failure (unsupported browser,
  * blocked SW) is silent and the site works exactly as before.
  */
 export function PWARegister() {
