@@ -69,25 +69,3 @@ export function truncateMiddle(value: string, head = 8, tail = 6): string {
   if (value.length <= head + tail + 1) return value;
   return `${value.slice(0, head)}…${value.slice(-tail)}`;
 }
-
-/** Integer cents → "$1.99" style. Returns "—" for null (e.g. free / contact-sales). */
-export function formatCents(
-  cents: number | null | undefined,
-  currency = "USD"
-): string {
-  if (cents === null || cents === undefined || !Number.isFinite(cents)) return "—";
-  const symbol = currency === "USD" ? "$" : "";
-  const suffix = symbol ? "" : ` ${currency}`;
-  return `${symbol}${(cents / 100).toFixed(2)}${suffix}`;
-}
-
-/** Parse a features_json TEXT column into a string[] (never throws). */
-export function parseFeatures(json: string | null | undefined): string[] {
-  if (!json) return [];
-  try {
-    const arr: unknown = JSON.parse(json);
-    return Array.isArray(arr) ? arr.map((x) => String(x)) : [];
-  } catch {
-    return [];
-  }
-}

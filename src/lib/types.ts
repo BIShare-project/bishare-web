@@ -30,24 +30,6 @@ export interface TransferUploadResponse {
   error?: APIError;
 }
 
-/**
- * GET /s/:token — the backend omits `file_*` for folder shares and
- * `folder_name` for file shares, so all of those are optional.
- */
-export interface PublicShareInfo {
-  file_name?: string;
-  file_size?: number;
-  mime_type?: string;
-  folder_name?: string;
-  has_password: boolean;
-  is_expired: boolean;
-}
-
-export interface DownloadURLResponse {
-  download_url: string;
-  expires_in: number;
-}
-
 /** GET /api/v1/transfer/status/:code — `senderAlias` is omitted when absent. */
 export interface TransferStatus {
   code: string;
@@ -58,21 +40,4 @@ export interface TransferStatus {
   oneTime: boolean;
   isDownloaded: boolean;
   expiresAt: string;
-}
-
-/**
- * GET /api/v1/requests/:code — nullable columns are omitted by the backend
- * when unset, so they are optional here.
- */
-export interface FileRequestInfo {
-  code: string;
-  title: string;
-  message?: string;
-  requester_alias: string;
-  max_files?: number;
-  max_file_size: number;
-  allowed_types?: string;
-  upload_count: number;
-  is_active: boolean;
-  expires_at?: string;
 }

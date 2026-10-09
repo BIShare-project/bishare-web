@@ -1,11 +1,4 @@
-import type {
-  APIResponse,
-  FlatResponse,
-  PublicShareInfo,
-  DownloadURLResponse,
-  TransferStatus,
-  FileRequestInfo,
-} from "./types";
+import type { APIResponse, FlatResponse, TransferStatus } from "./types";
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
@@ -152,24 +145,6 @@ export async function getWebStreamEnabled(): Promise<boolean> {
  */
 export async function getWebQrBeamEnabled(): Promise<boolean> {
   return (await cloudConfig())?.flags?.web_qr_beam_enabled === true;
-}
-
-// ── Shares (public /s API) ──
-
-export async function getShareInfo(token: string): Promise<APIResponse<PublicShareInfo>> {
-  return fetchJSON(`${API_URL}/s/${token}`, { cache: "no-store" });
-}
-
-export async function getShareDownloadURL(token: string): Promise<APIResponse<DownloadURLResponse>> {
-  return fetchJSON(`${API_URL}/s/${token}/download`);
-}
-
-export async function verifySharePassword(token: string, password: string): Promise<APIResponse<DownloadURLResponse>> {
-  return fetchJSON(`${API_URL}/s/${token}/verify`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ password }),
-  });
 }
 
 // ── Transfers ──
@@ -373,16 +348,6 @@ export async function deleteTransfer(code: string, deleteToken: string): Promise
       error: { code: "NETWORK_ERROR", message: "Connection problem — please try again" },
     };
   }
-}
-
-// ── File requests ──
-
-export async function getRequestInfo(code: string): Promise<APIResponse<FileRequestInfo>> {
-  return fetchJSON(`${API_URL}/api/v1/requests/${code}`, { cache: "no-store" });
-}
-
-export function getRequestUploadURL(code: string): string {
-  return `${API_URL}/api/v1/requests/${code}/upload`;
 }
 
 /**
