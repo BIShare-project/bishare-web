@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
+// For its side effect: it catches the browser's "install this web app" event
+// on every page, so a phone is never offered the web app (lib/pwa-install.ts).
+import "@/lib/pwa-install";
 
 /**
  * Registers the marketing PWA service worker (public/sw.js). Rendered only in

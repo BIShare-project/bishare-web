@@ -5,71 +5,15 @@ import { useTranslations } from "next-intl";
 import { Check, MonitorDown } from "lucide-react";
 import { Button, buttonVariants } from "@/components/site/ui/button";
 import { AppleGlyph, APP_STORE_URL, PlayGlyph, PLAY_STORE_URL } from "@/components/site/store-buttons";
+import {
+  detectMobileOS,
+  getInstallState,
+  getServerInstallState,
+  promptInstall,
+  subscribeInstall,
+} from "@/lib/pwa-install";
 import { cn } from "@/lib/utils";
 
-/** Chromium's non-standard install event — not in lib.dom. */
-interface BeforeInstallPromptEvent extends Event {
-  prompt(): Promise<void>;
-  userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
-}
-
-type InstallState = "unavailable" | "installable" | "installed";
-
-// Chromium fires `beforeinstallprompt` exactly once, as soon as it judges the
-// site installable — often before React has hydrated. Capturing it at module
-// load (this chunk ships with every page that renders the button) means no
-// component has to be mounted in time to catch it. preventDefault() also
-// silences Chrome's own mini-infobar on Android, so the page's button is the
-// one install affordance people see. Browsers without the event (Safari,
-// Firefox) simply never show the button; their users have the store links.
-let deferred: BeforeInstallPromptEvent | null = null;
-let state: InstallState = "unavailable";
-const listeners = new Set<() => void>();
-const emit = () => listeners.forEach((l) => l());
-
-if (typeof window !== "undefined") {
-  if (window.matchMedia("(display-mode: standalone)").matches) state = "installed";
-  window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferred = e as BeforeInstallPromptEvent;
-    if (state !== "installed") {
-      state = "installable";
-      emit();
-    }
-  });
-  window.addEventListener("appinstalled", () => {
-    deferred = null;
-    state = "installed";
-    emit();
-  });
-}
-
-const subscribe = (l: () => void) => {
-  listeners.add(l);
-  return () => {
-    listeners.delete(l);
-  };
-};
-const getSnapshot = () => state;
-const getServerSnapshot = (): InstallState => "unavailable";
-
-/**
- * Phones get the native app, not the web app. On Android, Chrome fires
- * `beforeinstallprompt` and the page used to offer "Install app" — a PWA —
- * while a real app sits on Google Play with LAN transfers, background sends and
- * a share-sheet target the PWA cannot have. iOS never fires the event, so it
- * never saw the PWA button; it now gets the App Store link here as well (Safari
- * also shows the Smart App Banner from the `apple-itunes-app` meta tag).
- * Desktop keeps the PWA offer.
- */
-type MobileOS = "android" | "ios" | null;
-function detectMobileOS(): MobileOS {
-  const ua = navigator.userAgent;
-  if (/Android/i.test(ua)) return "android";
-  // iPadOS reports a Mac user agent; a touch-capable "Mac" is an iPad.
-  if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return "ios";
-  return null;
-}
 const noopSubscribe = () => () => {};
 
 /**
@@ -77,6 +21,12 @@ const noopSubscribe = () => () => {};
  * site is installable, so on Safari/Firefox (or once installed) it takes no
  * space at all. `card` is the /download block; `inline` is the one-line nudge
  * under the transfer studio.
+ *
+ * Phones get the store app here instead, not the web app (see
+ * lib/pwa-install.ts, which also catches the browser's install event on every
+ * page). iOS gets the App Store link, and Safari shows the Smart App Banner
+ * from the `apple-itunes-app` meta tag as well. Desktop keeps the web-app
+ * offer.
  */
 export function InstallApp({
   variant = "inline",
@@ -86,7 +36,7 @@ export function InstallApp({
   className?: string;
 }) {
   const t = useTranslations("chrome");
-  const s = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const s = useSyncExternalStore(subscribeInstall, getInstallState, getServerInstallState);
   // null on the server and on desktop; the platform never changes mid-visit.
   const mobile = useSyncExternalStore(noopSubscribe, detectMobileOS, () => null);
   const [busy, setBusy] = useState(false);
@@ -126,23 +76,10 @@ export function InstallApp({
   if (s === "unavailable" && !justInstalled) return null;
 
   async function install() {
-    const ev = deferred;
-    if (!ev) return;
     setBusy(true);
-    try {
-      await ev.prompt();
-      const { outcome } = await ev.userChoice;
-      if (outcome === "accepted") setJustInstalled(true);
-    } catch {
-      // The prompt can only be shown once per event; nothing to retry here.
-    } finally {
-      deferred = null;
-      if (state === "installable") {
-        state = "unavailable"; // a dismissed prompt comes back on the next load
-        emit();
-      }
-      setBusy(false);
-    }
+    const outcome = await promptInstall();
+    if (outcome === "accepted") setJustInstalled(true);
+    setBusy(false);
   }
 
   if (justInstalled) {
