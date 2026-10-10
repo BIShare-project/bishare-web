@@ -147,6 +147,15 @@ export async function getWebQrBeamEnabled(): Promise<boolean> {
   return (await cloudConfig())?.flags?.web_qr_beam_enabled === true;
 }
 
+/**
+ * Feature flag `drive_interest_enabled`: shows the one-time question about a
+ * paid storage product (components/drive-interest.tsx). Off unless an admin
+ * turns it on, and off when the config cannot be read.
+ */
+export async function getDriveInterestEnabled(): Promise<boolean> {
+  return (await cloudConfig())?.flags?.drive_interest_enabled === true;
+}
+
 // ── Transfers ──
 
 export async function getTransferStatus(code: string): Promise<APIResponse<TransferStatus>> {
@@ -362,14 +371,30 @@ export async function deleteTransfer(code: string, deleteToken: string): Promise
  * transfer that has already succeeded.
  */
 export function reportNearbyTelemetry(kind: "send" | "receive", bytes: number): void {
+  sendTelemetry("transfer", {
+    kind,
+    bytes: Number.isFinite(bytes) && bytes > 0 ? Math.floor(bytes) : 0,
+    platform: "web",
+    transport: "nearby",
+  });
+}
+
+export type InterestEvent = "view" | "yes_paid" | "yes_free" | "no" | "dismiss";
+
+/**
+ * One anonymous tally for the question in components/drive-interest.tsx: that
+ * it was shown, or which answer was tapped. A count and the platform, nothing
+ * else, and never more than once per browser for each (the component keeps
+ * that in localStorage).
+ */
+export function reportInterest(event: InterestEvent): void {
+  sendTelemetry("interest", { topic: "drive", event, platform: "web" });
+}
+
+function sendTelemetry(path: "transfer" | "interest", payload: Record<string, unknown>): void {
   try {
-    const body = JSON.stringify({
-      kind,
-      bytes: Number.isFinite(bytes) && bytes > 0 ? Math.floor(bytes) : 0,
-      platform: "web",
-      transport: "nearby",
-    });
-    const url = `${API_URL}/api/v1/telemetry/transfer`;
+    const body = JSON.stringify(payload);
+    const url = `${API_URL}/api/v1/telemetry/${path}`;
     // sendBeacon survives the page being closed right after a transfer, which
     // is exactly when people close the tab.
     //

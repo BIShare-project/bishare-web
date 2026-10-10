@@ -34,6 +34,7 @@ import { GlowProgress, SuccessCheck } from "@/components/flow-shell";
 import { QRDisplay } from "@/components/site/qr-display";
 import { TagBadge } from "@/components/site/status-pill";
 import { TransferEmailForm } from "@/components/transfer-email-form";
+import { DriveInterest } from "@/components/drive-interest";
 import {
   CheckCircle2,
   Clock,
@@ -1192,6 +1193,8 @@ export function FileUpload() {
           <Upload />
           {t("upload.uploadMore")}
         </Button>
+
+        <DriveInterest />
       </motion.div>
     );
   }
