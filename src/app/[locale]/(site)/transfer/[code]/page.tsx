@@ -4,6 +4,7 @@ import { getTransferStatus } from "@/lib/api";
 import { bumpStat } from "@/lib/stats-bump";
 import { formatFileSize } from "@/lib/format";
 import { AppPromo } from "@/components/app-promo";
+import { ReceiveOpen } from "./receive-open";
 import { ReportAbuse } from "./report-abuse";
 import { FileTypeTile } from "@/components/file-icon";
 import { FlowShell, FlowStatusCard } from "@/components/flow-shell";
@@ -121,6 +122,7 @@ export default async function TransferPage({ params }: Props) {
             {tr("transfer.alreadyDownloaded.action")}
           </VButton>
         </FlowStatusCard>
+        <ReceiveOpen code={t.code} />
         <AppPromo />
       </FlowShell>
     );
@@ -169,6 +171,7 @@ export default async function TransferPage({ params }: Props) {
 
         <ReportAbuse code={t.code} fileName={t.fileName} />
       </FadeUp>
+      <ReceiveOpen code={t.code} />
       <AppPromo />
     </FlowShell>
   );

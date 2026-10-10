@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { bumpStat } from "@/lib/stats-bump";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
 import { SiteHeader } from "@/components/site/header";
@@ -34,20 +33,12 @@ export async function generateMetadata({
  */
 export default async function TransferToolPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ ref?: string }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("tool");
-
-  // Receive-loop conversion: this visit came from a transfer's "Send a file"
-  // CTA — a recipient becoming a sender. Count the click here; LoopMarker
-  // below carries it far enough to count the upload that may follow.
-  const fromLoop = (await searchParams).ref === "recv";
-  if (fromLoop) bumpStat("loop_sends");
 
   const faqLd = {
     "@context": "https://schema.org",
@@ -82,7 +73,9 @@ export default async function TransferToolPage({
         </div>
 
         <div className="mt-7">
-          {fromLoop && <LoopMarker />}
+          {/* Receive-loop conversion: counts a recipient who arrived from a
+              transfer's "Send a file" button, in the browser (lib/loop.ts). */}
+          <LoopMarker />
           <TransferStudio />
         </div>
         <InstallApp variant="inline" className="mt-4" />
@@ -152,7 +145,8 @@ export default async function TransferToolPage({
         </section>
 
         <div className="mx-auto w-full max-w-xl">
-          <AppPromo />
+          {/* No "Send a file" here: this page is the send tool. */}
+          <AppPromo sendCta={false} />
         </div>
       </main>
       <SiteFooter />

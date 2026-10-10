@@ -14,6 +14,11 @@ export default function robots(): MetadataRoute.Robots {
       .map((l) => `/${l}${p}`),
   ]);
 
+  // "?ref=" marks a link followed from inside the product (a transfer page's
+  // "Send a file" leads to /transfer?ref=recv). The page is the same as without
+  // it, in every locale, so crawling it is thirteen fetches of a duplicate.
+  disallow.push("/*?ref=");
+
   return {
     rules: [
       {

@@ -28,6 +28,15 @@ const VARIANTS: Record<VButtonVariant, string> = {
 const BASE =
   "inline-flex items-center justify-center font-medium tracking-[-0.01em] whitespace-nowrap select-none outline-none transition-[opacity,background-color,border-color,transform] duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0";
 
+/** The button's classes, for an element VButton cannot render itself. */
+export function vbuttonClass(
+  variant: VButtonVariant = "primary",
+  size: VButtonSize = "md",
+  className?: string
+): string {
+  return cn(BASE, SIZES[size], VARIANTS[variant], className);
+}
+
 interface VButtonProps {
   children: ReactNode;
   href?: string;

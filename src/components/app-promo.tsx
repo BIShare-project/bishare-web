@@ -1,7 +1,7 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-import { useTranslations } from "next-intl";
+import { useSyncExternalStore, type ReactNode } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import {
   AppleGlyph,
   APP_STORE_URL,
@@ -9,10 +9,43 @@ import {
   playStoreUrl,
   StoreButtons,
 } from "@/components/site/store-buttons";
-import { VButton } from "@/components/site/vbutton";
+import { VButton, vbuttonClass } from "@/components/site/vbutton";
+import { getPathname } from "@/i18n/navigation";
+import { sendBackHref } from "@/lib/loop";
 import { detectMobileOS } from "@/lib/pwa-install";
 
 const noopSubscribe = () => () => {};
+
+/**
+ * "Send a file", from a transfer page to the send tool. A plain anchor, not a
+ * router link: on the receive host the target is another host, where an in-app
+ * navigation fails before it falls back to a full one. The href in the HTML is
+ * the bare link; the click swaps in one that goes straight to the main site
+ * and carries the time of the click, which is how the send tool tells a person
+ * who pressed this from a crawler that followed it (lib/loop.ts).
+ */
+function SendBack({
+  variant,
+  size,
+  children,
+}: {
+  variant: "primary" | "secondary";
+  size: "md" | "lg";
+  children: ReactNode;
+}) {
+  const path = getPathname({ href: "/transfer", locale: useLocale() });
+  return (
+    <a
+      href={`${path}?ref=recv`}
+      onClick={(e) => {
+        e.currentTarget.href = sendBackHref(path);
+      }}
+      className={vbuttonClass(variant, size)}
+    >
+      {children}
+    </a>
+  );
+}
 
 /**
  * Recipient acquisition card, shown under every functional flow (the receive
@@ -20,7 +53,7 @@ const noopSubscribe = () => () => {};
  * with no app). Turns that moment into an install: the wedge copy + store
  * buttons. Localized via the `flows.appPromo` namespace.
  */
-export function AppPromo() {
+export function AppPromo({ sendCta = true }: { sendCta?: boolean }) {
   const t = useTranslations("flows.appPromo");
   const tc = useTranslations("chrome");
   // null on the server and on desktop; the platform never changes mid-visit.
@@ -45,27 +78,37 @@ export function AppPromo() {
              upload, which the browser cannot do. Sending from the browser
              stays one tap below. */
           <div className="mt-6 flex flex-col items-center gap-3">
-            <VButton href={android ? playStoreUrl("receive") : APP_STORE_URL} size="lg">
+            <VButton
+              href={android ? playStoreUrl(sendCta ? "receive" : "transfer_promo") : APP_STORE_URL}
+              size="lg"
+            >
               <Glyph />
               {tc("nativeApp.button", { store: android ? "Google Play" : "App Store" })}
             </VButton>
-            <VButton href="/transfer?ref=recv" variant="secondary">
-              {t("sendCta")}
-            </VButton>
+            {sendCta && (
+              <SendBack variant="secondary" size="md">
+                {t("sendCta")}
+              </SendBack>
+            )}
           </div>
-        ) : (
+        ) : sendCta ? (
           /* Desktop: reciprocate right here, in the browser, no install — the
              zero-friction loop that grows a share tool (Snapdrop/ShareDrop). */
           <div className="mt-6 flex flex-col items-center gap-5">
-            <VButton href="/transfer?ref=recv" size="lg">
+            <SendBack variant="primary" size="lg">
               {t("sendCta")}
-            </VButton>
+            </SendBack>
             <div className="flex flex-col items-center gap-3">
               <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                 {t("orGetApp")}
               </p>
               <StoreButtons className="justify-center" />
             </div>
+          </div>
+        ) : (
+          /* On the send tool itself there is nothing to send back to. */
+          <div className="mt-6 flex flex-col items-center">
+            <StoreButtons className="justify-center" />
           </div>
         )}
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
