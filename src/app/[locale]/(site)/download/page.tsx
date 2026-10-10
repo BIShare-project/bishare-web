@@ -13,7 +13,7 @@ import { StatusPill, TagBadge } from "@/components/site/status-pill";
 import { VButton } from "@/components/site/vbutton";
 import {
   APP_STORE_URL,
-  PLAY_STORE_URL,
+  playStoreUrl,
   MICROSOFT_STORE_URL,
   AppleGlyph,
   PlayGlyph,
@@ -130,7 +130,7 @@ function AndroidCard({ t }: { t: T }) {
           </div>
         </div>
         <div className="flex shrink-0 flex-col items-start gap-3 md:items-end">
-          <VButton href={PLAY_STORE_URL} variant="primary" size="lg">
+          <VButton href={playStoreUrl("download")} variant="primary" size="lg">
             <PlayGlyph />
             {t("android.cta")}
           </VButton>

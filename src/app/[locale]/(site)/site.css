@@ -1974,3 +1974,20 @@
     padding-bottom: 1.15rem;
   }
 }
+
+
+/* The Android app bar (components/site/app-bar.tsx). Rendered on every page and
+   shown only when the boot script has marked <html data-app-bar="android">,
+   which happens before first paint, so nothing shifts. */
+.app-bar {
+  display: none;
+}
+
+html[data-app-bar="android"] .app-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-card);
+}

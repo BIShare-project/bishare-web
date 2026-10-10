@@ -3,6 +3,7 @@ import { MotionProvider } from "@/components/site/motion";
 import { PWARegister } from "@/components/site/pwa-register";
 import { WebAnalytics } from "@/components/site/web-analytics";
 import { CookieNotice } from "@/components/site/cookie-notice";
+import { AppBar, APP_BAR_SCRIPT } from "@/components/site/app-bar";
 import { sharedOpenGraph } from "@/lib/og";
 import { buildAlternates } from "@/i18n/metadata";
 import { plexSans, plexMono } from "../fonts";
@@ -150,6 +151,8 @@ export default function SiteLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
       />
       <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      <script dangerouslySetInnerHTML={{ __html: APP_BAR_SCRIPT }} />
+      <AppBar />
       <PWARegister />
       <WebAnalytics />
       <MotionProvider>{children}</MotionProvider>

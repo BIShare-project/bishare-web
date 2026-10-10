@@ -12,6 +12,16 @@ export const MICROSOFT_STORE_URL = "https://apps.microsoft.com/detail/9pgx5fsbqz
 export const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.bishare.app";
 
+/**
+ * The Play listing with a campaign tag. Play Console lists installs from
+ * tagged links by campaign (Store performance, third-party referrals), which
+ * is the only way to see which spot on the site an install came from.
+ */
+export function playStoreUrl(campaign: string): string {
+  const referrer = `utm_source=bishare.app&utm_medium=web&utm_campaign=${campaign}`;
+  return `${PLAY_STORE_URL}&referrer=${encodeURIComponent(referrer)}`;
+}
+
 export function AppleGlyph({ className }: { className?: string }) {
   return (
     <svg className={cn("h-4 w-4 fill-current", className)} viewBox="0 0 24 24" aria-hidden="true">
@@ -60,7 +70,7 @@ export function StoreButtons({ className }: { className?: string }) {
         <span className="text-sm font-semibold">{t("store.appStore")}</span>
       </a>
       <a
-        href={PLAY_STORE_URL}
+        href={playStoreUrl("store_buttons")}
         target="_blank"
         rel="noopener noreferrer"
         className={brandButton("outline", "md", "px-5")}

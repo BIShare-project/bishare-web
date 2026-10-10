@@ -4,7 +4,7 @@ import { useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { Check, MonitorDown } from "lucide-react";
 import { Button, buttonVariants } from "@/components/site/ui/button";
-import { AppleGlyph, APP_STORE_URL, PlayGlyph, PLAY_STORE_URL } from "@/components/site/store-buttons";
+import { AppleGlyph, APP_STORE_URL, PlayGlyph, playStoreUrl } from "@/components/site/store-buttons";
 import {
   detectMobileOS,
   getInstallState,
@@ -60,7 +60,7 @@ export function InstallApp({
       >
         <span>{t("nativeApp.inline")}</span>
         <a
-          href={android ? PLAY_STORE_URL : APP_STORE_URL}
+          href={android ? playStoreUrl("transfer") : APP_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
           className={buttonVariants({ variant: "outline", size: "sm" })}
