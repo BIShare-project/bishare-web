@@ -1,0 +1,187 @@
+// Checks src/lib/vault/crypto.ts against the vault vectors the Rust tests
+// write (bishare-flutter/test/fixtures/vault_vectors.json, copied to
+// src/lib/vault/vault-vectors.json). Rust is the canonical implementation, so
+// this script never writes: every value must be reproduced here byte for
+// byte, every sealed value must open, and the failure cases must fail.
+//
+// Run from bishare-web (esbuild because the sources use TS-only syntax):
+//   npx esbuild tools/vault-vectors.ts --bundle --platform=node --format=esm --log-level=warning | node --input-type=module -
+import fs from "node:fs";
+import path from "node:path";
+import {
+  acceptGrant,
+  authorization,
+  b64u,
+  base32Lower,
+  deviceIdOf,
+  devicePublicKey,
+  fromB64u,
+  grant,
+  grantKeyFromSecret,
+  isObjectId,
+  isVaultId,
+  keyCheck,
+  keyFromPhrase,
+  metaFromJson,
+  metaKey,
+  metaToJson,
+  openKeyCopy,
+  openMeta,
+  openThumbnail,
+  parseAuthorization,
+  phraseFromKey,
+  requestMessage,
+  sealKeyCopy,
+  sealMeta,
+  sealThumbnail,
+  signinNonce,
+  signRequest,
+  thumbKey,
+  VaultError,
+  verifyRequest,
+  type ObjectMeta,
+} from "../src/lib/vault/crypto.ts";
+
+const v = JSON.parse(fs.readFileSync(path.resolve("src/lib/vault/vault-vectors.json"), "utf8"));
+const seq = (n: number, start: number) => Uint8Array.from({ length: n }, (_, i) => (start + i) & 0xff);
+const enc = new TextEncoder();
+
+let checks = 0;
+function same(what: string, got: unknown, want: unknown) {
+  checks++;
+  const g = got instanceof Uint8Array ? b64u(got) : got;
+  if (g !== want) throw new Error(`${what}: got ${JSON.stringify(g)}, want ${JSON.stringify(want)}`);
+}
+async function fails(what: string, code: string, fn: () => Promise<unknown> | unknown) {
+  checks++;
+  try {
+    await fn();
+  } catch (e) {
+    if (e instanceof VaultError && e.code === code) return;
+    throw new Error(`${what}: threw ${String(e)}, want VaultError ${code}`);
+  }
+  throw new Error(`${what}: did not throw, want VaultError ${code}`);
+}
+
+const vk = fromB64u(v.vaultKey);
+const vaultId: string = v.vaultId;
+const kMeta = await metaKey(vk);
+
+// ── ids and keys ──
+same("vault id from seq(16, 0)", base32Lower(seq(16, 0)), vaultId);
+same("isVaultId", isVaultId(vaultId), true);
+same("isVaultId rejects upper case", isVaultId(vaultId.toUpperCase()), false);
+same("isObjectId", isObjectId(v.file.objectId), true);
+same("keyCheck", await keyCheck(vk), v.keyCheck);
+same("metaKey", kMeta, v.metaKey);
+same("thumbKey", await thumbKey(fromB64u(v.file.fileKey)), v.file.thumbKey);
+
+// ── phrase ──
+same("phrase", await phraseFromKey(vk), v.phrase);
+same("phrase decodes", await keyFromPhrase(v.phrase), v.vaultKey);
+same("phrase decodes when messy", await keyFromPhrase(`  ${(v.phrase as string).toUpperCase().replace(/ /g, "   ")}\n`), v.vaultKey);
+const words = (v.phrase as string).split(" ");
+await fails("swapped words", "bad_phrase", () => keyFromPhrase([words[1], words[0], ...words.slice(2)].join(" ")));
+await fails("23 words", "bad_phrase", () => keyFromPhrase(words.slice(0, 23).join(" ")));
+await fails("unknown word", "bad_phrase", () => keyFromPhrase(["zzzz", ...words.slice(1)].join(" ")));
+
+// ── key copy ──
+const serverHalf = fromB64u(v.keyCopy.serverHalf);
+same("key copy blob", await sealKeyCopy(serverHalf, vaultId, vk, fromB64u(v.keyCopy.nonce)), v.keyCopy.blob);
+same("key copy opens", await openKeyCopy(serverHalf, vaultId, fromB64u(v.keyCopy.blob)), v.vaultKey);
+const otherVault = base32Lower(seq(16, 1));
+await fails("key copy, other vault", "auth_failed", () => openKeyCopy(serverHalf, otherVault, fromB64u(v.keyCopy.blob)));
+await fails("key copy, other half", "auth_failed", () => openKeyCopy(seq(32, 0x31), vaultId, fromB64u(v.keyCopy.blob)));
+const flippedCopy = fromB64u(v.keyCopy.blob);
+flippedCopy[40] ^= 1;
+await fails("key copy, flipped bit", "auth_failed", () => openKeyCopy(serverHalf, vaultId, flippedCopy));
+const badMagic = fromB64u(v.keyCopy.blob);
+badMagic[0] = 0x58;
+await fails("key copy, bad magic", "bad_key_copy", () => openKeyCopy(serverHalf, vaultId, badMagic));
+
+// ── device, sign-in nonce, signed request ──
+const seed = fromB64u(v.device.seed);
+const pub = devicePublicKey(seed);
+same("device public key", pub, v.device.publicKey);
+same("device id", await deviceIdOf(pub), v.device.deviceId);
+same("sign-in nonce", await signinNonce(pub), v.device.signinNonce);
+const r = v.request;
+const body = enc.encode(r.body);
+same("request message", await requestMessage(r.method, r.pathAndQuery, r.ts, body), r.message);
+same("signature", await signRequest(seed, r.method, r.pathAndQuery, r.ts, body), r.signature);
+same("authorization", await authorization(seed, vaultId, r.method, r.pathAndQuery, r.ts, body), r.authorization);
+const parsed = parseAuthorization(r.authorization);
+same("parsed vault", parsed.vaultId, vaultId);
+same("parsed device", parsed.deviceId, v.device.deviceId);
+same("parsed ts", parsed.ts, r.ts);
+await verifyRequest(pub, r.method, r.pathAndQuery, parsed.ts, body, parsed.signature);
+checks++;
+await fails("verify, other method", "bad_signature", () => verifyRequest(pub, "GET", r.pathAndQuery, r.ts, body, r.signature));
+await fails("verify, other body", "bad_signature", () => verifyRequest(pub, r.method, r.pathAndQuery, r.ts, enc.encode("{}"), r.signature));
+await fails("verify, other ts", "bad_signature", () => verifyRequest(pub, r.method, r.pathAndQuery, r.ts + 1, body, r.signature));
+await fails("verify, other key", "bad_signature", () => verifyRequest(devicePublicKey(seq(32, 0x61)), r.method, r.pathAndQuery, r.ts, body, r.signature));
+await fails("parse junk", "bad_authorization", () => parseAuthorization("Bearer abc"));
+await fails("parse v=2", "bad_authorization", () => parseAuthorization(r.authorization.replace("v=1", "v=2")));
+await fails("parse duplicate", "bad_authorization", () => parseAuthorization(`${r.authorization},v=1`));
+
+// ── file metadata and thumbnail ──
+const f = v.file;
+const fileMeta: ObjectMeta = {
+  kind: "file",
+  name: f.meta.name,
+  parent: f.meta.parent,
+  mtimeMs: f.meta.mtimeMs,
+  size: f.meta.size,
+  mime: f.meta.mime,
+  fileKey: fromB64u(f.fileKey),
+  hash: fromB64u(f.meta.hash),
+};
+same("file meta JSON", metaToJson(fileMeta), f.metaJson);
+same("file enc_meta", await sealMeta(kMeta, vaultId, f.objectId, fileMeta, fromB64u(f.nonce)), f.encMeta);
+const openedFile = await openMeta(kMeta, vaultId, f.objectId, f.encMeta);
+same("file meta opens", metaToJson(openedFile), f.metaJson);
+same("hash of plaintext", b64u(new Uint8Array(await crypto.subtle.digest("SHA-256", fromB64u(f.plaintext)))), f.meta.hash);
+await fails("enc_meta, other object", "auth_failed", () => openMeta(kMeta, vaultId, v.dir.objectId, f.encMeta));
+await fails("enc_meta, other vault", "auth_failed", () => openMeta(kMeta, otherVault, f.objectId, f.encMeta));
+await fails("enc_meta, other key", "auth_failed", async () => openMeta(await metaKey(seq(32, 0x11)), vaultId, f.objectId, f.encMeta));
+const flippedMeta = fromB64u(f.encMeta);
+flippedMeta[20] ^= 0x80;
+await fails("enc_meta, flipped bit", "auth_failed", () => openMeta(kMeta, vaultId, f.objectId, b64u(flippedMeta)));
+await fails("enc_meta, too short", "sealed_box_too_short", () => openMeta(kMeta, vaultId, f.objectId, "AAAA"));
+same("thumbnail", await sealThumbnail(fromB64u(f.fileKey), vaultId, f.objectId, fromB64u(f.thumbnail), fromB64u(f.thumbNonce)), f.encThumbnail);
+same("thumbnail opens", await openThumbnail(fromB64u(f.fileKey), vaultId, f.objectId, fromB64u(f.encThumbnail)), f.thumbnail);
+await fails("thumbnail, other object", "auth_failed", () => openThumbnail(fromB64u(f.fileKey), vaultId, v.dir.objectId, fromB64u(f.encThumbnail)));
+
+// ── folder metadata ──
+const d = v.dir;
+const dirMeta: ObjectMeta = { kind: "dir", name: d.meta.name, parent: d.meta.parent, mtimeMs: d.meta.mtimeMs };
+same("dir meta JSON", metaToJson(dirMeta), d.metaJson);
+same("dir enc_meta", await sealMeta(kMeta, vaultId, d.objectId, dirMeta, fromB64u(d.nonce)), d.encMeta);
+same("dir meta opens", metaToJson(await openMeta(kMeta, vaultId, d.objectId, d.encMeta)), d.metaJson);
+same("readers ignore unknown and file-only keys on a folder", metaToJson(metaFromJson('{"v":1,"k":"dir","n":"x","p":null,"m":1,"s":5,"zzz":true}')), '{"v":1,"k":"dir","n":"x","p":null,"m":1}');
+for (const bad of [
+  '{"v":2,"k":"dir","n":"x","p":null,"m":1}',
+  '{"v":1,"k":"link","n":"x","p":null,"m":1}',
+  '{"v":1,"k":"dir","n":"","p":null,"m":1}',
+  '{"v":1,"k":"dir","n":"a/b","p":null,"m":1}',
+  '{"v":1,"k":"dir","n":"x","p":"short","m":1}',
+  '{"v":1,"k":"file","n":"x","p":null,"m":1,"s":1,"t":"a/b","fk":"AAAA"}',
+  '{"v":1,"k":"file","n":"x","p":null,"m":1,"t":"a/b","fk":"AAAA","h":"AAAA"}',
+]) {
+  await fails(`bad meta ${bad}`, "bad_meta", () => metaFromJson(bad));
+}
+
+// ── grant ──
+const g = v.grant;
+const newKey = grantKeyFromSecret(fromB64u(g.newPriv));
+const granter = grantKeyFromSecret(fromB64u(g.granterPriv));
+same("new pub", newKey.public, g.newPub);
+same("granter pub", granter.public, g.granterPub);
+same("grant box", await grant(vk, vaultId, granter, newKey.public, fromB64u(g.nonce)), g.box);
+same("grant opens", await acceptGrant(vaultId, newKey, granter.public, fromB64u(g.box), v.keyCheck), v.vaultKey);
+await fails("grant, other vault", "auth_failed", () => acceptGrant(otherVault, newKey, granter.public, fromB64u(g.box), v.keyCheck));
+await fails("grant, wrong key check", "key_check_mismatch", async () => acceptGrant(vaultId, newKey, granter.public, fromB64u(g.box), await keyCheck(seq(32, 0x11))));
+await fails("grant, stranger", "auth_failed", () => acceptGrant(vaultId, grantKeyFromSecret(seq(32, 0x77)), granter.public, fromB64u(g.box), v.keyCheck));
+await fails("grant, zero public key", "bad_public_key", () => grant(vk, vaultId, granter, new Uint8Array(32)));
+
+console.log(`vault vectors: OK (${checks} checks, byte-identical to Rust, all failure cases fail)`);
