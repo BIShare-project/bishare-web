@@ -4,8 +4,6 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { brandButton } from "./button-classes";
 
-export const APP_STORE_URL =
-  "https://apps.apple.com/us/app/bishare-file-transfer/id6760924092";
 /** Microsoft Store listing (product 9pgx5fsbqzmx), live since 2026-09-10. */
 export const MICROSOFT_STORE_URL = "https://apps.microsoft.com/detail/9pgx5fsbqzmx";
 
@@ -23,19 +21,21 @@ export function playStoreUrl(campaign: string): string {
 }
 
 /**
- * The provider ID of the BIShare team in App Store Connect (shown in App
- * Analytics, Acquisition, Campaigns, "Generate a campaign link", as pt=...).
- * It is an account number, not a secret. App Analytics counts App Store
- * installs per campaign only from links carrying it with a campaign name, the
- * App Store's counterpart of the Play referrer above. While it is empty the
- * links stay plain.
+ * The provider ID of the BIShare team in App Store Connect (App Analytics,
+ * Acquisition, Campaigns, "Generate a campaign link", the pt= value). It is
+ * an account number, not a secret. App Analytics counts App Store installs
+ * per campaign (ct) only from links carrying it: the App Store's counterpart
+ * of the Play referrer above.
  */
-const APP_STORE_PROVIDER_TOKEN = "";
+const APP_STORE_PROVIDER_TOKEN = "124935640";
 
-/** The App Store listing with a campaign tag, named like playStoreUrl's. */
+/**
+ * The App Store listing with a campaign tag, named like playStoreUrl's. The
+ * link has the form App Store Connect generates (/app/apple-store/id…, no
+ * storefront), so each visitor lands in their own country's store.
+ */
 export function appStoreUrl(campaign: string): string {
-  if (!APP_STORE_PROVIDER_TOKEN) return APP_STORE_URL;
-  return `${APP_STORE_URL}?pt=${APP_STORE_PROVIDER_TOKEN}&ct=${encodeURIComponent(campaign)}&mt=8`;
+  return `https://apps.apple.com/app/apple-store/id6760924092?pt=${APP_STORE_PROVIDER_TOKEN}&ct=${encodeURIComponent(campaign)}&mt=8`;
 }
 
 export function AppleGlyph({ className }: { className?: string }) {
