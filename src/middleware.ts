@@ -16,6 +16,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
+import { LINK_PREVIEW_GROUP } from "@/lib/preview-bots";
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -59,8 +60,10 @@ export function middleware(request: NextRequest): NextResponse {
     // The receive host carries no indexable content at all — receive pages are
     // already noindex and expire within a day. Disallowing everything also
     // keeps the marketing pages from being crawled twice under two hosts.
+    // Link-preview fetchers are the exception, so a link pasted into X,
+    // Slack or LinkedIn shows its preview card (lib/preview-bots).
     if (path === "/robots.txt") {
-      return new NextResponse("User-Agent: *\nDisallow: /\n", {
+      return new NextResponse(`${LINK_PREVIEW_GROUP}\nUser-Agent: *\nDisallow: /\n`, {
         headers: { "Content-Type": "text/plain" },
       });
     }

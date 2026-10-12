@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/og";
 import { routing } from "@/i18n/routing";
+import { LINK_PREVIEW_BOTS } from "@/lib/preview-bots";
 
 // Ephemeral flow links must never be indexed — in the default-locale (unprefixed)
 // form AND in every localized ("/<locale>/…") form.
@@ -21,6 +22,9 @@ export default function robots(): MetadataRoute.Robots {
 
   return {
     rules: [
+      // Link-preview fetchers may read receive pages so a shared link shows
+      // its preview card; they index nothing (see lib/preview-bots).
+      { userAgent: LINK_PREVIEW_BOTS, allow: "/" },
       {
         userAgent: "*",
         allow: "/",
