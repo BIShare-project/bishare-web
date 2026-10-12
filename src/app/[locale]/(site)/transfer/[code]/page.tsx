@@ -39,14 +39,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = t.senderAlias
     ? tr("transfer.metaDescFrom", { size, sender: t.senderAlias })
     : tr("transfer.metaDesc", { size });
+  const ogDescription = t.senderAlias
+    ? tr("transfer.ogDescFrom", { size, sender: t.senderAlias })
+    : tr("transfer.ogDesc", { size });
+  // The link preview a chat app draws is most people's first sight of
+  // BIShare, so it gets the "you've received a file" card (tool/art/
+  // transfer-share.mjs). The twitter block is set here too: left out, it
+  // falls back to the site layout's, and apps that read twitter:* (iMessage,
+  // Slack, X) showed the home page's title and image instead of the file.
+  const image = {
+    url: `/img/transfer-share/hero.${locale}.jpg`,
+    width: 1200,
+    height: 630,
+    alt: `${tr("art.hero.title")}. ${tr("art.hero.sub")}`,
+  };
   return {
     title: t.fileName,
     description,
     openGraph: {
       title: t.fileName,
-      description: tr("transfer.ogDesc", { size }),
+      description: ogDescription,
       type: "website",
       siteName: "BIShare",
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t.fileName,
+      description: ogDescription,
+      images: [{ url: image.url, alt: image.alt }],
     },
     ...NOINDEX,
   };

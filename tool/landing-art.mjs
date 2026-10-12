@@ -10,7 +10,8 @@
  *
  * Output: public/img/<slug>/<name>.<locale>.webp for every image, plus
  * hero.<locale>.jpg (og:image and social previews need a raster, and not all
- * scrapers take webp).
+ * scrapers take webp). A definition exporting `jpgOnly = true` is share-preview
+ * art that no page shows, and gets the .jpg alone.
  *
  * Run:   node tool/landing-art.mjs <slug> [locale ...]
  * Needs: cwebp on PATH (brew install webp) and Playwright's chromium.
@@ -48,6 +49,12 @@ for (const locale of locales) {
     if (dir === "rtl" && img.mirror) await page.addScriptTag({ content: MIRROR_SCRIPT });
     await page.waitForTimeout(60);
     const base = path.join(outDir, `${name}.${locale}`);
+    if (def.jpgOnly) {
+      // Share-preview art: og:image wants a raster, and nothing on a page shows it.
+      await page.screenshot({ path: `${base}.jpg`, type: "jpeg", quality: 84 });
+      console.log(`${slug} ${name}.${locale}.jpg: ${Math.round(fs.statSync(`${base}.jpg`).size / 1024)}KB`);
+      continue;
+    }
     await page.screenshot({ path: `${base}.png` });
     execFileSync("cwebp", ["-quiet", "-q", "80", `${base}.png`, "-o", `${base}.webp`]);
     if (name === "hero") await page.screenshot({ path: `${base}.jpg`, type: "jpeg", quality: 84 });

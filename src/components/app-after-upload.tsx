@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
-import { AppleGlyph, APP_STORE_URL, PlayGlyph, playStoreUrl } from "@/components/site/store-buttons";
+import { AppleGlyph, appStoreUrl, PlayGlyph, playStoreUrl } from "@/components/site/store-buttons";
 import { buttonVariants } from "@/components/site/ui/button";
 import { detectMobileOS } from "@/lib/pwa-install";
 
@@ -26,7 +26,7 @@ export function AppAfterUpload() {
       <h4 className="text-base font-semibold tracking-[-0.01em]">{t("nativeApp.afterUploadTitle")}</h4>
       <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t("nativeApp.afterUploadBody")}</p>
       <a
-        href={android ? playStoreUrl("after_upload") : APP_STORE_URL}
+        href={android ? playStoreUrl("after_upload") : appStoreUrl("after_upload")}
         target="_blank"
         rel="noopener noreferrer"
         className={buttonVariants({ variant: "default", size: "default", className: "mt-4 w-full" })}

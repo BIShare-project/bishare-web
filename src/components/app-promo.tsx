@@ -4,7 +4,7 @@ import { useSyncExternalStore, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   AppleGlyph,
-  APP_STORE_URL,
+  appStoreUrl,
   PlayGlyph,
   playStoreUrl,
   StoreButtons,
@@ -79,7 +79,7 @@ export function AppPromo({ sendCta = true }: { sendCta?: boolean }) {
              stays one tap below. */
           <div className="mt-6 flex flex-col items-center gap-3">
             <VButton
-              href={android ? playStoreUrl(sendCta ? "receive" : "transfer_promo") : APP_STORE_URL}
+              href={android ? playStoreUrl(sendCta ? "receive" : "transfer_promo") : appStoreUrl(sendCta ? "receive" : "transfer_promo")}
               size="lg"
             >
               <Glyph />

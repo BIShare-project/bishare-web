@@ -1164,7 +1164,15 @@ export function FileUpload() {
                   navigator
                     .share({
                       title: single.file.name,
-                      text: t("upload.shareText", { name: single.file.name }),
+                      // Name, size and time left, so the message stands on its
+                      // own next to the link, and a line saying what BIShare is.
+                      text: t("upload.shareText", {
+                        name: single.file.name,
+                        size: formatFileSize(single.file.size, locale),
+                        time: single.expiresAt
+                          ? formatExpiry(single.expiresAt, locale, expiryLabels)
+                          : t("upload.expiryHours", { hours: expiry }),
+                      }),
                       url: single.webURL,
                     })
                     .catch(() => {});

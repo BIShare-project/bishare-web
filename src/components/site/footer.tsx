@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { APP_STORE_URL, MICROSOFT_STORE_URL, playStoreUrl } from "./store-buttons";
+import { appStoreUrl, MICROSOFT_STORE_URL, playStoreUrl } from "./store-buttons";
 
 const SUPPORT_EMAIL = "support@billiongroup.net";
 const GITHUB_URL = "https://github.com/BIShare-project/bishare-web";
@@ -33,7 +33,7 @@ const COLUMNS: Array<{
         { labelKey: "faq", href: "/faq" },
         { labelKey: "blog", href: "/blog" },
         { labelKey: "stats", href: "/stats" },
-        { labelKey: "appStore", href: APP_STORE_URL, external: true },
+        { labelKey: "appStore", href: appStoreUrl("footer"), external: true },
         { labelKey: "googlePlay", href: playStoreUrl("footer"), external: true },
         { label: "Microsoft Store", href: MICROSOFT_STORE_URL, external: true },
       ],

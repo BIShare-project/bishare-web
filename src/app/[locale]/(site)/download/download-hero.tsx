@@ -6,7 +6,7 @@ import { ArrowDown, HardDriveDownload } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { VButton } from "@/components/site/vbutton";
 import {
-  APP_STORE_URL,
+  appStoreUrl,
   playStoreUrl,
   MICROSOFT_STORE_URL,
   AppleGlyph,
@@ -62,7 +62,7 @@ export function DownloadHero({ className }: { className?: string }) {
   if (os === "ios" || os === "macos") {
     ctas = (
       <>
-        <VButton href={APP_STORE_URL} variant="primary" size="lg">
+        <VButton href={appStoreUrl("download")} variant="primary" size="lg">
           <AppleGlyph />
           {t("detected.appStoreCta")}
         </VButton>

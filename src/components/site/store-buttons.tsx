@@ -22,6 +22,22 @@ export function playStoreUrl(campaign: string): string {
   return `${PLAY_STORE_URL}&referrer=${encodeURIComponent(referrer)}`;
 }
 
+/**
+ * The provider ID of the BIShare team in App Store Connect (shown in App
+ * Analytics, Acquisition, Campaigns, "Generate a campaign link", as pt=...).
+ * It is an account number, not a secret. App Analytics counts App Store
+ * installs per campaign only from links carrying it with a campaign name, the
+ * App Store's counterpart of the Play referrer above. While it is empty the
+ * links stay plain.
+ */
+const APP_STORE_PROVIDER_TOKEN = "";
+
+/** The App Store listing with a campaign tag, named like playStoreUrl's. */
+export function appStoreUrl(campaign: string): string {
+  if (!APP_STORE_PROVIDER_TOKEN) return APP_STORE_URL;
+  return `${APP_STORE_URL}?pt=${APP_STORE_PROVIDER_TOKEN}&ct=${encodeURIComponent(campaign)}&mt=8`;
+}
+
 export function AppleGlyph({ className }: { className?: string }) {
   return (
     <svg className={cn("h-4 w-4 fill-current", className)} viewBox="0 0 24 24" aria-hidden="true">
@@ -61,7 +77,7 @@ export function StoreButtons({ className }: { className?: string }) {
   return (
     <div className={cn("flex flex-wrap items-center gap-4", className)}>
       <a
-        href={APP_STORE_URL}
+        href={appStoreUrl("store_buttons")}
         target="_blank"
         rel="noopener noreferrer"
         className={brandButton("primary", "md", "px-5")}

@@ -12,7 +12,7 @@ import { GridBackdrop } from "@/components/site/grid-backdrop";
 import { StatusPill, TagBadge } from "@/components/site/status-pill";
 import { VButton } from "@/components/site/vbutton";
 import {
-  APP_STORE_URL,
+  appStoreUrl,
   playStoreUrl,
   MICROSOFT_STORE_URL,
   AppleGlyph,
@@ -77,14 +77,14 @@ const LIVE_PLATFORMS: LivePlatform[] = [
     name: "iOS",
     key: "ios",
     icon: TabletSmartphone,
-    href: APP_STORE_URL,
+    href: appStoreUrl("download"),
     store: "apple",
   },
   {
     name: "macOS",
     key: "macos",
     icon: Laptop,
-    href: APP_STORE_URL,
+    href: appStoreUrl("download"),
     store: "apple",
   },
   {
