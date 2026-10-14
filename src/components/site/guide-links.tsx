@@ -26,6 +26,7 @@ const GUIDES = {
   goWetransfer: "/wetransfer-alternative",
   goIphonePhotos: "/transfer-photos-from-iphone-to-pc",
   goIphonePc: "/transfer-files-iphone-to-pc",
+  goAndroidMac: "/android-file-transfer-mac",
   goIpad: "/transfer-files-to-ipad",
   goPcPc: "/transfer-files-between-computers",
   goLocalsend: "/localsend-alternative",

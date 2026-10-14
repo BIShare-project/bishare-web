@@ -13,18 +13,18 @@ import { ArrowUpRight } from "lucide-react";
 // slug (without leading slash) → curated related siblings.
 const CLUSTER: Record<string, string[]> = {
   "airdrop-for-windows": ["airdrop-not-working", "airdrop-alternative", "airdrop-online", "share-files-mac-to-windows", "transfer-files-iphone-to-pc", "transfer-photos-from-iphone-to-pc"],
-  "airdrop-for-android": ["how-to-airdrop", "airdrop-alternative", "airdrop-for-windows", "send-files-iphone-to-android", "nearby-share-alternative"],
+  "airdrop-for-android": ["how-to-airdrop", "airdrop-alternative", "airdrop-for-windows", "send-files-iphone-to-android", "nearby-share-alternative", "android-file-transfer-mac"],
   "airdrop-alternative": ["airdrop-not-working", "airdrop-online", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android", "best-file-sharing-app", "localsend-alternative"],
   "wetransfer-alternative": ["send-large-files", "firefox-send-alternative", "smash-alternative", "share-files-without-account"],
   "snapdrop-alternative": ["sharedrop-alternative", "airdrop-online", "localsend-alternative", "nearby-share-alternative", "best-file-sharing-app", "wormhole-alternative", "shareit-alternative"],
   "sharedrop-alternative": ["snapdrop-alternative", "airdrop-online", "nearby-share-alternative", "shareit-alternative", "wetransfer-alternative"],
-  "nearby-share-alternative": ["airdrop-for-android", "shareit-alternative", "snapdrop-alternative", "airdrop-alternative"],
+  "nearby-share-alternative": ["airdrop-for-android", "shareit-alternative", "snapdrop-alternative", "airdrop-alternative", "android-file-transfer-mac"],
   "shareit-alternative": ["nearby-share-alternative", "airdrop-for-android", "send-anywhere-alternative", "sharedrop-alternative"],
   "send-files-iphone-to-android": ["send-files-android-to-iphone", "airdrop-alternative", "airdrop-for-android", "transfer-files-pc-to-phone"],
   "send-files-android-to-iphone": ["send-files-iphone-to-android", "airdrop-for-android", "nearby-share-alternative", "airdrop-alternative", "transfer-files-to-ipad"],
   "transfer-files-pc-to-phone": ["transfer-files-phone-to-pc", "share-files-mac-to-windows", "send-large-files", "airdrop-for-windows", "transfer-files-to-ipad"],
-  "transfer-files-phone-to-pc": ["transfer-files-iphone-to-pc", "transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-pc-to-phone", "share-files-mac-to-windows", "wifi-file-transfer"],
-  "share-files-mac-to-windows": ["transfer-files-between-computers", "airdrop-for-windows", "transfer-files-pc-to-phone", "send-large-files"],
+  "transfer-files-phone-to-pc": ["transfer-files-iphone-to-pc", "android-file-transfer-mac", "transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-pc-to-phone", "share-files-mac-to-windows", "wifi-file-transfer"],
+  "share-files-mac-to-windows": ["transfer-files-between-computers", "airdrop-for-windows", "transfer-files-pc-to-phone", "android-file-transfer-mac", "send-large-files"],
   "send-large-files": ["wetransfer-alternative", "send-files-without-internet", "encrypted-file-transfer", "share-files-without-account"],
   // New: encrypted / competitor pages.
   "firefox-send-alternative": ["encrypted-file-transfer", "send-anywhere-alternative", "wormhole-alternative", "wetransfer-alternative"],
@@ -42,6 +42,8 @@ const CLUSTER: Record<string, string[]> = {
   "transfer-photos-from-iphone-to-pc": ["transfer-files-iphone-to-pc", "transfer-files-phone-to-pc", "airdrop-for-windows", "send-files-iphone-to-android", "send-large-files"],
   // Any file, not only photos: the twin of the photos page.
   "transfer-files-iphone-to-pc": ["transfer-photos-from-iphone-to-pc", "airdrop-for-windows", "transfer-files-phone-to-pc", "transfer-files-pc-to-phone", "wifi-file-transfer", "send-large-files", "transfer-files-to-ipad"],
+  // Android and a Mac: Google's own app is gone, so it sits with the other cross-platform pairs.
+  "android-file-transfer-mac": ["share-files-mac-to-windows", "transfer-files-phone-to-pc", "airdrop-for-android", "nearby-share-alternative", "localsend-alternative", "wifi-file-transfer", "send-large-files"],
   // Into the iPad: where a file lands decides the route, so it sits with the iPhone, PC-to-phone and AirDrop guides.
   "transfer-files-to-ipad": ["transfer-files-iphone-to-pc", "transfer-files-pc-to-phone", "how-to-airdrop", "send-files-android-to-iphone", "wifi-file-transfer", "send-large-files"],
   "airdrop-not-working": ["how-to-airdrop", "airdrop-alternative", "airdrop-for-windows", "airdrop-for-android", "send-files-iphone-to-android"],

@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "title": "Android File Transfer Mac 的 8 种替代",
+    "description": "Google 已停止提供 Mac 版 Android File Transfer。2026 年仍能用的 8 种安卓传 Mac 方法：安卓 AirDrop、OpenMTP、NearDrop，有线无线都有。"
+  },
+  "hero": {
+    "eyebrow": "安卓手机与 Mac",
+    "title": "2026 年 Mac 版 Android File Transfer 的替代方案",
+    "body": "差不多十年里，安卓传文件到 Mac 的标准答案都是 Google 的一个小应用：<strong>Android File Transfer</strong>。2024 年 5 月，Google 清空了它的下载页，之后把这个地址指向了 Windows 版 Quick Share，而 Quick Share 没有 Mac 版。镜像网站至今还在分发 2018 年的 1.0.12 版。它是为 Intel Mac 做的，在 Apple 芯片上只能靠 Rosetta 运行，单个文件最多 4 GB。现在用哪种方法，取决于你的手机，以及你愿不愿意接线。较新的 Pixel 和 Galaxy 可以通过 AirDrop 发到 Mac，OpenMTP 这类免费工具可以通过 USB 读取手机，Wi-Fi 应用则不用线就能双向传任何文件。下面是 8 种方法，每一种都在 2026 年 10 月对照开发者官网核实过。之后是有线和无线的分步说明、从 Mac 传回安卓的方法，以及常见问题的解决办法。",
+    "ctaPrimary": "免费获取 BIShare",
+    "ctaSecondary": "工作原理"
+  },
+  "updated": "2026 年 10 月更新 · 对照 Google 的 Quick Share 帮助、macOS 27 的 Mac 使用手册，以及 OpenMTP、NearDrop、LocalSend、MacDroid 的版本发布页核实",
+  "disclosure": "BIShare 是我们的产品，也是下面 8 种方法之一。如果你的手机能 AirDrop 到 Mac，或者只是偶尔传几张照片，系统自带的方法什么都不用装，文中相应的地方都写明了。",
+  "quick": {
+    "title": "安卓文件怎么传到 Mac？简短回答",
+    "items": [
+      "<strong>不用线，任何手机都行：</strong>两边都装一个 Wi-Fi 应用，比如 BIShare 或 LocalSend，然后发送。文件直接走局域网，双向都可以，没有大小限制。",
+      "<strong>较新的 Pixel 或 Galaxy：</strong>Pixel 8a 及更新机型，以及部分三星、摩托罗拉、一加和小米机型，可以用 Quick Share 通过 AirDrop 发到 Mac。先把 Mac 的 AirDrop 设为“所有人（10 分钟）”。",
+      "<strong>用 USB 线：</strong>把手机的 USB 模式改成“文件传输”，再用免费开源的 OpenMTP 打开。MacDroid 也能做到，但传回手机需要付费版。",
+      "<strong>在 Mac 上用 Quick Share：</strong>免费的非官方应用 NearDrop 能让 Mac 在同一个 Wi-Fi 下接收任何带 Quick Share 的安卓手机发来的文件。",
+      "<strong>走云端：</strong>Google 云端硬盘适用于所有手机和 Mac 上的任何浏览器，不过新注册的 Google 帐号现在起步只有 5 GB 空间。",
+      "<strong>别再用旧应用：</strong>Google 从 2024 年起就不再提供 Android File Transfer，下载站上的是 2018 年的 Intel 版本，传不了超过 4 GB 的文件。"
+    ]
+  },
+  "status": {
+    "title": "Android File Transfer 怎么了？",
+    "body": "Android File Transfer 是 Google 做的 Mac 版 MTP 客户端：插上手机，窗口里就列出手机存储。Google 没有推出替代品。android.com/filetransfer 这个地址现在会跳到 Windows 版 Quick Share 的页面，关于用 USB 传文件的帮助文章也只讲 Windows 和 Chromebook。",
+    "items": {
+      "0": {
+        "h": "它是什么时候消失的",
+        "b": "Internet Archive 的快照显示，下载页在 2024 年 5 月 16 日还完好，五天后就空了。Google 帮助文章里要求 Mac 为 OS X 10.5 或更高版本的那一节，到 6 月初已经删掉，从 7 月起旧地址直接跳转到 Quick Share。Google 没有发布任何公告。Google 自己的安卓兼容性文档至今仍把 Android File Transfer 列为 MTP 参考主机，可见这个协议几乎没变过。"
+      },
+      "1": {
+        "h": "为什么不建议用旧版",
+        "b": "至今仍放在 Google 下载服务器上、被许多镜像站复制的安装包，是 1.0.12 版，最后修改时间是 2018 年 10 月。我们打开看过：这是只支持 Intel 的应用，要求 macOS 10.7 或更高版本。在 Apple 芯片的 Mac 上它需要 Rosetta，而 Apple 表示 Rosetta 作为通用工具只提供到 macOS 27。Google 自己的页面也写明每个文件最多 4 GB，几分钟的 4K 视频就会超过。"
+      },
+      "2": {
+        "h": "取而代之的是什么",
+        "b": "按你手头的设备，有三类工具。有线方式换个更新的 MTP 应用装到 Mac 上，照样能用。无线现在有两条系统自带的路：支持机型的安卓手机发 AirDrop，以及由 Mac 上的应用接收 Quick Share。另外还有适用于任何手机的跨平台应用。两台设备不在一起时，云端是兜底方案。"
+      }
+    }
+  },
+  "methods": {
+    "title": "安卓和 Mac 互传文件的 8 种方法（按推荐排序）",
+    "consLabel": "注意：",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "综合最佳：任何文件、双向传输、任何安卓手机",
+        "facts": "Android 7.0 及以上，Google Play 下载 · Mac 版在 Mac App Store，macOS 12 及以上 · 直传需同一 Wi-Fi · 同一网络内不限大小 · 最大 100 GB 的链接，任何浏览器都能打开 · 端到端加密 · 源代码采用 Apache 2.0",
+        "body": "在手机和 Mac 上都装好 BIShare。两台设备在同一网络时，会互相出现在对方的“附近设备”列表里；在手机上选好文件，点一下 Mac，文件就以原始大小到达。从 Mac 发送时，把文件拖到应用里即可。如果 Mac 在别处，手机可以生成一个链接，Mac 用 Safari 或其他浏览器打开就行，不用装任何东西。应用还会保留每个文件原本的修改日期，所以照片按拍摄时间排序，而不是按收到的时间。",
+        "cons": "直传需要两台设备都装应用，比起从已支持 AirDrop 的手机临时发一次要麻烦一些。链接要经过我们的中继，所以两端都需要联网。"
+      },
+      "1": {
+        "name": "Quick Share 发到 AirDrop",
+        "tag": "手机支持的话最好：什么都不用装",
+        "facts": "Pixel 8a 及更新机型；部分三星、OPPO、一加、vivo、小米、荣耀、传音和摩托罗拉手机 · Mac 的 AirDrop 设为“所有人（10 分钟）” · 设备间直连 · 2025 年 11 月 20 日起陆续推送",
+        "body": "Google 在 2025 年 11 月为 Quick Share 加入了 AirDrop 支持，从 Pixel 10 开始。在手机上打开分享菜单，选 Quick Share，再从列表里选择 Mac。Google 的帮助页面说，接收的 Apple 设备必须对所有人可见 10 分钟。不支持 AirDrop 的手机会改为显示二维码：这时文件经过 Google 的服务器，端到端加密，可在 24 小时内下载，每 24 小时上限 10 GB。",
+        "cons": "支持的机型还很少。三星自己的页面在 2026 年 3 月只列了 Galaxy S26、S26+ 和 S26 Ultra。要从 Mac 接收，需要 Pixel 9 或更新机型（9a 除外），或同一批品牌的机型。旧手机根本没有这个功能。"
+      },
+      "2": {
+        "name": "OpenMTP",
+        "tag": "最好的免费有线方案",
+        "facts": "免费，MIT 许可证 · macOS 10.14 及以上 · Apple 芯片版和 Intel 版分开提供 · 2026 年 8 月 22 日的 3.3.0 版修复了 macOS 27 上的崩溃 · 手机通过 USB 设为“文件传输”",
+        "body": "OpenMTP 是最接近当年 Google 那个应用的工具，而且一直有人维护。用能传数据的线连上手机，把 USB 模式设为“文件传输”，OpenMTP 就会一边显示 Mac，一边显示手机存储。可以往任一方向拖文件，整个文件夹也行。它不需要帐号也不需要网络，适合 Wi-Fi 坏了的手机，或者处在设备之间互相看不见的网络里的 Mac。",
+        "cons": "它自己的 README 写明，MTP 引擎只针对最新的三个 macOS 版本更新。你需要一根能传数据的线，而且整个复制过程中手机都要保持解锁并处于“文件传输”模式。"
+      },
+      "3": {
+        "name": "MacDroid",
+        "tag": "最好的付费全能方案：有线、ADB 或 Wi-Fi",
+        "facts": "Mac App Store · macOS 11.5 及以上 · 免费版只能从安卓复制到 Mac · PRO 每年 19.99 美元或一次性 34.99 美元（美国商店，2026 年 10 月） · MTP、ADB 和 Wi-Fi 三种模式",
+        "body": "MacDroid 会把手机挂载成一个磁盘，在访达里打开；官网还说可以在 Mac 上直接编辑安卓文件，不用先复制。开发者列出了三种连接方式：有线 MTP、针对打开了开发者选项的手机的 ADB，以及 Wi-Fi。如果只是把手机里的照片和文档拷到 Mac，免费版就够了。",
+        "cons": "免费版只能从安卓复制到 Mac；把文件发回手机需要 PRO。开发者官网的价格和 App Store 不一样，也会因地区而变。"
+      },
+      "4": {
+        "name": "NearDrop",
+        "tag": "在 Mac 上接收 Quick Share 的最佳选择",
+        "facts": "免费，The Unlicense · 非官方 · 2026 年 9 月 19 日的 2.2.2 版 · 仅限同一 Wi-Fi 网络 · Mac 通过访达的“共享”菜单发送",
+        "body": "NearDrop 常驻在菜单栏，让 Mac 在任何安卓手机上显示为 Quick Share 的接收对象。你照常用分享菜单发送，手机上不用额外装任何东西。收到的文件存进“下载”。反方向的话，在访达里右键点按文件，选“共享”，再选 NearDrop，手机扫一下二维码就能接收。",
+        "cons": "它是非官方应用，也没有经过公证，所以第一次打开要右键点按再选“打开”。README 写明它只在一个 Wi-Fi 网络内工作，而且 Mac 会一直对该网络里的所有人可见。"
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "两端都用开源应用的最佳选择",
+        "facts": "免费，Apache 2.0 · Android 7.0 和 macOS 11 及以上 · 2026 年 8 月 21 日的 1.18.2 版 · 同一局域网 · 无需帐号",
+        "body": "LocalSend 是一款跨平台应用，用途和 BIShare 的直传一样：在手机和 Mac 上安装，两台设备连同一网络，就能双向发送。官网承诺不需要帐号、不用登录、没有服务器，完全离线也能用。<goLocalsend>我们的 LocalSend 对比</goLocalsend>把两者放在一起比较。",
+        "cons": "它没有给不在同一网络的 Mac 用的链接，所以要发到别处别人的电脑上，得换一种方法。"
+      },
+      "6": {
+        "name": "Google 云端硬盘和 Google 相册",
+        "tag": "Mac 在别处时的最佳选择",
+        "facts": "所有安卓手机 · Mac 上任意浏览器访问 drive.google.com 或 photos.google.com · 2026 年 3 月 9 日起新帐号起步 5 GB，验证手机号后 15 GB · 云端硬盘单个文件最大 5 TB · 相册：图片最大 200 MB，视频最大 10 GB",
+        "body": "在手机的云端硬盘或相册应用里上传，再在 Mac 上下载。Mac 这边不用做任何设置，距离也无所谓，所以把文件发到别人电脑上时通常就用它。已经备份到 Google 的照片，在任何一台 Mac 上登录就能看到。",
+        "cons": "空间和 Gmail 共用，而且 Google 现在给新帐号的起步空间只有 5 GB。每个文件都要先上传再下载，所以大视频要花多久取决于你的上传速度，副本也会一直留在帐号里，直到你删除。"
+      },
+      "7": {
+        "name": "蓝牙文件交换",
+        "tag": "系统自带，偶尔传个小文件",
+        "facts": "每台 Mac 的“应用程序 › 实用工具”里都有 · 在“系统设置 › 通用 › 共享”中打开蓝牙共享 · 收到的文件存到“下载” · 经典蓝牙最高 3 Mb/s",
+        "body": "先把手机和 Mac 配对，在 Mac 上打开蓝牙共享，再从手机通过蓝牙分享文件。Apple 的说明针对的是一般手机，没有提到安卓，所以要做好可能得再试一次的准备。",
+        "cons": "按蓝牙规范，经典方式的最高速率折合约每秒 270 KB（未计开销），一个 100 MB 的视频也要六分钟以上。传张名片或一个 PDF 没问题，再大就不合适了。"
+      }
+    }
+  },
+  "table": {
+    "title": "一览对比",
+    "cols": {
+      "feature": "项目",
+      "bishare": "BIShare",
+      "quickshare": "Quick Share 发到 AirDrop",
+      "openmtp": "OpenMTP",
+      "macdroid": "MacDroid",
+      "neardrop": "NearDrop",
+      "drive": "Google 云端硬盘"
+    },
+    "rows": {
+      "r0": "不需要数据线",
+      "r1": "也能从 Mac 发到安卓",
+      "r2": "适用于任何安卓手机",
+      "r3": "不联网也能用",
+      "r4": "双向都免费",
+      "r5": "开源"
+    },
+    "note": "截至 2026 年 10 月。同一网络内的两台设备之间，BIShare 不限大小；BIShare 链接最多可放 100 GB，任何浏览器无需应用即可下载。Quick Share 发到 AirDrop 需要支持的手机，并把 Mac 设为“所有人（10 分钟）”；从 Mac 发到安卓还需要 Pixel 9 或更新机型（9a 除外）或名单内的品牌。其他手机会改用经由 Google 服务器的二维码。OpenMTP 需要数据线，手机要处于“文件传输”模式。MacDroid 免费版只能从安卓复制到 Mac。NearDrop 为非官方应用，只在一个 Wi-Fi 网络内工作。Google 云端硬盘需要 Google 帐号，并占用其存储空间。"
+  },
+  "choose": {
+    "title": "该用哪种方法？",
+    "body": "三个问题就能决定：Mac 和手机是否在同一网络，能不能在 Mac 上装东西，以及你愿不愿意用线。",
+    "items": {
+      "0": {
+        "h": "从支持 AirDrop 的 Pixel 或 Galaxy 传几张照片",
+        "b": "用 Quick Share 发到 AirDrop。什么都不用装，文件画质不变。如果手机上看不到 Mac，说明你的机型不在 Google 的支持名单里，换其他任何一种方法都行。"
+      },
+      "1": {
+        "h": "整个相册，或者好几 GB 的视频",
+        "b": "别用云端和蓝牙。走 Wi-Fi 的话，BIShare 或 LocalSend 能以局域网速度不限量地传；走线的话，OpenMTP 不需要任何网络就能拷文件夹。长的 4K 视频可以看<blogAndroidMac>从安卓向 Mac 发送大视频的指南</blogAndroidMac>（英文），讲得更细。"
+      },
+      "2": {
+        "h": "每天来回传的文件",
+        "b": "选不用插线、双向都能用的：BIShare、LocalSend 或 NearDrop。用 BIShare 还能在手机和 Mac 之间<goClipboard>同步剪贴板</goClipboard>，复制的文字也能跟着过去。共享网络文件夹也是一种办法，我们的<blogWebdav>安卓与 Mac 的 WebDAV 指南</blogWebdav>（英文）讲了怎么设置。"
+      },
+      "3": {
+        "h": "发到别人的 Mac",
+        "b": "生成一个链接。BIShare 的链接可以在任何浏览器里打开，有效期为 6、12 或 24 小时；<goTransfer>用网页版生成的链接</goTransfer>连你这边也不用装应用。如果双方都不介意登录，Google 云端硬盘也可以。"
+      }
+    }
+  },
+  "cable": {
+    "title": "如何用 USB 数据线把安卓文件传到 Mac",
+    "body": "macOS 没有自带浏览安卓手机存储的功能，所以走线需要在 Mac 上装个应用。下面的步骤用的是免费的 OpenMTP；MacDroid 的流程一样。",
+    "items": {
+      "0": {
+        "h": "用能传数据的线",
+        "b": "有些线只能充电。如果手机在充电，却从来不问这个 USB 连接用来做什么，先换一根线再说，并且直接插在 Mac 上，不要经过扩展坞。"
+      },
+      "1": {
+        "h": "把手机设为“文件传输”",
+        "b": "解锁手机，下拉通知栏，点按 USB 通知。选择“文件传输”，安卓对它的说明是通过 MTP 传输文件。另一个选项 PTP 只用于照片，默认设置则只充电、不共享数据。"
+      },
+      "2": {
+        "h": "在 Mac 上打开 OpenMTP",
+        "b": "从项目的 GitHub 页面下载适合你 Mac 的版本，Apple 芯片版或 Intel 版。先退出任何可能正在和手机通信的应用，比如旧的 Android File Transfer 或三星 Smart Switch。手机存储会显示在右侧面板。"
+      },
+      "3": {
+        "h": "往任一方向复制",
+        "b": "相机拍的照片在 DCIM 文件夹，下载的文件在 Download 文件夹。在两个面板之间拖动文件或文件夹。复制时间长的话，让手机保持解锁，因为有些机型锁屏后会断开连接。"
+      },
+      "4": {
+        "h": "安全断开",
+        "b": "等进度条走完再拔线。中途断掉的文件在 Mac 上是不完整的，别打开，删掉后重新复制。"
+      }
+    }
+  },
+  "steps": {
+    "title": "如何用 BIShare 无线把安卓文件传到 Mac",
+    "body": "两台设备连同一个 Wi-Fi 就够了。不用线，不用帐号，传输时也<blogNoData>不消耗手机流量</blogNoData>。",
+    "items": {
+      "0": {
+        "h": "两台设备都安装",
+        "b": "手机从 Google Play 下载 BIShare，Mac 从 Mac App Store 下载。在 macOS 15 及以上版本，Mac 询问是否允许访问本地网络中的设备时，请点允许；否则两台设备互相看不见。"
+      },
+      "1": {
+        "h": "在手机上选文件",
+        "b": "打开 BIShare，选择照片、视频或任何文件；也可以在别的应用里打开安卓的分享菜单，然后选 BIShare。在同一网络里，文件的数量和大小都没有上限。"
+      },
+      "2": {
+        "h": "点按 Mac",
+        "b": "你的 Mac 会出现在附近设备列表里。点按它，然后在 Mac 上接受。文件会存进 BIShare 自己的文件夹，你也可以在“设置”的“保存位置”里改成“下载”或“图片”等其他文件夹。"
+      }
+    }
+  },
+  "reverse": {
+    "title": "如何把文件从 Mac 传到安卓",
+    "body": "上面多数方法都能双向用，但不是全部，文件在手机上存到哪里也各不相同。",
+    "items": {
+      "0": {
+        "h": "用 BIShare 或 LocalSend",
+        "b": "把文件拖到 Mac 上的应用里，选择手机。BIShare 会把文件存到 Download 下的 BIShare 文件夹，文件管理器和图库都能找到。"
+      },
+      "1": {
+        "h": "用 OpenMTP",
+        "b": "从 Mac 那一侧的面板拖到手机上的任意文件夹。想让照片马上出现在图库里，就放进 DCIM 或 Pictures；放到其他文件夹也行，但图库可能要重新扫描才看得到。"
+      },
+      "2": {
+        "h": "用 AirDrop 或 NearDrop",
+        "b": "从 Mac 发出的 AirDrop 只能到达能接收的手机：Pixel 9 或更新机型（9a 除外），或名单内的品牌。NearDrop 可以从访达的“共享”菜单发到任何有 Quick Share 的手机，手机扫二维码即可接收。"
+      },
+      "3": {
+        "h": "免费版 MacDroid 和蓝牙不行",
+        "b": "MacDroid 免费版只能读取手机。蓝牙文件交换可以发到已配对的手机，但以蓝牙的速度，只适合小文件。"
+      }
+    }
+  },
+  "photos": {
+    "title": "照片和视频如何不损失画质",
+    "body": "把照片从手机里导出来，是连接 Mac 最常见的原因，而走哪条路决定了到达的是什么。",
+    "items": {
+      "0": {
+        "h": "传的是文件本身，不是另一个版本",
+        "b": "直接传输，不管是有线还是 Wi-Fi，都会逐字节复制原始文件。Google 相册支持最大 200 MB 的图片和 10 GB 的视频，所以特别长的 4K 或 8K 视频可能放不下。通过聊天应用发出去的东西，通常在途中就被压缩了。"
+      },
+      "1": {
+        "h": "保留日期",
+        "b": "照片应用按文件里记录的日期排序，但访达和很多其他工具看的是修改日期。BIShare 会为收到的所有文件保留原始修改日期，去年的照片文件夹就不会看起来像今天拍的。"
+      },
+      "2": {
+        "h": "图像捕捉值得试一次",
+        "b": "安卓的 PTP 设置会让手机像相机一样出现，而图像捕捉正是 Mac 上从相机导入的应用。Apple 的说明列出的是相机、iPhone、iPad 和扫描仪，没有提到安卓手机，所以手机可能出现，也可能不出现。如果没出现，就用上面任意一种方法。"
+      }
+    }
+  },
+  "speed": {
+    "title": "需要多长时间？",
+    "body": "决定速度的更多是连接方式，而不是应用。云端方式要先上传再下载；有线、Wi-Fi 或 AirDrop 两者都不需要。",
+    "items": {
+      "0": {
+        "h": "用 USB 线",
+        "b": "查一下手机规格表里的 USB 版本。USB 2.0 理论上限是 480 Mb/s，而实际中，1,000 张小照片比总大小相同的一个视频拷得更慢，因为每个文件都要单独处理。"
+      },
+      "1": {
+        "h": "用 Wi-Fi",
+        "b": "手机和 Mac 通过路由器通信，所以节奏由路由器决定。我们测得 Wi-Fi 5 下每秒 40 到 50 MB，Wi-Fi 6 下每秒 70 到 110 MB：一个 4 GB 的视频从手机到 Mac 大约一两分钟。<goWifiTransfer>Wi-Fi 传输指南</goWifiTransfer>按路由器和设备列出了详细数据。"
+      },
+      "2": {
+        "h": "用云端或蓝牙",
+        "b": "上传带宽 40 Mbps 时，手机光是把 4 GB 视频传到 Google 云端硬盘就要约 13 分钟，之后 Mac 才能下载。蓝牙更慢：按经典方式约每秒 270 KB 的峰值，同一个视频要四个多小时。"
+      }
+    }
+  },
+  "fixes": {
+    "title": "Mac 识别不到手机怎么办",
+    "items": {
+      "0": {
+        "h": "插上后什么反应都没有",
+        "b": "这是正常的：macOS 不会为安卓手机弹出任何窗口。打开 OpenMTP 或 MacDroid，再确认手机已解锁，并在 USB 通知里选了“文件传输”。"
+      },
+      "1": {
+        "h": "手机在充电，但不出现 USB 菜单",
+        "b": "这根线或这个接口只能充电。换一根线，插在 Mac 本身的接口上，测试时别用扩展坞。"
+      },
+      "2": {
+        "h": "OpenMTP 打不开手机",
+        "b": "可能有别的应用占着连接。退出旧的 Android File Transfer、三星 Smart Switch 和其他手机管理软件，拔掉线，解锁手机后重新连接。"
+      },
+      "3": {
+        "h": "Quick Share 里找不到 Mac",
+        "b": "按 Google 说明的要求，把 Mac 的 AirDrop 设为“所有人（10 分钟）”，两边屏幕都保持亮着。确认你的手机在支持名单里；如果不在，就改用 NearDrop 或 Wi-Fi 应用。"
+      },
+      "4": {
+        "h": "手机和 Mac 在 Wi-Fi 下找不到对方",
+        "b": "让两台设备连同一个网络，别用会隔离设备的访客网络。从 macOS 15 起，应用访问本地网络中的设备之前，Mac 会先征求许可：打开“系统设置”，进入“隐私与安全性”里的“本地网络”，把这个应用打开。"
+      },
+      "5": {
+        "h": "旧的 Android File Transfer 打不开",
+        "b": "它是 2018 年的 Intel 应用，Google 已不再支持。与其去修，不如从“应用程序”文件夹里删掉，改用 OpenMTP 做同样的事。"
+      }
+    }
+  },
+  "security": {
+    "title": "传输途中谁能看到你的文件？",
+    "body": "抛开速度不谈，这些方法真正的区别在于：文件会不会在别人的电脑上留下副本。",
+    "items": {
+      "0": {
+        "h": "有线、AirDrop 和局域网 Wi-Fi 应用",
+        "b": "文件从手机到 Mac，不经过其他地方。Google 把 Quick Share 发到 AirDrop 描述为设备间直连；只有二维码这个兜底方式会把加密后的文件在 Google 服务器上保存 24 小时。"
+      },
+      "1": {
+        "h": "Google 云端硬盘和相册",
+        "b": "副本会一直留在你的 Google 帐号里，传输和存储时都有保护，直到你删除，并且占用你的存储空间。"
+      },
+      "2": {
+        "h": "BIShare",
+        "b": "手机和 Mac 在同一网络时，BIShare 以端到端加密在两者之间传文件，没有任何服务器能看到。用链接时，<goEncrypted>手机在上传前先加密文件</goEncrypted>，密钥只在链接里，所以在链接过期前，我们的中继只保存密文。"
+      }
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "items": {
+      "0": {
+        "q": "安卓文件怎么传到 Mac？",
+        "a": "不用线的话，在两台设备上装 BIShare 或 LocalSend 这类 Wi-Fi 应用，在同一网络里发送；手机支持的话也可以用 Quick Share 发到 AirDrop。用线的话，把手机的 USB 模式设为“文件传输”，再在 Mac 上用 OpenMTP 或 MacDroid 打开。"
+      },
+      "1": {
+        "q": "Mac 版 Android File Transfer 还能下载吗？",
+        "a": "Google 那边已经不提供了。它的下载页在 2024 年 5 月被清空，地址现在指向 Windows 版 Quick Share。下载站上的副本是 2018 年的 1.0.12 版，只支持 Intel，每个文件最多 4 GB。免费且仍在维护的替代品是 OpenMTP。"
+      },
+      "2": {
+        "q": "安卓能 AirDrop 到 Mac 吗？",
+        "a": "部分手机可以。从 2025 年 11 月起，Pixel 8a 及更新机型，以及三星、OPPO、一加、vivo、小米、荣耀、传音和摩托罗拉的部分机型，可以用 Quick Share 发到 AirDrop。Mac 要把 AirDrop 设为“所有人（10 分钟）”。其他手机需要用别的方法。"
+      },
+      "3": {
+        "q": "不用线怎么把安卓照片传到 Mac？",
+        "a": "用 BIShare、LocalSend 或 NearDrop 走 Wi-Fi 发送，支持的手机可以用 Quick Share 发到 AirDrop，或者让 Google 相册备份后在 Mac 上下载。直传保留原始文件；Google 相册支持最大 200 MB 的图片和 10 GB 的视频。"
+      },
+      "4": {
+        "q": "为什么 Mac 识别不了我的安卓手机？",
+        "a": "macOS 不会自己打开安卓手机，所以在你启动 OpenMTP 这类 MTP 应用之前什么都不会出现。如果应用也找不到，就解锁手机，在 USB 通知里选“文件传输”，换一根能传数据的线，并退出其他占用连接的应用。"
+      },
+      "5": {
+        "q": "安卓手机怎么连接 Mac？",
+        "a": "可以用数据线加 OpenMTP 或 MacDroid 这类 MTP 应用；也可以无线连接，在两边装同一个传输应用并连到同一个 Wi-Fi。Quick Share 只能通过支持机型的 AirDrop，或借助 NearDrop 应用连到 Mac。"
+      },
+      "6": {
+        "q": "有 Mac 版的 Quick Share 吗？",
+        "a": "Google 只为安卓、Chromebook 和 Windows 提供 Quick Share，没有 macOS 版。NearDrop 是免费的非官方应用，能让 Mac 在同一 Wi-Fi 下接收 Quick Share，并通过访达的“共享”菜单发回去。"
+      },
+      "7": {
+        "q": "怎么把文件从 Mac 传到安卓？",
+        "a": "把文件拖到 Mac 上的 BIShare 或 LocalSend 里再选手机，或在 OpenMTP 里放进手机的文件夹，或通过 NearDrop 共享。从 Mac 发出的 AirDrop 只能到达 Pixel 9 或更新机型（9a 除外）以及名单内的部分品牌。"
+      },
+      "8": {
+        "q": "安卓传 Mac 有文件大小限制吗？",
+        "a": "看用哪种方法。旧的 Android File Transfer 每个文件最多 4 GB。直传的 Wi-Fi 应用和 OpenMTP 这类有线应用没有固定上限。Google 云端硬盘在空间够的情况下最大支持 5 TB 的文件，Quick Share 的二维码兜底方式每 24 小时最多 10 GB。"
+      },
+      "9": {
+        "q": "三星手机的文件怎么传到 Mac？",
+        "a": "和其他安卓手机一样。根据三星 2026 年 3 月的页面，三星的 Quick Share 只有 Galaxy S26 系列能通过 AirDrop 发到 Mac。Mac 版三星 Smart Switch 用于备份和恢复 Galaxy，不是文件浏览器。"
+      },
+      "10": {
+        "q": "能用蓝牙把安卓文件传到 Mac 吗？",
+        "a": "小文件可以。在“系统设置”的“通用”里进入“共享”，打开蓝牙共享，和手机配对后发送，文件会存进“下载”。最快也只有约每秒 270 KB，几 MB 以上的文件走 Wi-Fi 或数据线更快。"
+      },
+      "11": {
+        "q": "安卓传来的文件存在 Mac 的哪里？",
+        "a": "看用哪种方法。AirDrop、NearDrop 和蓝牙存到“下载”，OpenMTP 和 MacDroid 存到你拖进去的文件夹，BIShare 则存在自己的文件夹，直到你在“设置”的“保存位置”里改成别处。"
+      }
+    }
+  },
+  "cta": {
+    "title": "任何文件从安卓到 Mac，不用数据线",
+    "body": "免费开源。照片、长视频、整个文件夹，都能在手机和 Mac 之间以原始画质来回传，不用帐号，在自己的网络里也不限大小。",
+    "download": "下载 BIShare"
+  },
+  "a11y": {
+    "yes": "是",
+    "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "安卓手机通过 Wi-Fi 向 MacBook 发送文件，标题为 Mac 版 Android File Transfer，2026 年通过 Wi-Fi、AirDrop 或 USB 数据线可用的 8 种方法",
+      "title": "Mac 版 Android File Transfer",
+      "sub": "2026 年可用的 8 种方法，有线无线都有",
+      "left": "安卓",
+      "right": "Mac",
+      "wifi": "Wi-Fi 或 AirDrop",
+      "cable": "或 USB 数据线"
+    },
+    "status": {
+      "alt": "Google 的 Android File Transfer 过去与现在：过去通过 USB 从安卓向 Mac 复制文件，每个最多 4 GB；自 2024 年 5 月起 Google 不再提供，镜像站上留着 2018 年的 Intel 版本。取代它的有三类方法：USB 数据线配 OpenMTP 或 MacDroid，无线用支持机型的 AirDrop、NearDrop、BIShare 或 LocalSend，云端用 Google 云端硬盘或 Google 相册。",
+      "title": "Android File Transfer 的过去与现在",
+      "sub": "Google 的应用没了，三类方法接替了它",
+      "oldName": "Android File Transfer",
+      "oldBy": "Google 出品，用于 macOS",
+      "was": "过去的作用",
+      "wasText": "通过 USB 复制文件，每个最多 4 GB",
+      "now": "自 2024 年 5 月起",
+      "nowText": "Google 已不再提供",
+      "mirror": "镜像站：2018 年的 Intel 版本",
+      "howLabel": "取而代之的是",
+      "l0": "USB 数据线",
+      "l0names": "OpenMTP、MacDroid",
+      "l1": "无线",
+      "l1names": "新机型的 AirDrop、NearDrop、BIShare、LocalSend",
+      "l2": "云端",
+      "l2names": "Google 云端硬盘、Google 相册"
+    },
+    "routes": {
+      "alt": "用三个问题选择从安卓到 Mac 的方法：Mac 在另一个网络时，用 Google 云端硬盘或 BIShare 链接；Mac 上不能装任何东西时，用支持机型的 AirDrop 或在浏览器中打开的链接；其余情况，不用线就选 BIShare、LocalSend 或 NearDrop，用线就选 OpenMTP 或 MacDroid。",
+      "title": "三个问题选出方法",
+      "sub": "Mac 在哪里、能装什么、能不能用线",
+      "q1": "Mac 在同一个 Wi-Fi 吗？",
+      "q2": "能在 Mac 上装应用吗？",
+      "q3": "想不用线吗？",
+      "r1": "Google 云端硬盘或 BIShare 链接",
+      "r2": "支持机型的 AirDrop，或浏览器链接",
+      "r3": "BIShare、LocalSend 或 NearDrop",
+      "r4": "USB 连接 OpenMTP 或 MacDroid",
+      "yes": "是",
+      "no": "否"
+    }
+  }
+}

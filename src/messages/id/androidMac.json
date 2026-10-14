@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "title": "Android File Transfer untuk Mac: 8 Cara yang Berfungsi di 2026",
+    "description": "Google tidak lagi menyediakan Android File Transfer untuk Mac. Delapan cara yang berfungsi di 2026, dengan atau tanpa kabel: AirDrop dari Android, OpenMTP, NearDrop."
+  },
+  "hero": {
+    "eyebrow": "Ponsel Android dan Mac",
+    "title": "Android File Transfer untuk Mac di 2026: apa penggantinya",
+    "body": "Selama satu dekade jawabannya adalah aplikasi kecil buatan Google bernama <strong>Android File Transfer</strong>. Google mengosongkan halaman unduhannya pada Mei 2024, lalu mengarahkan alamatnya ke Quick Share untuk Windows, yang tidak punya versi Mac. Salinan yang masih dibagikan situs mirror adalah versi 1.0.12 dari 2018: dibuat untuk Mac Intel, hanya berjalan di Apple silicon lewat Rosetta, dan berhenti di 4 GB per file. Cara yang berfungsi sekarang tergantung ponsel Anda dan apakah Anda mau memakai kabel. Ponsel Pixel dan Galaxy terbaru bisa mengirim ke Mac lewat AirDrop, alat gratis seperti OpenMTP membaca ponsel lewat USB, dan aplikasi Wi-Fi memindahkan file apa pun ke dua arah tanpa kabel. Di bawah ini ada delapan cara, masing-masing dicek di situs pembuatnya pada Oktober 2026, lalu langkah demi langkah lewat kabel dan tanpa kabel, arah sebaliknya dari Mac ke Android, serta solusi untuk tiap masalah yang sering muncul.",
+    "ctaPrimary": "Dapatkan BIShare gratis",
+    "ctaSecondary": "Cara kerjanya"
+  },
+  "updated": "Diperbarui Oktober 2026 · dicek dengan bantuan Quick Share dari Google, Panduan Pengguna Mac untuk macOS 27, serta halaman rilis OpenMTP, NearDrop, LocalSend dan MacDroid",
+  "disclosure": "BIShare adalah produk kami, dan ia salah satu dari delapan cara di bawah. Kalau ponsel Anda bisa AirDrop ke Mac, atau Anda hanya perlu memindahkan foto sekali, cara bawaan tidak perlu memasang apa pun, dan panduan ini menyebutkannya di bagian yang relevan.",
+  "quick": {
+    "title": "Bagaimana cara memindahkan file dari Android ke Mac? Jawaban singkat",
+    "items": [
+      "<strong>Tanpa kabel, ponsel apa pun:</strong> pasang aplikasi Wi-Fi di kedua sisi, misalnya BIShare atau LocalSend, lalu kirim. File melintasi jaringan lokal secara langsung, ke dua arah, tanpa batas ukuran.",
+      "<strong>Pixel atau Galaxy terbaru:</strong> Quick Share bisa mengirim ke Mac lewat AirDrop di Pixel 8a ke atas dan di sebagian model Samsung, Motorola, OnePlus dan Xiaomi. Atur dulu AirDrop di Mac ke Semua Orang selama 10 menit.",
+      "<strong>Dengan kabel USB:</strong> ubah mode USB ponsel ke Transfer file, lalu buka ponselnya di OpenMTP, yang gratis dan open source. MacDroid melakukan hal yang sama, dengan versi berbayar untuk menyalin balik ke ponsel.",
+      "<strong>Quick Share di Mac:</strong> NearDrop, aplikasi gratis tidak resmi, membuat Mac bisa menerima dari ponsel Android mana pun yang punya Quick Share selama keduanya di Wi-Fi yang sama.",
+      "<strong>Lewat cloud:</strong> Google Drive berfungsi di semua ponsel dan di browser Mac mana pun, tetapi akun Google baru sekarang hanya mendapat 5 GB penyimpanan di awal.",
+      "<strong>Lewati aplikasi lama:</strong> Google berhenti menyediakan Android File Transfer pada 2024, dan salinan di situs unduhan adalah versi Intel dari 2018 yang tidak bisa memindahkan file di atas 4 GB."
+    ]
+  },
+  "status": {
+    "title": "Apa yang terjadi pada Android File Transfer?",
+    "body": "Android File Transfer adalah klien MTP buatan Google untuk Mac: colokkan ponsel, dan sebuah jendela menampilkan isi penyimpanannya. Google tidak membuat penggantinya. Alamat android.com/filetransfer kini mengarah ke halaman Quick Share untuk Windows, dan artikel bantuan tentang memindahkan file lewat USB hanya membahas Windows dan Chromebook.",
+    "items": {
+      "0": {
+        "h": "Kapan aplikasinya hilang",
+        "b": "Arsip di Internet Archive menunjukkan halaman unduhan masih utuh pada 16 Mei 2024 dan kosong lima hari kemudian. Bagian Mac di artikel bantuan Google, yang dulu menyebut Mac perlu OS X 10.5 atau lebih baru, sudah hilang pada awal Juni, dan sejak Juli alamat lamanya dialihkan ke Quick Share. Google tidak mengumumkan apa pun. Dokumen kompatibilitas Android milik Google sendiri masih menyebut Android File Transfer sebagai host MTP rujukan, tanda betapa sedikitnya protokol itu berubah."
+      },
+      "1": {
+        "h": "Kenapa salinan lama bukan jawaban yang baik",
+        "b": "Installer yang masih tersimpan di server unduhan Google, dan disalin banyak situs mirror, adalah versi 1.0.12 dengan tanggal ubah terakhir Oktober 2018. Kami membukanya: ini aplikasi khusus Intel untuk macOS 10.7 ke atas. Di Mac Apple silicon ia butuh Rosetta, yang menurut Apple tetap tersedia sebagai alat umum hingga macOS 27. Halaman Google sendiri juga membatasi salinan hingga 4 GB per file, dan beberapa menit video 4K sudah melewatinya."
+      },
+      "2": {
+        "h": "Apa yang menggantikannya",
+        "b": "Tiga jenis alat, tergantung apa yang Anda punya. Kabel tetap bisa dipakai dengan aplikasi MTP yang lebih baru di Mac. Tanpa kabel kini ada dua jalur bawaan, yaitu AirDrop dari ponsel Android yang didukung dan Quick Share yang diterima aplikasi di Mac, ditambah aplikasi lintas platform yang berfungsi di ponsel apa pun. Cloud menjadi cadangan saat kedua perangkat tidak berada di tempat yang sama."
+      }
+    }
+  },
+  "methods": {
+    "title": "Delapan cara memindahkan file antara Android dan Mac, diurutkan",
+    "consLabel": "Perhatikan:",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Terbaik secara keseluruhan: file apa pun, dua arah, ponsel Android apa pun",
+        "facts": "Android 7.0 ke atas dari Google Play · aplikasi Mac dari Mac App Store, macOS 12 ke atas · Wi-Fi yang sama untuk transfer langsung · tanpa batas ukuran di satu jaringan · link hingga 100 GB yang terbuka di browser apa pun · terenkripsi end-to-end · kode sumber di bawah Apache 2.0",
+        "body": "Pasang BIShare di ponsel dan di Mac. Saat keduanya di jaringan yang sama, masing-masing muncul di daftar perangkat terdekat milik yang lain; pilih file di ponsel, ketuk Mac, dan file tiba dalam ukuran penuh. Mac mengirim balik dengan menyeret file ke aplikasinya. Kalau Mac berada di tempat lain, ponsel membuat link, dan Mac membukanya di Safari atau browser lain tanpa memasang apa pun. Aplikasi ini juga mempertahankan Tanggal diubah asli setiap file, sehingga foto terurut menurut waktu pengambilan, bukan waktu tiba.",
+        "cons": "Jalur langsung memerlukan aplikasi di kedua perangkat, lebih repot daripada transfer sekali jalan di ponsel yang sudah mendukung AirDrop. Link melewati relay kami, jadi kedua ujung perlu internet."
+      },
+      "1": {
+        "name": "Quick Share ke AirDrop",
+        "tag": "Terbaik jika ponsel Anda mendukungnya: tanpa memasang apa pun",
+        "facts": "Pixel 8a ke atas; sebagian ponsel Samsung, Oppo, OnePlus, Vivo, Xiaomi, Honor, Transsion dan Motorola · AirDrop di Mac diatur ke Semua Orang selama 10 menit · peer to peer · diluncurkan bertahap sejak 20 November 2025",
+        "body": "Google menambahkan AirDrop ke Quick Share pada November 2025, dimulai dari Pixel 10. Buka menu berbagi di ponsel, pilih Quick Share, lalu pilih Mac dari daftar. Halaman bantuan Google menyebut perangkat Apple penerima harus terlihat oleh semua orang selama 10 menit. Ponsel tanpa dukungan AirDrop mendapat kode QR: file melewati server Google, terenkripsi end-to-end, dan bisa diunduh selama 24 jam, dengan batas 10 GB per 24 jam.",
+        "cons": "Daftar ponselnya pendek. Halaman Samsung sendiri per Maret 2026 hanya mencantumkan Galaxy S26, S26+ dan S26 Ultra, dan menerima dari Mac butuh Pixel 9 ke atas, kecuali 9a, atau salah satu merek yang sama. Di ponsel yang lebih lama fitur ini tidak ada sama sekali."
+      },
+      "2": {
+        "name": "OpenMTP",
+        "tag": "Jalur kabel gratis terbaik",
+        "facts": "Gratis, lisensi MIT · macOS 10.14 ke atas · build terpisah untuk Apple silicon dan Intel · versi 3.3.0 tanggal 22 Agustus 2026 memperbaiki crash di macOS 27 · ponsel diatur ke Transfer file lewat USB",
+        "body": "OpenMTP adalah yang paling mirip dengan aplikasi lama Google, tetapi masih dirawat. Sambungkan ponsel dengan kabel yang membawa data, atur mode USB-nya ke Transfer file, dan OpenMTP menampilkan Mac di satu sisi serta penyimpanan ponsel di sisi lain. Seret file ke dua arah, termasuk folder utuh. Tidak perlu akun maupun jaringan, jadi inilah jalurnya untuk ponsel dengan Wi-Fi rusak atau Mac di jaringan yang memblokir perangkat saling melihat.",
+        "cons": "README-nya sendiri menyebut mesin MTP hanya diperbarui untuk tiga versi macOS terbaru. Anda perlu kabel yang membawa data, dan ponsel harus tetap tidak terkunci dan dalam mode Transfer file selama penyalinan."
+      },
+      "3": {
+        "name": "MacDroid",
+        "tag": "Paket berbayar terbaik: kabel, ADB atau Wi-Fi",
+        "facts": "Mac App Store · macOS 11.5 ke atas · versi gratis hanya menyalin dari Android ke Mac · PRO 19,99 USD per tahun atau 34,99 USD sekali bayar (toko AS, Oktober 2026) · mode MTP, ADB dan Wi-Fi",
+        "body": "MacDroid memasang ponsel sebagai disk yang bisa dibuka di Finder, dan situsnya mencantumkan pengeditan file Android dari Mac tanpa menyalinnya dulu. Pengembangnya menyebut tiga cara menyambung: MTP lewat kabel, ADB untuk ponsel yang opsi pengembangnya aktif, dan Wi-Fi. Untuk menyalin foto dan dokumen dari ponsel ke Mac, versi gratis sudah cukup.",
+        "cons": "Versi gratis hanya menyalin dari Android ke Mac; mengirim file balik ke ponsel butuh PRO. Harga di situs pembuatnya berbeda dari App Store dan berubah menurut wilayah."
+      },
+      "4": {
+        "name": "NearDrop",
+        "tag": "Terbaik untuk menerima Quick Share di Mac",
+        "facts": "Gratis, The Unlicense · tidak resmi · versi 2.2.2 tanggal 19 September 2026 · hanya di jaringan Wi-Fi yang sama · mengirim dari Mac lewat menu Bagikan di Finder",
+        "body": "NearDrop tinggal di bar menu Mac dan membuat Mac muncul sebagai tujuan Quick Share di ponsel Android mana pun, sehingga Anda mengirim dari menu berbagi biasa tanpa tambahan apa pun di ponsel. File yang diterima masuk ke Unduhan. Untuk arah sebaliknya, klik kanan file di Finder, pilih Bagikan, lalu NearDrop, dan ponsel memindai kode QR untuk menerimanya.",
+        "cons": "Aplikasi ini tidak resmi dan tidak dinotarisasi, jadi peluncuran pertama perlu klik kanan lalu Buka. README-nya menyebut ia hanya bekerja di satu jaringan Wi-Fi dan Mac terlihat oleh semua orang di jaringan itu sepanjang waktu."
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "Aplikasi open source terbaik di kedua sisi",
+        "facts": "Gratis, Apache 2.0 · Android 7.0 dan macOS 11 ke atas · versi 1.18.2 tanggal 21 Agustus 2026 · jaringan lokal yang sama · tanpa akun",
+        "body": "LocalSend adalah aplikasi lintas platform untuk tugas yang sama dengan jalur langsung BIShare: pasang di ponsel dan di Mac, simpan keduanya di satu jaringan, lalu kirim ke arah mana pun. Situsnya menjanjikan tanpa akun, tanpa login dan tanpa server, dan ia bekerja sepenuhnya offline. <goLocalsend>Perbandingan kami dengan LocalSend</goLocalsend> menyandingkan keduanya.",
+        "cons": "Tidak ada link untuk Mac yang tidak berada di jaringan yang sama, jadi mengirim ke komputer orang lain di tempat lain butuh jalur lain."
+      },
+      "6": {
+        "name": "Google Drive dan Google Photos",
+        "tag": "Terbaik saat Mac ada di tempat lain",
+        "facts": "Semua ponsel Android · browser Mac apa pun di drive.google.com atau photos.google.com · akun baru sejak 9 Maret 2026 mulai dengan 5 GB, 15 GB setelah verifikasi nomor ponsel · file Drive hingga 5 TB · Photos: gambar hingga 200 MB, video hingga 10 GB",
+        "body": "Unggah dari aplikasi Drive atau Photos di ponsel, lalu unduh di Mac. Tidak perlu persiapan di Mac dan bisa dipakai sejauh apa pun, sehingga inilah jawaban yang biasa untuk mengirim file ke komputer orang lain. Foto yang sudah dicadangkan ke Google tinggal satu kali login dari Mac mana pun.",
+        "cons": "Penyimpanan dibagi dengan Gmail, dan Google kini memulai akun baru di 5 GB. Setiap file naik lalu turun lagi, jadi video besar memakan waktu sesuai kecepatan unggah Anda, dan salinannya tetap ada di akun sampai Anda menghapusnya."
+      },
+      "7": {
+        "name": "Bluetooth File Exchange",
+        "tag": "Bawaan, untuk file kecil sesekali",
+        "facts": "Aplikasi › Utilitas di setiap Mac · aktifkan Berbagi Bluetooth di Pengaturan Sistem › Umum › Berbagi · file yang diterima masuk ke Unduhan · Bluetooth klasik paling cepat 3 Mb/s",
+        "body": "Pasangkan ponsel dan Mac, nyalakan Berbagi Bluetooth di Mac, lalu bagikan file dari ponsel lewat Bluetooth. Panduan Apple menjelaskan fitur ini untuk ponsel secara umum dan tidak menyebut Android, jadi anggap ini jalur yang mungkin perlu dicoba dua kali.",
+        "cons": "Kecepatan klasik tertinggi dalam spesifikasi Bluetooth setara sekitar 270 KB per detik sebelum overhead, jadi video 100 MB butuh lebih dari enam menit. Cocok untuk kartu kontak atau PDF, tidak untuk yang lebih besar."
+      }
+    }
+  },
+  "table": {
+    "title": "Sekilas",
+    "cols": {
+      "feature": "Fitur",
+      "bishare": "BIShare",
+      "quickshare": "Quick Share ke AirDrop",
+      "openmtp": "OpenMTP",
+      "macdroid": "MacDroid",
+      "neardrop": "NearDrop",
+      "drive": "Google Drive"
+    },
+    "rows": {
+      "r0": "Tanpa kabel",
+      "r1": "Bisa juga mengirim dari Mac ke Android",
+      "r2": "Berfungsi di ponsel Android apa pun",
+      "r3": "Berfungsi tanpa koneksi internet",
+      "r4": "Gratis untuk dua arah",
+      "r5": "Open source"
+    },
+    "note": "Per Oktober 2026. Di antara dua perangkat pada jaringan yang sama BIShare tidak menetapkan batas ukuran, dan link BIShare menampung hingga 100 GB yang bisa diunduh browser mana pun tanpa aplikasi. Quick Share ke AirDrop butuh ponsel yang didukung, Mac diatur ke Semua Orang selama 10 menit, dan untuk Mac ke Android butuh Pixel 9 ke atas (bukan 9a) atau merek yang tercantum; ponsel lain beralih ke kode QR lewat server Google. OpenMTP butuh kabel data dan ponsel dalam mode Transfer file. Versi gratis MacDroid hanya menyalin dari Android ke Mac. NearDrop tidak resmi dan bekerja di satu jaringan Wi-Fi. Google Drive butuh akun Google dan memakai kuota penyimpanannya."
+  },
+  "choose": {
+    "title": "Cara mana yang sebaiknya Anda pakai?",
+    "body": "Tiga pertanyaan menentukannya: apakah Mac berada di jaringan yang sama dengan ponsel, bisakah Anda memasang sesuatu di Mac, dan apakah Anda mau memakai kabel sama sekali.",
+    "items": {
+      "0": {
+        "h": "Beberapa foto dari Pixel atau Galaxy yang mendukung AirDrop",
+        "b": "Pakai Quick Share ke AirDrop. Tidak ada yang perlu dipasang, dan file tetap dalam kualitas penuh. Kalau ponsel Anda tidak menampilkan Mac, berarti modelnya tidak ada di daftar dukungan Google, dan jalur lain mana pun bisa dipakai."
+      },
+      "1": {
+        "h": "Seluruh galeri atau video berukuran beberapa gigabyte",
+        "b": "Hindari cloud dan Bluetooth. Lewat Wi-Fi, BIShare atau LocalSend berjalan secepat jaringan lokal tanpa batas; lewat kabel, OpenMTP menyalin folder tanpa jaringan apa pun. <blogAndroidMac>Panduan mengirim video besar dari Android ke Mac</blogAndroidMac> membahas klip 4K panjang secara lebih rinci."
+      },
+      "2": {
+        "h": "File yang bolak-balik setiap hari",
+        "b": "Pilih yang bekerja ke dua arah tanpa colok kabel: BIShare, LocalSend atau NearDrop. Dengan BIShare Anda juga bisa <goClipboard>menyinkronkan clipboard</goClipboard> antara ponsel dan Mac, sehingga teks yang disalin ikut berpindah. Folder jaringan bersama adalah pilihan lain, dan <blogWebdav>panduan WebDAV kami untuk Android dan Mac</blogWebdav> menjelaskan caranya."
+      },
+      "3": {
+        "h": "Mengirim ke Mac milik orang lain",
+        "b": "Buat link. Link dari BIShare terbuka di browser apa pun selama 6, 12 atau 24 jam, dan <goTransfer>link dari versi browser</goTransfer> juga tidak butuh aplikasi di sisi Anda. Google Drive pun bisa, asalkan Anda berdua bersedia login."
+      }
+    }
+  },
+  "cable": {
+    "title": "Cara memindahkan file dari Android ke Mac dengan kabel USB",
+    "body": "macOS tidak punya cara bawaan untuk menjelajah penyimpanan ponsel Android, jadi jalur kabel butuh aplikasi di Mac. Langkah berikut memakai OpenMTP karena gratis; MacDroid bekerja dengan cara yang sama.",
+    "items": {
+      "0": {
+        "h": "Pakai kabel yang membawa data",
+        "b": "Sebagian kabel hanya mengalirkan daya. Kalau ponsel mengisi daya tetapi tidak pernah bertanya untuk apa koneksi USB dipakai, coba kabel lain sebelum hal lainnya, dan colokkan langsung ke Mac, bukan lewat hub."
+      },
+      "1": {
+        "h": "Atur ponsel ke Transfer file",
+        "b": "Buka kunci ponsel, tarik panel notifikasi dan ketuk notifikasi USB. Pilih Transfer file, yang oleh Android dijelaskan sebagai pemindahan file lewat MTP. PTP, pilihan lainnya, dimaksudkan khusus untuk foto, dan pengaturan bawaan hanya mengisi daya tanpa berbagi data."
+      },
+      "2": {
+        "h": "Buka OpenMTP di Mac",
+        "b": "Unduh build untuk Mac Anda, Apple silicon atau Intel, dari halaman GitHub proyeknya, dan tutup aplikasi lain yang mungkin sedang berbicara dengan ponsel, misalnya Android File Transfer lama atau Samsung Smart Switch. Penyimpanan ponsel muncul di panel kanan."
+      },
+      "3": {
+        "h": "Salin ke arah mana pun",
+        "b": "Foto kamera ada di folder DCIM dan unduhan di Download. Seret file atau folder di antara kedua panel. Biarkan ponsel tidak terkunci selama penyalinan panjang, karena sebagian ponsel menutup koneksi saat layar terkunci."
+      },
+      "4": {
+        "h": "Putuskan dengan rapi",
+        "b": "Tunggu bilah progres selesai sebelum mencabut kabel. File yang terpotong di tengah jalan tidak lengkap di Mac, jadi hapus dan salin ulang, jangan dibuka."
+      }
+    }
+  },
+  "steps": {
+    "title": "Cara memindahkan file dari Android ke Mac tanpa kabel dengan BIShare",
+    "body": "Cukup kedua perangkat di Wi-Fi yang sama. Tanpa kabel, tanpa akun, dan <blogNoData>tanpa memakai data seluler</blogNoData> selama file berpindah.",
+    "items": {
+      "0": {
+        "h": "Pasang di kedua perangkat",
+        "b": "Unduh BIShare dari Google Play di ponsel dan dari Mac App Store di Mac. Di macOS 15 ke atas, izinkan saat Mac meminta akses ke perangkat di jaringan lokal Anda; tanpa itu keduanya tidak bisa saling melihat."
+      },
+      "1": {
+        "h": "Pilih file di ponsel",
+        "b": "Buka BIShare dan pilih foto, video atau file apa pun, atau pakai menu berbagi Android dari aplikasi lain lalu pilih BIShare di sana. Di jaringan yang sama, jumlah file maupun ukurannya tidak dibatasi."
+      },
+      "2": {
+        "h": "Ketuk Mac",
+        "b": "Mac Anda muncul di daftar perangkat terdekat. Ketuk, lalu terima di Mac. File masuk ke folder milik BIShare sampai Anda memilih folder lain di Pengaturan, Lokasi penyimpanan, misalnya folder Unduhan atau Gambar."
+      }
+    }
+  },
+  "reverse": {
+    "title": "Cara memindahkan file dari Mac ke Android",
+    "body": "Sebagian besar jalur di atas berjalan ke dua arah, tetapi tidak semuanya, dan tempat file mendarat di ponsel berbeda-beda.",
+    "items": {
+      "0": {
+        "h": "Dengan BIShare atau LocalSend",
+        "b": "Seret file ke aplikasi di Mac dan pilih ponselnya. BIShare menyimpannya di Download, dalam folder BIShare, tempat aplikasi Files dan galeri sama-sama menemukannya."
+      },
+      "1": {
+        "h": "Dengan OpenMTP",
+        "b": "Seret dari panel Mac ke folder mana pun di ponsel. Taruh foto di DCIM atau Pictures kalau ingin langsung muncul di galeri; folder lain juga bisa, tetapi galeri mungkin perlu memindai ulang."
+      },
+      "2": {
+        "h": "Dengan AirDrop atau NearDrop",
+        "b": "AirDrop dari Mac hanya sampai ke ponsel yang bisa menerimanya: Pixel 9 ke atas kecuali 9a, atau salah satu merek yang tercantum. NearDrop mengirim dari menu Bagikan di Finder ke ponsel mana pun yang punya Quick Share, yang memindai kode QR untuk menerima."
+      },
+      "3": {
+        "h": "Tidak dengan MacDroid gratis atau Bluetooth",
+        "b": "Versi gratis MacDroid hanya membaca ponsel. Bluetooth File Exchange bisa mengirim ke ponsel yang sudah dipasangkan, tetapi dengan kecepatan Bluetooth ia hanya praktis untuk file kecil."
+      }
+    }
+  },
+  "photos": {
+    "title": "Foto dan video tanpa kehilangan kualitas",
+    "body": "Mengambil foto dari ponsel adalah alasan paling umum menyambungkannya ke Mac, dan jalurnya menentukan apa yang sampai.",
+    "items": {
+      "0": {
+        "h": "Salin filenya, bukan versi lain darinya",
+        "b": "Jalur langsung, kabel atau Wi-Fi, menyalin file asli byte demi byte. Google Photos menyimpan gambar hingga 200 MB dan video hingga 10 GB, jadi klip 4K atau 8K yang sangat panjang mungkin tidak muat, dan apa pun yang dikirim lewat aplikasi chat biasanya dikompres di jalan."
+      },
+      "1": {
+        "h": "Pertahankan tanggalnya",
+        "b": "Aplikasi foto mengurutkan berdasarkan tanggal yang tersimpan di dalam file, tetapi Finder dan banyak alat lain memakai Tanggal diubah. BIShare mempertahankan Tanggal diubah asli pada semua yang diterimanya, sehingga folder foto tahun lalu tidak tampil seperti foto hari ini."
+      },
+      "2": {
+        "h": "Image Capture layak dicoba sekali",
+        "b": "Pengaturan PTP di Android menampilkan ponsel seperti kamera menampilkan dirinya, dan Image Capture adalah aplikasi Mac untuk mengimpor dari kamera. Panduan Apple menyebut kamera, iPhone, iPad dan pemindai, bukan ponsel Android, jadi ponsel mungkin muncul, mungkin juga tidak. Kalau tidak muncul, pakai salah satu jalur di atas."
+      }
+    }
+  },
+  "speed": {
+    "title": "Berapa lama prosesnya?",
+    "body": "Koneksi lebih menentukan kecepatan daripada aplikasinya. Jalur cloud mengunggah dulu lalu mengunduh; kabel, Wi-Fi atau AirDrop tidak perlu keduanya.",
+    "items": {
+      "0": {
+        "h": "Lewat kabel USB",
+        "b": "Cek lembar spesifikasi ponsel untuk versi USB-nya. USB 2.0 maksimal 480 Mb/s secara teori, dan dalam praktik seribu foto kecil tersalin lebih lambat daripada satu video dengan total ukuran yang sama, karena tiap file ditangani sendiri-sendiri."
+      },
+      "1": {
+        "h": "Lewat Wi-Fi",
+        "b": "Ponsel dan Mac saling bicara lewat router, jadi router yang menentukan lajunya. Kami mengukur 40 sampai 50 megabyte per detik lewat Wi-Fi 5 dan 70 sampai 110 lewat Wi-Fi 6: klip 4 GB dari ponsel sampai di Mac dalam sekitar satu atau dua menit. <goWifiTransfer>Panduan transfer Wi-Fi</goWifiTransfer> merinci angkanya per router dan perangkat."
+      },
+      "2": {
+        "h": "Lewat cloud atau Bluetooth",
+        "b": "Dengan unggahan 40 Mbps, ponsel menghabiskan sekitar 13 menit mengirim video 4 GB ke Google Drive sebelum Mac bisa mengambilnya. Bluetooth lebih lambat lagi: pada puncak klasiknya sekitar 270 KB/s, video yang sama butuh lebih dari empat jam."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Saat Mac tidak melihat ponsel",
+    "items": {
+      "0": {
+        "h": "Tidak terjadi apa-apa saat dicolokkan",
+        "b": "Itu normal: macOS tidak menampilkan jendela apa pun untuk ponsel Android. Buka OpenMTP atau MacDroid, lalu pastikan ponsel tidak terkunci dan diatur ke Transfer file di notifikasi USB-nya."
+      },
+      "1": {
+        "h": "Ponsel mengisi daya tetapi menu USB tidak muncul",
+        "b": "Kabel atau portnya hanya mengalirkan daya. Ganti kabel, pakai port di Mac itu sendiri, dan hindari hub selama menguji."
+      },
+      "2": {
+        "h": "OpenMTP tidak bisa membuka ponsel",
+        "b": "Mungkin ada aplikasi lain yang memegang koneksinya. Tutup Android File Transfer lama, Samsung Smart Switch dan pengelola ponsel lain, cabut kabel, buka kunci ponsel, lalu sambungkan lagi."
+      },
+      "3": {
+        "h": "Mac tidak muncul di Quick Share",
+        "b": "Atur AirDrop di Mac ke Semua Orang selama 10 menit, seperti yang disyaratkan panduan Google, dan biarkan kedua layar menyala. Pastikan ponsel Anda ada di daftar yang didukung; kalau tidak ada, pakai NearDrop atau aplikasi Wi-Fi."
+      },
+      "4": {
+        "h": "Ponsel dan Mac tidak saling menemukan lewat Wi-Fi",
+        "b": "Sambungkan keduanya ke jaringan yang sama, bukan jaringan tamu yang memisahkan perangkat. Sejak macOS 15 Mac meminta izin sebelum sebuah aplikasi boleh menjangkau perangkat di jaringan lokal: buka Pengaturan Sistem, Privasi & Keamanan, Jaringan Lokal, lalu aktifkan aplikasinya."
+      },
+      "5": {
+        "h": "Android File Transfer lama tidak mau terbuka",
+        "b": "Itu aplikasi Intel dari 2018 yang tidak lagi didukung Google. Hapus dari folder Aplikasi daripada mencoba memperbaikinya, dan pakai OpenMTP untuk tugas yang sama."
+      }
+    }
+  },
+  "security": {
+    "title": "Siapa yang bisa melihat file Anda di perjalanan?",
+    "body": "Di luar soal kecepatan, beda sebenarnya antara jalur-jalur ini adalah apakah salinan file tertinggal di komputer milik pihak lain.",
+    "items": {
+      "0": {
+        "h": "Kabel, AirDrop dan aplikasi Wi-Fi lokal",
+        "b": "File berpindah dari ponsel ke Mac dan tidak ke mana pun selain itu. Google menyebut Quick Share ke AirDrop sebagai peer to peer; hanya cadangan kode QR-nya yang menyimpan file di server Google, terenkripsi, selama 24 jam."
+      },
+      "1": {
+        "h": "Google Drive dan Photos",
+        "b": "Salinannya tetap ada di akun Google Anda, terlindungi selama transit dan saat tersimpan, sampai Anda menghapusnya, dan ikut memakai kuota penyimpanan."
+      },
+      "2": {
+        "h": "BIShare",
+        "b": "Selama ponsel dan Mac di satu jaringan, BIShare memindahkan file di antara keduanya dengan enkripsi end-to-end, dan tidak ada server yang pernah melihatnya. Untuk link, <goEncrypted>ponsel mengenkripsi file sebelum mengunggahnya</goEncrypted> dan kuncinya tetap di dalam link, sehingga relay kami hanya memegang ciphertext sampai link kedaluwarsa."
+      }
+    }
+  },
+  "faq": {
+    "title": "Pertanyaan yang sering diajukan",
+    "items": {
+      "0": {
+        "q": "Bagaimana cara memindahkan file dari Android ke Mac?",
+        "a": "Tanpa kabel, pasang aplikasi Wi-Fi seperti BIShare atau LocalSend di kedua perangkat dan kirim lewat jaringan yang sama, atau pakai Quick Share ke AirDrop jika ponsel Anda mendukungnya. Dengan kabel, atur mode USB ponsel ke Transfer file lalu buka di OpenMTP atau MacDroid di Mac."
+      },
+      "1": {
+        "q": "Apakah Android File Transfer masih tersedia untuk Mac?",
+        "a": "Tidak dari Google. Halaman unduhannya dikosongkan pada Mei 2024 dan alamatnya kini mengarah ke Quick Share untuk Windows. Salinan di situs unduhan adalah versi 1.0.12 dari 2018, aplikasi khusus Intel dengan batas 4 GB per file. OpenMTP adalah pengganti gratis yang masih dirawat."
+      },
+      "2": {
+        "q": "Bisakah saya AirDrop dari Android ke Mac?",
+        "a": "Di sebagian ponsel. Sejak November 2025 Quick Share bisa mengirim ke AirDrop di Pixel 8a ke atas dan di model tertentu dari Samsung, Oppo, OnePlus, Vivo, Xiaomi, Honor, Transsion dan Motorola. AirDrop di Mac harus diatur ke Semua Orang selama 10 menit. Ponsel lain perlu jalur lain."
+      },
+      "3": {
+        "q": "Bagaimana memindahkan foto dari Android ke Mac tanpa kabel?",
+        "a": "Kirim lewat Wi-Fi dengan BIShare, LocalSend atau NearDrop, pakai Quick Share ke AirDrop di ponsel yang didukung, atau biarkan Google Photos mencadangkannya lalu unduh di Mac. Jalur langsung mempertahankan file asli; Google Photos menerima gambar hingga 200 MB dan video hingga 10 GB."
+      },
+      "4": {
+        "q": "Kenapa Mac saya tidak mengenali ponsel Android saya?",
+        "a": "macOS tidak membuka ponsel Android dengan sendirinya, jadi tidak ada yang muncul sampai Anda menjalankan aplikasi MTP seperti OpenMTP. Kalau aplikasi itu tidak menemukan apa-apa, buka kunci ponsel, pilih Transfer file di notifikasi USB-nya, coba kabel yang membawa data, dan tutup aplikasi lain yang memakai koneksi itu."
+      },
+      "5": {
+        "q": "Bagaimana cara menyambungkan ponsel Android ke Mac?",
+        "a": "Dengan kabel data dan aplikasi MTP seperti OpenMTP atau MacDroid, atau tanpa kabel dengan memasang aplikasi transfer yang sama di keduanya dan bergabung ke satu jaringan Wi-Fi. Quick Share tersambung ke Mac hanya lewat AirDrop di ponsel yang didukung atau lewat aplikasi NearDrop."
+      },
+      "6": {
+        "q": "Apakah ada Quick Share untuk Mac?",
+        "a": "Google membuat Quick Share untuk Android, Chromebook dan Windows, bukan untuk macOS. NearDrop adalah aplikasi gratis tidak resmi yang membuat Mac bisa menerima Quick Share di Wi-Fi yang sama dan mengirim balik lewat menu Bagikan di Finder."
+      },
+      "7": {
+        "q": "Bagaimana cara memindahkan file dari Mac ke Android?",
+        "a": "Seret file ke BIShare atau LocalSend di Mac lalu pilih ponselnya, seret ke folder ponsel di OpenMTP, atau bagikan lewat NearDrop. AirDrop dari Mac hanya sampai ke Pixel 9 ke atas, kecuali 9a, dan sebagian merek yang tercantum."
+      },
+      "8": {
+        "q": "Apakah ada batas ukuran file saat memindahkan dari Android ke Mac?",
+        "a": "Tergantung jalurnya. Android File Transfer lama berhenti di 4 GB per file. Aplikasi Wi-Fi langsung dan aplikasi kabel seperti OpenMTP tidak punya batas tetap, Google Drive menerima file hingga 5 TB jika penyimpanan Anda cukup, dan cadangan kode QR Quick Share dibatasi 10 GB per 24 jam."
+      },
+      "9": {
+        "q": "Bagaimana cara memindahkan file dari ponsel Samsung ke Mac?",
+        "a": "Sama seperti ponsel Android lain. Menurut halaman Samsung per Maret 2026, Quick Share milik Samsung sampai ke Mac lewat AirDrop hanya di seri Galaxy S26. Samsung Smart Switch untuk Mac mencadangkan dan memulihkan Galaxy; ia bukan penjelajah file."
+      },
+      "10": {
+        "q": "Bisakah memindahkan file dari Android ke Mac lewat Bluetooth?",
+        "a": "Bisa, untuk file kecil. Aktifkan Berbagi Bluetooth di Pengaturan Sistem, Umum, Berbagi, pasangkan ponsel lalu kirim; file masuk ke Unduhan. Dengan kecepatan paling tinggi sekitar 270 KB per detik, apa pun yang lebih besar dari beberapa megabyte lebih cepat lewat Wi-Fi atau kabel."
+      },
+      "11": {
+        "q": "Ke mana file dari Android tersimpan di Mac?",
+        "a": "Tergantung jalurnya. AirDrop, NearDrop dan Bluetooth menyimpan ke Unduhan, OpenMTP dan MacDroid ke folder tempat Anda menyeretnya, dan BIShare ke foldernya sendiri sampai Anda memilih yang lain di Pengaturan, Lokasi penyimpanan."
+      }
+    }
+  },
+  "cta": {
+    "title": "File apa pun dari Android ke Mac Anda, tanpa kabel",
+    "body": "Gratis dan open source. Kirim foto, video panjang dan folder utuh dari ponsel ke Mac dan sebaliknya dalam kualitas asli, tanpa akun dan tanpa batas ukuran di jaringan Anda sendiri.",
+    "download": "Unduh BIShare"
+  },
+  "a11y": {
+    "yes": "Ya",
+    "no": "Tidak"
+  },
+  "art": {
+    "hero": {
+      "alt": "Ponsel Android mengirim file ke MacBook lewat Wi-Fi, dengan judul Android File Transfer untuk Mac, delapan cara yang berfungsi di 2026 lewat Wi-Fi, AirDrop atau kabel USB",
+      "title": "Android File Transfer untuk Mac",
+      "sub": "8 cara yang berfungsi di 2026, dengan atau tanpa kabel",
+      "left": "Android",
+      "right": "Mac",
+      "wifi": "Wi-Fi atau AirDrop",
+      "cable": "atau kabel USB"
+    },
+    "status": {
+      "alt": "Android File Transfer buatan Google dulu dan sekarang: dulu menyalin file hingga 4 GB dari Android ke Mac lewat USB, dan sejak Mei 2024 tidak lagi disediakan Google, sementara situs mirror menyimpan build Intel dari 2018. Tiga jenis jalur menggantikannya: kabel USB dengan OpenMTP atau MacDroid, nirkabel dengan AirDrop dari ponsel yang didukung, NearDrop, BIShare atau LocalSend, dan cloud dengan Google Drive atau Google Photos.",
+      "title": "Android File Transfer, dulu dan sekarang",
+      "sub": "Aplikasi Google sudah tiada; tiga jenis jalur menggantikannya",
+      "oldName": "Android File Transfer",
+      "oldBy": "buatan Google, untuk macOS",
+      "was": "Fungsinya dulu",
+      "wasText": "Menyalin file lewat USB, hingga 4 GB per file",
+      "now": "Sejak Mei 2024",
+      "nowText": "Tidak lagi disediakan Google",
+      "mirror": "Situs mirror: build Intel dari 2018",
+      "howLabel": "Digantikan oleh",
+      "l0": "Kabel USB",
+      "l0names": "OpenMTP, MacDroid",
+      "l1": "Nirkabel",
+      "l1names": "AirDrop dari ponsel baru, NearDrop, BIShare, LocalSend",
+      "l2": "Cloud",
+      "l2names": "Google Drive, Google Photos"
+    },
+    "routes": {
+      "alt": "Memilih jalur dari Android ke Mac dalam tiga pertanyaan: kalau Mac ada di jaringan lain, pakai Google Drive atau link BIShare; kalau tidak ada yang boleh dipasang di Mac, pakai AirDrop dari ponsel yang didukung atau link yang dibuka di browser; selain itu, tanpa kabel pakai BIShare, LocalSend atau NearDrop, dan dengan kabel pakai OpenMTP atau MacDroid.",
+      "title": "Pilih jalur dalam tiga pertanyaan",
+      "sub": "Di mana Mac berada, apa yang boleh dipasang, dan apakah kabel tidak masalah",
+      "q1": "Apakah Mac di Wi-Fi yang sama?",
+      "q2": "Bisakah memasang aplikasi di Mac?",
+      "q3": "Mau menghindari kabel?",
+      "r1": "Google Drive atau link BIShare",
+      "r2": "AirDrop dari ponsel yang didukung, atau link di browser",
+      "r3": "BIShare, LocalSend atau NearDrop",
+      "r4": "OpenMTP atau MacDroid lewat USB",
+      "yes": "Ya",
+      "no": "Tidak"
+    }
+  }
+}

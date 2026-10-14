@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "title": "Android File Transfer pour Mac : 8 solutions qui marchent en 2026",
+    "description": "Google ne propose plus Android File Transfer pour Mac. Huit solutions qui fonctionnent en 2026, avec ou sans câble : AirDrop depuis Android, OpenMTP, NearDrop et plus."
+  },
+  "hero": {
+    "eyebrow": "Téléphone Android et Mac",
+    "title": "Android File Transfer pour Mac en 2026 : ce qui l'a remplacé",
+    "body": "Pendant dix ans, la réponse tenait en une petite app de Google appelée <strong>Android File Transfer</strong>. Google a vidé sa page de téléchargement en mai 2024, puis redirigé l'adresse vers Quick Share pour Windows, qui n'existe pas sur Mac. La copie que les sites miroirs distribuent encore est la version 1.0.12 de 2018 : conçue pour les Mac Intel, elle ne tourne sur Apple silicon qu'à travers Rosetta et s'arrête à 4 Go par fichier. Ce qui fonctionne aujourd'hui dépend de votre téléphone et de votre envie d'utiliser un câble. Les Pixel et Galaxy récents envoient vers un Mac par AirDrop, des outils gratuits comme OpenMTP lisent le téléphone en USB, et les apps Wi-Fi déplacent n'importe quel fichier dans les deux sens sans câble. Voici huit solutions, chacune vérifiée sur le site de son éditeur en octobre 2026, puis la méthode avec câble et sans fil pas à pas, le retour du Mac vers Android et un correctif pour chaque panne courante.",
+    "ctaPrimary": "Obtenir BIShare gratuitement",
+    "ctaSecondary": "Comment ça marche"
+  },
+  "updated": "Mis à jour en octobre 2026 · vérifié dans l'aide Quick Share de Google, le Guide d'utilisation du Mac pour macOS 27 et les pages de version d'OpenMTP, NearDrop, LocalSend et MacDroid",
+  "disclosure": "BIShare est notre produit, et c'est l'une des huit solutions ci-dessous. Si votre téléphone sait faire AirDrop vers le Mac, ou s'il ne s'agit que de quelques photos une fois, une méthode intégrée ne demande rien à installer, et ce guide le précise là où c'est le cas.",
+  "quick": {
+    "title": "Comment transférer des fichiers d'Android vers Mac ? La réponse rapide",
+    "items": [
+      "<strong>Sans câble, avec n'importe quel téléphone :</strong> installez une app Wi-Fi des deux côtés, par exemple BIShare ou LocalSend, et envoyez. Les fichiers passent directement par le réseau local, dans les deux sens, sans limite de taille.",
+      "<strong>Pixel ou Galaxy récent :</strong> Quick Share peut envoyer vers un Mac par AirDrop sur un Pixel 8a ou plus récent et sur certains modèles Samsung, Motorola, OnePlus et Xiaomi. Réglez d'abord AirDrop sur le Mac sur Tout le monde pendant 10 minutes.",
+      "<strong>Avec un câble USB :</strong> passez le mode USB du téléphone sur Transfert de fichiers et ouvrez-le dans OpenMTP, gratuit et open source. MacDroid fait de même, avec une formule payante pour copier vers le téléphone.",
+      "<strong>Quick Share sur le Mac :</strong> NearDrop, une app gratuite non officielle, permet à un Mac de recevoir depuis n'importe quel Android doté de Quick Share, tant que les deux sont sur le même Wi-Fi.",
+      "<strong>Par le cloud :</strong> Google Drive fonctionne sur tous les téléphones et dans n'importe quel navigateur du Mac, mais les nouveaux comptes Google démarrent désormais avec 5 Go de stockage.",
+      "<strong>Oubliez l'ancienne app :</strong> Google ne propose plus Android File Transfer depuis 2024, et la copie des sites de téléchargement est une version Intel de 2018 incapable de déplacer un fichier de plus de 4 Go."
+    ]
+  },
+  "status": {
+    "title": "Qu'est devenu Android File Transfer ?",
+    "body": "Android File Transfer était le client MTP de Google pour Mac : on branchait le téléphone et une fenêtre affichait son stockage. Google ne l'a pas remplacé. L'adresse android.com/filetransfer renvoie aujourd'hui vers la page Quick Share pour Windows, et l'article d'aide sur le transfert par USB ne traite plus que de Windows et des Chromebook.",
+    "items": {
+      "0": {
+        "h": "Quand l'app a disparu",
+        "b": "Les captures de l'Internet Archive montrent la page de téléchargement intacte le 16 mai 2024 et vide cinq jours plus tard. La partie Mac de l'article d'aide de Google, qui exigeait OS X 10.5 ou plus récent, avait disparu début juin, et dès juillet l'ancienne adresse redirigeait vers Quick Share. Google n'a rien annoncé. Son propre document de compatibilité Android cite encore Android File Transfer comme hôte MTP de référence, signe que le protocole a très peu changé."
+      },
+      "1": {
+        "h": "Pourquoi l'ancienne copie est une mauvaise réponse",
+        "b": "Le programme d'installation qui reste sur le serveur de téléchargement de Google, et que beaucoup de miroirs recopient, est la version 1.0.12, modifiée pour la dernière fois en octobre 2018. Nous l'avons ouvert : c'est une app uniquement Intel pour macOS 10.7 et plus récent. Sur un Mac Apple silicon, elle a besoin de Rosetta, qu'Apple dit maintenir comme outil général jusqu'à macOS 27. La page de Google limitait aussi les copies à 4 Go par fichier, ce que dépassent quelques minutes de vidéo 4K."
+      },
+      "2": {
+        "h": "Ce qui l'a remplacée",
+        "b": "Trois familles d'outils, selon ce que vous avez. Le câble fonctionne toujours avec une app MTP plus récente sur le Mac. Sans fil, il existe désormais deux voies intégrées, AirDrop depuis les téléphones Android compatibles et Quick Share reçu par une app sur le Mac, plus des apps multiplateformes qui marchent avec tous les téléphones. Le cloud reste la solution de repli quand les deux appareils ne sont pas au même endroit."
+      }
+    }
+  },
+  "methods": {
+    "title": "Huit façons de transférer des fichiers entre Android et Mac, classées",
+    "consLabel": "Points d'attention :",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "Le meilleur au global : tout fichier, dans les deux sens, avec n'importe quel Android",
+        "facts": "Android 7.0 ou plus récent sur Google Play · app Mac sur le Mac App Store, macOS 12 ou plus récent · même Wi-Fi pour les transferts directs · aucune limite de taille sur un même réseau · liens jusqu'à 100 Go qui s'ouvrent dans n'importe quel navigateur · chiffré de bout en bout · code source sous Apache 2.0",
+        "body": "Installez BIShare sur le téléphone et sur le Mac. Quand les deux sont sur le même réseau, chacun voit l'autre dans sa liste d'appareils à proximité ; choisissez les fichiers sur le téléphone, touchez le Mac, et ils arrivent en taille réelle. Le Mac renvoie des fichiers en les faisant glisser sur l'app. Si le Mac est ailleurs, le téléphone crée plutôt un lien, que le Mac ouvre dans Safari ou un autre navigateur sans rien installer. L'app conserve aussi la date de modification d'origine de chaque fichier, si bien que les photos restent triées par date de prise de vue et non par date d'arrivée.",
+        "cons": "La voie directe demande l'app sur les deux appareils, ce qui est plus lourd qu'un envoi ponctuel depuis un téléphone déjà compatible AirDrop. Un lien passe par notre relais et demande donc Internet aux deux bouts."
+      },
+      "1": {
+        "name": "Quick Share vers AirDrop",
+        "tag": "Le meilleur si votre téléphone le permet : rien à installer",
+        "facts": "Pixel 8a ou plus récent ; certains téléphones Samsung, Oppo, OnePlus, Vivo, Xiaomi, Honor, Transsion et Motorola · AirDrop du Mac réglé sur Tout le monde pendant 10 minutes · pair à pair · déployé depuis le 20 novembre 2025",
+        "body": "Google a ajouté AirDrop à Quick Share en novembre 2025, en commençant par le Pixel 10. Ouvrez le menu de partage du téléphone, choisissez Quick Share, puis sélectionnez le Mac dans la liste. La page d'aide de Google indique que l'appareil Apple qui reçoit doit être visible par tout le monde pendant 10 minutes. Les téléphones sans prise en charge d'AirDrop obtiennent un code QR à la place : les fichiers passent alors par les serveurs de Google, chiffrés de bout en bout, restent téléchargeables 24 heures, avec une limite de 10 Go par 24 heures.",
+        "cons": "La liste des téléphones est courte. La page de Samsung ne citait en mars 2026 que les Galaxy S26, S26+ et S26 Ultra, et recevoir depuis un Mac exige un Pixel 9 ou plus récent, pas le 9a, ou l'une des mêmes marques. Sur les téléphones plus anciens, la fonction n'existe pas."
+      },
+      "2": {
+        "name": "OpenMTP",
+        "tag": "La meilleure solution gratuite par câble",
+        "facts": "Gratuit, licence MIT · macOS 10.14 ou plus récent · versions séparées pour Apple silicon et Intel · la version 3.3.0 du 22 août 2026 corrige un plantage sous macOS 27 · téléphone réglé sur Transfert de fichiers en USB",
+        "body": "OpenMTP est ce qui ressemble le plus à l'ancienne app de Google, mais entretenu. Branchez le téléphone avec un câble qui transporte les données, réglez son mode USB sur Transfert de fichiers, et OpenMTP affiche le Mac d'un côté et le stockage du téléphone de l'autre. Faites glisser des fichiers dans les deux sens, dossiers entiers compris. Ni compte ni réseau ne sont nécessaires, ce qui en fait la solution pour un téléphone au Wi-Fi défaillant ou un Mac sur un réseau qui empêche les appareils de se voir.",
+        "cons": "Son propre README précise que le moteur MTP n'est mis à jour que pour les trois dernières versions de macOS. Il vous faut un câble de données, et le téléphone doit rester déverrouillé et en mode Transfert de fichiers pendant toute la copie."
+      },
+      "3": {
+        "name": "MacDroid",
+        "tag": "La meilleure solution payante tout-en-un : câble, ADB ou Wi-Fi",
+        "facts": "Mac App Store · macOS 11.5 ou plus récent · la version gratuite copie seulement d'Android vers Mac · PRO à 19,99 USD par an ou 34,99 USD une fois (App Store américain, octobre 2026) · modes MTP, ADB et Wi-Fi",
+        "body": "MacDroid monte le téléphone comme un disque que l'on ouvre dans le Finder, et son site annonce la modification de fichiers Android depuis le Mac sans les copier d'abord. L'éditeur cite trois modes de connexion : MTP par câble, ADB pour les téléphones dont les options pour développeurs sont activées, et Wi-Fi. Pour copier photos et documents du téléphone vers le Mac, la version gratuite suffit.",
+        "cons": "La version gratuite copie uniquement d'Android vers le Mac ; renvoyer des fichiers vers le téléphone exige PRO. Les prix du site de l'éditeur diffèrent de ceux de l'App Store et varient selon la région."
+      },
+      "4": {
+        "name": "NearDrop",
+        "tag": "Le meilleur pour recevoir Quick Share sur un Mac",
+        "facts": "Gratuit, The Unlicense · non officiel · version 2.2.2 du 19 septembre 2026 · même réseau Wi-Fi uniquement · envoi depuis le Mac par le menu Partager du Finder",
+        "body": "NearDrop s'installe dans la barre des menus et fait apparaître le Mac comme destinataire Quick Share sur n'importe quel téléphone Android, si bien que vous envoyez depuis le menu de partage habituel sans rien ajouter au téléphone. Les fichiers reçus vont dans Téléchargements. Dans l'autre sens, faites un clic droit sur un fichier dans le Finder, choisissez Partager puis NearDrop, et le téléphone scanne un code QR pour le recevoir.",
+        "cons": "L'app est non officielle et non notarisée, le premier lancement demande donc un clic droit puis Ouvrir. Son README indique qu'elle ne fonctionne que sur un seul réseau Wi-Fi et que le Mac y reste visible par tout le monde en permanence."
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "La meilleure app open source des deux côtés",
+        "facts": "Gratuit, Apache 2.0 · Android 7.0 et macOS 11 ou plus récents · version 1.18.2 du 21 août 2026 · même réseau local · sans compte",
+        "body": "LocalSend est une app multiplateforme pour la même tâche que la voie directe de BIShare : installez-la sur le téléphone et sur le Mac, gardez les deux sur un même réseau et envoyez dans n'importe quel sens. Son site promet ni compte, ni connexion, ni serveur, et elle fonctionne entièrement hors ligne. <goLocalsend>Notre comparatif avec LocalSend</goLocalsend> met les deux côte à côte.",
+        "cons": "Elle n'a pas de lien pour un Mac qui n'est pas sur le même réseau, donc un envoi vers l'ordinateur de quelqu'un d'autre, ailleurs, demande une autre solution."
+      },
+      "6": {
+        "name": "Google Drive et Google Photos",
+        "tag": "Le meilleur quand le Mac est ailleurs",
+        "facts": "Tous les téléphones Android · n'importe quel navigateur du Mac sur drive.google.com ou photos.google.com · depuis le 9 mars 2026 les nouveaux comptes démarrent à 5 Go, 15 Go après vérification du numéro · fichiers Drive jusqu'à 5 To · Photos : images jusqu'à 200 Mo, vidéos jusqu'à 10 Go",
+        "body": "Envoyez depuis l'app Drive ou Photos du téléphone, puis téléchargez sur le Mac. Rien à configurer côté Mac, et la distance n'a pas d'importance, ce qui en fait la réponse habituelle pour envoyer un fichier sur l'ordinateur d'une autre personne. Les photos déjà sauvegardées chez Google sont à une connexion de n'importe quel Mac.",
+        "cons": "Le stockage est partagé avec Gmail, et Google fait désormais démarrer les nouveaux comptes à 5 Go. Chaque fichier monte puis redescend, donc une grosse vidéo prend autant de temps que votre débit montant l'impose, et une copie reste dans votre compte jusqu'à ce que vous la supprimiez."
+      },
+      "7": {
+        "name": "Échange de fichiers Bluetooth",
+        "tag": "Intégré, pour le petit fichier occasionnel",
+        "facts": "Applications › Utilitaires sur tous les Mac · activez le Partage Bluetooth dans Réglages Système › Général › Partage · les fichiers reçus vont dans Téléchargements · le Bluetooth classique plafonne à 3 Mb/s",
+        "body": "Jumelez le téléphone et le Mac, activez le Partage Bluetooth sur le Mac, puis partagez un fichier depuis le téléphone par Bluetooth. Le guide d'Apple décrit la fonction pour les téléphones en général sans citer Android, prévoyez donc qu'il faille parfois s'y reprendre.",
+        "cons": "Le débit classique le plus élevé de la spécification Bluetooth revient à environ 270 Ko par seconde avant surcharge, donc une vidéo de 100 Mo prend plus de six minutes. Bien pour une fiche contact ou un PDF, rien de plus gros."
+      }
+    }
+  },
+  "table": {
+    "title": "En un coup d'œil",
+    "cols": {
+      "feature": "Critère",
+      "bishare": "BIShare",
+      "quickshare": "Quick Share vers AirDrop",
+      "openmtp": "OpenMTP",
+      "macdroid": "MacDroid",
+      "neardrop": "NearDrop",
+      "drive": "Google Drive"
+    },
+    "rows": {
+      "r0": "Aucun câble nécessaire",
+      "r1": "Envoie aussi du Mac vers Android",
+      "r2": "Fonctionne avec tous les téléphones Android",
+      "r3": "Fonctionne sans connexion Internet",
+      "r4": "Gratuit dans les deux sens",
+      "r5": "Open source"
+    },
+    "note": "En octobre 2026. Entre deux appareils du même réseau, BIShare n'impose aucune limite de taille, et un lien BIShare contient jusqu'à 100 Go que n'importe quel navigateur peut télécharger sans app. Quick Share vers AirDrop demande un téléphone compatible, le Mac réglé sur Tout le monde pendant 10 minutes et, du Mac vers Android, un Pixel 9 ou plus récent (pas le 9a) ou une marque de la liste ; les autres téléphones passent par un code QR via les serveurs de Google. OpenMTP exige un câble de données et le téléphone en mode Transfert de fichiers. La version gratuite de MacDroid copie seulement d'Android vers Mac. NearDrop est non officiel et fonctionne sur un seul réseau Wi-Fi. Google Drive demande un compte Google et puise dans son stockage."
+  },
+  "choose": {
+    "title": "Quelle solution choisir ?",
+    "body": "Trois questions suffisent : le Mac est-il sur le même réseau que le téléphone, pouvez-vous installer quelque chose sur le Mac, et voulez-vous un câble ou non ?",
+    "items": {
+      "0": {
+        "h": "Quelques photos depuis un Pixel ou un Galaxy compatible AirDrop",
+        "b": "Utilisez Quick Share vers AirDrop. Rien à installer, et les fichiers gardent leur pleine qualité. Si votre téléphone n'affiche pas le Mac, c'est qu'il ne figure pas dans la liste des modèles pris en charge par Google, et n'importe quelle autre solution fera l'affaire."
+      },
+      "1": {
+        "h": "Toute une pellicule ou plusieurs gigaoctets de vidéo",
+        "b": "Évitez le cloud et le Bluetooth. En Wi-Fi, BIShare ou LocalSend tournent à la vitesse du réseau local sans plafond ; par câble, OpenMTP copie des dossiers sans aucun réseau. Le <blogAndroidMac>guide pour envoyer de grosses vidéos d'Android vers Mac</blogAndroidMac> détaille le cas des longs clips 4K."
+      },
+      "2": {
+        "h": "Des fichiers qui font l'aller-retour chaque jour",
+        "b": "Choisissez une solution qui fonctionne dans les deux sens sans brancher quoi que ce soit : BIShare, LocalSend ou NearDrop. Avec BIShare, vous pouvez aussi <goClipboard>synchroniser le presse-papiers</goClipboard> entre le téléphone et le Mac, pour que le texte copié suive. Un dossier réseau partagé est une autre option, et notre <blogWebdav>guide WebDAV pour Android et Mac</blogWebdav> explique comment faire."
+      },
+      "3": {
+        "h": "Envoyer vers le Mac de quelqu'un d'autre",
+        "b": "Créez un lien. Un lien BIShare s'ouvre dans n'importe quel navigateur pendant 6, 12 ou 24 heures, et un <goTransfer>lien créé depuis la version navigateur</goTransfer> ne demande pas d'app de votre côté non plus. Google Drive convient aussi si chacun accepte de se connecter."
+      }
+    }
+  },
+  "cable": {
+    "title": "Comment transférer des fichiers d'Android vers Mac avec un câble USB",
+    "body": "macOS n'offre aucun moyen intégré de parcourir le stockage d'un téléphone Android, la solution par câble demande donc une app sur le Mac. Ces étapes utilisent OpenMTP parce qu'il est gratuit ; MacDroid fonctionne de la même manière.",
+    "items": {
+      "0": {
+        "h": "Utilisez un câble qui transporte les données",
+        "b": "Certains câbles ne transportent que du courant. Si le téléphone charge sans jamais demander à quoi doit servir la connexion USB, essayez d'abord un autre câble et branchez-le directement sur le Mac plutôt que sur un hub."
+      },
+      "1": {
+        "h": "Réglez le téléphone sur Transfert de fichiers",
+        "b": "Déverrouillez le téléphone, faites glisser les notifications vers le bas et touchez la notification USB. Choisissez Transfert de fichiers, qu'Android décrit comme un transfert de fichiers via MTP. PTP, l'autre choix, ne sert qu'aux photos, et le réglage par défaut charge sans partager de données."
+      },
+      "2": {
+        "h": "Ouvrez OpenMTP sur le Mac",
+        "b": "Téléchargez la version adaptée à votre Mac, Apple silicon ou Intel, sur la page GitHub du projet, et quittez toute autre app susceptible de dialoguer avec le téléphone, comme l'ancien Android File Transfer ou Samsung Smart Switch. Le stockage du téléphone apparaît dans le panneau de droite."
+      },
+      "3": {
+        "h": "Copiez dans un sens ou dans l'autre",
+        "b": "Les photos de l'appareil photo sont dans le dossier DCIM et les téléchargements dans Download. Faites glisser fichiers ou dossiers d'un panneau à l'autre. Gardez le téléphone déverrouillé pendant une longue copie, car certains coupent la connexion quand l'écran se verrouille."
+      },
+      "4": {
+        "h": "Débranchez proprement",
+        "b": "Attendez la fin de la barre de progression avant de débrancher. Un fichier interrompu en cours de route est incomplet sur le Mac : supprimez-le et copiez-le à nouveau plutôt que de l'ouvrir."
+      }
+    }
+  },
+  "steps": {
+    "title": "Comment transférer des fichiers d'Android vers Mac sans fil avec BIShare",
+    "body": "Il suffit que les deux appareils soient sur le même Wi-Fi. Pas de câble, pas de compte, et <blogNoData>aucune donnée mobile consommée</blogNoData> pendant le transfert.",
+    "items": {
+      "0": {
+        "h": "Installez-la sur les deux appareils",
+        "b": "Téléchargez BIShare sur Google Play pour le téléphone et sur le Mac App Store pour le Mac. Sous macOS 15 et plus récent, autorisez-la lorsque le Mac demande l'accès aux appareils de votre réseau local ; sans cela, les deux ne se voient pas."
+      },
+      "1": {
+        "h": "Choisissez les fichiers sur le téléphone",
+        "b": "Ouvrez BIShare et sélectionnez photos, vidéos ou n'importe quel fichier, ou passez par le menu de partage d'Android depuis une autre app et choisissez BIShare. Sur un réseau partagé, ni le nombre de fichiers ni leur taille ne sont plafonnés."
+      },
+      "2": {
+        "h": "Touchez le Mac",
+        "b": "Votre Mac apparaît dans la liste des appareils à proximité. Touchez-le et acceptez sur le Mac. Les fichiers arrivent dans le dossier propre à BIShare tant que vous n'en choisissez pas un autre dans Paramètres, Emplacement d'enregistrement, par exemple Téléchargements ou Images."
+      }
+    }
+  },
+  "reverse": {
+    "title": "Comment transférer des fichiers du Mac vers Android",
+    "body": "La plupart des solutions ci-dessus marchent dans les deux sens, mais pas toutes, et l'endroit où le fichier arrive sur le téléphone varie.",
+    "items": {
+      "0": {
+        "h": "Avec BIShare ou LocalSend",
+        "b": "Faites glisser des fichiers sur l'app du Mac et choisissez le téléphone. BIShare les enregistre dans Download, dans un dossier BIShare, où l'app Fichiers et la galerie les retrouvent toutes deux."
+      },
+      "1": {
+        "h": "Avec OpenMTP",
+        "b": "Faites glisser depuis le panneau du Mac vers n'importe quel dossier du téléphone. Placez les photos dans DCIM ou Pictures pour les voir tout de suite dans la galerie ; d'autres dossiers fonctionnent, mais la galerie devra peut-être les réindexer."
+      },
+      "2": {
+        "h": "Avec AirDrop ou NearDrop",
+        "b": "AirDrop depuis un Mac n'atteint que les téléphones capables de le recevoir : un Pixel 9 ou plus récent sauf le 9a, ou l'une des marques listées. NearDrop envoie depuis le menu Partager du Finder vers n'importe quel téléphone doté de Quick Share, qui scanne un code QR pour accepter."
+      },
+      "3": {
+        "h": "Pas avec MacDroid gratuit ni le Bluetooth",
+        "b": "La version gratuite de MacDroid ne fait que lire le téléphone. L'Échange de fichiers Bluetooth peut envoyer vers un téléphone jumelé, mais à la vitesse du Bluetooth il ne convient qu'aux petits fichiers."
+      }
+    }
+  },
+  "photos": {
+    "title": "Photos et vidéos sans perte de qualité",
+    "body": "Récupérer des photos est la raison la plus fréquente de relier un téléphone à un Mac, et la solution choisie décide de ce qui arrive.",
+    "items": {
+      "0": {
+        "h": "Copiez le fichier, pas une version de celui-ci",
+        "b": "Une voie directe, câble ou Wi-Fi, copie le fichier d'origine octet par octet. Google Photos accepte les images jusqu'à 200 Mo et les vidéos jusqu'à 10 Go, donc de très longs clips 4K ou 8K peuvent ne pas passer, et ce qui transite par une app de messagerie est en général compressé en route."
+      },
+      "1": {
+        "h": "Gardez les dates",
+        "b": "Les apps photo trient selon la date enregistrée dans le fichier, mais le Finder et beaucoup d'autres outils se fient à la date de modification. BIShare conserve la date de modification d'origine de tout ce qu'il reçoit, pour qu'un dossier de photos de l'an dernier ne ressemble pas à celles d'aujourd'hui."
+      },
+      "2": {
+        "h": "Transfert d'images vaut un essai",
+        "b": "Le réglage PTP d'Android présente le téléphone comme un appareil photo se présente, et Transfert d'images est l'app du Mac pour importer depuis un appareil photo. Le guide d'Apple cite appareils photo, iPhone, iPad et scanners, mais pas les téléphones Android : le téléphone apparaîtra peut-être, peut-être pas. Sinon, prenez l'une des solutions ci-dessus."
+      }
+    }
+  },
+  "speed": {
+    "title": "Combien de temps cela prend-il ?",
+    "body": "La connexion fixe la vitesse bien plus que l'app. Les solutions cloud envoient d'abord, puis téléchargent ; un câble, le Wi-Fi ou AirDrop n'ont besoin ni de l'un ni de l'autre.",
+    "items": {
+      "0": {
+        "h": "Par câble USB",
+        "b": "Consultez la fiche technique du téléphone pour connaître sa version USB. L'USB 2.0 plafonne en théorie à 480 Mb/s, et en pratique mille petites photos se copient plus lentement qu'une vidéo de même taille totale, parce que chaque fichier est traité séparément."
+      },
+      "1": {
+        "h": "Par Wi-Fi",
+        "b": "Le téléphone et le Mac communiquent par le routeur, c'est donc lui qui donne le rythme. Nous avons mesuré 40 à 50 mégaoctets par seconde en Wi-Fi 5 et 70 à 110 en Wi-Fi 6 : un clip de 4 Go passe du téléphone au Mac en une à deux minutes environ. <goWifiTransfer>Le guide du transfert Wi-Fi</goWifiTransfer> détaille les chiffres par routeur et par appareil."
+      },
+      "2": {
+        "h": "Par le cloud ou le Bluetooth",
+        "b": "Avec 40 Mb/s en envoi, le téléphone met environ 13 minutes à pousser une vidéo de 4 Go vers Google Drive avant que le Mac puisse la récupérer. Le Bluetooth est encore plus lent : à son pic classique d'environ 270 Ko/s, la même vidéo prendrait plus de quatre heures."
+      }
+    }
+  },
+  "fixes": {
+    "title": "Quand le Mac ne voit pas le téléphone",
+    "items": {
+      "0": {
+        "h": "Rien ne se passe au branchement",
+        "b": "C'est normal : macOS n'affiche aucune fenêtre pour un téléphone Android. Ouvrez OpenMTP ou MacDroid, puis vérifiez que le téléphone est déverrouillé et réglé sur Transfert de fichiers dans sa notification USB."
+      },
+      "1": {
+        "h": "Le téléphone charge mais aucun menu USB n'apparaît",
+        "b": "Le câble ou le port ne transporte que du courant. Changez de câble, utilisez un port du Mac lui-même et évitez les hubs pendant le test."
+      },
+      "2": {
+        "h": "OpenMTP n'arrive pas à ouvrir le téléphone",
+        "b": "Une autre app retient peut-être la connexion. Quittez l'ancien Android File Transfer, Samsung Smart Switch et tout autre gestionnaire de téléphone, débranchez, déverrouillez le téléphone et rebranchez."
+      },
+      "3": {
+        "h": "Le Mac n'apparaît pas dans Quick Share",
+        "b": "Réglez AirDrop sur le Mac sur Tout le monde pendant 10 minutes, comme l'exige le guide de Google, et laissez les deux écrans allumés. Vérifiez que votre téléphone figure dans la liste des modèles pris en charge ; sinon, utilisez NearDrop ou une app Wi-Fi."
+      },
+      "4": {
+        "h": "Le téléphone et le Mac ne se trouvent pas en Wi-Fi",
+        "b": "Mettez-les sur le même réseau, pas sur un réseau invité qui isole les appareils. Depuis macOS 15, le Mac demande avant qu'une app puisse joindre les appareils du réseau local : ouvrez Réglages Système, Confidentialité et sécurité, Réseau local, et activez l'app."
+      },
+      "5": {
+        "h": "L'ancien Android File Transfer ne s'ouvre pas",
+        "b": "C'est une app Intel de 2018 que Google ne prend plus en charge. Supprimez-la du dossier Applications plutôt que d'essayer de la réparer, et utilisez OpenMTP pour le même usage."
+      }
+    }
+  },
+  "security": {
+    "title": "Qui peut voir vos fichiers en chemin ?",
+    "body": "Vitesse mise à part, la vraie différence entre ces solutions, c'est de savoir si une copie du fichier reste sur l'ordinateur de quelqu'un d'autre.",
+    "items": {
+      "0": {
+        "h": "Câble, AirDrop et apps Wi-Fi locales",
+        "b": "Le fichier va du téléphone au Mac et nulle part ailleurs. Google décrit Quick Share vers AirDrop comme du pair à pair ; seule sa solution de repli par code QR stocke les fichiers, chiffrés, sur ses serveurs pendant 24 heures."
+      },
+      "1": {
+        "h": "Google Drive et Photos",
+        "b": "Une copie reste dans votre compte Google, protégée en transit et au repos, jusqu'à ce que vous la supprimiez, et elle compte dans votre stockage."
+      },
+      "2": {
+        "h": "BIShare",
+        "b": "Quand le téléphone et le Mac sont sur le même réseau, BIShare transfère le fichier entre eux chiffré de bout en bout, et aucun serveur ne le voit jamais. Pour un lien, <goEncrypted>le téléphone chiffre le fichier avant l'envoi</goEncrypted> et la clé reste dans le lien, si bien que notre relais ne détient que du texte chiffré jusqu'à l'expiration."
+      }
+    }
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": {
+      "0": {
+        "q": "Comment transférer des fichiers d'Android vers Mac ?",
+        "a": "Sans câble, installez une app Wi-Fi comme BIShare ou LocalSend sur les deux appareils et envoyez sur le même réseau, ou utilisez Quick Share vers AirDrop si votre téléphone le permet. Avec un câble, réglez le mode USB du téléphone sur Transfert de fichiers et ouvrez-le dans OpenMTP ou MacDroid sur le Mac."
+      },
+      "1": {
+        "q": "Android File Transfer est-il encore disponible pour Mac ?",
+        "a": "Pas chez Google. Sa page de téléchargement a été vidée en mai 2024 et l'adresse mène désormais à Quick Share pour Windows. Les copies des sites de téléchargement sont la version 1.0.12 de 2018, une app uniquement Intel limitée à 4 Go par fichier. OpenMTP est le remplaçant gratuit et entretenu."
+      },
+      "2": {
+        "q": "Peut-on faire AirDrop d'Android vers un Mac ?",
+        "a": "Avec certains téléphones. Depuis novembre 2025, Quick Share peut envoyer vers AirDrop sur un Pixel 8a ou plus récent et sur certains modèles Samsung, Oppo, OnePlus, Vivo, Xiaomi, Honor, Transsion et Motorola. Le Mac doit régler AirDrop sur Tout le monde pendant 10 minutes. Les autres téléphones doivent passer par une autre solution."
+      },
+      "3": {
+        "q": "Comment transférer des photos d'Android vers Mac sans câble ?",
+        "a": "Envoyez-les en Wi-Fi avec BIShare, LocalSend ou NearDrop, utilisez Quick Share vers AirDrop sur un téléphone compatible, ou laissez Google Photos les sauvegarder et téléchargez-les sur le Mac. Les voies directes gardent les fichiers d'origine ; Google Photos accepte les images jusqu'à 200 Mo et les vidéos jusqu'à 10 Go."
+      },
+      "4": {
+        "q": "Pourquoi mon Mac ne reconnaît-il pas mon téléphone Android ?",
+        "a": "macOS n'ouvre pas les téléphones Android de lui-même, donc rien n'apparaît tant que vous ne lancez pas une app MTP comme OpenMTP. Si l'app ne trouve rien, déverrouillez le téléphone, choisissez Transfert de fichiers dans sa notification USB, essayez un câble de données et quittez toute autre app qui utilise la connexion."
+      },
+      "5": {
+        "q": "Comment connecter mon téléphone Android à mon Mac ?",
+        "a": "Avec un câble de données et une app MTP comme OpenMTP ou MacDroid, ou sans fil en installant la même app de transfert des deux côtés sur un même réseau Wi-Fi. Quick Share ne se connecte à un Mac que par AirDrop sur les téléphones compatibles ou grâce à l'app NearDrop."
+      },
+      "6": {
+        "q": "Existe-t-il Quick Share pour Mac ?",
+        "a": "Google publie Quick Share pour Android, les Chromebook et Windows, pas pour macOS. NearDrop est une app gratuite non officielle qui permet à un Mac de recevoir Quick Share sur le même Wi-Fi et de renvoyer des fichiers par le menu Partager du Finder."
+      },
+      "7": {
+        "q": "Comment transférer des fichiers du Mac vers Android ?",
+        "a": "Faites glisser les fichiers sur BIShare ou LocalSend sur le Mac et choisissez le téléphone, déposez-les dans les dossiers du téléphone avec OpenMTP, ou partagez-les via NearDrop. AirDrop depuis un Mac n'atteint qu'un Pixel 9 ou plus récent, sauf le 9a, et certaines marques de la liste."
+      },
+      "8": {
+        "q": "Y a-t-il une limite de taille pour transférer d'Android vers Mac ?",
+        "a": "Cela dépend de la solution. L'ancien Android File Transfer s'arrêtait à 4 Go par fichier. Les apps Wi-Fi directes et les apps par câble comme OpenMTP n'ont pas de limite fixe, Google Drive accepte des fichiers jusqu'à 5 To si votre stockage le permet, et le repli par code QR de Quick Share plafonne à 10 Go par 24 heures."
+      },
+      "9": {
+        "q": "Comment transférer des fichiers d'un téléphone Samsung vers un Mac ?",
+        "a": "Comme avec n'importe quel Android. D'après la page de Samsung en mars 2026, Quick Share de Samsung n'atteint un Mac par AirDrop que sur la série Galaxy S26. Samsung Smart Switch pour Mac sauvegarde et restaure un Galaxy ; ce n'est pas un explorateur de fichiers."
+      },
+      "10": {
+        "q": "Peut-on transférer des fichiers d'Android vers Mac en Bluetooth ?",
+        "a": "Oui, pour de petits fichiers. Activez le Partage Bluetooth dans Réglages Système, Général, Partage, jumelez le téléphone et envoyez ; les fichiers arrivent dans Téléchargements. À environ 270 Ko par seconde au mieux, tout ce qui dépasse quelques mégaoctets va plus vite en Wi-Fi ou par câble."
+      },
+      "11": {
+        "q": "Où vont les fichiers d'Android sur mon Mac ?",
+        "a": "Cela dépend de la solution. AirDrop, NearDrop et le Bluetooth enregistrent dans Téléchargements, OpenMTP et MacDroid dans le dossier où vous les déposez, et BIShare dans son propre dossier tant que vous n'en choisissez pas un autre dans Paramètres, Emplacement d'enregistrement."
+      }
+    }
+  },
+  "cta": {
+    "title": "N'importe quel fichier d'Android vers votre Mac, sans câble",
+    "body": "Gratuit et open source. Envoyez photos, longues vidéos et dossiers entiers du téléphone vers le Mac et inversement en qualité d'origine, sans compte et sans limite de taille sur votre propre réseau.",
+    "download": "Télécharger BIShare"
+  },
+  "a11y": {
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "art": {
+    "hero": {
+      "alt": "Un téléphone Android envoie des fichiers à un MacBook en Wi-Fi, avec le titre Android File Transfer pour Mac, huit solutions qui fonctionnent en 2026 par Wi-Fi, AirDrop ou câble USB",
+      "title": "Android File Transfer pour Mac",
+      "sub": "8 solutions qui marchent en 2026, avec ou sans câble",
+      "left": "Android",
+      "right": "Mac",
+      "wifi": "Wi-Fi ou AirDrop",
+      "cable": "ou un câble USB"
+    },
+    "status": {
+      "alt": "Android File Transfer de Google hier et aujourd'hui : il copiait des fichiers jusqu'à 4 Go d'Android vers un Mac en USB, Google ne le propose plus depuis mai 2024, et les sites miroirs gardent une version Intel de 2018. Trois familles de solutions l'ont remplacé : le câble USB avec OpenMTP ou MacDroid, le sans-fil avec AirDrop depuis les téléphones compatibles, NearDrop, BIShare ou LocalSend, et le cloud avec Google Drive ou Google Photos.",
+      "title": "Android File Transfer, hier et aujourd'hui",
+      "sub": "L'app de Google a disparu ; trois familles de solutions l'ont remplacée",
+      "oldName": "Android File Transfer",
+      "oldBy": "de Google, pour macOS",
+      "was": "Ce qu'il faisait",
+      "wasText": "Copiait des fichiers en USB, jusqu'à 4 Go chacun",
+      "now": "Depuis mai 2024",
+      "nowText": "Plus proposé par Google",
+      "mirror": "Sites miroirs : une version Intel de 2018",
+      "howLabel": "Remplacé par",
+      "l0": "Câble USB",
+      "l0names": "OpenMTP, MacDroid",
+      "l1": "Sans fil",
+      "l1names": "AirDrop depuis les téléphones récents, NearDrop, BIShare, LocalSend",
+      "l2": "Cloud",
+      "l2names": "Google Drive, Google Photos"
+    },
+    "routes": {
+      "alt": "Choisir une solution d'Android vers Mac en trois questions : si le Mac est sur un autre réseau, Google Drive ou un lien BIShare ; si rien ne peut être installé sur le Mac, AirDrop depuis un téléphone compatible ou un lien ouvert dans le navigateur ; sinon, sans câble BIShare, LocalSend ou NearDrop, et avec câble OpenMTP ou MacDroid.",
+      "title": "Choisissez en trois questions",
+      "sub": "Où est le Mac, ce que vous pouvez installer, et si un câble vous convient",
+      "q1": "Le Mac est-il sur le même Wi-Fi ?",
+      "q2": "Pouvez-vous installer une app sur le Mac ?",
+      "q3": "Voulez-vous éviter le câble ?",
+      "r1": "Google Drive ou un lien BIShare",
+      "r2": "AirDrop depuis un téléphone compatible, ou un lien dans le navigateur",
+      "r3": "BIShare, LocalSend ou NearDrop",
+      "r4": "OpenMTP ou MacDroid en USB",
+      "yes": "Oui",
+      "no": "Non"
+    }
+  }
+}

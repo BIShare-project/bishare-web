@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "title": "Android File Transfer Mac 的 8 種替代",
+    "description": "Google 已停止提供 Mac 版 Android File Transfer。2026 年仍可用的 8 種 Android 傳 Mac 方法：Android 的 AirDrop、OpenMTP、NearDrop，有線無線都有。"
+  },
+  "hero": {
+    "eyebrow": "Android 手機與 Mac",
+    "title": "2026 年 Mac 版 Android File Transfer 的替代方案",
+    "body": "將近十年，Android 傳檔案到 Mac 的標準答案都是 Google 的一個小 App：<strong>Android File Transfer</strong>。2024 年 5 月，Google 清空了它的下載頁，之後把網址導向 Windows 版 Quick Share，而 Quick Share 沒有 Mac 版。鏡像網站至今還在發送 2018 年的 1.0.12 版。它是為 Intel Mac 打造的，在 Apple 晶片上只能透過 Rosetta 執行，單一檔案上限 4 GB。現在該用哪種方法，取決於你的手機，以及願不願意接線。較新的 Pixel 和 Galaxy 可以用 AirDrop 傳到 Mac，OpenMTP 這類免費工具能透過 USB 讀取手機，Wi-Fi App 則不用線就能雙向傳任何檔案。以下整理 8 種方法，每一種都在 2026 年 10 月對照開發者官網確認過。接著是有線與無線的逐步教學、從 Mac 傳回 Android 的方法，以及常見問題的解法。",
+    "ctaPrimary": "免費取得 BIShare",
+    "ctaSecondary": "運作方式"
+  },
+  "updated": "2026 年 10 月更新 · 對照 Google 的 Quick Share 說明、macOS 27 的 Mac 使用手冊，以及 OpenMTP、NearDrop、LocalSend、MacDroid 的版本發布頁確認",
+  "disclosure": "BIShare 是我們的產品，也是以下 8 種方法之一。如果你的手機能 AirDrop 到 Mac，或只是偶爾傳幾張照片，系統內建的方法什麼都不用裝，文中相關段落都有寫明。",
+  "quick": {
+    "title": "Android 檔案怎麼傳到 Mac？簡短回答",
+    "items": [
+      "<strong>不用線，任何手機都行：</strong>兩邊都裝一個 Wi-Fi App，例如 BIShare 或 LocalSend，然後傳送。檔案直接走區域網路，雙向都可以，沒有大小限制。",
+      "<strong>較新的 Pixel 或 Galaxy：</strong>Pixel 8a 以後的機型，以及部分三星、Motorola、OnePlus 和小米機型，可以用 Quick Share 透過 AirDrop 傳到 Mac。先把 Mac 的 AirDrop 設成「所有人（10 分鐘）」。",
+      "<strong>用 USB 傳輸線：</strong>把手機的 USB 模式改成「檔案傳輸」，再用免費開源的 OpenMTP 開啟。MacDroid 也做得到，但要傳回手機需要付費版。",
+      "<strong>在 Mac 上用 Quick Share：</strong>免費的非官方 App NearDrop 能讓 Mac 在同一個 Wi-Fi 下，接收任何有 Quick Share 的 Android 手機傳來的檔案。",
+      "<strong>走雲端：</strong>Google 雲端硬碟在所有手機和 Mac 的任何瀏覽器都能用，不過新註冊的 Google 帳號現在起步只有 5 GB 空間。",
+      "<strong>別再用舊 App：</strong>Google 從 2024 年起已不再提供 Android File Transfer，下載站上的是 2018 年的 Intel 版本，傳不了超過 4 GB 的檔案。"
+    ]
+  },
+  "status": {
+    "title": "Android File Transfer 發生了什麼事？",
+    "body": "Android File Transfer 是 Google 做的 Mac 版 MTP 用戶端：接上手機，視窗就會列出手機的儲存空間。Google 沒有推出接替的 App。android.com/filetransfer 這個網址現在會導向 Windows 版 Quick Share 的頁面，而用 USB 傳檔案的說明文章也只談 Windows 和 Chromebook。",
+    "items": {
+      "0": {
+        "h": "它什麼時候消失的",
+        "b": "Internet Archive 的快照顯示，下載頁在 2024 年 5 月 16 日還完整，五天後就空了。Google 說明文章裡要求 Mac 為 OS X 10.5 或更新版本的段落，到 6 月初已經刪除，7 月起舊網址直接導向 Quick Share。Google 沒有發布任何公告。Google 自己的 Android 相容性文件至今仍把 Android File Transfer 列為 MTP 參考主機，可見這個協定幾乎沒變。"
+      },
+      "1": {
+        "h": "為什麼不建議用舊版",
+        "b": "至今仍放在 Google 下載伺服器上、被許多鏡像站複製的安裝檔，是 1.0.12 版，最後修改時間為 2018 年 10 月。我們打開看過：這是只支援 Intel 的 App，需要 macOS 10.7 或更新版本。在 Apple 晶片的 Mac 上它需要 Rosetta，而 Apple 表示 Rosetta 作為通用工具只提供到 macOS 27。Google 自己的頁面也寫明每個檔案最多 4 GB，幾分鐘的 4K 影片就會超過。"
+      },
+      "2": {
+        "h": "取代它的是什麼",
+        "b": "依你手上的裝置，有三類工具。有線方式只要在 Mac 裝個較新的 MTP App，照樣能用。無線現在有兩條系統內建的路：支援機型的 Android 手機傳 AirDrop，以及由 Mac 上的 App 接收 Quick Share。另外還有適用任何手機的跨平台 App。兩台裝置不在同一處時，雲端是備用方案。"
+      }
+    }
+  },
+  "methods": {
+    "title": "Android 與 Mac 互傳檔案的 8 種方法（依推薦排序）",
+    "consLabel": "注意：",
+    "items": {
+      "0": {
+        "name": "BIShare",
+        "tag": "綜合最佳：任何檔案、雙向傳輸、任何 Android 手機",
+        "facts": "Android 7.0 以上，從 Google Play 下載 · Mac 版在 Mac App Store，macOS 12 以上 · 直傳需同一 Wi-Fi · 同一網路內不限大小 · 最大 100 GB 的連結，任何瀏覽器都能開 · 端對端加密 · 原始碼採 Apache 2.0",
+        "body": "在手機和 Mac 上都裝好 BIShare。兩台裝置在同一個網路時，會出現在彼此的「附近裝置」清單；在手機上選好檔案，點一下 Mac，檔案就以原始大小送達。從 Mac 傳送時，把檔案拖進 App 就好。如果 Mac 在別處，手機可以產生一個連結，Mac 用 Safari 或其他瀏覽器開啟即可，不必安裝任何東西。App 也會保留每個檔案原本的修改日期，照片會依拍攝時間排序，而不是依收到的時間。",
+        "cons": "直傳需要兩台裝置都裝 App，比起從已支援 AirDrop 的手機臨時傳一次要麻煩一點。連結會經過我們的中繼，所以兩端都要連上網路。"
+      },
+      "1": {
+        "name": "Quick Share 傳到 AirDrop",
+        "tag": "手機支援的話最好：什麼都不用裝",
+        "facts": "Pixel 8a 以後的機型；部分三星、OPPO、OnePlus、vivo、小米、榮耀、傳音和 Motorola 手機 · Mac 的 AirDrop 設為「所有人（10 分鐘）」 · 裝置間直連 · 2025 年 11 月 20 日起陸續推出",
+        "body": "Google 在 2025 年 11 月為 Quick Share 加入 AirDrop 支援，從 Pixel 10 開始。在手機上開啟分享選單，選 Quick Share，再從清單選擇 Mac。Google 的說明頁指出，接收的 Apple 裝置必須對所有人顯示 10 分鐘。不支援 AirDrop 的手機會改為顯示 QR 碼：這時檔案經過 Google 的伺服器，端對端加密，可在 24 小時內下載，每 24 小時上限 10 GB。",
+        "cons": "支援的機型還很少。三星自己的頁面在 2026 年 3 月只列出 Galaxy S26、S26+ 和 S26 Ultra。要從 Mac 接收，需要 Pixel 9 以後的機型（9a 除外），或同一批品牌的機型。舊手機完全沒有這項功能。"
+      },
+      "2": {
+        "name": "OpenMTP",
+        "tag": "最好的免費有線方案",
+        "facts": "免費，MIT 授權 · macOS 10.14 以上 · Apple 晶片版和 Intel 版分開提供 · 2026 年 8 月 22 日的 3.3.0 版修正了 macOS 27 上的當機 · 手機透過 USB 設為「檔案傳輸」",
+        "body": "OpenMTP 是最接近當年 Google 那個 App 的工具，而且持續有人維護。用能傳資料的線接上手機，把 USB 模式設為「檔案傳輸」，OpenMTP 就會一邊顯示 Mac、一邊顯示手機儲存空間。往哪個方向拖都可以，整個資料夾也行。它不需要帳號也不需要網路，適合 Wi-Fi 壞掉的手機，或是處在裝置彼此看不到的網路裡的 Mac。",
+        "cons": "它自己的 README 寫明，MTP 引擎只針對最新的三個 macOS 版本更新。你需要一條能傳資料的線，而且整個複製過程中手機都得保持解鎖、維持在「檔案傳輸」模式。"
+      },
+      "3": {
+        "name": "MacDroid",
+        "tag": "最好的付費全能方案：有線、ADB 或 Wi-Fi",
+        "facts": "Mac App Store · macOS 11.5 以上 · 免費版只能從 Android 複製到 Mac · PRO 每年 19.99 美元或一次 34.99 美元（美國商店，2026 年 10 月） · MTP、ADB 和 Wi-Fi 模式",
+        "body": "MacDroid 會把手機掛載成磁碟，在 Finder 裡開啟；官網也說可以在 Mac 上直接編輯 Android 檔案，不必先複製。開發者列出三種連線方式：有線 MTP、適用於開啟開發人員選項的手機的 ADB，以及 Wi-Fi。如果只是把手機裡的照片和文件拷到 Mac，免費版就夠用。",
+        "cons": "免費版只能從 Android 複製到 Mac；要把檔案傳回手機需要 PRO。開發者官網的價格和 App Store 不同，也會因地區而異。"
+      },
+      "4": {
+        "name": "NearDrop",
+        "tag": "在 Mac 上接收 Quick Share 的最佳選擇",
+        "facts": "免費，The Unlicense · 非官方 · 2026 年 9 月 19 日的 2.2.2 版 · 僅限同一 Wi-Fi 網路 · Mac 透過 Finder 的「分享」選單傳送",
+        "body": "NearDrop 常駐在選單列，讓 Mac 在任何 Android 手機上顯示為 Quick Share 的接收對象。你照常用分享選單傳送，手機不用另外安裝任何東西。收到的檔案會存進「下載項目」。反方向的話，在 Finder 裡用右鍵點一下檔案，選「分享」再選 NearDrop，手機掃描 QR 碼就能接收。",
+        "cons": "它是非官方 App，也沒有經過公證，所以第一次開啟要按右鍵再選「打開」。README 寫明它只在一個 Wi-Fi 網路內運作，而且 Mac 會一直對該網路中的所有人顯示。"
+      },
+      "5": {
+        "name": "LocalSend",
+        "tag": "兩端都用開源 App 的最佳選擇",
+        "facts": "免費，Apache 2.0 · Android 7.0 和 macOS 11 以上 · 2026 年 8 月 21 日的 1.18.2 版 · 同一區域網路 · 不需帳號",
+        "body": "LocalSend 是一款跨平台 App，用途和 BIShare 的直傳一樣：在手機和 Mac 上安裝，讓兩台裝置連同一個網路，就能雙向傳送。官網強調不需要帳號、不用登入、沒有伺服器，完全離線也能用。<goLocalsend>我們的 LocalSend 比較</goLocalsend>把兩者並排比較。",
+        "cons": "它沒有給不在同一網路的 Mac 使用的連結，所以要傳到別處別人的電腦，得換一種方法。"
+      },
+      "6": {
+        "name": "Google 雲端硬碟和 Google 相簿",
+        "tag": "Mac 在別處時的最佳選擇",
+        "facts": "所有 Android 手機 · Mac 上任何瀏覽器開啟 drive.google.com 或 photos.google.com · 2026 年 3 月 9 日起新帳號起步 5 GB，驗證手機號碼後 15 GB · 雲端硬碟單一檔案最大 5 TB · 相簿：圖片最大 200 MB，影片最大 10 GB",
+        "body": "在手機的雲端硬碟或相簿 App 上傳，再到 Mac 下載。Mac 這邊不用設定，距離也不是問題，所以要把檔案送到別人的電腦時，通常就用它。已經備份到 Google 的照片，在任何一台 Mac 上登入就能看到。",
+        "cons": "空間和 Gmail 共用，而且 Google 現在讓新帳號從 5 GB 起步。每個檔案都要先上傳再下載，所以大影片要花多久取決於你的上傳速度，副本也會一直留在帳號裡，直到你刪除。"
+      },
+      "7": {
+        "name": "藍牙檔案交換",
+        "tag": "系統內建，偶爾傳個小檔案",
+        "facts": "每台 Mac 的「應用程式 › 工具程式」裡都有 · 在「系統設定 › 一般 › 共享」中開啟藍牙分享 · 收到的檔案存到「下載項目」 · 傳統藍牙最高 3 Mb/s",
+        "body": "先把手機和 Mac 配對，在 Mac 上開啟藍牙分享，再從手機透過藍牙分享檔案。Apple 的說明針對的是一般電話，沒有提到 Android，所以要有可能得再試一次的心理準備。",
+        "cons": "依藍牙規格，傳統方式的最高速率換算約每秒 270 KB（未計額外負擔），一支 100 MB 的影片也要六分鐘以上。傳張名片或一份 PDF 沒問題，再大就不適合了。"
+      }
+    }
+  },
+  "table": {
+    "title": "一覽比較",
+    "cols": {
+      "feature": "項目",
+      "bishare": "BIShare",
+      "quickshare": "Quick Share 傳到 AirDrop",
+      "openmtp": "OpenMTP",
+      "macdroid": "MacDroid",
+      "neardrop": "NearDrop",
+      "drive": "Google 雲端硬碟"
+    },
+    "rows": {
+      "r0": "不需要傳輸線",
+      "r1": "也能從 Mac 傳到 Android",
+      "r2": "適用於任何 Android 手機",
+      "r3": "不連網也能用",
+      "r4": "雙向都免費",
+      "r5": "開源"
+    },
+    "note": "截至 2026 年 10 月。同一網路內的兩台裝置之間，BIShare 不限大小；BIShare 連結最多可放 100 GB，任何瀏覽器不用 App 就能下載。Quick Share 傳到 AirDrop 需要支援的手機，並把 Mac 設為「所有人（10 分鐘）」；從 Mac 傳到 Android 還需要 Pixel 9 以後的機型（9a 除外）或名單內的品牌。其他手機會改用經由 Google 伺服器的 QR 碼。OpenMTP 需要資料傳輸線，手機要在「檔案傳輸」模式。MacDroid 免費版只能從 Android 複製到 Mac。NearDrop 為非官方 App，只在一個 Wi-Fi 網路內運作。Google 雲端硬碟需要 Google 帳號，並會占用其儲存空間。"
+  },
+  "choose": {
+    "title": "該用哪種方法？",
+    "body": "三個問題就能決定：Mac 和手機是否在同一個網路、能不能在 Mac 上裝東西，以及你願不願意用線。",
+    "items": {
+      "0": {
+        "h": "從支援 AirDrop 的 Pixel 或 Galaxy 傳幾張照片",
+        "b": "用 Quick Share 傳到 AirDrop。什麼都不用裝，檔案畫質不變。如果手機上看不到 Mac，代表你的機型不在 Google 的支援名單內，改用其他任何一種方法都可以。"
+      },
+      "1": {
+        "h": "整個相簿，或好幾 GB 的影片",
+        "b": "避開雲端和藍牙。走 Wi-Fi 的話，BIShare 或 LocalSend 能以區域網路速度不限量傳送；走線的話，OpenMTP 不需要任何網路就能複製資料夾。長的 4K 影片可以參考<blogAndroidMac>從 Android 傳送大型影片到 Mac 的指南</blogAndroidMac>（英文），內容更詳細。"
+      },
+      "2": {
+        "h": "每天來回傳的檔案",
+        "b": "選不必插線、雙向都能用的：BIShare、LocalSend 或 NearDrop。用 BIShare 還能在手機和 Mac 之間<goClipboard>同步剪貼簿</goClipboard>，複製的文字也能跟著過去。共享網路資料夾也是一個辦法，我們的<blogWebdav>Android 與 Mac 的 WebDAV 指南</blogWebdav>（英文）說明了設定方式。"
+      },
+      "3": {
+        "h": "傳到別人的 Mac",
+        "b": "產生一個連結。BIShare 的連結在任何瀏覽器都能開，有效期為 6、12 或 24 小時；<goTransfer>用網頁版產生的連結</goTransfer>連你這邊都不用裝 App。如果雙方都不介意登入，Google 雲端硬碟也可以。"
+      }
+    }
+  },
+  "cable": {
+    "title": "如何用 USB 傳輸線把 Android 檔案傳到 Mac",
+    "body": "macOS 沒有內建瀏覽 Android 手機儲存空間的功能，所以走線需要在 Mac 上裝個 App。以下步驟使用免費的 OpenMTP；MacDroid 的流程相同。",
+    "items": {
+      "0": {
+        "h": "用能傳資料的線",
+        "b": "有些線只能充電。如果手機在充電，卻從來沒問過這個 USB 連線要做什麼用，先換一條線再說，並直接插在 Mac 上，不要透過集線器。"
+      },
+      "1": {
+        "h": "把手機設為「檔案傳輸」",
+        "b": "解鎖手機，下拉通知欄，點一下 USB 通知。選擇「檔案傳輸」，Android 對它的說明是透過 MTP 傳輸檔案。另一個選項 PTP 只用於照片，預設設定則只充電、不分享資料。"
+      },
+      "2": {
+        "h": "在 Mac 上開啟 OpenMTP",
+        "b": "從專案的 GitHub 頁面下載適合你 Mac 的版本，Apple 晶片版或 Intel 版。先結束任何可能正在和手機通訊的 App，例如舊的 Android File Transfer 或三星 Smart Switch。手機儲存空間會出現在右側面板。"
+      },
+      "3": {
+        "h": "往任一方向複製",
+        "b": "相機拍的照片在 DCIM 資料夾，下載的檔案在 Download 資料夾。在兩個面板之間拖曳檔案或資料夾。複製時間較長時，讓手機保持解鎖，因為有些機型鎖定螢幕後會中斷連線。"
+      },
+      "4": {
+        "h": "安全中斷連線",
+        "b": "等進度列跑完再拔線。中途中斷的檔案在 Mac 上是不完整的，別開啟，刪掉後重新複製。"
+      }
+    }
+  },
+  "steps": {
+    "title": "如何用 BIShare 無線把 Android 檔案傳到 Mac",
+    "body": "兩台裝置連同一個 Wi-Fi 就夠了。不用線、不用帳號，傳輸時也<blogNoData>不耗用行動數據</blogNoData>。",
+    "items": {
+      "0": {
+        "h": "兩台裝置都安裝",
+        "b": "手機從 Google Play 下載 BIShare，Mac 從 Mac App Store 下載。在 macOS 15 以後的版本，Mac 詢問是否允許存取區域網路上的裝置時，請點允許；否則兩台裝置會找不到彼此。"
+      },
+      "1": {
+        "h": "在手機上選檔案",
+        "b": "開啟 BIShare，選擇照片、影片或任何檔案；也可以在別的 App 裡開啟 Android 的分享選單，再選 BIShare。在同一個網路裡，檔案數量和大小都沒有上限。"
+      },
+      "2": {
+        "h": "點一下 Mac",
+        "b": "你的 Mac 會出現在附近裝置清單裡。點一下，然後在 Mac 上接受。檔案會存進 BIShare 自己的資料夾，你也可以在「設定」的「儲存位置」改成「下載項目」或「圖片」等其他資料夾。"
+      }
+    }
+  },
+  "reverse": {
+    "title": "如何把檔案從 Mac 傳到 Android",
+    "body": "上面多數方法都能雙向使用，但不是全部，檔案在手機上存到哪裡也各不相同。",
+    "items": {
+      "0": {
+        "h": "用 BIShare 或 LocalSend",
+        "b": "把檔案拖到 Mac 上的 App，選擇手機。BIShare 會把檔案存到 Download 下的 BIShare 資料夾，檔案管理工具和圖庫都找得到。"
+      },
+      "1": {
+        "h": "用 OpenMTP",
+        "b": "從 Mac 那一側的面板拖到手機上任一資料夾。想讓照片馬上出現在圖庫，就放進 DCIM 或 Pictures；放到其他資料夾也可以，但圖庫可能要重新掃描才看得到。"
+      },
+      "2": {
+        "h": "用 AirDrop 或 NearDrop",
+        "b": "從 Mac 發出的 AirDrop 只能到達可以接收的手機：Pixel 9 以後的機型（9a 除外），或名單內的品牌。NearDrop 能從 Finder 的「分享」選單傳到任何有 Quick Share 的手機，手機掃描 QR 碼就能接收。"
+      },
+      "3": {
+        "h": "免費版 MacDroid 和藍牙不行",
+        "b": "MacDroid 免費版只能讀取手機。藍牙檔案交換可以傳到已配對的手機，但以藍牙的速度，只適合小檔案。"
+      }
+    }
+  },
+  "photos": {
+    "title": "照片和影片如何不損失畫質",
+    "body": "把照片從手機裡拿出來，是連接 Mac 最常見的原因，而走哪條路決定了送達的是什麼。",
+    "items": {
+      "0": {
+        "h": "傳的是檔案本身，不是另一個版本",
+        "b": "直接傳輸，不管是有線還是 Wi-Fi，都會逐位元組複製原始檔案。Google 相簿支援最大 200 MB 的圖片和 10 GB 的影片，所以特別長的 4K 或 8K 影片可能放不下。透過聊天 App 傳出去的東西，通常在途中就被壓縮了。"
+      },
+      "1": {
+        "h": "保留日期",
+        "b": "照片 App 依檔案內記錄的日期排序，但 Finder 和許多其他工具看的是修改日期。BIShare 會為收到的所有檔案保留原始修改日期，去年的照片資料夾就不會看起來像今天拍的。"
+      },
+      "2": {
+        "h": "影像擷取值得試一次",
+        "b": "Android 的 PTP 設定會讓手機像相機一樣出現，而影像擷取正是 Mac 上從相機匯入的 App。Apple 的說明列出的是相機、iPhone、iPad 和掃描器，沒有提到 Android 手機，所以手機可能出現，也可能不會。如果沒出現，就用上面任一種方法。"
+      }
+    }
+  },
+  "speed": {
+    "title": "需要多久？",
+    "body": "決定速度的多半是連線方式，而不是 App。雲端方式要先上傳再下載；有線、Wi-Fi 或 AirDrop 兩者都不需要。",
+    "items": {
+      "0": {
+        "h": "用 USB 傳輸線",
+        "b": "查一下手機規格表裡的 USB 版本。USB 2.0 理論上限是 480 Mb/s，而實際上，1,000 張小照片會比總大小相同的一支影片複製得更慢，因為每個檔案都要分別處理。"
+      },
+      "1": {
+        "h": "用 Wi-Fi",
+        "b": "手機和 Mac 透過路由器溝通，所以速度由路由器決定。我們測得 Wi-Fi 5 下每秒 40 到 50 MB，Wi-Fi 6 下每秒 70 到 110 MB：一支 4 GB 的影片從手機到 Mac 大約一兩分鐘。<goWifiTransfer>Wi-Fi 傳輸指南</goWifiTransfer>依路由器和裝置列出了詳細數據。"
+      },
+      "2": {
+        "h": "用雲端或藍牙",
+        "b": "上傳頻寬 40 Mbps 時，手機光是把 4 GB 影片傳到 Google 雲端硬碟就要約 13 分鐘，之後 Mac 才能下載。藍牙更慢：以傳統方式約每秒 270 KB 的峰值，同一支影片要四個多小時。"
+      }
+    }
+  },
+  "fixes": {
+    "title": "Mac 抓不到手機怎麼辦",
+    "items": {
+      "0": {
+        "h": "插上後什麼反應都沒有",
+        "b": "這是正常的：macOS 不會為 Android 手機跳出任何視窗。開啟 OpenMTP 或 MacDroid，再確認手機已解鎖，並在 USB 通知裡選了「檔案傳輸」。"
+      },
+      "1": {
+        "h": "手機在充電，但沒有出現 USB 選單",
+        "b": "這條線或這個連接埠只能充電。換一條線，插在 Mac 本身的連接埠，測試時別用集線器。"
+      },
+      "2": {
+        "h": "OpenMTP 開不了手機",
+        "b": "可能有別的 App 占著連線。結束舊的 Android File Transfer、三星 Smart Switch 和其他手機管理軟體，拔掉線，解鎖手機後重新連接。"
+      },
+      "3": {
+        "h": "Quick Share 裡找不到 Mac",
+        "b": "依照 Google 說明的要求，把 Mac 的 AirDrop 設為「所有人（10 分鐘）」，兩邊螢幕都保持開啟。確認你的手機在支援名單內；如果不在，就改用 NearDrop 或 Wi-Fi App。"
+      },
+      "4": {
+        "h": "手機和 Mac 在 Wi-Fi 下找不到彼此",
+        "b": "讓兩台裝置連同一個網路，別用會隔離裝置的訪客網路。從 macOS 15 起，App 存取區域網路上的裝置前，Mac 會先徵求許可：打開「系統設定」，進入「隱私權與安全性」的「區域網路」，把這個 App 打開。"
+      },
+      "5": {
+        "h": "舊的 Android File Transfer 打不開",
+        "b": "它是 2018 年的 Intel App，Google 已不再支援。與其修它，不如從「應用程式」資料夾刪掉，改用 OpenMTP 做同樣的事。"
+      }
+    }
+  },
+  "security": {
+    "title": "傳輸途中誰能看到你的檔案？",
+    "body": "撇開速度不談，這些方法真正的差別在於：檔案會不會在別人的電腦上留下副本。",
+    "items": {
+      "0": {
+        "h": "有線、AirDrop 和區域網路 Wi-Fi App",
+        "b": "檔案從手機到 Mac，不經過其他地方。Google 將 Quick Share 傳到 AirDrop 描述為裝置間直連；只有 QR 碼這個備用方式，會把加密後的檔案在 Google 伺服器上保存 24 小時。"
+      },
+      "1": {
+        "h": "Google 雲端硬碟和相簿",
+        "b": "副本會一直留在你的 Google 帳號裡，傳輸和儲存時都受保護，直到你刪除，並會占用你的儲存空間。"
+      },
+      "2": {
+        "h": "BIShare",
+        "b": "手機和 Mac 在同一個網路時，BIShare 以端對端加密在兩者之間傳送檔案，沒有任何伺服器看得到。使用連結時，<goEncrypted>手機會在上傳前先加密檔案</goEncrypted>，金鑰只存在連結裡，所以在連結到期前，我們的中繼只保存密文。"
+      }
+    }
+  },
+  "faq": {
+    "title": "常見問題",
+    "items": {
+      "0": {
+        "q": "Android 檔案怎麼傳到 Mac？",
+        "a": "不用線的話，在兩台裝置上安裝 BIShare 或 LocalSend 這類 Wi-Fi App，在同一個網路裡傳送；手機支援的話也可以用 Quick Share 傳到 AirDrop。用線的話，把手機的 USB 模式設為「檔案傳輸」，再於 Mac 上用 OpenMTP 或 MacDroid 開啟。"
+      },
+      "1": {
+        "q": "Mac 版 Android File Transfer 還能下載嗎？",
+        "a": "Google 已經不提供了。它的下載頁在 2024 年 5 月被清空，網址現在導向 Windows 版 Quick Share。下載站上的副本是 2018 年的 1.0.12 版，只支援 Intel，每個檔案最多 4 GB。免費且仍在維護的替代品是 OpenMTP。"
+      },
+      "2": {
+        "q": "Android 能 AirDrop 到 Mac 嗎？",
+        "a": "部分手機可以。從 2025 年 11 月起，Pixel 8a 以後的機型，以及三星、OPPO、OnePlus、vivo、小米、榮耀、傳音和 Motorola 的部分機型，可以用 Quick Share 傳到 AirDrop。Mac 要把 AirDrop 設為「所有人（10 分鐘）」。其他手機需要用別的方法。"
+      },
+      "3": {
+        "q": "不用線怎麼把 Android 照片傳到 Mac？",
+        "a": "用 BIShare、LocalSend 或 NearDrop 透過 Wi-Fi 傳送，支援的手機可以用 Quick Share 傳到 AirDrop，或讓 Google 相簿備份後在 Mac 上下載。直傳會保留原始檔案；Google 相簿支援最大 200 MB 的圖片和 10 GB 的影片。"
+      },
+      "4": {
+        "q": "為什麼 Mac 抓不到我的 Android 手機？",
+        "a": "macOS 不會自己開啟 Android 手機，所以在你啟動 OpenMTP 這類 MTP App 之前什麼都不會出現。如果 App 也找不到，就解鎖手機，在 USB 通知裡選「檔案傳輸」，換一條能傳資料的線，並結束其他占用連線的 App。"
+      },
+      "5": {
+        "q": "Android 手機怎麼連接 Mac？",
+        "a": "可以用資料傳輸線加上 OpenMTP 或 MacDroid 這類 MTP App；也可以無線連接，在兩邊裝同一個傳輸 App 並連上同一個 Wi-Fi。Quick Share 只能透過支援機型的 AirDrop，或藉由 NearDrop App 連到 Mac。"
+      },
+      "6": {
+        "q": "有 Mac 版的 Quick Share 嗎？",
+        "a": "Google 只為 Android、Chromebook 和 Windows 提供 Quick Share，沒有 macOS 版。NearDrop 是免費的非官方 App，能讓 Mac 在同一個 Wi-Fi 下接收 Quick Share，並透過 Finder 的「分享」選單傳回去。"
+      },
+      "7": {
+        "q": "怎麼把檔案從 Mac 傳到 Android？",
+        "a": "把檔案拖到 Mac 上的 BIShare 或 LocalSend 再選手機，或在 OpenMTP 裡放進手機的資料夾，或透過 NearDrop 分享。從 Mac 發出的 AirDrop 只能到達 Pixel 9 以後的機型（9a 除外）以及名單內的部分品牌。"
+      },
+      "8": {
+        "q": "Android 傳 Mac 有檔案大小限制嗎？",
+        "a": "要看用哪種方法。舊的 Android File Transfer 每個檔案最多 4 GB。直傳的 Wi-Fi App 和 OpenMTP 這類有線 App 沒有固定上限。Google 雲端硬碟在空間足夠時最大支援 5 TB 的檔案，Quick Share 的 QR 碼備用方式每 24 小時最多 10 GB。"
+      },
+      "9": {
+        "q": "三星手機的檔案怎麼傳到 Mac？",
+        "a": "和其他 Android 手機一樣。根據三星 2026 年 3 月的頁面，三星的 Quick Share 只有 Galaxy S26 系列能透過 AirDrop 傳到 Mac。Mac 版三星 Smart Switch 用於備份和還原 Galaxy，不是檔案瀏覽器。"
+      },
+      "10": {
+        "q": "能用藍牙把 Android 檔案傳到 Mac 嗎？",
+        "a": "小檔案可以。在「系統設定」的「一般」中進入「共享」，開啟藍牙分享，和手機配對後傳送，檔案會存進「下載項目」。最快也只有約每秒 270 KB，幾 MB 以上的檔案走 Wi-Fi 或傳輸線更快。"
+      },
+      "11": {
+        "q": "Android 傳來的檔案存在 Mac 的哪裡？",
+        "a": "要看用哪種方法。AirDrop、NearDrop 和藍牙存到「下載項目」，OpenMTP 和 MacDroid 存到你拖進去的資料夾，BIShare 則存在自己的資料夾，直到你在「設定」的「儲存位置」改成別處。"
+      }
+    }
+  },
+  "cta": {
+    "title": "任何檔案從 Android 到 Mac，不用傳輸線",
+    "body": "免費且開源。照片、長影片、整個資料夾，都能在手機和 Mac 之間以原始畫質來回傳送，不需帳號，在自己的網路裡也不限大小。",
+    "download": "下載 BIShare"
+  },
+  "a11y": {
+    "yes": "是",
+    "no": "否"
+  },
+  "art": {
+    "hero": {
+      "alt": "Android 手機透過 Wi-Fi 傳檔案到 MacBook，標題為 Mac 版 Android File Transfer，2026 年透過 Wi-Fi、AirDrop 或 USB 傳輸線可用的 8 種方法",
+      "title": "Mac 版 Android File Transfer",
+      "sub": "2026 年可用的 8 種方法，有線無線都有",
+      "left": "Android",
+      "right": "Mac",
+      "wifi": "Wi-Fi 或 AirDrop",
+      "cable": "或 USB 傳輸線"
+    },
+    "status": {
+      "alt": "Google 的 Android File Transfer 過去與現在：過去透過 USB 從 Android 複製檔案到 Mac，每個最多 4 GB；自 2024 年 5 月起 Google 不再提供，鏡像站上留著 2018 年的 Intel 版本。取代它的有三類方法：USB 傳輸線搭配 OpenMTP 或 MacDroid，無線用支援機型的 AirDrop、NearDrop、BIShare 或 LocalSend，雲端用 Google 雲端硬碟或 Google 相簿。",
+      "title": "Android File Transfer 的過去與現在",
+      "sub": "Google 的 App 消失了，三類方法接手",
+      "oldName": "Android File Transfer",
+      "oldBy": "Google 出品，用於 macOS",
+      "was": "過去的功能",
+      "wasText": "透過 USB 複製檔案，每個最多 4 GB",
+      "now": "自 2024 年 5 月起",
+      "nowText": "Google 已不再提供",
+      "mirror": "鏡像站：2018 年的 Intel 版本",
+      "howLabel": "接手的是",
+      "l0": "USB 傳輸線",
+      "l0names": "OpenMTP、MacDroid",
+      "l1": "無線",
+      "l1names": "新機型的 AirDrop、NearDrop、BIShare、LocalSend",
+      "l2": "雲端",
+      "l2names": "Google 雲端硬碟、Google 相簿"
+    },
+    "routes": {
+      "alt": "用三個問題選出從 Android 到 Mac 的方法：Mac 在另一個網路時，用 Google 雲端硬碟或 BIShare 連結；Mac 上不能安裝任何東西時，用支援機型的 AirDrop 或在瀏覽器中開啟的連結；其餘情況，不用線就選 BIShare、LocalSend 或 NearDrop，用線就選 OpenMTP 或 MacDroid。",
+      "title": "三個問題選出方法",
+      "sub": "Mac 在哪裡、能裝什麼、能不能用線",
+      "q1": "Mac 在同一個 Wi-Fi 嗎？",
+      "q2": "能在 Mac 上裝 App 嗎？",
+      "q3": "想不用線嗎？",
+      "r1": "Google 雲端硬碟或 BIShare 連結",
+      "r2": "支援機型的 AirDrop，或瀏覽器連結",
+      "r3": "BIShare、LocalSend 或 NearDrop",
+      "r4": "USB 連接 OpenMTP 或 MacDroid",
+      "yes": "是",
+      "no": "否"
+    }
+  }
+}
