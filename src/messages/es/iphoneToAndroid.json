@@ -10,7 +10,7 @@
     "ctaPrimary": "Consigue BIShare gratis",
     "ctaSecondary": "Cómo funciona"
   },
-  "updated": "Actualizado en septiembre de 2026 · Lista de móviles revisada con la página de Quick Share de Google y pasos de migración con el artículo de soporte de Apple sobre iOS 26.3",
+  "updated": "Actualizado en octubre de 2026 · Lista de móviles revisada con la página de Quick Share de Google, pasos de migración con el artículo de soporte de Apple sobre iOS 26.3 y límites de vídeo con WhatsApp, Telegram y Apple",
   "disclosure": "BIShare es nuestro. Varias opciones de abajo vienen de serie en los móviles y no cuestan nada, y si el Android está en la lista de Google, puede que te baste con AirDrop; lo indicamos donde aplica.",
   "quick": {
     "title": "Respuesta rápida",
@@ -286,6 +286,10 @@
       "9": {
         "q": "¿Es gratis enviar archivos de iPhone a Android?",
         "a": "Sí. BIShare, LocalSend, AirDrop con Quick Share, los enlaces de iCloud, Mail Drop y los 15 GB gratuitos de Google Drive no cuestan nada. Solo el almacenamiento en la nube muy grande o a largo plazo requiere un plan de pago."
+      },
+      "10": {
+        "q": "¿Cómo envío un vídeo como documento del iPhone a Android?",
+        "a": "Guarda primero el vídeo en la app Archivos (Compartir, Guardar en Archivos). En WhatsApp, toca el botón más, elige Documento y selecciona el archivo guardado; en Telegram, adjúntalo como Archivo. Llega sin comprimir, hasta 2 GB en ambas apps, o 4 GB con Telegram Premium."
       }
     }
   },
@@ -363,6 +367,28 @@
         "name": "Vídeo HEVC",
         "what": "Android reproduce HEVC desde 5.0",
         "fix": "Clips 4K grandes: envíalos directo por Wi-Fi"
+      }
+    }
+  },
+  "longVideo": {
+    "title": "Cómo enviar un vídeo largo del iPhone a Android",
+    "body": "Con los vídeos largos fallan casi todos los métodos: el archivo es demasiado grande para la vía elegida, o la vía lo encoge sin avisar. Mira el tamaño y luego elige una vía que se lleve el archivo entero.",
+    "items": {
+      "0": {
+        "h": "Mira primero el tamaño",
+        "b": "El vídeo ocupa mucho enseguida. Los ajustes de Cámara del iPhone indican más o menos cuántos megas ocupa un minuto en cada calidad, y en 4K son cientos. Guarda el clip en la app Archivos (Compartir, Guardar en Archivos): ahí ves su tamaño exacto, y esa copia es la que vas a enviar."
+      },
+      "1": {
+        "h": "Elige una vía que acepte el archivo entero",
+        "b": "Hasta 2 GB, WhatsApp o Telegram lo llevan como documento, y Telegram Premium lo sube a 4 GB. Mail Drop acepta hasta 5 GB y Google Fotos hasta 10 GB por vídeo. Un enlace de BIShare admite hasta 100 GB, y en la misma Wi-Fi una app directa como BIShare o LocalSend no tiene límite de tamaño."
+      },
+      "2": {
+        "h": "Envía el archivo, no una vista previa",
+        "b": "Las apps de chat comprimen todo lo que sale de la galería como vídeo normal. Adjunta la copia de Archivos como Documento en WhatsApp, o como Archivo en Telegram, y el Android recibe exactamente lo que salió del iPhone, a resolución completa y con el sonido original."
+      },
+      "3": {
+        "h": "Haz que se reproduzca en móviles antiguos",
+        "b": "El vídeo del iPhone es HEVC por defecto. Apple señala que los clips en 1080p a 60 fps o menos son los más compatibles, y Ajustes, Cámara, Formatos, Más compatible graba los vídeos nuevos en H.264. Cámbialo antes de grabar si el clip es para un móvil viejo o un reproductor sencillo."
       }
     }
   }

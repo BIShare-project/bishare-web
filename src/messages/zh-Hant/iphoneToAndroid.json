@@ -10,7 +10,7 @@
     "ctaPrimary": "免費取得BIShare",
     "ctaSecondary": "運作方式"
   },
-  "updated": "2026年9月更新 · 機型清單對照Google的Quick Share頁面，移轉步驟對照Apple關於iOS 26.3的支援文章",
+  "updated": "2026年10月更新 · 機型清單對照Google的Quick Share頁面，移轉步驟對照Apple關於iOS 26.3的支援文章，影片上限對照WhatsApp、Telegram和Apple的說明",
   "disclosure": "BIShare是我們的產品。下面有幾種方法是手機內建、完全免費；如果Android手機在Google的支援清單中，可能只用AirDrop就夠了，適用時我們會說明。",
   "quick": {
     "title": "快速回答",
@@ -286,6 +286,10 @@
       "9": {
         "q": "從iPhone傳檔案到Android免費嗎？",
         "a": "免費。BIShare、LocalSend、AirDrop互通Quick Share、iCloud連結、Mail Drop以及Google 雲端硬碟的免費15 GB都不用花錢。只有超大或長期的雲端儲存才需要付費方案。"
+      },
+      "10": {
+        "q": "怎麼把影片當作文件從iPhone傳到Android？",
+        "a": "先把影片存到「檔案」App（分享→「儲存到檔案」）。在WhatsApp裡點加號，選文件，再選存好的檔案；在Telegram裡以檔案附加。影片不會被壓縮，兩個App都最多2 GB，Telegram Premium最多4 GB。"
       }
     }
   },
@@ -363,6 +367,28 @@
         "name": "HEVC影片",
         "what": "Android從5.0起能播放HEVC",
         "fix": "大的4K影片：用Wi-Fi直傳"
+      }
+    }
+  },
+  "longVideo": {
+    "title": "如何把長影片從iPhone傳到Android",
+    "body": "長影片是多數方法出問題的地方：要麼檔案對這條路來說太大，要麼這條路悄悄把它壓小了。先看大小，再選能把整個檔案帶過去的方法。",
+    "items": {
+      "0": {
+        "h": "先看看有多大",
+        "b": "影片很快就會變大。iPhone的相機設定會列出每種畫質一分鐘大約占多少MB，4K要好幾百MB。把影片存到「檔案」App（分享→「儲存到檔案」），就能看到確切大小，之後要傳的也正是這份副本。"
+      },
+      "1": {
+        "h": "選一條能帶走整個檔案的路",
+        "b": "2 GB以內，WhatsApp或Telegram可以把它當文件傳送，Telegram Premium可到4 GB。郵件附件（Mail Drop）最多5 GB，Google 相簿每支影片最多10 GB。BIShare連結最多100 GB，在同一個Wi-Fi下，BIShare或LocalSend這類直傳App沒有大小限制。"
+      },
+      "2": {
+        "h": "傳檔案本身，不是預覽",
+        "b": "聊天App會壓縮從相簿當一般影片選取的內容。把「檔案」裡的副本在WhatsApp裡當作文件、在Telegram裡當作檔案傳送，Android手機收到的就是iPhone送出的原樣，解析度和原始聲音都不變。"
+      },
+      "3": {
+        "h": "讓舊手機也能播放",
+        "b": "iPhone影片預設是HEVC。Apple說明1080p、60fps以下的影片相容性最廣，而「設定→相機→格式→最相容」會讓新影片改用H.264錄製。如果影片是給舊手機或簡易播放器看的，錄影前先切換。"
       }
     }
   }

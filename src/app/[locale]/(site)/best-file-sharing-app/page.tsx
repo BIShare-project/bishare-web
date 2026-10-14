@@ -25,7 +25,7 @@ import { guideLinks } from "@/components/site/guide-links";
  * `LAST_UPDATED` whenever the facts about other apps are re-checked.
  */
 
-const LAST_UPDATED = "2026-10-03";
+const LAST_UPDATED = "2026-10-14";
 const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
@@ -72,7 +72,7 @@ const SPEED_ITEMS = ["0", "1", "2"] as const;
 const P2P_ITEMS = ["0", "1", "2", "3"] as const;
 const TEAM_ITEMS = ["0", "1", "2", "3"] as const;
 const SAFETY_ITEMS = ["0", "1", "2", "3"] as const;
-const FAQ_ITEMS = ["0", "12", "1", "2", "10", "13", "3", "4", "5", "6", "7", "8", "9", "14", "11"] as const;
+const FAQ_ITEMS = ["0", "12", "1", "2", "15", "10", "13", "3", "4", "5", "6", "7", "8", "9", "14", "16", "11"] as const;
 
 const APP_URLS: Record<string, string> = {
   "0": `${SITE}`,
