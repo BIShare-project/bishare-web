@@ -172,8 +172,10 @@ export async function reportBundle(): Promise<ReportBundle> {
     ),
     // One row per day from the API's daily job (Web Analytics beacon, no
     // cookies, no identifiers) — "visits" in Cloudflare's sense, not people.
+    // Days the analytics sampled too coarsely to count have no row (see the
+    // API's webvisits.ts), so the days that remain are scaled to thirty.
     scalar(
-      "SELECT COALESCE(SUM(value), 0) AS n FROM stats_daily WHERE metric = 'web_visits' AND date > date('now', '-30 days')"
+      "SELECT COALESCE(CAST(ROUND(SUM(value) * 30.0 / COUNT(*)) AS INTEGER), 0) AS n FROM stats_daily WHERE metric = 'web_visits' AND date > date('now', '-30 days')"
     ),
     // Bytes we are actually holding right now — the same live filter as
     // liveTransfers, so the two numbers always describe the same set of files.
