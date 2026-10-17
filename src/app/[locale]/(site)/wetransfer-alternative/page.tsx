@@ -33,7 +33,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/wetransfer-alternative";
 const NS = "wetransferAlt";
-const LAST_UPDATED = "2026-09-13";
+const LAST_UPDATED = "2026-10-17";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const QUOTA_ITEMS = ["0", "1", "2"] as const;
@@ -43,8 +43,8 @@ const CHOOSE_ITEMS = ["0", "1", "2", "3"] as const;
 const STEP_ITEMS = ["0", "1", "2"] as const;
 const SPEED_ITEMS = ["0", "1", "2"] as const;
 const FIX_ITEMS = ["0", "1", "2", "3", "4"] as const;
-const SECURITY_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const SECURITY_ITEMS = ["0", "1", "2", "3"] as const;
+const FAQ_ITEMS = ["0", "1", "2", "3", "4", "10", "5", "6", "7", "8", "9"] as const;
 
 /* Comparison truth table. Columns: BIShare · WeTransfer free · SwissTransfer ·
    Smash · Wormhole · Filemail. Conditions behind each cell are in table.note. */

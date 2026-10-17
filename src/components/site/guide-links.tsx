@@ -17,6 +17,7 @@ const GUIDES = {
   goLargeFiles: "/send-large-files",
   goBestApps: "/best-file-sharing-app",
   goCollab: "/best-file-sharing-app#collaboration",
+  goPrivacyTable: "/send-large-files#privacy",
   goAirdropAlt: "/airdrop-alternative",
   goSnapdrop: "/snapdrop-alternative",
   goMacWindows: "/share-files-mac-to-windows",
