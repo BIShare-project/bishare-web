@@ -107,7 +107,7 @@
         "name": "Google Drive (and Dropbox, OneDrive)",
         "tag": "Best when the files should stay somewhere",
         "best": "Best for: teams and anyone who needs storage, versions and shared folders rather than a transfer.",
-        "facts": "Every platform · 15 GB free (Drive), 2 GB (Dropbox), 5 GB (OneDrive) · not end-to-end encrypted · account required",
+        "facts": "Every platform · up to 15 GB free (Drive), 2 GB (Dropbox), 5 GB (OneDrive) · not end-to-end encrypted · account required",
         "body": "A cloud drive is the right answer when the file has to live somewhere: a shared folder for a team, a document several people edit, a backup. It is the wrong answer for a one-off transfer — every byte goes up and comes back down, it uses your quota, the other person usually needs an account, and the provider can read the file. Use it for storage; use a transfer tool for transfer.",
         "cons": "Slow for one-offs, quota-bound, account on both sides, provider can read files."
       },
@@ -187,7 +187,7 @@
       },
       "14": {
         "q": "What is the best file sharing software for a team?",
-        "a": "For documents a team edits together, a cloud drive: Google Drive (15 GB free), Dropbox (2 GB) or OneDrive (5 GB), each with shared folders and about 30 days of version history on the free plan. A transfer app such as BIShare is for sending a copy, not for keeping one."
+        "a": "For documents a team edits together, a cloud drive: Google Drive (up to 15 GB free), Dropbox (2 GB) or OneDrive (5 GB), each with shared folders and about 30 days of version history on the free plan. A transfer app such as BIShare is for sending a copy, not for keeping one."
       },
       "15": {
         "q": "What is the best free file sharing software for a PC?",
@@ -196,6 +196,18 @@
       "16": {
         "q": "Which app is best for sharing documents?",
         "a": "It depends on whether people edit the document or only receive it. To edit together, use Google Docs or Microsoft 365, where one copy stays online with its version history. To hand over a finished PDF or a folder of documents, a transfer is simpler: BIShare encrypts the files end to end and the recipient needs no account."
+      },
+      "17": {
+        "q": "Which file-sharing collaboration app has the best security?",
+        "a": "Proton Drive, because it encrypts every file end to end by default, the free plan included, so Proton cannot read stored files. Dropbox and Google Workspace offer end-to-end encryption only on their top business plans, switched on by an administrator, and OneDrive and Box do not offer it at all."
+      },
+      "18": {
+        "q": "What is the cheapest file-sharing collaboration app for a team?",
+        "a": "Box Business Starter, at $5 a user a month on yearly billing, for 3 to 10 people. Microsoft 365 Business Basic and Google Workspace Business Starter cost $7 and add mail and office apps. A small team can also start free: Box gives 10 GB, Google up to 15 GB, OneDrive and Proton Drive 5 GB, Dropbox 2 GB."
+      },
+      "19": {
+        "q": "Which file-sharing collaboration app is the most reliable?",
+        "a": "By published guarantees, Proton's business plans (99.95% uptime), then Google Workspace and Microsoft 365 (99.9%, with service credits). Box treats 99.9% as a target and Dropbox publishes no figure. Version history counts too: Dropbox Advanced keeps 365 days of it, Google Drive 30 days."
       }
     }
   },
@@ -410,7 +422,7 @@
     "items": {
       "0": {
         "h": "Google Drive",
-        "b": "15 GB free, shared with Gmail and Google Photos. Each person is a Viewer, a Commenter or an Editor, and a file can be limited to named people or opened to anyone with the link. For uploaded files such as PDFs, Google may delete an old version after 30 days or once 100 newer versions exist, unless you mark it to be kept."
+        "b": "Up to 15 GB free, shared with Gmail and Google Photos; accounts created since March 2026 start at 5 GB until a phone number is verified. Each person is a Viewer, a Commenter or an Editor, and a file can be limited to named people or opened to anyone with the link. For uploaded files such as PDFs, Google may delete an old version after 30 days or once 100 newer versions exist, unless you mark it to be kept."
       },
       "1": {
         "h": "Dropbox",
@@ -445,6 +457,69 @@
       "3": {
         "h": "What else does the app take?",
         "b": "Open-source apps can be inspected, and BIShare, LocalSend and PairDrop are open source. Ad-supported apps earn from attention and data: when we checked in October 2026, SHAREit's own data safety section on Google Play said its data is not encrypted. Read that section before installing any sharing app."
+      }
+    }
+  },
+  "collab": {
+    "title": "File-sharing collaboration apps compared: security, price and reliability",
+    "body": "When a team keeps its working files in one place, the choice is between cloud drives, not transfer apps. These are the five most people compare, judged on what buyers ask about first: who can read the files, what a seat costs and what the provider guarantees.",
+    "cols": {
+      "app": "App",
+      "free": "Free plan",
+      "price": "Cheapest team plan",
+      "e2e": "End-to-end encryption",
+      "versions": "Version history"
+    },
+    "rows": {
+      "gdrive": {
+        "name": "Google Drive (Google Workspace)",
+        "free": "Up to 15 GB; new accounts get 5 GB until a phone number is verified",
+        "price": "Business Starter: $7 a user a month ($8.40 monthly), 30 GB pooled per user",
+        "e2e": "Only on the Enterprise Plus, Frontline Plus and Education editions, set up by an admin",
+        "versions": "30 days or 100 newer versions; trash kept 30 days"
+      },
+      "dropbox": {
+        "name": "Dropbox",
+        "free": "2 GB",
+        "price": "Standard: $15 a user a month ($18 monthly), from 1 user, 3 TB for the team",
+        "e2e": "Team folders on Advanced and Enterprise, switched on by an admin; file names stay readable",
+        "versions": "30 days on Basic and Plus, 180 on Standard, 365 on Advanced"
+      },
+      "onedrive": {
+        "name": "OneDrive (Microsoft 365)",
+        "free": "5 GB, shared with Outlook.com",
+        "price": "Business Basic: $7 a user a month ($8.40 monthly), 1 TB per user",
+        "e2e": "Not offered; Personal Vault adds an identity check, not end-to-end encryption",
+        "versions": "30 days; deleted files kept 30 days (personal) or 93 days (work or school)"
+      },
+      "box": {
+        "name": "Box",
+        "free": "10 GB, 250 MB per uploaded file",
+        "price": "Business Starter: $5 a user a month ($7 monthly), 3 to 10 users, 100 GB",
+        "e2e": "Not offered; the paid KeySafe add-on lets a company hold its own keys",
+        "versions": "1 version on the free plan, 25 on Business Starter, 50 on Business"
+      },
+      "proton": {
+        "name": "Proton Drive",
+        "free": "5 GB",
+        "price": "Drive Professional: $7.99 a user a month ($9.99 monthly), from 2 users, 1 TB per user",
+        "e2e": "On by default on every plan, the free one included",
+        "versions": "Free: 10 versions for 7 days; Drive Professional: 365 days"
+      }
+    },
+    "note": "US prices with yearly billing (monthly billing in brackets), from each vendor's own pricing, help and service-level pages on 17 October 2026. Prices differ by country and change often; check the vendor's page before you buy.",
+    "picks": {
+      "security": {
+        "h": "Best for security: Proton Drive",
+        "b": "Proton Drive is the only one of the five that encrypts every file end to end by default, on the free plan too, so Proton cannot read what you store. Dropbox and Google Workspace offer end-to-end encryption only on their top plans, switched on by an administrator; OneDrive and Box do not offer it. To send one sensitive file rather than keep it, a transfer is enough: <goEncrypted>BIShare encrypts each transfer end to end</goEncrypted> and keeps nothing afterwards."
+      },
+      "price": {
+        "h": "Best on price: Box for a few people, Microsoft 365 or Google Workspace for most teams",
+        "b": "Box Business Starter is the cheapest seat, at $5 a user a month on yearly billing, but it needs 3 to 10 users and comes with 100 GB. Microsoft 365 Business Basic and Google Workspace Business Starter both cost $7 a user a month and include mail and office apps, with 1 TB and 30 GB per user. Dropbox Standard is the dearest entry plan at $15, and starts with 3 TB for the whole team."
+      },
+      "reliability": {
+        "h": "Most reliable: read the guarantee, then the version history",
+        "b": "Proton promises 99.95% uptime on its business plans, and Google Workspace and Microsoft 365 commit to 99.9% a month, with service credits when they miss it. Box calls 99.9% a target and pays credits only with its premium support plans; Dropbox publishes no uptime figure. For not losing work, version history matters as much: Dropbox Advanced keeps versions and deleted files for 365 days, and OneDrive work accounts keep deleted files for 93."
       }
     }
   }

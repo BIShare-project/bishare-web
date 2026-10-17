@@ -107,7 +107,7 @@
         "name": "Google Drive (dan Dropbox, OneDrive)",
         "tag": "Terbaik saat file harus menetap di suatu tempat",
         "best": "Cocok untuk: tim dan siapa pun yang butuh penyimpanan, versi, dan folder bersama, bukan transfer.",
-        "facts": "Semua platform · 15 GB gratis (Drive), 2 GB (Dropbox), 5 GB (OneDrive) · tidak terenkripsi end-to-end · butuh akun",
+        "facts": "Semua platform · hingga 15 GB gratis (Drive), 2 GB (Dropbox), 5 GB (OneDrive) · tidak terenkripsi end-to-end · butuh akun",
         "body": "Cloud drive jawaban yang tepat saat file harus tinggal di suatu tempat: folder bersama untuk tim, dokumen yang diedit beberapa orang, cadangan. Jawaban yang salah untuk transfer sekali: tiap byte naik lalu turun lagi, memakai kuota, orang lain biasanya butuh akun, dan penyedia bisa membaca filenya. Pakai untuk menyimpan; pakai alat transfer untuk mentransfer.",
         "cons": "Lambat untuk sekali kirim, terikat kuota, akun di kedua sisi, penyedia bisa membaca file."
       },
@@ -187,7 +187,7 @@
       },
       "14": {
         "q": "Apa software berbagi file terbaik untuk tim?",
-        "a": "Untuk dokumen yang diedit bersama oleh tim, pakai cloud drive: Google Drive (gratis 15 GB), Dropbox (2 GB), atau OneDrive (5 GB), masing-masing dengan folder bersama dan riwayat versi sekitar 30 hari di paket gratis. Aplikasi transfer seperti BIShare dipakai untuk mengirim salinan, bukan untuk menyimpannya."
+        "a": "Untuk dokumen yang diedit bersama oleh tim, pakai cloud drive: Google Drive (gratis hingga 15 GB), Dropbox (2 GB), atau OneDrive (5 GB), masing-masing dengan folder bersama dan riwayat versi sekitar 30 hari di paket gratis. Aplikasi transfer seperti BIShare dipakai untuk mengirim salinan, bukan untuk menyimpannya."
       },
       "15": {
         "q": "Apa software berbagi file gratis terbaik untuk PC?",
@@ -196,6 +196,18 @@
       "16": {
         "q": "Aplikasi apa yang terbaik untuk berbagi dokumen?",
         "a": "Tergantung apakah dokumennya akan diedit bersama atau hanya diterima. Untuk mengedit bersama, pakai Google Docs atau Microsoft 365, tempat satu salinan tetap online beserta riwayat versinya. Untuk menyerahkan PDF jadi atau satu folder dokumen, transfer lebih sederhana: BIShare mengenkripsi file end-to-end dan penerimanya tidak perlu akun."
+      },
+      "17": {
+        "q": "Aplikasi kolaborasi berbagi file mana yang paling aman?",
+        "a": "Proton Drive, karena mengenkripsi setiap file end-to-end secara bawaan, termasuk di paket gratis, sehingga Proton tidak bisa membaca file yang disimpan. Dropbox dan Google Workspace menawarkan enkripsi end-to-end hanya di paket bisnis teratas, diaktifkan oleh administrator, sedangkan OneDrive dan Box sama sekali tidak menyediakannya."
+      },
+      "18": {
+        "q": "Aplikasi kolaborasi berbagi file mana yang termurah untuk tim?",
+        "a": "Box Business Starter, $5 per pengguna per bulan dengan tagihan tahunan, untuk 3 sampai 10 orang. Microsoft 365 Business Basic dan Google Workspace Business Starter seharga $7 dan menambahkan email serta aplikasi kantor. Tim kecil juga bisa mulai gratis: Box memberi 10 GB, Google hingga 15 GB, OneDrive dan Proton Drive 5 GB, Dropbox 2 GB."
+      },
+      "19": {
+        "q": "Aplikasi kolaborasi berbagi file mana yang paling andal?",
+        "a": "Menurut jaminan yang dipublikasikan, paket bisnis Proton (uptime 99,95%), lalu Google Workspace dan Microsoft 365 (99,9%, dengan kompensasi layanan). Box menganggap 99,9% sebagai target dan Dropbox tidak memublikasikan angkanya. Riwayat versi juga penting: Dropbox Advanced menyimpannya 365 hari, Google Drive 30 hari."
       }
     }
   },
@@ -410,7 +422,7 @@
     "items": {
       "0": {
         "h": "Google Drive",
-        "b": "Gratis 15 GB, dibagi dengan Gmail dan Google Foto. Setiap orang berperan sebagai Pelihat, Pengomentar, atau Editor, dan file bisa dibatasi untuk orang tertentu atau dibuka bagi siapa saja yang memiliki tautan. Untuk file yang diunggah seperti PDF, Google bisa menghapus versi lama setelah 30 hari atau setelah ada 100 versi yang lebih baru, kecuali Anda menandainya agar disimpan."
+        "b": "Gratis hingga 15 GB, dibagi dengan Gmail dan Google Foto; akun yang dibuat sejak Maret 2026 mulai dengan 5 GB sampai nomor HP diverifikasi. Setiap orang berperan sebagai Pelihat, Pengomentar, atau Editor, dan file bisa dibatasi untuk orang tertentu atau dibuka bagi siapa saja yang memiliki tautan. Untuk file yang diunggah seperti PDF, Google bisa menghapus versi lama setelah 30 hari atau setelah ada 100 versi yang lebih baru, kecuali Anda menandainya agar disimpan."
       },
       "1": {
         "h": "Dropbox",
@@ -445,6 +457,69 @@
       "3": {
         "h": "Apa lagi yang diambil aplikasinya?",
         "b": "Aplikasi open source bisa diperiksa, dan BIShare, LocalSend, serta PairDrop termasuk open source. Aplikasi beriklan hidup dari perhatian dan data: saat kami periksa pada Oktober 2026, bagian keamanan data SHAREit di Google Play menyatakan datanya tidak dienkripsi. Baca bagian itu sebelum memasang aplikasi berbagi apa pun."
+      }
+    }
+  },
+  "collab": {
+    "title": "Aplikasi kolaborasi berbagi file dibandingkan: keamanan, harga, dan keandalan",
+    "body": "Saat tim menyimpan file kerjanya di satu tempat, pilihannya adalah cloud drive, bukan aplikasi transfer. Inilah lima layanan yang paling sering dibandingkan, dinilai dari hal yang pertama ditanyakan pembeli: siapa yang bisa membaca file, berapa harga per pengguna, dan apa yang dijamin penyedianya.",
+    "cols": {
+      "app": "Aplikasi",
+      "free": "Paket gratis",
+      "price": "Paket tim termurah",
+      "e2e": "Enkripsi end-to-end",
+      "versions": "Riwayat versi"
+    },
+    "rows": {
+      "gdrive": {
+        "name": "Google Drive (Google Workspace)",
+        "free": "Hingga 15 GB; akun baru mendapat 5 GB sampai nomor HP diverifikasi",
+        "price": "Business Starter: $7 per pengguna per bulan ($8,40 bulanan), 30 GB gabungan per pengguna",
+        "e2e": "Hanya di edisi Enterprise Plus, Frontline Plus, dan Education, diatur oleh admin",
+        "versions": "30 hari atau 100 versi lebih baru; sampah disimpan 30 hari"
+      },
+      "dropbox": {
+        "name": "Dropbox",
+        "free": "2 GB",
+        "price": "Standard: $15 per pengguna per bulan ($18 bulanan), mulai 1 pengguna, 3 TB untuk tim",
+        "e2e": "Folder tim di Advanced dan Enterprise, diaktifkan oleh admin; nama file tetap terbaca",
+        "versions": "30 hari di Basic dan Plus, 180 di Standard, 365 di Advanced"
+      },
+      "onedrive": {
+        "name": "OneDrive (Microsoft 365)",
+        "free": "5 GB, dibagi dengan Outlook.com",
+        "price": "Business Basic: $7 per pengguna per bulan ($8,40 bulanan), 1 TB per pengguna",
+        "e2e": "Tidak tersedia; Personal Vault menambah verifikasi identitas, bukan enkripsi end-to-end",
+        "versions": "30 hari; file terhapus disimpan 30 hari (pribadi) atau 93 hari (kerja atau sekolah)"
+      },
+      "box": {
+        "name": "Box",
+        "free": "10 GB, 250 MB per file yang diunggah",
+        "price": "Business Starter: $5 per pengguna per bulan ($7 bulanan), 3 sampai 10 pengguna, 100 GB",
+        "e2e": "Tidak tersedia; add-on berbayar KeySafe membuat perusahaan memegang kuncinya sendiri",
+        "versions": "1 versi di paket gratis, 25 di Business Starter, 50 di Business"
+      },
+      "proton": {
+        "name": "Proton Drive",
+        "free": "5 GB",
+        "price": "Drive Professional: $7,99 per pengguna per bulan ($9,99 bulanan), mulai 2 pengguna, 1 TB per pengguna",
+        "e2e": "Aktif secara bawaan di semua paket, termasuk yang gratis",
+        "versions": "Gratis: 10 versi selama 7 hari; Drive Professional: 365 hari"
+      }
+    },
+    "note": "Harga AS dengan tagihan tahunan (tagihan bulanan di dalam kurung), diambil dari halaman harga, bantuan, dan SLA masing-masing penyedia pada 17 Oktober 2026. Harga berbeda per negara dan sering berubah; cek halaman penyedia sebelum membeli.",
+    "picks": {
+      "security": {
+        "h": "Terbaik untuk keamanan: Proton Drive",
+        "b": "Proton Drive satu-satunya dari kelima layanan ini yang mengenkripsi setiap file end-to-end secara bawaan, termasuk di paket gratis, sehingga Proton tidak bisa membaca apa yang Anda simpan. Dropbox dan Google Workspace menawarkan enkripsi end-to-end hanya di paket teratas, diaktifkan oleh administrator; OneDrive dan Box tidak menyediakannya. Untuk mengirim satu file sensitif, bukan menyimpannya, transfer saja sudah cukup: <goEncrypted>BIShare mengenkripsi setiap transfer end-to-end</goEncrypted> dan tidak menyimpan apa pun setelahnya."
+      },
+      "price": {
+        "h": "Terbaik soal harga: Box untuk segelintir orang, Microsoft 365 atau Google Workspace untuk kebanyakan tim",
+        "b": "Box Business Starter adalah kursi termurah, $5 per pengguna per bulan dengan tagihan tahunan, tetapi butuh 3 sampai 10 pengguna dan hanya 100 GB. Microsoft 365 Business Basic dan Google Workspace Business Starter sama-sama $7 per pengguna per bulan dan sudah termasuk email serta aplikasi kantor, dengan 1 TB dan 30 GB per pengguna. Dropbox Standard adalah paket awal paling mahal, $15, tetapi langsung mendapat 3 TB untuk seluruh tim."
+      },
+      "reliability": {
+        "h": "Paling andal: baca jaminannya, lalu riwayat versinya",
+        "b": "Proton menjanjikan uptime 99,95% di paket bisnisnya, sedangkan Google Workspace dan Microsoft 365 berkomitmen 99,9% per bulan, dengan kompensasi layanan jika meleset. Box menyebut 99,9% sebagai target dan hanya memberi kompensasi dengan paket dukungan premium; Dropbox tidak memublikasikan angka uptime. Agar pekerjaan tidak hilang, riwayat versi sama pentingnya: Dropbox Advanced menyimpan versi dan file terhapus selama 365 hari, dan akun kerja OneDrive menyimpan file terhapus selama 93 hari."
       }
     }
   }

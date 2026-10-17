@@ -25,7 +25,7 @@ import { guideLinks } from "@/components/site/guide-links";
  * `LAST_UPDATED` whenever the facts about other apps are re-checked.
  */
 
-const LAST_UPDATED = "2026-10-14";
+const LAST_UPDATED = "2026-10-17";
 const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
@@ -72,7 +72,11 @@ const SPEED_ITEMS = ["0", "1", "2"] as const;
 const P2P_ITEMS = ["0", "1", "2", "3"] as const;
 const TEAM_ITEMS = ["0", "1", "2", "3"] as const;
 const SAFETY_ITEMS = ["0", "1", "2", "3"] as const;
-const FAQ_ITEMS = ["0", "12", "1", "2", "15", "10", "13", "3", "4", "5", "6", "7", "8", "9", "14", "16", "11"] as const;
+/* Collaboration apps compared (facts re-checked on each vendor's own pages, see collab.note). */
+const COLLAB_APPS = ["gdrive", "dropbox", "onedrive", "box", "proton"] as const;
+const COLLAB_COLS = ["free", "price", "e2e", "versions"] as const;
+const COLLAB_PICKS = ["security", "price", "reliability"] as const;
+const FAQ_ITEMS = ["0", "12", "1", "2", "15", "10", "13", "3", "4", "5", "6", "7", "8", "9", "14", "17", "18", "19", "16", "11"] as const;
 
 const APP_URLS: Record<string, string> = {
   "0": `${SITE}`,
@@ -368,6 +372,43 @@ export default async function BestFileSharingAppPage({
               <div key={i}>
                 <h3 className="font-semibold">{t(`teams.items.${i}.h`)}</h3>
                 <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`teams.items.${i}.b`, links)}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* File-sharing collaboration apps: security, price, reliability */}
+        <section className="mt-14">
+          <H2 id="collaboration">{t("collab.title")}</H2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">{t("collab.body")}</p>
+          <div className="mt-5 overflow-x-auto rounded-xl border border-border">
+            <table className="w-full min-w-[760px] text-sm">
+              <thead>
+                <tr className="border-b border-border bg-background-raised text-muted-foreground">
+                  <th className="px-4 py-3 text-left font-medium">{t("collab.cols.app")}</th>
+                  {COLLAB_COLS.map((c) => (
+                    <th key={c} className="px-3 py-3 text-left font-medium">{t(`collab.cols.${c}`)}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {COLLAB_APPS.map((a) => (
+                  <tr key={a} className="border-b border-border align-top last:border-0">
+                    <td className="px-4 py-3 font-medium text-foreground">{t(`collab.rows.${a}.name`)}</td>
+                    {COLLAB_COLS.map((c) => (
+                      <td key={c} className="px-3 py-3 text-muted-foreground">{t(`collab.rows.${a}.${c}`)}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t("collab.note")}</p>
+          <div className="mt-6 space-y-7">
+            {COLLAB_PICKS.map((k) => (
+              <div key={k}>
+                <h3 className="font-semibold">{t(`collab.picks.${k}.h`)}</h3>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`collab.picks.${k}.b`, links)}</p>
               </div>
             ))}
           </div>

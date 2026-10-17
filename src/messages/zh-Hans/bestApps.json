@@ -107,7 +107,7 @@
         "name": "Google Drive（以及 Dropbox、OneDrive）",
         "tag": "文件需要长期留存时最佳",
         "best": "适合：需要存储、版本记录和共享文件夹，而不是一次性传输的团队和个人。",
-        "facts": "全平台 · 免费空间 15 GB（Drive）、2 GB（Dropbox）、5 GB（OneDrive） · 非端到端加密 · 需要账号",
+        "facts": "全平台 · 免费空间最多 15 GB（Drive）、2 GB（Dropbox）、5 GB（OneDrive） · 非端到端加密 · 需要账号",
         "body": "当文件必须长期存在某处时，云端网盘是正确答案：团队共享文件夹、多人编辑的文档、备份。而对一次性传输来说，它是错误答案——每一个字节先上传再下载，占用你的空间配额，对方通常也要账号，而且服务商能读取文件。存放用网盘，传输用传输工具。",
         "cons": "一次性传输慢、受配额限制、两端都要账号、服务商可读取文件。"
       },
@@ -187,7 +187,7 @@
       },
       "14": {
         "q": "团队最适合用什么文件分享软件？",
-        "a": "团队共同编辑的文档适合放在网盘：Google Drive（免费 15 GB）、Dropbox（2 GB）或 OneDrive（5 GB），都有共享文件夹，免费方案下大约有 30 天的版本记录。BIShare 这样的传输应用用来发送副本，而不是保存副本。"
+        "a": "团队共同编辑的文档适合放在网盘：Google Drive（免费最多 15 GB）、Dropbox（2 GB）或 OneDrive（5 GB），都有共享文件夹，免费方案下大约有 30 天的版本记录。BIShare 这样的传输应用用来发送副本，而不是保存副本。"
       },
       "15": {
         "q": "电脑上最好用的免费文件分享软件是什么？",
@@ -196,6 +196,18 @@
       "16": {
         "q": "分享文档用哪个应用最好？",
         "a": "要看文档是一起编辑还是只交给对方。一起编辑就用Google 文档或Microsoft 365，一份副本连同版本历史留在线上。如果只是交一份做好的PDF或一个文档文件夹，直接发送更简单：BIShare对文件做端到端加密，接收方不需要帐号。"
+      },
+      "17": {
+        "q": "哪款文件共享协作应用最安全？",
+        "a": "Proton Drive。它默认对每个文件做端到端加密，免费方案也包括在内，所以 Proton 读不到存储的文件。Dropbox 和 Google Workspace 只在最高档商业方案提供端到端加密，并由管理员开启；OneDrive 和 Box 完全不提供。"
+      },
+      "18": {
+        "q": "哪款文件共享协作应用对团队来说最便宜？",
+        "a": "Box Business Starter，按年付每人每月 5 美元，适合 3 到 10 人。Microsoft 365 Business Basic 和 Google Workspace Business Starter 是 7 美元，另含邮箱和办公应用。小团队也可以先免费用：Box 有 10 GB，Google 最多 15 GB，OneDrive 和 Proton Drive 各 5 GB，Dropbox 2 GB。"
+      },
+      "19": {
+        "q": "哪款文件共享协作应用最可靠？",
+        "a": "按公开的保证来看，是 Proton 的商业方案（99.95% 可用性），其次是 Google Workspace 和 Microsoft 365（99.9%，有服务抵扣）。Box 把 99.9% 当作目标，Dropbox 不公布数字。版本历史也很重要：Dropbox Advanced 保留 365 天，Google Drive 保留 30 天。"
       }
     }
   },
@@ -410,7 +422,7 @@
     "items": {
       "0": {
         "h": "Google Drive",
-        "b": "免费 15 GB，与 Gmail 和 Google 相册共用。每个人的身份是查看者、评论者或编辑者，文件可以只开放给指定的人，也可以开放给任何知道链接的人。对 PDF 这类上传的文件，除非你标记为保留，否则 Google 可能在 30 天后或出现 100 个更新版本后删除旧版本。"
+        "b": "免费最多 15 GB，与 Gmail 和 Google 相册共用；2026 年 3 月以后注册的账号在验证手机号前只有 5 GB。每个人的身份是查看者、评论者或编辑者，文件可以只开放给指定的人，也可以开放给任何知道链接的人。对 PDF 这类上传的文件，除非你标记为保留，否则 Google 可能在 30 天后或出现 100 个更新版本后删除旧版本。"
       },
       "1": {
         "h": "Dropbox",
@@ -445,6 +457,69 @@
       "3": {
         "h": "应用还拿走了什么？",
         "b": "开源应用可以被检查，BIShare、LocalSend 和 PairDrop 都是开源的。靠广告维持的应用从注意力和数据中赚钱：我们在 2026 年 10 月核对时，SHAREit 在 Google Play 上的数据安全部分写明其数据不加密。安装任何分享应用之前，先读一读这一部分。"
+      }
+    }
+  },
+  "collab": {
+    "title": "文件共享协作应用对比：安全、价格与可靠性",
+    "body": "团队把工作文件放在一个地方时，要选的是网盘，而不是传输应用。下面是最常被拿来比较的五款，按买家最先问的三件事来比：谁能读到文件，每人多少钱，服务商保证什么。",
+    "cols": {
+      "app": "应用",
+      "free": "免费方案",
+      "price": "最便宜的团队方案",
+      "e2e": "端到端加密",
+      "versions": "版本历史"
+    },
+    "rows": {
+      "gdrive": {
+        "name": "Google Drive（Google Workspace）",
+        "free": "最多 15 GB；新账号验证手机号前只有 5 GB",
+        "price": "Business Starter：每人每月 7 美元（按月付 8.40 美元），每人 30 GB 共享空间",
+        "e2e": "仅 Enterprise Plus、Frontline Plus 和 Education 版本，由管理员设置",
+        "versions": "30 天或 100 个更新版本；回收站保留 30 天"
+      },
+      "dropbox": {
+        "name": "Dropbox",
+        "free": "2 GB",
+        "price": "Standard：每人每月 15 美元（按月付 18 美元），1 人起，团队共 3 TB",
+        "e2e": "仅 Advanced 和 Enterprise 的团队文件夹，由管理员开启；文件名仍可读",
+        "versions": "Basic 和 Plus 30 天，Standard 180 天，Advanced 365 天"
+      },
+      "onedrive": {
+        "name": "OneDrive（Microsoft 365）",
+        "free": "5 GB，与 Outlook.com 共用",
+        "price": "Business Basic：每人每月 7 美元（按月付 8.40 美元），每人 1 TB",
+        "e2e": "不提供；个人保管库只是加一道身份验证，不是端到端加密",
+        "versions": "30 天；已删除文件个人账号保留 30 天，工作或学校账号 93 天"
+      },
+      "box": {
+        "name": "Box",
+        "free": "10 GB，每个上传文件最大 250 MB",
+        "price": "Business Starter：每人每月 5 美元（按月付 7 美元），3 到 10 人，100 GB",
+        "e2e": "不提供；付费附加功能 KeySafe 让企业自己保管密钥",
+        "versions": "免费方案 1 个版本，Business Starter 25 个，Business 50 个"
+      },
+      "proton": {
+        "name": "Proton Drive",
+        "free": "5 GB",
+        "price": "Drive Professional：每人每月 7.99 美元（按月付 9.99 美元），2 人起，每人 1 TB",
+        "e2e": "所有方案默认开启，包括免费方案",
+        "versions": "免费：10 个版本保留 7 天；Drive Professional：365 天"
+      }
+    },
+    "note": "美国按年付费价格（括号内为按月付费），于 2026 年 10 月 17 日取自各服务商自己的价格、帮助和 SLA 页面。价格因国家而异且常有变动，购买前请查看服务商页面。",
+    "picks": {
+      "security": {
+        "h": "最安全：Proton Drive",
+        "b": "五款里只有 Proton Drive 默认对每个文件做端到端加密，免费方案也一样，所以 Proton 读不到你存的内容。Dropbox 和 Google Workspace 只在最高档方案提供端到端加密，并且要管理员开启；OneDrive 和 Box 不提供。如果只是发送一个敏感文件而不需要保存，传输就够了：<goEncrypted>BIShare 对每次传输做端到端加密</goEncrypted>，发完不留任何东西。"
+      },
+      "price": {
+        "h": "最划算：人少选 Box，大多数团队选 Microsoft 365 或 Google Workspace",
+        "b": "最便宜的是 Box Business Starter，按年付每人每月 5 美元，但需要 3 到 10 人，空间为 100 GB。Microsoft 365 Business Basic 和 Google Workspace Business Starter 都是每人每月 7 美元，含邮箱和办公应用，每人分别有 1 TB 和 30 GB。Dropbox Standard 是最贵的入门方案，15 美元，但一开始就给整个团队 3 TB。"
+      },
+      "reliability": {
+        "h": "最可靠：先看保证，再看版本历史",
+        "b": "Proton 在商业方案中承诺 99.95% 的可用性，Google Workspace 和 Microsoft 365 承诺每月 99.9%，达不到会给服务抵扣。Box 把 99.9% 当作目标，只在高级支持方案中给抵扣；Dropbox 不公布可用性数字。要不丢工作成果，版本历史同样重要：Dropbox Advanced 保留版本和已删除文件 365 天，OneDrive 工作账号保留已删除文件 93 天。"
       }
     }
   }

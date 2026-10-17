@@ -107,7 +107,7 @@
         "name": "Google Drive (y Dropbox, OneDrive)",
         "tag": "Mejor cuando los archivos deben quedarse en algún sitio",
         "best": "Ideal para: equipos y quien necesita almacenamiento, versiones y carpetas compartidas en lugar de una transferencia.",
-        "facts": "Todas las plataformas · 15 GB gratis (Drive), 2 GB (Dropbox), 5 GB (OneDrive) · no cifrado de extremo a extremo · cuenta obligatoria",
+        "facts": "Todas las plataformas · hasta 15 GB gratis (Drive), 2 GB (Dropbox), 5 GB (OneDrive) · no cifrado de extremo a extremo · cuenta obligatoria",
         "body": "Una unidad en la nube es la respuesta correcta cuando el archivo tiene que vivir en algún sitio: una carpeta compartida para un equipo, un documento que editan varias personas, una copia de seguridad. Es la respuesta equivocada para una transferencia puntual: cada byte sube y vuelve a bajar, gasta tu cuota, la otra persona suele necesitar cuenta y el proveedor puede leer el archivo. Úsala para almacenar; usa una herramienta de transferencia para transferir.",
         "cons": "Lenta para envíos puntuales, limitada por la cuota, cuenta en ambos lados, el proveedor puede leer los archivos."
       },
@@ -187,7 +187,7 @@
       },
       "14": {
         "q": "¿Cuál es el mejor software para compartir archivos en equipo?",
-        "a": "Para documentos que un equipo edita en común, una nube: Google Drive (15 GB gratis), Dropbox (2 GB) u OneDrive (5 GB), cada una con carpetas compartidas y unos 30 días de historial de versiones en el plan gratuito. Una app de transferencia como BIShare sirve para enviar una copia, no para guardarla."
+        "a": "Para documentos que un equipo edita en común, una nube: Google Drive (hasta 15 GB gratis), Dropbox (2 GB) u OneDrive (5 GB), cada una con carpetas compartidas y unos 30 días de historial de versiones en el plan gratuito. Una app de transferencia como BIShare sirve para enviar una copia, no para guardarla."
       },
       "15": {
         "q": "¿Cuál es el mejor programa gratuito para compartir archivos en PC?",
@@ -196,6 +196,18 @@
       "16": {
         "q": "¿Qué app es mejor para compartir documentos?",
         "a": "Depende de si el documento se edita entre varios o solo se entrega. Para editarlo juntos, usa Google Docs o Microsoft 365, donde una sola copia queda en línea con su historial de versiones. Para entregar un PDF terminado o una carpeta de documentos, es más sencillo enviarlo: BIShare cifra los archivos de extremo a extremo y quien lo recibe no necesita cuenta."
+      },
+      "17": {
+        "q": "¿Qué app de colaboración para compartir archivos es la más segura?",
+        "a": "Proton Drive, porque cifra cada archivo de extremo a extremo por defecto, incluido el plan gratuito, así que Proton no puede leer los archivos guardados. Dropbox y Google Workspace ofrecen cifrado de extremo a extremo solo en sus planes de empresa más altos, activado por un administrador, y OneDrive y Box no lo ofrecen en absoluto."
+      },
+      "18": {
+        "q": "¿Cuál es la app de colaboración para compartir archivos más barata para un equipo?",
+        "a": "Box Business Starter, a 5 $ por usuario al mes con pago anual, para 3 a 10 personas. Microsoft 365 Business Basic y Google Workspace Business Starter cuestan 7 $ y añaden correo y apps de oficina. Un equipo pequeño también puede empezar gratis: Box da 10 GB, Google hasta 15 GB, OneDrive y Proton Drive 5 GB, Dropbox 2 GB."
+      },
+      "19": {
+        "q": "¿Qué app de colaboración para compartir archivos es la más fiable?",
+        "a": "Según las garantías publicadas, los planes de empresa de Proton (99,95 % de disponibilidad) y después Google Workspace y Microsoft 365 (99,9 %, con créditos de servicio). Box trata el 99,9 % como un objetivo y Dropbox no publica ninguna cifra. El historial de versiones también cuenta: Dropbox Advanced lo guarda 365 días, Google Drive 30 días."
       }
     }
   },
@@ -410,7 +422,7 @@
     "items": {
       "0": {
         "h": "Google Drive",
-        "b": "15 GB gratis, compartidos con Gmail y Google Fotos. Cada persona es Lector, Comentador o Editor, y un archivo puede limitarse a personas concretas o abrirse a cualquiera que tenga el enlace. En archivos subidos, como los PDF, Google puede eliminar una versión antigua pasados 30 días o cuando existan 100 versiones más recientes, salvo que la marques para conservarla."
+        "b": "Hasta 15 GB gratis, compartidos con Gmail y Google Fotos; las cuentas creadas desde marzo de 2026 empiezan con 5 GB hasta verificar un número de teléfono. Cada persona es Lector, Comentador o Editor, y un archivo puede limitarse a personas concretas o abrirse a cualquiera que tenga el enlace. En archivos subidos, como los PDF, Google puede eliminar una versión antigua pasados 30 días o cuando existan 100 versiones más recientes, salvo que la marques para conservarla."
       },
       "1": {
         "h": "Dropbox",
@@ -445,6 +457,69 @@
       "3": {
         "h": "¿Qué más se lleva la app?",
         "b": "Las apps de código abierto se pueden inspeccionar, y BIShare, LocalSend y PairDrop lo son. Las apps con anuncios viven de la atención y de los datos: cuando lo comprobamos en octubre de 2026, la sección de seguridad de los datos de SHAREit en Google Play decía que sus datos no se cifran. Lee esa sección antes de instalar cualquier app para compartir."
+      }
+    }
+  },
+  "collab": {
+    "title": "Apps de colaboración para compartir archivos comparadas: seguridad, precio y fiabilidad",
+    "body": "Cuando un equipo guarda sus archivos de trabajo en un solo sitio, la elección está entre nubes, no entre apps de transferencia. Estas son las cinco que más se comparan, valoradas en lo que los compradores preguntan primero: quién puede leer los archivos, cuánto cuesta cada licencia y qué garantiza el proveedor.",
+    "cols": {
+      "app": "App",
+      "free": "Plan gratuito",
+      "price": "Plan de equipo más barato",
+      "e2e": "Cifrado de extremo a extremo",
+      "versions": "Historial de versiones"
+    },
+    "rows": {
+      "gdrive": {
+        "name": "Google Drive (Google Workspace)",
+        "free": "Hasta 15 GB; las cuentas nuevas tienen 5 GB hasta verificar un número de teléfono",
+        "price": "Business Starter: 7 $ por usuario al mes (8,40 $ en pago mensual), 30 GB compartidos por usuario",
+        "e2e": "Solo en las ediciones Enterprise Plus, Frontline Plus y Education, configurado por un administrador",
+        "versions": "30 días o 100 versiones más nuevas; papelera guardada 30 días"
+      },
+      "dropbox": {
+        "name": "Dropbox",
+        "free": "2 GB",
+        "price": "Standard: 15 $ por usuario al mes (18 $ en pago mensual), desde 1 usuario, 3 TB para el equipo",
+        "e2e": "Carpetas de equipo en Advanced y Enterprise, activado por un administrador; los nombres de archivo siguen legibles",
+        "versions": "30 días en Basic y Plus, 180 en Standard, 365 en Advanced"
+      },
+      "onedrive": {
+        "name": "OneDrive (Microsoft 365)",
+        "free": "5 GB, compartidos con Outlook.com",
+        "price": "Business Basic: 7 $ por usuario al mes (8,40 $ en pago mensual), 1 TB por usuario",
+        "e2e": "No se ofrece; el Almacén personal añade una comprobación de identidad, no cifrado de extremo a extremo",
+        "versions": "30 días; archivos eliminados guardados 30 días (personal) o 93 días (trabajo o centro educativo)"
+      },
+      "box": {
+        "name": "Box",
+        "free": "10 GB, 250 MB por archivo subido",
+        "price": "Business Starter: 5 $ por usuario al mes (7 $ en pago mensual), de 3 a 10 usuarios, 100 GB",
+        "e2e": "No se ofrece; el complemento de pago KeySafe permite a una empresa guardar sus propias claves",
+        "versions": "1 versión en el plan gratuito, 25 en Business Starter, 50 en Business"
+      },
+      "proton": {
+        "name": "Proton Drive",
+        "free": "5 GB",
+        "price": "Drive Professional: 7,99 $ por usuario al mes (9,99 $ en pago mensual), desde 2 usuarios, 1 TB por usuario",
+        "e2e": "Activado por defecto en todos los planes, incluido el gratuito",
+        "versions": "Gratis: 10 versiones durante 7 días; Drive Professional: 365 días"
+      }
+    },
+    "note": "Precios de EE. UU. con pago anual (pago mensual entre paréntesis), tomados de las páginas de precios, ayuda y SLA de cada proveedor el 17 de octubre de 2026. Los precios cambian según el país y con frecuencia; revisa la página del proveedor antes de comprar.",
+    "picks": {
+      "security": {
+        "h": "La más segura: Proton Drive",
+        "b": "Proton Drive es la única de las cinco que cifra cada archivo de extremo a extremo por defecto, también en el plan gratuito, así que Proton no puede leer lo que guardas. Dropbox y Google Workspace ofrecen cifrado de extremo a extremo solo en sus planes más altos, activado por un administrador; OneDrive y Box no lo ofrecen. Si quieres enviar un archivo delicado en lugar de guardarlo, basta con una transferencia: <goEncrypted>BIShare cifra cada transferencia de extremo a extremo</goEncrypted> y no conserva nada después."
+      },
+      "price": {
+        "h": "La más barata: Box para pocas personas, Microsoft 365 o Google Workspace para la mayoría de equipos",
+        "b": "Box Business Starter es la licencia más barata, 5 $ por usuario al mes con pago anual, pero exige de 3 a 10 usuarios y trae 100 GB. Microsoft 365 Business Basic y Google Workspace Business Starter cuestan ambos 7 $ por usuario al mes e incluyen correo y apps de oficina, con 1 TB y 30 GB por usuario. Dropbox Standard es el plan de entrada más caro, 15 $, pero empieza con 3 TB para todo el equipo."
+      },
+      "reliability": {
+        "h": "La más fiable: lee la garantía y luego el historial de versiones",
+        "b": "Proton promete un 99,95 % de disponibilidad en sus planes de empresa, y Google Workspace y Microsoft 365 se comprometen a un 99,9 % al mes, con créditos de servicio si no lo cumplen. Box llama al 99,9 % un objetivo y solo da créditos con sus planes de soporte premium; Dropbox no publica ninguna cifra de disponibilidad. Para no perder trabajo, el historial de versiones importa igual: Dropbox Advanced guarda versiones y archivos eliminados 365 días, y las cuentas de trabajo de OneDrive guardan los archivos eliminados 93."
       }
     }
   }
