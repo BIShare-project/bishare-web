@@ -16,7 +16,7 @@
     "title": "Kurze Antwort",
     "items": [
       "<strong>Am nächsten am klassischen ShareDrop:</strong> PairDrop. Gleiche Idee, Open Source, Geräte im selben Netz finden sich, und Kopplung deckt andere Netze ab.",
-      "<strong>Der Absender soll nach dem Senden offline gehen:</strong> Ein BIShare-Link speichert bis zu 100 GB verschlüsselt für einen Tag und <goTransfer>öffnet sich in jedem Browser</goTransfer>, kein Tab muss offen bleiben.",
+      "<strong>Der Absender soll nach dem Senden offline gehen:</strong> Ein BIShare-Link speichert bis zu 100 GB verschlüsselt für 6, 12 oder 24 Stunden und <goTransfer>öffnet sich in jedem Browser</goTransfer>, kein Tab muss offen bleiben.",
       "<strong>Eine Datei, ein Empfänger, nirgends gespeichert:</strong> FilePizza oder ToffeeShare, solange Ihr Tab offen bleibt, bis der Download fertig ist.",
       "<strong><goLargeFiles>Große Ordner</goLargeFiles> zwischen eigenen Computern und Handys:</strong> Eine App schlägt den Tab. BIShare oder LocalSend am selben Router, oder Taildrop, wenn Sie Tailscale schon nutzen.",
       "<strong>ShareDrop gefiel Ihnen genau so, wie es war:</strong> Der ursprüngliche MIT-lizenzierte Code liegt unverändert auf GitHub und lässt sich hosten, braucht aber eine Firebase-Datenbank.",
@@ -109,7 +109,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Am besten, wenn der Empfänger nicht gleichzeitig online sein soll",
-        "facts": "bishare.app in jedem Browser, dazu Apps für Android, iPhone, Windows, macOS und Linux · Apache 2.0 · Links bis 100 GB, verschlüsselt, laufen nach 24 Stunden ab · Räume mit Cloud- oder lokalem Peer-to-Peer-Modus · kein Konto",
+        "facts": "bishare.app in jedem Browser, dazu Apps für Android, iPhone, Windows, macOS und Linux · Apache 2.0 · Links bis 100 GB, verschlüsselt, laufen nach 6, 12 oder 24 Stunden ab · Räume mit Cloud- oder lokalem Peer-to-Peer-Modus · kein Konto",
         "body": "BIShare deckt beide Hälften dessen ab, was ShareDrop tat, und den Teil, den es nie konnte. Im Browser laden Sie hoch, erhalten einen Link und einen sechsstelligen Code, klappen den Laptop zu, und der Empfänger lädt später in einem beliebigen Browser herunter. Für eine Gruppe läuft ein per Kurzcode betretener Raum im lokalen Modus, in dem Dateien im selben WLAN direkt zwischen Browsern gehen, oder im Cloud-Modus für Leute an verschiedenen Orten. Installieren Sie die App auf Ihren eigenen Geräten, entdecken sie sich über das gemeinsame WLAN oder den Hotspot eines Handys, ohne Größenlimit.",
         "cons": "Browser-Links lehnen ausführbare Dateitypen wie .exe, .msi und .sh ab, und die schnellsten Direktübertragungen brauchen die App auf beiden Geräten."
       },
@@ -192,7 +192,7 @@
       },
       "2": {
         "h": "Gespeicherte Links: niemand muss warten",
-        "b": "<goEncrypted>Ein BIShare-Link verschlüsselt die Datei in Ihrem Browser</goEncrypted>, lädt sie hoch und hält sie 24 Stunden bereit. Sie können sofort offline gehen, und der Empfänger lädt aus jedem Browser herunter. Dieses Modell passt zu Zeitzonen und vollen Terminkalendern, auf Kosten einer verschlüsselten Kopie, die einen Tag auf einem Server liegt."
+        "b": "<goEncrypted>Ein BIShare-Link verschlüsselt die Datei in Ihrem Browser</goEncrypted>, lädt sie hoch und hält sie 6, 12 oder 24 Stunden bereit. Sie können sofort offline gehen, und der Empfänger lädt aus jedem Browser herunter. Dieses Modell passt zu Zeitzonen und vollen Terminkalendern, auf Kosten einer verschlüsselten Kopie, die bis zum Ablauf des Links auf einem Server liegt."
       },
       "3": {
         "h": "Gekoppelte Geräte: eigene Technik überall",
@@ -236,7 +236,7 @@
       },
       "2": {
         "h": "Kunde oder Kollegin, die später öffnen",
-        "b": "Ein BIShare-Link, der 24 Stunden ohne Ihren Tab wartet, oder ein bezahlter Speicherdienst, wenn die Datei länger verfügbar sein muss."
+        "b": "Ein BIShare-Link, der bis zu 24 Stunden ohne Ihren Tab wartet, oder ein bezahlter Speicherdienst, wenn die Datei länger verfügbar sein muss."
       },
       "3": {
         "h": "Klassenzimmer oder Besprechung",
@@ -262,7 +262,7 @@
       },
       "2": {
         "h": "Upload-Buttons sind ein anderes Modell",
-        "b": "Der Bereich „Upload Files“ auf sharedrop.io speichert Dateien bei LimeWire, und ein BIShare-Link speichert 24 Stunden eine verschlüsselte Kopie. Gespeicherte Links sind bequem, aber lesen Sie nach, was jeder Dienst wie lange aufbewahrt, und bevorzugen Sie einen, der vor dem Upload auf Ihrem Gerät verschlüsselt. Über den Browser hinaus zeigt <goBestApps>unser Ratgeber zu den besten Apps zum Teilen von Dateien</goBestApps>, welche Dienste auf Ihrem Gerät verschlüsseln und welche eine lesbare Kopie behalten."
+        "b": "Der Bereich „Upload Files“ auf sharedrop.io speichert Dateien bei LimeWire, und ein BIShare-Link speichert 6, 12 oder 24 Stunden eine verschlüsselte Kopie. Gespeicherte Links sind bequem, aber lesen Sie nach, was jeder Dienst wie lange aufbewahrt, und bevorzugen Sie einen, der vor dem Upload auf Ihrem Gerät verschlüsselt. Über den Browser hinaus zeigt <goBestApps>unser Ratgeber zu den besten Apps zum Teilen von Dateien</goBestApps>, welche Dienste auf Ihrem Gerät verschlüsseln und welche eine lesbare Kopie behalten."
       }
     }
   },
@@ -299,7 +299,7 @@
       },
       "7": {
         "q": "Kann ich mit ShareDrop an jemanden senden, der offline ist?",
-        "a": "Nein. Beide Browser müssen gleichzeitig geöffnet sein. Für eine Datei, die jemand später abholt, nutzen Sie einen gespeicherten Link wie den von BIShare, der einen Tag bereitsteht."
+        "a": "Nein. Beide Browser müssen gleichzeitig geöffnet sein. Für eine Datei, die jemand später abholt, nutzen Sie einen gespeicherten Link wie den von BIShare, der 6, 12 oder 24 Stunden bereitsteht."
       },
       "8": {
         "q": "Kann ich ShareDrop selbst hosten?",
@@ -307,7 +307,7 @@
       },
       "9": {
         "q": "Ist BIShare kostenlos?",
-        "a": "Ja. BIShare kostet nichts, veröffentlicht seinen Code unter Apache 2.0, verlangt weder vom Absender noch vom Empfänger eine Anmeldung, und jeder Link fasst bis zu 100 GB für einen Tag."
+        "a": "Ja. BIShare kostet nichts, veröffentlicht seinen Code unter Apache 2.0, verlangt weder vom Absender noch vom Empfänger eine Anmeldung, und jeder Link fasst bis zu 100 GB für 6, 12 oder 24 Stunden."
       }
     }
   },

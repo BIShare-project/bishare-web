@@ -20,7 +20,7 @@
       "<strong>Meilleure dans l'ensemble :</strong> BIShare. Des applis natives sur cinq plateformes pour des transferts locaux à pleine vitesse, plus un lien navigateur de 100 Go pour quiconque n'est pas dans la pièce. Gratuit, open source, aucune inscription des deux côtés.",
       "<strong>Si vous voulez une appli et ne transférez qu'à la maison :</strong> LocalSend. Open source, même réseau uniquement, rien dans le cloud.",
       "<strong>Vous pouvez aussi héberger Snapdrop vous-même.</strong> Le code classique est toujours sur GitHub sous la licence d'origine, et un conteneur Docker le pose sur votre propre machine, seul moyen d'être certain que rien n'a changé à votre insu.",
-      "<strong>Pour un fichier destiné à quelqu'un de loin :</strong> un lien BIShare (100 Go, chiffré, expirant en une journée) ou Wormhole (10 Go, chiffré)."
+      "<strong>Pour un fichier destiné à quelqu'un de loin :</strong> un lien BIShare (100 Go, chiffré, expirant au bout de 6, 12 ou 24 heures) ou Wormhole (10 Go, chiffré)."
     ]
   },
   "status": {
@@ -79,7 +79,7 @@
         "name": "BIShare",
         "tag": "Meilleure dans l'ensemble : le geste Snapdrop plus une route vers les gens éloignés",
         "facts": "iPhone, Android, Windows, Mac, Linux et tout navigateur · licence Apache 2.0, gratuit · aucune limite de taille à proximité, 100 Go par lien · chiffré de bout en bout · aucune inscription des deux côtés",
-        "body": "Mettez deux appareils sur un même Wi-Fi et l'expérience est celle dont vous vous souvenez, mais via une vraie appli : des noms dans une liste, vous en touchez un, la barre se remplit à la vitesse que permet le réseau, et rien n'atterrit sur un serveur. Là où il dépasse Snapdrop, c'est sur la distance. Quelqu'un dans une autre ville reçoit plutôt une adresse web, qu'il ouvre dans le navigateur déjà devant lui, sans installation ni inscription, jusqu'à 100 Go. Le scellage a lieu avant le début de l'envoi et la clé reste dans votre lien, la copie que nous détenons ne nous dit donc rien. Réglez-la pour qu'elle meure au bout d'un jour ou après le premier téléchargement. Pour un groupe, un code de salon permet à plusieurs personnes de déposer des fichiers les unes pour les autres sous la même protection.",
+        "body": "Mettez deux appareils sur un même Wi-Fi et l'expérience est celle dont vous vous souvenez, mais via une vraie appli : des noms dans une liste, vous en touchez un, la barre se remplit à la vitesse que permet le réseau, et rien n'atterrit sur un serveur. Là où il dépasse Snapdrop, c'est sur la distance. Quelqu'un dans une autre ville reçoit plutôt une adresse web, qu'il ouvre dans le navigateur déjà devant lui, sans installation ni inscription, jusqu'à 100 Go. Le scellage a lieu avant le début de l'envoi et la clé reste dans votre lien, la copie que nous détenons ne nous dit donc rien. Réglez-la pour qu'elle meure au bout de 6, 12 ou 24 heures, ou après le premier téléchargement. Pour un groupe, un code de salon permet à plusieurs personnes de déposer des fichiers les unes pour les autres sous la même protection.",
         "cons": "La voie locale donne le meilleur via l'appli ; le côté navigateur sert à recevoir et aux envois ponctuels, pas de remplaçant permanent d'un client natif. Et rien n'est stocké : un lien expiré a réellement disparu."
       },
       "1": {
@@ -170,7 +170,7 @@
       },
       "4": {
         "h": "Un très gros fichier, une seule fois",
-        "b": "<goLargeFiles>Un lien BIShare porte 100 Go</goLargeFiles> et les garde une journée. L'offre gratuite de Transfer.zip n'a aucun plafond tant que vous laissez l'onglet ouvert pendant que l'autre personne télécharge."
+        "b": "<goLargeFiles>Un lien BIShare porte 100 Go</goLargeFiles> et les garde 6, 12 ou 24 heures. L'offre gratuite de Transfer.zip n'a aucun plafond tant que vous laissez l'onglet ouvert pendant que l'autre personne télécharge."
       },
       "5": {
         "h": "Vous voulez la certitude que rien n'a changé à votre insu",
@@ -187,7 +187,7 @@
       },
       "1": {
         "h": "L'autre personne est ailleurs",
-        "b": "Faites glisser un fichier sur bishare.app/transfer, jusqu'à 100 Go. Trois façons de le transmettre reviennent : une adresse web, un carré QR pour l'appareil photo d'un téléphone, et six caractères assez courts pour être dictés. Le scellage se fait d'abord dans votre propre navigateur ; la clé voyage dans le fragment après le dièse, qui ne quitte jamais la barre d'adresse, donc la copie de notre côté ne signifie rien sans votre lien. Elle cesse de répondre au bout d'un jour, ou plus tôt si vous cochez l'option d'un téléchargement unique."
+        "b": "Faites glisser un fichier sur bishare.app/transfer, jusqu'à 100 Go. Trois façons de le transmettre reviennent : une adresse web, un carré QR pour l'appareil photo d'un téléphone, et six caractères assez courts pour être dictés. Le scellage se fait d'abord dans votre propre navigateur ; la clé voyage dans le fragment après le dièse, qui ne quitte jamais la barre d'adresse, donc la copie de notre côté ne signifie rien sans votre lien. Elle cesse de répondre au bout de 6, 12 ou 24 heures, ou plus tôt si vous cochez l'option d'un téléchargement unique."
       },
       "2": {
         "h": "Rien d'installé des deux côtés",

@@ -16,7 +16,7 @@
     "title": "Jawaban singkat",
     "items": [
       "<strong>Paling mirip ShareDrop klasik:</strong> PairDrop. Idenya sama, open source, perangkat di satu jaringan saling menemukan, dan pemasangan menjangkau jaringan lain.",
-      "<strong>Pengirim ingin offline setelah mengirim:</strong> tautan BIShare menyimpan hingga 100 GB terenkripsi selama sehari dan <goTransfer>terbuka di browser apa pun</goTransfer>, tanpa perlu tab tetap terbuka.",
+      "<strong>Pengirim ingin offline setelah mengirim:</strong> tautan BIShare menyimpan hingga 100 GB terenkripsi selama 6, 12, atau 24 jam dan <goTransfer>terbuka di browser apa pun</goTransfer>, tanpa perlu tab tetap terbuka.",
       "<strong>Satu file, satu penerima, tidak disimpan di mana pun:</strong> FilePizza atau ToffeeShare, asalkan tab Anda tetap terbuka sampai unduhan selesai.",
       "<strong><goLargeFiles>Folder besar</goLargeFiles> antara komputer dan HP milik sendiri:</strong> aplikasi lebih andal daripada tab. BIShare atau LocalSend di satu router, atau Taildrop kalau Anda sudah memakai Tailscale.",
       "<strong>Anda suka ShareDrop persis seperti dulu:</strong> kode aslinya yang berlisensi MIT masih utuh di GitHub dan siap di-host, tetapi butuh database Firebase.",
@@ -109,7 +109,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Terbaik saat penerima tidak perlu online bersamaan",
-        "facts": "bishare.app di browser apa pun, plus aplikasi Android, iPhone, Windows, macOS, dan Linux · Apache 2.0 · tautan hingga 100 GB, terenkripsi, kedaluwarsa setelah 24 jam · room dengan mode cloud atau peer-to-peer lokal · tanpa akun",
+        "facts": "bishare.app di browser apa pun, plus aplikasi Android, iPhone, Windows, macOS, dan Linux · Apache 2.0 · tautan hingga 100 GB, terenkripsi, kedaluwarsa setelah 6, 12, atau 24 jam · room dengan mode cloud atau peer-to-peer lokal · tanpa akun",
         "body": "BIShare menutupi dua sisi yang dikerjakan ShareDrop, plus bagian yang tidak pernah bisa ia lakukan. Di browser, upload file, dapatkan tautan dan kode enam karakter, tutup laptop, lalu penerima mengunduh nanti dari browser apa pun. Untuk grup, room yang dimasuki dengan kode pendek bisa berjalan dalam mode lokal, di mana file langsung berpindah antarbrowser di satu Wi-Fi, atau mode cloud untuk orang di tempat berbeda. Pasang aplikasinya di perangkat Anda dan mereka saling menemukan lewat Wi-Fi bersama atau hotspot HP, tanpa batas ukuran.",
         "cons": "Tautan dari browser menolak jenis file yang dapat dieksekusi seperti .exe, .msi, dan .sh, dan transfer langsung tercepat butuh aplikasi di kedua perangkat."
       },
@@ -192,7 +192,7 @@
       },
       "2": {
         "h": "Tautan tersimpan: tidak ada yang perlu menunggu",
-        "b": "<goEncrypted>Tautan BIShare mengenkripsi file di browser Anda</goEncrypted>, mengunggahnya, dan menyimpannya selama 24 jam. Anda bisa langsung offline, dan penerima mengunduh dari browser apa pun. Model ini cocok untuk beda zona waktu dan jadwal padat, dengan konsekuensi ada salinan terenkripsi di server selama sehari."
+        "b": "<goEncrypted>Tautan BIShare mengenkripsi file di browser Anda</goEncrypted>, mengunggahnya, dan menyimpannya selama 6, 12, atau 24 jam. Anda bisa langsung offline, dan penerima mengunduh dari browser apa pun. Model ini cocok untuk beda zona waktu dan jadwal padat, dengan konsekuensi ada salinan terenkripsi di server sampai tautannya kedaluwarsa."
       },
       "3": {
         "h": "Perangkat terpasang: peralatan sendiri di jaringan mana pun",
@@ -236,7 +236,7 @@
       },
       "2": {
         "h": "Klien atau rekan yang membuka nanti",
-        "b": "Tautan BIShare, yang menunggu 24 jam tanpa tab Anda, atau layanan penyimpanan berbayar kalau file harus tersedia lebih lama."
+        "b": "Tautan BIShare, yang menunggu hingga 24 jam tanpa tab Anda, atau layanan penyimpanan berbayar kalau file harus tersedia lebih lama."
       },
       "3": {
         "h": "Kelas atau rapat",
@@ -262,7 +262,7 @@
       },
       "2": {
         "h": "Tombol upload adalah model yang berbeda",
-        "b": "Area Upload Files di sharedrop.io menyimpan file di LimeWire, dan tautan BIShare menyimpan salinan terenkripsi selama 24 jam. Tautan tersimpan praktis, tetapi baca apa yang disimpan tiap layanan dan berapa lama, dan pilih yang mengenkripsi di perangkat Anda sebelum upload. Di luar browser, <goBestApps>panduan aplikasi berbagi file terbaik</goBestApps> kami menunjukkan layanan mana yang mengenkripsi di perangkat Anda dan mana yang menyimpan salinan terbaca."
+        "b": "Area Upload Files di sharedrop.io menyimpan file di LimeWire, dan tautan BIShare menyimpan salinan terenkripsi selama 6, 12, atau 24 jam. Tautan tersimpan praktis, tetapi baca apa yang disimpan tiap layanan dan berapa lama, dan pilih yang mengenkripsi di perangkat Anda sebelum upload. Di luar browser, <goBestApps>panduan aplikasi berbagi file terbaik</goBestApps> kami menunjukkan layanan mana yang mengenkripsi di perangkat Anda dan mana yang menyimpan salinan terbaca."
       }
     }
   },
@@ -299,7 +299,7 @@
       },
       "7": {
         "q": "Bisakah mengirim lewat ShareDrop ke orang yang sedang offline?",
-        "a": "Tidak. Kedua browser harus terbuka bersamaan. Untuk file yang diambil nanti, pakai tautan tersimpan seperti milik BIShare, yang tersedia sehari."
+        "a": "Tidak. Kedua browser harus terbuka bersamaan. Untuk file yang diambil nanti, pakai tautan tersimpan seperti milik BIShare, yang tersedia 6, 12, atau 24 jam."
       },
       "8": {
         "q": "Bisakah saya meng-host ShareDrop sendiri?",
@@ -307,7 +307,7 @@
       },
       "9": {
         "q": "Apakah BIShare gratis?",
-        "a": "Ya. BIShare tidak berbayar, menerbitkan kodenya dengan lisensi Apache 2.0, tidak meminta pengirim maupun penerima mendaftar, dan tiap tautan memuat hingga 100 GB selama sehari."
+        "a": "Ya. BIShare tidak berbayar, menerbitkan kodenya dengan lisensi Apache 2.0, tidak meminta pengirim maupun penerima mendaftar, dan tiap tautan memuat hingga 100 GB selama 6, 12, atau 24 jam."
       }
     }
   },

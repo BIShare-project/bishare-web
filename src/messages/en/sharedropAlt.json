@@ -16,7 +16,7 @@
     "title": "Quick answer",
     "items": [
       "<strong>Closest thing to classic ShareDrop:</strong> PairDrop. Same idea, open source, devices on one network find each other, and pairing covers other networks.",
-      "<strong>You want the sender to go offline after sending:</strong> a BIShare link stores up to 100 GB, encrypted, for a day and <goTransfer>opens in any browser</goTransfer>, so neither tab has to stay open.",
+      "<strong>You want the sender to go offline after sending:</strong> a BIShare link stores up to 100 GB, encrypted, for 6, 12 or 24 hours and <goTransfer>opens in any browser</goTransfer>, so neither tab has to stay open.",
       "<strong>One file, one recipient, nothing stored anywhere:</strong> FilePizza or ToffeeShare, as long as you keep your tab open until the download finishes.",
       "<strong><goLargeFiles>Big folders</goLargeFiles> between your own computers and phones:</strong> an app beats a tab. BIShare or LocalSend across one router, or Taildrop if you already run Tailscale.",
       "<strong>You liked ShareDrop exactly as it was:</strong> the original MIT-licensed code sits untouched on GitHub, ready to host, though it needs a Firebase database.",
@@ -109,7 +109,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Best when the recipient should not have to be online at the same time",
-        "facts": "bishare.app in any browser, plus Android, iPhone, Windows, macOS and Linux apps · Apache 2.0 · links up to 100 GB, encrypted, expire after 24 hours · Rooms with a cloud or local peer-to-peer mode · no account",
+        "facts": "bishare.app in any browser, plus Android, iPhone, Windows, macOS and Linux apps · Apache 2.0 · links up to 100 GB, encrypted, expire after 6, 12 or 24 hours · Rooms with a cloud or local peer-to-peer mode · no account",
         "body": "BIShare covers both halves of what ShareDrop did and the part it never could. In a browser, upload to get a link and a six-character code, close your laptop, and the recipient downloads later in any browser. For a group, a Room joined with a short code can run in local mode, where files go straight between browsers on one Wi-Fi, or in cloud mode for people in different places. Install the app on your own devices and they discover one another over shared Wi-Fi or a phone's hotspot, with no cap on size.",
         "cons": "Browser links refuse executable types such as .exe, .msi and .sh, and the fastest direct transfers need the app on both devices."
       },
@@ -192,7 +192,7 @@
       },
       "2": {
         "h": "Stored links: nobody has to wait",
-        "b": "<goEncrypted>A BIShare link encrypts the file in your browser</goEncrypted>, uploads it, and keeps it for 24 hours. You can go offline straight away, and the recipient downloads from any browser. This is the model that fits time zones and busy people, at the cost of a copy sitting encrypted on a server for a day."
+        "b": "<goEncrypted>A BIShare link encrypts the file in your browser</goEncrypted>, uploads it, and keeps it for 6, 12 or 24 hours. You can go offline straight away, and the recipient downloads from any browser. This is the model that fits time zones and busy people, at the cost of a copy sitting encrypted on a server until the link expires."
       },
       "3": {
         "h": "Paired devices: your own gear anywhere",
@@ -236,7 +236,7 @@
       },
       "2": {
         "h": "A client or colleague who will open it later",
-        "b": "A BIShare link, which waits 24 hours without your tab, or a paid storage service if the file must stay up longer."
+        "b": "A BIShare link, which waits up to 24 hours without your tab, or a paid storage service if the file must stay up longer."
       },
       "3": {
         "h": "A classroom or meeting",
@@ -262,7 +262,7 @@
       },
       "2": {
         "h": "Upload buttons are a different model",
-        "b": "The Upload Files area on sharedrop.io stores files with LimeWire, and a BIShare link stores an encrypted copy for 24 hours. Stored links are convenient, but read what each service keeps and for how long, and prefer one that encrypts on your device before upload. Beyond the browser, <goBestApps>our guide to the best file-sharing apps</goBestApps> shows which services encrypt on your device and which keep a readable copy."
+        "b": "The Upload Files area on sharedrop.io stores files with LimeWire, and a BIShare link stores an encrypted copy for 6, 12 or 24 hours. Stored links are convenient, but read what each service keeps and for how long, and prefer one that encrypts on your device before upload. Beyond the browser, <goBestApps>our guide to the best file-sharing apps</goBestApps> shows which services encrypt on your device and which keep a readable copy."
       }
     }
   },
@@ -299,7 +299,7 @@
       },
       "7": {
         "q": "Can I send a file with ShareDrop to someone who is offline?",
-        "a": "No. Both browsers must be open at the same time. For a file someone collects later, use a stored link such as BIShare's, kept for a day."
+        "a": "No. Both browsers must be open at the same time. For a file someone collects later, use a stored link such as BIShare's, kept for 6, 12 or 24 hours."
       },
       "8": {
         "q": "Can I host ShareDrop myself?",
@@ -307,7 +307,7 @@
       },
       "9": {
         "q": "Is BIShare free?",
-        "a": "Yes. BIShare charges nothing, publishes its code under Apache 2.0, asks neither sender nor recipient to sign up, and each link carries as much as 100 GB for a day."
+        "a": "Yes. BIShare charges nothing, publishes its code under Apache 2.0, asks neither sender nor recipient to sign up, and each link carries as much as 100 GB for up to 24 hours."
       }
     }
   },

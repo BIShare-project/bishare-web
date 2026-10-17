@@ -16,7 +16,7 @@
     "title": "Réponse rapide",
     "items": [
       "<strong>Le plus proche du ShareDrop classique :</strong> PairDrop. Même idée, open source, les appareils d'un même réseau se trouvent, et l'association couvre les autres réseaux.",
-      "<strong>L'expéditeur doit pouvoir se déconnecter après l'envoi :</strong> un lien BIShare garde jusqu'à 100 Go chiffrés pendant une journée et <goTransfer>s'ouvre dans n'importe quel navigateur</goTransfer>, sans onglet ouvert.",
+      "<strong>L'expéditeur doit pouvoir se déconnecter après l'envoi :</strong> un lien BIShare garde jusqu'à 100 Go chiffrés pendant 6, 12 ou 24 heures et <goTransfer>s'ouvre dans n'importe quel navigateur</goTransfer>, sans onglet ouvert.",
       "<strong>Un fichier, un destinataire, rien de stocké nulle part :</strong> FilePizza ou ToffeeShare, à condition de garder votre onglet ouvert jusqu'à la fin du téléchargement.",
       "<strong><goLargeFiles>Gros dossiers</goLargeFiles> entre vos propres ordinateurs et téléphones :</strong> une application bat un onglet. BIShare ou LocalSend sur la même box, ou Taildrop si vous utilisez déjà Tailscale.",
       "<strong>Vous aimiez ShareDrop tel quel :</strong> le code original sous licence MIT reste intact sur GitHub, prêt à héberger, mais il exige une base de données Firebase.",
@@ -109,7 +109,7 @@
       "0": {
         "name": "BIShare",
         "tag": "Idéal quand le destinataire n'a pas à être connecté en même temps",
-        "facts": "bishare.app dans n'importe quel navigateur, plus des applications Android, iPhone, Windows, macOS et Linux · Apache 2.0 · liens jusqu'à 100 Go, chiffrés, expirent après 24 heures · salons en mode cloud ou pair à pair local · sans compte",
+        "facts": "bishare.app dans n'importe quel navigateur, plus des applications Android, iPhone, Windows, macOS et Linux · Apache 2.0 · liens jusqu'à 100 Go, chiffrés, expirent au bout de 6, 12 ou 24 heures · salons en mode cloud ou pair à pair local · sans compte",
         "body": "BIShare couvre les deux moitiés de ce que faisait ShareDrop et la partie qu'il n'a jamais su faire. Dans le navigateur, vous envoyez, obtenez un lien et un code de six caractères, refermez le portable, et le destinataire télécharge plus tard dans n'importe quel navigateur. Pour un groupe, un salon rejoint avec un code court peut tourner en mode local, où les fichiers passent directement entre navigateurs sur le même Wi-Fi, ou en mode cloud pour des personnes à des endroits différents. Installez l'application sur vos appareils et ils se découvrent via le Wi-Fi partagé ou le partage de connexion d'un téléphone, sans limite de taille.",
         "cons": "Les liens depuis le navigateur refusent les types exécutables comme .exe, .msi et .sh, et les transferts directs les plus rapides exigent l'application des deux côtés."
       },
@@ -192,7 +192,7 @@
       },
       "2": {
         "h": "Liens stockés : personne n'attend",
-        "b": "<goEncrypted>Un lien BIShare chiffre le fichier dans votre navigateur</goEncrypted>, l'envoie et le conserve 24 heures. Vous pouvez vous déconnecter tout de suite, et le destinataire télécharge depuis n'importe quel navigateur. C'est le modèle adapté aux fuseaux horaires et aux agendas chargés, au prix d'une copie chiffrée qui reste une journée sur un serveur."
+        "b": "<goEncrypted>Un lien BIShare chiffre le fichier dans votre navigateur</goEncrypted>, l'envoie et le conserve 6, 12 ou 24 heures. Vous pouvez vous déconnecter tout de suite, et le destinataire télécharge depuis n'importe quel navigateur. C'est le modèle adapté aux fuseaux horaires et aux agendas chargés, au prix d'une copie chiffrée qui reste sur un serveur jusqu'à l'expiration du lien."
       },
       "3": {
         "h": "Appareils associés : votre matériel partout",
@@ -236,7 +236,7 @@
       },
       "2": {
         "h": "Un client ou collègue qui ouvrira plus tard",
-        "b": "Un lien BIShare, qui attend 24 heures sans votre onglet, ou un service de stockage payant si le fichier doit rester disponible plus longtemps."
+        "b": "Un lien BIShare, qui attend jusqu'à 24 heures sans votre onglet, ou un service de stockage payant si le fichier doit rester disponible plus longtemps."
       },
       "3": {
         "h": "Une classe ou une réunion",
@@ -262,7 +262,7 @@
       },
       "2": {
         "h": "Les boutons d'envoi relèvent d'un autre modèle",
-        "b": "La zone Upload Files de sharedrop.io stocke les fichiers chez LimeWire, et un lien BIShare stocke une copie chiffrée pendant 24 heures. Les liens stockés sont pratiques, mais vérifiez ce que chaque service conserve et combien de temps, et préférez celui qui chiffre sur votre appareil avant l'envoi. Au-delà du navigateur, <goBestApps>notre guide des meilleures applications de partage de fichiers</goBestApps> montre quels services chiffrent sur votre appareil et lesquels gardent une copie lisible."
+        "b": "La zone Upload Files de sharedrop.io stocke les fichiers chez LimeWire, et un lien BIShare stocke une copie chiffrée pendant 6, 12 ou 24 heures. Les liens stockés sont pratiques, mais vérifiez ce que chaque service conserve et combien de temps, et préférez celui qui chiffre sur votre appareil avant l'envoi. Au-delà du navigateur, <goBestApps>notre guide des meilleures applications de partage de fichiers</goBestApps> montre quels services chiffrent sur votre appareil et lesquels gardent une copie lisible."
       }
     }
   },
@@ -299,7 +299,7 @@
       },
       "7": {
         "q": "Peut-on envoyer avec ShareDrop à quelqu'un de déconnecté ?",
-        "a": "Non. Les deux navigateurs doivent être ouverts en même temps. Pour un fichier récupéré plus tard, utilisez un lien stocké comme celui de BIShare, disponible une journée."
+        "a": "Non. Les deux navigateurs doivent être ouverts en même temps. Pour un fichier récupéré plus tard, utilisez un lien stocké comme celui de BIShare, disponible 6, 12 ou 24 heures."
       },
       "8": {
         "q": "Puis-je héberger ShareDrop moi-même ?",
@@ -307,7 +307,7 @@
       },
       "9": {
         "q": "BIShare est-il gratuit ?",
-        "a": "Oui. BIShare ne coûte rien, publie son code sous Apache 2.0, ne demande d'inscription ni à l'expéditeur ni au destinataire, et chaque lien contient jusqu'à 100 Go pendant une journée."
+        "a": "Oui. BIShare ne coûte rien, publie son code sous Apache 2.0, ne demande d'inscription ni à l'expéditeur ni au destinataire, et chaque lien contient jusqu'à 100 Go pendant 6, 12 ou 24 heures."
       }
     }
   },

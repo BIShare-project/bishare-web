@@ -20,7 +20,7 @@
       "<strong>Best overall:</strong> BIShare. Native apps on five platforms for full-speed local transfers, plus a 100 GB browser link for anyone not in the room. Free, open source, no sign-in on either side.",
       "<strong>Best if you want an app and only ever transfer at home:</strong> LocalSend. Open source, same network only, nothing in the cloud.",
       "<strong>You can also run Snapdrop yourself.</strong> The classic code is still on GitHub under the original licence, and a Docker container puts it on your own machine, which is the only way to be certain nothing changed under you.",
-      "<strong>For one file to someone far away:</strong> a BIShare link (100 GB, encrypted, expires in a day) or Wormhole (10 GB, encrypted)."
+      "<strong>For one file to someone far away:</strong> a BIShare link (100 GB, encrypted, expires after 6, 12 or 24 hours) or Wormhole (10 GB, encrypted)."
     ]
   },
   "status": {
@@ -79,7 +79,7 @@
         "name": "BIShare",
         "tag": "Best overall — the Snapdrop habit plus a route to people who are far away",
         "facts": "iPhone, Android, Windows, Mac, Linux, and any browser · Apache 2.0 licence, free · no size limit nearby, 100 GB by link · end-to-end encrypted · no sign-in on either side",
-        "body": "Put two devices on one Wi-Fi and the experience is what you remember, except through a proper app: names in a list, tap one, watch the bar fill at whatever the network can do, with nothing landing on a server. Where it leaves Snapdrop behind is distance. Somebody in another city gets a web address instead, which they open in whatever browser is already on their screen, no install and no sign-up, carrying as much as 100 GB. The sealing happens before the upload starts and the key stays in your link, so the copy we hold is meaningless to us. Set it to die after a day or after the first download. For a group, one room code lets several people leave files for each other under the same protection.",
+        "body": "Put two devices on one Wi-Fi and the experience is what you remember, except through a proper app: names in a list, tap one, watch the bar fill at whatever the network can do, with nothing landing on a server. Where it leaves Snapdrop behind is distance. Somebody in another city gets a web address instead, which they open in whatever browser is already on their screen, no install and no sign-up, carrying as much as 100 GB. The sealing happens before the upload starts and the key stays in your link, so the copy we hold is meaningless to us. Set it to die after 6, 12 or 24 hours, or after the first download. For a group, one room code lets several people leave files for each other under the same protection.",
         "cons": "The local route is at its best through the app; the browser side is for receiving and for one-off sends rather than a permanent replacement for a native client. And nothing is stored, so a link that expires is genuinely gone."
       },
       "1": {
@@ -170,7 +170,7 @@
       },
       "4": {
         "h": "One very large file, once",
-        "b": "<goLargeFiles>A BIShare link carries 100 GB</goLargeFiles> and holds it for a day. Transfer.zip's free tier has no ceiling at all as long as you keep the tab open while the other person downloads."
+        "b": "<goLargeFiles>A BIShare link carries 100 GB</goLargeFiles> and holds it for 6, 12 or 24 hours. Transfer.zip's free tier has no ceiling at all as long as you keep the tab open while the other person downloads."
       },
       "5": {
         "h": "You want to be certain nothing changed under you",
@@ -187,7 +187,7 @@
       },
       "1": {
         "h": "The other person is elsewhere",
-        "b": "Drag a file onto bishare.app/transfer, anything up to 100 GB. You get back three ways to hand it over: a web address, a QR square for a phone camera, and six characters short enough to read out loud. Sealing happens in your own browser first; the key travels in the fragment after the hash, which never leaves the address bar, so the copy on our side is meaningless without your link. It stops answering after a day, or sooner if you tick the single-download option."
+        "b": "Drag a file onto bishare.app/transfer, anything up to 100 GB. You get back three ways to hand it over: a web address, a QR square for a phone camera, and six characters short enough to read out loud. Sealing happens in your own browser first; the key travels in the fragment after the hash, which never leaves the address bar, so the copy on our side is meaningless without your link. It stops answering after 6, 12 or 24 hours, or sooner if you tick the single-download option."
       },
       "2": {
         "h": "Nothing installed on either side",
@@ -272,7 +272,7 @@
       },
       "9": {
         "q": "Is there a free Snapdrop alternative with no size limit?",
-        "a": "On your own network there is no cap worth worrying about: BIShare and LocalSend will push a 200 GB folder across and the only limit is how long the Wi-Fi takes. Going over the internet, Transfer.zip's free tier states no ceiling while your tab stays open, a BIShare link holds 100 GB for a day, and Wormhole stops at 10 GB."
+        "a": "On your own network there is no cap worth worrying about: BIShare and LocalSend will push a 200 GB folder across and the only limit is how long the Wi-Fi takes. Going over the internet, Transfer.zip's free tier states no ceiling while your tab stays open, a BIShare link holds 100 GB for up to 24 hours, and Wormhole stops at 10 GB."
       }
     }
   },

@@ -20,7 +20,7 @@
       "<strong>Beste insgesamt:</strong> BIShare. Native Apps auf fünf Plattformen für lokale Übertragungen mit voller Geschwindigkeit, plus ein 100-GB-Browser-Link für alle, die nicht im Raum sind. Kostenlos, Open Source, keine Anmeldung auf beiden Seiten.",
       "<strong>Wenn du eine App willst und nur zu Hause überträgst:</strong> LocalSend. Open Source, nur dasselbe Netz, nichts in der Cloud.",
       "<strong>Du kannst Snapdrop auch selbst betreiben.</strong> Der klassische Code liegt weiterhin unter der ursprünglichen Lizenz auf GitHub, und ein Docker-Container stellt ihn auf deine eigene Maschine. Nur so kannst du sicher sein, dass sich unter dir nichts verändert hat.",
-      "<strong>Für eine Datei an jemanden weit weg:</strong> ein BIShare-Link (100 GB, verschlüsselt, nach einem Tag abgelaufen) oder Wormhole (10 GB, verschlüsselt)."
+      "<strong>Für eine Datei an jemanden weit weg:</strong> ein BIShare-Link (100 GB, verschlüsselt, läuft nach 6, 12 oder 24 Stunden ab) oder Wormhole (10 GB, verschlüsselt)."
     ]
   },
   "status": {
@@ -79,7 +79,7 @@
         "name": "BIShare",
         "tag": "Beste insgesamt: die Snapdrop-Gewohnheit plus ein Weg zu Leuten weit weg",
         "facts": "iPhone, Android, Windows, Mac, Linux und jeder Browser · Apache-2.0-lizenziert, kostenlos · in der Nähe ohne Limit, 100 GB per Link · Ende-zu-Ende verschlüsselt · keine Anmeldung auf beiden Seiten",
-        "body": "Häng zwei Geräte ins selbe WLAN, und das Erlebnis ist das, das du kennst, nur über eine richtige App: Namen in einer Liste, einen antippen, den Balken mit der Geschwindigkeit füllen sehen, die das Netz hergibt, und nichts landet auf einem Server. Hinter sich lässt es Snapdrop bei der Entfernung. Jemand in einer anderen Stadt bekommt stattdessen eine Webadresse, die er in dem Browser öffnet, der ohnehin schon vor ihm steht, ohne Installation und ohne Registrierung, mit bis zu 100 GB. Versiegelt wird, bevor der Upload beginnt, und der Schlüssel bleibt in deinem Link, die Kopie bei uns ist für uns also bedeutungslos. Stell ein, dass sie nach einem Tag stirbt oder nach dem ersten Download. Für eine Gruppe lässt ein Raumcode mehrere Leute unter demselben Schutz Dateien füreinander ablegen.",
+        "body": "Häng zwei Geräte ins selbe WLAN, und das Erlebnis ist das, das du kennst, nur über eine richtige App: Namen in einer Liste, einen antippen, den Balken mit der Geschwindigkeit füllen sehen, die das Netz hergibt, und nichts landet auf einem Server. Hinter sich lässt es Snapdrop bei der Entfernung. Jemand in einer anderen Stadt bekommt stattdessen eine Webadresse, die er in dem Browser öffnet, der ohnehin schon vor ihm steht, ohne Installation und ohne Registrierung, mit bis zu 100 GB. Versiegelt wird, bevor der Upload beginnt, und der Schlüssel bleibt in deinem Link, die Kopie bei uns ist für uns also bedeutungslos. Stell ein, dass sie nach 6, 12 oder 24 Stunden stirbt oder nach dem ersten Download. Für eine Gruppe lässt ein Raumcode mehrere Leute unter demselben Schutz Dateien füreinander ablegen.",
         "cons": "Der lokale Weg ist über die App am besten; die Browser-Seite ist zum Empfangen und für einzelne Sendungen gedacht, nicht als dauerhafter Ersatz für einen nativen Client. Und nichts wird gespeichert, ein abgelaufener Link ist wirklich weg."
       },
       "1": {
@@ -170,7 +170,7 @@
       },
       "4": {
         "h": "Eine sehr große Datei, einmal",
-        "b": "<goLargeFiles>Ein BIShare-Link trägt 100 GB</goLargeFiles> und hält sie einen Tag. Der Gratis-Tarif von Transfer.zip hat überhaupt keine Obergrenze, solange du den Tab offen lässt, während die andere Person lädt."
+        "b": "<goLargeFiles>Ein BIShare-Link trägt 100 GB</goLargeFiles> und hält sie 6, 12 oder 24 Stunden. Der Gratis-Tarif von Transfer.zip hat überhaupt keine Obergrenze, solange du den Tab offen lässt, während die andere Person lädt."
       },
       "5": {
         "h": "Du willst sicher sein, dass sich nichts unter dir ändert",
@@ -187,7 +187,7 @@
       },
       "1": {
         "h": "Die andere Person ist woanders",
-        "b": "Zieh eine Datei auf bishare.app/transfer, alles bis 100 GB. Zurück kommen drei Wege zur Übergabe: eine Webadresse, ein QR-Quadrat für die Handykamera und sechs Zeichen, kurz genug zum Vorlesen. Versiegelt wird zuerst in deinem eigenen Browser; der Schlüssel reist im Fragment hinter der Raute, das die Adresszeile nie verlässt, die Kopie auf unserer Seite ist ohne deinen Link also bedeutungslos. Nach einem Tag antwortet sie nicht mehr, oder früher, wenn du die Option für einen einzelnen Download setzt."
+        "b": "Zieh eine Datei auf bishare.app/transfer, alles bis 100 GB. Zurück kommen drei Wege zur Übergabe: eine Webadresse, ein QR-Quadrat für die Handykamera und sechs Zeichen, kurz genug zum Vorlesen. Versiegelt wird zuerst in deinem eigenen Browser; der Schlüssel reist im Fragment hinter der Raute, das die Adresszeile nie verlässt, die Kopie auf unserer Seite ist ohne deinen Link also bedeutungslos. Nach 6, 12 oder 24 Stunden antwortet sie nicht mehr, oder früher, wenn du die Option für einen einzelnen Download setzt."
       },
       "2": {
         "h": "Auf keiner Seite etwas installiert",
@@ -272,7 +272,7 @@
       },
       "9": {
         "q": "Gibt es eine kostenlose Snapdrop-Alternative ohne Größenlimit?",
-        "a": "Im eigenen Netz gibt es keine Grenze, über die man nachdenken müsste: BIShare und LocalSend schieben einen 200-GB-Ordner hinüber, und das Einzige, was zählt, ist die Zeit, die das WLAN braucht. Über das Internet nennt der Gratis-Tarif von Transfer.zip keine Obergrenze, solange dein Tab offen bleibt, ein BIShare-Link hält 100 GB einen Tag, und Wormhole endet bei 10 GB."
+        "a": "Im eigenen Netz gibt es keine Grenze, über die man nachdenken müsste: BIShare und LocalSend schieben einen 200-GB-Ordner hinüber, und das Einzige, was zählt, ist die Zeit, die das WLAN braucht. Über das Internet nennt der Gratis-Tarif von Transfer.zip keine Obergrenze, solange dein Tab offen bleibt, ein BIShare-Link hält 100 GB bis zu 24 Stunden, und Wormhole endet bei 10 GB."
       }
     }
   },
