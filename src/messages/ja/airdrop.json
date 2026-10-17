@@ -10,7 +10,7 @@
     "ctaPrimary": "BIShareを無料で入手",
     "ctaSecondary": "仕組みを見る"
   },
-  "updated": "2026年10月更新 · 対応機種はGoogleの「Quick Share with iPhone」ページより、設定は今月GoogleとAppleのサポートページで確認",
+  "updated": "2026年10月更新 · 対応機種は10月17日にGoogleの「Quick Share with iPhone」ページで確認、設定はGoogleとAppleのサポートページで確認",
   "disclosure": "BIShareは私たちのアプリです。あなたのスマホがGoogleの対応リストに入っていて、Apple製品が同じ部屋にあるなら、スマホに組み込まれたQuick Shareの連携のほうが手軽です。そのためこのガイドはそこから始めます。",
   "quick": {
     "title": "AndroidにAirDropできる？結論",
@@ -296,6 +296,26 @@
       "10": {
         "q": "AndroidにAirDropで送れますか？",
         "a": "はい、GoogleのQuick Share対応リストにあるAndroidスマホになら送れます。iPhoneのAirDropを「すべての人（10分間のみ）」にし、AndroidスマホのQuick Shareで「受信」をタップしてから、iPhoneのAirDrop画面でそのスマホを選びます。リストにないAndroidスマホはAirDropに表示されません。その場合はBIShareのようなアプリを両方のスマホに入れるか、リンクで送ってください。"
+      },
+      "11": {
+        "q": "AndroidでAirDropを使うには？",
+        "a": "Googleのリストにある機種では、AirDropはQuick Shareの中にあります。写真やファイルを選んで共有をタップし、Quick Shareを選んで、表示されたiPhone、iPad、Macをタップします。Apple側は「すべての人（10分間のみ）」にしておく必要があり、Galaxyでは先にAppleデバイスとの共有をオンにします。リストにない機種ではAirDropは使えないので、両方の端末に入れたアプリで同じことをします。"
+      },
+      "12": {
+        "q": "AndroidからiPhoneにAirDropで送るには？",
+        "a": "iPhoneの持ち主に、コントロールセンターのAirDropで「すべての人（10分間のみ）」を選んでもらいます。Android側でファイルを選び、共有、Quick Shareの順にタップし、iPhoneが表示されたらタップします。iPhoneにはいつものAirDropの確認が出ます。あなたの機種がGoogleのリストにない場合は、代わりにQuick ShareのQRコードを使い、iPhoneのカメラで読み取ってもらいます。"
+      },
+      "13": {
+        "q": "AndroidでAirDropを受け取るには？",
+        "a": "画面のロックを解除してQuick Shareを開き「受信」をタップするか、公開範囲を「全員（10分間）」にします。iPhoneの持ち主がAirDropの共有シートであなたのスマホを選ぶと、Quick Shareが保存する前に承認を求めます。"
+      },
+      "14": {
+        "q": "iPhoneからSamsung GalaxyにAirDropできますか？",
+        "a": "GalaxyがGoogleのリストにあればできます。対象はS24、S25、S26シリーズ、Z Fold6、Z Flip6、Z Fold7、Z Flip7、Z TriFoldで、One UI 8.5が必要です。Quick Share関連アプリを更新し、設定、接続済みデバイス、Quick ShareでAppleデバイスとの共有をオンにして、iPhoneを「すべての人（10分間のみ）」にします。古いGalaxyやGalaxyタブレットはリストにありません。"
+      },
+      "15": {
+        "q": "AndroidのAirDropはどの国でも使えますか？",
+        "a": "すべての国で同時にではありません。Googleによると提供状況は地域、通信事業者、端末によって異なるため、リストにある機種でもキャリア版や別の市場向けの端末では更新が遅れることがあります。システム、Quick Share、Google Playシステムのアップデートをすべて入れてもAirDropの項目が出ない場合は、その端末にはまだ届いていません。"
       }
     }
   },
@@ -368,5 +388,56 @@
       "yes": "はい",
       "no": "いいえ"
     }
+  },
+  "phoneTable": {
+    "title": "Googleのリストにある機種一覧",
+    "cols": [
+      "メーカー",
+      "AirDropに対応済み",
+      "近日対応と案内"
+    ],
+    "rows": [
+      [
+        "Google Pixel",
+        "Pixel 10、10 Pro、10 Pro XL、10 Pro Fold、10a／Pixel 9、9 Pro、9 Pro XL、9 Pro Fold、9a／Pixel 8a",
+        "案内なし"
+      ],
+      [
+        "Samsung Galaxy（One UI 8.5）",
+        "S26、S26+、S26 Ultra／S25、S25+、S25 Ultra、S25 Edge／S24、S24+、S24 Ultra／Z Fold7、Z Flip7、Z Fold6（Special Edition含む）、Z Flip6、Z TriFold",
+        "案内なし"
+      ],
+      [
+        "Xiaomi",
+        "Xiaomi 17T Pro",
+        "案内なし"
+      ],
+      [
+        "OnePlus",
+        "OnePlus 15",
+        "案内なし"
+      ],
+      [
+        "OPPO",
+        "Find X9、X9 Pro、X9 Ultra、X9s／Find N6",
+        "Find X8シリーズ"
+      ],
+      [
+        "HONOR",
+        "Magic V6",
+        "Magic8 Pro"
+      ],
+      [
+        "vivo",
+        "X300 Ultra",
+        "X300、X300 Pro"
+      ],
+      [
+        "Motorola",
+        "まだなし",
+        "razr fold 2026"
+      ]
+    ],
+    "note": "Googleの「Quick Share with iPhone」ページより、2026年10月17日に確認。Googleによると提供状況は地域、通信事業者、端末によって異なるため、リストにある機種が使えないと判断する前に、システム、Quick Share、Google Playシステムのアップデートをすべて入れてください。"
   }
 }

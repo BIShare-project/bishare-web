@@ -31,18 +31,21 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/airdrop-for-android";
 const NS = "airdrop";
-const LAST_UPDATED = "2026-10-03";
+const LAST_UPDATED = "2026-10-17";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const MEANING_ITEMS = ["0", "1", "2"] as const;
 const PHONE_ITEMS = ["0", "1", "2", "3"] as const;
+/* phoneTable rows follow Google's Quick Share with iPhone page: brand, works now, listed as coming soon. */
+const PHONE_TABLE_ROWS = ["0", "1", "2", "3", "4", "5", "6", "7"] as const;
+const PHONE_TABLE_COLS = ["0", "1", "2"] as const;
 const SETUP_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const ANDROID_ITEMS = ["0", "1", "2"] as const;
 const LIMIT_ITEMS = ["0", "1", "2", "3"] as const;
 const ALT_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const FIX_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["10", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["10", "11", "0", "12", "13", "1", "2", "3", "14", "4", "5", "6", "7", "8", "9", "15"] as const;
 
 /* Comparison truth table. Columns: Quick Share with AirDrop, Quick Share QR
    code, BIShare, the open-source local app, PairDrop, Send Anywhere.
@@ -288,6 +291,39 @@ export default async function AirdropForAndroidPage({
                 head={(i) => t(`phones.items.${i}.h`)}
                 body={(i) => t.rich(`phones.items.${i}.b`, tags)}
               />
+              <h3 className="mt-8 font-semibold">{t("phoneTable.title")}</h3>
+              <div className="mt-3 overflow-x-auto rounded-xl border border-border">
+                <table className="w-full min-w-[560px] text-sm">
+                  <thead>
+                    <tr className="border-b border-border bg-background-raised text-muted-foreground">
+                      {PHONE_TABLE_COLS.map((c) => (
+                        <th key={c} className="px-4 py-3 text-left font-medium">
+                          {t(`phoneTable.cols.${c}`)}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PHONE_TABLE_ROWS.map((r) => (
+                      <tr key={r} className="border-b border-border last:border-0">
+                        {PHONE_TABLE_COLS.map((c) => (
+                          <td
+                            key={c}
+                            className={`px-4 py-3 align-top ${
+                              c === "0" ? "font-medium text-foreground" : "text-muted-foreground"
+                            }`}
+                          >
+                            {t(`phoneTable.rows.${r}.${c}`)}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                {t("phoneTable.note")}
+              </p>
             </section>
 
             {/* Setup on both devices */}
