@@ -9,7 +9,7 @@
     "body": "L'e-mail s'arrête vers 25 Mo, l'offre gratuite de WeTransfer à 3 Go, la plupart des sites d'envoi à 5 Go. <strong>BIShare</strong> envoie les gros fichiers sans ce plafond : jusqu'à <strong>100 Go par un lien</strong> que l'autre personne ouvre dans n'importe quel navigateur, sans appli ni inscription — ou n'importe quelle taille quand vous êtes à côté, directement par votre Wi-Fi. <highlight>Gratuit, open source, chiffré avant l'envoi, et le lien expire de lui-même au bout de 6, 12 ou 24 heures.</highlight>",
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche",
-    "ctaSecondaryTransfer": "Envoyer un fichier maintenant — dans le navigateur"
+    "ctaSecondaryTransfer": "Envoyer un fichier dans le navigateur"
   },
   "why": {
     "title": "Pourquoi envoyer de gros fichiers reste pénible en 2026",
@@ -115,6 +115,14 @@
       "15": {
         "q": "Quelle est la façon la plus rapide d’envoyer un très gros fichier ?",
         "a": "Ne pas le téléverser. Sur un même réseau Wi-Fi, un transfert d’appareil à appareil tourne entre 40 et 110 Mo/s sur du matériel récent : 10 Go arrivent en deux ou trois minutes. Tout service passant par un téléversement dépend de votre débit montant, qui sur la plupart des connexions domestiques ne représente qu’une petite fraction du débit descendant."
+      },
+      "16": {
+        "q": "Comment envoyer un fichier en ligne pour le partager avec quelqu'un ?",
+        "a": "Ouvrez bishare.app/transfer, déposez le fichier ou le dossier et attendez la fin de l'envoi ; vous obtenez un lien, un QR code et un code de 6 caractères à transmettre. Le destinataire ouvre le lien dans n'importe quel navigateur et télécharge, sans compte. Le fichier est chiffré dans votre navigateur avant de partir, et le lien expire après 6, 12 ou 24 heures."
+      },
+      "17": {
+        "q": "Quels services de transfert stockent les fichiers en Europe ?",
+        "a": "SwissTransfer stocke les fichiers uniquement en Suisse, Smash garde ceux des utilisateurs européens en France, en Irlande, au Royaume-Uni et en Allemagne, et WeTransfer les stocke dans l'UE quand ils sont envoyés depuis l'UE. Filemail et TransferNow laissent les clients payants choisir une région. Un lien BIShare créé en Europe est stocké dans la région européenne de Cloudflare, chiffré de bout en bout."
       }
     }
   },
@@ -127,7 +135,7 @@
     "yes": "Oui",
     "no": "Non"
   },
-  "updated": "Mis à jour en septembre 2026 · Chaque limite gratuite revérifiée sur le site du fournisseur",
+  "updated": "Mis à jour en octobre 2026 · Limites et confidentialité vérifiées sur les pages de chaque fournisseur",
   "quick": {
     "title": "Réponse rapide",
     "items": [
@@ -248,10 +256,10 @@
       ],
       [
         "Filemail",
-        "5 Go par transfert",
-        "jusqu’à 30 jours",
+        "5 Go, 2 transferts par jour",
+        "7 jours",
         "Non",
-        "Le chiffrement de bout en bout est réservé aux offres payantes"
+        "Chiffrement de bout en bout seulement sur les offres Business ; 30 jours demandent une offre payante"
       ],
       [
         "TransferNow",
@@ -277,9 +285,9 @@
       [
         "SwissTransfer",
         "50 Go par transfert",
-        "jusqu’à 30 jours",
+        "1 à 30 jours (30 veut dire 15 sans prolongation)",
         "Non",
-        "Moins d’applications et d’intégrations que les concurrents payants"
+        "Fichiers gardés en Suisse ; pas disponible dans tous les pays"
       ],
       [
         "Google Drive / OneDrive",
@@ -554,6 +562,83 @@
       "<strong>Le téléchargement a lâché près de la fin.</strong> Les navigateurs relancent un téléchargement au lieu de le reprendre. Sur une connexion instable, passer d’appareil à appareil sur le même Wi-Fi supprime l’envoi et le téléchargement d’un coup.",
       "<strong>Le type de fichier a été refusé.</strong> Les formats exécutables — .exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com — sont rejetés pour les transferts par lien. Mettez-les dans un zip, ou envoyez-les d’appareil à appareil.",
       "<strong>Le Wi-Fi a coupé en plein transfert.</strong> Un transfert d’appareil à appareil qui perd le réseau conserve ce qui est arrivé et repart de ce point dès que la connexion revient."
+    ]
+  },
+  "privacy": {
+    "title": "Où est stocké votre fichier, et qui peut le lire : les services de transfert comparés sur la confidentialité",
+    "intro": "La taille et le prix décident la plupart des choix. Pour un contrat, un examen médical ou un travail encore inédit, deux autres questions comptent : où se trouve le fichier pendant qu'il attend, et si le service lui-même peut l'ouvrir.",
+    "cols": [
+      "Service",
+      "Société",
+      "Lieu de stockage des fichiers",
+      "Chiffrement de bout en bout",
+      "Mot de passe en gratuit"
+    ],
+    "rows": [
+      [
+        "WeTransfer",
+        "WeTransfer B.V., Pays-Bas",
+        "Dans l'UE si l'envoi part de l'UE, sinon aux États-Unis ; pas de choix",
+        "Seulement sur Enterprise",
+        "Oui, d'après sa page tarifs"
+      ],
+      [
+        "Smash",
+        "SMASH & CO, France",
+        "AWS en France, en Irlande, au Royaume-Uni et en Allemagne pour les utilisateurs européens ; États-Unis et Canada pour les autres",
+        "Non : TLS pendant le transfert, AES-256 au repos",
+        "Oui"
+      ],
+      [
+        "TransferNow",
+        "Highsense SAS, France",
+        "La région la plus proche ; une région fixe seulement à partir de Premium",
+        "Non : chiffrement côté serveur, avec votre mot de passe comme clé sur Premium",
+        "Oui"
+      ],
+      [
+        "SwissTransfer",
+        "Infomaniak Network SA, Suisse",
+        "Uniquement en Suisse",
+        "Non : TLS pendant le transfert, AES-256 au repos",
+        "Oui"
+      ],
+      [
+        "Filemail",
+        "Filemail AS, Norvège",
+        "UE, Norvège et États-Unis ; au choix seulement sur Business et Enterprise",
+        "Seulement sur Business et Enterprise",
+        "Non, à partir de l'offre Pro"
+      ],
+      [
+        "Dropbox Transfer",
+        "Dropbox, Inc., États-Unis",
+        "Centres de données aux États-Unis ; autres régions seulement pour les équipes de 10 licences ou plus",
+        "Non, pas pour les transferts",
+        "Non, offres payantes uniquement"
+      ],
+      [
+        "BIShare",
+        "PT Billion Jaya Group, Indonésie (open source)",
+        "Cloudflare R2 dans la région la plus proche de l'expéditeur : Europe de l'Ouest ou de l'Est pour les envois depuis l'Europe",
+        "Oui, par défaut ; la clé reste dans le lien",
+        "Pas de mot de passe ; le lien porte la clé"
+      ]
+    ],
+    "note": "Tel qu'indiqué sur les pages confidentialité, sécurité et aide de chaque fournisseur le 17 octobre 2026. De bout en bout signifie ici que seuls l'expéditeur et le destinataire ont la clé ; un chiffrement pendant le transfert et au repos avec les clés du fournisseur n'est pas de bout en bout.",
+    "items": [
+      {
+        "h": "Chiffré au repos ne veut pas dire de bout en bout",
+        "b": "Tous ces services chiffrent la connexion et le fichier stocké, mais avec des clés que le fournisseur détient : il peut donc ouvrir le fichier quand il le doit, pour une décision de justice, une analyse antivirus ou après une fuite. Seul le chiffrement de bout en bout laisse au fournisseur des données qu'il ne peut pas lire. Des sept, seul BIShare le fait en gratuit ; WeTransfer et Filemail le réservent aux offres professionnelles, et Dropbox ne le propose pas pour les transferts."
+      },
+      {
+        "h": "Où se trouve le serveur, si le RGPD compte pour vous",
+        "b": "SwissTransfer garde les fichiers en Suisse, Smash et WeTransfer gardent les envois européens dans l'UE, et Dropbox stocke aux États-Unis, sauf si une équipe de dix personnes ou plus paie pour une autre région. Un lien BIShare créé en Europe est stocké dans la région Europe de l'Ouest ou de l'Est de Cloudflare ; Cloudflare est une société américaine, et comme le fichier est chiffré de bout en bout, elle ne détient que des données chiffrées."
+      },
+      {
+        "h": "Un mot de passe et une clé dans le lien ne font pas le même travail",
+        "b": "Un mot de passe de transfert protège la page de téléchargement, alors que le fournisseur garde le fichier lisible. Un lien BIShare porte la clé de déchiffrement après le signe #, que les navigateurs n'envoient jamais à un serveur : <goEncrypted>le lien est la clé</goEncrypted>. Envoyez-le par un canal de confiance, et activez le téléchargement unique s'il risque d'être transféré."
+      }
     ]
   }
 }

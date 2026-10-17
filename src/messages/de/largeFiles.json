@@ -115,6 +115,14 @@
       "15": {
         "q": "Was ist der schnellste Weg für eine sehr große Datei?",
         "a": "Sie nicht hochzuladen. In einem WLAN läuft ein Transfer von Gerät zu Gerät auf aktueller Hardware mit 40 bis 110 MB/s, 10 GB sind also in zwei bis drei Minuten da. Jeder Dienst mit Upload hängt an deiner Upload-Geschwindigkeit, und die ist bei den meisten Heimanschlüssen nur ein kleiner Bruchteil der Download-Geschwindigkeit."
+      },
+      "16": {
+        "q": "Wie lade ich eine Datei hoch, um sie mit jemandem zu teilen?",
+        "a": "Öffne bishare.app/transfer, zieh die Datei oder den Ordner hinein und warte, bis der Upload fertig ist; du bekommst einen Link, einen QR-Code und einen 6-stelligen Code zum Verschicken. Der Empfänger öffnet den Link in einem beliebigen Browser und lädt herunter, ohne Konto. Die Datei wird in deinem Browser verschlüsselt, bevor sie hochgeht, und der Link läuft nach 6, 12 oder 24 Stunden ab."
+      },
+      "17": {
+        "q": "Welche Übertragungsdienste speichern Dateien in Europa?",
+        "a": "SwissTransfer speichert Dateien nur in der Schweiz, Smash hält Dateien europäischer Nutzer in Frankreich, Irland, Großbritannien und Deutschland, und WeTransfer speichert Dateien in der EU, wenn sie aus der EU hochgeladen werden. Bei Filemail und TransferNow können zahlende Kunden eine Region wählen. Ein BIShare-Link aus Europa liegt in Cloudflares europäischer Region, Ende-zu-Ende verschlüsselt."
       }
     }
   },
@@ -127,7 +135,7 @@
     "yes": "Ja",
     "no": "Nein"
   },
-  "updated": "Aktualisiert im September 2026 · Jedes kostenlose Limit auf der Seite des Anbieters nachgeprüft",
+  "updated": "Aktualisiert im Oktober 2026 · Limits und Datenschutzangaben auf den Seiten der Anbieter geprüft",
   "quick": {
     "title": "Kurze Antwort",
     "items": [
@@ -248,10 +256,10 @@
       ],
       [
         "Filemail",
-        "5 GB pro Transfer",
-        "bis zu 30 Tage",
+        "5 GB, 2 Transfers pro Tag",
+        "7 Tage",
         "Nein",
-        "Ende-zu-Ende-Verschlüsselung gibt es nur in Bezahltarifen"
+        "Ende-zu-Ende-Verschlüsselung nur in Business-Tarifen; 30 Tage nur gegen Bezahlung"
       ],
       [
         "TransferNow",
@@ -277,9 +285,9 @@
       [
         "SwissTransfer",
         "50 GB pro Transfer",
-        "bis zu 30 Tage",
+        "1 bis 30 Tage (30 heißt 15, wenn nicht verlängert)",
         "Nein",
-        "Weniger Apps und Anbindungen als die bezahlten Rivalen"
+        "Dateien bleiben in der Schweiz; nicht in jedem Land verfügbar"
       ],
       [
         "Google Drive / OneDrive",
@@ -554,6 +562,83 @@
       "<strong>Der Download ist kurz vor Schluss gestorben.</strong> Browser starten einen Download neu, statt ihn fortzusetzen. Bei wackliger Verbindung fällt mit dem Weg von Gerät zu Gerät im selben WLAN sowohl der Upload als auch der Download weg.",
       "<strong>Der Dateityp wurde abgelehnt.</strong> Ausführbare Formate — .exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com — sind bei Link-Transfers nicht erlaubt. Pack sie in ein Zip oder schick sie von Gerät zu Gerät.",
       "<strong>Das WLAN ist mittendrin weggebrochen.</strong> Ein Transfer von Gerät zu Gerät, der das Netz verliert, behält das Angekommene und setzt genau dort fort, sobald die Verbindung zurück ist."
+    ]
+  },
+  "privacy": {
+    "title": "Wo deine Datei liegt und wer sie lesen kann: Übertragungsdienste im Datenschutz-Vergleich",
+    "intro": "Größe und Preis entscheiden die meisten Fälle. Bei Verträgen, medizinischen Aufnahmen oder unveröffentlichter Arbeit zählen zwei andere Fragen: wo die Datei liegt, solange sie wartet, und ob der Dienst sie selbst öffnen kann.",
+    "cols": [
+      "Dienst",
+      "Unternehmen",
+      "Wo die Dateien liegen",
+      "Ende-zu-Ende-Verschlüsselung",
+      "Passwort im kostenlosen Tarif"
+    ],
+    "rows": [
+      [
+        "WeTransfer",
+        "WeTransfer B.V., Niederlande",
+        "In der EU bei Upload aus der EU, sonst in den USA; keine Wahl",
+        "Nur in Enterprise",
+        "Ja, laut Preisseite"
+      ],
+      [
+        "Smash",
+        "SMASH & CO, Frankreich",
+        "AWS in Frankreich, Irland, Großbritannien und Deutschland für Nutzer in Europa; USA und Kanada für alle anderen",
+        "Nein: TLS bei der Übertragung, AES-256 im Speicher",
+        "Ja"
+      ],
+      [
+        "TransferNow",
+        "Highsense SAS, Frankreich",
+        "Die nächstgelegene Region; eine feste Region erst ab Premium",
+        "Nein: serverseitige Verschlüsselung, ab Premium mit deinem Passwort als Schlüssel",
+        "Ja"
+      ],
+      [
+        "SwissTransfer",
+        "Infomaniak Network SA, Schweiz",
+        "Nur in der Schweiz",
+        "Nein: TLS bei der Übertragung, AES-256 im Speicher",
+        "Ja"
+      ],
+      [
+        "Filemail",
+        "Filemail AS, Norwegen",
+        "EU, Norwegen und USA; wählbar nur in Business und Enterprise",
+        "Nur in Business und Enterprise",
+        "Nein, erst ab Pro"
+      ],
+      [
+        "Dropbox Transfer",
+        "Dropbox, Inc., USA",
+        "Rechenzentren in den USA; andere Regionen nur für Teams ab 10 Lizenzen",
+        "Nein, nicht für Übertragungen",
+        "Nein, nur in Bezahltarifen"
+      ],
+      [
+        "BIShare",
+        "PT Billion Jaya Group, Indonesien (Open Source)",
+        "Cloudflare R2 in der Region, die dem Absender am nächsten liegt: West- oder Osteuropa bei Uploads aus Europa",
+        "Ja, standardmäßig an; der Schlüssel steckt im Link",
+        "Kein Passwort; der Link selbst trägt den Schlüssel"
+      ]
+    ],
+    "note": "So, wie es am 17. Oktober 2026 auf den eigenen Datenschutz-, Sicherheits- und Hilfeseiten der Anbieter steht. Ende-zu-Ende heißt hier: Nur Absender und Empfänger haben den Schlüssel. Verschlüsselung bei der Übertragung und im Speicher mit den Schlüsseln des Anbieters ist nicht Ende-zu-Ende.",
+    "items": [
+      {
+        "h": "Verschlüsselt gespeichert ist nicht Ende-zu-Ende",
+        "b": "Jeder Dienst hier verschlüsselt die Verbindung und die gespeicherte Datei, aber mit Schlüsseln, die der Anbieter hat. Er kann die Datei also öffnen, wenn er muss: für einen Gerichtsbeschluss, einen Malware-Scan oder nach einem Datenleck. Nur Ende-zu-Ende-Verschlüsselung lässt dem Anbieter Daten, die er nicht lesen kann. Von den sieben macht das nur BIShare im kostenlosen Tarif; WeTransfer und Filemail heben es sich für Business-Tarife auf, und Dropbox bietet es für Übertragungen gar nicht an."
+      },
+      {
+        "h": "Wo der Server steht, wenn dir die DSGVO wichtig ist",
+        "b": "SwissTransfer hält Dateien in der Schweiz, Smash und WeTransfer halten Uploads aus Europa in der EU, und Dropbox speichert in den USA, außer ein Team ab zehn Personen zahlt für eine andere Region. Ein BIShare-Link aus Europa liegt in Cloudflares Region West- oder Osteuropa; Cloudflare ist ein US-Unternehmen, und weil die Datei Ende-zu-Ende verschlüsselt ist, hält es nur verschlüsselte Daten."
+      },
+      {
+        "h": "Ein Passwort und ein Schlüssel im Link sind nicht dasselbe",
+        "b": "Ein Transfer-Passwort schützt die Download-Seite, während der Anbieter die lesbare Datei weiter hat. Ein BIShare-Link trägt den Schlüssel hinter dem #-Zeichen, das Browser nie an einen Server schicken, also <goEncrypted>ist der Link der Schlüssel</goEncrypted>: Schick ihn über einen Kanal, dem du vertraust, und schalte den einmaligen Download ein, wenn er weitergeleitet werden könnte."
+      }
     ]
   }
 }

@@ -115,6 +115,14 @@
       "15": {
         "q": "Qual é a forma mais rápida de enviar um arquivo muito grande?",
         "a": "Não subir. Numa mesma rede Wi-Fi, uma transferência de aparelho para aparelho roda entre 40 e 110 MB/s em hardware atual, então 10 GB chegam em dois ou três minutos. Qualquer serviço baseado em upload depende da sua velocidade de subida, que na maioria das conexões domésticas é uma fração pequena da de descida."
+      },
+      "16": {
+        "q": "Como faço upload de um arquivo para compartilhar com alguém?",
+        "a": "Abra bishare.app/transfer, solte o arquivo ou a pasta e espere o envio terminar; você recebe um link, um QR code e um código de 6 caracteres para mandar. Quem recebe abre o link em qualquer navegador e baixa, sem conta. O arquivo é criptografado no seu navegador antes de sair, e o link expira em 6, 12 ou 24 horas."
+      },
+      "17": {
+        "q": "Quais serviços de transferência guardam os arquivos na Europa?",
+        "a": "O SwissTransfer guarda os arquivos só na Suíça, o Smash guarda os de usuários europeus na França, Irlanda, Reino Unido e Alemanha, e o WeTransfer guarda na UE quando o envio parte da UE. O Filemail e o TransferNow deixam clientes pagantes escolher a região. Um link do BIShare criado na Europa fica na região europeia da Cloudflare, criptografado de ponta a ponta."
       }
     }
   },
@@ -127,7 +135,7 @@
     "yes": "Sim",
     "no": "Não"
   },
-  "updated": "Atualizado em setembro de 2026 · Cada limite gratuito reconferido na página do próprio fornecedor",
+  "updated": "Atualizado em outubro de 2026 · Limites e dados de privacidade conferidos na página de cada fornecedor",
   "quick": {
     "title": "Resposta rápida",
     "items": [
@@ -248,10 +256,10 @@
       ],
       [
         "Filemail",
-        "5 GB por transferência",
-        "até 30 dias",
+        "5 GB, 2 transferências por dia",
+        "7 dias",
         "Não",
-        "Criptografia de ponta a ponta só nos planos pagos"
+        "Criptografia de ponta a ponta só nos planos Business; 30 dias exige plano pago"
       ],
       [
         "TransferNow",
@@ -277,9 +285,9 @@
       [
         "SwissTransfer",
         "50 GB por transferência",
-        "até 30 dias",
+        "1 a 30 dias (30 vira 15 sem prorrogação)",
         "Não",
-        "Menos aplicativos e integrações que os rivais pagos"
+        "Os arquivos ficam na Suíça; não disponível em todos os países"
       ],
       [
         "Google Drive / OneDrive",
@@ -554,6 +562,83 @@
       "<strong>O download morreu perto do fim.</strong> Navegadores reiniciam um download em vez de retomá-lo. Em conexão instável, enviar de aparelho para aparelho pelo mesmo Wi-Fi elimina o upload e o download de uma vez.",
       "<strong>O tipo de arquivo foi recusado.</strong> Formatos executáveis — .exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com — são rejeitados nas transferências por link. Coloque em um zip, ou envie de aparelho para aparelho.",
       "<strong>O Wi-Fi caiu no meio.</strong> Uma transferência de aparelho para aparelho que perde a rede guarda o que já chegou e continua desse ponto quando a conexão volta."
+    ]
+  },
+  "privacy": {
+    "title": "Onde seu arquivo fica guardado e quem pode lê-lo: serviços de transferência comparados em privacidade",
+    "intro": "Tamanho e preço decidem quase tudo. Para contratos, exames médicos ou trabalho ainda não lançado, outras duas perguntas importam: onde o arquivo fica enquanto espera e se o próprio serviço consegue abri-lo.",
+    "cols": [
+      "Serviço",
+      "Empresa",
+      "Onde os arquivos ficam",
+      "Criptografia de ponta a ponta",
+      "Senha no plano gratuito"
+    ],
+    "rows": [
+      [
+        "WeTransfer",
+        "WeTransfer B.V., Holanda",
+        "Na UE se enviado da UE, senão nos EUA; sem escolha",
+        "Só no Enterprise",
+        "Sim, segundo a página de preços"
+      ],
+      [
+        "Smash",
+        "SMASH & CO, França",
+        "AWS na França, Irlanda, Reino Unido e Alemanha para usuários europeus; EUA e Canadá para os demais",
+        "Não: TLS em trânsito, AES-256 armazenado",
+        "Sim"
+      ],
+      [
+        "TransferNow",
+        "Highsense SAS, França",
+        "A região mais próxima; região fixa só a partir do Premium",
+        "Não: criptografia no servidor, com sua senha como chave no Premium",
+        "Sim"
+      ],
+      [
+        "SwissTransfer",
+        "Infomaniak Network SA, Suíça",
+        "Só na Suíça",
+        "Não: TLS em trânsito, AES-256 armazenado",
+        "Sim"
+      ],
+      [
+        "Filemail",
+        "Filemail AS, Noruega",
+        "UE, Noruega e EUA; escolha só no Business e no Enterprise",
+        "Só no Business e no Enterprise",
+        "Não, a partir do plano Pro"
+      ],
+      [
+        "Dropbox Transfer",
+        "Dropbox, Inc., EUA",
+        "Data centers nos EUA; outras regiões só para equipes com 10 licenças ou mais",
+        "Não, não para transferências",
+        "Não, só planos pagos"
+      ],
+      [
+        "BIShare",
+        "PT Billion Jaya Group, Indonésia (código aberto)",
+        "Cloudflare R2 na região mais próxima de quem envia: Europa Ocidental ou Oriental para envios da Europa",
+        "Sim, ativada por padrão; a chave fica no link",
+        "Sem senha; o próprio link leva a chave"
+      ]
+    ],
+    "note": "Conforme as páginas de privacidade, segurança e ajuda de cada provedor em 17 de outubro de 2026. Ponta a ponta aqui quer dizer que só quem envia e quem recebe têm a chave; criptografia em trânsito e armazenada com as chaves do provedor não é ponta a ponta.",
+    "items": [
+      {
+        "h": "Criptografado no armazenamento não é o mesmo que de ponta a ponta",
+        "b": "Todos esses serviços criptografam a conexão e o arquivo guardado, mas com chaves que o provedor tem, então ele consegue abrir o arquivo quando precisa: por ordem judicial, varredura de malware ou depois de um vazamento. Só a criptografia de ponta a ponta deixa o provedor com dados que ele não consegue ler. Dos sete, só o BIShare faz isso no plano gratuito; o WeTransfer e o Filemail deixam para planos empresariais, e o Dropbox não oferece para transferências."
+      },
+      {
+        "h": "Onde fica o servidor, se a LGPD ou o GDPR importam",
+        "b": "O SwissTransfer guarda os arquivos na Suíça, o Smash e o WeTransfer guardam os envios europeus na UE, e o Dropbox armazena nos EUA, a não ser que uma equipe de dez ou mais pague por outra região. Um link do BIShare criado na Europa fica na região Europa Ocidental ou Oriental da Cloudflare; a Cloudflare é uma empresa americana e, como o arquivo é criptografado de ponta a ponta, guarda só dados criptografados."
+      },
+      {
+        "h": "Senha e chave no link fazem trabalhos diferentes",
+        "b": "Uma senha de transferência protege a página de download, enquanto o provedor continua com o arquivo legível. Um link do BIShare leva a chave de descriptografia depois do sinal #, que os navegadores nunca mandam a um servidor, então <goEncrypted>o link é a chave</goEncrypted>: envie por um canal de confiança e ative o download único se ele puder ser repassado."
+      }
     ]
   }
 }

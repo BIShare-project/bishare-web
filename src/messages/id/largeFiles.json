@@ -115,6 +115,14 @@
       "15": {
         "q": "Cara tercepat mengirim file yang sangat besar?",
         "a": "Dengan tidak mengunggahnya. Di satu jaringan Wi-Fi, transfer perangkat ke perangkat berjalan 40 sampai 110 MB/d pada perangkat keras masa kini, jadi 10 GB mendarat dalam dua sampai tiga menit. Layanan berbasis unggahan dibatasi kecepatan unggah kamu, yang di sebagian besar koneksi rumah hanya sebagian kecil dari kecepatan unduh."
+      },
+      "16": {
+        "q": "Bagaimana cara mengunggah file untuk dibagikan ke orang lain?",
+        "a": "Buka bishare.app/transfer, jatuhkan file atau folder, lalu tunggu unggahan selesai; Anda mendapat tautan, kode QR, dan kode 6 karakter untuk dikirim. Penerima membuka tautan di browser apa pun dan mengunduhnya, tanpa akun. File dienkripsi di browser Anda sebelum dikirim, dan tautannya kedaluwarsa setelah 6, 12, atau 24 jam."
+      },
+      "17": {
+        "q": "Layanan transfer file mana yang menyimpan file di Eropa?",
+        "a": "SwissTransfer menyimpan file hanya di Swiss, Smash menyimpan file pengguna Eropa di Prancis, Irlandia, Inggris, dan Jerman, dan WeTransfer menyimpan file di UE jika diunggah dari UE. Filemail dan TransferNow membiarkan pelanggan berbayar memilih region. Tautan BIShare yang dibuat di Eropa disimpan di region Eropa milik Cloudflare, terenkripsi end-to-end."
       }
     }
   },
@@ -127,7 +135,7 @@
     "yes": "Ya",
     "no": "Tidak"
   },
-  "updated": "Diperbarui September 2026 · Setiap batas gratis dicek ulang di halaman resmi masing-masing penyedia",
+  "updated": "Diperbarui Oktober 2026 · Batas dan fakta privasi dicek di halaman resmi masing-masing penyedia",
   "quick": {
     "title": "Jawaban singkat",
     "items": [
@@ -248,10 +256,10 @@
       ],
       [
         "Filemail",
-        "5 GB per transfer",
-        "sampai 30 hari",
+        "5 GB, 2 transfer per hari",
+        "7 hari",
         "Tidak",
-        "Enkripsi ujung ke ujung hanya di paket berbayar"
+        "Enkripsi end-to-end hanya di paket Business; 30 hari butuh paket berbayar"
       ],
       [
         "TransferNow",
@@ -277,9 +285,9 @@
       [
         "SwissTransfer",
         "50 GB per transfer",
-        "sampai 30 hari",
+        "1 sampai 30 hari (30 berarti 15 kecuali diperpanjang)",
         "Tidak",
-        "Lebih sedikit aplikasi dan integrasi dibanding pesaing berbayar"
+        "File tetap di Swiss; tidak tersedia di semua negara"
       ],
       [
         "Google Drive / OneDrive",
@@ -554,6 +562,83 @@
       "<strong>Unduhan mati menjelang akhir.</strong> Peramban mengulang unduhan, bukan melanjutkannya. Pada koneksi labil, mengirim perangkat ke perangkat lewat Wi-Fi yang sama menghapus unggahan sekaligus unduhannya.",
       "<strong>Jenis file ditolak.</strong> Format yang bisa dieksekusi — .exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com — ditolak untuk transfer tautan. Masukkan ke zip, atau kirim perangkat ke perangkat.",
       "<strong>Wi-Fi putus di tengah transfer.</strong> Transfer perangkat ke perangkat yang kehilangan jaringan menyimpan bagian yang sudah sampai dan melanjutkan dari titik itu begitu koneksi kembali."
+    ]
+  },
+  "privacy": {
+    "title": "Di mana file Anda disimpan, dan siapa yang bisa membacanya: layanan transfer dibandingkan dari sisi privasi",
+    "intro": "Ukuran dan harga menentukan sebagian besar pilihan. Untuk kontrak, hasil pemindaian medis, atau karya yang belum dirilis, ada dua pertanyaan lain yang penting: di mana file berada selama menunggu, dan apakah layanannya sendiri bisa membukanya.",
+    "cols": [
+      "Layanan",
+      "Perusahaan",
+      "Lokasi penyimpanan file",
+      "Enkripsi end-to-end",
+      "Kata sandi di paket gratis"
+    ],
+    "rows": [
+      [
+        "WeTransfer",
+        "WeTransfer B.V., Belanda",
+        "Di UE jika diunggah dari UE, selain itu di AS; tidak bisa dipilih",
+        "Hanya di Enterprise",
+        "Ya, menurut halaman harganya"
+      ],
+      [
+        "Smash",
+        "SMASH & CO, Prancis",
+        "AWS di Prancis, Irlandia, Inggris, dan Jerman untuk pengguna Eropa; AS dan Kanada untuk yang lain",
+        "Tidak: TLS saat dikirim, AES-256 saat disimpan",
+        "Ya"
+      ],
+      [
+        "TransferNow",
+        "Highsense SAS, Prancis",
+        "Region terdekat; region tetap hanya di Premium ke atas",
+        "Tidak: enkripsi di sisi server, dengan kata sandi Anda sebagai kunci di Premium",
+        "Ya"
+      ],
+      [
+        "SwissTransfer",
+        "Infomaniak Network SA, Swiss",
+        "Hanya di Swiss",
+        "Tidak: TLS saat dikirim, AES-256 saat disimpan",
+        "Ya"
+      ],
+      [
+        "Filemail",
+        "Filemail AS, Norwegia",
+        "UE, Norwegia, dan AS; bisa dipilih hanya di Business dan Enterprise",
+        "Hanya di Business dan Enterprise",
+        "Tidak, mulai paket Pro"
+      ],
+      [
+        "Dropbox Transfer",
+        "Dropbox, Inc., AS",
+        "Pusat data di AS; region lain hanya untuk tim dengan 10 lisensi atau lebih",
+        "Tidak, tidak untuk transfer",
+        "Tidak, hanya paket berbayar"
+      ],
+      [
+        "BIShare",
+        "PT Billion Jaya Group, Indonesia (open source)",
+        "Cloudflare R2 di region terdekat dengan pengirim: Eropa Barat atau Timur untuk unggahan dari Eropa",
+        "Ya, aktif secara bawaan; kuncinya tetap di dalam tautan",
+        "Tanpa kata sandi; tautannya sendiri membawa kunci"
+      ]
+    ],
+    "note": "Sesuai yang tertulis di halaman privasi, keamanan, dan bantuan masing-masing penyedia pada 17 Oktober 2026. End-to-end di sini berarti hanya pengirim dan penerima yang memegang kunci; enkripsi saat dikirim dan saat disimpan dengan kunci milik penyedia bukan end-to-end.",
+    "items": [
+      {
+        "h": "Terenkripsi saat disimpan tidak sama dengan end-to-end",
+        "b": "Semua layanan di sini mengenkripsi koneksi dan file yang disimpan, tetapi dengan kunci yang dipegang penyedia, sehingga penyedia bisa membuka file bila perlu: untuk perintah pengadilan, pemindaian malware, atau setelah kebocoran. Hanya enkripsi end-to-end yang membuat penyedia hanya memegang data terenkripsi yang tidak bisa dibacanya. Dari ketujuhnya, hanya BIShare yang melakukannya di paket gratis; WeTransfer dan Filemail menyimpannya untuk paket bisnis, dan Dropbox tidak menawarkannya untuk transfer."
+      },
+      {
+        "h": "Di mana servernya, jika GDPR penting bagi Anda",
+        "b": "SwissTransfer menyimpan file di Swiss, Smash dan WeTransfer menyimpan unggahan dari Eropa di UE, dan Dropbox menyimpan di AS kecuali tim berisi sepuluh orang atau lebih membayar untuk region lain. Tautan BIShare yang dibuat di Eropa disimpan di region Eropa Barat atau Timur milik Cloudflare; Cloudflare adalah perusahaan AS, dan karena file terenkripsi end-to-end, ia hanya memegang data terenkripsi."
+      },
+      {
+        "h": "Kata sandi dan kunci di dalam tautan punya tugas berbeda",
+        "b": "Kata sandi transfer menjaga halaman unduhan, sementara penyedia tetap memegang file yang bisa dibaca. Tautan BIShare membawa kunci dekripsi setelah tanda #, yang tidak pernah dikirim browser ke server, jadi <goEncrypted>tautannya adalah kuncinya</goEncrypted>: kirim lewat saluran yang Anda percaya, dan aktifkan unduhan sekali pakai jika tautan itu mungkin diteruskan."
+      }
     ]
   }
 }

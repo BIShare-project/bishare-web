@@ -115,6 +115,14 @@
       "15": {
         "q": "What is the fastest way to send huge files?",
         "a": "Not uploading it. On one Wi-Fi network, a device-to-device transfer runs at 40 to 110 MB/s on current hardware, so 10 GB lands in two or three minutes. Any upload-based service is limited by your upstream bandwidth, which on most home connections is a small fraction of the download speed."
+      },
+      "16": {
+        "q": "How do I upload a file to share it with someone?",
+        "a": "Open bishare.app/transfer, drop the file or folder in and wait for the upload; you get a link, a QR code and a 6-character code to send. The recipient opens the link in any browser and downloads, with no account. The file is encrypted in your browser before it leaves, and the link expires after 6, 12 or 24 hours."
+      },
+      "17": {
+        "q": "Which file transfer services store files in Europe?",
+        "a": "SwissTransfer stores files only in Switzerland, Smash keeps European users' files in France, Ireland, the UK and Germany, and WeTransfer stores files in the EU when they are uploaded from the EU. Filemail and TransferNow let paying customers choose a region. A BIShare link made in Europe is stored in Cloudflare's European region, encrypted end to end."
       }
     }
   },
@@ -127,7 +135,7 @@
     "yes": "Yes",
     "no": "No"
   },
-  "updated": "Updated September 2026 · Every free limit re-checked on each provider's own page",
+  "updated": "Updated October 2026 · Limits and privacy facts checked on each provider's own pages",
   "quick": {
     "title": "Quick answer",
     "items": [
@@ -248,10 +256,10 @@
       ],
       [
         "Filemail",
-        "5 GB per transfer",
-        "up to 30 days",
+        "5 GB, 2 transfers a day",
+        "7 days",
         "No",
-        "End-to-end encryption is a paid feature"
+        "End-to-end encryption only on Business plans; 30 days needs a paid plan"
       ],
       [
         "TransferNow",
@@ -277,9 +285,9 @@
       [
         "SwissTransfer",
         "50 GB per transfer",
-        "up to 30 days",
+        "1 to 30 days (30 means 15 unless extended)",
         "No",
-        "Fewer apps and integrations than the paid rivals"
+        "Files stay in Switzerland; not available in every country"
       ],
       [
         "Google Drive / OneDrive",
@@ -554,6 +562,83 @@
       "<strong>The download died near the end.</strong> Browsers restart a download rather than resume it. On a shaky connection, sending device to device over the same Wi-Fi removes both the upload and the download.",
       "<strong>The file type was refused.</strong> Executable formats — .exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com — are rejected for link transfers. Put them in a zip, or send them device to device.",
       "<strong>Wi-Fi dropped mid-transfer.</strong> A device-to-device transfer that loses the network keeps what arrived and resumes from that point when the connection returns."
+    ]
+  },
+  "privacy": {
+    "title": "Where your file is stored, and who can read it: transfer services compared on privacy",
+    "intro": "Size and price decide most choices. For contracts, medical scans or unreleased work, two other questions matter: where the file sits while it waits, and whether the service itself can open it.",
+    "cols": [
+      "Service",
+      "Company",
+      "Where files are stored",
+      "End-to-end encryption",
+      "Password on the free plan"
+    ],
+    "rows": [
+      [
+        "WeTransfer",
+        "WeTransfer B.V., Netherlands",
+        "In the EU when uploaded from the EU, otherwise in the US; no choice",
+        "Only on Enterprise",
+        "Yes, according to its pricing page"
+      ],
+      [
+        "Smash",
+        "SMASH & CO, France",
+        "AWS in France, Ireland, the UK and Germany for European users; the US and Canada for others",
+        "No: TLS in transit, AES-256 at rest",
+        "Yes"
+      ],
+      [
+        "TransferNow",
+        "Highsense SAS, France",
+        "The region nearest you; a fixed region only on Premium and up",
+        "No: server-side encryption, with your own password as the key on Premium",
+        "Yes"
+      ],
+      [
+        "SwissTransfer",
+        "Infomaniak Network SA, Switzerland",
+        "Only in Switzerland",
+        "No: TLS in transit, AES-256 at rest",
+        "Yes"
+      ],
+      [
+        "Filemail",
+        "Filemail AS, Norway",
+        "EU, Norway and the US; a choice only on Business and Enterprise",
+        "Only on Business and Enterprise",
+        "No, from the Pro plan up"
+      ],
+      [
+        "Dropbox Transfer",
+        "Dropbox, Inc., USA",
+        "US data centres; other regions only for teams with 10 or more licences",
+        "No, not for transfers",
+        "No, paid plans only"
+      ],
+      [
+        "BIShare",
+        "PT Billion Jaya Group, Indonesia (open source)",
+        "Cloudflare R2 in the region nearest the sender: Western or Eastern Europe for uploads from Europe",
+        "Yes, on by default; the key stays in the link",
+        "No password; the link itself carries the key"
+      ]
+    ],
+    "note": "As stated on each provider's own privacy, security and help pages on 17 October 2026. End to end here means only the sender and the recipient hold the key; encryption in transit and at rest with the provider's own keys is not end to end.",
+    "items": [
+      {
+        "h": "Encrypted at rest is not the same as end to end",
+        "b": "Every service here encrypts the connection and the stored file, but with keys the provider holds, so the provider can open the file when it has to: for a court order, a malware scan or after a breach. Only end-to-end encryption leaves the provider with ciphertext it cannot read. Of the seven, only BIShare does that on the free plan; WeTransfer and Filemail keep it for business tiers, and Dropbox does not offer it for transfers."
+      },
+      {
+        "h": "Where the server is, if GDPR matters to you",
+        "b": "SwissTransfer keeps files in Switzerland, Smash and WeTransfer keep European uploads in the EU, and Dropbox stores in the US unless a team of ten or more pays for another region. A BIShare link made in Europe is stored in Cloudflare's Western or Eastern Europe region; Cloudflare is a US company, and because the file is encrypted end to end it holds only ciphertext."
+      },
+      {
+        "h": "A password and a key in the link do different jobs",
+        "b": "A transfer password guards the download page while the provider still holds the readable file. A BIShare link carries the decryption key after the # sign, which browsers never send to a server, so <goEncrypted>the link is the key</goEncrypted>: send it through a channel you trust, and turn on one-time download if it might be forwarded."
+      }
     ]
   }
 }

@@ -34,7 +34,7 @@ import { APP_ID } from "@/lib/app-ld";
  * re-checked.
  */
 
-const LAST_UPDATED = "2026-09-18";
+const LAST_UPDATED = "2026-10-17";
 const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
@@ -70,6 +70,9 @@ const QUICK_ITEMS = ["0", "1", "2", "3"] as const;
 const STEP_ITEMS = ["0", "1", "2", "3"] as const;
 const SIZE_ROWS = ["0", "1", "2", "3", "4", "5"] as const;
 const LIMIT_ROWS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] as const;
+/* Privacy comparison (vendor pages read 2026-10-17, see privacy.note). */
+const PRIVACY_ROWS = ["0", "1", "2", "3", "4", "5", "6"] as const;
+const PRIVACY_ITEMS = ["0", "1", "2"] as const;
 const HEADLINE_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const BYSIZE_ROWS = ["0", "1", "2", "3", "4", "5"] as const;
 const EMAIL_ITEMS = ["0", "1", "2"] as const;
@@ -80,7 +83,7 @@ const WAY_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2", "3"] as const;
 const TIP_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const DEVICE_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"] as const;
+const FAQ_ITEMS = ["0", "16", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "17"] as const;
 
 function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) {
   return ok ? (
@@ -367,6 +370,22 @@ export default async function SendLargeFilesPage({
           />
           <DataTable cols={cols("limits", 5)} rows={table("limits", LIMIT_ROWS, 5)} minWidth={720} />
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t("limits.note")}</p>
+        </section>
+
+        {/* Privacy: where the file is stored and who can read it */}
+        <section className="mt-14">
+          <H2 id="privacy">{t("privacy.title")}</H2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">{t("privacy.intro")}</p>
+          <DataTable cols={cols("privacy", 5)} rows={table("privacy", PRIVACY_ROWS, 5)} minWidth={760} />
+          <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t("privacy.note")}</p>
+          <div className="mt-6 space-y-5">
+            {PRIVACY_ITEMS.map((i) => (
+              <div key={i}>
+                <h3 className="font-semibold">{t(`privacy.items.${i}.h`)}</h3>
+                <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">{t.rich(`privacy.items.${i}.b`, links)}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Speed */}

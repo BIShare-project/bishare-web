@@ -115,6 +115,14 @@
       "15": {
         "q": "¿Cuál es la forma más rápida de enviar un archivo enorme?",
         "a": "No subirlo. En una misma red wifi, una transferencia de dispositivo a dispositivo va a entre 40 y 110 MB/s con hardware actual, así que 10 GB llegan en dos o tres minutos. Cualquier servicio basado en subir depende de tu velocidad de subida, que en la mayoría de conexiones domésticas es una fracción pequeña de la de bajada."
+      },
+      "16": {
+        "q": "¿Cómo subo un archivo para compartirlo con alguien?",
+        "a": "Abre bishare.app/transfer, suelta el archivo o la carpeta y espera a que termine la subida; obtienes un enlace, un código QR y un código de 6 caracteres para enviar. Quien lo recibe abre el enlace en cualquier navegador y descarga, sin cuenta. El archivo se cifra en tu navegador antes de salir, y el enlace caduca a las 6, 12 o 24 horas."
+      },
+      "17": {
+        "q": "¿Qué servicios de transferencia guardan los archivos en Europa?",
+        "a": "SwissTransfer guarda los archivos solo en Suiza, Smash guarda los de usuarios europeos en Francia, Irlanda, Reino Unido y Alemania, y WeTransfer los guarda en la UE cuando se suben desde la UE. Filemail y TransferNow dejan elegir región a los clientes de pago. Un enlace de BIShare creado en Europa se guarda en la región europea de Cloudflare, cifrado de extremo a extremo."
       }
     }
   },
@@ -127,7 +135,7 @@
     "yes": "Sí",
     "no": "No"
   },
-  "updated": "Actualizado en septiembre de 2026 · Cada límite gratuito verificado en la web del propio proveedor",
+  "updated": "Actualizado en octubre de 2026 · Límites y datos de privacidad revisados en la web de cada proveedor",
   "quick": {
     "title": "Respuesta rápida",
     "items": [
@@ -248,10 +256,10 @@
       ],
       [
         "Filemail",
-        "5 GB por transferencia",
-        "hasta 30 días",
+        "5 GB, 2 transferencias al día",
+        "7 días",
         "No",
-        "El cifrado de extremo a extremo es de pago"
+        "Cifrado de extremo a extremo solo en planes Business; 30 días exige un plan de pago"
       ],
       [
         "TransferNow",
@@ -277,9 +285,9 @@
       [
         "SwissTransfer",
         "50 GB por transferencia",
-        "hasta 30 días",
+        "De 1 a 30 días (30 son 15 si no se amplía)",
         "No",
-        "Menos aplicaciones e integraciones que los rivales de pago"
+        "Los archivos se quedan en Suiza; no disponible en todos los países"
       ],
       [
         "Google Drive / OneDrive",
@@ -554,6 +562,83 @@
       "<strong>La descarga murió casi al final.</strong> Los navegadores reinician una descarga en lugar de reanudarla. Con una conexión inestable, enviar de dispositivo a dispositivo por la misma wifi elimina la subida y la descarga a la vez.",
       "<strong>Se rechazó el tipo de archivo.</strong> Los formatos ejecutables (.exe, .bat, .cmd, .sh, .msi, .scr, .pif, .com) no se aceptan en las transferencias por enlace. Mételos en un zip o envíalos de dispositivo a dispositivo.",
       "<strong>Se cayó la wifi a mitad.</strong> Una transferencia de dispositivo a dispositivo que pierde la red conserva lo que ya llegó y sigue desde ese punto cuando vuelve la conexión."
+    ]
+  },
+  "privacy": {
+    "title": "Dónde se guarda tu archivo y quién puede leerlo: servicios de transferencia comparados en privacidad",
+    "intro": "El tamaño y el precio deciden casi siempre. Para contratos, pruebas médicas o trabajo sin publicar importan otras dos preguntas: dónde está el archivo mientras espera y si el propio servicio puede abrirlo.",
+    "cols": [
+      "Servicio",
+      "Empresa",
+      "Dónde se guardan los archivos",
+      "Cifrado de extremo a extremo",
+      "Contraseña en el plan gratuito"
+    ],
+    "rows": [
+      [
+        "WeTransfer",
+        "WeTransfer B.V., Países Bajos",
+        "En la UE si se sube desde la UE, si no en EE. UU.; no se elige",
+        "Solo en Enterprise",
+        "Sí, según su página de precios"
+      ],
+      [
+        "Smash",
+        "SMASH & CO, Francia",
+        "AWS en Francia, Irlanda, Reino Unido y Alemania para usuarios europeos; EE. UU. y Canadá para los demás",
+        "No: TLS en tránsito, AES-256 en reposo",
+        "Sí"
+      ],
+      [
+        "TransferNow",
+        "Highsense SAS, Francia",
+        "La región más cercana; una región fija solo desde Premium",
+        "No: cifrado en el servidor, con tu contraseña como clave en Premium",
+        "Sí"
+      ],
+      [
+        "SwissTransfer",
+        "Infomaniak Network SA, Suiza",
+        "Solo en Suiza",
+        "No: TLS en tránsito, AES-256 en reposo",
+        "Sí"
+      ],
+      [
+        "Filemail",
+        "Filemail AS, Noruega",
+        "UE, Noruega y EE. UU.; se elige solo en Business y Enterprise",
+        "Solo en Business y Enterprise",
+        "No, desde el plan Pro"
+      ],
+      [
+        "Dropbox Transfer",
+        "Dropbox, Inc., EE. UU.",
+        "Centros de datos en EE. UU.; otras regiones solo para equipos de 10 licencias o más",
+        "No, no para transferencias",
+        "No, solo planes de pago"
+      ],
+      [
+        "BIShare",
+        "PT Billion Jaya Group, Indonesia (código abierto)",
+        "Cloudflare R2 en la región más cercana al remitente: Europa occidental u oriental para subidas desde Europa",
+        "Sí, activado por defecto; la clave va en el enlace",
+        "Sin contraseña; el propio enlace lleva la clave"
+      ]
+    ],
+    "note": "Según las páginas de privacidad, seguridad y ayuda de cada proveedor el 17 de octubre de 2026. De extremo a extremo significa aquí que solo el remitente y el destinatario tienen la clave; el cifrado en tránsito y en reposo con claves del proveedor no es de extremo a extremo.",
+    "items": [
+      {
+        "h": "Cifrado en reposo no es lo mismo que de extremo a extremo",
+        "b": "Todos estos servicios cifran la conexión y el archivo guardado, pero con claves que tiene el proveedor, así que puede abrir el archivo cuando lo necesite: por una orden judicial, un análisis antivirus o tras una filtración. Solo el cifrado de extremo a extremo deja al proveedor con datos que no puede leer. De los siete, solo BIShare lo hace en el plan gratuito; WeTransfer y Filemail lo reservan para planes de empresa, y Dropbox no lo ofrece en transferencias."
+      },
+      {
+        "h": "Dónde está el servidor, si te importa el RGPD",
+        "b": "SwissTransfer guarda los archivos en Suiza, Smash y WeTransfer guardan las subidas europeas en la UE, y Dropbox almacena en EE. UU. salvo que un equipo de diez o más pague por otra región. Un enlace de BIShare creado en Europa se guarda en la región de Europa occidental u oriental de Cloudflare; Cloudflare es una empresa estadounidense y, como el archivo va cifrado de extremo a extremo, solo guarda datos cifrados."
+      },
+      {
+        "h": "Una contraseña y una clave en el enlace no hacen lo mismo",
+        "b": "Una contraseña de transferencia protege la página de descarga, pero el proveedor sigue teniendo el archivo legible. Un enlace de BIShare lleva la clave de descifrado tras el signo #, que los navegadores nunca envían a un servidor, así que <goEncrypted>el enlace es la clave</goEncrypted>: envíalo por un canal de confianza y activa la descarga única si puede reenviarse."
+      }
     ]
   }
 }
