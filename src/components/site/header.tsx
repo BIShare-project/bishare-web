@@ -23,10 +23,14 @@ const NAV_LINKS = [
   { href: "/features", key: "features" },
   { href: "/how-it-works", key: "howItWorks" },
   { href: "/security", key: "security" },
-  { href: "/faq", key: "faq" },
-  { href: "/blog", key: "blog" },
-  { href: "/stats", key: "stats" },
+  { href: "/faq", key: "faq", wide: true },
+  { href: "/blog", key: "blog", wide: true },
+  { href: "/stats", key: "stats", wide: true },
 ] as const;
+
+/* Measured 2026-10-19: the full bar needs 928px in English and up to 1,189px in
+   Russian (Spanish 1,112, German 1,058), so all eight links only show from xl.
+   Between lg and xl the `wide` links stay in the footer and the mobile menu. */
 
 /**
  * Sticky header that floats on scroll: flush and full-width at the top, then —
@@ -61,13 +65,13 @@ export function SiteHeader() {
         className={cn(
           "mx-auto flex items-center justify-between transition-all duration-300 ease-out",
           scrolled
-            ? "h-14 max-w-5xl rounded-2xl border border-border bg-background/70 px-5 shadow-lg shadow-black/[0.06] ring-1 ring-white/10 backdrop-blur-xl"
+            ? "h-14 max-w-7xl rounded-2xl border border-border bg-background/70 px-5 shadow-lg shadow-black/[0.06] ring-1 ring-white/10 backdrop-blur-xl"
             : "h-16 max-w-7xl px-6"
         )}
       >
         <Link
           href="/"
-          className="flex items-center gap-2.5"
+          className="flex shrink-0 items-center gap-2.5"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -92,7 +96,8 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "group relative py-1 text-sm transition-colors",
+                    "group relative whitespace-nowrap py-1 text-sm transition-colors",
+                    "wide" in link && link.wide && "hidden xl:block",
                     active
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
