@@ -22,6 +22,7 @@ export const KEY_COPY_SIZE = 4 + 1 + NONCE_SIZE + KEY_SIZE + TAG_SIZE;
 export const META_VERSION = 1;
 export const AUTH_SCHEME = "BIShare-Vault";
 export const REQUEST_WINDOW_SECS = 300;
+export const DEDUPE_TAG_SIZE = 16;
 
 const KEY_COPY_MAGIC = [0x42, 0x53, 0x56, 0x4b]; // "BSVK"
 const KEY_COPY_VERSION = 1;
@@ -31,6 +32,7 @@ const INFO_META = "bishare-vault-meta-v1";
 const INFO_BACKUP = "bishare-vault-backup-v1";
 const INFO_THUMB = "bishare-vault-thumb-v1";
 const INFO_GRANT = "bishare-vault-grant-v1";
+const INFO_DEDUPE = "bishare-vault-dedupe-v1";
 const AAD_META = "bishare-vault-meta-v1";
 const AAD_THUMB = "bishare-vault-thumb-v1";
 const REQ_PREFIX = "bishare-vault-req-v1";
@@ -49,7 +51,8 @@ export type VaultErrorCode =
   | "bad_meta"
   | "bad_signature"
   | "bad_authorization"
-  | "key_check_mismatch";
+  | "key_check_mismatch"
+  | "bad_compression";
 
 export class VaultError extends Error {
   constructor(
@@ -213,6 +216,59 @@ export async function thumbKey(fileKey: Uint8Array): Promise<Uint8Array> {
   return hkdf(key32(fileKey), ZERO_SALT, INFO_THUMB, KEY_SIZE);
 }
 
+/** `K_dedupe`: keys the dedupe tag; it never leaves the device. */
+export async function dedupeKey(vaultKey: Uint8Array): Promise<Uint8Array> {
+  return hkdf(key32(vaultKey), ZERO_SALT, INFO_DEDUPE, KEY_SIZE);
+}
+
+/** b64u(HMAC-SHA256(K_dedupe, h)[0..16)): same content in the same vault, same tag. */
+export async function dedupeTag(dedupeKey: Uint8Array, plaintextHash: Uint8Array): Promise<string> {
+  if (plaintextHash.length !== 32) throw new VaultError("invalid_key", "hash must be 32 bytes");
+  const k = await crypto.subtle.importKey("raw", buf(key32(dedupeKey)), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const mac = new Uint8Array(await crypto.subtle.sign("HMAC", k, buf(plaintextHash)));
+  return b64u(mac.slice(0, DEDUPE_TAG_SIZE));
+}
+
+// ── compression ───────────────────────────────────────────────────────────────
+
+async function pipeAll(stream: TransformStream<Uint8Array, Uint8Array>, data: Uint8Array, limit: number): Promise<Uint8Array> {
+  const writer = stream.writable.getWriter();
+  void writer.write(data).catch(() => {});
+  void writer.close().catch(() => {});
+  const reader = stream.readable.getReader();
+  const parts: Uint8Array[] = [];
+  let total = 0;
+  for (;;) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    total += value.length;
+    if (total > limit) {
+      await reader.cancel().catch(() => {});
+      throw new VaultError("bad_compression", "more bytes than the sealed size");
+    }
+    parts.push(value);
+  }
+  return concat(...parts);
+}
+
+/** Raw DEFLATE (RFC 1951) of a whole buffer, as the browser's encoder writes it. */
+export async function deflateRaw(data: Uint8Array): Promise<Uint8Array> {
+  return pipeAll(new CompressionStream("deflate-raw") as unknown as TransformStream<Uint8Array, Uint8Array>, data, Number.MAX_SAFE_INTEGER);
+}
+
+/** Inflate raw DEFLATE to exactly `expectedLen` bytes (the sealed `s`); never more. */
+export async function inflateRaw(data: Uint8Array, expectedLen: number): Promise<Uint8Array> {
+  let out: Uint8Array;
+  try {
+    out = await pipeAll(new DecompressionStream("deflate-raw") as unknown as TransformStream<Uint8Array, Uint8Array>, data, expectedLen);
+  } catch (e) {
+    if (e instanceof VaultError) throw e;
+    throw new VaultError("bad_compression", "not a raw DEFLATE stream");
+  }
+  if (out.length !== expectedLen) throw new VaultError("bad_compression", "fewer bytes than the sealed size");
+  return out;
+}
+
 // ── the recovery phrase (BIP-39, English, 24 words) ─────────────────────────
 
 const WORD_INDEX = new Map(BIP39_ENGLISH.map((w, i) => [w, i] as const));
@@ -296,6 +352,8 @@ export interface ObjectMeta {
   fileKey?: Uint8Array;
   /** SHA-256 of the plaintext (files). */
   hash?: Uint8Array;
+  /** "deflate" when the blob holds the bytes compressed (files); size and hash stay those of the file. */
+  compression?: "deflate";
 }
 
 function validateMeta(m: ObjectMeta): void {
@@ -308,6 +366,7 @@ function validateMeta(m: ObjectMeta): void {
     if (!m.mime) throw new VaultError("bad_meta", "file without mime type");
     if (m.fileKey?.length !== KEY_SIZE) throw new VaultError("bad_meta", "file without file key");
     if (m.hash?.length !== 32) throw new VaultError("bad_meta", "file without hash");
+    if (m.compression !== undefined && m.compression !== "deflate") throw new VaultError("bad_meta", "unknown compression");
   } else if (m.kind !== "dir") {
     throw new VaultError("bad_meta", "unknown kind");
   }
@@ -322,11 +381,12 @@ export function metaToJson(m: ObjectMeta): string {
     wire.t = m.mime;
     wire.fk = b64u(m.fileKey!);
     wire.h = b64u(m.hash!);
+    if (m.compression) wire.z = m.compression;
   }
   return JSON.stringify(wire);
 }
 
-/** Reads any JSON serialization; unknown keys are ignored. */
+/** Reads any JSON serialization; unknown keys are ignored, but an unknown `z` is refused. */
 export function metaFromJson(json: string): ObjectMeta {
   let j: Record<string, unknown>;
   try {
@@ -364,6 +424,10 @@ export function metaFromJson(json: string): ObjectMeta {
     }
     meta.fileKey = key32field(j.fk, "file key");
     meta.hash = key32field(j.h, "hash");
+    if (j.z !== undefined) {
+      if (j.z !== "deflate") throw new VaultError("bad_meta", "unknown compression");
+      meta.compression = "deflate";
+    }
   }
   validateMeta(meta);
   return meta;

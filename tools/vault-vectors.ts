@@ -13,11 +13,15 @@ import {
   authorization,
   b64u,
   base32Lower,
+  dedupeKey,
+  dedupeTag,
+  deflateRaw,
   deviceIdOf,
   devicePublicKey,
   fromB64u,
   grant,
   grantKeyFromSecret,
+  inflateRaw,
   isObjectId,
   isVaultId,
   keyCheck,
@@ -170,6 +174,27 @@ for (const bad of [
 ]) {
   await fails(`bad meta ${bad}`, "bad_meta", () => metaFromJson(bad));
 }
+
+// ── dedupe tag ──
+const dd = v.dedupe;
+const kDedupe = await dedupeKey(vk);
+same("dedupe key", kDedupe, dd.dedupeKey);
+same("dedupe tag", await dedupeTag(kDedupe, fromB64u(dd.hash)), dd.tag);
+checks++;
+if ((await dedupeTag(await dedupeKey(seq(32, 0x11)), fromB64u(dd.hash))) === dd.tag) throw new Error("dedupe tag must differ in another vault");
+
+// ── compressed file ──
+const cz = v.compressed;
+const zMeta = await openMeta(kMeta, vaultId, cz.objectId, cz.encMeta);
+same("compressed meta opens with z", metaToJson(zMeta), cz.metaJson);
+same("compressed meta seals", await sealMeta(kMeta, vaultId, cz.objectId, zMeta, fromB64u(cz.nonce)), cz.encMeta);
+same("Rust's DEFLATE inflates here", await inflateRaw(fromB64u(cz.deflated), zMeta.size!), cz.plaintext);
+same("the browser's DEFLATE round-trips", await inflateRaw(await deflateRaw(fromB64u(cz.plaintext)), zMeta.size!), cz.plaintext);
+await fails("inflate, one byte short of the sealed size", "bad_compression", () => inflateRaw(fromB64u(cz.deflated), zMeta.size! - 1));
+await fails("inflate, more than the sealed size", "bad_compression", () => inflateRaw(fromB64u(cz.deflated), zMeta.size! + 1));
+await fails("inflate, not DEFLATE", "bad_compression", () => inflateRaw(enc.encode("not deflate at all"), 10));
+await fails("inflate, a bomb stops at the limit", "bad_compression", async () => inflateRaw(await deflateRaw(new Uint8Array(10_000_000)), 1000));
+await fails("unknown compression", "bad_meta", () => metaFromJson(cz.metaJson.replace('"z":"deflate"', '"z":"zstd"')));
 
 // ── grant ──
 const g = v.grant;
