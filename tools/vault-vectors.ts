@@ -209,6 +209,27 @@ await fails("inflate, not DEFLATE", "bad_compression", () => inflateRaw(enc.enco
 await fails("inflate, a bomb stops at the limit", "bad_compression", async () => inflateRaw(await deflateRaw(new Uint8Array(10_000_000)), 1000));
 await fails("unknown compression", "bad_meta", () => metaFromJson(cz.metaJson.replace('"z":"deflate"', '"z":"zstd"')));
 
+// ── read exactly as Rust reads (audit 2026-10-21) ──
+await fails("meta, a key twice", "bad_meta", () => metaFromJson('{"v":1,"k":"dir","n":"a","n":"b","p":null,"m":1}'));
+await fails("meta, a lone surrogate in the name", "bad_meta", () => metaToJson({ kind: "dir", name: "a\uD800", parent: null, mtimeMs: 1 }));
+await fails("device name, a lone surrogate", "bad_device_name", () => sealDeviceName(kMeta, vaultId, v.device.deviceId, "\uDC00x"));
+{
+  const noParent = metaFromJson('{"v":1,"k":"dir","n":"a","m":1}');
+  if (noParent.parent !== null) throw new Error("a missing parent is the top of the Drive");
+  const nullZ = metaFromJson(cz.metaJson.replace('"z":"deflate"', '"z":null'));
+  if (nullZ.compression !== undefined) throw new Error("z null is not compressed");
+  for (const bad of ["YQ==", "Y+", "YR", "Y"]) {
+    let threw = false;
+    try {
+      fromB64u(bad);
+    } catch {
+      threw = true;
+    }
+    if (!threw) throw new Error(`fromB64u accepted ${bad}`);
+  }
+  checks += 6;
+}
+
 // ── grant ──
 const g = v.grant;
 const newKey = grantKeyFromSecret(fromB64u(g.newPriv));

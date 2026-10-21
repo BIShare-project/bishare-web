@@ -10,7 +10,9 @@ import { ed25519, x25519 } from "@noble/curves/ed25519.js";
 import { BIP39_ENGLISH } from "./bip39-english";
 
 const enc = new TextEncoder();
-const dec = new TextDecoder();
+// Fatal, and a BOM is kept (not dropped): bytes that are not UTF-8 are
+// refused, and a name reads exactly as Rust and the app read it.
+const dec = new TextDecoder("utf-8", { fatal: true, ignoreBOM: true });
 
 export const KEY_SIZE = 32;
 export const NONCE_SIZE = 12;
@@ -76,11 +78,46 @@ export function b64u(bytes: Uint8Array): string {
   return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
+/**
+ * Strict: the URL alphabet only, no padding, and only the one spelling that
+ * encodes these bytes (the last character's spare bits zero), as Rust and the
+ * app read it. Throws on anything else.
+ */
 export function fromB64u(s: string): Uint8Array {
+  if (!/^[A-Za-z0-9_-]*$/.test(s) || s.length % 4 === 1) throw new TypeError("not base64url");
   const bin = atob(s.replace(/-/g, "+").replace(/_/g, "/"));
   const out = new Uint8Array(bin.length);
   for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  if (b64u(out) !== s) throw new TypeError("not canonical base64url");
   return out;
+}
+
+/** A lone UTF-16 surrogate: not text Rust can hold. */
+const LONE_SURROGATE = /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/;
+
+/** The keys of a flat JSON object, in order (the text already parsed as JSON). */
+function topLevelKeys(json: string): string[] {
+  const keys: string[] = [];
+  let depth = 0;
+  let expectKey = false;
+  for (let i = 0; i < json.length; i++) {
+    const c = json[i];
+    if (c === '"') {
+      let j = i + 1;
+      while (json[j] !== '"') j += json[j] === "\\" ? 2 : 1;
+      if (depth === 1 && expectKey) keys.push(JSON.parse(json.slice(i, j + 1)) as string);
+      expectKey = false;
+      i = j;
+    } else if (c === "{" || c === "[") {
+      depth++;
+      expectKey = c === "{" && depth === 1;
+    } else if (c === "}" || c === "]") {
+      depth--;
+    } else if (c === "," && depth === 1) {
+      expectKey = true;
+    }
+  }
+  return keys;
 }
 
 function hex(bytes: Uint8Array): string {
@@ -235,10 +272,15 @@ export async function dedupeTag(dedupeKey: Uint8Array, plaintextHash: Uint8Array
 
 // ── compression ───────────────────────────────────────────────────────────────
 
+/** Bytes handed to a (de)compressor at a time: it inflates one write at a time, so a small write keeps the limit check close. */
+const PIPE_SLICE = 64 * 1024;
+
 async function pipeAll(stream: TransformStream<Uint8Array, Uint8Array>, data: Uint8Array, limit: number): Promise<Uint8Array> {
   const writer = stream.writable.getWriter();
-  void writer.write(data).catch(() => {});
-  void writer.close().catch(() => {});
+  void (async () => {
+    for (let i = 0; i < data.length; i += PIPE_SLICE) await writer.write(data.subarray(i, i + PIPE_SLICE));
+    await writer.close();
+  })().catch(() => {});
   const reader = stream.readable.getReader();
   const parts: Uint8Array[] = [];
   let total = 0;
@@ -362,6 +404,7 @@ export interface ObjectMeta {
 
 function validateMeta(m: ObjectMeta): void {
   if (!m.name) throw new VaultError("bad_meta", "empty name");
+  if (LONE_SURROGATE.test(m.name)) throw new VaultError("bad_meta", "name is not text");
   if (m.name.includes("/") || m.name.includes("\0")) throw new VaultError("bad_meta", "name contains / or NUL");
   if (m.parent !== null && !isObjectId(m.parent)) throw new VaultError("bad_meta", "parent is not an object id");
   if (!Number.isInteger(m.mtimeMs)) throw new VaultError("bad_meta", "mtime is not an integer");
@@ -398,9 +441,15 @@ export function metaFromJson(json: string): ObjectMeta {
   } catch {
     throw new VaultError("bad_meta", "not JSON");
   }
+  if (j === null || typeof j !== "object" || Array.isArray(j)) throw new VaultError("bad_meta", "not an object");
+  // JSON.parse keeps the last of two equal keys; Rust refuses the object.
+  const keys = topLevelKeys(json);
+  if (new Set(keys).size !== keys.length) throw new VaultError("bad_meta", "a key appears twice");
   if (j.v !== META_VERSION) throw new VaultError("bad_meta", "unknown version");
   if (j.k !== "file" && j.k !== "dir") throw new VaultError("bad_meta", "unknown kind");
   if (typeof j.n !== "string") throw new VaultError("bad_meta", "name is not a string");
+  // An absent parent is the top of the Drive, as in Rust.
+  if (j.p === undefined) j.p = null;
   if (j.p !== null && typeof j.p !== "string") throw new VaultError("bad_meta", "parent is not a string");
   if (typeof j.m !== "number") throw new VaultError("bad_meta", "mtime is not a number");
   const key32field = (v: unknown, what: string): Uint8Array | undefined => {
@@ -428,7 +477,8 @@ export function metaFromJson(json: string): ObjectMeta {
     }
     meta.fileKey = key32field(j.fk, "file key");
     meta.hash = key32field(j.h, "hash");
-    if (j.z !== undefined) {
+    // Absent or null: stored as is (Rust reads null the same way).
+    if (j.z !== undefined && j.z !== null) {
       if (j.z !== "deflate") throw new VaultError("bad_meta", "unknown compression");
       meta.compression = "deflate";
     }
@@ -462,7 +512,13 @@ export async function openMeta(kMeta: Uint8Array, vaultId: string, objectId: str
     throw new VaultError("sealed_box_too_short");
   }
   const plain = await open(kMeta, box, aad);
-  return metaFromJson(dec.decode(plain));
+  let json: string;
+  try {
+    json = dec.decode(plain);
+  } catch {
+    throw new VaultError("bad_meta", "not UTF-8");
+  }
+  return metaFromJson(json);
 }
 
 // ── device names ────────────────────────────────────────────────────────────
@@ -473,7 +529,7 @@ function deviceAad(vaultId: string, deviceId: string): Uint8Array {
 }
 
 function checkDeviceName(name: string): void {
-  if (name.length === 0 || name.includes("\u0000")) throw new VaultError("bad_device_name");
+  if (name.length === 0 || name.includes("\u0000") || LONE_SURROGATE.test(name)) throw new VaultError("bad_device_name");
 }
 
 /** enc_name for one device. `nonce` is fixed only by tests. */
@@ -491,7 +547,13 @@ export async function openDeviceName(kMeta: Uint8Array, vaultId: string, deviceI
   } catch {
     throw new VaultError("sealed_box_too_short");
   }
-  const name = dec.decode(await open(kMeta, box, aad));
+  let name: string;
+  try {
+    name = dec.decode(await open(kMeta, box, aad));
+  } catch (e) {
+    if (e instanceof VaultError) throw e;
+    throw new VaultError("bad_device_name", "not UTF-8");
+  }
   checkDeviceName(name);
   return name;
 }
