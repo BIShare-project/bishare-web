@@ -9,6 +9,7 @@ import { VButton } from "@/components/site/vbutton";
 import { HeroCta } from "@/components/site/hero-cta";
 import { StoreButtons } from "@/components/site/store-buttons";
 import { ArticleToc } from "@/components/site/article-toc";
+import { YouTubeFacade } from "@/components/site/youtube-facade";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
 import { LandingArt } from "@/components/site/landing-art";
 import { ImageLightbox } from "@/components/site/image-lightbox";
@@ -48,6 +49,19 @@ const STEP_ITEMS = ["0", "1", "2"] as const;
 const SPEED_ITEMS = ["0", "1", "2"] as const;
 const FIX_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
+
+/* The one-minute "AirDrop to PC" video (YouTube, English, published 2026-10-21;
+   source and render scripts in bishare-project/video/airdrop-to-pc). Shown on
+   the English page only, behind a click-to-load facade. */
+const VIDEO = {
+  id: "tb4ycLQdJv0",
+  name: "AirDrop to PC: Send iPhone Videos to Windows over Wi-Fi (Free, No Cable)",
+  description:
+    "How to send videos and any file from an iPhone to a Windows PC over your own Wi-Fi, free and without a cable, with BIShare.",
+  uploadDate: "2026-10-21",
+  duration: "PT1M",
+  thumbnail: "/img/video/airdrop-to-pc.jpg",
+};
 const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] as const;
 
 /* Comparison truth table. Columns: BIShare · Apple Devices · File Explorer
@@ -179,9 +193,23 @@ export default async function IphoneToPcPage({
     isPartOf: { "@type": "WebSite", name: "BIShare", url: "https://bishare.app" },
   };
 
+  const videoLd =
+    locale === "en"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: VIDEO.name,
+          description: VIDEO.description,
+          thumbnailUrl: [`https://bishare.app${VIDEO.thumbnail}`],
+          uploadDate: VIDEO.uploadDate,
+          duration: VIDEO.duration,
+          embedUrl: `https://www.youtube.com/embed/${VIDEO.id}`,
+        }
+      : null;
+
   return (
     <div className="min-h-screen bg-background">
-      {[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "iPhone files to PC")].map(
+      {[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "iPhone files to PC"), ...(videoLd ? [videoLd] : [])].map(
         (ld, i) => (
           <script
             key={i}
@@ -258,6 +286,20 @@ export default async function IphoneToPcPage({
               zoomHint={chrome("imageZoom")}
               className="mt-8"
             />
+
+            {locale === "en" && (
+              <section className="mt-14">
+                <H2 id="video">{t("video.title")}</H2>
+                <YouTubeFacade
+                  id={VIDEO.id}
+                  title={VIDEO.name}
+                  playLabel={t("video.play")}
+                  thumbnail={VIDEO.thumbnail}
+                  className="mt-5"
+                />
+                <p className="mt-3 text-sm text-muted-foreground">{t("video.note")}</p>
+              </section>
+            )}
 
             {/* What a cable can and cannot see */}
             <section className="mt-14">
