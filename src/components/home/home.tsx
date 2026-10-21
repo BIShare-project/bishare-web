@@ -284,7 +284,12 @@ const CTA_POINTS = ["free", "platforms", "anyone"] as const;
    from posts, directories and press land on "/", so without a body-link path
    the 28 guide pages depend on the footer alone. Order follows what Search
    Console says already earns impressions. Labels reuse the "related"
-   namespace — already translated in all 13 locales. */
+   namespace — already translated in all 13 locales.
+
+   The last four were added on 2026-10-21: guides sitting at positions 11–30
+   in Search Console (28 days to 14 Oct; between computers 12.9, encrypted
+   transfer 18.0, how to AirDrop 11.9, AirDrop not working 11.2 in German),
+   none of them changed on 17 Oct. Read their positions again in 2–3 weeks. */
 const GUIDES = [
   "airdrop-for-windows",
   "send-large-files",
@@ -294,6 +299,10 @@ const GUIDES = [
   "wetransfer-alternative",
   "transfer-files-phone-to-pc",
   "localsend-alternative",
+  "transfer-files-between-computers",
+  "encrypted-file-transfer",
+  "how-to-airdrop",
+  "airdrop-not-working",
 ] as const;
 
 async function Guides() {
