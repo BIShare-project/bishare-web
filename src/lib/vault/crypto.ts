@@ -35,6 +35,9 @@ const INFO_GRANT = "bishare-vault-grant-v1";
 const INFO_DEDUPE = "bishare-vault-dedupe-v1";
 const AAD_META = "bishare-vault-meta-v1";
 const AAD_THUMB = "bishare-vault-thumb-v1";
+const AAD_DEVICE = "bishare-vault-device-v1";
+/** Longest device name a writer emits, in characters (VAULT-SPEC "Device names"). */
+export const DEVICE_NAME_MAX = 100;
 const REQ_PREFIX = "bishare-vault-req-v1";
 const NONCE_PREFIX = "bishare-vault-nonce-v1";
 const PHRASE_WORDS = 24;
@@ -49,6 +52,7 @@ export type VaultErrorCode =
   | "bad_public_key"
   | "bad_phrase"
   | "bad_meta"
+  | "bad_device_name"
   | "bad_signature"
   | "bad_authorization"
   | "key_check_mismatch"
@@ -459,6 +463,37 @@ export async function openMeta(kMeta: Uint8Array, vaultId: string, objectId: str
   }
   const plain = await open(kMeta, box, aad);
   return metaFromJson(dec.decode(plain));
+}
+
+// ── device names ────────────────────────────────────────────────────────────
+
+function deviceAad(vaultId: string, deviceId: string): Uint8Array {
+  checkIds(vaultId, deviceId);
+  return enc.encode(`${AAD_DEVICE}|${vaultId}|${deviceId}`);
+}
+
+function checkDeviceName(name: string): void {
+  if (name.length === 0 || name.includes("\u0000")) throw new VaultError("bad_device_name");
+}
+
+/** enc_name for one device. `nonce` is fixed only by tests. */
+export async function sealDeviceName(kMeta: Uint8Array, vaultId: string, deviceId: string, name: string, nonce?: Uint8Array): Promise<string> {
+  checkDeviceName(name);
+  if ([...name].length > DEVICE_NAME_MAX) throw new VaultError("bad_device_name", "too long");
+  return b64u(await seal(kMeta, enc.encode(name), deviceAad(vaultId, deviceId), nonce));
+}
+
+export async function openDeviceName(kMeta: Uint8Array, vaultId: string, deviceId: string, encName: string): Promise<string> {
+  const aad = deviceAad(vaultId, deviceId);
+  let box: Uint8Array;
+  try {
+    box = fromB64u(encName);
+  } catch {
+    throw new VaultError("sealed_box_too_short");
+  }
+  const name = dec.decode(await open(kMeta, box, aad));
+  checkDeviceName(name);
+  return name;
 }
 
 // ── thumbnails ──────────────────────────────────────────────────────────────

@@ -28,6 +28,8 @@ import {
   keyFromPhrase,
   metaFromJson,
   metaKey,
+  openDeviceName,
+  sealDeviceName,
   metaToJson,
   openKeyCopy,
   openMeta,
@@ -127,6 +129,17 @@ await fails("verify, other key", "bad_signature", () => verifyRequest(devicePubl
 await fails("parse junk", "bad_authorization", () => parseAuthorization("Bearer abc"));
 await fails("parse v=2", "bad_authorization", () => parseAuthorization(r.authorization.replace("v=1", "v=2")));
 await fails("parse duplicate", "bad_authorization", () => parseAuthorization(`${r.authorization},v=1`));
+
+// ── device names ──
+{
+  const kMeta0 = await metaKey(fromB64u(v.vaultKey));
+  const dev = v.device;
+  same("device name seals", await sealDeviceName(kMeta0, vaultId, dev.deviceId, dev.name, fromB64u(dev.nameNonce)), dev.encName);
+  same("device name opens", await openDeviceName(kMeta0, vaultId, dev.deviceId, dev.encName), dev.name);
+  await fails("device name, other device", "auth_failed", () => openDeviceName(kMeta0, vaultId, v.file.objectId, dev.encName));
+  await fails("device name, empty", "bad_device_name", () => sealDeviceName(kMeta0, vaultId, dev.deviceId, ""));
+  await fails("device name, too long", "bad_device_name", () => sealDeviceName(kMeta0, vaultId, dev.deviceId, "x".repeat(101)));
+}
 
 // ── file metadata and thumbnail ──
 const f = v.file;
