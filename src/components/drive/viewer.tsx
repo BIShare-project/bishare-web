@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ChevronLeft, ChevronRight, Download, FolderInput, Loader2, MoreHorizontal, Pencil, Trash2, X } from "lucide-react";
 import { fetchPlain, IN_PAGE_MAX, streamMedia } from "@/lib/vault/download";
+import { FilePreview, PREVIEW_MAX, previewKindOf, type PreviewKind } from "./previews";
 import type { DriveObject } from "@/lib/vault/store";
 import { useActions } from "./actions";
 import { ObjectIcon } from "./bits";
@@ -18,22 +19,9 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 type Shown =
   | { kind: "loading"; done: number; total: number }
-  | { kind: "image" | "pdf" | "video" | "audio"; url: string }
-  | { kind: "text"; text: string }
+  | { kind: "stream"; media: "video" | "audio"; url: string }
+  | { kind: "file"; preview: PreviewKind; blob: Blob }
   | { kind: "none"; reason: "type" | "size" | "failed" };
-
-/** Text files shown as text, up to this size. */
-const TEXT_MAX = 2 * 1024 * 1024;
-
-function shownKind(o: DriveObject): "image" | "pdf" | "video" | "audio" | "text" | null {
-  const m = o.mime ?? "";
-  if (/^image\/(jpeg|png|gif|webp|avif|bmp|svg\+xml|heic|heif)$/.test(m)) return "image";
-  if (m === "application/pdf") return "pdf";
-  if (m.startsWith("video/")) return "video";
-  if (m.startsWith("audio/")) return "audio";
-  if (m.startsWith("text/") || m === "application/json" || m === "application/xml") return "text";
-  return null;
-}
 
 function Icon({ label, onClick, disabled, children }: { label: string; onClick: () => void; disabled?: boolean; children: React.ReactNode }) {
   return (
@@ -67,33 +55,29 @@ export function Viewer({ ids, at, onClose }: { ids: string[]; at: number; onClos
   useEffect(() => {
     if (!o) return;
     const ctrl = new AbortController();
-    let url: string | null = null;
     let end: (() => void) | undefined;
-    const kind = shownKind(o);
+    const preview = previewKindOf(o.name, o.mime);
     setShown({ kind: "loading", done: 0, total: o.size ?? 0 });
     void (async () => {
       try {
-        if (!kind) return setShown({ kind: "none", reason: "type" });
-        const big = (o.size ?? 0) > IN_PAGE_MAX;
-        if (big && (kind === "video" || kind === "audio")) {
+        if (!preview) return setShown({ kind: "none", reason: "type" });
+        const size = o.size ?? 0;
+        // Large video and sound play while they download, decrypted by the worker.
+        if (size > IN_PAGE_MAX && (preview === "video" || preview === "audio")) {
           const s = await streamMedia(client, o, scope);
           if (!s) return setShown({ kind: "none", reason: "size" });
           end = s.end;
-          return setShown({ kind, url: s.src });
+          return setShown({ kind: "stream", media: preview, url: s.src });
         }
-        if (big || (kind === "text" && (o.size ?? 0) > TEXT_MAX)) return setShown({ kind: "none", reason: "size" });
+        if (size > PREVIEW_MAX[preview]) return setShown({ kind: "none", reason: "size" });
         const blob = await fetchPlain(client, o, (done, total) => setShown({ kind: "loading", done, total }), ctrl.signal);
-        if (ctrl.signal.aborted) return;
-        if (kind === "text") return setShown({ kind: "text", text: await blob.text() });
-        url = URL.createObjectURL(blob);
-        setShown({ kind, url });
+        if (!ctrl.signal.aborted) setShown({ kind: "file", preview, blob });
       } catch {
         if (!ctrl.signal.aborted) setShown({ kind: "none", reason: "failed" });
       }
     })();
     return () => {
       ctrl.abort();
-      if (url) URL.revokeObjectURL(url);
       end?.();
     };
   }, [o?.id, o?.seq, client, scope]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -163,20 +147,16 @@ export function Viewer({ ids, at, onClose }: { ids: string[]; at: number; onClos
                 <Progress value={shown.total ? (shown.done * 100) / shown.total : 5} className="max-w-56" />
                 <span>{t("viewer.opening")}</span>
               </div>
-            ) : shown.kind === "image" ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={shown.url} alt={o.name} className="max-h-[62vh] w-full object-contain" />
-            ) : shown.kind === "video" ? (
-              <video src={shown.url} controls autoPlay playsInline className="max-h-[62vh] w-full bg-black" />
-            ) : shown.kind === "audio" ? (
-              <div className="flex w-full flex-col items-center gap-4 p-8">
-                <ObjectIcon o={o} className="size-14 [&_svg]:size-6" />
-                <audio src={shown.url} controls autoPlay className="w-full" />
-              </div>
-            ) : shown.kind === "pdf" ? (
-              <iframe src={shown.url} title={o.name} className="h-[62vh] w-full border-0 bg-white" />
-            ) : shown.kind === "text" ? (
-              <pre className="m-0 max-h-[62vh] w-full overflow-auto p-4 font-mono text-2xs leading-relaxed whitespace-pre-wrap">{shown.text}</pre>
+            ) : shown.kind === "stream" ? (
+              shown.media === "video" ? (
+                <video src={shown.url} controls autoPlay playsInline className="max-h-[62vh] w-full bg-black" />
+              ) : (
+                <div className="w-full p-8">
+                  <audio src={shown.url} controls autoPlay className="w-full" />
+                </div>
+              )
+            ) : shown.kind === "file" ? (
+              <FilePreview key={o.id} kind={shown.preview} blob={shown.blob} name={o.name} onDownload={() => void actions.download([o])} />
             ) : (
               <div className="flex max-w-xs flex-col items-center gap-2 p-8 text-center">
                 <ObjectIcon o={o} className="size-12 [&_svg]:size-5" />
