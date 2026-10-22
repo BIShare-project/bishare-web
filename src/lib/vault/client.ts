@@ -61,6 +61,8 @@ export interface DeviceRow {
   publicKey: string;
   status: "active" | "pending" | "revoked";
   kind: "app" | "web";
+  /** For a "web" device: a browser, or a Windows or Linux computer a phone approved. */
+  client?: "browser" | "desktop" | null;
   idleLimitMs: number | null;
   encName: string | null;
   addedBy: string;

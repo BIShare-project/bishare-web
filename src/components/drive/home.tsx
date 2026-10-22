@@ -223,7 +223,7 @@ export function HomePage() {
           }
         >
           {index.devices.slice(0, 5).map((d) => {
-            const Icon = d.kind === "web" ? Globe : /phone|galaxy|pixel|android|ios|iphone/i.test(d.name ?? "") ? Smartphone : Monitor;
+            const Icon = d.kind === "web" && d.client !== "desktop" ? Globe : d.kind === "app" && /phone|galaxy|pixel|android|ios|iphone/i.test(d.name ?? "") ? Smartphone : Monitor;
             return (
               <div key={d.id} className="flex items-center gap-3 border-b px-4 py-2.5 last:border-b-0">
                 <span className="grid size-7 shrink-0 place-items-center border bg-muted/60">

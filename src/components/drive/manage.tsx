@@ -231,7 +231,7 @@ export function DevicesPage() {
           </TableHeader>
           <TableBody>
             {index.devices.map((d) => {
-              const Icon = d.kind === "web" ? Globe : /phone|galaxy|pixel|android|ios|iphone/i.test(d.name ?? "") ? Smartphone : Monitor;
+              const Icon = d.kind === "web" && d.client !== "desktop" ? Globe : d.kind === "app" && /phone|galaxy|pixel|android|ios|iphone/i.test(d.name ?? "") ? Smartphone : Monitor;
               const me = d.id === session.deviceId;
               const canPick = d.kind === "web" && !me;
               const on = has(d.id);
