@@ -309,6 +309,7 @@ export const DOC_TYPES = [
 ];
 
 /** Removed or expired on the server: the browser must sign in again. */
+/** Removed from the Drive, or the Drive is gone; never a clock that is off. */
 export function isLockedOut(e: unknown): boolean {
-  return e instanceof DriveApiError && (e.status === 401 || e.code === "VAULT_NOT_FOUND");
+  return e instanceof DriveApiError && ((e.status === 401 && e.code !== "VAULT_CLOCK") || e.code === "VAULT_NOT_FOUND");
 }

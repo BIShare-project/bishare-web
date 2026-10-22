@@ -12,6 +12,12 @@ export interface Pairing extends WebSlot {
   stay: boolean;
   /** What the QR code holds: BSVW1.<slot>.<hand-off key>.<device key>. */
   qr: string;
+  /**
+   * The approval's box, once taken: the slot gives it out only once, so a
+   * failure after it (the network, the key check) is retried from here
+   * rather than leaving an approved browser without its key.
+   */
+  taken?: { vaultId: string; box: string; granterPub: string };
 }
 
 export async function startPairing(name: string, stay: boolean): Promise<Pairing> {
@@ -25,8 +31,12 @@ export async function startPairing(name: string, stay: boolean): Promise<Pairing
 
 /** One look at the slot: the session once a device approved, else null. */
 export async function checkPairing(p: Pairing): Promise<DriveSession | null> {
-  const got = await takeWebBox(p.seed, p.slot);
-  if (!got.ready) return null;
+  let got = p.taken;
+  if (!got) {
+    const box = await takeWebBox(p.seed, p.slot);
+    if (!box.ready) return null;
+    got = p.taken = { vaultId: box.vaultId, box: box.box, granterPub: box.granterPub };
+  }
   // The browser is a device of the vault now: it asks for the key check itself.
   const info = await new DriveClient({ vaultId: got.vaultId, seed: p.seed }).info();
   if (!info.keyCheck) throw new Error("This Drive has no key yet");

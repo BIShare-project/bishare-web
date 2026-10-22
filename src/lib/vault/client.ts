@@ -17,12 +17,26 @@ export class DriveApiError extends Error {
   }
 }
 
+/**
+ * Seconds the API's clock is ahead of this computer's, from the Date header
+ * of its last answer: requests are signed on the server's time, which refuses
+ * anything more than 300 s off (audit W3: a computer with a wrong clock lost
+ * its Drive, or could never open it).
+ */
+let skew = 0;
+
+function noteClock(res: Response): void {
+  const at = Date.parse(res.headers.get("Date") ?? "");
+  if (Number.isFinite(at)) skew = Math.round((at - Date.now()) / 1000);
+}
+
 async function send<T>(
   method: string,
   path: string,
   json: unknown,
   auth: ((body: Uint8Array) => Promise<string>) | null,
-  raw?: Uint8Array
+  raw?: Uint8Array,
+  again = true
 ): Promise<T> {
   const body = raw ?? (json === undefined ? new Uint8Array(0) : enc.encode(JSON.stringify(json)));
   const headers: Record<string, string> = {};
@@ -35,14 +49,19 @@ async function send<T>(
   } catch {
     throw new DriveApiError(0, "NETWORK", "The network went away");
   }
+  noteClock(res);
   const data = (await res.json().catch(() => null)) as { success?: boolean; data?: T; error?: { code?: string; message?: string } } | null;
+  // Refused for the time: once more, signed on the server's clock just read.
+  if (res.status === 401 && data?.error?.code === "VAULT_CLOCK" && auth && again) {
+    return send<T>(method, path, json, auth, raw, false);
+  }
   if (!res.ok || !data || data.success === false) {
     throw new DriveApiError(res.status, data?.error?.code ?? (res.status >= 500 ? "NETWORK" : "UNKNOWN"), data?.error?.message ?? res.statusText);
   }
   return data.data as T;
 }
 
-const now = () => Math.floor(Date.now() / 1000);
+const now = () => Math.floor(Date.now() / 1000) + skew;
 
 export interface ObjectRow {
   id: string;

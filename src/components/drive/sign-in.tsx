@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { QRCodeSVG } from "qrcode.react";
 import { Lock, Moon, RotateCw, ScanLine, ShieldCheck, Smartphone, Sun } from "lucide-react";
+import { DriveApiError } from "@/lib/vault/client";
 import { cancelPairing, checkPairing, showCode, startPairing, type Pairing } from "@/lib/vault/pair";
 import { browserName, type DriveSession } from "@/lib/vault/session";
 import { BrandMark } from "./shell";
@@ -14,6 +15,11 @@ import { Switch } from "./ui/switch";
 
 const POLL_MS = 2000;
 const CODE_LIFE_S = 300;
+/**
+ * New codes made by themselves before the page waits for a tap (audit W8: the
+ * API makes 30 codes an hour per network, and a forgotten tab used them all).
+ */
+const AUTO_RENEWALS = 3;
 
 /**
  * Opening the Drive in this browser (drive-plan.md task 6.3): no password
@@ -33,12 +39,24 @@ export function SignIn({
   const [stay, setStay] = useState(false);
   const [pairing, setPairing] = useState<Pairing | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [expired, setExpired] = useState(false);
   const [left, setLeft] = useState(CODE_LIFE_S);
   const stayRef = useRef(stay);
   const current = useRef<Pairing | null>(null);
+  const renewals = useRef(0);
+
+  // The words for what went wrong, never the server's English.
+  const say = useCallback(
+    (e: unknown) => {
+      const code = e instanceof DriveApiError ? (e.code === "TRANSFER_RATE_LIMITED" ? "RATE_LIMITED" : e.code) : "UNKNOWN";
+      return t.has(`errors.${code}`) ? t(`errors.${code}`) : t("errors.UNKNOWN");
+    },
+    [t]
+  );
 
   const open = useCallback(async () => {
     setError(null);
+    setExpired(false);
     // The code on screen until now can no longer be approved (drive-plan 6.12).
     if (current.current) void cancelPairing(current.current).catch(() => undefined);
     try {
@@ -48,9 +66,9 @@ export function SignIn({
     } catch (e) {
       current.current = null;
       setPairing(null);
-      setError(e instanceof Error ? e.message : String(e));
+      setError(say(e));
     }
-  }, []);
+  }, [say]);
 
   useEffect(() => {
     void open();
@@ -71,7 +89,18 @@ export function SignIn({
       if (stopped) return;
       const remaining = pairing.expiresAt - Date.now();
       setLeft(Math.max(0, Math.round(remaining / 1000)));
-      if (remaining <= 0) return void open();
+      // An approval already taken is finished from here, whatever the clock.
+      if (remaining <= 0 && !pairing.taken) {
+        if (document.visibilityState !== "visible" || renewals.current >= AUTO_RENEWALS) {
+          stopped = true;
+          current.current = null;
+          setPairing(null);
+          setExpired(true);
+          return;
+        }
+        renewals.current++;
+        return void open();
+      }
       try {
         const s = await checkPairing(pairing);
         if (s && !stopped) {
@@ -80,7 +109,7 @@ export function SignIn({
           await onApproved(s);
         }
       } catch (e) {
-        if (!stopped) setError(e instanceof Error ? e.message : String(e));
+        if (!stopped) setError(say(e));
       }
     };
     const timer = setInterval(() => void tick(), POLL_MS);
@@ -89,7 +118,7 @@ export function SignIn({
       stopped = true;
       clearInterval(timer);
     };
-  }, [pairing, onApproved, open]);
+  }, [pairing, onApproved, open, say]);
 
   const mm = `${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")}`;
   const steps = [
@@ -157,11 +186,30 @@ export function SignIn({
                 </div>
                 {error ? <p className="max-w-60 text-center text-3xs text-destructive">{error}</p> : null}
               </>
+            ) : expired ? (
+              <div className="flex flex-col items-center gap-3 text-center">
+                <p className="text-xs font-medium">{t("signin.expired")}</p>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    renewals.current = 0;
+                    void open();
+                  }}
+                >
+                  <RotateCw /> {t("signin.newCode")}
+                </Button>
+              </div>
             ) : error ? (
               <div className="flex flex-col items-center gap-3 text-center">
                 <p className="text-xs font-medium">{t("error.title")}</p>
                 <p className="max-w-64 text-2xs text-muted-foreground">{error}</p>
-                <Button variant="outline" onClick={() => void open()}>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    renewals.current = 0;
+                    void open();
+                  }}
+                >
                   <RotateCw /> {t("error.retry")}
                 </Button>
               </div>
