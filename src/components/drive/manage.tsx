@@ -29,7 +29,7 @@ import { DriveApiError } from "@/lib/vault/client";
 import type { DriveDevice, DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
 import { useActions } from "./actions";
-import { EmptyState, KIND_COLORS, Kpi, KpiGrid, ObjectThumb, PageHead, Panel } from "./bits";
+import { EmptyState, KIND_COLORS, Kpi, KpiGrid, ObjectThumb, PageHead, Panel, useStepped } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, dayTitle, percent, when } from "./format";
 import { ExplainGrid, InfoTip, Term } from "./help";
@@ -67,7 +67,18 @@ export function PhotosPage() {
   for (const o of media) {
     const d = new Date(o.mtimeMs);
     const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
-    days.set(key, [...(days.get(key) ?? []), o]);
+    const list = days.get(key);
+    if (list) list.push(o);
+    else days.set(key, [o]);
+  }
+  // Only the first [limit] photos are drawn; [mark] below them adds more.
+  const { limit, mark } = useStepped(media.length);
+  const drawn: { all: DriveObject[]; list: DriveObject[] }[] = [];
+  let left = limit;
+  for (const all of days.values()) {
+    if (left <= 0) break;
+    drawn.push({ all, list: all.slice(0, left) });
+    left -= all.length;
   }
   const size = media.reduce((a, o) => a + (o.size ?? 0), 0);
   const videos = media.filter((o) => o.mime?.startsWith("video/")).length;
@@ -101,11 +112,11 @@ export function PhotosPage() {
           <EmptyState icon={ImageIcon} title={t("empty.photos")} description={t("empty.photosBody")} />
         </Panel>
       ) : (
-        [...days.values()].map((list) => (
+        drawn.map(({ all, list }) => (
           <section key={list[0]!.id}>
             <div className={cn("sticky z-10 -mx-1 mb-2 flex items-baseline gap-2 bg-background/95 px-1 py-1.5 backdrop-blur", picking ? "top-[6.75rem]" : "top-14")}>
               <h2 className="text-xs font-semibold">{dayTitle(list[0]!.mtimeMs, locale)}</h2>
-              <span className="text-3xs text-muted-foreground">{t("items", { n: list.length })}</span>
+              <span className="text-3xs text-muted-foreground">{t("items", { n: all.length })}</span>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-1 sm:grid-cols-[repeat(auto-fill,minmax(150px,1fr))]">
               {list.map((o) => {
@@ -146,6 +157,7 @@ export function PhotosPage() {
           </section>
         ))
       )}
+      {mark}
     </div>
   );
 }

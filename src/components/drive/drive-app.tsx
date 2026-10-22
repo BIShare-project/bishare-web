@@ -12,6 +12,7 @@ import { Uploader } from "@/lib/vault/upload";
 import { Palette } from "./palette";
 import { DriveShell } from "./shell";
 import { SignIn } from "./sign-in";
+import { forgetThumbs } from "./thumbs";
 import { ConfirmDialog, FolderPicker, PromptDialog } from "./ui";
 import { Toaster } from "./ui/sonner";
 import { TooltipProvider } from "./ui/tooltip";
@@ -132,6 +133,8 @@ export function DriveApp({ base, className, children }: { base: string; classNam
 
   const signOutHere = useCallback(async () => {
     live?.uploader.cancelAll();
+    // Opened thumbnails go with the keys.
+    forgetThumbs();
     await clearSession();
     setViewer(null);
     setSession(null);

@@ -66,7 +66,7 @@ export function HomePage() {
     { n: index.unreadable, hot: index.unreadable > 0, title: t("needs.unreadable"), body: t("needs.unreadableBody"), href: "/security" },
   ].filter((q) => q.n > 0);
 
-  const sizeOf = (id: string): number => live.filter((o) => o.parent === id).reduce((a, o) => a + (o.kind === "file" ? (o.size ?? 0) : sizeOf(o.id)), 0);
+  const sizeOf = (id: string): number => index.children(id).reduce((a, o) => a + (o.kind === "file" ? (o.size ?? 0) : sizeOf(o.id)), 0);
   const largestFolders = live
     .filter((o) => o.kind === "dir" && o.parent === null)
     .map((d) => ({ d, size: sizeOf(d.id), n: index.countUnder(d.id) }))

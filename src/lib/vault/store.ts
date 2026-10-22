@@ -30,6 +30,11 @@ export class DriveIndex {
   private pulling: Promise<void> | null = null;
   private queued: Promise<void> | null = null;
   private version = 0;
+  /**
+   * The live objects and each folder's live children, worked out once after a
+   * change rather than on every row drawn (audit W7: 20–30k photos).
+   */
+  private view: { live: DriveObject[]; byParent: Map<string | null, DriveObject[]> } | null = null;
   seq = 0;
   info: VaultInfo | null = null;
   devices: DriveDevice[] = [];
@@ -87,6 +92,7 @@ export class DriveIndex {
     for (;;) {
       const page = await this.client.changes(this.seq, full);
       if (page.resync) {
+        this.view = null;
         this.objects.clear();
         this.seq = 0;
         full = true;
@@ -106,6 +112,7 @@ export class DriveIndex {
   }
 
   private async apply(k: Uint8Array, row: ObjectRow): Promise<void> {
+    this.view = null;
     if (row.deleted || !row.encMeta) {
       this.objects.delete(row.id);
       return;
@@ -137,9 +144,21 @@ export class DriveIndex {
     return [...this.objects.values()];
   }
 
-  /** Live objects (not in the trash, nor under a trashed folder). */
-  live(): DriveObject[] {
-    return this.all().filter((o) => !this.inTrash(o));
+  private derived(): { live: DriveObject[]; byParent: Map<string | null, DriveObject[]> } {
+    if (this.view) return this.view;
+    const live = this.all().filter((o) => !this.inTrash(o));
+    const byParent = new Map<string | null, DriveObject[]>();
+    for (const o of live) {
+      const list = byParent.get(o.parent);
+      if (list) list.push(o);
+      else byParent.set(o.parent, [o]);
+    }
+    return (this.view = { live, byParent });
+  }
+
+  /** Live objects (not in the trash, nor under a trashed folder). Shared: copy before sorting. */
+  live(): readonly DriveObject[] {
+    return this.derived().live;
   }
 
   inTrash(o: DriveObject): boolean {
@@ -151,7 +170,7 @@ export class DriveIndex {
   }
 
   children(parent: string | null): DriveObject[] {
-    return this.live().filter((o) => o.parent === parent);
+    return [...(this.derived().byParent.get(parent) ?? [])];
   }
 
   /** The top of each trashed tree: a trashed folder shows once. */
@@ -170,9 +189,9 @@ export class DriveIndex {
     return out;
   }
 
-  /** Files and folders under [id] at any depth (live ones). */
+  /** Files and folders directly in folder [id] (live ones). */
   countUnder(id: string): number {
-    return this.live().filter((o) => o.parent === id).length;
+    return this.derived().byParent.get(id)?.length ?? 0;
   }
 
   /** Bytes of a file, or of every file under a folder at any depth (trashed ones too). */

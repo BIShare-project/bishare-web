@@ -1,13 +1,13 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode, type Ref } from "react";
 import { Archive, File, FileAudio, FileImage, FileSpreadsheet, FileText, FileVideo, Folder, Presentation, type LucideIcon } from "lucide-react";
 import type { DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
 import { useDrive } from "./drive-app";
 import { InfoTip } from "./help";
 import { kindOf } from "./format";
-import { useThumb } from "./thumbs";
+import { useNear, useThumb } from "./thumbs";
 
 const ICONS = {
   image: FileImage,
@@ -37,34 +37,61 @@ export function iconFor(o: DriveObject): LucideIcon {
   return o.kind === "dir" ? Folder : ICONS[kindOf(o.mime)];
 }
 
-export function ObjectIcon({ o, className }: { o: DriveObject; className?: string }) {
+export function ObjectIcon({ o, className, ref }: { o: DriveObject; className?: string; ref?: Ref<HTMLSpanElement> }) {
   const Icon = iconFor(o);
   const kind = o.kind === "dir" ? "dir" : kindOf(o.mime);
   return (
-    <span className={cn("grid size-7 shrink-0 place-items-center border bg-muted/60", className)}>
+    <span ref={ref} className={cn("grid size-7 shrink-0 place-items-center border bg-muted/60", className)}>
       <Icon className={cn("size-4", TINTS[kind] ?? "text-muted-foreground")} strokeWidth={1.7} />
     </span>
   );
 }
 
-/** The thumbnail when the file has one, else its icon. */
+/**
+ * A long list drawn [step] items at a time (audit W7: a Drive of 20–30k
+ * photos): the first [limit] items, and a [mark] to put below them that adds
+ * more as it nears the screen.
+ */
+export function useStepped(count: number, step = 300): { limit: number; mark: ReactNode } {
+  const [limit, setLimit] = useState(step);
+  const [end, setEnd] = useState<HTMLElement | null>(null);
+  useEffect(() => {
+    if (!end || limit >= count || typeof IntersectionObserver === "undefined") return;
+    const seen = new IntersectionObserver((entries) => entries.some((e) => e.isIntersecting) && setLimit((n) => n + step), { rootMargin: "1200px 0px" });
+    seen.observe(end);
+    return () => seen.disconnect();
+  }, [end, limit, count, step]);
+  return { limit, mark: limit < count ? <div ref={setEnd} className="h-px" aria-hidden /> : null };
+}
+
+/** The thumbnail when the file has one, else its icon. The thumbnail is asked for once the tile nears the screen. */
 export function ObjectThumb({ o, className, large }: { o: DriveObject; className?: string; large?: boolean }) {
   const { client, session } = useDrive();
-  const url = useThumb(client, session.vaultId, o);
+  const [el, setEl] = useState<HTMLElement | null>(null);
+  const [attempt, setAttempt] = useState(0);
+  const url = useThumb(client, session.vaultId, o, useNear(el), attempt);
   if (url) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img className={cn(large ? "size-full object-cover" : "size-7 shrink-0 border object-cover", className)} src={url} alt="" draggable={false} />;
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        className={cn(large ? "size-full object-cover" : "size-7 shrink-0 border object-cover", className)}
+        src={url}
+        alt=""
+        draggable={false}
+        onError={() => setAttempt((n) => (n < 2 ? n + 1 : n))}
+      />
+    );
   }
   if (large) {
     const Icon = iconFor(o);
     const kind = o.kind === "dir" ? "dir" : kindOf(o.mime);
     return (
-      <span className={cn("grid size-full place-items-center bg-muted/50", className)}>
+      <span ref={setEl} className={cn("grid size-full place-items-center bg-muted/50", className)}>
         <Icon className={cn("size-9", TINTS[kind] ?? "text-muted-foreground")} strokeWidth={1.3} />
       </span>
     );
   }
-  return <ObjectIcon o={o} className={className} />;
+  return <ObjectIcon o={o} className={className} ref={setEl} />;
 }
 
 /** A bordered section: title, optional description and actions, then content (the admin's Panel). */

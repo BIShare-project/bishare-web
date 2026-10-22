@@ -8,7 +8,7 @@ import { ArrowDown, ArrowUp, ChevronRight, Copy, Download, FolderInput, FolderPl
 import type { DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
 import { useActions } from "./actions";
-import { EmptyState, ObjectThumb, PageHead, Panel } from "./bits";
+import { EmptyState, ObjectThumb, PageHead, Panel, useStepped } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, isMedia, kindOf, when } from "./format";
 import { ActionContextMenu, ActionDropdown } from "./menus";
@@ -94,6 +94,8 @@ export function FilesPage() {
       return a.name.localeCompare(b.name, locale, { numeric: true, sensitivity: "base" }) * dir;
     });
   const { sel, click, clear, all, setSel, selected, headState } = useSelection(rows);
+  // A folder of thousands (a phone's photo backup) is drawn in steps.
+  const { limit, mark } = useStepped(rows.length);
   const focus = selected.length === 1 ? selected[0]! : null;
   const total = rows.reduce((a, o) => a + (o.size ?? 0), 0);
   const quick = folder || q ? [] : index.children(null).filter((o) => o.kind === "dir").sort((a, b) => index.countUnder(b.id) - index.countUnder(a.id)).slice(0, 4);
@@ -340,7 +342,7 @@ export function FilesPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {rows.map((o) => {
+                {rows.slice(0, limit).map((o) => {
                   const on = sel.has(o.id);
                   return (
                     <ActionContextMenu key={o.id} items={menuFor(o)} onOpen={() => !on && setSel(new Set([o.id]))}>
@@ -391,7 +393,7 @@ export function FilesPage() {
             </Table>
           ) : (
             <div className="grid grid-cols-2 gap-3 p-3 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-6">
-              {rows.map((o) => {
+              {rows.slice(0, limit).map((o) => {
                 const on = sel.has(o.id);
                 return (
                   <ActionContextMenu key={o.id} items={menuFor(o)} onOpen={() => !on && setSel(new Set([o.id]))}>
@@ -434,6 +436,7 @@ export function FilesPage() {
               })}
             </div>
           )}
+          {mark}
         </Panel>
         {details && focus ? <Details o={focus} onClose={() => setDetails(false)} /> : null}
       </div>
