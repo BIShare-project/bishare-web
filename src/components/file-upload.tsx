@@ -35,6 +35,7 @@ import { QRDisplay } from "@/components/site/qr-display";
 import { TagBadge } from "@/components/site/status-pill";
 import { TransferEmailForm } from "@/components/transfer-email-form";
 import { DriveInterest } from "@/components/drive-interest";
+import { DriveAfterUpload } from "@/components/drive-after-upload";
 import { AppAfterUpload } from "@/components/app-after-upload";
 import {
   CheckCircle2,
@@ -1204,6 +1205,7 @@ export function FileUpload() {
         </Button>
 
         <AppAfterUpload />
+        <DriveAfterUpload hours={expiry} />
         <DriveInterest />
       </motion.div>
     );

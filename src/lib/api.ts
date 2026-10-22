@@ -156,6 +156,15 @@ export async function getDriveInterestEnabled(): Promise<boolean> {
   return (await cloudConfig())?.flags?.drive_interest_enabled === true;
 }
 
+/**
+ * Feature flag `vault_enabled` (BIShare Drive): true only when Drive is open
+ * to everyone. "internal" (testers on the server's allowlist), unset, or an
+ * unreadable config all read as false, so nothing points to Drive before then.
+ */
+export async function getVaultOpen(): Promise<boolean> {
+  return (await cloudConfig())?.flags?.vault_enabled === true;
+}
+
 // ── Transfers ──
 
 export async function getTransferStatus(code: string): Promise<APIResponse<TransferStatus>> {
