@@ -28,6 +28,7 @@ import {
   keyFromPhrase,
   metaFromJson,
   metaKey,
+  pairAuthorization,
   openDeviceName,
   sealDeviceName,
   metaToJson,
@@ -123,6 +124,10 @@ same("parsed ts", parsed.ts, r.ts);
 await verifyRequest(pub, r.method, r.pathAndQuery, parsed.ts, body, parsed.signature);
 checks++;
 await fails("verify, other method", "bad_signature", () => verifyRequest(pub, "GET", r.pathAndQuery, r.ts, body, r.signature));
+
+// ── a device waiting in a pairing slot (a browser here; Windows and Linux too) ──
+const pr = v.pairRequest;
+same("pair authorization", await pairAuthorization(seed, pr.slot, pr.method, pr.pathAndQuery, pr.ts, new Uint8Array(0)), pr.authorization);
 await fails("verify, other body", "bad_signature", () => verifyRequest(pub, r.method, r.pathAndQuery, r.ts, enc.encode("{}"), r.signature));
 await fails("verify, other ts", "bad_signature", () => verifyRequest(pub, r.method, r.pathAndQuery, r.ts + 1, body, r.signature));
 await fails("verify, other key", "bad_signature", () => verifyRequest(devicePublicKey(seq(32, 0x61)), r.method, r.pathAndQuery, r.ts, body, r.signature));
