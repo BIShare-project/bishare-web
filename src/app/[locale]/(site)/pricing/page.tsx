@@ -1,11 +1,11 @@
-// /pricing — the answer is "nothing", and that is worth a page of its own.
+// /pricing — for sending the answer is "nothing", and that is worth a page of its own.
 //
 // "<product> pricing" is one of the highest-intent queries there is: the person
 // is comparing costs right now. Every competitor answers it with a table of
 // tiers. Answering it with $0, the reason it can be $0, and what the paid
 // alternatives charge is the strongest thing this site can say — so this page
-// is indexed, unlike the old dark-launched version that carried a robots block
-// while paid tiers were still hypothetical. There are none, and none planned.
+// is indexed. Sending has no paid tier and none planned; the one thing sold is
+// storage, BIShare Drive, and its plans are listed here too.
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates } from "@/i18n/metadata";
@@ -52,6 +52,14 @@ const COMPARE_KEYS = ["wetransfer", "smash", "dropbox", "bishare"] as const;
 
 const FAQ_KEYS = ["why", "catch", "limits", "later"] as const;
 
+/** BIShare Drive's plans at their US list prices (drive-plan.md "Money"); the stores show local prices. */
+const DRIVE_PLANS = [
+  { key: "100gb", monthly: 2.49, yearly: 24.99 },
+  { key: "250gb", monthly: 5.99, yearly: 59.99 },
+  { key: "500gb", monthly: 9.99, yearly: 99.99 },
+  { key: "1tb", monthly: 19.99, yearly: 199.99 },
+] as const;
+
 export default async function PricingPage({
   params,
 }: {
@@ -60,6 +68,8 @@ export default async function PricingPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("pricing");
+  // Latin digits in every locale, as the rest of the page writes numbers.
+  const usd = new Intl.NumberFormat(`${locale}-u-nu-latn`, { style: "currency", currency: "USD" });
 
   // Both blocks are the page's own claims, marked up so they can be quoted
   // directly in results.
@@ -131,6 +141,46 @@ export default async function PricingPage({
               {t("ctaNote")}
             </p>
           </div>
+        </Section>
+
+        {/* Sending is free; storage is the one thing sold, and its prices
+            belong on this page. */}
+        <Section className="border-t border-border py-14">
+          <FadeUp>
+            <h2 className="text-center text-2xl font-semibold tracking-[-0.02em]">
+              {t("drive.title")}
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-center text-[15px] leading-relaxed text-muted-foreground">
+              {t("drive.body")}
+            </p>
+            <div className="mx-auto mt-7 max-w-2xl overflow-x-auto">
+              <table className="w-full border-collapse text-left text-sm">
+                <thead>
+                  <tr className="border-b border-border text-muted-foreground">
+                    <th className="py-2.5 pr-4 font-medium">{t("drive.colStorage")}</th>
+                    <th className="py-2.5 pr-4 font-medium">{t("drive.colMonthly")}</th>
+                    <th className="py-2.5 font-medium">{t("drive.colYearly")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border/60">
+                    <td className="py-3 pr-4">{t("drive.sizes.free")}</td>
+                    <td className="py-3" colSpan={2}>
+                      {t("drive.free")}
+                    </td>
+                  </tr>
+                  {DRIVE_PLANS.map((p) => (
+                    <tr key={p.key} className="border-b border-border/60">
+                      <td className="py-3 pr-4">{t(`drive.sizes.${p.key}`)}</td>
+                      <td className="py-3 pr-4 tabular-nums">{usd.format(p.monthly)}</td>
+                      <td className="py-3 tabular-nums">{usd.format(p.yearly)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="mt-3 text-xs text-muted-foreground">{t("drive.note")}</p>
+            </div>
+          </FadeUp>
         </Section>
 
         {/* The number means little alone; next to what the alternatives ask for
