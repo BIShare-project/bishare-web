@@ -158,19 +158,16 @@ export function DevicesPage() {
   const index = useIndex();
   const actions = useActions();
   const words = { today: t("today"), yesterday: t("yesterday") };
-  const apps = index.devices.filter((d) => d.kind === "app");
+  const apps = index.devices.filter((d) => d.kind !== "web");
   const browsers = index.devices.filter((d) => d.kind === "web");
-  // Only other browsers, and computers a phone approved, can be picked: this one
-  // locks itself, phones go from the app.
-  const approved = (d: DriveDevice) => d.kind === "web" || d.kind === "desktop";
-  const removable = index.devices.filter((d) => approved(d) && d.id !== session.deviceId);
+  // Only other browsers can be picked: this one locks itself, phones go from the app.
+  const removable = index.devices.filter((d) => d.kind === "web" && d.id !== session.deviceId);
   const { click, clear, all, selected, headState, has } = useSelection(removable);
 
   const remove = async (list: DriveDevice[]) => {
     if (!list.length) return;
-    const computers = list.some((d) => d.kind === "desktop");
     const ok = await confirm({
-      title: computers ? t("devices.removeDevicesTitle", { n: list.length }) : t("devices.removeTitle", { n: list.length }),
+      title: t("devices.removeTitle", { n: list.length }),
       body: t("devices.removeBody"),
       confirm: t("devices.remove"),
       danger: true,
@@ -179,7 +176,7 @@ export function DevicesPage() {
     try {
       for (const d of list) await client.removeDevice(d.id);
       clear();
-      toast(computers ? t("devices.devicesRemoved", { n: list.length }) : t("devices.removed", { n: list.length }), { tone: "ok" });
+      toast(t("devices.removed", { n: list.length }), { tone: "ok" });
     } catch (e) {
       if (e instanceof DriveApiError && e.code === "VAULT_SIGNIN_REQUIRED") toast(t("devices.removeInApp"), { tone: "error" });
       else actions.fail(e);
@@ -234,10 +231,9 @@ export function DevicesPage() {
           </TableHeader>
           <TableBody>
             {index.devices.map((d) => {
-              const Icon =
-                d.kind === "web" ? Globe : d.kind === "app" && /phone|galaxy|pixel|android|ios|iphone/i.test(d.name ?? "") ? Smartphone : Monitor;
+              const Icon = d.kind === "web" ? Globe : /phone|galaxy|pixel|android|ios|iphone/i.test(d.name ?? "") ? Smartphone : Monitor;
               const me = d.id === session.deviceId;
-              const canPick = approved(d) && !me;
+              const canPick = d.kind === "web" && !me;
               const on = has(d.id);
               const idle = d.idleLimitMs ?? 0;
               return (
@@ -255,21 +251,17 @@ export function DevicesPage() {
                         <span className="block text-3xs text-muted-foreground">
                           {me
                             ? t("devices.thisBrowser")
-                            : d.kind === "app"
+                            : d.kind !== "web"
                               ? t("devices.app")
-                              : d.kind === "desktop"
-                                ? t("devices.computerDays", { n: Math.round(idle / DAY) })
-                                : idle < DAY
-                                  ? t("devices.browserHours", { n: Math.round(idle / 3_600_000) })
-                                  : t("devices.browserDays", { n: Math.round(idle / DAY) })}
+                              : idle < DAY
+                                ? t("devices.browserHours", { n: Math.round(idle / 3_600_000) })
+                                : t("devices.browserDays", { n: Math.round(idle / DAY) })}
                         </span>
                       </span>
                     </div>
                   </TableCell>
                   <TableCell>
-                    <Badge variant="outline">
-                      {d.kind === "web" ? t("devices.web") : d.kind === "desktop" ? t("devices.computerTag") : t("devices.appTag")}
-                    </Badge>
+                    <Badge variant="outline">{d.kind === "web" ? t("devices.web") : t("devices.appTag")}</Badge>
                   </TableCell>
                   <TableCell className="hidden text-muted-foreground sm:table-cell">{me ? t("devices.now") : d.lastSeenAt ? when(d.lastSeenAt, locale, words) : "—"}</TableCell>
                   <TableCell className="hidden text-muted-foreground md:table-cell">{new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(d.addedAt))}</TableCell>
@@ -278,7 +270,7 @@ export function DevicesPage() {
                       <Button variant="outline" size="sm" onClick={() => void lock()}>
                         <Lock /> {t("lock")}
                       </Button>
-                    ) : approved(d) ? (
+                    ) : d.kind === "web" ? (
                       <Button variant="outline" size="sm" className="text-destructive" onClick={() => void remove([d])}>
                         <LogOut /> {t("devices.remove")}
                       </Button>

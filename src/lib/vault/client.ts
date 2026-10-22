@@ -60,8 +60,7 @@ export interface DeviceRow {
   id: string;
   publicKey: string;
   status: "active" | "pending" | "revoked";
-  /** "desktop": Windows or Linux, approved by a phone like a browser. */
-  kind: "app" | "web" | "desktop";
+  kind: "app" | "web";
   idleLimitMs: number | null;
   encName: string | null;
   addedBy: string;

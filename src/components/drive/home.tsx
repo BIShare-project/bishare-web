@@ -55,11 +55,7 @@ export function HomePage() {
   const trash = index.trash();
   const soon = trash.filter((o) => (o.trashedAt ?? 0) + 30 * DAY - Date.now() < 3 * DAY).length;
   const expiring = index.devices.filter(
-    (d) =>
-      (d.kind === "web" || d.kind === "desktop") &&
-      d.idleLimitMs &&
-      d.id !== session.deviceId &&
-      (d.lastSeenAt ?? d.addedAt) + d.idleLimitMs - Date.now() < DAY
+    (d) => d.kind === "web" && d.idleLimitMs && d.id !== session.deviceId && (d.lastSeenAt ?? d.addedAt) + d.idleLimitMs - Date.now() < DAY
   ).length;
   const nearlyFull = quota > 0 && used / quota >= 0.9;
 
@@ -227,8 +223,7 @@ export function HomePage() {
           }
         >
           {index.devices.slice(0, 5).map((d) => {
-            const Icon =
-              d.kind === "web" ? Globe : d.kind === "app" && /phone|galaxy|pixel|android|ios|iphone/i.test(d.name ?? "") ? Smartphone : Monitor;
+            const Icon = d.kind === "web" ? Globe : /phone|galaxy|pixel|android|ios|iphone/i.test(d.name ?? "") ? Smartphone : Monitor;
             return (
               <div key={d.id} className="flex items-center gap-3 border-b px-4 py-2.5 last:border-b-0">
                 <span className="grid size-7 shrink-0 place-items-center border bg-muted/60">
@@ -237,13 +232,7 @@ export function HomePage() {
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-xs font-medium">{d.name ?? t("devices.unnamed")}</span>
                   <span className="block text-3xs text-muted-foreground">
-                    {d.id === session.deviceId
-                      ? t("devices.thisBrowser")
-                      : d.kind === "web"
-                        ? t("devices.browser")
-                        : d.kind === "desktop"
-                          ? t("devices.computer")
-                          : t("devices.app")}
+                    {d.id === session.deviceId ? t("devices.thisBrowser") : d.kind === "web" ? t("devices.browser") : t("devices.app")}
                   </span>
                 </span>
                 <span className="text-3xs text-muted-foreground">{d.id === session.deviceId ? t("devices.now") : d.lastSeenAt ? when(d.lastSeenAt, locale, words) : "—"}</span>
