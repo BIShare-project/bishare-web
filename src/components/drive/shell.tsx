@@ -24,6 +24,7 @@ import {
   Sun,
   Trash2,
   Upload,
+  Link2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useActions } from "./actions";
@@ -52,6 +53,7 @@ const NAV = [
   { href: "/photos", key: "photos", icon: ImageIcon },
 ] as const;
 const MANAGE = [
+  { href: "/links", key: "links", icon: Link2 },
   { href: "/devices", key: "devices", icon: Monitor },
   { href: "/trash", key: "trash", icon: Trash2 },
   { href: "/storage", key: "storage", icon: Database },

@@ -3,7 +3,7 @@
 import { useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { ArchiveRestore, Copy, Download, Eye, FolderInput, FolderOpen, Pencil, Trash2, X } from "lucide-react";
+import { ArchiveRestore, Copy, Download, Eye, FolderInput, FolderOpen, Link2, Pencil, Trash2, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { DriveApiError } from "@/lib/vault/client";
 import { FALLBACK_MAX, fetchPlain, IN_PAGE_MAX, saveBlob, streamSave } from "@/lib/vault/download";
@@ -263,13 +263,14 @@ export function useActions() {
       const items: ActionItem[] = [];
       if (one) items.push({ key: "open", label: one.kind === "dir" ? t("act.openFolder") : t("act.preview"), icon: one.kind === "dir" ? FolderOpen : Eye, shortcut: "↵", run: () => open(one, list) });
       items.push({ key: "download", label: objs.length > 1 || one?.kind === "dir" ? t("act.downloadZip") : t("act.download"), icon: Download, run: () => void download(objs) });
+      if (one) items.push({ key: "link", label: t("act.shareLink"), icon: Link2, run: () => d.shareLink(one) });
       if (one) items.push({ key: "rename", label: t("act.rename"), icon: Pencil, shortcut: "F2", separatorBefore: true, run: () => void rename(one) });
       items.push({ key: "move", label: t("act.move"), icon: FolderInput, separatorBefore: !one, run: () => void moveOrCopy(ids, "move") });
       items.push({ key: "copy", label: t("act.copy"), icon: Copy, run: () => void moveOrCopy(ids, "copy") });
       items.push({ key: "trash", label: t("act.trash"), icon: Trash2, danger: true, shortcut: "⌫", separatorBefore: true, run: () => void trash(ids) });
       return items;
     },
-    [index, t, open, download, rename, moveOrCopy, trash, restore, deleteForGood]
+    [index, t, open, download, rename, moveOrCopy, trash, restore, deleteForGood, d]
   );
 
   return useMemo(

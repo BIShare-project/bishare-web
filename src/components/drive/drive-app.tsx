@@ -5,13 +5,15 @@ import { usePathname } from "next/navigation";
 import { toast as sonner } from "sonner";
 import { DriveApiError, DriveClient } from "@/lib/vault/client";
 import { downloadsBusy } from "@/lib/vault/download";
+import { refreshFolderLinks, type DriveLink } from "@/lib/vault/drive-links";
 import { DriveOps } from "@/lib/vault/ops";
 import { clearSession, loadSession, saveSession, type DriveSession } from "@/lib/vault/session";
-import { DriveIndex, isLockedOut } from "@/lib/vault/store";
+import { DriveIndex, isLockedOut, type DriveObject } from "@/lib/vault/store";
 import { Uploader } from "@/lib/vault/upload";
 import { Palette } from "./palette";
 import { DriveShell } from "./shell";
 import { SignIn } from "./sign-in";
+import { LinkDialog } from "./links";
 import { forgetThumbs } from "./thumbs";
 import { ConfirmDialog, FolderPicker, PromptDialog } from "./ui";
 import { Toaster } from "./ui/sonner";
@@ -40,6 +42,10 @@ interface DriveContext {
   prompt: (p: { title: string; label: string; initial?: string; confirm: string }) => Promise<string | null>;
   confirm: (p: { title: string; body: string; confirm: string; danger?: boolean }) => Promise<boolean>;
   pickFolder: (p: { title: string; confirm: string; exclude?: Set<string> }) => Promise<string | null | undefined>;
+  /** Share [o] as a link that anyone opens in a browser (drive-plan.md 6B.3). */
+  shareLink: (o: DriveObject) => void;
+  /** A link from the Shared links page, with its actions. */
+  showLink: (l: DriveLink) => void;
   /** Open [ids] in the viewer, at [at]. */
   view: (ids: string[], at: number) => void;
   palette: () => void;
@@ -140,18 +146,29 @@ export function DriveApp({ base, className, children }: { base: string; classNam
     setSession(null);
   }, [live]);
 
+  // Folder links list the folder as it was when sent: after a sync, the ones
+  // whose folder changed are sent again (one run at a time).
+  const linksBusy = useRef(false);
   const refresh = useCallback(async () => {
     if (!live) return;
     try {
       await live.index.pull();
       setSyncError(null);
+      if (session && !linksBusy.current) {
+        linksBusy.current = true;
+        void refreshFolderLinks(live.client, live.index, session.vaultKey)
+          .catch((e) => console.warn("[drive] folder links", e))
+          .finally(() => {
+            linksBusy.current = false;
+          });
+      }
     } catch (e) {
       if (isLockedOut(e)) return signOutHere();
       // The code only: the bar shows it in the page's language.
       console.error("[drive] sync", e);
       setSyncError(e instanceof DriveApiError ? e.code : "UNKNOWN");
     }
-  }, [live, signOutHere]);
+  }, [live, session, signOutHere]);
 
   const lock = useCallback(async () => {
     if (live && session) await live.client.removeSelf(session.deviceId).catch(() => undefined);
@@ -310,6 +327,19 @@ export function DriveApp({ base, className, children }: { base: string; classNam
 
   const value = useMemo<DriveContext | null>(() => {
     if (!session || !live) return null;
+    const linkDialog = (p: { o?: DriveObject; link?: DriveLink }) =>
+      setDialog(
+        <Ctx.Provider value={ctx}>
+          <LinkDialog
+            {...p}
+            onDone={() => {
+              setDialog(null);
+              // The Shared links page reads its list again.
+              window.dispatchEvent(new Event("bishare-drive-links"));
+            }}
+          />
+        </Ctx.Provider>
+      );
     const ctx: DriveContext = {
       base,
       session,
@@ -340,6 +370,8 @@ export function DriveApp({ base, className, children }: { base: string; classNam
             </Ctx.Provider>
           )
         ),
+      shareLink: (o) => linkDialog({ o }),
+      showLink: (l) => linkDialog({ link: l }),
       view: (ids, at) => setViewer({ ids, at }),
       palette: () => setPaletteOpen(true),
       scope,

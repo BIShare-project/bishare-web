@@ -144,6 +144,24 @@ export interface OpResult {
   message?: string;
 }
 
+/** A link from Drive as the server lists it (drive-plan.md 6B.3). */
+export interface LinkInfo {
+  id: string;
+  /** The link key sealed with K_meta (VAULT-SPEC), null if not kept. */
+  encKey: string | null;
+  kind: "file" | "folder";
+  /** The shared file or folder. */
+  root: string;
+  /** Ids it covers: the file, or the folder and its files. */
+  objects: number;
+  createdAt: number;
+  updatedAt: number;
+  /** Null: until it is turned off. */
+  expiresAt: number | null;
+  opens: number;
+  lastOpenedAt: number | null;
+}
+
 export interface Changes {
   seq: number;
   resync: boolean;
@@ -210,6 +228,30 @@ export class DriveClient {
     const auth = await authorization(seed, vaultId, "GET", path, now(), new Uint8Array(0));
     const base = API_BASE.startsWith("http") ? API_BASE : location.origin + API_BASE;
     return `${base.replace(/^http/, "ws")}${path}?auth=${encodeURIComponent(auth)}`;
+  }
+
+  /** Make a link: [days] is 1, 7 or 30, or 0 for until it is turned off. */
+  createLink(p: { linkId: string; kind: "file" | "folder"; objectIds: string[]; manifest: string; encKey: string; days: number }): Promise<LinkInfo> {
+    return this.call("POST", `/api/v1/vault/${this.session.vaultId}/links`, p);
+  }
+
+  /** What a link covers, sent again (a folder that changed); its lifetime stays. */
+  updateLink(linkId: string, p: { kind: "file" | "folder"; objectIds: string[]; manifest: string }): Promise<LinkInfo> {
+    return this.call("PUT", `/api/v1/vault/${this.session.vaultId}/links/${linkId}`, p);
+  }
+
+  /** The Drive's links that still open, newest first. */
+  links(): Promise<{ links: LinkInfo[] }> {
+    return this.call("GET", `/api/v1/vault/${this.session.vaultId}/links`);
+  }
+
+  revokeLink(linkId: string): Promise<unknown> {
+    return this.call("DELETE", `/api/v1/vault/${this.session.vaultId}/links/${linkId}`);
+  }
+
+  /** The link mailed by BIShare; [link] is the whole link, key included (the server takes it only as this link's address). */
+  emailLink(linkId: string, p: { to: string; link: string; name?: string; title?: string }): Promise<unknown> {
+    return this.call("POST", `/api/v1/vault/${this.session.vaultId}/links/${linkId}/email`, p);
   }
 
   /** Remove another browser (no sign-in needed for a browser; a phone or computer is removed in the app). */
