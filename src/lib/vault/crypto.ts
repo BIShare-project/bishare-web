@@ -40,6 +40,7 @@ const AAD_THUMB = "bishare-vault-thumb-v1";
 const AAD_DEVICE = "bishare-vault-device-v1";
 const INFO_LINK = "bishare-vault-link-v1";
 const AAD_LINK = "bishare-vault-link-v1";
+const AAD_LINK_KEY = "bishare-vault-linkkey-v1";
 export const LINK_VERSION = 1;
 /** Files one link may list (the server takes 2000 ids: the folder and its files). */
 export const LINK_MAX_FILES = 1999;
@@ -702,6 +703,27 @@ export async function sealLink(linkKey: Uint8Array, linkId: string, m: LinkManif
   const aad = linkAad(linkId);
   const key = await hkdf(key32(linkKey), ZERO_SALT, INFO_LINK, KEY_SIZE);
   return b64u(await seal(key, enc.encode(linkToJson(m)), aad, nonce));
+}
+
+function linkKeyAad(vaultId: string, linkId: string): Uint8Array {
+  checkIds(vaultId, linkId);
+  return enc.encode(`${AAD_LINK_KEY}|${vaultId}|${linkId}`);
+}
+
+/** The link key sealed with K_meta, kept by the server with the link. `nonce` is fixed only by tests. */
+export async function sealLinkKey(kMeta: Uint8Array, vaultId: string, linkId: string, linkKey: Uint8Array, nonce?: Uint8Array): Promise<string> {
+  return b64u(await seal(key32(kMeta), key32(linkKey), linkKeyAad(vaultId, linkId), nonce));
+}
+
+export async function openLinkKey(kMeta: Uint8Array, vaultId: string, linkId: string, sealed: string): Promise<Uint8Array> {
+  const aad = linkKeyAad(vaultId, linkId);
+  let box: Uint8Array;
+  try {
+    box = fromB64u(sealed);
+  } catch {
+    throw new VaultError("sealed_box_too_short");
+  }
+  return key32(await open(key32(kMeta), box, aad));
 }
 
 export async function openLink(linkKey: Uint8Array, linkId: string, sealed: string): Promise<LinkManifest> {

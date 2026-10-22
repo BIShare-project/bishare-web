@@ -36,6 +36,7 @@ import {
   metaToJson,
   openKeyCopy,
   openLink,
+  openLinkKey,
   openMeta,
   openThumbnail,
   parseAuthorization,
@@ -43,6 +44,7 @@ import {
   requestMessage,
   sealKeyCopy,
   sealLink,
+  sealLinkKey,
   sealMeta,
   sealThumbnail,
   signinNonce,
@@ -260,6 +262,9 @@ await fails("device name, a lone surrogate", "bad_device_name", () => sealDevice
   await fails("link, unknown version", "bad_link", () => linkFromJson(l.manifestJson.replace('"v":1', '"v":2')));
   await fails("link, unknown compression", "bad_link", () => linkFromJson(l.manifestJson.replace('"z":"deflate"', '"z":"zstd"')));
   await fails("link, a key twice", "bad_link", () => linkFromJson(l.manifestJson.replace('{"v":1,', '{"v":1,"v":1,')));
+  same("link key seals byte for byte", await sealLinkKey(kMeta, vaultId, l.linkId, key, fromB64u(l.keyNonce)), l.encKey);
+  same("link key opens", await openLinkKey(kMeta, vaultId, l.linkId, l.encKey), l.linkKey);
+  await fails("link key, other link", "auth_failed", () => openLinkKey(kMeta, vaultId, v.file.objectId, l.encKey));
 }
 
 // ── grant ──
