@@ -17,7 +17,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.bishare.app";
  * Quiet on purpose: one muted line, expands inline, never in the way of the
  * download it sits beneath.
  */
-export function ReportAbuse({ code, fileName }: { code: string; fileName: string }) {
+export function ReportAbuse({ code, fileName, subject }: { code: string; fileName: string; subject?: string }) {
   const t = useTranslations("flows");
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
@@ -37,7 +37,7 @@ export function ReportAbuse({ code, fileName }: { code: string; fileName: string
           email: email.trim(),
           category: "abuse",
           message:
-            `Transfer: ${code}\nFile: ${fileName}\nPage: ${window.location.origin}${window.location.pathname}\n\n` +
+            `${subject ?? `Transfer: ${code}`}\nFile: ${fileName}\nPage: ${window.location.origin}${window.location.pathname}\n\n` +
             reason.trim(),
         }),
       });

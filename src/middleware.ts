@@ -56,6 +56,9 @@ function driveLocale(request: NextRequest): string {
 // /transfer/<code>, with or without a locale prefix. `/transfer` itself (the
 // send tool) stays on the marketing host.
 const RECEIVE_PATH = new RegExp(`^/(?:(?:${routing.locales.join("|")})/)?transfer/[^/]+$`);
+// /d/<id>: a link from someone's Drive (drive-plan.md 6B.3), on the receive
+// host for the same reason as a transfer.
+const LINK_PATH = new RegExp(`^/(?:(?:${routing.locales.join("|")})/)?d/[A-Za-z0-9_-]{22}$`);
 
 /**
  * The Drive's pages hold a vault key in memory, so they run nothing but
@@ -124,7 +127,7 @@ export function middleware(request: NextRequest): NextResponse {
   const path = request.nextUrl.pathname;
 
   if (MAIN_HOSTS.has(host)) {
-    if (RECEIVE_PATH.test(path)) return moveTo(RECEIVE_HOST, request);
+    if (RECEIVE_PATH.test(path) || LINK_PATH.test(path)) return moveTo(RECEIVE_HOST, request);
     if (DRIVE_PATH.test(path)) {
       const url = request.nextUrl.clone();
       url.protocol = "https:";
@@ -153,7 +156,7 @@ export function middleware(request: NextRequest): NextResponse {
         headers: { "Content-Type": "text/plain" },
       });
     }
-    if (RECEIVE_PATH.test(path)) {
+    if (RECEIVE_PATH.test(path) || LINK_PATH.test(path)) {
       const res = intlMiddleware(request);
       res.headers.set("X-Robots-Tag", "noindex");
       return res;
