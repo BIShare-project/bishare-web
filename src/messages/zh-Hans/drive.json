@@ -22,7 +22,8 @@
     "devices": "设备",
     "trash": "回收站",
     "storage": "套餐和存储",
-    "security": "安全"
+    "security": "安全",
+    "menu": "菜单"
   },
   "signin": {
     "title": "打开你的 Drive",
@@ -58,7 +59,8 @@
     "byKindSub": "已用 {size}",
     "lastSeen": "上次使用",
     "folders": "最大的文件夹",
-    "foldersSub": "按占用空间"
+    "foldersSub": "按占用空间",
+    "total": "合计"
   },
   "kpi": {
     "used": "已用",
@@ -131,7 +133,9 @@
     "photos": "还没有照片或视频",
     "photosBody": "在 BIShare 应用中开启照片备份，它们就会显示在这里。",
     "trash": "回收站为空",
-    "trashBody": "已删除的文件会在这里保留 30 天。"
+    "trashBody": "已删除的文件会在这里保留 30 天。",
+    "filesBodyWeb": "从此浏览器上传，或在 BIShare 应用中添加文件。",
+    "folderBodyWeb": "将文件拖放到这里，或从此浏览器上传。"
   },
   "devices": {
     "unnamed": "未命名设备",
@@ -181,7 +185,10 @@
       "name": "名称",
       "modified": "修改时间",
       "size": "大小"
-    }
+    },
+    "selected": "已选 {n} 项",
+    "viewList": "列表",
+    "viewGrid": "网格"
   },
   "kinds": {
     "dir": "文件夹",
@@ -200,14 +207,17 @@
     "sub": "在任意设备上添加或更改的文件，最新的在前"
   },
   "photos": {
-    "sub": "{n} 张照片和视频 · {size}"
+    "sub": "{n} 张照片和视频 · {size}",
+    "subWeb": "{photos} 张照片 · {videos} 个视频 · {size}"
   },
   "trash": {
     "sub": "{n, plural, =0 {空} other {# 项}} · {size}。每一项在移入这里 30 天后被永久删除。",
     "wasIn": "原位置",
     "goneIn": "距永久删除",
     "days": "{n, plural, =0 {今天} other {# 天}}",
-    "note": "要恢复内容或立即删除，请使用 BIShare 应用中的回收站。"
+    "note": "要恢复内容或立即删除，请使用 BIShare 应用中的回收站。",
+    "list": "回收站中",
+    "noteWeb": "恢复的项目会回到原来的位置。这里的所有项目在移入 30 天后被永久删除。"
   },
   "storage": {
     "sub": "你的文件存储于：{region}。",
@@ -245,5 +255,152 @@
     "appOnly": "仅限应用",
     "delete": "删除 Drive",
     "deleteBody": "在 BIShare 应用的 Drive 帐户中进行。"
+  },
+  "themeLight": "浅色",
+  "themeDark": "深色",
+  "syncedAt": "截至 {time} 已是最新",
+  "act": {
+    "new": "新建",
+    "upload": "上传",
+    "uploadFiles": "上传文件",
+    "uploadFolder": "上传文件夹",
+    "newFolder": "新建文件夹",
+    "open": "打开",
+    "openFolder": "打开文件夹",
+    "preview": "预览",
+    "download": "下载",
+    "downloadZip": "下载为 zip",
+    "rename": "重命名",
+    "move": "移动到…",
+    "copy": "复制到…",
+    "trash": "移到回收站",
+    "restore": "恢复",
+    "deleteForever": "永久删除",
+    "emptyTrash": "清空回收站",
+    "undo": "撤销",
+    "cancel": "取消",
+    "close": "关闭",
+    "create": "创建",
+    "save": "保存",
+    "retry": "重试",
+    "more": "更多操作",
+    "selectAll": "全选",
+    "clearSelection": "取消选择",
+    "previous": "上一个",
+    "next": "下一个",
+    "moveHere": "移到这里",
+    "copyHere": "复制到这里"
+  },
+  "dialog": {
+    "newFolderTitle": "新建文件夹",
+    "folderName": "文件夹名称",
+    "untitled": "未命名文件夹",
+    "renameTitle": "重命名",
+    "nameLabel": "名称",
+    "badName": "名称不能包含“/”。",
+    "moveTitle": "将 {n} 项移动到…",
+    "copyTitle": "将 {n} 项复制到…",
+    "noFolders": "这里没有文件夹",
+    "deleteTitle": "要永久删除 {n} 项吗？",
+    "deleteBody": "此操作无法撤销。文件将从所有设备和 BIShare 的服务器上删除。",
+    "emptyTitle": "要清空回收站吗？",
+    "emptyBody": "{n} 项将在所有设备上被永久删除。此操作无法撤销。"
+  },
+  "toast": {
+    "renamed": "已重命名",
+    "folderMade": "已创建文件夹“{name}”",
+    "moved": "{n, plural, =1 {已移到{where}} other {已将 # 项移到{where}}}",
+    "copied": "{n, plural, =1 {已复制到{where}} other {已将 # 项复制到{where}}}",
+    "trashed": "{n, plural, =1 {已移到回收站} other {已将 # 项移到回收站}}",
+    "restored": "{n, plural, =1 {已恢复} other {已恢复 # 项}}",
+    "deleted": "{n, plural, =1 {已永久删除} other {已永久删除 # 项}}",
+    "emptied": "回收站已清空",
+    "preparing": "正在打开“{name}”…",
+    "downloading": "正在下载“{name}”",
+    "saved": "已保存“{name}”",
+    "zipping": "正在将 {n} 个文件打包（{size}）…"
+  },
+  "errors": {
+    "UNKNOWN": "出了点问题，请重试。",
+    "NETWORK": "无法连接到 BIShare。请检查网络后重试。",
+    "RATE_LIMITED": "请求过多，请稍后再试。",
+    "STORAGE_LIMIT_EXCEEDED": "你的 Drive 剩余空间不足。",
+    "VAULT_READ_ONLY": "在续订套餐或内容不超过免费套餐之前，你的 Drive 为只读。",
+    "VAULT_MOVE_INTO_ITSELF": "文件夹不能移到它自己里面。",
+    "VAULT_BAD_NAME": "不能使用这个名称。",
+    "VAULT_NOT_IN_TRASH": "只有回收站中的内容才能永久删除。",
+    "VAULT_OBJECT_NOT_FOUND": "该项目已不在你的 Drive 中。",
+    "upload": "上传失败",
+    "download": "下载中断，请重试。",
+    "dropEmpty": "拖放的内容中没有可上传的文件。",
+    "zipTooLarge": "一个 zip 装不下（超过 {size}）。请逐个下载文件。"
+  },
+  "uploads": {
+    "title": "正在上传 {n} 个文件",
+    "allDone": "{n} 个上传已完成",
+    "someFailed": "{n} 个上传失败",
+    "queued": "等待中",
+    "preparing": "准备中 · {pct}%",
+    "sending": "{size} 的 {pct}%",
+    "finishing": "即将完成…",
+    "done": "完成 · {size}",
+    "linked": "Drive 中已有，未重新上传即已添加",
+    "canceled": "已取消",
+    "cancelAll": "全部取消",
+    "minimize": "显示或隐藏",
+    "dropTitle": "松开即可上传到{where}",
+    "dropBody": "文件和文件夹在离开此浏览器之前就在这里加密。"
+  },
+  "viewer": {
+    "counter": "第 {i} 个，共 {n} 个",
+    "opening": "正在解密…",
+    "noPreview": "此文件无法预览",
+    "noPreviewBody": "{kind}无法在浏览器中显示。请下载后打开。",
+    "tooLarge": "此文件太大，无法在这里显示。请下载后打开。",
+    "failed": "此文件未能打开",
+    "failedBody": "无法在这里下载或解密。请重试，或直接下载。"
+  },
+  "palette": {
+    "title": "搜索 Drive",
+    "placeholder": "搜索文件和文件夹，或输入命令…",
+    "files": "文件和文件夹",
+    "recent": "最近的文件",
+    "actions": "操作",
+    "pages": "前往",
+    "noResults": "没有找到",
+    "light": "切换到浅色",
+    "dark": "切换到深色"
+  },
+  "deletePage": {
+    "title": "删除你的 BIShare Drive",
+    "lead": "删除 Drive 会永久清除其中的一切：所有文件、文件夹和缩略图，以及每台设备的访问权限。删除在 BIShare 应用中进行，所以只有持有 Drive 密钥的人才能操作。",
+    "open": "打开 Drive",
+    "inApp": "在 BIShare 应用中",
+    "step1": "在有你 Drive 的手机或电脑上打开 BIShare。",
+    "step2": "依次进入 Drive、Drive 帐户。",
+    "step3": "点按底部的删除 Drive 帐户。",
+    "step4": "用同一个 Apple 或 Google 帐户登录以确认。删除会立即开始。",
+    "whatTitle": "会被删除的内容",
+    "whatBody": "所有文件和文件夹、它们的缩略图、有访问权限的设备和浏览器，以及与你 Apple 或 Google 登录的关联。",
+    "keptTitle": "不会保留的内容",
+    "keptBody": "BIShare 不保留任何副本。文件在你的设备上加密，所以包括 BIShare 在内，没有人能读取它们。",
+    "subsTitle": "订阅",
+    "subsBody": "付费套餐由 App Store 或 Google Play 收费。也请在商店帐户的订阅中取消。",
+    "noDeviceTitle": "已经没有设备了？",
+    "noDeviceBody": "安装 BIShare，用同一个 Apple 或 Google 帐户登录 Drive，然后在应用中删除。如果不行，请写信给 support@billiongroup.net。"
+  },
+  "preview": {
+    "rendering": "正在打开…",
+    "converting": "正在为此浏览器转换…",
+    "notReadable": "此浏览器无法读取该文件。请下载后在应用中打开。",
+    "cantPlay": "此浏览器无法播放这种格式",
+    "cantPlayBody": "请下载后在其他应用中播放。",
+    "sheetTruncated": "这里只显示前 {rows} 行。其余内容请下载文件查看。",
+    "slidesNote": "{n} 张幻灯片的文字。下载文件可查看版式。",
+    "slide": "幻灯片 {n}",
+    "slideNoText": "这张幻灯片没有文字",
+    "htmlNote": "不运行脚本，也不从互联网加载任何内容。",
+    "archiveSummary": "{n} 个文件 · 解压后 {size}",
+    "fontSample": "天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。"
   }
 }

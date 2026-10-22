@@ -22,7 +22,8 @@
     "devices": "Appareils",
     "trash": "Corbeille",
     "storage": "Forfait et stockage",
-    "security": "Sécurité"
+    "security": "Sécurité",
+    "menu": "Menu"
   },
   "signin": {
     "title": "Ouvrez votre Drive",
@@ -58,7 +59,8 @@
     "byKindSub": "{size} utilisés",
     "lastSeen": "Dernière utilisation",
     "folders": "Plus gros dossiers",
-    "foldersSub": "Selon la place occupée"
+    "foldersSub": "Selon la place occupée",
+    "total": "Total"
   },
   "kpi": {
     "used": "Utilisé",
@@ -131,7 +133,9 @@
     "photos": "Aucune photo ni vidéo pour l’instant",
     "photosBody": "Activez la sauvegarde des photos dans l’app BIShare pour les voir ici.",
     "trash": "La corbeille est vide",
-    "trashBody": "Les fichiers supprimés restent ici 30 jours."
+    "trashBody": "Les fichiers supprimés restent ici 30 jours.",
+    "filesBodyWeb": "Envoyez des fichiers depuis ce navigateur, ou ajoutez-les dans l’app BIShare.",
+    "folderBodyWeb": "Déposez des fichiers ici, ou envoyez-les depuis ce navigateur."
   },
   "devices": {
     "unnamed": "Appareil sans nom",
@@ -181,7 +185,10 @@
       "name": "Nom",
       "modified": "Modifié",
       "size": "Taille"
-    }
+    },
+    "selected": "{n} sélectionné(s)",
+    "viewList": "Liste",
+    "viewGrid": "Grille"
   },
   "kinds": {
     "dir": "Dossier",
@@ -200,14 +207,17 @@
     "sub": "Fichiers ajoutés ou modifiés sur n’importe quel appareil, les plus récents d’abord"
   },
   "photos": {
-    "sub": "{n} photos et vidéos · {size}"
+    "sub": "{n} photos et vidéos · {size}",
+    "subWeb": "{photos, plural, one {# photo} other {# photos}} · {videos, plural, one {# vidéo} other {# vidéos}} · {size}"
   },
   "trash": {
     "sub": "{n, plural, =0 {Vide} one {# élément} other {# éléments}} · {size}. Chacun est supprimé définitivement 30 jours après son arrivée ici.",
     "wasIn": "Était dans",
     "goneIn": "Supprimé définitivement dans",
     "days": "{n, plural, =0 {Aujourd’hui} one {# jour} other {# jours}}",
-    "note": "Pour restaurer un élément, ou le supprimer tout de suite, utilisez la corbeille de l’app BIShare."
+    "note": "Pour restaurer un élément, ou le supprimer tout de suite, utilisez la corbeille de l’app BIShare.",
+    "list": "Dans la corbeille",
+    "noteWeb": "Ce qui est restauré retrouve sa place. Tout ce qui est ici est supprimé définitivement 30 jours après son arrivée."
   },
   "storage": {
     "sub": "Région où vos fichiers sont conservés : {region}.",
@@ -245,5 +255,152 @@
     "appOnly": "App uniquement",
     "delete": "Supprimer le Drive",
     "deleteBody": "Se fait dans l’app BIShare, dans Compte Drive."
+  },
+  "themeLight": "Clair",
+  "themeDark": "Sombre",
+  "syncedAt": "À jour à {time}",
+  "act": {
+    "new": "Nouveau",
+    "upload": "Envoyer",
+    "uploadFiles": "Envoyer des fichiers",
+    "uploadFolder": "Envoyer un dossier",
+    "newFolder": "Nouveau dossier",
+    "open": "Ouvrir",
+    "openFolder": "Ouvrir le dossier",
+    "preview": "Aperçu",
+    "download": "Télécharger",
+    "downloadZip": "Télécharger en zip",
+    "rename": "Renommer",
+    "move": "Déplacer vers…",
+    "copy": "Copier vers…",
+    "trash": "Mettre à la corbeille",
+    "restore": "Restaurer",
+    "deleteForever": "Supprimer définitivement",
+    "emptyTrash": "Vider la corbeille",
+    "undo": "Annuler",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "create": "Créer",
+    "save": "Enregistrer",
+    "retry": "Réessayer",
+    "more": "Autres actions",
+    "selectAll": "Tout sélectionner",
+    "clearSelection": "Désélectionner",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "moveHere": "Déplacer ici",
+    "copyHere": "Copier ici"
+  },
+  "dialog": {
+    "newFolderTitle": "Nouveau dossier",
+    "folderName": "Nom du dossier",
+    "untitled": "Dossier sans nom",
+    "renameTitle": "Renommer",
+    "nameLabel": "Nom",
+    "badName": "Un nom ne peut pas contenir « / ».",
+    "moveTitle": "{n, plural, one {Déplacer # élément vers…} other {Déplacer # éléments vers…}}",
+    "copyTitle": "{n, plural, one {Copier # élément vers…} other {Copier # éléments vers…}}",
+    "noFolders": "Aucun dossier ici",
+    "deleteTitle": "{n, plural, one {Supprimer définitivement # élément ?} other {Supprimer définitivement # éléments ?}}",
+    "deleteBody": "C’est irréversible. Les fichiers disparaissent de tous les appareils et des serveurs de BIShare.",
+    "emptyTitle": "Vider la corbeille ?",
+    "emptyBody": "{n, plural, one {# élément sera supprimé définitivement sur tous les appareils. C’est irréversible.} other {# éléments seront supprimés définitivement sur tous les appareils. C’est irréversible.}}"
+  },
+  "toast": {
+    "renamed": "Renommé",
+    "folderMade": "Dossier « {name} » créé",
+    "moved": "{n, plural, one {Déplacé vers {where}} other {# éléments déplacés vers {where}}}",
+    "copied": "{n, plural, one {Copié vers {where}} other {# éléments copiés vers {where}}}",
+    "trashed": "{n, plural, one {Mis à la corbeille} other {# éléments mis à la corbeille}}",
+    "restored": "{n, plural, one {Restauré} other {# éléments restaurés}}",
+    "deleted": "{n, plural, one {Supprimé définitivement} other {# éléments supprimés définitivement}}",
+    "emptied": "La corbeille est vide",
+    "preparing": "Ouverture de « {name} »…",
+    "downloading": "Téléchargement de « {name} »",
+    "saved": "« {name} » enregistré",
+    "zipping": "{n, plural, one {Compression de # fichier ({size})…} other {Compression de # fichiers ({size})…}}"
+  },
+  "errors": {
+    "UNKNOWN": "Un problème est survenu. Réessayez.",
+    "NETWORK": "Pas de connexion à BIShare. Vérifiez le réseau et réessayez.",
+    "RATE_LIMITED": "Trop de demandes. Patientez un instant puis réessayez.",
+    "STORAGE_LIMIT_EXCEEDED": "Pas assez d’espace libre dans votre Drive.",
+    "VAULT_READ_ONLY": "Votre Drive est en lecture seule jusqu’au renouvellement du forfait ou tant qu’il dépasse le forfait gratuit.",
+    "VAULT_MOVE_INTO_ITSELF": "Un dossier ne peut pas aller dans lui-même.",
+    "VAULT_BAD_NAME": "Ce nom ne peut pas être utilisé.",
+    "VAULT_NOT_IN_TRASH": "Seul ce qui est dans la corbeille peut être supprimé définitivement.",
+    "VAULT_OBJECT_NOT_FOUND": "Cet élément n’est plus dans votre Drive.",
+    "upload": "Échec de l’envoi",
+    "download": "Le téléchargement s’est interrompu. Réessayez.",
+    "dropEmpty": "Rien à envoyer dans ce qui a été déposé.",
+    "zipTooLarge": "Trop volumineux pour un seul zip (plus de {size}). Téléchargez les fichiers un par un."
+  },
+  "uploads": {
+    "title": "{n, plural, one {Envoi de # fichier} other {Envoi de # fichiers}}",
+    "allDone": "{n, plural, one {# envoi terminé} other {# envois terminés}}",
+    "someFailed": "{n, plural, one {# envoi a échoué} other {# envois ont échoué}}",
+    "queued": "En attente",
+    "preparing": "Préparation · {pct} %",
+    "sending": "{pct} % de {size}",
+    "finishing": "Finalisation…",
+    "done": "Terminé · {size}",
+    "linked": "Déjà dans votre Drive, ajouté sans envoi",
+    "canceled": "Annulé",
+    "cancelAll": "Tout annuler",
+    "minimize": "Afficher ou masquer",
+    "dropTitle": "Déposez pour envoyer dans {where}",
+    "dropBody": "Fichiers et dossiers sont chiffrés dans ce navigateur avant de le quitter."
+  },
+  "viewer": {
+    "counter": "{i} sur {n}",
+    "opening": "Déchiffrement…",
+    "noPreview": "Pas d’aperçu pour ce fichier",
+    "noPreviewBody": "Un fichier de type {kind} ne peut pas s’afficher dans le navigateur. Téléchargez-le pour l’ouvrir.",
+    "tooLarge": "Ce fichier est trop volumineux pour s’afficher ici. Téléchargez-le pour l’ouvrir.",
+    "failed": "Ce fichier ne s’est pas ouvert",
+    "failedBody": "Il n’a pas pu être téléchargé ou déchiffré ici. Réessayez, ou téléchargez-le."
+  },
+  "palette": {
+    "title": "Rechercher dans le Drive",
+    "placeholder": "Rechercher des fichiers et dossiers, ou taper une commande…",
+    "files": "Fichiers et dossiers",
+    "recent": "Fichiers récents",
+    "actions": "Actions",
+    "pages": "Aller à",
+    "noResults": "Aucun résultat",
+    "light": "Passer en clair",
+    "dark": "Passer en sombre"
+  },
+  "deletePage": {
+    "title": "Supprimer votre BIShare Drive",
+    "lead": "Supprimer le Drive efface définitivement tout ce qu’il contient : chaque fichier, dossier et miniature, et l’accès de chaque appareil. Cela se fait dans l’app BIShare, donc seule une personne qui détient la clé du Drive peut le faire.",
+    "open": "Ouvrir le Drive",
+    "inApp": "Dans l’app BIShare",
+    "step1": "Ouvrez BIShare sur un téléphone ou un ordinateur qui a votre Drive.",
+    "step2": "Allez dans Drive, puis Compte Drive.",
+    "step3": "Touchez Supprimer le compte Drive, tout en bas.",
+    "step4": "Connectez-vous avec le même compte Apple ou Google pour confirmer. La suppression commence aussitôt.",
+    "whatTitle": "Ce qui est supprimé",
+    "whatBody": "Tous les fichiers et dossiers, leurs miniatures, les appareils et navigateurs ayant accès, et le lien avec votre connexion Apple ou Google.",
+    "keptTitle": "Ce qui n’est pas gardé",
+    "keptBody": "BIShare ne garde aucune copie. Les fichiers étaient chiffrés sur vos appareils : personne, BIShare compris, n’a pu les lire.",
+    "subsTitle": "Abonnements",
+    "subsBody": "Un forfait payant est facturé par l’App Store ou Google Play. Résiliez-le aussi là-bas, dans les abonnements de votre compte.",
+    "noDeviceTitle": "Plus aucun appareil ?",
+    "noDeviceBody": "Installez BIShare, connectez-vous à Drive avec le même compte Apple ou Google, puis supprimez-le depuis l’app. Si cela ne marche pas, écrivez à support@billiongroup.net."
+  },
+  "preview": {
+    "rendering": "Ouverture…",
+    "converting": "Conversion pour ce navigateur…",
+    "notReadable": "Ce navigateur n’a pas pu lire le fichier. Téléchargez-le pour l’ouvrir dans une app.",
+    "cantPlay": "Ce navigateur ne lit pas ce format",
+    "cantPlayBody": "Téléchargez-le pour le lire dans une autre app.",
+    "sheetTruncated": "Seules les {rows} premières lignes sont affichées. Téléchargez le fichier pour la suite.",
+    "slidesNote": "{n, plural, one {Le texte de # diapositive. Téléchargez le fichier pour voir sa mise en page.} other {Le texte de # diapositives. Téléchargez le fichier pour voir leur mise en page.}}",
+    "slide": "Diapositive {n}",
+    "slideNoText": "Pas de texte sur cette diapositive",
+    "htmlNote": "Affiché sans scripts et sans rien charger depuis Internet.",
+    "archiveSummary": "{n, plural, one {# fichier} other {# fichiers}} · {size} une fois extraits",
+    "fontSample": "Portez ce vieux whisky au juge blond qui fume."
   }
 }

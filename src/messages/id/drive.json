@@ -22,7 +22,8 @@
     "devices": "Perangkat",
     "trash": "Sampah",
     "storage": "Paket & penyimpanan",
-    "security": "Keamanan"
+    "security": "Keamanan",
+    "menu": "Menu"
   },
   "signin": {
     "title": "Buka Drive Anda",
@@ -58,7 +59,8 @@
     "byKindSub": "{size} terpakai",
     "lastSeen": "Terakhir dipakai",
     "folders": "Folder terbesar",
-    "foldersSub": "Menurut ruang yang dipakai"
+    "foldersSub": "Menurut ruang yang dipakai",
+    "total": "Total"
   },
   "kpi": {
     "used": "Terpakai",
@@ -131,7 +133,9 @@
     "photos": "Belum ada foto atau video",
     "photosBody": "Nyalakan cadangan foto di app BIShare dan semuanya muncul di sini.",
     "trash": "Sampah kosong",
-    "trashBody": "File yang dihapus tetap di sini selama 30 hari."
+    "trashBody": "File yang dihapus tetap di sini selama 30 hari.",
+    "filesBodyWeb": "Unggah dari browser ini, atau tambahkan file di app BIShare.",
+    "folderBodyWeb": "Letakkan file di sini, atau unggah dari browser ini."
   },
   "devices": {
     "unnamed": "Perangkat tanpa nama",
@@ -181,7 +185,10 @@
       "name": "Nama",
       "modified": "Diubah",
       "size": "Ukuran"
-    }
+    },
+    "selected": "{n} dipilih",
+    "viewList": "Daftar",
+    "viewGrid": "Kisi"
   },
   "kinds": {
     "dir": "Folder",
@@ -200,14 +207,17 @@
     "sub": "File yang ditambahkan atau diubah di perangkat mana pun, terbaru di atas"
   },
   "photos": {
-    "sub": "{n} foto dan video · {size}"
+    "sub": "{n} foto dan video · {size}",
+    "subWeb": "{photos} foto · {videos} video · {size}"
   },
   "trash": {
     "sub": "{n, plural, =0 {Kosong} other {# item}} · {size}. Tiap item terhapus permanen 30 hari setelah dipindah ke sini.",
     "wasIn": "Asalnya di",
     "goneIn": "Terhapus permanen dalam",
     "days": "{n, plural, =0 {Hari ini} other {# hari}}",
-    "note": "Untuk mengembalikan sesuatu, atau menghapusnya sekarang, gunakan sampah di app BIShare."
+    "note": "Untuk mengembalikan sesuatu, atau menghapusnya sekarang, gunakan sampah di app BIShare.",
+    "list": "Di sampah",
+    "noteWeb": "Item yang dipulihkan kembali ke tempat asalnya. Semua di sini terhapus permanen 30 hari setelah dipindah ke sini."
   },
   "storage": {
     "sub": "File Anda disimpan di {region}.",
@@ -245,5 +255,152 @@
     "appOnly": "Hanya app",
     "delete": "Menghapus Drive",
     "deleteBody": "Dilakukan di app BIShare, di Akun Drive."
+  },
+  "themeLight": "Terang",
+  "themeDark": "Gelap",
+  "syncedAt": "Terbaru per {time}",
+  "act": {
+    "new": "Baru",
+    "upload": "Unggah",
+    "uploadFiles": "Unggah file",
+    "uploadFolder": "Unggah folder",
+    "newFolder": "Folder baru",
+    "open": "Buka",
+    "openFolder": "Buka folder",
+    "preview": "Pratinjau",
+    "download": "Unduh",
+    "downloadZip": "Unduh sebagai zip",
+    "rename": "Ganti nama",
+    "move": "Pindahkan ke…",
+    "copy": "Salin ke…",
+    "trash": "Pindahkan ke sampah",
+    "restore": "Pulihkan",
+    "deleteForever": "Hapus permanen",
+    "emptyTrash": "Kosongkan sampah",
+    "undo": "Urungkan",
+    "cancel": "Batal",
+    "close": "Tutup",
+    "create": "Buat",
+    "save": "Simpan",
+    "retry": "Coba lagi",
+    "more": "Aksi lain",
+    "selectAll": "Pilih semua",
+    "clearSelection": "Batalkan pilihan",
+    "previous": "Sebelumnya",
+    "next": "Berikutnya",
+    "moveHere": "Pindahkan ke sini",
+    "copyHere": "Salin ke sini"
+  },
+  "dialog": {
+    "newFolderTitle": "Folder baru",
+    "folderName": "Nama folder",
+    "untitled": "Folder tanpa nama",
+    "renameTitle": "Ganti nama",
+    "nameLabel": "Nama",
+    "badName": "Nama tidak boleh berisi “/”.",
+    "moveTitle": "Pindahkan {n} item ke…",
+    "copyTitle": "Salin {n} item ke…",
+    "noFolders": "Tidak ada folder di sini",
+    "deleteTitle": "Hapus permanen {n} item?",
+    "deleteBody": "Ini tidak bisa diurungkan. File dihapus dari semua perangkat dan dari server BIShare.",
+    "emptyTitle": "Kosongkan sampah?",
+    "emptyBody": "{n} item terhapus permanen di semua perangkat. Ini tidak bisa diurungkan."
+  },
+  "toast": {
+    "renamed": "Nama diganti",
+    "folderMade": "Folder “{name}” dibuat",
+    "moved": "{n, plural, =1 {Dipindahkan ke {where}} other {# item dipindahkan ke {where}}}",
+    "copied": "{n, plural, =1 {Disalin ke {where}} other {# item disalin ke {where}}}",
+    "trashed": "{n, plural, =1 {Dipindahkan ke sampah} other {# item dipindahkan ke sampah}}",
+    "restored": "{n, plural, =1 {Dipulihkan} other {# item dipulihkan}}",
+    "deleted": "{n, plural, =1 {Terhapus permanen} other {# item terhapus permanen}}",
+    "emptied": "Sampah sudah kosong",
+    "preparing": "Membuka “{name}”…",
+    "downloading": "Mengunduh “{name}”",
+    "saved": "“{name}” tersimpan",
+    "zipping": "Membuat zip {n} file ({size})…"
+  },
+  "errors": {
+    "UNKNOWN": "Terjadi kesalahan. Coba lagi.",
+    "NETWORK": "Tidak terhubung ke BIShare. Periksa jaringan lalu coba lagi.",
+    "RATE_LIMITED": "Terlalu banyak permintaan. Tunggu sebentar lalu coba lagi.",
+    "STORAGE_LIMIT_EXCEEDED": "Ruang di Drive Anda tidak cukup.",
+    "VAULT_READ_ONLY": "Drive Anda hanya-baca sampai paket diperpanjang atau isinya muat di paket gratis.",
+    "VAULT_MOVE_INTO_ITSELF": "Folder tidak bisa dipindah ke dalam dirinya sendiri.",
+    "VAULT_BAD_NAME": "Nama itu tidak bisa dipakai.",
+    "VAULT_NOT_IN_TRASH": "Hanya yang ada di sampah yang bisa dihapus permanen.",
+    "VAULT_OBJECT_NOT_FOUND": "Item itu sudah tidak ada di Drive Anda.",
+    "upload": "Unggahan gagal",
+    "download": "Unduhan terhenti. Coba lagi.",
+    "dropEmpty": "Tidak ada yang bisa diunggah dari yang diletakkan.",
+    "zipTooLarge": "Terlalu besar untuk satu zip (lebih dari {size}). Unduh file satu per satu."
+  },
+  "uploads": {
+    "title": "Mengunggah {n} file",
+    "allDone": "{n} unggahan selesai",
+    "someFailed": "{n} unggahan gagal",
+    "queued": "Menunggu",
+    "preparing": "Menyiapkan · {pct}%",
+    "sending": "{pct}% dari {size}",
+    "finishing": "Menyelesaikan…",
+    "done": "Selesai · {size}",
+    "linked": "Sudah ada di Drive, ditambahkan tanpa diunggah",
+    "canceled": "Dibatalkan",
+    "cancelAll": "Batalkan semua",
+    "minimize": "Tampilkan atau sembunyikan",
+    "dropTitle": "Lepaskan untuk mengunggah ke {where}",
+    "dropBody": "File dan folder dienkripsi di browser ini sebelum keluar."
+  },
+  "viewer": {
+    "counter": "{i} dari {n}",
+    "opening": "Mendekripsi…",
+    "noPreview": "Tidak ada pratinjau untuk file ini",
+    "noPreviewBody": "{kind} tidak bisa ditampilkan di browser. Unduh untuk membukanya.",
+    "tooLarge": "File ini terlalu besar untuk ditampilkan di sini. Unduh untuk membukanya.",
+    "failed": "File ini gagal dibuka",
+    "failedBody": "File tidak bisa diunduh atau didekripsi di sini. Coba lagi, atau unduh saja."
+  },
+  "palette": {
+    "title": "Cari di Drive",
+    "placeholder": "Cari file dan folder, atau ketik perintah…",
+    "files": "File dan folder",
+    "recent": "File terbaru",
+    "actions": "Aksi",
+    "pages": "Buka",
+    "noResults": "Tidak ditemukan",
+    "light": "Ganti ke terang",
+    "dark": "Ganti ke gelap"
+  },
+  "deletePage": {
+    "title": "Hapus BIShare Drive Anda",
+    "lead": "Menghapus Drive menghapus seluruh isinya secara permanen: semua file, folder, dan thumbnail, serta akses setiap perangkat. Penghapusan dilakukan di app BIShare, jadi hanya pemegang kunci Drive yang bisa melakukannya.",
+    "open": "Buka Drive",
+    "inApp": "Di app BIShare",
+    "step1": "Buka BIShare di ponsel atau komputer yang memiliki Drive Anda.",
+    "step2": "Masuk ke Drive, lalu Akun Drive.",
+    "step3": "Ketuk Hapus akun Drive di bagian bawah.",
+    "step4": "Masuk dengan akun Apple atau Google yang sama untuk konfirmasi. Penghapusan langsung dimulai.",
+    "whatTitle": "Yang dihapus",
+    "whatBody": "Semua file dan folder, thumbnail-nya, perangkat dan browser yang punya akses, serta tautan ke akun Apple atau Google Anda.",
+    "keptTitle": "Yang tidak disimpan",
+    "keptBody": "BIShare tidak menyimpan salinan. File dienkripsi di perangkat Anda, jadi tidak ada yang bisa membacanya, termasuk BIShare.",
+    "subsTitle": "Langganan",
+    "subsBody": "Paket berbayar ditagih oleh App Store atau Google Play. Batalkan juga di sana, di bagian langganan akun toko Anda.",
+    "noDeviceTitle": "Tidak ada perangkat lagi?",
+    "noDeviceBody": "Pasang BIShare, masuk ke Drive dengan akun Apple atau Google yang sama, lalu hapus di sana. Jika tidak berhasil, tulis ke support@billiongroup.net."
+  },
+  "preview": {
+    "rendering": "Membuka…",
+    "converting": "Mengonversi untuk browser ini…",
+    "notReadable": "Browser ini tidak bisa membaca file tersebut. Unduh untuk membukanya di aplikasi.",
+    "cantPlay": "Browser ini tidak bisa memutar format ini",
+    "cantPlayBody": "Unduh untuk memutarnya di aplikasi lain.",
+    "sheetTruncated": "Hanya {rows} baris pertama yang ditampilkan. Unduh file untuk sisanya.",
+    "slidesNote": "Teks dari {n} slide. Unduh file untuk melihat tata letaknya.",
+    "slide": "Slide {n}",
+    "slideNoText": "Tidak ada teks di slide ini",
+    "htmlNote": "Ditampilkan tanpa skrip dan tanpa memuat apa pun dari internet.",
+    "archiveSummary": "{n} file · {size} setelah diekstrak",
+    "fontSample": "Kucing jingga melompati pagar bambu di halaman rumah."
   }
 }

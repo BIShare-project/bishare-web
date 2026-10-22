@@ -22,7 +22,8 @@
     "devices": "裝置",
     "trash": "垃圾桶",
     "storage": "方案和儲存空間",
-    "security": "安全性"
+    "security": "安全性",
+    "menu": "選單"
   },
   "signin": {
     "title": "開啟你的 Drive",
@@ -58,7 +59,8 @@
     "byKindSub": "已使用 {size}",
     "lastSeen": "上次使用",
     "folders": "最大的資料夾",
-    "foldersSub": "依佔用空間"
+    "foldersSub": "依佔用空間",
+    "total": "合計"
   },
   "kpi": {
     "used": "已使用",
@@ -131,7 +133,9 @@
     "photos": "還沒有照片或影片",
     "photosBody": "在 BIShare App 中開啟照片備份，它們就會顯示在這裡。",
     "trash": "垃圾桶是空的",
-    "trashBody": "已刪除的檔案會在這裡保留 30 天。"
+    "trashBody": "已刪除的檔案會在這裡保留 30 天。",
+    "filesBodyWeb": "從這個瀏覽器上傳，或在 BIShare App 中加入檔案。",
+    "folderBodyWeb": "把檔案拖放到這裡，或從這個瀏覽器上傳。"
   },
   "devices": {
     "unnamed": "未命名的裝置",
@@ -181,7 +185,10 @@
       "name": "名稱",
       "modified": "修改時間",
       "size": "大小"
-    }
+    },
+    "selected": "已選取 {n} 項",
+    "viewList": "清單",
+    "viewGrid": "格狀"
   },
   "kinds": {
     "dir": "資料夾",
@@ -200,14 +207,17 @@
     "sub": "在任何裝置上加入或變更的檔案，最新的在前"
   },
   "photos": {
-    "sub": "{n} 張照片和影片 · {size}"
+    "sub": "{n} 張照片和影片 · {size}",
+    "subWeb": "{photos} 張照片 · {videos} 部影片 · {size}"
   },
   "trash": {
     "sub": "{n, plural, =0 {空} other {# 個項目}} · {size}。每個項目在移到這裡 30 天後永久刪除。",
     "wasIn": "原位置",
     "goneIn": "距離永久刪除",
     "days": "{n, plural, =0 {今天} other {# 天}}",
-    "note": "若要還原內容或立即刪除，請使用 BIShare App 中的垃圾桶。"
+    "note": "若要還原內容或立即刪除，請使用 BIShare App 中的垃圾桶。",
+    "list": "垃圾桶中",
+    "noteWeb": "還原的項目會回到原來的位置。這裡的所有項目在移入 30 天後永久刪除。"
   },
   "storage": {
     "sub": "你的檔案儲存於：{region}。",
@@ -245,5 +255,152 @@
     "appOnly": "僅限 App",
     "delete": "刪除 Drive",
     "deleteBody": "在 BIShare App 的 Drive 帳號中進行。"
+  },
+  "themeLight": "淺色",
+  "themeDark": "深色",
+  "syncedAt": "截至 {time} 已是最新",
+  "act": {
+    "new": "新增",
+    "upload": "上傳",
+    "uploadFiles": "上傳檔案",
+    "uploadFolder": "上傳資料夾",
+    "newFolder": "新增資料夾",
+    "open": "開啟",
+    "openFolder": "開啟資料夾",
+    "preview": "預覽",
+    "download": "下載",
+    "downloadZip": "下載為 zip",
+    "rename": "重新命名",
+    "move": "移至…",
+    "copy": "複製到…",
+    "trash": "移到垃圾桶",
+    "restore": "還原",
+    "deleteForever": "永久刪除",
+    "emptyTrash": "清空垃圾桶",
+    "undo": "復原",
+    "cancel": "取消",
+    "close": "關閉",
+    "create": "建立",
+    "save": "儲存",
+    "retry": "重試",
+    "more": "更多動作",
+    "selectAll": "全選",
+    "clearSelection": "取消選取",
+    "previous": "上一個",
+    "next": "下一個",
+    "moveHere": "移到這裡",
+    "copyHere": "複製到這裡"
+  },
+  "dialog": {
+    "newFolderTitle": "新增資料夾",
+    "folderName": "資料夾名稱",
+    "untitled": "未命名資料夾",
+    "renameTitle": "重新命名",
+    "nameLabel": "名稱",
+    "badName": "名稱不能包含「/」。",
+    "moveTitle": "將 {n} 個項目移至…",
+    "copyTitle": "將 {n} 個項目複製到…",
+    "noFolders": "這裡沒有資料夾",
+    "deleteTitle": "要永久刪除 {n} 個項目嗎？",
+    "deleteBody": "此動作無法復原。檔案會從所有裝置和 BIShare 的伺服器上刪除。",
+    "emptyTitle": "要清空垃圾桶嗎？",
+    "emptyBody": "{n} 個項目會在所有裝置上永久刪除。此動作無法復原。"
+  },
+  "toast": {
+    "renamed": "已重新命名",
+    "folderMade": "已建立資料夾「{name}」",
+    "moved": "{n, plural, =1 {已移至{where}} other {已將 # 個項目移至{where}}}",
+    "copied": "{n, plural, =1 {已複製到{where}} other {已將 # 個項目複製到{where}}}",
+    "trashed": "{n, plural, =1 {已移到垃圾桶} other {已將 # 個項目移到垃圾桶}}",
+    "restored": "{n, plural, =1 {已還原} other {已還原 # 個項目}}",
+    "deleted": "{n, plural, =1 {已永久刪除} other {已永久刪除 # 個項目}}",
+    "emptied": "垃圾桶已清空",
+    "preparing": "正在開啟「{name}」…",
+    "downloading": "正在下載「{name}」",
+    "saved": "已儲存「{name}」",
+    "zipping": "正在將 {n} 個檔案壓縮（{size}）…"
+  },
+  "errors": {
+    "UNKNOWN": "發生問題，請再試一次。",
+    "NETWORK": "無法連線到 BIShare。請檢查網路後再試一次。",
+    "RATE_LIMITED": "要求太多，請稍候再試。",
+    "STORAGE_LIMIT_EXCEEDED": "你的 Drive 剩餘空間不足。",
+    "VAULT_READ_ONLY": "在續訂方案或內容符合免費方案之前，你的 Drive 為唯讀。",
+    "VAULT_MOVE_INTO_ITSELF": "資料夾不能移到它自己裡面。",
+    "VAULT_BAD_NAME": "無法使用這個名稱。",
+    "VAULT_NOT_IN_TRASH": "只有垃圾桶中的內容才能永久刪除。",
+    "VAULT_OBJECT_NOT_FOUND": "這個項目已不在你的 Drive 中。",
+    "upload": "上傳失敗",
+    "download": "下載中斷，請再試一次。",
+    "dropEmpty": "拖放的內容中沒有可以上傳的檔案。",
+    "zipTooLarge": "一個 zip 裝不下（超過 {size}）。請逐一下載檔案。"
+  },
+  "uploads": {
+    "title": "正在上傳 {n} 個檔案",
+    "allDone": "{n} 個上傳已完成",
+    "someFailed": "{n} 個上傳失敗",
+    "queued": "等待中",
+    "preparing": "準備中 · {pct}%",
+    "sending": "{size} 的 {pct}%",
+    "finishing": "即將完成…",
+    "done": "完成 · {size}",
+    "linked": "Drive 中已有，未重新上傳即已加入",
+    "canceled": "已取消",
+    "cancelAll": "全部取消",
+    "minimize": "顯示或隱藏",
+    "dropTitle": "放開即可上傳到{where}",
+    "dropBody": "檔案和資料夾在離開這個瀏覽器之前就在這裡加密。"
+  },
+  "viewer": {
+    "counter": "第 {i} 個，共 {n} 個",
+    "opening": "正在解密…",
+    "noPreview": "這個檔案無法預覽",
+    "noPreviewBody": "{kind}無法在瀏覽器中顯示。請下載後開啟。",
+    "tooLarge": "這個檔案太大，無法在這裡顯示。請下載後開啟。",
+    "failed": "這個檔案無法開啟",
+    "failedBody": "無法在這裡下載或解密。請再試一次，或直接下載。"
+  },
+  "palette": {
+    "title": "搜尋 Drive",
+    "placeholder": "搜尋檔案和資料夾，或輸入指令…",
+    "files": "檔案和資料夾",
+    "recent": "最近的檔案",
+    "actions": "動作",
+    "pages": "前往",
+    "noResults": "找不到結果",
+    "light": "切換為淺色",
+    "dark": "切換為深色"
+  },
+  "deletePage": {
+    "title": "刪除你的 BIShare Drive",
+    "lead": "刪除 Drive 會永久清除其中的一切：所有檔案、資料夾和縮圖，以及每台裝置的存取權。刪除在 BIShare App 中進行，所以只有持有 Drive 金鑰的人才能操作。",
+    "open": "開啟 Drive",
+    "inApp": "在 BIShare App 中",
+    "step1": "在有你 Drive 的手機或電腦上開啟 BIShare。",
+    "step2": "依序前往 Drive、Drive 帳號。",
+    "step3": "點選底部的刪除 Drive 帳號。",
+    "step4": "用同一個 Apple 或 Google 帳號登入以確認。刪除會立即開始。",
+    "whatTitle": "會刪除的內容",
+    "whatBody": "所有檔案和資料夾、它們的縮圖、有存取權的裝置和瀏覽器，以及與你 Apple 或 Google 登入的連結。",
+    "keptTitle": "不會保留的內容",
+    "keptBody": "BIShare 不保留任何副本。檔案在你的裝置上加密，所以包括 BIShare 在內，沒有人能讀取。",
+    "subsTitle": "訂閱",
+    "subsBody": "付費方案由 App Store 或 Google Play 收費。也請到商店帳號的訂閱中取消。",
+    "noDeviceTitle": "已經沒有裝置了？",
+    "noDeviceBody": "安裝 BIShare，用同一個 Apple 或 Google 帳號登入 Drive，再於 App 中刪除。如果不行，請寫信到 support@billiongroup.net。"
+  },
+  "preview": {
+    "rendering": "正在開啟…",
+    "converting": "正在為這個瀏覽器轉換…",
+    "notReadable": "這個瀏覽器無法讀取該檔案。請下載後用 App 開啟。",
+    "cantPlay": "這個瀏覽器無法播放這種格式",
+    "cantPlayBody": "請下載後用其他 App 播放。",
+    "sheetTruncated": "這裡只顯示前 {rows} 列。其餘內容請下載檔案查看。",
+    "slidesNote": "{n} 張投影片的文字。下載檔案可查看版面。",
+    "slide": "投影片 {n}",
+    "slideNoText": "這張投影片沒有文字",
+    "htmlNote": "不執行指令碼，也不從網際網路載入任何內容。",
+    "archiveSummary": "{n} 個檔案 · 解壓縮後 {size}",
+    "fontSample": "天地玄黃，宇宙洪荒。日月盈昃，辰宿列張。"
   }
 }

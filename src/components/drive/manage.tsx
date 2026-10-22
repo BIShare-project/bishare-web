@@ -266,8 +266,8 @@ export function TrashPage() {
 }
 
 const PLANS = [
-  { size: "100 GB", month: "$1.99", year: "$19.99" },
-  { size: "250 GB", month: "$4.99", year: "$49.99" },
+  { size: "100 GB", month: "$2.49", year: "$24.99" },
+  { size: "250 GB", month: "$5.99", year: "$59.99" },
   { size: "500 GB", month: "$9.99", year: "$99.99" },
   { size: "1 TB", month: "$19.99", year: "$199.99" },
 ];

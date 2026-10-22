@@ -22,7 +22,8 @@
     "devices": "Dispositivos",
     "trash": "Lixeira",
     "storage": "Plano e armazenamento",
-    "security": "Segurança"
+    "security": "Segurança",
+    "menu": "Menu"
   },
   "signin": {
     "title": "Abra o seu Drive",
@@ -58,7 +59,8 @@
     "byKindSub": "{size} em uso",
     "lastSeen": "Último uso",
     "folders": "Maiores pastas",
-    "foldersSub": "Pelo espaço que ocupam"
+    "foldersSub": "Pelo espaço que ocupam",
+    "total": "Total"
   },
   "kpi": {
     "used": "Em uso",
@@ -131,7 +133,9 @@
     "photos": "Nenhuma foto ou vídeo ainda",
     "photosBody": "Ative o backup de fotos no app BIShare e elas aparecem aqui.",
     "trash": "A lixeira está vazia",
-    "trashBody": "Arquivos apagados ficam aqui por 30 dias."
+    "trashBody": "Arquivos apagados ficam aqui por 30 dias.",
+    "filesBodyWeb": "Envie a partir deste navegador ou adicione arquivos no app BIShare.",
+    "folderBodyWeb": "Solte arquivos aqui ou envie a partir deste navegador."
   },
   "devices": {
     "unnamed": "Dispositivo sem nome",
@@ -181,7 +185,10 @@
       "name": "Nome",
       "modified": "Modificado",
       "size": "Tamanho"
-    }
+    },
+    "selected": "{n} selecionados",
+    "viewList": "Lista",
+    "viewGrid": "Grade"
   },
   "kinds": {
     "dir": "Pasta",
@@ -200,14 +207,17 @@
     "sub": "Arquivos adicionados ou alterados em qualquer dispositivo, mais novos primeiro"
   },
   "photos": {
-    "sub": "{n} fotos e vídeos · {size}"
+    "sub": "{n} fotos e vídeos · {size}",
+    "subWeb": "{photos, plural, one {# foto} other {# fotos}} · {videos, plural, one {# vídeo} other {# vídeos}} · {size}"
   },
   "trash": {
     "sub": "{n, plural, =0 {Vazia} one {# item} other {# itens}} · {size}. Cada um é apagado de vez 30 dias depois de vir para cá.",
     "wasIn": "Estava em",
     "goneIn": "Apagado de vez em",
     "days": "{n, plural, =0 {Hoje} one {# dia} other {# dias}}",
-    "note": "Para restaurar algo, ou apagar agora, use a lixeira do app BIShare."
+    "note": "Para restaurar algo, ou apagar agora, use a lixeira do app BIShare.",
+    "list": "Na lixeira",
+    "noteWeb": "O que você restaura volta para onde estava. Tudo aqui é apagado de vez 30 dias depois de vir para cá."
   },
   "storage": {
     "sub": "Região onde seus arquivos ficam: {region}.",
@@ -245,5 +255,152 @@
     "appOnly": "Só no app",
     "delete": "Excluir o Drive",
     "deleteBody": "Feito no app BIShare, em Conta do Drive."
+  },
+  "themeLight": "Claro",
+  "themeDark": "Escuro",
+  "syncedAt": "Atualizado às {time}",
+  "act": {
+    "new": "Novo",
+    "upload": "Enviar",
+    "uploadFiles": "Enviar arquivos",
+    "uploadFolder": "Enviar uma pasta",
+    "newFolder": "Nova pasta",
+    "open": "Abrir",
+    "openFolder": "Abrir pasta",
+    "preview": "Visualizar",
+    "download": "Baixar",
+    "downloadZip": "Baixar como zip",
+    "rename": "Renomear",
+    "move": "Mover para…",
+    "copy": "Copiar para…",
+    "trash": "Mover para a lixeira",
+    "restore": "Restaurar",
+    "deleteForever": "Apagar de vez",
+    "emptyTrash": "Esvaziar lixeira",
+    "undo": "Desfazer",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "create": "Criar",
+    "save": "Salvar",
+    "retry": "Tentar de novo",
+    "more": "Mais ações",
+    "selectAll": "Selecionar tudo",
+    "clearSelection": "Limpar seleção",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "moveHere": "Mover para cá",
+    "copyHere": "Copiar para cá"
+  },
+  "dialog": {
+    "newFolderTitle": "Nova pasta",
+    "folderName": "Nome da pasta",
+    "untitled": "Pasta sem nome",
+    "renameTitle": "Renomear",
+    "nameLabel": "Nome",
+    "badName": "Um nome não pode conter “/”.",
+    "moveTitle": "{n, plural, one {Mover # item para…} other {Mover # itens para…}}",
+    "copyTitle": "{n, plural, one {Copiar # item para…} other {Copiar # itens para…}}",
+    "noFolders": "Nenhuma pasta aqui",
+    "deleteTitle": "{n, plural, one {Apagar # item de vez?} other {Apagar # itens de vez?}}",
+    "deleteBody": "Isso não pode ser desfeito. Os arquivos somem de todos os dispositivos e dos servidores do BIShare.",
+    "emptyTitle": "Esvaziar a lixeira?",
+    "emptyBody": "{n, plural, one {# item será apagado de vez em todos os dispositivos. Isso não pode ser desfeito.} other {# itens serão apagados de vez em todos os dispositivos. Isso não pode ser desfeito.}}"
+  },
+  "toast": {
+    "renamed": "Renomeado",
+    "folderMade": "Pasta “{name}” criada",
+    "moved": "{n, plural, one {Movido para {where}} other {# itens movidos para {where}}}",
+    "copied": "{n, plural, one {Copiado para {where}} other {# itens copiados para {where}}}",
+    "trashed": "{n, plural, one {Movido para a lixeira} other {# itens movidos para a lixeira}}",
+    "restored": "{n, plural, one {Restaurado} other {# itens restaurados}}",
+    "deleted": "{n, plural, one {Apagado de vez} other {# itens apagados de vez}}",
+    "emptied": "A lixeira está vazia",
+    "preparing": "Abrindo “{name}”…",
+    "downloading": "Baixando “{name}”",
+    "saved": "“{name}” salvo",
+    "zipping": "{n, plural, one {Compactando # arquivo ({size})…} other {Compactando # arquivos ({size})…}}"
+  },
+  "errors": {
+    "UNKNOWN": "Algo deu errado. Tente de novo.",
+    "NETWORK": "Sem conexão com o BIShare. Verifique a rede e tente de novo.",
+    "RATE_LIMITED": "Muitas solicitações. Espere um pouco e tente de novo.",
+    "STORAGE_LIMIT_EXCEEDED": "Não há espaço suficiente no seu Drive.",
+    "VAULT_READ_ONLY": "Seu Drive está só para leitura até o plano ser renovado ou caber no plano grátis.",
+    "VAULT_MOVE_INTO_ITSELF": "Uma pasta não pode ir para dentro dela mesma.",
+    "VAULT_BAD_NAME": "Esse nome não pode ser usado.",
+    "VAULT_NOT_IN_TRASH": "Só o que está na lixeira pode ser apagado de vez.",
+    "VAULT_OBJECT_NOT_FOUND": "Esse item não está mais no seu Drive.",
+    "upload": "O envio falhou",
+    "download": "O download parou. Tente de novo.",
+    "dropEmpty": "Não há nada para enviar no que foi solto.",
+    "zipTooLarge": "Grande demais para um zip só (mais de {size}). Baixe os arquivos um por um."
+  },
+  "uploads": {
+    "title": "{n, plural, one {Enviando # arquivo} other {Enviando # arquivos}}",
+    "allDone": "{n, plural, one {# envio concluído} other {# envios concluídos}}",
+    "someFailed": "{n, plural, one {# envio falhou} other {# envios falharam}}",
+    "queued": "Aguardando",
+    "preparing": "Preparando · {pct}%",
+    "sending": "{pct}% de {size}",
+    "finishing": "Finalizando…",
+    "done": "Pronto · {size}",
+    "linked": "Já estava no seu Drive, adicionado sem enviar",
+    "canceled": "Cancelado",
+    "cancelAll": "Cancelar tudo",
+    "minimize": "Mostrar ou ocultar",
+    "dropTitle": "Solte para enviar para {where}",
+    "dropBody": "Arquivos e pastas são criptografados neste navegador antes de saírem dele."
+  },
+  "viewer": {
+    "counter": "{i} de {n}",
+    "opening": "Descriptografando…",
+    "noPreview": "Sem visualização para este arquivo",
+    "noPreviewBody": "Um arquivo do tipo {kind} não pode ser exibido no navegador. Baixe para abrir.",
+    "tooLarge": "Este arquivo é grande demais para ser exibido aqui. Baixe para abrir.",
+    "failed": "Este arquivo não abriu",
+    "failedBody": "Não foi possível baixar ou descriptografar aqui. Tente de novo ou baixe o arquivo."
+  },
+  "palette": {
+    "title": "Pesquisar no Drive",
+    "placeholder": "Pesquise arquivos e pastas ou digite um comando…",
+    "files": "Arquivos e pastas",
+    "recent": "Arquivos recentes",
+    "actions": "Ações",
+    "pages": "Ir para",
+    "noResults": "Nada encontrado",
+    "light": "Mudar para claro",
+    "dark": "Mudar para escuro"
+  },
+  "deletePage": {
+    "title": "Excluir seu BIShare Drive",
+    "lead": "Excluir o Drive apaga de vez tudo o que há nele: cada arquivo, pasta e miniatura, e o acesso de cada dispositivo. Isso é feito no app BIShare, então só quem tem a chave do Drive pode fazer.",
+    "open": "Abrir o Drive",
+    "inApp": "No app BIShare",
+    "step1": "Abra o BIShare em um celular ou computador que tenha seu Drive.",
+    "step2": "Vá em Drive, depois Conta do Drive.",
+    "step3": "Toque em Excluir a conta do Drive, no fim da página.",
+    "step4": "Entre com a mesma conta Apple ou Google para confirmar. A exclusão começa na hora.",
+    "whatTitle": "O que é apagado",
+    "whatBody": "Todos os arquivos e pastas, as miniaturas, os dispositivos e navegadores com acesso e o vínculo com sua conta Apple ou Google.",
+    "keptTitle": "O que não fica guardado",
+    "keptBody": "O BIShare não guarda cópia. Os arquivos foram criptografados nos seus dispositivos, então ninguém, nem o BIShare, pôde lê-los.",
+    "subsTitle": "Assinaturas",
+    "subsBody": "Um plano pago é cobrado pela App Store ou pelo Google Play. Cancele também lá, nas assinaturas da sua conta da loja.",
+    "noDeviceTitle": "Não tem mais nenhum dispositivo?",
+    "noDeviceBody": "Instale o BIShare, entre no Drive com a mesma conta Apple ou Google e exclua por lá. Se não der certo, escreva para support@billiongroup.net."
+  },
+  "preview": {
+    "rendering": "Abrindo…",
+    "converting": "Convertendo para este navegador…",
+    "notReadable": "Este navegador não conseguiu ler o arquivo. Baixe para abrir em um app.",
+    "cantPlay": "Este navegador não reproduz este formato",
+    "cantPlayBody": "Baixe para reproduzir em outro app.",
+    "sheetTruncated": "Só as primeiras {rows} linhas aparecem aqui. Baixe o arquivo para ver o resto.",
+    "slidesNote": "{n, plural, one {O texto de # slide. Baixe o arquivo para ver o layout.} other {O texto de # slides. Baixe o arquivo para ver o layout.}}",
+    "slide": "Slide {n}",
+    "slideNoText": "Este slide não tem texto",
+    "htmlNote": "Exibido sem scripts e sem carregar nada da internet.",
+    "archiveSummary": "{n, plural, one {# arquivo} other {# arquivos}} · {size} descompactados",
+    "fontSample": "Jane quer LP, fax, CD, giz, TV e bom whisky."
   }
 }

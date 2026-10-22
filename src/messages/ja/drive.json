@@ -22,7 +22,8 @@
     "devices": "デバイス",
     "trash": "ゴミ箱",
     "storage": "プランと容量",
-    "security": "セキュリティ"
+    "security": "セキュリティ",
+    "menu": "メニュー"
   },
   "signin": {
     "title": "Drive を開く",
@@ -58,7 +59,8 @@
     "byKindSub": "{size} 使用中",
     "lastSeen": "最終使用",
     "folders": "大きなフォルダ",
-    "foldersSub": "使用容量順"
+    "foldersSub": "使用容量順",
+    "total": "合計"
   },
   "kpi": {
     "used": "使用中",
@@ -131,7 +133,9 @@
     "photos": "まだ写真や動画がありません",
     "photosBody": "BIShare アプリで写真のバックアップをオンにすると、ここに表示されます。",
     "trash": "ゴミ箱は空です",
-    "trashBody": "削除したファイルは 30 日間ここに残ります。"
+    "trashBody": "削除したファイルは 30 日間ここに残ります。",
+    "filesBodyWeb": "このブラウザからアップロードするか、BIShare アプリでファイルを追加してください。",
+    "folderBodyWeb": "ここにファイルをドロップするか、このブラウザからアップロードしてください。"
   },
   "devices": {
     "unnamed": "名前のないデバイス",
@@ -181,7 +185,10 @@
       "name": "名前",
       "modified": "更新日時",
       "size": "サイズ"
-    }
+    },
+    "selected": "{n} 件選択中",
+    "viewList": "リスト",
+    "viewGrid": "グリッド"
   },
   "kinds": {
     "dir": "フォルダ",
@@ -200,14 +207,17 @@
     "sub": "どのデバイスで追加・変更したファイルも、新しい順に"
   },
   "photos": {
-    "sub": "写真と動画 {n} 件 · {size}"
+    "sub": "写真と動画 {n} 件 · {size}",
+    "subWeb": "写真 {photos} 枚 · 動画 {videos} 本 · {size}"
   },
   "trash": {
     "sub": "{n, plural, =0 {空} other {# 項目}} · {size}。ゴミ箱に移してから 30 日で完全に削除されます。",
     "wasIn": "元の場所",
     "goneIn": "完全に削除まで",
     "days": "{n, plural, =0 {今日} other {# 日}}",
-    "note": "元に戻す、またはすぐに削除するには、BIShare アプリのゴミ箱を使います。"
+    "note": "元に戻す、またはすぐに削除するには、BIShare アプリのゴミ箱を使います。",
+    "list": "ゴミ箱",
+    "noteWeb": "復元したものは元の場所に戻ります。ここにあるものは移してから 30 日で完全に削除されます。"
   },
   "storage": {
     "sub": "ファイルの保存先：{region}。",
@@ -245,5 +255,152 @@
     "appOnly": "アプリのみ",
     "delete": "Drive の削除",
     "deleteBody": "BIShare アプリの「Driveアカウント」で行います。"
+  },
+  "themeLight": "ライト",
+  "themeDark": "ダーク",
+  "syncedAt": "{time} 時点で最新",
+  "act": {
+    "new": "新規",
+    "upload": "アップロード",
+    "uploadFiles": "ファイルをアップロード",
+    "uploadFolder": "フォルダをアップロード",
+    "newFolder": "新しいフォルダ",
+    "open": "開く",
+    "openFolder": "フォルダを開く",
+    "preview": "プレビュー",
+    "download": "ダウンロード",
+    "downloadZip": "ZIP でダウンロード",
+    "rename": "名前を変更",
+    "move": "移動…",
+    "copy": "コピー…",
+    "trash": "ゴミ箱に移動",
+    "restore": "復元",
+    "deleteForever": "完全に削除",
+    "emptyTrash": "ゴミ箱を空にする",
+    "undo": "元に戻す",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "create": "作成",
+    "save": "保存",
+    "retry": "再試行",
+    "more": "その他の操作",
+    "selectAll": "すべて選択",
+    "clearSelection": "選択を解除",
+    "previous": "前へ",
+    "next": "次へ",
+    "moveHere": "ここに移動",
+    "copyHere": "ここにコピー"
+  },
+  "dialog": {
+    "newFolderTitle": "新しいフォルダ",
+    "folderName": "フォルダ名",
+    "untitled": "名称未設定フォルダ",
+    "renameTitle": "名前を変更",
+    "nameLabel": "名前",
+    "badName": "名前に「/」は使えません。",
+    "moveTitle": "{n} 件の移動先…",
+    "copyTitle": "{n} 件のコピー先…",
+    "noFolders": "ここにフォルダはありません",
+    "deleteTitle": "{n} 件を完全に削除しますか？",
+    "deleteBody": "元に戻せません。ファイルはすべてのデバイスと BIShare のサーバーから消えます。",
+    "emptyTitle": "ゴミ箱を空にしますか？",
+    "emptyBody": "{n} 件がすべてのデバイスで完全に削除されます。元に戻せません。"
+  },
+  "toast": {
+    "renamed": "名前を変更しました",
+    "folderMade": "フォルダ「{name}」を作成しました",
+    "moved": "{n, plural, =1 {{where} に移動しました} other {# 件を {where} に移動しました}}",
+    "copied": "{n, plural, =1 {{where} にコピーしました} other {# 件を {where} にコピーしました}}",
+    "trashed": "{n, plural, =1 {ゴミ箱に移動しました} other {# 件をゴミ箱に移動しました}}",
+    "restored": "{n, plural, =1 {復元しました} other {# 件を復元しました}}",
+    "deleted": "{n, plural, =1 {完全に削除しました} other {# 件を完全に削除しました}}",
+    "emptied": "ゴミ箱は空です",
+    "preparing": "「{name}」を開いています…",
+    "downloading": "「{name}」をダウンロード中",
+    "saved": "「{name}」を保存しました",
+    "zipping": "{n} 件のファイルを ZIP にまとめています（{size}）…"
+  },
+  "errors": {
+    "UNKNOWN": "問題が発生しました。もう一度お試しください。",
+    "NETWORK": "BIShare に接続できません。ネットワークを確認して再試行してください。",
+    "RATE_LIMITED": "リクエストが多すぎます。少し待ってから再試行してください。",
+    "STORAGE_LIMIT_EXCEEDED": "Drive の空き容量が足りません。",
+    "VAULT_READ_ONLY": "プランを更新するか無料プランに収まるまで、Drive は読み取り専用です。",
+    "VAULT_MOVE_INTO_ITSELF": "フォルダをそれ自身の中に移動することはできません。",
+    "VAULT_BAD_NAME": "その名前は使えません。",
+    "VAULT_NOT_IN_TRASH": "完全に削除できるのはゴミ箱の中のものだけです。",
+    "VAULT_OBJECT_NOT_FOUND": "その項目はもう Drive にありません。",
+    "upload": "アップロードに失敗しました",
+    "download": "ダウンロードが止まりました。もう一度お試しください。",
+    "dropEmpty": "ドロップされたものにアップロードできる内容がありません。",
+    "zipTooLarge": "1 つの ZIP には大きすぎます（{size} 超）。ファイルを 1 つずつダウンロードしてください。"
+  },
+  "uploads": {
+    "title": "{n} 件のファイルをアップロード中",
+    "allDone": "{n} 件のアップロードが完了",
+    "someFailed": "{n} 件のアップロードに失敗",
+    "queued": "待機中",
+    "preparing": "準備中 · {pct}%",
+    "sending": "{size} 中 {pct}%",
+    "finishing": "仕上げ中…",
+    "done": "完了 · {size}",
+    "linked": "Drive にすでにあるため、アップロードせずに追加しました",
+    "canceled": "キャンセル済み",
+    "cancelAll": "すべてキャンセル",
+    "minimize": "表示／非表示",
+    "dropTitle": "ドロップして {where} にアップロード",
+    "dropBody": "ファイルとフォルダは、このブラウザを出る前にここで暗号化されます。"
+  },
+  "viewer": {
+    "counter": "{i} / {n}",
+    "opening": "復号中…",
+    "noPreview": "このファイルのプレビューはありません",
+    "noPreviewBody": "{kind}はブラウザで表示できません。ダウンロードして開いてください。",
+    "tooLarge": "このファイルは大きすぎてここでは表示できません。ダウンロードして開いてください。",
+    "failed": "このファイルを開けませんでした",
+    "failedBody": "ここではダウンロードも復号もできませんでした。もう一度試すか、ダウンロードしてください。"
+  },
+  "palette": {
+    "title": "Drive を検索",
+    "placeholder": "ファイルやフォルダを検索、またはコマンドを入力…",
+    "files": "ファイルとフォルダ",
+    "recent": "最近のファイル",
+    "actions": "操作",
+    "pages": "移動",
+    "noResults": "見つかりませんでした",
+    "light": "ライトに切り替え",
+    "dark": "ダークに切り替え"
+  },
+  "deletePage": {
+    "title": "BIShare Drive を削除する",
+    "lead": "Drive を削除すると、中身はすべて完全に消えます。すべてのファイル、フォルダ、サムネイル、そして各デバイスのアクセスもです。削除は BIShare アプリで行うため、Drive の鍵を持つ人にしかできません。",
+    "open": "Drive を開く",
+    "inApp": "BIShare アプリで",
+    "step1": "Drive が入っているスマホかパソコンで BIShare を開きます。",
+    "step2": "Drive →「Driveアカウント」の順に進みます。",
+    "step3": "下部の「Driveアカウントを削除」をタップします。",
+    "step4": "確認のため、同じ Apple または Google アカウントでサインインします。削除はすぐに始まります。",
+    "whatTitle": "削除されるもの",
+    "whatBody": "すべてのファイルとフォルダ、そのサムネイル、アクセスできるデバイスとブラウザ、Apple または Google のサインインとの関連付け。",
+    "keptTitle": "残らないもの",
+    "keptBody": "BIShare はコピーを残しません。ファイルはお使いのデバイスで暗号化されていたので、BIShare を含め誰も読めませんでした。",
+    "subsTitle": "サブスクリプション",
+    "subsBody": "有料プランは App Store または Google Play で請求されます。ストアのアカウントのサブスクリプションからも解約してください。",
+    "noDeviceTitle": "デバイスが残っていない場合",
+    "noDeviceBody": "BIShare をインストールし、同じ Apple または Google アカウントで Drive にサインインしてから削除してください。うまくいかない場合は support@billiongroup.net までご連絡ください。"
+  },
+  "preview": {
+    "rendering": "開いています…",
+    "converting": "このブラウザ用に変換中…",
+    "notReadable": "このブラウザではファイルを読み取れませんでした。ダウンロードしてアプリで開いてください。",
+    "cantPlay": "このブラウザはこの形式を再生できません",
+    "cantPlayBody": "ダウンロードして別のアプリで再生してください。",
+    "sheetTruncated": "ここに表示しているのは最初の {rows} 行だけです。続きはファイルをダウンロードしてください。",
+    "slidesNote": "スライド {n} 枚のテキストです。レイアウトはファイルをダウンロードしてご覧ください。",
+    "slide": "スライド {n}",
+    "slideNoText": "このスライドにテキストはありません",
+    "htmlNote": "スクリプトなし、インターネットから何も読み込まずに表示しています。",
+    "archiveSummary": "{n} 個のファイル · 展開後 {size}",
+    "fontSample": "いろはにほへと ちりぬるを わかよたれそ つねならむ"
   }
 }

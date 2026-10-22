@@ -22,7 +22,8 @@
     "devices": "Dispositivos",
     "trash": "Papelera",
     "storage": "Plan y almacenamiento",
-    "security": "Seguridad"
+    "security": "Seguridad",
+    "menu": "Menú"
   },
   "signin": {
     "title": "Abre tu Drive",
@@ -58,7 +59,8 @@
     "byKindSub": "{size} en uso",
     "lastSeen": "Último uso",
     "folders": "Carpetas más grandes",
-    "foldersSub": "Por el espacio que ocupan"
+    "foldersSub": "Por el espacio que ocupan",
+    "total": "Total"
   },
   "kpi": {
     "used": "En uso",
@@ -131,7 +133,9 @@
     "photos": "Aún no hay fotos ni vídeos",
     "photosBody": "Activa la copia de fotos en la app BIShare y aparecerán aquí.",
     "trash": "La papelera está vacía",
-    "trashBody": "Los archivos borrados se quedan aquí 30 días."
+    "trashBody": "Los archivos borrados se quedan aquí 30 días.",
+    "filesBodyWeb": "Sube archivos desde este navegador o añádelos en la app BIShare.",
+    "folderBodyWeb": "Suelta archivos aquí o súbelos desde este navegador."
   },
   "devices": {
     "unnamed": "Dispositivo sin nombre",
@@ -181,7 +185,10 @@
       "name": "Nombre",
       "modified": "Modificado",
       "size": "Tamaño"
-    }
+    },
+    "selected": "{n} seleccionados",
+    "viewList": "Lista",
+    "viewGrid": "Cuadrícula"
   },
   "kinds": {
     "dir": "Carpeta",
@@ -200,14 +207,17 @@
     "sub": "Archivos añadidos o cambiados en cualquier dispositivo, lo más nuevo primero"
   },
   "photos": {
-    "sub": "{n} fotos y vídeos · {size}"
+    "sub": "{n} fotos y vídeos · {size}",
+    "subWeb": "{photos, plural, one {# foto} other {# fotos}} · {videos, plural, one {# vídeo} other {# vídeos}} · {size}"
   },
   "trash": {
     "sub": "{n, plural, =0 {Vacía} one {# elemento} other {# elementos}} · {size}. Cada uno se borra para siempre 30 días después de llegar aquí.",
     "wasIn": "Estaba en",
     "goneIn": "Se borra para siempre en",
     "days": "{n, plural, =0 {Hoy} one {# día} other {# días}}",
-    "note": "Para recuperar algo, o borrarlo ya, usa la papelera de la app BIShare."
+    "note": "Para recuperar algo, o borrarlo ya, usa la papelera de la app BIShare.",
+    "list": "En la papelera",
+    "noteWeb": "Lo que recuperas vuelve a su sitio. Todo lo que hay aquí se borra para siempre 30 días después de llegar."
   },
   "storage": {
     "sub": "Región donde se guardan tus archivos: {region}.",
@@ -245,5 +255,152 @@
     "appOnly": "Solo app",
     "delete": "Eliminar el Drive",
     "deleteBody": "Se hace en la app BIShare, en Cuenta de Drive."
+  },
+  "themeLight": "Claro",
+  "themeDark": "Oscuro",
+  "syncedAt": "Al día a las {time}",
+  "act": {
+    "new": "Nuevo",
+    "upload": "Subir",
+    "uploadFiles": "Subir archivos",
+    "uploadFolder": "Subir una carpeta",
+    "newFolder": "Nueva carpeta",
+    "open": "Abrir",
+    "openFolder": "Abrir carpeta",
+    "preview": "Vista previa",
+    "download": "Descargar",
+    "downloadZip": "Descargar como zip",
+    "rename": "Cambiar nombre",
+    "move": "Mover a…",
+    "copy": "Copiar a…",
+    "trash": "Mover a la papelera",
+    "restore": "Recuperar",
+    "deleteForever": "Borrar para siempre",
+    "emptyTrash": "Vaciar papelera",
+    "undo": "Deshacer",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "create": "Crear",
+    "save": "Guardar",
+    "retry": "Reintentar",
+    "more": "Más acciones",
+    "selectAll": "Seleccionar todo",
+    "clearSelection": "Quitar selección",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "moveHere": "Mover aquí",
+    "copyHere": "Copiar aquí"
+  },
+  "dialog": {
+    "newFolderTitle": "Nueva carpeta",
+    "folderName": "Nombre de la carpeta",
+    "untitled": "Carpeta sin nombre",
+    "renameTitle": "Cambiar nombre",
+    "nameLabel": "Nombre",
+    "badName": "Un nombre no puede contener «/».",
+    "moveTitle": "{n, plural, one {Mover # elemento a…} other {Mover # elementos a…}}",
+    "copyTitle": "{n, plural, one {Copiar # elemento a…} other {Copiar # elementos a…}}",
+    "noFolders": "No hay carpetas aquí",
+    "deleteTitle": "{n, plural, one {¿Borrar # elemento para siempre?} other {¿Borrar # elementos para siempre?}}",
+    "deleteBody": "No se puede deshacer. Los archivos desaparecen de todos los dispositivos y de los servidores de BIShare.",
+    "emptyTitle": "¿Vaciar la papelera?",
+    "emptyBody": "{n, plural, one {# elemento se borra para siempre en todos los dispositivos. No se puede deshacer.} other {# elementos se borran para siempre en todos los dispositivos. No se puede deshacer.}}"
+  },
+  "toast": {
+    "renamed": "Nombre cambiado",
+    "folderMade": "Carpeta «{name}» creada",
+    "moved": "{n, plural, one {Movido a {where}} other {# elementos movidos a {where}}}",
+    "copied": "{n, plural, one {Copiado a {where}} other {# elementos copiados a {where}}}",
+    "trashed": "{n, plural, one {Movido a la papelera} other {# elementos movidos a la papelera}}",
+    "restored": "{n, plural, one {Recuperado} other {# elementos recuperados}}",
+    "deleted": "{n, plural, one {Borrado para siempre} other {# elementos borrados para siempre}}",
+    "emptied": "La papelera está vacía",
+    "preparing": "Abriendo «{name}»…",
+    "downloading": "Descargando «{name}»",
+    "saved": "«{name}» guardado",
+    "zipping": "{n, plural, one {Comprimiendo # archivo ({size})…} other {Comprimiendo # archivos ({size})…}}"
+  },
+  "errors": {
+    "UNKNOWN": "Algo salió mal. Inténtalo de nuevo.",
+    "NETWORK": "Sin conexión con BIShare. Revisa la red e inténtalo de nuevo.",
+    "RATE_LIMITED": "Demasiadas solicitudes. Espera un momento e inténtalo de nuevo.",
+    "STORAGE_LIMIT_EXCEEDED": "No queda espacio suficiente en tu Drive.",
+    "VAULT_READ_ONLY": "Tu Drive es de solo lectura hasta que renueves el plan o quepa en el plan gratis.",
+    "VAULT_MOVE_INTO_ITSELF": "Una carpeta no puede ir dentro de sí misma.",
+    "VAULT_BAD_NAME": "Ese nombre no se puede usar.",
+    "VAULT_NOT_IN_TRASH": "Solo lo que está en la papelera se puede borrar para siempre.",
+    "VAULT_OBJECT_NOT_FOUND": "Ese elemento ya no está en tu Drive.",
+    "upload": "La subida falló",
+    "download": "La descarga se detuvo. Inténtalo de nuevo.",
+    "dropEmpty": "No hay nada que subir en lo que soltaste.",
+    "zipTooLarge": "Demasiado para un solo zip (más de {size}). Descarga los archivos uno a uno."
+  },
+  "uploads": {
+    "title": "{n, plural, one {Subiendo # archivo} other {Subiendo # archivos}}",
+    "allDone": "{n, plural, one {# subida completada} other {# subidas completadas}}",
+    "someFailed": "{n, plural, one {# subida falló} other {# subidas fallaron}}",
+    "queued": "En espera",
+    "preparing": "Preparando · {pct} %",
+    "sending": "{pct} % de {size}",
+    "finishing": "Terminando…",
+    "done": "Hecho · {size}",
+    "linked": "Ya estaba en tu Drive, añadido sin subirlo",
+    "canceled": "Cancelado",
+    "cancelAll": "Cancelar todo",
+    "minimize": "Mostrar u ocultar",
+    "dropTitle": "Suelta para subir a {where}",
+    "dropBody": "Los archivos y carpetas se cifran en este navegador antes de salir de él."
+  },
+  "viewer": {
+    "counter": "{i} de {n}",
+    "opening": "Descifrando…",
+    "noPreview": "No hay vista previa de este archivo",
+    "noPreviewBody": "Un archivo de tipo {kind} no se puede mostrar en el navegador. Descárgalo para abrirlo.",
+    "tooLarge": "Este archivo es demasiado grande para mostrarlo aquí. Descárgalo para abrirlo.",
+    "failed": "Este archivo no se abrió",
+    "failedBody": "No se pudo descargar ni descifrar aquí. Inténtalo de nuevo o descárgalo."
+  },
+  "palette": {
+    "title": "Buscar en el Drive",
+    "placeholder": "Busca archivos y carpetas, o escribe una orden…",
+    "files": "Archivos y carpetas",
+    "recent": "Archivos recientes",
+    "actions": "Acciones",
+    "pages": "Ir a",
+    "noResults": "Sin resultados",
+    "light": "Cambiar a claro",
+    "dark": "Cambiar a oscuro"
+  },
+  "deletePage": {
+    "title": "Eliminar tu BIShare Drive",
+    "lead": "Eliminar el Drive borra para siempre todo lo que contiene: cada archivo, carpeta y miniatura, y el acceso de cada dispositivo. Se hace en la app BIShare, así que solo puede hacerlo quien tiene la clave del Drive.",
+    "open": "Abrir el Drive",
+    "inApp": "En la app BIShare",
+    "step1": "Abre BIShare en un teléfono u ordenador que tenga tu Drive.",
+    "step2": "Ve a Drive y luego a Cuenta de Drive.",
+    "step3": "Toca Eliminar la cuenta de Drive, abajo del todo.",
+    "step4": "Inicia sesión con la misma cuenta de Apple o Google para confirmar. El borrado empieza al momento.",
+    "whatTitle": "Qué se borra",
+    "whatBody": "Todos los archivos y carpetas, sus miniaturas, los dispositivos y navegadores con acceso y el vínculo con tu cuenta de Apple o Google.",
+    "keptTitle": "Qué no se guarda",
+    "keptBody": "BIShare no guarda ninguna copia. Los archivos se cifraron en tus dispositivos, así que nadie, tampoco BIShare, pudo leerlos.",
+    "subsTitle": "Suscripciones",
+    "subsBody": "Un plan de pago lo cobra App Store o Google Play. Cancélalo también allí, en las suscripciones de tu cuenta de la tienda.",
+    "noDeviceTitle": "¿Ya no tienes ningún dispositivo?",
+    "noDeviceBody": "Instala BIShare, entra en Drive con la misma cuenta de Apple o Google y elimínalo allí. Si no funciona, escribe a support@billiongroup.net."
+  },
+  "preview": {
+    "rendering": "Abriendo…",
+    "converting": "Convirtiendo para este navegador…",
+    "notReadable": "Este navegador no pudo leer el archivo. Descárgalo para abrirlo en una app.",
+    "cantPlay": "Este navegador no puede reproducir este formato",
+    "cantPlayBody": "Descárgalo para reproducirlo en otra app.",
+    "sheetTruncated": "Aquí solo se muestran las primeras {rows} filas. Descarga el archivo para ver el resto.",
+    "slidesNote": "{n, plural, one {El texto de # diapositiva. Descarga el archivo para ver su diseño.} other {El texto de # diapositivas. Descarga el archivo para ver su diseño.}}",
+    "slide": "Diapositiva {n}",
+    "slideNoText": "Esta diapositiva no tiene texto",
+    "htmlNote": "Se muestra sin scripts y sin cargar nada de internet.",
+    "archiveSummary": "{n, plural, one {# archivo} other {# archivos}} · {size} sin comprimir",
+    "fontSample": "El veloz murciélago hindú comía feliz cardillo y kiwi."
   }
 }

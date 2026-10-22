@@ -22,7 +22,8 @@
     "devices": "Geräte",
     "trash": "Papierkorb",
     "storage": "Tarif & Speicher",
-    "security": "Sicherheit"
+    "security": "Sicherheit",
+    "menu": "Menü"
   },
   "signin": {
     "title": "Öffne dein Drive",
@@ -58,7 +59,8 @@
     "byKindSub": "{size} belegt",
     "lastSeen": "Zuletzt genutzt",
     "folders": "Größte Ordner",
-    "foldersSub": "Nach belegtem Platz"
+    "foldersSub": "Nach belegtem Platz",
+    "total": "Gesamt"
   },
   "kpi": {
     "used": "Belegt",
@@ -131,7 +133,9 @@
     "photos": "Noch keine Fotos oder Videos",
     "photosBody": "Schalte die Foto-Sicherung in der BIShare-App ein, dann erscheinen sie hier.",
     "trash": "Der Papierkorb ist leer",
-    "trashBody": "Gelöschte Dateien bleiben 30 Tage hier."
+    "trashBody": "Gelöschte Dateien bleiben 30 Tage hier.",
+    "filesBodyWeb": "Lade aus diesem Browser hoch oder füge Dateien in der BIShare-App hinzu.",
+    "folderBodyWeb": "Dateien hierher ziehen oder aus diesem Browser hochladen."
   },
   "devices": {
     "unnamed": "Unbenanntes Gerät",
@@ -181,7 +185,10 @@
       "name": "Name",
       "modified": "Geändert",
       "size": "Größe"
-    }
+    },
+    "selected": "{n} ausgewählt",
+    "viewList": "Liste",
+    "viewGrid": "Raster"
   },
   "kinds": {
     "dir": "Ordner",
@@ -200,14 +207,17 @@
     "sub": "Auf irgendeinem Gerät hinzugefügte oder geänderte Dateien, neueste zuerst"
   },
   "photos": {
-    "sub": "{n} Fotos und Videos · {size}"
+    "sub": "{n} Fotos und Videos · {size}",
+    "subWeb": "{photos, plural, one {# Foto} other {# Fotos}} · {videos, plural, one {# Video} other {# Videos}} · {size}"
   },
   "trash": {
     "sub": "{n, plural, =0 {Leer} one {# Element} other {# Elemente}} · {size}. Alles wird 30 Tage nach dem Verschieben hierher endgültig gelöscht.",
     "wasIn": "War in",
     "goneIn": "Endgültig gelöscht in",
     "days": "{n, plural, =0 {Heute} one {# Tag} other {# Tagen}}",
-    "note": "Zum Wiederherstellen oder sofortigen Löschen nutze den Papierkorb in der BIShare-App."
+    "note": "Zum Wiederherstellen oder sofortigen Löschen nutze den Papierkorb in der BIShare-App.",
+    "list": "Im Papierkorb",
+    "noteWeb": "Wiederhergestelltes kommt an seinen alten Ort zurück. Alles hier wird 30 Tage nach dem Verschieben endgültig gelöscht."
   },
   "storage": {
     "sub": "Speicherort deiner Dateien: {region}.",
@@ -245,5 +255,152 @@
     "appOnly": "Nur App",
     "delete": "Drive löschen",
     "deleteBody": "Erfolgt in der BIShare-App unter Drive-Konto."
+  },
+  "themeLight": "Hell",
+  "themeDark": "Dunkel",
+  "syncedAt": "Aktuell, Stand {time}",
+  "act": {
+    "new": "Neu",
+    "upload": "Hochladen",
+    "uploadFiles": "Dateien hochladen",
+    "uploadFolder": "Ordner hochladen",
+    "newFolder": "Neuer Ordner",
+    "open": "Öffnen",
+    "openFolder": "Ordner öffnen",
+    "preview": "Vorschau",
+    "download": "Herunterladen",
+    "downloadZip": "Als ZIP herunterladen",
+    "rename": "Umbenennen",
+    "move": "Verschieben nach…",
+    "copy": "Kopieren nach…",
+    "trash": "In den Papierkorb",
+    "restore": "Wiederherstellen",
+    "deleteForever": "Endgültig löschen",
+    "emptyTrash": "Papierkorb leeren",
+    "undo": "Rückgängig",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "create": "Erstellen",
+    "save": "Speichern",
+    "retry": "Erneut versuchen",
+    "more": "Weitere Aktionen",
+    "selectAll": "Alle auswählen",
+    "clearSelection": "Auswahl aufheben",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "moveHere": "Hierher verschieben",
+    "copyHere": "Hierher kopieren"
+  },
+  "dialog": {
+    "newFolderTitle": "Neuer Ordner",
+    "folderName": "Ordnername",
+    "untitled": "Unbenannter Ordner",
+    "renameTitle": "Umbenennen",
+    "nameLabel": "Name",
+    "badName": "Ein Name darf kein „/“ enthalten.",
+    "moveTitle": "{n, plural, one {# Element verschieben nach…} other {# Elemente verschieben nach…}}",
+    "copyTitle": "{n, plural, one {# Element kopieren nach…} other {# Elemente kopieren nach…}}",
+    "noFolders": "Hier sind keine Ordner",
+    "deleteTitle": "{n, plural, one {# Element endgültig löschen?} other {# Elemente endgültig löschen?}}",
+    "deleteBody": "Das lässt sich nicht rückgängig machen. Die Dateien verschwinden von allen Geräten und von den Servern von BIShare.",
+    "emptyTitle": "Papierkorb leeren?",
+    "emptyBody": "{n, plural, one {# Element wird auf allen Geräten endgültig gelöscht. Das lässt sich nicht rückgängig machen.} other {# Elemente werden auf allen Geräten endgültig gelöscht. Das lässt sich nicht rückgängig machen.}}"
+  },
+  "toast": {
+    "renamed": "Umbenannt",
+    "folderMade": "Ordner „{name}“ erstellt",
+    "moved": "{n, plural, one {Nach {where} verschoben} other {# Elemente nach {where} verschoben}}",
+    "copied": "{n, plural, one {Nach {where} kopiert} other {# Elemente nach {where} kopiert}}",
+    "trashed": "{n, plural, one {In den Papierkorb verschoben} other {# Elemente in den Papierkorb verschoben}}",
+    "restored": "{n, plural, one {Wiederhergestellt} other {# Elemente wiederhergestellt}}",
+    "deleted": "{n, plural, one {Endgültig gelöscht} other {# Elemente endgültig gelöscht}}",
+    "emptied": "Der Papierkorb ist leer",
+    "preparing": "„{name}“ wird geöffnet…",
+    "downloading": "„{name}“ wird heruntergeladen",
+    "saved": "„{name}“ gespeichert",
+    "zipping": "{n, plural, one {# Datei wird gepackt ({size})…} other {# Dateien werden gepackt ({size})…}}"
+  },
+  "errors": {
+    "UNKNOWN": "Etwas ist schiefgelaufen. Versuche es erneut.",
+    "NETWORK": "Keine Verbindung zu BIShare. Prüfe das Netzwerk und versuche es erneut.",
+    "RATE_LIMITED": "Zu viele Anfragen. Warte kurz und versuche es erneut.",
+    "STORAGE_LIMIT_EXCEEDED": "Nicht genug freier Platz in deinem Drive.",
+    "VAULT_READ_ONLY": "Dein Drive ist schreibgeschützt, bis der Tarif verlängert ist oder es in den Gratis-Tarif passt.",
+    "VAULT_MOVE_INTO_ITSELF": "Ein Ordner kann nicht in sich selbst verschoben werden.",
+    "VAULT_BAD_NAME": "Dieser Name ist nicht möglich.",
+    "VAULT_NOT_IN_TRASH": "Nur was im Papierkorb liegt, kann endgültig gelöscht werden.",
+    "VAULT_OBJECT_NOT_FOUND": "Dieses Element ist nicht mehr in deinem Drive.",
+    "upload": "Hochladen fehlgeschlagen",
+    "download": "Der Download wurde unterbrochen. Versuche es erneut.",
+    "dropEmpty": "Im Abgelegten ist nichts zum Hochladen.",
+    "zipTooLarge": "Zu viel für eine ZIP-Datei (über {size}). Lade die Dateien einzeln herunter."
+  },
+  "uploads": {
+    "title": "{n, plural, one {# Datei wird hochgeladen} other {# Dateien werden hochgeladen}}",
+    "allDone": "{n, plural, one {# Upload fertig} other {# Uploads fertig}}",
+    "someFailed": "{n, plural, one {# Upload fehlgeschlagen} other {# Uploads fehlgeschlagen}}",
+    "queued": "Wartet",
+    "preparing": "Wird vorbereitet · {pct} %",
+    "sending": "{pct} % von {size}",
+    "finishing": "Wird abgeschlossen…",
+    "done": "Fertig · {size}",
+    "linked": "Schon in deinem Drive, ohne Hochladen hinzugefügt",
+    "canceled": "Abgebrochen",
+    "cancelAll": "Alle abbrechen",
+    "minimize": "Ein- oder ausblenden",
+    "dropTitle": "Loslassen zum Hochladen nach {where}",
+    "dropBody": "Dateien und Ordner werden in diesem Browser verschlüsselt, bevor sie ihn verlassen."
+  },
+  "viewer": {
+    "counter": "{i} von {n}",
+    "opening": "Wird entschlüsselt…",
+    "noPreview": "Keine Vorschau für diese Datei",
+    "noPreviewBody": "{kind} lässt sich im Browser nicht anzeigen. Lade die Datei herunter, um sie zu öffnen.",
+    "tooLarge": "Diese Datei ist zu groß für die Anzeige hier. Lade sie herunter, um sie zu öffnen.",
+    "failed": "Diese Datei ließ sich nicht öffnen",
+    "failedBody": "Sie konnte hier nicht geladen oder entschlüsselt werden. Versuche es erneut oder lade sie herunter."
+  },
+  "palette": {
+    "title": "Drive durchsuchen",
+    "placeholder": "Dateien und Ordner suchen oder einen Befehl eingeben…",
+    "files": "Dateien und Ordner",
+    "recent": "Zuletzt geändert",
+    "actions": "Aktionen",
+    "pages": "Gehe zu",
+    "noResults": "Nichts gefunden",
+    "light": "Zu hell wechseln",
+    "dark": "Zu dunkel wechseln"
+  },
+  "deletePage": {
+    "title": "Dein BIShare Drive löschen",
+    "lead": "Wer das Drive löscht, löscht alles darin endgültig: jede Datei, jeden Ordner und jedes Vorschaubild sowie den Zugang aller Geräte. Das geschieht in der BIShare-App, also kann es nur, wer den Schlüssel des Drive hat.",
+    "open": "Drive öffnen",
+    "inApp": "In der BIShare-App",
+    "step1": "Öffne BIShare auf einem Handy oder Computer mit deinem Drive.",
+    "step2": "Gehe zu Drive, dann Drive-Konto.",
+    "step3": "Tippe unten auf Drive-Konto löschen.",
+    "step4": "Melde dich zur Bestätigung mit demselben Apple- oder Google-Konto an. Das Löschen beginnt sofort.",
+    "whatTitle": "Was gelöscht wird",
+    "whatBody": "Alle Dateien und Ordner, ihre Vorschaubilder, die Geräte und Browser mit Zugang und die Verbindung zu deiner Apple- oder Google-Anmeldung.",
+    "keptTitle": "Was nicht bleibt",
+    "keptBody": "BIShare behält keine Kopie. Die Dateien wurden auf deinen Geräten verschlüsselt, niemand konnte sie lesen, auch BIShare nicht.",
+    "subsTitle": "Abos",
+    "subsBody": "Ein bezahlter Tarif wird über den App Store oder Google Play abgerechnet. Kündige ihn auch dort, in den Abos deines Store-Kontos.",
+    "noDeviceTitle": "Kein Gerät mehr?",
+    "noDeviceBody": "Installiere BIShare, melde dich mit demselben Apple- oder Google-Konto bei Drive an und lösche es dort. Klappt das nicht, schreib an support@billiongroup.net."
+  },
+  "preview": {
+    "rendering": "Wird geöffnet…",
+    "converting": "Wird für diesen Browser umgewandelt…",
+    "notReadable": "Dieser Browser konnte die Datei nicht lesen. Lade sie herunter, um sie in einer App zu öffnen.",
+    "cantPlay": "Dieser Browser kann dieses Format nicht abspielen",
+    "cantPlayBody": "Lade die Datei herunter, um sie in einer anderen App abzuspielen.",
+    "sheetTruncated": "Hier stehen nur die ersten {rows} Zeilen. Lade die Datei für den Rest herunter.",
+    "slidesNote": "{n, plural, one {Der Text von # Folie. Lade die Datei herunter, um das Layout zu sehen.} other {Der Text von # Folien. Lade die Datei herunter, um das Layout zu sehen.}}",
+    "slide": "Folie {n}",
+    "slideNoText": "Kein Text auf dieser Folie",
+    "htmlNote": "Ohne Skripte angezeigt und ohne etwas aus dem Internet zu laden.",
+    "archiveSummary": "{n, plural, one {# Datei} other {# Dateien}} · {size} entpackt",
+    "fontSample": "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich."
   }
 }
