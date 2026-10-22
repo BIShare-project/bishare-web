@@ -667,6 +667,16 @@ export async function authorization(seed: Uint8Array, vaultId: string, method: s
   });
 }
 
+/**
+ * A browser waiting in a web pairing slot signs with its own device key
+ * before it belongs to any vault (VAULT-SPEC "Opening the Drive in a
+ * browser"): the slot instead of the vault and device, another label.
+ */
+export async function pairAuthorization(seed: Uint8Array, slot: string, method: string, pathAndQuery: string, ts: number, body: Uint8Array): Promise<string> {
+  const message = `bishare-vault-pair-v1\n${method.toUpperCase()}\n${pathAndQuery}\n${ts}\n${hex(await sha256(body))}`;
+  return `BIShare-Vault-Pair v=1,slot=${slot},ts=${ts},sig=${b64u(ed25519.sign(enc.encode(message), key32(seed)))}`;
+}
+
 export function parseAuthorization(header: string): Authorization {
   const bad = () => new VaultError("bad_authorization");
   if (!header.startsWith(AUTH_SCHEME + " ")) throw bad();

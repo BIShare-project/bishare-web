@@ -74,6 +74,7 @@ const NAMESPACES = [
   "howToAirdrop",
   "wifiTransfer",
   "pcToPc",
+  "drive",
 ] as const;
 
 async function loadNamespace(

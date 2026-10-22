@@ -24,6 +24,34 @@ const APEX_HOST = "bishare.app";
 const WWW_HOST = "www.bishare.app";
 const MAIN_HOSTS = new Set([APEX_HOST, WWW_HOST]);
 const RECEIVE_HOST = "get.bishare.app";
+// The web Drive (drive-plan.md phase 6) lives on its own host for the same
+// reason as the receive pages: user files are never served from the marketing
+// site. Its pages are /[locale]/drive/... inside; the host shows them at its
+// root (drive.bishare.app/files) and picks the language from the cookie or
+// the browser, not from the URL.
+const DRIVE_HOST = "drive.bishare.app";
+const DRIVE_PATH = new RegExp(`^/(?:(?:${routing.locales.join("|")})/)?drive(?=/|$)`);
+const LOCALE_COOKIE = "NEXT_LOCALE";
+
+/** The site language that best fits the cookie, then the browser's list. */
+function driveLocale(request: NextRequest): string {
+  const locales = routing.locales as readonly string[];
+  const cookie = request.cookies.get(LOCALE_COOKIE)?.value;
+  if (cookie && locales.includes(cookie)) return cookie;
+  for (const part of (request.headers.get("accept-language") ?? "").split(",")) {
+    const tag = part.split(";")[0]!.trim();
+    if (!tag) continue;
+    if (locales.includes(tag)) return tag;
+    const lower = tag.toLowerCase();
+    if (lower.startsWith("pt")) return "pt-BR";
+    if (lower === "zh-tw" || lower === "zh-hk" || lower.startsWith("zh-hant")) return "zh-Hant";
+    if (lower.startsWith("zh")) return "zh-Hans";
+    const base = lower.split("-")[0]!;
+    const hit = locales.find((l) => l.toLowerCase() === base);
+    if (hit) return hit;
+  }
+  return routing.defaultLocale;
+}
 
 // /transfer/<code>, with or without a locale prefix. `/transfer` itself (the
 // send tool) stays on the marketing host.
@@ -47,6 +75,14 @@ export function middleware(request: NextRequest): NextResponse {
 
   if (MAIN_HOSTS.has(host)) {
     if (RECEIVE_PATH.test(path)) return moveTo(RECEIVE_HOST, request);
+    if (DRIVE_PATH.test(path)) {
+      const url = request.nextUrl.clone();
+      url.protocol = "https:";
+      url.host = DRIVE_HOST;
+      url.port = "";
+      url.pathname = path.replace(DRIVE_PATH, "") || "/";
+      return NextResponse.redirect(url, 302);
+    }
     // www answered 200 with a canonical pointing at the apex. Crawlers still
     // counted every page twice, and the hreflang set on the www copy named
     // apex URLs only, which a site audit on 2026-10-03 reported as 33 hreflang
@@ -77,7 +113,22 @@ export function middleware(request: NextRequest): NextResponse {
     return moveTo("bishare.app", request);
   }
 
+  if (host === DRIVE_HOST) {
+    if (path === "/robots.txt") {
+      return new NextResponse("User-Agent: *\nDisallow: /\n", { headers: { "Content-Type": "text/plain" } });
+    }
+    const url = request.nextUrl.clone();
+    url.pathname = `/${driveLocale(request)}/drive${path === "/" ? "" : path}`;
+    // The pages link to the host's own paths (no /drive in front).
+    const headers = new Headers(request.headers);
+    headers.set("x-drive-base", "root");
+    const res = NextResponse.rewrite(url, { request: { headers } });
+    res.headers.set("X-Robots-Tag", "noindex, nofollow");
+    return res;
+  }
+
   // localhost, *.workers.dev previews: single-host behaviour, unchanged.
+  // The web Drive is at /drive there.
   return intlMiddleware(request);
 }
 
