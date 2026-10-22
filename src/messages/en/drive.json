@@ -60,7 +60,8 @@
     "lastSeen": "Last used",
     "folders": "Largest folders",
     "foldersSub": "By the space they take",
-    "total": "Total"
+    "total": "Total",
+    "chartHelp": "How your Drive grew over the chosen period, by the day files were added and by kind. Point at a day to see its totals."
   },
   "kpi": {
     "used": "Used",
@@ -113,7 +114,8 @@
     "browserExpiring": "Browsers about to lock",
     "browserExpiringBody": "Unused browsers lock themselves",
     "unreadable": "Files that didn't open",
-    "unreadableBody": "Their details couldn't be decrypted here"
+    "unreadableBody": "Their details couldn't be decrypted here",
+    "help": "Things worth a look: storage nearly full, items leaving the trash, browsers about to lock, and files whose details couldn't be decrypted here."
   },
   "col": {
     "name": "Name",
@@ -155,7 +157,23 @@
     "appTag": "App",
     "browserHours": "Locks after {n} hours without use",
     "browserDays": "Locks after {n} days without use",
-    "note": "To remove another device, use Devices in the BIShare app. Removing one takes the key away from it."
+    "remove": "Remove",
+    "removeTitle": "{n, plural, one {Remove this browser?} other {Remove # browsers?}}",
+    "removeBody": "A removed browser loses the key at once and goes back to the sign-in code. Nothing in your Drive is deleted.",
+    "removed": "{n, plural, one {Browser removed} other {# browsers removed}}",
+    "removeInApp": "Phones and computers are removed in the BIShare app, after a fresh sign-in.",
+    "inAppOnly": "In the app",
+    "inAppOnlyHelp": "Phones and computers can only be removed in the BIShare app, with a fresh sign-in. That way a lost browser can't lock you out.",
+    "kindHelp": "App: the BIShare app on a phone or computer. Web: a browser signed in with a code.",
+    "lastUsedHelp": "When this device last used your Drive, to within a few minutes.",
+    "appsHelp": "BIShare apps on phones and computers that hold your Drive key.",
+    "browsersHelp": "Browsers signed in by scanning a code. Each one locks itself after a while without use.",
+    "how1Title": "The app holds the key",
+    "how1": "Your Drive key is made in the BIShare app and stays on your devices.",
+    "how2Title": "A code adds a browser",
+    "how2": "Scanning the sign-in code with the app hands the key to that browser, encrypted.",
+    "how3Title": "Remove what you don't use",
+    "how3": "A browser removed here loses the key at once. Phones and computers are removed in the app."
   },
   "files": {
     "title": "All files",
@@ -188,7 +206,8 @@
     },
     "selected": "{n} selected",
     "viewList": "List",
-    "viewGrid": "Grid"
+    "viewGrid": "Grid",
+    "selectHelp": "Click to select. Hold Cmd or Ctrl to add more, or Shift to select a range. Double-click to open; right-click for more."
   },
   "kinds": {
     "dir": "Folder",
@@ -215,9 +234,14 @@
     "wasIn": "Was in",
     "goneIn": "Deleted for good in",
     "days": "{n, plural, =0 {Today} one {# day} other {# days}}",
-    "note": "To put something back, or delete it now, use the trash in the BIShare app.",
     "list": "In the trash",
-    "noteWeb": "Restored items go back where they were. Everything here is deleted for good 30 days after it was moved here."
+    "goneInHelp": "Items are deleted for good 30 days after they were moved to the trash. Red means 3 days or less.",
+    "how1Title": "Kept for 30 days",
+    "how1": "Deleted items wait here, then go for good on their own.",
+    "how2Title": "Restore puts it back",
+    "how2": "Restored items return to the folder they came from.",
+    "how3Title": "Still uses space",
+    "how3": "The trash counts toward your storage. Empty it to free space now."
   },
   "storage": {
     "sub": "Your files are kept in {region}.",
@@ -230,7 +254,9 @@
     "currentTag": "Current",
     "perMonth": "{price} a month",
     "perYear": "or {price} a year",
-    "buyInApp": "Plans are bought in the BIShare app, through the App Store or Google Play."
+    "buyInApp": "Plans are bought in the BIShare app, through the App Store or Google Play.",
+    "usedHelp": "Everything stored, by kind. The trash counts until it is emptied; uploads in progress hold space until they finish.",
+    "uploadingHelp": "Space set aside for uploads that haven't finished. It is released if an upload is cancelled."
   },
   "security": {
     "sub": "What BIShare can and can't see, and how this browser holds the key",
@@ -254,7 +280,13 @@
     "phraseBody": "Shown and checked only in the BIShare app, never on the web.",
     "appOnly": "App only",
     "delete": "Deleting the Drive",
-    "deleteBody": "Done in the BIShare app, under Drive account."
+    "deleteBody": "Done in the BIShare app, under Drive account.",
+    "how1Title": "Encrypted before upload",
+    "how1": "Each file is encrypted on your device before it leaves.",
+    "how2Title": "Stored unreadable",
+    "how2": "BIShare keeps only encrypted data and can't open it.",
+    "how3Title": "Only your devices unlock",
+    "how3": "The key stays on your devices. A removed device loses access."
   },
   "themeLight": "Light",
   "themeDark": "Dark",
@@ -333,7 +365,8 @@
     "upload": "Upload failed",
     "download": "The download stopped. Try again.",
     "dropEmpty": "Nothing to upload in what was dropped.",
-    "zipTooLarge": "Too much for one zip (over {size}). Download the files one by one."
+    "zipTooLarge": "Too much for one zip (over {size}). Download the files one by one.",
+    "VAULT_SIGNIN_REQUIRED": "Removing a phone or computer needs a fresh sign-in in the BIShare app."
   },
   "uploads": {
     "title": "{n, plural, one {Uploading # file} other {Uploading # files}}",
@@ -402,5 +435,64 @@
     "htmlNote": "Shown without scripts and without loading anything from the internet.",
     "archiveSummary": "{n, plural, one {# file} other {# files}} · {size} unpacked",
     "fontSample": "The quick brown fox jumps over the lazy dog."
+  },
+  "help": {
+    "more": "More about this"
+  },
+  "glossary": {
+    "e2e": {
+      "term": "End-to-end encryption",
+      "definition": "Files are locked on your device with a key only your devices hold. BIShare stores them but can't open them."
+    },
+    "key": {
+      "term": "Drive key",
+      "definition": "The secret that unlocks your files. It stays on your devices and is never sent to BIShare."
+    },
+    "device": {
+      "term": "Device",
+      "definition": "A phone, computer or browser that holds your Drive key. Each one can open your files."
+    },
+    "browser": {
+      "term": "Browser",
+      "definition": "A web browser you signed in by scanning a code with the BIShare app. It keeps a copy of the key until it locks or is removed."
+    },
+    "stay": {
+      "term": "Stay signed in",
+      "definition": "Keeps this browser open for 30 days of use. When off, it locks when you close the tab, or after 12 hours without use."
+    },
+    "trash": {
+      "term": "Trash",
+      "definition": "Deleted items wait here for 30 days so you can restore them. They still count toward your storage."
+    },
+    "linked": {
+      "term": "Already in your Drive",
+      "definition": "The same file was already in your Drive, so it was added without uploading it again and takes no extra space."
+    },
+    "region": {
+      "term": "Region",
+      "definition": "Where your encrypted files are stored. It is chosen when the Drive is made."
+    },
+    "thumbnail": {
+      "term": "Thumbnail",
+      "definition": "A small preview picture, made on your device and encrypted like the file itself."
+    },
+    "plan": {
+      "term": "Plan",
+      "definition": "How much space your Drive has. Plans are bought in the BIShare app; the web shows what you have."
+    },
+    "phrase": {
+      "term": "Recovery phrase",
+      "definition": "Words that bring back your Drive key if you lose all your devices. Only the BIShare app shows them."
+    },
+    "quota": {
+      "term": "Storage",
+      "definition": "The space your plan gives you. Files, folders and the trash all count; uploads in progress hold space until they finish."
+    }
+  },
+  "kpiHelp": {
+    "used": "Everything stored in your Drive, including the trash and uploads in progress.",
+    "files": "Files in your Drive, not counting folders or the trash. The line below counts files added in the chosen period.",
+    "media": "Photos and videos in your Drive. They are also shown on the Photos page.",
+    "trash": "Space used by deleted items. Empty the trash to get it back now, or it frees itself after 30 days."
   }
 }

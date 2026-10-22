@@ -5,6 +5,7 @@ import { Archive, File, FileAudio, FileImage, FileSpreadsheet, FileText, FileVid
 import type { DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
 import { useDrive } from "./drive-app";
+import { InfoTip } from "./help";
 import { kindOf } from "./format";
 import { useThumb } from "./thumbs";
 
@@ -71,6 +72,7 @@ export function Panel({
   title,
   description,
   actions,
+  help,
   children,
   className,
   bodyClassName,
@@ -78,6 +80,8 @@ export function Panel({
   title?: ReactNode;
   description?: ReactNode;
   actions?: ReactNode;
+  /** What this panel shows and how it is counted, as an ⓘ next to the title. */
+  help?: ReactNode;
   children: ReactNode;
   className?: string;
   bodyClassName?: string;
@@ -87,7 +91,12 @@ export function Panel({
       {(title || actions) && (
         <header className="flex min-h-12 items-center gap-3 border-b px-4 py-2">
           <div className="flex min-w-0 flex-col">
-            {title && <h2 className="truncate text-xs font-semibold">{title}</h2>}
+            {title && (
+              <h2 className="flex items-center gap-1.5 truncate text-xs font-semibold">
+                {title}
+                {help ? <InfoTip>{help}</InfoTip> : null}
+              </h2>
+            )}
             {description && <p className="truncate text-2xs text-muted-foreground">{description}</p>}
           </div>
           {actions && <div className="ms-auto flex shrink-0 items-center gap-2">{actions}</div>}
@@ -114,12 +123,13 @@ export function KpiGrid({ children, cols = 5 }: { children: ReactNode; cols?: 3 
   );
 }
 
-export function Kpi({ label, value, sub, icon: Icon, tone }: { label: string; value: string; sub?: string; icon?: LucideIcon; tone?: "warn" | "bad" }) {
+export function Kpi({ label, value, sub, icon: Icon, tone, help }: { label: string; value: string; sub?: string; icon?: LucideIcon; tone?: "warn" | "bad"; help?: ReactNode }) {
   return (
     <div className="flex min-w-0 flex-col gap-1 bg-card px-4 py-3.5">
       <div className="flex items-center gap-1.5 text-2xs text-muted-foreground">
         {Icon ? <Icon className="size-3.5" /> : null}
         <span className="truncate">{label}</span>
+        {help ? <InfoTip>{help}</InfoTip> : null}
       </div>
       <div className={cn("truncate text-xl font-semibold tracking-tight tabular-nums", tone === "warn" && "text-warn", tone === "bad" && "text-bad")}>{value}</div>
       {sub ? <div className="truncate text-3xs text-muted-foreground">{sub}</div> : null}

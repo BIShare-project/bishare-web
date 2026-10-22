@@ -60,7 +60,8 @@
     "lastSeen": "Dernière utilisation",
     "folders": "Plus gros dossiers",
     "foldersSub": "Selon la place occupée",
-    "total": "Total"
+    "total": "Total",
+    "chartHelp": "La croissance de votre Drive sur la période choisie, par jour d’ajout et par type. Pointez un jour pour voir ses totaux."
   },
   "kpi": {
     "used": "Utilisé",
@@ -113,7 +114,8 @@
     "browserExpiring": "Navigateurs bientôt verrouillés",
     "browserExpiringBody": "Les navigateurs inutilisés se verrouillent d’eux-mêmes",
     "unreadable": "Fichiers qui ne se sont pas ouverts",
-    "unreadableBody": "Leurs détails n’ont pas pu être déchiffrés ici"
+    "unreadableBody": "Leurs détails n’ont pas pu être déchiffrés ici",
+    "help": "Ce qui mérite un coup d’œil : stockage presque plein, éléments sur le point de quitter la corbeille, navigateurs bientôt verrouillés et fichiers dont les détails n’ont pas pu être déchiffrés ici."
   },
   "col": {
     "name": "Nom",
@@ -155,7 +157,23 @@
     "appTag": "App",
     "browserHours": "Se verrouille après {n} heures sans utilisation",
     "browserDays": "Se verrouille après {n} jours sans utilisation",
-    "note": "Pour retirer un autre appareil, passez par Appareils dans l’app BIShare. Le retirer lui enlève la clé."
+    "remove": "Retirer",
+    "removeTitle": "{n, plural, one {Retirer ce navigateur ?} other {Retirer # navigateurs ?}}",
+    "removeBody": "Un navigateur retiré perd la clé immédiatement et revient au code de connexion. Rien n’est supprimé de votre Drive.",
+    "removed": "{n, plural, one {Navigateur retiré} other {# navigateurs retirés}}",
+    "removeInApp": "Les téléphones et ordinateurs se retirent dans l’app BIShare, après une nouvelle connexion.",
+    "inAppOnly": "Dans l’app",
+    "inAppOnlyHelp": "Les téléphones et ordinateurs ne peuvent être retirés que dans l’app BIShare, avec une nouvelle connexion. Ainsi, un navigateur perdu ne peut pas vous bloquer l’accès.",
+    "kindHelp": "App : l’app BIShare sur un téléphone ou un ordinateur. Web : un navigateur connecté avec un code.",
+    "lastUsedHelp": "La dernière fois que cet appareil a utilisé votre Drive, à quelques minutes près.",
+    "appsHelp": "Les apps BIShare sur téléphones et ordinateurs qui détiennent la clé de votre Drive.",
+    "browsersHelp": "Les navigateurs connectés en scannant un code. Chacun se verrouille seul après un moment sans utilisation.",
+    "how1Title": "L’app détient la clé",
+    "how1": "La clé de votre Drive est créée dans l’app BIShare et reste sur vos appareils.",
+    "how2Title": "Un code ajoute un navigateur",
+    "how2": "Scanner le code de connexion avec l’app transmet la clé à ce navigateur, chiffrée.",
+    "how3Title": "Retirez ce qui ne sert plus",
+    "how3": "Un navigateur retiré ici perd la clé immédiatement. Les téléphones et ordinateurs se retirent dans l’app."
   },
   "files": {
     "title": "Tous les fichiers",
@@ -188,7 +206,8 @@
     },
     "selected": "{n} sélectionné(s)",
     "viewList": "Liste",
-    "viewGrid": "Grille"
+    "viewGrid": "Grille",
+    "selectHelp": "Cliquez pour sélectionner. Maintenez Cmd ou Ctrl pour en ajouter, ou Maj pour sélectionner une plage. Double-cliquez pour ouvrir ; clic droit pour plus d’options."
   },
   "kinds": {
     "dir": "Dossier",
@@ -215,9 +234,14 @@
     "wasIn": "Était dans",
     "goneIn": "Supprimé définitivement dans",
     "days": "{n, plural, =0 {Aujourd’hui} one {# jour} other {# jours}}",
-    "note": "Pour restaurer un élément, ou le supprimer tout de suite, utilisez la corbeille de l’app BIShare.",
     "list": "Dans la corbeille",
-    "noteWeb": "Ce qui est restauré retrouve sa place. Tout ce qui est ici est supprimé définitivement 30 jours après son arrivée."
+    "goneInHelp": "Les éléments sont supprimés définitivement 30 jours après leur arrivée dans la corbeille. En rouge : 3 jours ou moins.",
+    "how1Title": "Gardé 30 jours",
+    "how1": "Les éléments supprimés attendent ici, puis disparaissent définitivement d’eux-mêmes.",
+    "how2Title": "Restaurer les remet en place",
+    "how2": "Les éléments restaurés retournent dans leur dossier d’origine.",
+    "how3Title": "Occupe toujours de l’espace",
+    "how3": "La corbeille compte dans votre stockage. Videz-la pour libérer de l’espace tout de suite."
   },
   "storage": {
     "sub": "Région où vos fichiers sont conservés : {region}.",
@@ -230,7 +254,9 @@
     "currentTag": "Actuel",
     "perMonth": "{price} par mois",
     "perYear": "ou {price} par an",
-    "buyInApp": "Les forfaits s’achètent dans l’app BIShare, via l’App Store ou Google Play."
+    "buyInApp": "Les forfaits s’achètent dans l’app BIShare, via l’App Store ou Google Play.",
+    "usedHelp": "Tout ce qui est stocké, par type. La corbeille compte jusqu’à ce qu’elle soit vidée ; les envois en cours réservent de l’espace jusqu’à leur fin.",
+    "uploadingHelp": "Espace mis de côté pour les envois non terminés. Il est libéré si l’envoi est annulé."
   },
   "security": {
     "sub": "Ce que BIShare peut voir ou non, et comment ce navigateur garde la clé",
@@ -254,7 +280,13 @@
     "phraseBody": "Affichée et vérifiée uniquement dans l’app BIShare, jamais sur le web.",
     "appOnly": "App uniquement",
     "delete": "Supprimer le Drive",
-    "deleteBody": "Se fait dans l’app BIShare, dans Compte Drive."
+    "deleteBody": "Se fait dans l’app BIShare, dans Compte Drive.",
+    "how1Title": "Chiffré avant l’envoi",
+    "how1": "Chaque fichier est chiffré sur votre appareil avant de le quitter.",
+    "how2Title": "Stocké illisible",
+    "how2": "BIShare ne garde que des données chiffrées et ne peut pas les ouvrir.",
+    "how3Title": "Seuls vos appareils ouvrent",
+    "how3": "La clé reste sur vos appareils. Un appareil retiré perd l’accès."
   },
   "themeLight": "Clair",
   "themeDark": "Sombre",
@@ -333,7 +365,8 @@
     "upload": "Échec de l’envoi",
     "download": "Le téléchargement s’est interrompu. Réessayez.",
     "dropEmpty": "Rien à envoyer dans ce qui a été déposé.",
-    "zipTooLarge": "Trop volumineux pour un seul zip (plus de {size}). Téléchargez les fichiers un par un."
+    "zipTooLarge": "Trop volumineux pour un seul zip (plus de {size}). Téléchargez les fichiers un par un.",
+    "VAULT_SIGNIN_REQUIRED": "Retirer un téléphone ou un ordinateur demande une nouvelle connexion dans l’app BIShare."
   },
   "uploads": {
     "title": "{n, plural, one {Envoi de # fichier} other {Envoi de # fichiers}}",
@@ -402,5 +435,64 @@
     "htmlNote": "Affiché sans scripts et sans rien charger depuis Internet.",
     "archiveSummary": "{n, plural, one {# fichier} other {# fichiers}} · {size} une fois extraits",
     "fontSample": "Portez ce vieux whisky au juge blond qui fume."
+  },
+  "help": {
+    "more": "En savoir plus"
+  },
+  "glossary": {
+    "e2e": {
+      "term": "Chiffrement de bout en bout",
+      "definition": "Les fichiers sont verrouillés sur votre appareil avec une clé que seuls vos appareils détiennent. BIShare les stocke sans pouvoir les ouvrir."
+    },
+    "key": {
+      "term": "Clé du Drive",
+      "definition": "Le secret qui ouvre vos fichiers. Elle reste sur vos appareils et n’est jamais envoyée à BIShare."
+    },
+    "device": {
+      "term": "Appareil",
+      "definition": "Un téléphone, un ordinateur ou un navigateur qui détient la clé de votre Drive. Chacun peut ouvrir vos fichiers."
+    },
+    "browser": {
+      "term": "Navigateur",
+      "definition": "Un navigateur connecté en scannant un code avec l’app BIShare. Il garde une copie de la clé jusqu’à ce qu’il se verrouille ou soit retiré."
+    },
+    "stay": {
+      "term": "Rester connecté",
+      "definition": "Ce navigateur reste ouvert pendant 30 jours d’utilisation. Sinon, il se verrouille quand vous fermez l’onglet, ou après 12 heures sans utilisation."
+    },
+    "trash": {
+      "term": "Corbeille",
+      "definition": "Les éléments supprimés y attendent 30 jours pour pouvoir être restaurés. Ils comptent toujours dans votre stockage."
+    },
+    "linked": {
+      "term": "Déjà dans votre Drive",
+      "definition": "Le même fichier était déjà dans votre Drive : il a été ajouté sans nouvel envoi et n’occupe pas d’espace en plus."
+    },
+    "region": {
+      "term": "Région",
+      "definition": "L’endroit où vos fichiers chiffrés sont stockés. Elle est choisie à la création du Drive."
+    },
+    "thumbnail": {
+      "term": "Miniature",
+      "definition": "Une petite image d’aperçu, créée sur votre appareil et chiffrée comme le fichier lui-même."
+    },
+    "plan": {
+      "term": "Forfait",
+      "definition": "L’espace dont dispose votre Drive. Les forfaits s’achètent dans l’app BIShare ; le web affiche le vôtre."
+    },
+    "phrase": {
+      "term": "Phrase de récupération",
+      "definition": "Des mots qui restaurent la clé de votre Drive si vous perdez tous vos appareils. Seule l’app BIShare les affiche."
+    },
+    "quota": {
+      "term": "Stockage",
+      "definition": "L’espace que vous donne votre forfait. Fichiers, dossiers et corbeille comptent ; les envois en cours réservent de l’espace jusqu’à leur fin."
+    }
+  },
+  "kpiHelp": {
+    "used": "Tout ce qui est stocké dans votre Drive, corbeille et envois en cours compris.",
+    "files": "Les fichiers de votre Drive, sans les dossiers ni la corbeille. La ligne du dessous compte ceux ajoutés sur la période choisie.",
+    "media": "Les photos et vidéos de votre Drive. Elles apparaissent aussi dans la page Photos.",
+    "trash": "L’espace occupé par les éléments supprimés. Videz la corbeille pour le récupérer tout de suite, sinon il se libère seul après 30 jours."
   }
 }

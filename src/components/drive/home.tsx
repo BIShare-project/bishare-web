@@ -98,21 +98,22 @@ export function HomePage() {
       />
 
       <KpiGrid>
-        <Kpi icon={HardDrive} label={t("kpi.used")} value={bytes(used)} sub={t("kpi.usedSub", { pct: percent(used, quota), total: bytes(quota) })} tone={nearlyFull ? "warn" : undefined} />
-        <Kpi icon={Cloud} label={t("kpi.left")} value={bytes(Math.max(0, quota - used))} sub={info?.plan === "free" ? t("plan.free", { size: bytes(quota) }) : bytes(quota)} />
-        <Kpi icon={FileStack} label={t("kpi.files")} value={stats.files.toLocaleString(locale)} sub={t("kpi.added", { n: added.length.toLocaleString(locale), days: range })} />
-        <Kpi icon={ImageIcon} label={t("kpi.media")} value={stats.media.toLocaleString(locale)} sub={bytes(stats.byKind.media)} />
+        <Kpi icon={HardDrive} label={t("kpi.used")} value={bytes(used)} sub={t("kpi.usedSub", { pct: percent(used, quota), total: bytes(quota) })} tone={nearlyFull ? "warn" : undefined} help={t("kpiHelp.used")} />
+        <Kpi icon={Cloud} label={t("kpi.left")} value={bytes(Math.max(0, quota - used))} sub={info?.plan === "free" ? t("plan.free", { size: bytes(quota) }) : bytes(quota)} help={t("glossary.quota.definition")} />
+        <Kpi icon={FileStack} label={t("kpi.files")} value={stats.files.toLocaleString(locale)} sub={t("kpi.added", { n: added.length.toLocaleString(locale), days: range })} help={t("kpiHelp.files")} />
+        <Kpi icon={ImageIcon} label={t("kpi.media")} value={stats.media.toLocaleString(locale)} sub={bytes(stats.byKind.media)} help={t("kpiHelp.media")} />
         <Kpi icon={FolderTree} label={t("kpi.folders")} value={stats.folders.toLocaleString(locale)} />
         <Kpi icon={CalendarPlus} label={t("kpi.addedBytes")} value={bytes(added.reduce((a, o) => a + (o.size ?? 0), 0))} sub={t("kpi.inDays", { days: range })} />
-        <Kpi icon={Monitor} label={t("kpi.devices")} value={String(index.devices.length)} sub={t("kpi.devicesSub", { apps: index.devices.length - browsers, browsers })} />
-        <Kpi icon={Trash2} label={t("kpi.trash")} value={bytes(stats.byKind.trash)} sub={t("kpi.trashSub", { n: trash.length })} />
-        <Kpi icon={CreditCard} label={t("kpi.plan")} value={info?.plan === "free" ? t("plan.freeShort") : bytes(quota)} sub={t("kpi.planSub")} />
-        <Kpi icon={MapPin} label={t("kpi.region")} value={info ? t(`region.${info.region}`) : "…"} sub={t("kpi.regionSub")} />
+        <Kpi icon={Monitor} label={t("kpi.devices")} value={String(index.devices.length)} sub={t("kpi.devicesSub", { apps: index.devices.length - browsers, browsers })} help={t("glossary.device.definition")} />
+        <Kpi icon={Trash2} label={t("kpi.trash")} value={bytes(stats.byKind.trash)} sub={t("kpi.trashSub", { n: trash.length })} help={t("kpiHelp.trash")} />
+        <Kpi icon={CreditCard} label={t("kpi.plan")} value={info?.plan === "free" ? t("plan.freeShort") : bytes(quota)} sub={t("kpi.planSub")} help={t("glossary.plan.definition")} />
+        <Kpi icon={MapPin} label={t("kpi.region")} value={info ? t(`region.${info.region}`) : "…"} sub={t("kpi.regionSub")} help={t("glossary.region.definition")} />
       </KpiGrid>
 
       <Panel
         title={t("home.chart")}
         description={t("home.chartSub")}
+        help={t("home.chartHelp")}
         actions={
           <div className="hidden flex-wrap items-center gap-3 text-2xs text-muted-foreground sm:flex">
             {[
@@ -180,7 +181,7 @@ export function HomePage() {
             </Table>
           )}
         </Panel>
-        <Panel title={t("needs.title")} description={t("needs.sub")}>
+        <Panel title={t("needs.title")} description={t("needs.sub")} help={t("needs.help")}>
           {queue.length === 0 ? (
             <EmptyState icon={ShieldCheck} title={t("needs.clear")} description={t("needs.clearBody")} />
           ) : (

@@ -60,7 +60,8 @@
     "lastSeen": "Último uso",
     "folders": "Maiores pastas",
     "foldersSub": "Pelo espaço que ocupam",
-    "total": "Total"
+    "total": "Total",
+    "chartHelp": "Como seu Drive cresceu no período escolhido, pelo dia em que os arquivos foram adicionados e por tipo. Aponte para um dia para ver os totais."
   },
   "kpi": {
     "used": "Em uso",
@@ -113,7 +114,8 @@
     "browserExpiring": "Navegadores perto de bloquear",
     "browserExpiringBody": "Navegadores sem uso se bloqueiam sozinhos",
     "unreadable": "Arquivos que não abriram",
-    "unreadableBody": "Os detalhes não puderam ser descriptografados aqui"
+    "unreadableBody": "Os detalhes não puderam ser descriptografados aqui",
+    "help": "O que vale olhar: armazenamento quase cheio, itens saindo da lixeira, navegadores prestes a bloquear e arquivos cujos detalhes não puderam ser descriptografados aqui."
   },
   "col": {
     "name": "Nome",
@@ -155,7 +157,23 @@
     "appTag": "App",
     "browserHours": "Bloqueia após {n} horas sem uso",
     "browserDays": "Bloqueia após {n} dias sem uso",
-    "note": "Para remover outro dispositivo, use Dispositivos no app BIShare. Ao remover, ele perde a chave."
+    "remove": "Remover",
+    "removeTitle": "{n, plural, one {Remover este navegador?} other {Remover # navegadores?}}",
+    "removeBody": "Um navegador removido perde a chave na hora e volta ao código de entrada. Nada no seu Drive é apagado.",
+    "removed": "{n, plural, one {Navegador removido} other {# navegadores removidos}}",
+    "removeInApp": "Celulares e computadores são removidos no app BIShare, depois de entrar de novo.",
+    "inAppOnly": "No app",
+    "inAppOnlyHelp": "Celulares e computadores só podem ser removidos no app BIShare, entrando de novo. Assim um navegador perdido não consegue te deixar de fora.",
+    "kindHelp": "App: o app BIShare num celular ou computador. Web: um navegador que entrou com um código.",
+    "lastUsedHelp": "Quando este dispositivo usou seu Drive pela última vez, com margem de alguns minutos.",
+    "appsHelp": "Apps BIShare em celulares e computadores que têm a chave do seu Drive.",
+    "browsersHelp": "Navegadores que entraram lendo um código. Cada um bloqueia sozinho depois de um tempo sem uso.",
+    "how1Title": "O app tem a chave",
+    "how1": "A chave do seu Drive é criada no app BIShare e fica nos seus dispositivos.",
+    "how2Title": "Um código adiciona um navegador",
+    "how2": "Ler o código de entrada com o app passa a chave, criptografada, para aquele navegador.",
+    "how3Title": "Remova o que não usa",
+    "how3": "Um navegador removido aqui perde a chave na hora. Celulares e computadores são removidos no app."
   },
   "files": {
     "title": "Todos os arquivos",
@@ -188,7 +206,8 @@
     },
     "selected": "{n} selecionados",
     "viewList": "Lista",
-    "viewGrid": "Grade"
+    "viewGrid": "Grade",
+    "selectHelp": "Clique para selecionar. Segure Cmd ou Ctrl para adicionar mais, ou Shift para selecionar um intervalo. Clique duas vezes para abrir; clique com o botão direito para mais."
   },
   "kinds": {
     "dir": "Pasta",
@@ -215,9 +234,14 @@
     "wasIn": "Estava em",
     "goneIn": "Apagado de vez em",
     "days": "{n, plural, =0 {Hoje} one {# dia} other {# dias}}",
-    "note": "Para restaurar algo, ou apagar agora, use a lixeira do app BIShare.",
     "list": "Na lixeira",
-    "noteWeb": "O que você restaura volta para onde estava. Tudo aqui é apagado de vez 30 dias depois de vir para cá."
+    "goneInHelp": "Os itens são apagados de vez 30 dias depois de irem para a lixeira. Vermelho significa 3 dias ou menos.",
+    "how1Title": "Guardado por 30 dias",
+    "how1": "O que foi apagado espera aqui e depois some de vez sozinho.",
+    "how2Title": "Restaurar devolve",
+    "how2": "Itens restaurados voltam para a pasta de onde saíram.",
+    "how3Title": "Ainda ocupa espaço",
+    "how3": "A lixeira conta no seu armazenamento. Esvazie para liberar espaço agora."
   },
   "storage": {
     "sub": "Região onde seus arquivos ficam: {region}.",
@@ -230,7 +254,9 @@
     "currentTag": "Atual",
     "perMonth": "{price} por mês",
     "perYear": "ou {price} por ano",
-    "buyInApp": "Os planos são comprados no app BIShare, pela App Store ou pelo Google Play."
+    "buyInApp": "Os planos são comprados no app BIShare, pela App Store ou pelo Google Play.",
+    "usedHelp": "Tudo o que está guardado, por tipo. A lixeira conta até ser esvaziada; envios em andamento reservam espaço até terminar.",
+    "uploadingHelp": "Espaço separado para envios não concluídos. Ele é liberado se o envio for cancelado."
   },
   "security": {
     "sub": "O que o BIShare pode e não pode ver, e como este navegador guarda a chave",
@@ -254,7 +280,13 @@
     "phraseBody": "Mostrada e conferida só no app BIShare, nunca na web.",
     "appOnly": "Só no app",
     "delete": "Excluir o Drive",
-    "deleteBody": "Feito no app BIShare, em Conta do Drive."
+    "deleteBody": "Feito no app BIShare, em Conta do Drive.",
+    "how1Title": "Criptografado antes do envio",
+    "how1": "Cada arquivo é criptografado no seu dispositivo antes de sair.",
+    "how2Title": "Guardado ilegível",
+    "how2": "O BIShare só guarda dados criptografados e não consegue abri-los.",
+    "how3Title": "Só seus dispositivos abrem",
+    "how3": "A chave fica nos seus dispositivos. Um dispositivo removido perde o acesso."
   },
   "themeLight": "Claro",
   "themeDark": "Escuro",
@@ -333,7 +365,8 @@
     "upload": "O envio falhou",
     "download": "O download parou. Tente de novo.",
     "dropEmpty": "Não há nada para enviar no que foi solto.",
-    "zipTooLarge": "Grande demais para um zip só (mais de {size}). Baixe os arquivos um por um."
+    "zipTooLarge": "Grande demais para um zip só (mais de {size}). Baixe os arquivos um por um.",
+    "VAULT_SIGNIN_REQUIRED": "Remover um celular ou computador exige entrar de novo no app BIShare."
   },
   "uploads": {
     "title": "{n, plural, one {Enviando # arquivo} other {Enviando # arquivos}}",
@@ -402,5 +435,64 @@
     "htmlNote": "Exibido sem scripts e sem carregar nada da internet.",
     "archiveSummary": "{n, plural, one {# arquivo} other {# arquivos}} · {size} descompactados",
     "fontSample": "Jane quer LP, fax, CD, giz, TV e bom whisky."
+  },
+  "help": {
+    "more": "Saiba mais"
+  },
+  "glossary": {
+    "e2e": {
+      "term": "Criptografia de ponta a ponta",
+      "definition": "Os arquivos são trancados no seu dispositivo com uma chave que só os seus dispositivos têm. O BIShare guarda, mas não consegue abrir."
+    },
+    "key": {
+      "term": "Chave do Drive",
+      "definition": "O segredo que abre seus arquivos. Ela fica nos seus dispositivos e nunca é enviada ao BIShare."
+    },
+    "device": {
+      "term": "Dispositivo",
+      "definition": "Um celular, computador ou navegador que tem a chave do seu Drive. Cada um pode abrir seus arquivos."
+    },
+    "browser": {
+      "term": "Navegador",
+      "definition": "Um navegador em que você entrou lendo um código com o app BIShare. Ele guarda uma cópia da chave até bloquear ou ser removido."
+    },
+    "stay": {
+      "term": "Continuar conectado",
+      "definition": "Este navegador fica aberto por 30 dias de uso. Desligado, ele bloqueia quando você fecha a aba ou depois de 12 horas sem uso."
+    },
+    "trash": {
+      "term": "Lixeira",
+      "definition": "O que você apaga espera aqui 30 dias para poder ser restaurado. Continua contando no seu armazenamento."
+    },
+    "linked": {
+      "term": "Já estava no seu Drive",
+      "definition": "O mesmo arquivo já estava no seu Drive, então foi adicionado sem enviar de novo e não ocupa espaço extra."
+    },
+    "region": {
+      "term": "Região",
+      "definition": "Onde seus arquivos criptografados ficam guardados. É escolhida quando o Drive é criado."
+    },
+    "thumbnail": {
+      "term": "Miniatura",
+      "definition": "Uma pequena imagem de prévia, feita no seu dispositivo e criptografada como o próprio arquivo."
+    },
+    "plan": {
+      "term": "Plano",
+      "definition": "Quanto espaço seu Drive tem. Os planos são comprados no app BIShare; a web mostra o seu."
+    },
+    "phrase": {
+      "term": "Frase de recuperação",
+      "definition": "Palavras que trazem de volta a chave do seu Drive se você perder todos os dispositivos. Só o app BIShare as mostra."
+    },
+    "quota": {
+      "term": "Armazenamento",
+      "definition": "O espaço que seu plano oferece. Arquivos, pastas e lixeira contam; envios em andamento reservam espaço até terminar."
+    }
+  },
+  "kpiHelp": {
+    "used": "Tudo o que está guardado no seu Drive, incluindo a lixeira e os envios em andamento.",
+    "files": "Arquivos do seu Drive, sem contar pastas nem a lixeira. A linha abaixo conta os adicionados no período escolhido.",
+    "media": "Fotos e vídeos do seu Drive. Eles também aparecem na página Fotos.",
+    "trash": "Espaço ocupado por itens apagados. Esvazie a lixeira para recuperá-lo agora, ou ele se libera sozinho depois de 30 dias."
   }
 }

@@ -60,7 +60,8 @@
     "lastSeen": "上次使用",
     "folders": "最大的文件夹",
     "foldersSub": "按占用空间",
-    "total": "合计"
+    "total": "合计",
+    "chartHelp": "所选时段内你的 Drive 如何增长，按文件添加日期和类型显示。指向某一天可查看当天合计。"
   },
   "kpi": {
     "used": "已用",
@@ -113,7 +114,8 @@
     "browserExpiring": "即将锁定的浏览器",
     "browserExpiringBody": "不使用的浏览器会自动锁定",
     "unreadable": "无法打开的文件",
-    "unreadableBody": "无法在此解密其详细信息"
+    "unreadableBody": "无法在此解密其详细信息",
+    "help": "值得留意的事项：存储空间快满、即将离开回收站的项目、即将锁定的浏览器，以及在这里无法解密详细信息的文件。"
   },
   "col": {
     "name": "名称",
@@ -155,7 +157,23 @@
     "appTag": "应用",
     "browserHours": "{n} 小时未使用后锁定",
     "browserDays": "{n} 天未使用后锁定",
-    "note": "要移除其他设备，请使用 BIShare 应用中的设备。移除后，该设备将失去密钥。"
+    "remove": "移除",
+    "removeTitle": "{n, plural, =1 {要移除此浏览器吗？} other {要移除 # 个浏览器吗？}}",
+    "removeBody": "浏览器会立即失去密钥并回到登录码页面。你的 Drive 中不会删除任何内容。",
+    "removed": "{n, plural, =1 {已移除浏览器} other {已移除 # 个浏览器}}",
+    "removeInApp": "手机和电脑需在 BIShare 应用中重新登录后移除。",
+    "inAppOnly": "在应用中",
+    "inAppOnlyHelp": "手机和电脑只能在 BIShare 应用中重新登录后移除。这样丢失的浏览器就无法把你拒之门外。",
+    "kindHelp": "应用：手机或电脑上的 BIShare 应用。网页：用登录码登录的浏览器。",
+    "lastUsedHelp": "此设备上次使用你的 Drive 的时间，误差几分钟。",
+    "appsHelp": "手机和电脑上持有你 Drive 密钥的 BIShare 应用。",
+    "browsersHelp": "扫码登录的浏览器。每个浏览器在一段时间未使用后都会自动锁定。",
+    "how1Title": "密钥在应用中",
+    "how1": "Drive 密钥在 BIShare 应用中生成，只留在你的设备上。",
+    "how2Title": "扫码添加浏览器",
+    "how2": "用应用扫描登录码后，密钥会以加密形式交给该浏览器。",
+    "how3Title": "移除不用的设备",
+    "how3": "在这里移除的浏览器会立即失去密钥。手机和电脑在应用中移除。"
   },
   "files": {
     "title": "所有文件",
@@ -188,7 +206,8 @@
     },
     "selected": "已选 {n} 项",
     "viewList": "列表",
-    "viewGrid": "网格"
+    "viewGrid": "网格",
+    "selectHelp": "单击选择。按住 Cmd 或 Ctrl 可多选，按住 Shift 可选择一个范围。双击打开；右键查看更多操作。"
   },
   "kinds": {
     "dir": "文件夹",
@@ -215,9 +234,14 @@
     "wasIn": "原位置",
     "goneIn": "距永久删除",
     "days": "{n, plural, =0 {今天} other {# 天}}",
-    "note": "要恢复内容或立即删除，请使用 BIShare 应用中的回收站。",
     "list": "回收站中",
-    "noteWeb": "恢复的项目会回到原来的位置。这里的所有项目在移入 30 天后被永久删除。"
+    "goneInHelp": "项目移入回收站 30 天后会被永久删除。红色表示剩余 3 天或更少。",
+    "how1Title": "保留 30 天",
+    "how1": "删除的内容在这里等待，之后会自动永久删除。",
+    "how2Title": "恢复即放回原处",
+    "how2": "恢复的项目会回到原来的文件夹。",
+    "how3Title": "仍占用空间",
+    "how3": "回收站计入你的存储空间。清空即可立即腾出空间。"
   },
   "storage": {
     "sub": "你的文件存储于：{region}。",
@@ -230,7 +254,9 @@
     "currentTag": "当前",
     "perMonth": "每月 {price}",
     "perYear": "或每年 {price}",
-    "buyInApp": "套餐在 BIShare 应用中通过 App Store 或 Google Play 购买。"
+    "buyInApp": "套餐在 BIShare 应用中通过 App Store 或 Google Play 购买。",
+    "usedHelp": "按类型显示所有已存储内容。回收站在清空前一直计入；进行中的上传会预留空间直到完成。",
+    "uploadingHelp": "为未完成的上传预留的空间。取消上传后会释放。"
   },
   "security": {
     "sub": "BIShare 能看到什么、看不到什么，以及此浏览器如何保管密钥",
@@ -254,7 +280,13 @@
     "phraseBody": "只在 BIShare 应用中显示和核对，绝不在网页上。",
     "appOnly": "仅限应用",
     "delete": "删除 Drive",
-    "deleteBody": "在 BIShare 应用的 Drive 帐户中进行。"
+    "deleteBody": "在 BIShare 应用的 Drive 帐户中进行。",
+    "how1Title": "上传前加密",
+    "how1": "每个文件在离开设备前就在设备上加密。",
+    "how2Title": "以不可读形式存储",
+    "how2": "BIShare 只存储加密数据，无法打开。",
+    "how3Title": "只有你的设备能打开",
+    "how3": "密钥只留在你的设备上。被移除的设备会失去访问权限。"
   },
   "themeLight": "浅色",
   "themeDark": "深色",
@@ -333,7 +365,8 @@
     "upload": "上传失败",
     "download": "下载中断，请重试。",
     "dropEmpty": "拖放的内容中没有可上传的文件。",
-    "zipTooLarge": "一个 zip 装不下（超过 {size}）。请逐个下载文件。"
+    "zipTooLarge": "一个 zip 装不下（超过 {size}）。请逐个下载文件。",
+    "VAULT_SIGNIN_REQUIRED": "移除手机或电脑需要在 BIShare 应用中重新登录。"
   },
   "uploads": {
     "title": "正在上传 {n} 个文件",
@@ -402,5 +435,64 @@
     "htmlNote": "不运行脚本，也不从互联网加载任何内容。",
     "archiveSummary": "{n} 个文件 · 解压后 {size}",
     "fontSample": "天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。"
+  },
+  "help": {
+    "more": "了解更多"
+  },
+  "glossary": {
+    "e2e": {
+      "term": "端到端加密",
+      "definition": "文件在你的设备上用只有你的设备才有的密钥锁住。BIShare 负责存储，但无法打开。"
+    },
+    "key": {
+      "term": "Drive 密钥",
+      "definition": "打开你文件的秘密信息。它只留在你的设备上，绝不会发送给 BIShare。"
+    },
+    "device": {
+      "term": "设备",
+      "definition": "持有你 Drive 密钥的手机、电脑或浏览器。每一个都能打开你的文件。"
+    },
+    "browser": {
+      "term": "浏览器",
+      "definition": "用 BIShare 应用扫码登录的网页浏览器。在锁定或被移除之前，它保留一份密钥。"
+    },
+    "stay": {
+      "term": "保持登录",
+      "definition": "此浏览器在使用期间保持打开 30 天。关闭此项时，关闭标签页或 12 小时未使用后就会锁定。"
+    },
+    "trash": {
+      "term": "回收站",
+      "definition": "删除的内容在这里保留 30 天，便于恢复。这期间仍计入你的存储空间。"
+    },
+    "linked": {
+      "term": "Drive 中已有",
+      "definition": "同一个文件已经在你的 Drive 中，因此无需重新上传就已添加，也不占用额外空间。"
+    },
+    "region": {
+      "term": "存储区域",
+      "definition": "你的加密文件存放的位置，在创建 Drive 时选定。"
+    },
+    "thumbnail": {
+      "term": "缩略图",
+      "definition": "在你的设备上生成的小预览图，和文件本身一样经过加密。"
+    },
+    "plan": {
+      "term": "套餐",
+      "definition": "你的 Drive 有多少空间。套餐在 BIShare 应用中购买；网页只显示你当前的套餐。"
+    },
+    "phrase": {
+      "term": "恢复短语",
+      "definition": "当你丢失所有设备时，用来找回 Drive 密钥的一组词。只有 BIShare 应用会显示它。"
+    },
+    "quota": {
+      "term": "存储空间",
+      "definition": "套餐提供的空间。文件、文件夹和回收站都计入；进行中的上传会预留空间直到完成。"
+    }
+  },
+  "kpiHelp": {
+    "used": "Drive 中存储的全部内容，包括回收站和进行中的上传。",
+    "files": "Drive 中的文件数，不含文件夹和回收站。下面一行是所选时段内新增的文件数。",
+    "media": "Drive 中的照片和视频，也会显示在“照片”页面。",
+    "trash": "已删除项目占用的空间。清空回收站可立即释放，否则 30 天后自动释放。"
   }
 }

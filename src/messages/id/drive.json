@@ -60,7 +60,8 @@
     "lastSeen": "Terakhir dipakai",
     "folders": "Folder terbesar",
     "foldersSub": "Menurut ruang yang dipakai",
-    "total": "Total"
+    "total": "Total",
+    "chartHelp": "Pertumbuhan Drive Anda dalam periode yang dipilih, menurut hari file ditambahkan dan jenisnya. Arahkan ke satu hari untuk melihat totalnya."
   },
   "kpi": {
     "used": "Terpakai",
@@ -113,7 +114,8 @@
     "browserExpiring": "Browser akan terkunci",
     "browserExpiringBody": "Browser yang tidak dipakai mengunci sendiri",
     "unreadable": "File yang gagal dibuka",
-    "unreadableBody": "Detailnya tidak bisa didekripsi di sini"
+    "unreadableBody": "Detailnya tidak bisa didekripsi di sini",
+    "help": "Hal yang perlu dilihat: penyimpanan hampir penuh, item yang segera keluar dari sampah, browser yang akan terkunci, dan file yang detailnya tidak bisa didekripsi di sini."
   },
   "col": {
     "name": "Nama",
@@ -155,7 +157,23 @@
     "appTag": "App",
     "browserHours": "Terkunci setelah {n} jam tidak dipakai",
     "browserDays": "Terkunci setelah {n} hari tidak dipakai",
-    "note": "Untuk menghapus perangkat lain, buka Perangkat di app BIShare. Menghapusnya mencabut kunci dari perangkat itu."
+    "remove": "Hapus",
+    "removeTitle": "{n, plural, other {Hapus # browser?}}",
+    "removeBody": "Browser langsung kehilangan kunci dan kembali ke kode masuk. Tidak ada isi Drive yang terhapus.",
+    "removed": "{n, plural, other {# browser dihapus}}",
+    "removeInApp": "HP dan komputer dihapus di app BIShare, setelah masuk ulang.",
+    "inAppOnly": "Di app",
+    "inAppOnlyHelp": "HP dan komputer hanya bisa dihapus di app BIShare, dengan masuk ulang. Dengan begitu browser yang hilang tidak bisa mengunci Anda di luar.",
+    "kindHelp": "App: app BIShare di HP atau komputer. Web: browser yang masuk dengan kode.",
+    "lastUsedHelp": "Kapan perangkat ini terakhir memakai Drive Anda, dengan selisih beberapa menit.",
+    "appsHelp": "App BIShare di HP dan komputer yang memegang kunci Drive Anda.",
+    "browsersHelp": "Browser yang masuk dengan memindai kode. Masing-masing terkunci sendiri setelah lama tidak dipakai.",
+    "how1Title": "App memegang kunci",
+    "how1": "Kunci Drive dibuat di app BIShare dan tetap di perangkat Anda.",
+    "how2Title": "Kode menambah browser",
+    "how2": "Memindai kode masuk dengan app menyerahkan kunci ke browser itu, dalam keadaan terenkripsi.",
+    "how3Title": "Hapus yang tidak dipakai",
+    "how3": "Browser yang dihapus di sini langsung kehilangan kunci. HP dan komputer dihapus di app."
   },
   "files": {
     "title": "Semua file",
@@ -188,7 +206,8 @@
     },
     "selected": "{n} dipilih",
     "viewList": "Daftar",
-    "viewGrid": "Kisi"
+    "viewGrid": "Kisi",
+    "selectHelp": "Klik untuk memilih. Tahan Cmd atau Ctrl untuk menambah, atau Shift untuk memilih rentang. Klik dua kali untuk membuka; klik kanan untuk pilihan lain."
   },
   "kinds": {
     "dir": "Folder",
@@ -215,9 +234,14 @@
     "wasIn": "Asalnya di",
     "goneIn": "Terhapus permanen dalam",
     "days": "{n, plural, =0 {Hari ini} other {# hari}}",
-    "note": "Untuk mengembalikan sesuatu, atau menghapusnya sekarang, gunakan sampah di app BIShare.",
     "list": "Di sampah",
-    "noteWeb": "Item yang dipulihkan kembali ke tempat asalnya. Semua di sini terhapus permanen 30 hari setelah dipindah ke sini."
+    "goneInHelp": "Item terhapus permanen 30 hari setelah dipindah ke sampah. Merah berarti tinggal 3 hari atau kurang.",
+    "how1Title": "Disimpan 30 hari",
+    "how1": "Item yang dihapus menunggu di sini, lalu terhapus permanen dengan sendirinya.",
+    "how2Title": "Pulihkan mengembalikannya",
+    "how2": "Item yang dipulihkan kembali ke folder asalnya.",
+    "how3Title": "Tetap memakai ruang",
+    "how3": "Sampah dihitung dalam penyimpanan Anda. Kosongkan untuk melegakan ruang sekarang."
   },
   "storage": {
     "sub": "File Anda disimpan di {region}.",
@@ -230,7 +254,9 @@
     "currentTag": "Saat ini",
     "perMonth": "{price} per bulan",
     "perYear": "atau {price} per tahun",
-    "buyInApp": "Paket dibeli di app BIShare, lewat App Store atau Google Play."
+    "buyInApp": "Paket dibeli di app BIShare, lewat App Store atau Google Play.",
+    "usedHelp": "Semua yang tersimpan, menurut jenis. Sampah dihitung sampai dikosongkan; unggahan yang sedang berjalan memesan ruang sampai selesai.",
+    "uploadingHelp": "Ruang yang disisihkan untuk unggahan yang belum selesai. Dilepas kalau unggahan dibatalkan."
   },
   "security": {
     "sub": "Apa yang bisa dan tidak bisa dilihat BIShare, dan cara browser ini menyimpan kunci",
@@ -254,7 +280,13 @@
     "phraseBody": "Hanya ditampilkan dan dicek di app BIShare, tidak pernah di web.",
     "appOnly": "Hanya app",
     "delete": "Menghapus Drive",
-    "deleteBody": "Dilakukan di app BIShare, di Akun Drive."
+    "deleteBody": "Dilakukan di app BIShare, di Akun Drive.",
+    "how1Title": "Dienkripsi sebelum diunggah",
+    "how1": "Setiap file dienkripsi di perangkat Anda sebelum keluar.",
+    "how2Title": "Disimpan tak terbaca",
+    "how2": "BIShare hanya menyimpan data terenkripsi dan tidak bisa membukanya.",
+    "how3Title": "Hanya perangkat Anda yang membuka",
+    "how3": "Kunci tetap di perangkat Anda. Perangkat yang dihapus kehilangan akses."
   },
   "themeLight": "Terang",
   "themeDark": "Gelap",
@@ -333,7 +365,8 @@
     "upload": "Unggahan gagal",
     "download": "Unduhan terhenti. Coba lagi.",
     "dropEmpty": "Tidak ada yang bisa diunggah dari yang diletakkan.",
-    "zipTooLarge": "Terlalu besar untuk satu zip (lebih dari {size}). Unduh file satu per satu."
+    "zipTooLarge": "Terlalu besar untuk satu zip (lebih dari {size}). Unduh file satu per satu.",
+    "VAULT_SIGNIN_REQUIRED": "Menghapus HP atau komputer perlu masuk ulang di app BIShare."
   },
   "uploads": {
     "title": "Mengunggah {n} file",
@@ -402,5 +435,64 @@
     "htmlNote": "Ditampilkan tanpa skrip dan tanpa memuat apa pun dari internet.",
     "archiveSummary": "{n} file · {size} setelah diekstrak",
     "fontSample": "Kucing jingga melompati pagar bambu di halaman rumah."
+  },
+  "help": {
+    "more": "Selengkapnya"
+  },
+  "glossary": {
+    "e2e": {
+      "term": "Enkripsi end-to-end",
+      "definition": "File dikunci di perangkat Anda dengan kunci yang hanya dipegang perangkat Anda. BIShare menyimpannya, tapi tidak bisa membukanya."
+    },
+    "key": {
+      "term": "Kunci Drive",
+      "definition": "Rahasia yang membuka file Anda. Kunci ini tetap di perangkat Anda dan tidak pernah dikirim ke BIShare."
+    },
+    "device": {
+      "term": "Perangkat",
+      "definition": "HP, komputer, atau browser yang memegang kunci Drive Anda. Masing-masing bisa membuka file Anda."
+    },
+    "browser": {
+      "term": "Browser",
+      "definition": "Browser web yang Anda masuki dengan memindai kode memakai app BIShare. Browser itu menyimpan salinan kunci sampai terkunci atau dihapus."
+    },
+    "stay": {
+      "term": "Tetap masuk",
+      "definition": "Browser ini tetap terbuka selama 30 hari pemakaian. Kalau mati, browser terkunci saat tab ditutup, atau setelah 12 jam tidak dipakai."
+    },
+    "trash": {
+      "term": "Sampah",
+      "definition": "Item yang dihapus menunggu di sini 30 hari supaya bisa dipulihkan. Isinya tetap dihitung dalam penyimpanan Anda."
+    },
+    "linked": {
+      "term": "Sudah ada di Drive",
+      "definition": "File yang sama sudah ada di Drive Anda, jadi ditambahkan tanpa diunggah lagi dan tidak memakai ruang tambahan."
+    },
+    "region": {
+      "term": "Region",
+      "definition": "Tempat file terenkripsi Anda disimpan. Dipilih saat Drive dibuat."
+    },
+    "thumbnail": {
+      "term": "Thumbnail",
+      "definition": "Gambar pratinjau kecil, dibuat di perangkat Anda dan dienkripsi seperti filenya."
+    },
+    "plan": {
+      "term": "Paket",
+      "definition": "Seberapa besar ruang Drive Anda. Paket dibeli di app BIShare; web hanya menampilkan paket Anda."
+    },
+    "phrase": {
+      "term": "Frasa pemulihan",
+      "definition": "Rangkaian kata untuk mengembalikan kunci Drive kalau semua perangkat Anda hilang. Hanya app BIShare yang menampilkannya."
+    },
+    "quota": {
+      "term": "Penyimpanan",
+      "definition": "Ruang yang diberikan paket Anda. File, folder, dan sampah ikut dihitung; unggahan yang sedang berjalan memesan ruang sampai selesai."
+    }
+  },
+  "kpiHelp": {
+    "used": "Semua yang tersimpan di Drive Anda, termasuk sampah dan unggahan yang sedang berjalan.",
+    "files": "File di Drive Anda, tanpa folder dan sampah. Baris di bawahnya menghitung file yang ditambahkan dalam periode yang dipilih.",
+    "media": "Foto dan video di Drive Anda. Semuanya juga tampil di halaman Foto.",
+    "trash": "Ruang yang dipakai item yang dihapus. Kosongkan sampah untuk mendapatkannya kembali sekarang, atau ruang itu lepas sendiri setelah 30 hari."
   }
 }

@@ -1,14 +1,39 @@
 "use client";
 
-import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ArchiveRestore, Check, EyeOff, Globe, Image as ImageIcon, KeyRound, Lock, Monitor, Play, ShieldCheck, Smartphone, Trash2, Upload, X } from "lucide-react";
-import type { DriveObject } from "@/lib/vault/store";
+import {
+  ArchiveRestore,
+  Check,
+  CloudUpload,
+  Download,
+  EyeOff,
+  FolderInput,
+  Globe,
+  HardDrive,
+  Image as ImageIcon,
+  KeyRound,
+  Lock,
+  LogOut,
+  Monitor,
+  Play,
+  QrCode,
+  ShieldCheck,
+  Smartphone,
+  Timer,
+  Trash2,
+  Undo2,
+  Upload,
+  X,
+} from "lucide-react";
+import { DriveApiError } from "@/lib/vault/client";
+import type { DriveDevice, DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
 import { useActions } from "./actions";
 import { EmptyState, KIND_COLORS, Kpi, KpiGrid, ObjectThumb, PageHead, Panel } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, dayTitle, percent, when } from "./format";
+import { ExplainGrid, InfoTip, Term } from "./help";
+import { RowCheck, SelectionBar, useSelection } from "./selection";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Checkbox } from "./ui/checkbox";
@@ -16,7 +41,18 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from ".
 
 const DAY = 86_400_000;
 
-/** Photos & videos: every picture of the Drive by the day it was taken. */
+function HeadWithHelp({ children, help, className }: { children: React.ReactNode; help: React.ReactNode; className?: string }) {
+  return (
+    <TableHead className={className}>
+      <span className="inline-flex items-center gap-1">
+        {children}
+        <InfoTip>{help}</InfoTip>
+      </span>
+    </TableHead>
+  );
+}
+
+/** Photos & videos: every picture of the Drive by the day it was taken; pick several like in Google Photos. */
 export function PhotosPage() {
   const t = useTranslations("drive");
   const locale = useLocale();
@@ -26,6 +62,7 @@ export function PhotosPage() {
     .live()
     .filter((o) => o.kind === "file" && !!o.mime && (o.mime.startsWith("image/") || o.mime.startsWith("video/")))
     .sort((a, b) => b.mtimeMs - a.mtimeMs);
+  const { click, clear, selected, has, sel } = useSelection(media);
   const days = new Map<string, DriveObject[]>();
   for (const o of media) {
     const d = new Date(o.mtimeMs);
@@ -34,6 +71,7 @@ export function PhotosPage() {
   }
   const size = media.reduce((a, o) => a + (o.size ?? 0), 0);
   const videos = media.filter((o) => o.mime?.startsWith("video/")).length;
+  const picking = sel.size > 0;
   return (
     <div className="flex flex-col gap-4">
       <PageHead
@@ -45,6 +83,19 @@ export function PhotosPage() {
           </Button>
         }
       />
+      {selected.length ? (
+        <SelectionBar count={selected.length} onClear={clear}>
+          <Button variant="outline" size="sm" className="bg-background" onClick={() => void actions.download(selected)}>
+            <Download /> <span className="hidden sm:inline">{selected.length > 1 ? t("act.downloadZip") : t("act.download")}</span>
+          </Button>
+          <Button variant="outline" size="sm" className="bg-background" onClick={() => void actions.move(selected.map((o) => o.id))}>
+            <FolderInput /> <span className="hidden sm:inline">{t("act.move")}</span>
+          </Button>
+          <Button variant="destructive" size="sm" onClick={() => void actions.trash(selected.map((o) => o.id))}>
+            <Trash2 /> <span className="hidden sm:inline">{t("act.trash")}</span>
+          </Button>
+        </SelectionBar>
+      ) : null}
       {media.length === 0 ? (
         <Panel>
           <EmptyState icon={ImageIcon} title={t("empty.photos")} description={t("empty.photosBody")} />
@@ -52,28 +103,37 @@ export function PhotosPage() {
       ) : (
         [...days.values()].map((list) => (
           <section key={list[0]!.id}>
-            <div className="sticky top-14 z-10 -mx-1 mb-2 flex items-baseline gap-2 bg-background/95 px-1 py-1.5 backdrop-blur">
+            <div className={cn("sticky z-10 -mx-1 mb-2 flex items-baseline gap-2 bg-background/95 px-1 py-1.5 backdrop-blur", picking ? "top-[6.75rem]" : "top-14")}>
               <h2 className="text-xs font-semibold">{dayTitle(list[0]!.mtimeMs, locale)}</h2>
               <span className="text-3xs text-muted-foreground">{t("items", { n: list.length })}</span>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-1 sm:grid-cols-[repeat(auto-fill,minmax(150px,1fr))]">
-              {list.map((o) => (
-                <button
-                  key={o.id}
-                  type="button"
-                  title={o.name}
-                  onClick={() => actions.open(o, media)}
-                  className="group relative aspect-square overflow-hidden bg-muted focus-visible:ring-2 focus-visible:ring-blau focus-visible:outline-none"
-                >
-                  <ObjectThumb o={o} large className="transition-transform duration-300 group-hover:scale-[1.04]" />
-                  {o.mime?.startsWith("video/") ? (
-                    <span className="absolute start-1.5 bottom-1.5 grid size-6 place-items-center bg-black/55 text-white backdrop-blur">
-                      <Play className="size-3 fill-current" />
+              {list.map((o) => {
+                const on = has(o.id);
+                return (
+                  <div
+                    key={o.id}
+                    role="button"
+                    tabIndex={0}
+                    title={o.name}
+                    aria-pressed={on}
+                    onClick={(e) => (picking || e.metaKey || e.ctrlKey || e.shiftKey ? click(o, e, true) : actions.open(o, media))}
+                    onKeyDown={(e) => e.key === "Enter" && actions.open(o, media)}
+                    className={cn("group relative aspect-square cursor-pointer overflow-hidden bg-muted outline-none focus-visible:ring-2 focus-visible:ring-blau", on && "ring-2 ring-blau ring-inset")}
+                  >
+                    <ObjectThumb o={o} large className={cn("transition-transform duration-300", on ? "scale-[0.88]" : "group-hover:scale-[1.04]")} />
+                    {o.mime?.startsWith("video/") ? (
+                      <span className="absolute end-1.5 bottom-1.5 grid size-6 place-items-center bg-black/55 text-white backdrop-blur">
+                        <Play className="size-3 fill-current" />
+                      </span>
+                    ) : null}
+                    <span className={cn("absolute inset-0 bg-gradient-to-b from-black/30 to-transparent to-40% transition-opacity", picking || on ? "opacity-100" : "opacity-0 group-hover:opacity-100")} />
+                    <span className={cn("absolute start-1.5 top-1.5 bg-background/90 transition-opacity", picking || on ? "opacity-100" : "opacity-0 group-hover:opacity-100")}>
+                      <RowCheck checked={on} label={o.name} onToggle={(e) => click(o, e, true)} />
                     </span>
-                  ) : null}
-                  <span className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />
-                </button>
-              ))}
+                  </div>
+                );
+              })}
             </div>
           </section>
         ))
@@ -82,41 +142,97 @@ export function PhotosPage() {
   );
 }
 
-/** Devices: every app and browser that holds the key. */
+/** Devices: every app and browser that holds the key; browsers can be removed here. */
 export function DevicesPage() {
   const t = useTranslations("drive");
   const locale = useLocale();
-  const { session, lock } = useDrive();
+  const { session, lock, client, index: idx, confirm, toast } = useDrive();
   const index = useIndex();
+  const actions = useActions();
   const words = { today: t("today"), yesterday: t("yesterday") };
   const apps = index.devices.filter((d) => d.kind !== "web");
   const browsers = index.devices.filter((d) => d.kind === "web");
+  // Only other browsers can be picked: this one locks itself, phones go from the app.
+  const removable = index.devices.filter((d) => d.kind === "web" && d.id !== session.deviceId);
+  const { click, clear, all, selected, headState, has } = useSelection(removable);
+
+  const remove = async (list: DriveDevice[]) => {
+    if (!list.length) return;
+    const ok = await confirm({
+      title: t("devices.removeTitle", { n: list.length }),
+      body: t("devices.removeBody"),
+      confirm: t("devices.remove"),
+      danger: true,
+    });
+    if (!ok) return;
+    try {
+      for (const d of list) await client.removeDevice(d.id);
+      clear();
+      toast(t("devices.removed", { n: list.length }), { tone: "ok" });
+    } catch (e) {
+      if (e instanceof DriveApiError && e.code === "VAULT_SIGNIN_REQUIRED") toast(t("devices.removeInApp"), { tone: "error" });
+      else actions.fail(e);
+    } finally {
+      await idx.pull().catch(() => undefined);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <PageHead title={t("nav.devices")} sub={t("devices.sub")} />
+      <ExplainGrid
+        items={[
+          { icon: Smartphone, title: t("devices.how1Title"), text: t("devices.how1") },
+          { icon: QrCode, title: t("devices.how2Title"), text: t("devices.how2") },
+          { icon: ShieldCheck, title: t("devices.how3Title"), text: t("devices.how3") },
+        ]}
+      />
       <KpiGrid cols={3}>
-        <Kpi icon={Smartphone} label={t("devices.apps")} value={String(apps.length)} />
-        <Kpi icon={Globe} label={t("devices.browsers")} value={String(browsers.length)} sub={t("devices.browsersSub", { n: browsers.filter((d) => (d.idleLimitMs ?? 0) > DAY).length })} />
-        <Kpi icon={Monitor} label={t("devices.thisOne")} value={session.name} sub={session.stay ? t("staysSignedIn") : t("locksWhenClosed")} />
+        <Kpi icon={Smartphone} label={t("devices.apps")} value={String(apps.length)} help={t("devices.appsHelp")} />
+        <Kpi
+          icon={Globe}
+          label={t("devices.browsers")}
+          value={String(browsers.length)}
+          sub={t("devices.browsersSub", { n: browsers.filter((d) => (d.idleLimitMs ?? 0) > DAY).length })}
+          help={t("devices.browsersHelp")}
+        />
+        <Kpi icon={Monitor} label={t("devices.thisOne")} value={session.name} sub={session.stay ? t("staysSignedIn") : t("locksWhenClosed")} help={t("glossary.stay.definition")} />
       </KpiGrid>
+      {selected.length ? (
+        <SelectionBar count={selected.length} onClear={clear}>
+          <Button variant="destructive" size="sm" onClick={() => void remove(selected)}>
+            <LogOut /> {t("devices.remove")}
+          </Button>
+        </SelectionBar>
+      ) : null}
       <Panel>
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
+              <TableHead className="w-9 pe-0">
+                <Checkbox aria-label={t("act.selectAll")} checked={headState} disabled={!removable.length} onCheckedChange={(c) => (c ? all() : clear())} />
+              </TableHead>
               <TableHead>{t("devices.device")}</TableHead>
-              <TableHead>{t("col.kind")}</TableHead>
-              <TableHead className="hidden sm:table-cell">{t("devices.lastUsed")}</TableHead>
+              <HeadWithHelp help={t("devices.kindHelp")}>{t("col.kind")}</HeadWithHelp>
+              <HeadWithHelp className="hidden sm:table-cell" help={t("devices.lastUsedHelp")}>
+                {t("devices.lastUsed")}
+              </HeadWithHelp>
               <TableHead className="hidden md:table-cell">{t("devices.added")}</TableHead>
-              <TableHead className="w-24" />
+              <TableHead className="w-32" />
             </TableRow>
           </TableHeader>
           <TableBody>
             {index.devices.map((d) => {
               const Icon = d.kind === "web" ? Globe : /phone|galaxy|pixel|android|ios|iphone/i.test(d.name ?? "") ? Smartphone : Monitor;
               const me = d.id === session.deviceId;
+              const canPick = d.kind === "web" && !me;
+              const on = has(d.id);
               const idle = d.idleLimitMs ?? 0;
               return (
-                <TableRow key={d.id}>
+                <TableRow key={d.id} data-state={on ? "selected" : undefined} className={cn("group data-[state=selected]:bg-blau-soft", canPick && "cursor-default select-none")} onClick={(e) => canPick && click(d, e)}>
+                  <TableCell className="pe-0" onClick={(e) => e.stopPropagation()}>
+                    {canPick ? <RowCheck checked={on} label={d.name ?? t("devices.unnamed")} onToggle={(e) => click(d, e, true)} /> : null}
+                  </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-2.5">
                       <span className={cn("grid size-8 shrink-0 place-items-center border bg-muted/60", me && "border-blau bg-blau-soft")}>
@@ -141,12 +257,21 @@ export function DevicesPage() {
                   </TableCell>
                   <TableCell className="hidden text-muted-foreground sm:table-cell">{me ? t("devices.now") : d.lastSeenAt ? when(d.lastSeenAt, locale, words) : "—"}</TableCell>
                   <TableCell className="hidden text-muted-foreground md:table-cell">{new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(d.addedAt))}</TableCell>
-                  <TableCell className="text-end">
+                  <TableCell className="text-end" onClick={(e) => e.stopPropagation()}>
                     {me ? (
                       <Button variant="outline" size="sm" onClick={() => void lock()}>
                         <Lock /> {t("lock")}
                       </Button>
-                    ) : null}
+                    ) : d.kind === "web" ? (
+                      <Button variant="outline" size="sm" className="text-destructive" onClick={() => void remove([d])}>
+                        <LogOut /> {t("devices.remove")}
+                      </Button>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-3xs text-muted-foreground">
+                        {t("devices.inAppOnly")}
+                        <InfoTip>{t("devices.inAppOnlyHelp")}</InfoTip>
+                      </span>
+                    )}
                   </TableCell>
                 </TableRow>
               );
@@ -154,7 +279,6 @@ export function DevicesPage() {
           </TableBody>
         </Table>
       </Panel>
-      <p className="text-3xs text-muted-foreground">{t("devices.note")}</p>
     </div>
   );
 }
@@ -164,17 +288,10 @@ export function TrashPage() {
   const t = useTranslations("drive");
   const index = useIndex();
   const actions = useActions();
-  const [sel, setSel] = useState<Set<string>>(new Set());
   const items = index.trash().sort((a, b) => (a.trashedAt ?? 0) - (b.trashedAt ?? 0));
+  const { click, clear, all, selected, headState, has } = useSelection(items);
   const size = items.reduce((a, o) => a + index.treeSize(o.id), 0);
-  const chosen = items.filter((o) => sel.has(o.id)).map((o) => o.id);
-  const toggle = (id: string) =>
-    setSel((s) => {
-      const n = new Set(s);
-      if (n.has(id)) n.delete(id);
-      else n.add(id);
-      return n;
-    });
+  const ids = selected.map((o) => o.id);
   return (
     <div className="flex flex-col gap-4">
       <PageHead
@@ -188,21 +305,24 @@ export function TrashPage() {
           ) : null
         }
       />
-      <Panel
-        title={chosen.length ? t("files.selected", { n: chosen.length }) : t("trash.list")}
-        actions={
-          chosen.length ? (
-            <>
-              <Button variant="outline" size="sm" onClick={() => void actions.restore(chosen).then(() => setSel(new Set()))}>
-                <ArchiveRestore /> {t("act.restore")}
-              </Button>
-              <Button variant="destructive" size="sm" onClick={() => void actions.deleteForGood(chosen).then(() => setSel(new Set()))}>
-                <X /> {t("act.deleteForever")}
-              </Button>
-            </>
-          ) : null
-        }
-      >
+      <ExplainGrid
+        items={[
+          { icon: Timer, title: t("trash.how1Title"), text: t("trash.how1") },
+          { icon: Undo2, title: t("trash.how2Title"), text: t("trash.how2") },
+          { icon: HardDrive, title: t("trash.how3Title"), text: t("trash.how3") },
+        ]}
+      />
+      {selected.length ? (
+        <SelectionBar count={selected.length} onClear={clear}>
+          <Button variant="outline" size="sm" className="bg-background" onClick={() => void actions.restore(ids).then(clear)}>
+            <ArchiveRestore /> {t("act.restore")}
+          </Button>
+          <Button variant="destructive" size="sm" onClick={() => void actions.deleteForGood(ids).then(clear)}>
+            <X /> {t("act.deleteForever")}
+          </Button>
+        </SelectionBar>
+      ) : null}
+      <Panel>
         {items.length === 0 ? (
           <EmptyState icon={Trash2} title={t("empty.trash")} description={t("empty.trashBody")} />
         ) : (
@@ -210,16 +330,14 @@ export function TrashPage() {
             <TableHeader>
               <TableRow className="hover:bg-transparent">
                 <TableHead className="w-9 pe-0">
-                  <Checkbox
-                    aria-label={t("act.selectAll")}
-                    checked={chosen.length === 0 ? false : chosen.length === items.length ? true : "indeterminate"}
-                    onCheckedChange={(c) => setSel(c ? new Set(items.map((o) => o.id)) : new Set())}
-                  />
+                  <Checkbox aria-label={t("act.selectAll")} checked={headState} onCheckedChange={(c) => (c ? all() : clear())} />
                 </TableHead>
                 <TableHead>{t("col.name")}</TableHead>
                 <TableHead className="text-end">{t("col.size")}</TableHead>
                 <TableHead className="hidden md:table-cell">{t("trash.wasIn")}</TableHead>
-                <TableHead className="w-56">{t("trash.goneIn")}</TableHead>
+                <HeadWithHelp className="w-56" help={t("trash.goneInHelp")}>
+                  {t("trash.goneIn")}
+                </HeadWithHelp>
                 <TableHead className="w-24" />
               </TableRow>
             </TableHeader>
@@ -227,10 +345,11 @@ export function TrashPage() {
               {items.map((o) => {
                 const left = Math.max(0, Math.ceil(((o.trashedAt ?? 0) + 30 * DAY - Date.now()) / DAY));
                 const hot = left <= 3;
+                const on = has(o.id);
                 return (
-                  <TableRow key={o.id} data-state={sel.has(o.id) ? "selected" : undefined} className="group data-[state=selected]:bg-blau-soft">
-                    <TableCell className="pe-0">
-                      <Checkbox checked={sel.has(o.id)} onCheckedChange={() => toggle(o.id)} aria-label={o.name} />
+                  <TableRow key={o.id} data-state={on ? "selected" : undefined} className="group cursor-default select-none data-[state=selected]:bg-blau-soft" onClick={(e) => click(o, e)}>
+                    <TableCell className="pe-0" onClick={(e) => e.stopPropagation()}>
+                      <RowCheck checked={on} label={o.name} onToggle={(e) => click(o, e, true)} />
                     </TableCell>
                     <TableCell>
                       <div className="flex min-w-0 items-center gap-2.5">
@@ -248,7 +367,7 @@ export function TrashPage() {
                         </div>
                       </div>
                     </TableCell>
-                    <TableCell className="p-1 text-end">
+                    <TableCell className="p-1 text-end" onClick={(e) => e.stopPropagation()}>
                       <Button variant="ghost" size="sm" onClick={() => void actions.restore([o.id])}>
                         <ArchiveRestore /> <span className="hidden lg:inline">{t("act.restore")}</span>
                       </Button>
@@ -260,7 +379,6 @@ export function TrashPage() {
           </Table>
         )}
       </Panel>
-      <p className="text-3xs text-muted-foreground">{t("trash.noteWeb")}</p>
     </div>
   );
 }
@@ -285,13 +403,10 @@ export function StoragePage() {
   return (
     <div className="flex flex-col gap-4">
       <PageHead title={t("nav.storage")} sub={info ? t("storage.sub", { region: t(`region.${info.region}`) }) : ""} />
-      <Panel>
+      <Panel title={t("kpi.used")} help={t("storage.usedHelp")}>
         <div className="flex flex-col gap-4 p-5">
           <div className="flex flex-wrap items-end gap-x-6 gap-y-2">
-            <div>
-              <div className="text-2xs text-muted-foreground">{t("kpi.used")}</div>
-              <div className="text-3xl font-semibold tracking-tight tabular-nums">{bytes(used)}</div>
-            </div>
+            <div className="text-3xl font-semibold tracking-tight tabular-nums">{bytes(used)}</div>
             <div className="pb-1 text-xs text-muted-foreground">{t("kpi.usedSub", { pct: percent(used, quota), total: bytes(quota) })}</div>
             <div className="ms-auto pb-1 text-xs">
               {t("kpi.left")}: <b className="tabular-nums">{bytes(Math.max(0, quota - used))}</b>
@@ -306,7 +421,7 @@ export function StoragePage() {
             {(["media", "documents", "audio", "other", "trash"] as const).map((k) => (
               <span key={k} className="flex items-center gap-1.5 text-muted-foreground">
                 <i className="inline-block size-2.5" style={{ background: KIND_COLORS[k] }} />
-                {t(`kind.${k}`)}
+                {k === "trash" ? <Term id="trash">{t(`kind.${k}`)}</Term> : t(`kind.${k}`)}
                 <b className="font-medium text-foreground tabular-nums">{bytes(stats.byKind[k])}</b>
               </span>
             ))}
@@ -315,12 +430,12 @@ export function StoragePage() {
         </div>
       </Panel>
       <KpiGrid cols={4}>
-        <Kpi label={t("storage.uploading")} value={bytes(info?.reservedBytes ?? 0)} sub={t("storage.uploadingSub")} />
-        <Kpi label={t("kpi.files")} value={stats.files.toLocaleString()} />
-        <Kpi label={t("kpi.media")} value={stats.media.toLocaleString()} sub={bytes(stats.byKind.media)} />
-        <Kpi label={t("kpi.trash")} value={bytes(stats.byKind.trash)} sub={t("kpi.trashSub", { n: stats.trashItems })} />
+        <Kpi icon={CloudUpload} label={t("storage.uploading")} value={bytes(info?.reservedBytes ?? 0)} sub={t("storage.uploadingSub")} help={t("storage.uploadingHelp")} />
+        <Kpi label={t("kpi.files")} value={stats.files.toLocaleString()} help={t("kpiHelp.files")} />
+        <Kpi label={t("kpi.media")} value={stats.media.toLocaleString()} sub={bytes(stats.byKind.media)} help={t("kpiHelp.media")} />
+        <Kpi label={t("kpi.trash")} value={bytes(stats.byKind.trash)} sub={t("kpi.trashSub", { n: stats.trashItems })} help={t("kpiHelp.trash")} />
       </KpiGrid>
-      <Panel title={t("storage.plans")} description={t("storage.plansSub")}>
+      <Panel title={t("storage.plans")} description={t("storage.plansSub")} help={t("glossary.plan.definition")}>
         <div className="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">
           <div className="flex flex-col gap-1 bg-card p-4 ring-1 ring-blau ring-inset">
             <div className="flex items-center justify-between">
@@ -343,7 +458,7 @@ export function StoragePage() {
   );
 }
 
-function Fact({ icon: Icon, tone, badge, title, body }: { icon: typeof Lock; tone?: "good" | "warn"; badge: string; title: string; body: string }) {
+function Fact({ icon: Icon, tone, badge, title, body }: { icon: typeof Lock; tone?: "good" | "warn"; badge: string; title: React.ReactNode; body: string }) {
   return (
     <div className="flex items-start gap-3 border-b px-4 py-3.5 last:border-b-0">
       <span className={cn("grid size-8 shrink-0 place-items-center border bg-muted/60", tone === "good" && "border-good/40 text-good", tone === "warn" && "border-warn/40 text-warn")}>
@@ -369,14 +484,21 @@ export function SecurityPage() {
   return (
     <div className="flex flex-col gap-4">
       <PageHead title={t("nav.security")} sub={t("security.sub")} />
+      <ExplainGrid
+        items={[
+          { icon: Lock, title: t("security.how1Title"), text: t("security.how1") },
+          { icon: HardDrive, title: t("security.how2Title"), text: t("security.how2") },
+          { icon: KeyRound, title: t("security.how3Title"), text: t("security.how3") },
+        ]}
+      />
       <div className="grid gap-4 lg:grid-cols-2">
-        <Panel title={t("security.encryption")} description={t("security.encryptionSub")}>
-          <Fact icon={ShieldCheck} tone="good" badge={t("security.on")} title={t("security.e2e")} body={t("security.e2eBody")} />
+        <Panel title={t("security.encryption")} description={t("security.encryptionSub")} help={t("glossary.e2e.definition")}>
+          <Fact icon={ShieldCheck} tone="good" badge={t("security.on")} title={<Term id="e2e">{t("security.e2e")}</Term>} body={t("security.e2eBody")} />
           <Fact icon={EyeOff} badge={t("security.hidden")} title={t("security.hiddenWhat")} body={t("security.hiddenBody")} />
           <Fact icon={Check} badge={t("security.visible")} title={t("security.visibleWhat")} body={t("security.visibleBody")} />
         </Panel>
-        <Panel title={t("security.browser")} description={session.name}>
-          <Fact icon={Monitor} tone={session.stay ? "warn" : "good"} badge={session.stay ? t("security.on") : t("security.off")} title={t("signin.stay")} body={session.stay ? t("security.stayOn") : t("security.stayOff")} />
+        <Panel title={t("security.browser")} description={session.name} help={t("glossary.browser.definition")}>
+          <Fact icon={Monitor} tone={session.stay ? "warn" : "good"} badge={session.stay ? t("security.on") : t("security.off")} title={<Term id="stay">{t("signin.stay")}</Term>} body={session.stay ? t("security.stayOn") : t("security.stayOff")} />
           <div className="flex items-start gap-3 border-b px-4 py-3.5">
             <span className="grid size-8 shrink-0 place-items-center border bg-muted/60">
               <Lock className="size-4" />
@@ -389,7 +511,7 @@ export function SecurityPage() {
               {t("lock")}
             </Button>
           </div>
-          <Fact icon={KeyRound} badge={t("security.appOnly")} title={t("security.phrase")} body={t("security.phraseBody")} />
+          <Fact icon={KeyRound} badge={t("security.appOnly")} title={<Term id="phrase">{t("security.phrase")}</Term>} body={t("security.phraseBody")} />
           <Fact icon={Trash2} badge={t("security.appOnly")} title={t("security.delete")} body={t("security.deleteBody")} />
         </Panel>
       </div>

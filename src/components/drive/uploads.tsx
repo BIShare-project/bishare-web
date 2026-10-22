@@ -7,6 +7,7 @@ import type { UploadItem } from "@/lib/vault/upload";
 import { cn } from "@/lib/utils";
 import { useDrive, useIndex, useUploads } from "./drive-app";
 import { bytes } from "./format";
+import { InfoTip } from "./help";
 import { Button } from "./ui/button";
 import { Progress } from "./ui/progress";
 
@@ -70,6 +71,7 @@ export function UploadTray() {
                 <div className={cn("flex items-center gap-1 truncate text-3xs text-muted-foreground", it.state === "failed" && "text-destructive")}>
                   {it.linked ? <Link2 className="size-3" /> : null}
                   {statusOf(t, it)}
+                  {it.linked ? <InfoTip>{t("glossary.linked.definition")}</InfoTip> : null}
                 </div>
                 {it.state === "preparing" || it.state === "sending" ? <Progress value={it.total ? (it.done * 100) / it.total : 0} className="mt-1.5" /> : null}
               </div>

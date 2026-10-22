@@ -60,7 +60,8 @@
     "lastSeen": "Zuletzt genutzt",
     "folders": "Größte Ordner",
     "foldersSub": "Nach belegtem Platz",
-    "total": "Gesamt"
+    "total": "Gesamt",
+    "chartHelp": "Wie dein Drive im gewählten Zeitraum gewachsen ist, nach Tag des Hinzufügens und nach Art. Zeig auf einen Tag, um seine Summen zu sehen."
   },
   "kpi": {
     "used": "Belegt",
@@ -113,7 +114,8 @@
     "browserExpiring": "Browser sperren sich bald",
     "browserExpiringBody": "Ungenutzte Browser sperren sich selbst",
     "unreadable": "Dateien, die sich nicht öffnen ließen",
-    "unreadableBody": "Ihre Details ließen sich hier nicht entschlüsseln"
+    "unreadableBody": "Ihre Details ließen sich hier nicht entschlüsseln",
+    "help": "Was einen Blick wert ist: fast voller Speicher, Elemente, die bald aus dem Papierkorb verschwinden, Browser kurz vor dem Sperren und Dateien, deren Angaben hier nicht entschlüsselt werden konnten."
   },
   "col": {
     "name": "Name",
@@ -155,7 +157,23 @@
     "appTag": "App",
     "browserHours": "Sperrt nach {n} Stunden ohne Nutzung",
     "browserDays": "Sperrt nach {n} Tagen ohne Nutzung",
-    "note": "Andere Geräte entfernst du unter Geräte in der BIShare-App. Dabei verliert das Gerät den Schlüssel."
+    "remove": "Entfernen",
+    "removeTitle": "{n, plural, one {Diesen Browser entfernen?} other {# Browser entfernen?}}",
+    "removeBody": "Ein entfernter Browser verliert den Schlüssel sofort und kehrt zum Anmeldecode zurück. In deinem Drive wird nichts gelöscht.",
+    "removed": "{n, plural, one {Browser entfernt} other {# Browser entfernt}}",
+    "removeInApp": "Telefone und Computer entfernst du in der BIShare-App, nach einer neuen Anmeldung.",
+    "inAppOnly": "In der App",
+    "inAppOnlyHelp": "Telefone und Computer lassen sich nur in der BIShare-App entfernen, mit einer neuen Anmeldung. So kann dich ein verlorener Browser nicht aussperren.",
+    "kindHelp": "App: die BIShare-App auf einem Telefon oder Computer. Web: ein Browser, der sich mit einem Code angemeldet hat.",
+    "lastUsedHelp": "Wann dieses Gerät dein Drive zuletzt genutzt hat, auf wenige Minuten genau.",
+    "appsHelp": "BIShare-Apps auf Telefonen und Computern, die den Schlüssel deines Drive haben.",
+    "browsersHelp": "Browser, die per Code-Scan angemeldet sind. Jeder sperrt sich nach einiger Zeit ohne Nutzung selbst.",
+    "how1Title": "Die App hat den Schlüssel",
+    "how1": "Der Schlüssel deines Drive entsteht in der BIShare-App und bleibt auf deinen Geräten.",
+    "how2Title": "Ein Code fügt einen Browser hinzu",
+    "how2": "Scannst du den Anmeldecode mit der App, geht der Schlüssel verschlüsselt an diesen Browser.",
+    "how3Title": "Entferne, was du nicht nutzt",
+    "how3": "Ein hier entfernter Browser verliert den Schlüssel sofort. Telefone und Computer entfernst du in der App."
   },
   "files": {
     "title": "Alle Dateien",
@@ -188,7 +206,8 @@
     },
     "selected": "{n} ausgewählt",
     "viewList": "Liste",
-    "viewGrid": "Raster"
+    "viewGrid": "Raster",
+    "selectHelp": "Klicken zum Auswählen. Cmd oder Strg gedrückt halten, um mehr hinzuzufügen, oder Umschalt für einen Bereich. Doppelklick öffnet; Rechtsklick für mehr."
   },
   "kinds": {
     "dir": "Ordner",
@@ -215,9 +234,14 @@
     "wasIn": "War in",
     "goneIn": "Endgültig gelöscht in",
     "days": "{n, plural, =0 {Heute} one {# Tag} other {# Tagen}}",
-    "note": "Zum Wiederherstellen oder sofortigen Löschen nutze den Papierkorb in der BIShare-App.",
     "list": "Im Papierkorb",
-    "noteWeb": "Wiederhergestelltes kommt an seinen alten Ort zurück. Alles hier wird 30 Tage nach dem Verschieben endgültig gelöscht."
+    "goneInHelp": "Elemente werden 30 Tage nach dem Verschieben in den Papierkorb endgültig gelöscht. Rot heißt: 3 Tage oder weniger.",
+    "how1Title": "30 Tage aufbewahrt",
+    "how1": "Gelöschtes wartet hier und verschwindet dann von selbst endgültig.",
+    "how2Title": "Wiederherstellen legt es zurück",
+    "how2": "Wiederhergestelltes kommt zurück in seinen ursprünglichen Ordner.",
+    "how3Title": "Belegt weiter Platz",
+    "how3": "Der Papierkorb zählt zu deinem Speicher. Leere ihn, um sofort Platz zu schaffen."
   },
   "storage": {
     "sub": "Speicherort deiner Dateien: {region}.",
@@ -230,7 +254,9 @@
     "currentTag": "Aktuell",
     "perMonth": "{price} pro Monat",
     "perYear": "oder {price} pro Jahr",
-    "buyInApp": "Tarife kaufst du in der BIShare-App, über den App Store oder Google Play."
+    "buyInApp": "Tarife kaufst du in der BIShare-App, über den App Store oder Google Play.",
+    "usedHelp": "Alles Gespeicherte, nach Art. Der Papierkorb zählt, bis er geleert ist; laufende Uploads reservieren Platz, bis sie fertig sind.",
+    "uploadingHelp": "Platz, der für unfertige Uploads zurückgelegt ist. Er wird frei, wenn ein Upload abgebrochen wird."
   },
   "security": {
     "sub": "Was BIShare sehen kann und was nicht, und wie dieser Browser den Schlüssel hält",
@@ -254,7 +280,13 @@
     "phraseBody": "Nur in der BIShare-App angezeigt und geprüft, nie im Web.",
     "appOnly": "Nur App",
     "delete": "Drive löschen",
-    "deleteBody": "Erfolgt in der BIShare-App unter Drive-Konto."
+    "deleteBody": "Erfolgt in der BIShare-App unter Drive-Konto.",
+    "how1Title": "Verschlüsselt vor dem Upload",
+    "how1": "Jede Datei wird auf deinem Gerät verschlüsselt, bevor sie es verlässt.",
+    "how2Title": "Unlesbar gespeichert",
+    "how2": "BIShare speichert nur verschlüsselte Daten und kann sie nicht öffnen.",
+    "how3Title": "Nur deine Geräte öffnen",
+    "how3": "Der Schlüssel bleibt auf deinen Geräten. Ein entferntes Gerät verliert den Zugriff."
   },
   "themeLight": "Hell",
   "themeDark": "Dunkel",
@@ -333,7 +365,8 @@
     "upload": "Hochladen fehlgeschlagen",
     "download": "Der Download wurde unterbrochen. Versuche es erneut.",
     "dropEmpty": "Im Abgelegten ist nichts zum Hochladen.",
-    "zipTooLarge": "Zu viel für eine ZIP-Datei (über {size}). Lade die Dateien einzeln herunter."
+    "zipTooLarge": "Zu viel für eine ZIP-Datei (über {size}). Lade die Dateien einzeln herunter.",
+    "VAULT_SIGNIN_REQUIRED": "Zum Entfernen eines Telefons oder Computers ist eine neue Anmeldung in der BIShare-App nötig."
   },
   "uploads": {
     "title": "{n, plural, one {# Datei wird hochgeladen} other {# Dateien werden hochgeladen}}",
@@ -402,5 +435,64 @@
     "htmlNote": "Ohne Skripte angezeigt und ohne etwas aus dem Internet zu laden.",
     "archiveSummary": "{n, plural, one {# Datei} other {# Dateien}} · {size} entpackt",
     "fontSample": "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich."
+  },
+  "help": {
+    "more": "Mehr dazu"
+  },
+  "glossary": {
+    "e2e": {
+      "term": "Ende-zu-Ende-Verschlüsselung",
+      "definition": "Dateien werden auf deinem Gerät mit einem Schlüssel verschlossen, den nur deine Geräte haben. BIShare speichert sie, kann sie aber nicht öffnen."
+    },
+    "key": {
+      "term": "Drive-Schlüssel",
+      "definition": "Das Geheimnis, das deine Dateien öffnet. Er bleibt auf deinen Geräten und wird nie an BIShare gesendet."
+    },
+    "device": {
+      "term": "Gerät",
+      "definition": "Ein Telefon, Computer oder Browser, der den Schlüssel deines Drive hat. Jedes davon kann deine Dateien öffnen."
+    },
+    "browser": {
+      "term": "Browser",
+      "definition": "Ein Browser, in dem du dich per Code-Scan mit der BIShare-App angemeldet hast. Er behält eine Kopie des Schlüssels, bis er sperrt oder entfernt wird."
+    },
+    "stay": {
+      "term": "Angemeldet bleiben",
+      "definition": "Dieser Browser bleibt 30 Tage Nutzung lang offen. Wenn aus, sperrt er beim Schließen des Tabs oder nach 12 Stunden ohne Nutzung."
+    },
+    "trash": {
+      "term": "Papierkorb",
+      "definition": "Gelöschtes wartet hier 30 Tage, damit du es wiederherstellen kannst. Es zählt weiter zu deinem Speicher."
+    },
+    "linked": {
+      "term": "Schon in deinem Drive",
+      "definition": "Dieselbe Datei war schon in deinem Drive. Sie wurde ohne erneutes Hochladen hinzugefügt und belegt keinen zusätzlichen Platz."
+    },
+    "region": {
+      "term": "Region",
+      "definition": "Wo deine verschlüsselten Dateien gespeichert werden. Sie wird beim Anlegen des Drive gewählt."
+    },
+    "thumbnail": {
+      "term": "Vorschaubild",
+      "definition": "Ein kleines Vorschaubild, auf deinem Gerät erstellt und wie die Datei selbst verschlüsselt."
+    },
+    "plan": {
+      "term": "Tarif",
+      "definition": "Wie viel Platz dein Drive hat. Tarife kaufst du in der BIShare-App; das Web zeigt deinen an."
+    },
+    "phrase": {
+      "term": "Wiederherstellungsphrase",
+      "definition": "Wörter, die den Schlüssel deines Drive zurückholen, wenn du alle Geräte verlierst. Nur die BIShare-App zeigt sie an."
+    },
+    "quota": {
+      "term": "Speicher",
+      "definition": "Der Platz, den dein Tarif dir gibt. Dateien, Ordner und Papierkorb zählen; laufende Uploads reservieren Platz, bis sie fertig sind."
+    }
+  },
+  "kpiHelp": {
+    "used": "Alles, was in deinem Drive gespeichert ist, inklusive Papierkorb und laufender Uploads.",
+    "files": "Dateien in deinem Drive, ohne Ordner und Papierkorb. Die Zeile darunter zählt, was im gewählten Zeitraum dazukam.",
+    "media": "Fotos und Videos in deinem Drive. Sie erscheinen auch auf der Seite Fotos.",
+    "trash": "Platz, den gelöschte Elemente belegen. Leere den Papierkorb, um ihn sofort zurückzubekommen, sonst wird er nach 30 Tagen von selbst frei."
   }
 }

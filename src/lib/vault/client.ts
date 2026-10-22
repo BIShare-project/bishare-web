@@ -191,6 +191,11 @@ export class DriveClient {
     return `${base.replace(/^http/, "ws")}${path}?auth=${encodeURIComponent(auth)}`;
   }
 
+  /** Remove another browser (no sign-in needed for a browser; a phone or computer is removed in the app). */
+  removeDevice(deviceId: string): Promise<DeviceRow> {
+    return this.call("DELETE", `/api/v1/vault/${this.session.vaultId}/devices/${deviceId}`, {});
+  }
+
   /** This browser leaves the Drive (Lock): no sign-in needed for one's own device. */
   removeSelf(deviceId: string): Promise<DeviceRow> {
     return this.call("DELETE", `/api/v1/vault/${this.session.vaultId}/devices/${deviceId}`, {});

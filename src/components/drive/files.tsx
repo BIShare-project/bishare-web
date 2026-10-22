@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState, type DragEvent, type MouseEvent }
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowDown, ArrowUp, ChevronRight, Download, FolderInput, FolderPlus, FolderUp, LayoutGrid, List, MoreHorizontal, PanelRight, Search, Trash2, Upload, X } from "lucide-react";
+import { ArrowDown, ArrowUp, ChevronRight, Copy, Download, FolderInput, FolderPlus, FolderUp, LayoutGrid, List, MoreHorizontal, PanelRight, Search, Trash2, Upload, X } from "lucide-react";
 import type { DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
 import { useActions } from "./actions";
@@ -12,6 +12,7 @@ import { EmptyState, ObjectThumb, PageHead, Panel } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, isMedia, kindOf, when } from "./format";
 import { ActionContextMenu, ActionDropdown } from "./menus";
+import { RowCheck, SelectionBar, useSelection } from "./selection";
 import { Button } from "./ui/button";
 import { Checkbox } from "./ui/checkbox";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
@@ -33,47 +34,6 @@ export function matchesKind(o: DriveObject, k: KindFilter): boolean {
   if (k === "audio") return kind === "audio";
   if (k === "documents") return ["pdf", "doc", "sheet", "slides", "text"].includes(kind);
   return !isMedia(o.mime) && !["pdf", "doc", "sheet", "slides", "text", "audio"].includes(kind);
-}
-
-/** Selection with click, ⌘/Ctrl-click and Shift-click, the way file managers do it. */
-function useSelection(rows: DriveObject[]) {
-  const [sel, setSel] = useState<Set<string>>(new Set());
-  const anchor = useRef<string | null>(null);
-  const ids = rows.map((r) => r.id).join(",");
-  // Forget what is no longer listed.
-  useEffect(() => {
-    setSel((s) => {
-      const listed = new Set(ids.split(","));
-      const keep = new Set([...s].filter((id) => listed.has(id)));
-      return keep.size === s.size ? s : keep;
-    });
-  }, [ids]);
-  const click = (o: DriveObject, e: { metaKey: boolean; ctrlKey: boolean; shiftKey: boolean }) => {
-    if (e.shiftKey && anchor.current) {
-      const a = rows.findIndex((r) => r.id === anchor.current);
-      const b = rows.findIndex((r) => r.id === o.id);
-      if (a >= 0 && b >= 0) {
-        const [lo, hi] = a < b ? [a, b] : [b, a];
-        setSel(new Set(rows.slice(lo, hi + 1).map((r) => r.id)));
-        return;
-      }
-    }
-    anchor.current = o.id;
-    if (e.metaKey || e.ctrlKey) toggleId(o.id);
-    else setSel(new Set([o.id]));
-  };
-  const toggleId = (id: string) =>
-    setSel((s) => {
-      const n = new Set(s);
-      if (n.has(id)) n.delete(id);
-      else n.add(id);
-      return n;
-    });
-  const toggle = (o: DriveObject) => {
-    anchor.current = o.id;
-    toggleId(o.id);
-  };
-  return { sel, setSel, click, toggle, clear: () => setSel(new Set()), all: () => setSel(new Set(rows.map((r) => r.id))) };
 }
 
 function SortHead({ label, k, sort, dir, onSort, className }: { label: string; k: SortKey; sort: SortKey; dir: 1 | -1; onSort: (k: SortKey) => void; className?: string }) {
@@ -133,8 +93,7 @@ export function FilesPage() {
       if (sort === "size") return ((a.size ?? 0) - (b.size ?? 0)) * dir;
       return a.name.localeCompare(b.name, locale, { numeric: true, sensitivity: "base" }) * dir;
     });
-  const { sel, click, toggle, clear, all, setSel } = useSelection(rows);
-  const selected = rows.filter((o) => sel.has(o.id));
+  const { sel, click, clear, all, setSel, selected, headState } = useSelection(rows);
   const focus = selected.length === 1 ? selected[0]! : null;
   const total = rows.reduce((a, o) => a + (o.size ?? 0), 0);
   const quick = folder || q ? [] : index.children(null).filter((o) => o.kind === "dir").sort((a, b) => index.countUnder(b.id) - index.countUnder(a.id)).slice(0, 4);
@@ -272,41 +231,34 @@ export function FilesPage() {
         </div>
       ) : null}
 
+      {selected.length ? (
+        <SelectionBar count={selected.length} onClear={clear}>
+          <Button variant="outline" size="sm" className="bg-background" onClick={() => void actions.download(selected)}>
+            <Download /> <span className="hidden sm:inline">{selected.length > 1 || focus?.kind === "dir" ? t("act.downloadZip") : t("act.download")}</span>
+          </Button>
+          <Button variant="outline" size="sm" className="bg-background" onClick={() => void actions.move(selected.map((o) => o.id))}>
+            <FolderInput /> <span className="hidden sm:inline">{t("act.move")}</span>
+          </Button>
+          <Button variant="outline" size="sm" className="bg-background" onClick={() => void actions.copy(selected.map((o) => o.id))}>
+            <Copy /> <span className="hidden md:inline">{t("act.copy")}</span>
+          </Button>
+          <Button variant="destructive" size="sm" onClick={() => void actions.trash(selected.map((o) => o.id))}>
+            <Trash2 /> <span className="hidden sm:inline">{t("act.trash")}</span>
+          </Button>
+          <ActionDropdown items={actions.itemsFor(selected, rows)}>
+            <Button variant="ghost" size="icon-sm" aria-label={t("act.more")}>
+              <MoreHorizontal />
+            </Button>
+          </ActionDropdown>
+        </SelectionBar>
+      ) : null}
+
       <div className={cn("grid items-start gap-4", details && focus && "xl:grid-cols-[minmax(0,1fr)_320px]")}>
         <Panel
-          title={
-            selected.length ? (
-              <span className="flex items-center gap-2">
-                <Button variant="ghost" size="icon-xs" aria-label={t("act.clearSelection")} onClick={clear}>
-                  <X />
-                </Button>
-                {t("files.selected", { n: selected.length })}
-              </span>
-            ) : (
-              t("files.summary", { n: rows.length, size: bytes(total) })
-            )
-          }
+          title={t("files.summary", { n: rows.length, size: bytes(total) })}
+          help={t("files.selectHelp")}
           actions={
             <div className="flex flex-wrap items-center gap-1.5">
-              {selected.length ? (
-                <>
-                  <Button variant="outline" size="sm" onClick={() => void actions.download(selected)}>
-                    <Download /> <span className="hidden sm:inline">{selected.length > 1 || focus?.kind === "dir" ? t("act.downloadZip") : t("act.download")}</span>
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={() => void actions.move(selected.map((o) => o.id))}>
-                    <FolderInput /> <span className="hidden sm:inline">{t("act.move")}</span>
-                  </Button>
-                  <Button variant="destructive" size="sm" onClick={() => void actions.trash(selected.map((o) => o.id))}>
-                    <Trash2 /> <span className="hidden sm:inline">{t("act.trash")}</span>
-                  </Button>
-                  <ActionDropdown items={actions.itemsFor(selected, rows)}>
-                    <Button variant="ghost" size="icon-sm" aria-label={t("act.more")}>
-                      <MoreHorizontal />
-                    </Button>
-                  </ActionDropdown>
-                </>
-              ) : (
-                <>
                   <Select value={kind} onValueChange={(v) => setKind(v as KindFilter)}>
                     <SelectTrigger size="sm" className="w-36" aria-label={t("files.kind")}>
                       <SelectValue />
@@ -350,8 +302,6 @@ export function FilesPage() {
                     </TooltipTrigger>
                     <TooltipContent>{t("files.details")}</TooltipContent>
                   </Tooltip>
-                </>
-              )}
             </div>
           }
         >
@@ -375,11 +325,7 @@ export function FilesPage() {
               <TableHeader>
                 <TableRow className="hover:bg-transparent">
                   <TableHead className="w-9 pe-0">
-                    <Checkbox
-                      aria-label={t("act.selectAll")}
-                      checked={sel.size === 0 ? false : sel.size === rows.length ? true : "indeterminate"}
-                      onCheckedChange={(c) => (c ? all() : clear())}
-                    />
+                    <Checkbox aria-label={t("act.selectAll")} checked={headState} onCheckedChange={(c) => (c ? all() : clear())} />
                   </TableHead>
                   <SortHead label={t("col.name")} k="name" sort={sort} dir={dir} onSort={onSort} />
                   <SortHead label={t("col.size")} k="size" sort={sort} dir={dir} onSort={onSort} className="text-end" />
@@ -403,7 +349,7 @@ export function FilesPage() {
                         {...(o.kind === "dir" ? dropProps(o.id, o.id) : {})}
                       >
                         <TableCell className="pe-0" onClick={(e) => e.stopPropagation()}>
-                          <Checkbox checked={on} onCheckedChange={() => toggle(o)} aria-label={o.name} />
+                          <RowCheck checked={on} label={o.name} onToggle={(e) => click(o, e, true)} />
                         </TableCell>
                         <TableCell>
                           <div className="flex min-w-0 items-center gap-2.5">
@@ -474,8 +420,8 @@ export function FilesPage() {
                           </ActionDropdown>
                         </span>
                       </div>
-                      <span className={cn("absolute start-2 top-2 transition-opacity", on ? "opacity-100" : "opacity-0 group-hover:opacity-100")} onClick={(e) => e.stopPropagation()}>
-                        <Checkbox checked={on} onCheckedChange={() => toggle(o)} aria-label={o.name} className="bg-background shadow-sm" />
+                      <span className={cn("absolute start-2 top-2 bg-background shadow-sm transition-opacity", on || sel.size ? "opacity-100" : "opacity-0 group-hover:opacity-100")}>
+                        <RowCheck checked={on} label={o.name} onToggle={(e) => click(o, e, true)} />
                       </span>
                     </div>
                   </ActionContextMenu>
@@ -564,6 +510,8 @@ export function RecentPage() {
     // The index object stays the same while its contents change; its snapshot is its version.
     [index, version, filter]
   );
+  const { click, clear, all, setSel, selected, headState, has } = useSelection(rows);
+  const menuFor = (o: DriveObject) => actions.itemsFor(has(o.id) ? selected : [o], rows);
   return (
     <div className="flex flex-col gap-4">
       <PageHead
@@ -584,6 +532,24 @@ export function RecentPage() {
           </div>
         }
       />
+      {selected.length ? (
+        <SelectionBar count={selected.length} onClear={clear}>
+          <Button variant="outline" size="sm" className="bg-background" onClick={() => void actions.download(selected)}>
+            <Download /> <span className="hidden sm:inline">{selected.length > 1 ? t("act.downloadZip") : t("act.download")}</span>
+          </Button>
+          <Button variant="outline" size="sm" className="bg-background" onClick={() => void actions.move(selected.map((o) => o.id))}>
+            <FolderInput /> <span className="hidden sm:inline">{t("act.move")}</span>
+          </Button>
+          <Button variant="destructive" size="sm" onClick={() => void actions.trash(selected.map((o) => o.id))}>
+            <Trash2 /> <span className="hidden sm:inline">{t("act.trash")}</span>
+          </Button>
+          <ActionDropdown items={actions.itemsFor(selected, rows)}>
+            <Button variant="ghost" size="icon-sm" aria-label={t("act.more")}>
+              <MoreHorizontal />
+            </Button>
+          </ActionDropdown>
+        </SelectionBar>
+      ) : null}
       <Panel>
         {rows.length === 0 ? (
           <EmptyState icon={Upload} title={t("empty.files")} description={t("empty.filesBodyWeb")} />
@@ -591,6 +557,9 @@ export function RecentPage() {
           <Table>
             <TableHeader>
               <TableRow className="hover:bg-transparent">
+                <TableHead className="w-9 pe-0">
+                  <Checkbox aria-label={t("act.selectAll")} checked={headState} onCheckedChange={(c) => (c ? all() : clear())} />
+                </TableHead>
                 <TableHead>{t("col.name")}</TableHead>
                 <TableHead className="hidden md:table-cell">{t("col.where")}</TableHead>
                 <TableHead className="text-end">{t("col.size")}</TableHead>
@@ -599,28 +568,48 @@ export function RecentPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {rows.map((o) => (
-                <ActionContextMenu key={o.id} items={actions.itemsFor([o], rows)}>
-                  <TableRow className="group cursor-pointer" onClick={() => actions.open(o, rows)}>
-                    <TableCell>
-                      <div className="flex min-w-0 items-center gap-2.5">
-                        <ObjectThumb o={o} />
-                        <span className="max-w-[380px] truncate font-medium">{o.name}</span>
-                      </div>
-                    </TableCell>
-                    <TableCell className="hidden max-w-[240px] truncate text-muted-foreground md:table-cell">{["Drive", ...index.pathTo(o.parent).map((p) => p.name)].join(" / ")}</TableCell>
-                    <TableCell className="text-end text-muted-foreground tabular-nums">{bytes(o.size)}</TableCell>
-                    <TableCell className="hidden text-muted-foreground sm:table-cell">{when(o.mtimeMs, locale, words)}</TableCell>
-                    <TableCell className="p-1" onClick={(e) => e.stopPropagation()}>
-                      <ActionDropdown items={actions.itemsFor([o], rows)}>
-                        <Button variant="ghost" size="icon-sm" aria-label={t("act.more")} className="opacity-0 group-hover:opacity-100 data-[state=open]:opacity-100">
-                          <MoreHorizontal />
-                        </Button>
-                      </ActionDropdown>
-                    </TableCell>
-                  </TableRow>
-                </ActionContextMenu>
-              ))}
+              {rows.map((o) => {
+                const on = has(o.id);
+                return (
+                  <ActionContextMenu key={o.id} items={menuFor(o)} onOpen={() => !on && setSel(new Set([o.id]))}>
+                    <TableRow
+                      data-state={on ? "selected" : undefined}
+                      className="group cursor-default select-none data-[state=selected]:bg-blau-soft"
+                      onClick={(e) => click(o, e)}
+                      onDoubleClick={() => actions.open(o, rows)}
+                    >
+                      <TableCell className="pe-0" onClick={(e) => e.stopPropagation()}>
+                        <RowCheck checked={on} label={o.name} onToggle={(e) => click(o, e, true)} />
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex min-w-0 items-center gap-2.5">
+                          <ObjectThumb o={o} />
+                          <button
+                            type="button"
+                            className="max-w-[380px] truncate text-start font-medium hover:underline"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              actions.open(o, rows);
+                            }}
+                          >
+                            {o.name}
+                          </button>
+                        </div>
+                      </TableCell>
+                      <TableCell className="hidden max-w-[240px] truncate text-muted-foreground md:table-cell">{["Drive", ...index.pathTo(o.parent).map((p) => p.name)].join(" / ")}</TableCell>
+                      <TableCell className="text-end text-muted-foreground tabular-nums">{bytes(o.size)}</TableCell>
+                      <TableCell className="hidden text-muted-foreground sm:table-cell">{when(o.mtimeMs, locale, words)}</TableCell>
+                      <TableCell className="p-1" onClick={(e) => e.stopPropagation()}>
+                        <ActionDropdown items={menuFor(o)}>
+                          <Button variant="ghost" size="icon-sm" aria-label={t("act.more")} className="opacity-0 group-hover:opacity-100 data-[state=open]:opacity-100">
+                            <MoreHorizontal />
+                          </Button>
+                        </ActionDropdown>
+                      </TableCell>
+                    </TableRow>
+                  </ActionContextMenu>
+                );
+              })}
             </TableBody>
           </Table>
         )}

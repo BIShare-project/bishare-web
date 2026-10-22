@@ -60,7 +60,8 @@
     "lastSeen": "上次使用",
     "folders": "最大的資料夾",
     "foldersSub": "依佔用空間",
-    "total": "合計"
+    "total": "合計",
+    "chartHelp": "所選期間內你的 Drive 如何成長，依檔案加入日期和類型顯示。指向某一天即可查看當天合計。"
   },
   "kpi": {
     "used": "已使用",
@@ -113,7 +114,8 @@
     "browserExpiring": "即將鎖定的瀏覽器",
     "browserExpiringBody": "未使用的瀏覽器會自動鎖定",
     "unreadable": "無法開啟的檔案",
-    "unreadableBody": "無法在這裡解密其詳細資料"
+    "unreadableBody": "無法在這裡解密其詳細資料",
+    "help": "值得留意的事項：儲存空間快滿、即將離開垃圾桶的項目、即將鎖定的瀏覽器，以及在這裡無法解密詳細資訊的檔案。"
   },
   "col": {
     "name": "名稱",
@@ -155,7 +157,23 @@
     "appTag": "App",
     "browserHours": "{n} 小時未使用後鎖定",
     "browserDays": "{n} 天未使用後鎖定",
-    "note": "若要移除其他裝置，請使用 BIShare App 中的裝置。移除後，該裝置會失去金鑰。"
+    "remove": "移除",
+    "removeTitle": "{n, plural, =1 {要移除這個瀏覽器嗎？} other {要移除 # 個瀏覽器嗎？}}",
+    "removeBody": "瀏覽器會立即失去金鑰並回到登入代碼頁面。你的 Drive 中不會刪除任何內容。",
+    "removed": "{n, plural, =1 {已移除瀏覽器} other {已移除 # 個瀏覽器}}",
+    "removeInApp": "手機和電腦需在 BIShare App 中重新登入後移除。",
+    "inAppOnly": "在 App 中",
+    "inAppOnlyHelp": "手機和電腦只能在 BIShare App 中重新登入後移除。這樣遺失的瀏覽器就無法把你鎖在外面。",
+    "kindHelp": "App：手機或電腦上的 BIShare App。網頁：用代碼登入的瀏覽器。",
+    "lastUsedHelp": "這個裝置上次使用你 Drive 的時間，誤差幾分鐘。",
+    "appsHelp": "手機和電腦上持有你 Drive 金鑰的 BIShare App。",
+    "browsersHelp": "掃描代碼登入的瀏覽器。每個瀏覽器在一段時間未使用後都會自動鎖定。",
+    "how1Title": "金鑰在 App 中",
+    "how1": "Drive 金鑰在 BIShare App 中產生，只留在你的裝置上。",
+    "how2Title": "掃描代碼加入瀏覽器",
+    "how2": "用 App 掃描登入代碼後，金鑰會以加密形式交給該瀏覽器。",
+    "how3Title": "移除不用的裝置",
+    "how3": "在這裡移除的瀏覽器會立即失去金鑰。手機和電腦請在 App 中移除。"
   },
   "files": {
     "title": "所有檔案",
@@ -188,7 +206,8 @@
     },
     "selected": "已選取 {n} 項",
     "viewList": "清單",
-    "viewGrid": "格狀"
+    "viewGrid": "格狀",
+    "selectHelp": "按一下即可選取。按住 Cmd 或 Ctrl 可多選，按住 Shift 可選取範圍。按兩下開啟；按右鍵查看更多動作。"
   },
   "kinds": {
     "dir": "資料夾",
@@ -215,9 +234,14 @@
     "wasIn": "原位置",
     "goneIn": "距離永久刪除",
     "days": "{n, plural, =0 {今天} other {# 天}}",
-    "note": "若要還原內容或立即刪除，請使用 BIShare App 中的垃圾桶。",
     "list": "垃圾桶中",
-    "noteWeb": "還原的項目會回到原來的位置。這裡的所有項目在移入 30 天後永久刪除。"
+    "goneInHelp": "項目移到垃圾桶 30 天後會永久刪除。紅色表示剩下 3 天或更少。",
+    "how1Title": "保留 30 天",
+    "how1": "刪除的內容會在這裡等待，之後自動永久刪除。",
+    "how2Title": "還原即放回原處",
+    "how2": "還原的項目會回到原本的資料夾。",
+    "how3Title": "仍佔用空間",
+    "how3": "垃圾桶會計入你的儲存空間。清空即可立即騰出空間。"
   },
   "storage": {
     "sub": "你的檔案儲存於：{region}。",
@@ -230,7 +254,9 @@
     "currentTag": "目前",
     "perMonth": "每月 {price}",
     "perYear": "或每年 {price}",
-    "buyInApp": "方案在 BIShare App 中透過 App Store 或 Google Play 購買。"
+    "buyInApp": "方案在 BIShare App 中透過 App Store 或 Google Play 購買。",
+    "usedHelp": "依類型顯示所有已儲存內容。垃圾桶在清空前都會計入；進行中的上傳會預留空間直到完成。",
+    "uploadingHelp": "為未完成的上傳預留的空間。取消上傳後會釋放。"
   },
   "security": {
     "sub": "BIShare 看得到什麼、看不到什麼，以及這個瀏覽器如何保管金鑰",
@@ -254,7 +280,13 @@
     "phraseBody": "只在 BIShare App 中顯示和核對，絕不在網頁上。",
     "appOnly": "僅限 App",
     "delete": "刪除 Drive",
-    "deleteBody": "在 BIShare App 的 Drive 帳號中進行。"
+    "deleteBody": "在 BIShare App 的 Drive 帳號中進行。",
+    "how1Title": "上傳前加密",
+    "how1": "每個檔案在離開裝置前就在裝置上加密。",
+    "how2Title": "以無法讀取的形式儲存",
+    "how2": "BIShare 只儲存加密資料，無法開啟。",
+    "how3Title": "只有你的裝置能開啟",
+    "how3": "金鑰只留在你的裝置上。被移除的裝置會失去存取權。"
   },
   "themeLight": "淺色",
   "themeDark": "深色",
@@ -333,7 +365,8 @@
     "upload": "上傳失敗",
     "download": "下載中斷，請再試一次。",
     "dropEmpty": "拖放的內容中沒有可以上傳的檔案。",
-    "zipTooLarge": "一個 zip 裝不下（超過 {size}）。請逐一下載檔案。"
+    "zipTooLarge": "一個 zip 裝不下（超過 {size}）。請逐一下載檔案。",
+    "VAULT_SIGNIN_REQUIRED": "移除手機或電腦需要在 BIShare App 中重新登入。"
   },
   "uploads": {
     "title": "正在上傳 {n} 個檔案",
@@ -402,5 +435,64 @@
     "htmlNote": "不執行指令碼，也不從網際網路載入任何內容。",
     "archiveSummary": "{n} 個檔案 · 解壓縮後 {size}",
     "fontSample": "天地玄黃，宇宙洪荒。日月盈昃，辰宿列張。"
+  },
+  "help": {
+    "more": "瞭解更多"
+  },
+  "glossary": {
+    "e2e": {
+      "term": "端對端加密",
+      "definition": "檔案在你的裝置上，以只有你的裝置才有的金鑰鎖住。BIShare 負責儲存，但無法開啟。"
+    },
+    "key": {
+      "term": "Drive 金鑰",
+      "definition": "開啟你檔案的秘密資訊。它只留在你的裝置上，絕不會傳送給 BIShare。"
+    },
+    "device": {
+      "term": "裝置",
+      "definition": "持有你 Drive 金鑰的手機、電腦或瀏覽器。每一個都能開啟你的檔案。"
+    },
+    "browser": {
+      "term": "瀏覽器",
+      "definition": "用 BIShare App 掃描代碼登入的網頁瀏覽器。在鎖定或被移除之前，它會保留一份金鑰。"
+    },
+    "stay": {
+      "term": "保持登入",
+      "definition": "這個瀏覽器會在使用期間保持開啟 30 天。關閉此項時，關閉分頁或 12 小時未使用後就會鎖定。"
+    },
+    "trash": {
+      "term": "垃圾桶",
+      "definition": "刪除的內容會在這裡保留 30 天，方便還原。這段期間仍計入你的儲存空間。"
+    },
+    "linked": {
+      "term": "Drive 中已有",
+      "definition": "同一個檔案已經在你的 Drive 中，因此不必重新上傳就已加入，也不佔用額外空間。"
+    },
+    "region": {
+      "term": "儲存區域",
+      "definition": "你的加密檔案存放的位置，在建立 Drive 時選定。"
+    },
+    "thumbnail": {
+      "term": "縮圖",
+      "definition": "在你的裝置上產生的小預覽圖，和檔案本身一樣經過加密。"
+    },
+    "plan": {
+      "term": "方案",
+      "definition": "你的 Drive 有多少空間。方案在 BIShare App 中購買；網頁只顯示你目前的方案。"
+    },
+    "phrase": {
+      "term": "復原短語",
+      "definition": "當你遺失所有裝置時，用來取回 Drive 金鑰的一組字詞。只有 BIShare App 會顯示。"
+    },
+    "quota": {
+      "term": "儲存空間",
+      "definition": "方案提供的空間。檔案、資料夾和垃圾桶都會計入；進行中的上傳會預留空間直到完成。"
+    }
+  },
+  "kpiHelp": {
+    "used": "Drive 中儲存的全部內容，包括垃圾桶和進行中的上傳。",
+    "files": "Drive 中的檔案數，不含資料夾和垃圾桶。下面一行是所選期間內新增的檔案數。",
+    "media": "Drive 中的照片和影片，也會顯示在「照片」頁面。",
+    "trash": "已刪除項目佔用的空間。清空垃圾桶可立即釋放，否則 30 天後會自動釋放。"
   }
 }
