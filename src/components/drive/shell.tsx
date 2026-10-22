@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useId, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import {
-  ArrowRight,
   CircleAlert,
   Clock,
   Database,
@@ -65,11 +64,55 @@ export function useHere(): string {
   return path.replace(/^\/[A-Za-z-]+(?=\/drive)/, "").replace(/^\/drive/, "") || "";
 }
 
+/**
+ * The BIShare app icon (public/logo.svg) drawn inline, so it needs no request
+ * on any host; ids carry useId so two marks on a page don't share gradients.
+ */
 export function BrandMark({ className }: { className?: string }) {
+  const id = useId().replace(/:/g, "");
+  const u = (n: string) => `url(#${n}${id})`;
   return (
-    <span className={cn("grid size-8 shrink-0 place-items-center bg-blau text-white", className)}>
-      <ArrowRight className="size-4" strokeWidth={2.4} />
-    </span>
+    <svg viewBox="0 0 512 512" aria-hidden className={cn("size-8 shrink-0", className)}>
+      <defs>
+        <linearGradient id={`bg${id}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#3AA0FF" />
+          <stop offset=".5" stopColor="#0A84FF" />
+          <stop offset="1" stopColor="#0B3AD1" />
+        </linearGradient>
+        <radialGradient id={`glow${id}`} cx=".5" cy=".36" r=".72">
+          <stop offset="0" stopColor="#8FD0FF" stopOpacity=".5" />
+          <stop offset="1" stopColor="#8FD0FF" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id={`mk${id}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#FFFFFF" />
+          <stop offset="1" stopColor="#D6E9FF" />
+        </linearGradient>
+        <radialGradient id={`nd${id}`} cx=".42" cy=".38" r=".7">
+          <stop offset="0" stopColor="#F0FCFF" />
+          <stop offset=".45" stopColor="#22D3EE" />
+          <stop offset="1" stopColor="#0AACD0" />
+        </radialGradient>
+        <filter id={`sb${id}`} x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="11" />
+        </filter>
+      </defs>
+      <rect x="16" y="16" width="480" height="480" rx="112" fill={u("bg")} />
+      <rect x="16" y="16" width="480" height="480" rx="112" fill={u("glow")} />
+      <rect x="16" y="16" width="480" height="220" rx="112" fill="#FFFFFF" opacity=".07" />
+      <g filter={u("sb")} opacity=".55" fill="none" stroke="#22D3EE" strokeWidth="34" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1" />
+        <path d="M294.9 160.5 L160.5 294.9" />
+      </g>
+      <g fill="none" stroke={u("mk")} strokeWidth="32" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M217.1 351.5 L351.5 217.1" />
+        <path d="M316.1 223.3 L351.5 217.1 L345.3 252.6" />
+        <path d="M294.9 160.5 L160.5 294.9" />
+        <path d="M195.9 288.7 L160.5 294.9 L166.7 259.5" />
+      </g>
+      <circle cx="256" cy="256" r="18" fill={u("nd")} />
+      <circle cx="256" cy="256" r="18" fill="none" stroke="#EAFCFF" strokeOpacity=".5" strokeWidth="1.5" />
+      <rect x="16.75" y="16.75" width="478.5" height="478.5" rx="111.25" fill="none" stroke="#FFFFFF" strokeOpacity=".18" strokeWidth="1.5" />
+    </svg>
   );
 }
 

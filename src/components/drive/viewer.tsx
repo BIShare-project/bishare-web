@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ChevronLeft, ChevronRight, Download, FolderInput, Loader2, MoreHorizontal, Pencil, Trash2, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Copy, Download, FolderInput, Loader2, Pencil, Trash2, X } from "lucide-react";
 import { fetchPlain, IN_PAGE_MAX, streamMedia } from "@/lib/vault/download";
 import { FilePreview, PREVIEW_MAX, previewKindOf, type PreviewKind } from "./previews";
 import type { DriveObject } from "@/lib/vault/store";
@@ -10,7 +10,6 @@ import { useActions } from "./actions";
 import { ObjectIcon } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, kindOf } from "./format";
-import { ActionDropdown } from "./menus";
 import { useThumb } from "./thumbs";
 import { Button } from "./ui/button";
 import { Progress } from "./ui/progress";
@@ -28,6 +27,20 @@ function Icon({ label, onClick, disabled, children }: { label: string; onClick: 
     <Tooltip>
       <TooltipTrigger asChild>
         <Button variant="ghost" size="icon-sm" aria-label={label} onClick={onClick} disabled={disabled}>
+          {children}
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>{label}</TooltipContent>
+    </Tooltip>
+  );
+}
+
+/** A square outlined action next to Download, named by its tooltip. */
+function Action({ label, onClick, danger, children }: { label: string; onClick: () => void; danger?: boolean; children: React.ReactNode }) {
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline" size="icon" aria-label={label} onClick={onClick} className={danger ? "text-destructive hover:text-destructive" : undefined}>
           {children}
         </Button>
       </TooltipTrigger>
@@ -168,24 +181,23 @@ export function Viewer({ ids, at, onClose }: { ids: string[]; at: number; onClos
             )}
           </div>
 
-          <div className="flex flex-wrap gap-1.5 border-b p-3">
-            <Button onClick={() => void actions.download([o])}>
-              <Download /> {t("act.download")}
+          {/* One row in every language: the main action named, the rest as icons with their names on hover. */}
+          <div className="flex items-center gap-1.5 border-b p-3">
+            <Button className="min-w-0 flex-1" onClick={() => void actions.download([o])}>
+              <Download /> <span className="truncate">{t("act.download")}</span>
             </Button>
-            <Button variant="outline" onClick={() => void actions.rename(o)}>
-              <Pencil /> {t("act.rename")}
-            </Button>
-            <Button variant="outline" onClick={() => void actions.move([o.id])}>
-              <FolderInput /> {t("act.move")}
-            </Button>
-            <Button variant="outline" className="text-destructive" onClick={() => void actions.trash([o.id])}>
-              <Trash2 /> {t("act.trash")}
-            </Button>
-            <ActionDropdown items={actions.itemsFor([o]).filter((x) => x.key === "copy")}>
-              <Button variant="ghost" size="icon" aria-label={t("act.more")}>
-                <MoreHorizontal />
-              </Button>
-            </ActionDropdown>
+            <Action label={t("act.rename")} onClick={() => void actions.rename(o)}>
+              <Pencil />
+            </Action>
+            <Action label={t("act.move")} onClick={() => void actions.move([o.id])}>
+              <FolderInput />
+            </Action>
+            <Action label={t("act.copy")} onClick={() => void actions.copy([o.id])}>
+              <Copy />
+            </Action>
+            <Action label={t("act.trash")} danger onClick={() => void actions.trash([o.id])}>
+              <Trash2 />
+            </Action>
           </div>
 
           <dl className="m-0 grid grid-cols-[110px_1fr] text-2xs">
