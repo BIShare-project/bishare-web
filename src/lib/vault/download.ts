@@ -12,6 +12,15 @@ import type { DriveObject } from "./store";
 /** Above this, a file without compression is streamed rather than held in memory. */
 export const IN_PAGE_MAX = 192 * 1024 * 1024;
 
+/**
+ * The most a file may be when the worker cannot take it and it is opened in the
+ * page after all; above it the person is asked to reload (audit W2).
+ */
+export const FALLBACK_MAX = 1024 * 1024 * 1024;
+
+/** Signed storage URLs last an hour (API URL_TTL_S); a playing video gets a new one before that. */
+const URL_REFRESH_MS = 40 * 60 * 1000;
+
 export async function blobUrlOf(client: DriveClient, o: DriveObject): Promise<string> {
   const res = await client.downloads([o.id], { thumbs: false, blobs: true });
   const item = res.items[0];
@@ -99,7 +108,7 @@ export function streamWorker(scope: string): Promise<ServiceWorker | null> {
     try {
       const reg = await navigator.serviceWorker.register("/stream-sw.js", { scope });
       if (!navigator.serviceWorker.controller) {
-        await new Promise<void>((resolve) => {
+        const changed = new Promise<void>((resolve) => {
           const timer = setTimeout(resolve, 3000);
           navigator.serviceWorker.addEventListener(
             "controllerchange",
@@ -110,6 +119,9 @@ export function streamWorker(scope: string): Promise<ServiceWorker | null> {
             { once: true }
           );
         });
+        // Running already but not in charge of this page (a hard reload): ask it to take it.
+        reg.active?.postMessage({ type: "claim" });
+        await changed;
       }
       return navigator.serviceWorker.controller ?? reg.active ?? null;
     } catch {
@@ -180,5 +192,27 @@ export async function streamMedia(client: DriveClient, o: DriveObject, scope: st
   const id = crypto.randomUUID();
   const ok = await handshake(worker, { type: "session", id, url: await blobUrlOf(client, o), key: Array.from(o.fileKey), mime: inertType(o.mime) });
   if (!ok) return null;
-  return { src: `/stream/${id}`, end: () => worker.postMessage({ type: "end", id }) };
+  // A long film, or one paused for an hour, keeps a URL that still works. A
+  // computer back from sleep gets one as soon as the page is seen again.
+  let fresh = Date.now();
+  const renew = () => {
+    fresh = Date.now();
+    void blobUrlOf(client, o).then(
+      (url) => worker.postMessage({ type: "url", id, url }),
+      () => undefined
+    );
+  };
+  const timer = setInterval(renew, URL_REFRESH_MS);
+  const onVisible = () => {
+    if (document.visibilityState === "visible" && Date.now() - fresh > URL_REFRESH_MS) renew();
+  };
+  document.addEventListener("visibilitychange", onVisible);
+  return {
+    src: `/stream/${id}`,
+    end: () => {
+      clearInterval(timer);
+      document.removeEventListener("visibilitychange", onVisible);
+      worker.postMessage({ type: "end", id });
+    },
+  };
 }

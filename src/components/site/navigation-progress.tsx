@@ -89,8 +89,16 @@ export function NavigationProgress() {
       start();
     };
 
-    const onPop = () => start();
-    const onDone = () => finish();
+    // Back and forward between two URLs of one path (a Drive folder is a
+    // search param) remount nothing either.
+    let shownPath = window.location.pathname;
+    const onPop = () => {
+      if (window.location.pathname !== shownPath) start();
+    };
+    const onDone = () => {
+      shownPath = window.location.pathname;
+      finish();
+    };
 
     const original = history.pushState.bind(history);
     history.pushState = (...args) => {

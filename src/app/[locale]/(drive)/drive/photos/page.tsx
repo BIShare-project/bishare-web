@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { PhotosPage } from "@/components/drive/manage";
+import { titled } from "../title";
 
-export const metadata: Metadata = { title: "Photos" };
+export const generateMetadata = titled("nav.photos");
 
 export default function Page() {
   return <PhotosPage />;

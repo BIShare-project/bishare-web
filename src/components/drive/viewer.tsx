@@ -78,6 +78,8 @@ export function Viewer({ ids, at, onClose }: { ids: string[]; at: number; onClos
         // Large video and sound play while they download, decrypted by the worker.
         if (size > IN_PAGE_MAX && (preview === "video" || preview === "audio")) {
           const s = await streamMedia(client, o, scope);
+          // Another file was opened meanwhile: this session is not shown, and its key leaves the worker.
+          if (ctrl.signal.aborted) return s?.end();
           if (!s) return setShown({ kind: "none", reason: "size" });
           end = s.end;
           return setShown({ kind: "stream", media: preview, url: s.src });

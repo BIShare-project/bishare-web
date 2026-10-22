@@ -6,14 +6,14 @@ import { useTranslations } from "next-intl";
 import { ArchiveRestore, Copy, Download, Eye, FolderInput, FolderOpen, Pencil, Trash2, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { DriveApiError } from "@/lib/vault/client";
-import { fetchPlain, IN_PAGE_MAX, saveBlob, streamSave } from "@/lib/vault/download";
+import { FALLBACK_MAX, fetchPlain, IN_PAGE_MAX, saveBlob, streamSave } from "@/lib/vault/download";
 import type { DriveObject } from "@/lib/vault/store";
 import { buildStoreZip } from "@/lib/zip";
 import { useDrive } from "./drive-app";
 import { bytes } from "./format";
 
 /** A zip is put together in memory; above this, files are saved one by one. */
-const ZIP_MAX = 2 * 1024 * 1024 * 1024;
+const ZIP_MAX = 1024 * 1024 * 1024;
 
 export interface ActionItem {
   key: string;
@@ -45,7 +45,8 @@ export function useActions() {
   const fail = useCallback(
     (e: unknown) => {
       const code = e instanceof DriveApiError ? e.code : "UNKNOWN";
-      toast(KNOWN_ERRORS.has(code) ? t(`errors.${code}`) : t("errors.UNKNOWN"), { tone: "error", description: code === "UNKNOWN" && e instanceof Error ? e.message : undefined });
+      if (code === "UNKNOWN") console.error("[drive]", e);
+      toast(KNOWN_ERRORS.has(code) ? t(`errors.${code}`) : t("errors.UNKNOWN"), { tone: "error" });
     },
     [t, toast]
   );
@@ -81,6 +82,11 @@ export function useActions() {
               toast(t("toast.downloading", { name: o.name }), { description: bytes(o.size) });
               return;
             }
+          }
+          // Held whole in the page: too much for a tab above this.
+          if ((o.size ?? 0) > FALLBACK_MAX) {
+            toast(t("errors.tooLargeHere"), { tone: "error" });
+            return;
           }
           toast(t("toast.preparing", { name: o.name }));
           saveBlob(await fetchPlain(client, o), o.name);

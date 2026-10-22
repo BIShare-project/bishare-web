@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { DevicesPage } from "@/components/drive/manage";
+import { titled } from "../title";
 
-export const metadata: Metadata = { title: "Devices" };
+export const generateMetadata = titled("nav.devices");
 
 export default function Page() {
   return <DevicesPage />;

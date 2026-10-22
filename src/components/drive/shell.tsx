@@ -281,7 +281,7 @@ export function DriveShell({ children }: { children: ReactNode }) {
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                {syncError ?? (index.lastPulledAt ? t("syncedAt", { time: new Date(index.lastPulledAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }) : t("loading"))}
+                {syncError ? (t.has(`errors.${syncError}`) ? t(`errors.${syncError}`) : t("errors.UNKNOWN")) : (index.lastPulledAt ? t("syncedAt", { time: new Date(index.lastPulledAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }) : t("loading"))}
               </TooltipContent>
             </Tooltip>
             <DropdownMenu>

@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { TrashPage } from "@/components/drive/manage";
+import { titled } from "../title";
 
-export const metadata: Metadata = { title: "Trash" };
+export const generateMetadata = titled("nav.trash");
 
 export default function Page() {
   return <TrashPage />;

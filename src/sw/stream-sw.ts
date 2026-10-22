@@ -70,10 +70,24 @@ self.addEventListener("message", (event: ExtendableMessageEvent) => {
     | { type: "session"; id: string; url: string; key: number[]; mime: string }
     | { type: "download"; id: string; url: string; key: number[]; name: string; size: number }
     | { type: "end"; id: string }
+    | { type: "url"; id: string; url: string }
+    | { type: "claim" }
     | undefined;
   if (!data) return;
   const port = event.ports?.[0];
 
+  // A page loaded with a hard reload starts without this worker, which only
+  // claims pages when it first starts: the page asks again.
+  if (data.type === "claim") {
+    event.waitUntil(self.clients.claim());
+    return;
+  }
+  // A fresh signed URL for a media session: the old one runs out after an hour.
+  if (data.type === "url") {
+    const s = sessions.get(data.id);
+    if (s) s.url = data.url;
+    return;
+  }
   if (data.type === "end") {
     sessions.delete(data.id);
     downloads.delete(data.id);

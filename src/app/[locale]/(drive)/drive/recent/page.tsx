@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { RecentPage } from "@/components/drive/files";
+import { titled } from "../title";
 
-export const metadata: Metadata = { title: "Recent" };
+export const generateMetadata = titled("nav.recent");
 
 export default function Page() {
   return <RecentPage />;

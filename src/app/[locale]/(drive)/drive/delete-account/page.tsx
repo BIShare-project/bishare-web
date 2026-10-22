@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { DeleteAccountPage } from "@/components/drive/delete-account";
 import { routing } from "@/i18n/routing";
+import { titled } from "../title";
 
-export const metadata: Metadata = { title: "Delete your Drive" };
+export const generateMetadata = titled("deletePage.title");
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

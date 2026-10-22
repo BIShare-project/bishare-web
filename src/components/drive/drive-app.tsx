@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { toast as sonner } from "sonner";
-import { DriveClient } from "@/lib/vault/client";
+import { DriveApiError, DriveClient } from "@/lib/vault/client";
 import { downloadsBusy } from "@/lib/vault/download";
 import { DriveOps } from "@/lib/vault/ops";
 import { clearSession, loadSession, saveSession, type DriveSession } from "@/lib/vault/session";
@@ -33,6 +33,7 @@ interface DriveContext {
   lock: () => Promise<void>;
   /** Pull now (after an action, or the Retry of an error). */
   refresh: () => Promise<void>;
+  /** The error code of the last failed sync. */
   syncError: string | null;
   toast: (text: string, opts?: { tone?: "ok" | "error"; action?: { label: string; run: () => void }; description?: string }) => void;
   prompt: (p: { title: string; label: string; initial?: string; confirm: string }) => Promise<string | null>;
@@ -143,7 +144,9 @@ export function DriveApp({ base, className, children }: { base: string; classNam
       setSyncError(null);
     } catch (e) {
       if (isLockedOut(e)) return signOutHere();
-      setSyncError(e instanceof Error ? e.message : String(e));
+      // The code only: the bar shows it in the page's language.
+      console.error("[drive] sync", e);
+      setSyncError(e instanceof DriveApiError ? e.code : "UNKNOWN");
     }
   }, [live, signOutHere]);
 
@@ -218,7 +221,9 @@ export function DriveApp({ base, className, children }: { base: string; classNam
   }, [live]);
 
   // Without "Stay", a browser left alone locks itself (never mid-upload, while
-  // files are being opened, or while a video or song plays).
+  // files are being opened, or while a video or song plays). Scrolling inside a
+  // PDF or document preview never reaches this window, so an open preview in
+  // the window in front counts as use.
   useEffect(() => {
     if (!live || !session || session.stay) return;
     let last = Date.now();
@@ -229,7 +234,8 @@ export function DriveApp({ base, className, children }: { base: string; classNam
     for (const e of events) window.addEventListener(e, seen, { passive: true });
     const timer = setInterval(() => {
       const playing = Array.from(document.querySelectorAll<HTMLMediaElement>("video, audio")).some((m) => !m.paused && !m.ended);
-      if (playing || live.uploader.busy || downloadsBusy()) seen();
+      const reading = document.visibilityState === "visible" && document.hasFocus() && !!document.querySelector("iframe");
+      if (playing || reading || live.uploader.busy || downloadsBusy()) seen();
       else if (Date.now() - last > IDLE_LOCK_MS) void lock();
     }, 30_000);
     return () => {
