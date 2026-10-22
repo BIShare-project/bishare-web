@@ -227,7 +227,7 @@ export function DriveShell({ children }: { children: ReactNode }) {
           >
             <Search className="size-4" />
             <span className="flex-1 truncate">{t("searchPlaceholder")}</span>
-            <kbd className="hidden border bg-background px-1.5 font-mono text-3xs sm:inline">⌘K</kbd>
+            <kbd dir="ltr" className="hidden border bg-background px-1.5 font-mono text-3xs sm:inline">⌘K</kbd>
           </button>
           <div className="ms-auto flex shrink-0 items-center gap-1.5">
             <Tooltip>
