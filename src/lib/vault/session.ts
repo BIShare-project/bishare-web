@@ -1,12 +1,14 @@
 // The web Drive's keys in this browser (drive-plan.md task 6.4).
 //
 // A browser opened by a device's approval holds two secrets: its device seed
-// (it signs every request) and the vault key VK. Both are kept in IndexedDB,
-// sealed with an AES-GCM key that is itself a non-extractable CryptoKey in
-// the same database: what lands on disk is never the raw keys, and no script
-// can export the wrapping key. Without "Stay on this browser" the record is
-// tied to the tab's session: a flag in sessionStorage marks it, and a load
-// that finds the record without the flag (the tab was closed) wipes it.
+// (it signs every request) and the vault key VK. They are sealed with an
+// AES-GCM key that is a non-extractable CryptoKey kept in IndexedDB: no
+// script can export the wrapping key, and the raw keys are never stored.
+// With "Stay on this browser" the sealed secrets sit next to that key in
+// IndexedDB. Without it they live in the tab's sessionStorage only, so
+// closing the tab forgets them: what is left on disk is a key that opens
+// nothing. Such tabs each have their own record, so signing in in one tab
+// never signs another out.
 
 export interface DriveSession {
   vaultId: string;
@@ -27,15 +29,16 @@ interface StoredSession {
   stay: boolean;
   name: string;
   openedAt: number;
-  iv: Uint8Array<ArrayBuffer>;
-  sealed: ArrayBuffer;
+  /** The sealed secrets, for a browser that stays; else in sessionStorage. */
+  iv?: Uint8Array<ArrayBuffer>;
+  sealed?: ArrayBuffer;
   wrapKey: CryptoKey;
 }
 
 const DB = "bishare-drive";
 const STORE = "session";
 const KEY = "current";
-const OPEN_FLAG = "bishare-drive-open";
+const SEALED = "bishare-drive-sealed";
 
 function db(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
@@ -59,13 +62,49 @@ async function tx<T>(mode: IDBTransactionMode, run: (s: IDBObjectStore) => IDBRe
   }
 }
 
-function sessionFlag(set?: boolean): boolean {
+/** A tab's own session: the IndexedDB key of its wrapping key, and the sealed secrets (iv then ciphertext). */
+interface TabSession {
+  key: string;
+  sealed: Uint8Array;
+}
+
+function tabSession(set?: TabSession | null): TabSession | null {
   try {
-    if (set === true) sessionStorage.setItem(OPEN_FLAG, "1");
-    if (set === false) sessionStorage.removeItem(OPEN_FLAG);
-    return sessionStorage.getItem(OPEN_FLAG) === "1";
+    if (set === null) sessionStorage.removeItem(SEALED);
+    else if (set) sessionStorage.setItem(SEALED, JSON.stringify({ k: set.key, s: b64(set.sealed) }));
+    const v = sessionStorage.getItem(SEALED);
+    if (!v) return null;
+    const j = JSON.parse(v) as { k?: unknown; s?: unknown };
+    return typeof j.k === "string" && typeof j.s === "string" ? { key: j.k, sealed: unb64(j.s) } : null;
   } catch {
-    return false;
+    return null;
+  }
+}
+
+function b64(bytes: Uint8Array): string {
+  let s = "";
+  for (const b of bytes) s += String.fromCharCode(b);
+  return btoa(s);
+}
+
+function unb64(s: string): Uint8Array {
+  const bin = atob(s);
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+
+// A tab's wrapping key outlives the tab (sessionStorage goes, IndexedDB
+// stays) but opens nothing without it; old ones are swept at the next save.
+const TAB_PREFIX = "tab:";
+const TAB_KEEP_MS = 7 * 86_400_000;
+
+async function sweepTabs(): Promise<void> {
+  const keys = await tx<IDBValidKey[]>("readonly", (st) => st.getAllKeys());
+  for (const k of keys) {
+    if (typeof k !== "string" || !k.startsWith(TAB_PREFIX)) continue;
+    const rec = await tx<StoredSession | undefined>("readonly", (st) => st.get(k) as IDBRequest<StoredSession | undefined>);
+    if (!rec || Date.now() - rec.openedAt > TAB_KEEP_MS) await tx("readwrite", (st) => st.delete(k));
   }
 }
 
@@ -83,30 +122,49 @@ export async function saveSession(s: DriveSession): Promise<void> {
     stay: s.stay,
     name: s.name,
     openedAt: s.openedAt,
-    iv,
-    sealed,
     wrapKey,
+    ...(s.stay ? { iv, sealed } : {}),
   };
-  await tx("readwrite", (st) => st.put(record, KEY));
-  sessionFlag(true);
+  await sweepTabs().catch(() => undefined);
+  if (s.stay) {
+    await tx("readwrite", (st) => st.put(record, KEY));
+    tabSession(null);
+    return;
+  }
+  // Each tab its own record, so one tab's sign-in never replaces another's.
+  const key = TAB_PREFIX + b64(crypto.getRandomValues(new Uint8Array(9)));
+  await tx("readwrite", (st) => st.put(record, key));
+  const both = new Uint8Array(12 + sealed.byteLength);
+  both.set(iv, 0);
+  both.set(new Uint8Array(sealed), 12);
+  tabSession({ key, sealed: both });
 }
 
-/** This browser's session, or null (never opened, locked, or the tab of a session without "Stay" was closed). */
+/** This tab's session, else the browser's "Stay" session, else null (never opened, locked, or the tab was closed). */
 export async function loadSession(): Promise<DriveSession | null> {
+  const tab = tabSession();
+  let key = KEY;
   let rec: StoredSession | undefined;
   try {
-    rec = await tx<StoredSession | undefined>("readonly", (st) => st.get(KEY) as IDBRequest<StoredSession | undefined>);
+    if (tab) {
+      rec = await tx<StoredSession | undefined>("readonly", (st) => st.get(tab.key) as IDBRequest<StoredSession | undefined>);
+      if (rec) key = tab.key;
+      else tabSession(null);
+    }
+    rec ??= await tx<StoredSession | undefined>("readonly", (st) => st.get(KEY) as IDBRequest<StoredSession | undefined>);
   } catch {
     return null;
   }
   if (!rec) return null;
-  if (!rec.stay && !sessionFlag()) {
-    await clearSession();
+  const iv = key === KEY ? rec.iv : tab!.sealed.slice(0, 12);
+  const sealed = key === KEY ? rec.sealed : tab!.sealed.slice(12).buffer;
+  if (!iv || !sealed) {
+    // A record from before the secrets moved to the tab: nothing to open.
+    await forget(key);
     return null;
   }
   try {
-    const plain = new Uint8Array(await crypto.subtle.decrypt({ name: "AES-GCM", iv: rec.iv }, rec.wrapKey, rec.sealed));
-    sessionFlag(true);
+    const plain = new Uint8Array(await crypto.subtle.decrypt({ name: "AES-GCM", iv }, rec.wrapKey, sealed));
     return {
       vaultId: rec.vaultId,
       deviceId: rec.deviceId,
@@ -117,19 +175,24 @@ export async function loadSession(): Promise<DriveSession | null> {
       openedAt: rec.openedAt,
     };
   } catch {
-    await clearSession();
+    await forget(key);
     return null;
   }
 }
 
-/** Lock: the keys are gone from this browser. */
-export async function clearSession(): Promise<void> {
-  sessionFlag(false);
+async function forget(key: string): Promise<void> {
+  if (key !== KEY) tabSession(null);
   try {
-    await tx("readwrite", (st) => st.delete(KEY));
+    await tx("readwrite", (st) => st.delete(key));
   } catch {
     // Nothing stored.
   }
+}
+
+/** Lock: this session's keys are gone from this browser. */
+export async function clearSession(): Promise<void> {
+  const tab = tabSession();
+  await forget(tab ? tab.key : KEY);
 }
 
 /** "Chrome on macOS", for the approving device and the device list. */
