@@ -22,7 +22,8 @@
     "devices": "Devices",
     "trash": "Trash",
     "storage": "Plan & storage",
-    "security": "Security"
+    "security": "Security",
+    "menu": "Menu"
   },
   "signin": {
     "title": "Open your Drive",
@@ -58,7 +59,8 @@
     "byKindSub": "{size} in use",
     "lastSeen": "Last used",
     "folders": "Largest folders",
-    "foldersSub": "By the space they take"
+    "foldersSub": "By the space they take",
+    "total": "Total"
   },
   "kpi": {
     "used": "Used",
@@ -131,7 +133,9 @@
     "photos": "No photos or videos yet",
     "photosBody": "Turn on photo backup in the BIShare app and they show up here.",
     "trash": "The trash is empty",
-    "trashBody": "Deleted files stay here for 30 days."
+    "trashBody": "Deleted files stay here for 30 days.",
+    "filesBodyWeb": "Upload from this browser, or add files in the BIShare app.",
+    "folderBodyWeb": "Drop files here, or upload them from this browser."
   },
   "devices": {
     "unnamed": "Unnamed device",
@@ -181,7 +185,10 @@
       "name": "Name",
       "modified": "Modified",
       "size": "Size"
-    }
+    },
+    "selected": "{n} selected",
+    "viewList": "List",
+    "viewGrid": "Grid"
   },
   "kinds": {
     "dir": "Folder",
@@ -200,14 +207,17 @@
     "sub": "Files added or changed on any device, newest first"
   },
   "photos": {
-    "sub": "{n} photos and videos · {size}"
+    "sub": "{n} photos and videos · {size}",
+    "subWeb": "{photos, plural, one {# photo} other {# photos}} · {videos, plural, one {# video} other {# videos}} · {size}"
   },
   "trash": {
     "sub": "{n, plural, =0 {Empty} one {# item} other {# items}} · {size}. Each is deleted for good 30 days after it was moved here.",
     "wasIn": "Was in",
     "goneIn": "Deleted for good in",
     "days": "{n, plural, =0 {Today} one {# day} other {# days}}",
-    "note": "To put something back, or delete it now, use the trash in the BIShare app."
+    "note": "To put something back, or delete it now, use the trash in the BIShare app.",
+    "list": "In the trash",
+    "noteWeb": "Restored items go back where they were. Everything here is deleted for good 30 days after it was moved here."
   },
   "storage": {
     "sub": "Your files are kept in {region}.",
@@ -245,5 +255,138 @@
     "appOnly": "App only",
     "delete": "Deleting the Drive",
     "deleteBody": "Done in the BIShare app, under Drive account."
+  },
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "syncedAt": "Up to date as of {time}",
+  "act": {
+    "new": "New",
+    "upload": "Upload",
+    "uploadFiles": "Upload files",
+    "uploadFolder": "Upload a folder",
+    "newFolder": "New folder",
+    "open": "Open",
+    "openFolder": "Open folder",
+    "preview": "Preview",
+    "download": "Download",
+    "downloadZip": "Download as zip",
+    "rename": "Rename",
+    "move": "Move to…",
+    "copy": "Copy to…",
+    "trash": "Move to trash",
+    "restore": "Restore",
+    "deleteForever": "Delete for good",
+    "emptyTrash": "Empty trash",
+    "undo": "Undo",
+    "cancel": "Cancel",
+    "close": "Close",
+    "create": "Create",
+    "save": "Save",
+    "retry": "Retry",
+    "more": "More actions",
+    "selectAll": "Select all",
+    "clearSelection": "Clear selection",
+    "previous": "Previous",
+    "next": "Next",
+    "moveHere": "Move here",
+    "copyHere": "Copy here"
+  },
+  "dialog": {
+    "newFolderTitle": "New folder",
+    "folderName": "Folder name",
+    "untitled": "Untitled folder",
+    "renameTitle": "Rename",
+    "nameLabel": "Name",
+    "badName": "A name can't contain “/”.",
+    "moveTitle": "{n, plural, one {Move # item to…} other {Move # items to…}}",
+    "copyTitle": "{n, plural, one {Copy # item to…} other {Copy # items to…}}",
+    "noFolders": "No folders here",
+    "deleteTitle": "{n, plural, one {Delete # item for good?} other {Delete # items for good?}}",
+    "deleteBody": "This can't be undone. The files are removed from every device and from BIShare's servers.",
+    "emptyTitle": "Empty the trash?",
+    "emptyBody": "{n, plural, one {# item is deleted for good, on every device. This can't be undone.} other {# items are deleted for good, on every device. This can't be undone.}}"
+  },
+  "toast": {
+    "renamed": "Renamed",
+    "folderMade": "Folder “{name}” made",
+    "moved": "{n, plural, one {Moved to {where}} other {# items moved to {where}}}",
+    "copied": "{n, plural, one {Copied to {where}} other {# items copied to {where}}}",
+    "trashed": "{n, plural, one {Moved to the trash} other {# items moved to the trash}}",
+    "restored": "{n, plural, one {Restored} other {# items restored}}",
+    "deleted": "{n, plural, one {Deleted for good} other {# items deleted for good}}",
+    "emptied": "The trash is empty",
+    "preparing": "Opening “{name}”…",
+    "downloading": "Downloading “{name}”",
+    "saved": "“{name}” saved",
+    "zipping": "{n, plural, one {Zipping # file ({size})…} other {Zipping # files ({size})…}}"
+  },
+  "errors": {
+    "UNKNOWN": "Something went wrong. Try again.",
+    "NETWORK": "No connection to BIShare. Check the network and try again.",
+    "RATE_LIMITED": "Too many requests. Wait a moment and try again.",
+    "STORAGE_LIMIT_EXCEEDED": "Not enough space left in your Drive.",
+    "VAULT_READ_ONLY": "Your Drive is read-only until the plan is renewed or it fits the free plan.",
+    "VAULT_MOVE_INTO_ITSELF": "A folder can't go into itself.",
+    "VAULT_BAD_NAME": "That name can't be used.",
+    "VAULT_NOT_IN_TRASH": "Only what is in the trash can be deleted for good.",
+    "VAULT_OBJECT_NOT_FOUND": "That item is no longer in your Drive.",
+    "upload": "Upload failed",
+    "download": "The download stopped. Try again.",
+    "dropEmpty": "Nothing to upload in what was dropped.",
+    "zipTooLarge": "Too much for one zip (over {size}). Download the files one by one."
+  },
+  "uploads": {
+    "title": "{n, plural, one {Uploading # file} other {Uploading # files}}",
+    "allDone": "{n, plural, one {# upload complete} other {# uploads complete}}",
+    "someFailed": "{n, plural, one {# upload failed} other {# uploads failed}}",
+    "queued": "Waiting",
+    "preparing": "Preparing · {pct}%",
+    "sending": "{pct}% of {size}",
+    "finishing": "Finishing…",
+    "done": "Done · {size}",
+    "linked": "Already in your Drive, added without uploading",
+    "canceled": "Canceled",
+    "cancelAll": "Cancel all",
+    "minimize": "Show or hide",
+    "dropTitle": "Drop to upload to {where}",
+    "dropBody": "Files and folders are encrypted in this browser before they leave it."
+  },
+  "viewer": {
+    "counter": "{i} of {n}",
+    "opening": "Decrypting…",
+    "noPreview": "No preview for this file",
+    "noPreviewBody": "A {kind} can't be shown in the browser. Download it to open it.",
+    "tooLarge": "This file is too large to show here. Download it to open it.",
+    "failed": "This file didn't open",
+    "failedBody": "It couldn't be downloaded or decrypted here. Try again, or download it."
+  },
+  "palette": {
+    "title": "Search the Drive",
+    "placeholder": "Search files and folders, or type a command…",
+    "files": "Files and folders",
+    "recent": "Recent files",
+    "actions": "Actions",
+    "pages": "Go to",
+    "noResults": "Nothing found",
+    "light": "Switch to light",
+    "dark": "Switch to dark"
+  },
+  "deletePage": {
+    "title": "Delete your BIShare Drive",
+    "lead": "Deleting the Drive removes everything in it for good: every file, folder and thumbnail, and every device's access. It is done in the BIShare app, so only someone who holds the Drive's key can do it.",
+    "open": "Open the Drive",
+    "inApp": "In the BIShare app",
+    "step1": "Open BIShare on a phone or computer that has your Drive.",
+    "step2": "Go to Drive, then Drive account.",
+    "step3": "Tap Delete Drive account at the bottom.",
+    "step4": "Sign in with the same Apple or Google account to confirm. Deletion starts at once.",
+    "whatTitle": "What is deleted",
+    "whatBody": "All files and folders, their thumbnails, the devices and browsers with access, and the link to your Apple or Google sign-in.",
+    "keptTitle": "What is not kept",
+    "keptBody": "BIShare keeps no copy. Files were encrypted on your devices, so nobody, BIShare included, could have read them.",
+    "subsTitle": "Subscriptions",
+    "subsBody": "A paid plan is billed by the App Store or Google Play. Cancel it there too, in your store account's subscriptions.",
+    "noDeviceTitle": "No device left?",
+    "noDeviceBody": "Install BIShare and sign in to Drive with the same Apple or Google account, then delete it. If that is not possible, write to support@billiongroup.net from your account's email."
   }
 }

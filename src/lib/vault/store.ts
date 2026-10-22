@@ -9,6 +9,7 @@ export interface DriveObject extends ObjectMeta {
   id: string;
   /** Stored bytes on the server (the sealed blob), when the object has one. */
   blobSize: number | null;
+  blobId: string | null;
   hasThumb: boolean;
   seq: number;
   createdAt: number;
@@ -101,6 +102,7 @@ export class DriveIndex {
         ...meta,
         id: row.id,
         blobSize: row.size,
+        blobId: row.blobId,
         hasThumb: row.hasThumb,
         seq: row.seq,
         createdAt: row.createdAt,
@@ -167,6 +169,79 @@ export class DriveIndex {
     let total = 0;
     for (const c of this.objects.values()) if (c.parent === id) total += this.treeSize(c.id);
     return total;
+  }
+
+  /** Every object below [id] at any depth, trashed or not. */
+  descendants(id: string): DriveObject[] {
+    const out: DriveObject[] = [];
+    const queue = [id];
+    while (queue.length) {
+      const at = queue.pop()!;
+      for (const o of this.objects.values()) {
+        if (o.parent !== at) continue;
+        out.push(o);
+        if (o.kind === "dir") queue.push(o.id);
+      }
+    }
+    return out;
+  }
+
+  /** The trashed objects below [id], reached through trashed folders only; live ones met go to [live]. */
+  trashedBelow(id: string, live?: string[]): DriveObject[] {
+    const out: DriveObject[] = [];
+    const queue = [id];
+    while (queue.length) {
+      const at = queue.pop()!;
+      for (const o of this.objects.values()) {
+        if (o.parent !== at) continue;
+        if (o.trashedAt === null) {
+          live?.push(o.id);
+          continue;
+        }
+        out.push(o);
+        if (o.kind === "dir") queue.push(o.id);
+      }
+    }
+    return out;
+  }
+
+  /** [id] and every folder above it. */
+  ancestors(id: string | null): Set<string> {
+    const seen = new Set<string>();
+    let at = id;
+    while (at && !seen.has(at)) {
+      seen.add(at);
+      at = this.objects.get(at)?.parent ?? null;
+    }
+    return seen;
+  }
+
+  /** [name], or "name (1).ext", "name (2).ext"… when a live sibling in [parent] already has it (the app's rule). */
+  freeName(parent: string | null, name: string, taken: Set<string> = new Set()): string {
+    const used = new Set(this.children(parent).map((o) => o.name.toLowerCase()));
+    for (const t of taken) used.add(t);
+    if (!used.has(name.toLowerCase())) return name;
+    const dot = name.lastIndexOf(".");
+    const stem = dot > 0 ? name.slice(0, dot) : name;
+    const ext = dot > 0 ? name.slice(dot) : "";
+    for (let i = 1; ; i++) {
+      const next = `${stem} (${i})${ext}`;
+      if (!used.has(next.toLowerCase())) return next;
+    }
+  }
+
+  /** A live file with this plaintext hash and size (dedupe without asking the server). */
+  fileWithHash(hash: Uint8Array, size: number): DriveObject | undefined {
+    for (const o of this.objects.values()) {
+      if (o.kind !== "file" || !o.hash || !o.blobId || o.size !== size) continue;
+      if (o.hash.length === hash.length && o.hash.every((b, i) => b === hash[i])) return o;
+    }
+    return undefined;
+  }
+
+  fileWithBlob(blobId: string): DriveObject | undefined {
+    for (const o of this.objects.values()) if (o.blobId === blobId && o.kind === "file") return o;
+    return undefined;
   }
 
   search(query: string, limit = 50): DriveObject[] {

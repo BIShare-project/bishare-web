@@ -1,7 +1,7 @@
 // Opening the web Drive (VAULT-SPEC "Opening the Drive in a browser"): this
 // browser makes its device key and a one-time hand-off key, opens a slot,
 // shows the QR code, and waits for a device of the vault to approve it.
-import { DriveClient, openWebSlot, takeWebBox, type WebSlot } from "./client";
+import { cancelWebSlot, DriveClient, openWebSlot, takeWebBox, type WebSlot } from "./client";
 import { acceptGrant, b64u, deviceIdOf, devicePublicKey, fromB64u, generateDeviceSeed, newGrantKey, type GrantKey } from "./crypto";
 import type { DriveSession } from "./session";
 
@@ -45,4 +45,9 @@ export async function checkPairing(p: Pairing): Promise<DriveSession | null> {
 /** "K7Q49MZD" as the page shows it. */
 export function showCode(code: string): string {
   return code.length === 8 ? `${code.slice(0, 4)} · ${code.slice(4)}` : code;
+}
+
+/** Forget a code this browser no longer shows (best effort: it runs out by itself in five minutes). */
+export async function cancelPairing(p: Pairing): Promise<void> {
+  await cancelWebSlot(p.seed, p.slot);
 }

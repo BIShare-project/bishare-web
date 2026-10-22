@@ -138,8 +138,10 @@ export async function buildStoreZip(
    * instead, which is the only way to test it without a 4 GB fixture.
    */
   forceZip64 = false,
+  /** Names inside the archive ("Folder/a.jpg"); defaults to each file's own name, made unique. */
+  paths?: string[],
 ): Promise<Blob> {
-  const names = safeNames(files);
+  const names = paths ?? safeNames(files);
   const encoder = new TextEncoder();
   const total = files.reduce((s, f) => s + f.size, 0);
   let hashed = 0;
