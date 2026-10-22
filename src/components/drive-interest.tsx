@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
-import { getDriveInterestEnabled, reportInterest, type InterestEvent } from "@/lib/api";
+import { getDriveInterestEnabled, getVaultOpen, reportInterest, type InterestEvent } from "@/lib/api";
 import { Button } from "@/components/site/ui/button";
 
 /** What this browser answered ("yes_paid", "yes_free", "no" or "dismiss"). */
@@ -21,8 +21,9 @@ const SEEN_KEY = "bishare.interest.drive.seen";
  * one to an anonymous tally (lib/api.ts reportInterest); the answer itself
  * stays in this browser so the question is never asked twice.
  *
- * Hidden unless the remote flag `drive_interest_enabled` is on, and hidden when
- * localStorage is unavailable, because "ask once" could not be kept.
+ * Hidden unless the remote flag `drive_interest_enabled` is on, once Drive is
+ * open to everyone (`vault_enabled` true), and when localStorage is
+ * unavailable, because "ask once" could not be kept.
  */
 export function DriveInterest() {
   const t = useTranslations("tool.driveInterest");
@@ -35,8 +36,9 @@ export function DriveInterest() {
     } catch {
       return;
     }
-    void getDriveInterestEnabled().then((on) => {
-      if (!alive || !on) return;
+    // Once Drive is open to everyone the question about it is moot (audit P14).
+    void Promise.all([getDriveInterestEnabled(), getVaultOpen()]).then(([on, drive]) => {
+      if (!alive || !on || drive) return;
       setState("ask");
       try {
         if (!localStorage.getItem(SEEN_KEY)) {
