@@ -5,7 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 import { IntlScope } from "@/components/intl-scope";
 import { DriveApp } from "@/components/drive/drive-app";
 import { routing } from "@/i18n/routing";
-import { geist, geistMono } from "./fonts";
+import { geist } from "./fonts";
 import "@/components/drive/drive.css";
 
 // The web Drive (drive-plan.md phase 6). Served at the root of
@@ -32,7 +32,7 @@ export default async function DriveLayout({ children, params }: { children: Reac
   const base = root ? "" : `${locale === routing.defaultLocale ? "" : `/${locale}`}/drive`;
   return (
     <IntlScope namespaces={["drive"]}>
-      <DriveApp base={base} className={`${geist.variable} ${geistMono.variable}`}>
+      <DriveApp base={base} className={geist.variable}>
         {children}
       </DriveApp>
     </IntlScope>
