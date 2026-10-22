@@ -170,16 +170,20 @@ async function serve(session: Session, req: Request): Promise<Response> {
     span.ctStart,
   );
 
-  // The page's origin serves these bytes: only a media type is ever named, the
-  // browser may not guess another, and opened on its own it can run nothing.
+  // The page's origin serves these bytes: only a media type (or a PDF) is ever
+  // named, the browser may not guess another, and opened on its own anything
+  // else can run nothing. A PDF goes without `sandbox`: the receive page shows
+  // PDFs in an <object>, and the browser's PDF viewer refuses a sandboxed one.
+  const media = /^(video|audio|image)\/[\w.+-]+$/i.test(session.mime) && !/svg/i.test(session.mime);
+  const pdf = /^application\/pdf$/i.test(session.mime);
   const headers: Record<string, string> = {
-    "Content-Type": /^(video|audio|image)\/[\w.+-]+$/i.test(session.mime) && !/svg/i.test(session.mime) ? session.mime : "application/octet-stream",
+    "Content-Type": media || pdf ? session.mime : "application/octet-stream",
     "Content-Length": String(plain.length),
     "Accept-Ranges": "bytes",
     "Cache-Control": "no-store",
     "X-Content-Type-Options": "nosniff",
-    "Content-Security-Policy": "default-src 'none'; sandbox",
   };
+  if (!pdf) headers["Content-Security-Policy"] = "default-src 'none'; sandbox";
   if (parsed) headers["Content-Range"] = `bytes ${a}-${b}/${size}`;
   return new Response(plain as unknown as BodyInit, {
     status: parsed ? 206 : 200,
