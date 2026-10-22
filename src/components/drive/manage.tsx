@@ -118,7 +118,15 @@ export function PhotosPage() {
                     title={o.name}
                     aria-pressed={on}
                     onClick={(e) => (picking || e.metaKey || e.ctrlKey || e.shiftKey ? click(o, e, true) : actions.open(o, media))}
-                    onKeyDown={(e) => e.key === "Enter" && actions.open(o, media)}
+                    onKeyDown={(e) => {
+                      // Keys pressed on the tile's own box stay with the box.
+                      if (e.target !== e.currentTarget) return;
+                      if (e.key === "Enter") actions.open(o, media);
+                      else if (e.key === " ") {
+                        e.preventDefault();
+                        click(o, e, true);
+                      }
+                    }}
                     className={cn("group relative aspect-square cursor-pointer overflow-hidden bg-muted outline-none focus-visible:ring-2 focus-visible:ring-blau", on && "ring-2 ring-blau ring-inset")}
                   >
                     <ObjectThumb o={o} large className={cn("transition-transform duration-300", on ? "scale-[0.88]" : "group-hover:scale-[1.04]")} />
@@ -317,7 +325,7 @@ export function TrashPage() {
           <Button variant="outline" size="sm" className="bg-background" onClick={() => void actions.restore(ids).then(clear)}>
             <ArchiveRestore /> {t("act.restore")}
           </Button>
-          <Button variant="destructive" size="sm" onClick={() => void actions.deleteForGood(ids).then(clear)}>
+          <Button variant="destructive" size="sm" onClick={() => void actions.deleteForGood(ids).then((gone) => gone && clear())}>
             <X /> {t("act.deleteForever")}
           </Button>
         </SelectionBar>

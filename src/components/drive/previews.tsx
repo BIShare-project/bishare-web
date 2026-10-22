@@ -128,8 +128,9 @@ export function FilePreview({ kind, blob, name, onDownload }: { kind: PreviewKin
   const failed = <Problem title={t("viewer.failed")} body={t("preview.notReadable")} action={download} />;
   switch (kind) {
     case "image":
-    case "svg":
       return <ImagePreview blob={blob} name={name} />;
+    case "svg":
+      return <SvgPreview blob={blob} name={name} />;
     case "heic":
       return <HeicPreview blob={blob} name={name} fallback={failed} />;
     case "tiff":
@@ -176,6 +177,25 @@ function useObjectUrl(blob: Blob | null): string | null {
 
 function ImagePreview({ blob, name }: { blob: Blob; name: string }) {
   const url = useObjectUrl(blob);
+  // eslint-disable-next-line @next/next/no-img-element
+  return url ? <img src={url} alt={name} className="max-h-[62vh] w-full object-contain" /> : null;
+}
+
+/**
+ * An SVG can carry script. As a data: URL it draws in the <img> and, opened on
+ * its own, gets an opaque origin, never the Drive's (a blob: URL would).
+ */
+function SvgPreview({ blob, name }: { blob: Blob; name: string }) {
+  const [url, setUrl] = useState<string | null>(null);
+  useEffect(() => {
+    let live = true;
+    const reader = new FileReader();
+    reader.onload = () => live && setUrl(typeof reader.result === "string" ? reader.result : null);
+    reader.readAsDataURL(new Blob([blob], { type: "image/svg+xml" }));
+    return () => {
+      live = false;
+    };
+  }, [blob]);
   // eslint-disable-next-line @next/next/no-img-element
   return url ? <img src={url} alt={name} className="max-h-[62vh] w-full object-contain" /> : null;
 }
@@ -261,19 +281,50 @@ function PdfPreview({ blob, name }: { blob: Blob; name: string }) {
   return url ? <iframe src={url} title={name} className="h-[62vh] w-full border-0 bg-white" /> : null;
 }
 
+/**
+ * A document of the file's own markup, kept away from the Drive: a sandboxed
+ * frame with no scripts at all (its own, nested frames' and javascript: links
+ * alike) and a policy that fetches nothing from outside. allow-same-origin
+ * only lets this page fill it; links that survive open as a normal new tab.
+ */
+const ISOLATED_DOC =
+  `<!doctype html><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: blob:; style-src 'unsafe-inline'; font-src data: blob:">` +
+  `<style>html,body{margin:0;background:#f4f4f5}body{padding:12px}.docx-wrapper{background:transparent!important;padding:0!important}section.docx{margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.15)}</style>`;
+
+/** Only web and mail links stay; they open apart from the Drive. */
+function tameLinks(doc: Document): void {
+  for (const a of Array.from(doc.querySelectorAll("a[href]"))) {
+    const href = a.getAttribute("href") ?? "";
+    if (/^(https?:|mailto:)/i.test(href.trim())) {
+      a.setAttribute("target", "_blank");
+      a.setAttribute("rel", "noopener noreferrer");
+    } else if (!href.startsWith("#")) a.removeAttribute("href");
+  }
+}
+
 function DocxPreview({ blob, fallback }: { blob: Blob; fallback: ReactNode }) {
   const t = useTranslations("drive");
-  const outer = useRef<HTMLDivElement>(null);
-  const body = useRef<HTMLDivElement>(null);
+  const frame = useRef<HTMLIFrameElement>(null);
+  const [ready, setReady] = useState(false);
   const [state, setState] = useState<"busy" | "done" | "failed">("busy");
   useEffect(() => {
+    const doc = frame.current?.contentDocument;
+    if (!ready || !doc) return;
     let live = true;
     void (async () => {
       try {
         const { renderAsync } = await import("docx-preview");
-        if (!body.current) return;
-        body.current.innerHTML = "";
-        await renderAsync(blob, body.current, undefined, { inWrapper: true, breakPages: true, ignoreLastRenderedPageBreak: true, renderComments: false, useBase64URL: true });
+        doc.body.replaceChildren();
+        // renderAltChunks: a .docx may carry whole HTML pages; they are never shown.
+        await renderAsync(blob, doc.body, doc.head, {
+          inWrapper: true,
+          breakPages: true,
+          ignoreLastRenderedPageBreak: true,
+          renderComments: false,
+          renderAltChunks: false,
+          useBase64URL: true,
+        });
+        tameLinks(doc);
         if (live) setState("done");
       } catch {
         if (live) setState("failed");
@@ -282,16 +333,16 @@ function DocxPreview({ blob, fallback }: { blob: Blob; fallback: ReactNode }) {
     return () => {
       live = false;
     };
-  }, [blob]);
+  }, [blob, ready]);
   // Pages keep their real width; the whole document is scaled to fit the sheet.
   useEffect(() => {
-    const el = outer.current;
-    const inner = body.current;
-    if (!el || !inner || state !== "done") return;
+    const el = frame.current;
+    const doc = el?.contentDocument;
+    if (!el || !doc || state !== "done") return;
     const fit = () => {
-      const page = inner.querySelector<HTMLElement>("section.docx");
+      const page = doc.querySelector<HTMLElement>("section.docx");
       const w = page?.offsetWidth ?? 0;
-      inner.style.zoom = w ? String(Math.min(1, (el.clientWidth - 24) / w)) : "1";
+      doc.body.style.zoom = w ? String(Math.min(1, (el.clientWidth - 24) / w)) : "1";
     };
     fit();
     const ro = new ResizeObserver(fit);
@@ -300,9 +351,20 @@ function DocxPreview({ blob, fallback }: { blob: Blob; fallback: ReactNode }) {
   }, [state]);
   if (state === "failed") return <>{fallback}</>;
   return (
-    <div ref={outer} className="max-h-[62vh] w-full overflow-auto bg-muted p-3">
-      {state === "busy" ? <Busy label={t("preview.rendering")} /> : null}
-      <div ref={body} className="[&_.docx-wrapper]:bg-transparent [&_.docx-wrapper]:p-0 [&_section.docx]:mb-3 [&_section.docx]:shadow-md" />
+    <div className="relative h-[62vh] w-full bg-muted">
+      {state === "busy" ? (
+        <div className="absolute inset-0 grid place-items-center">
+          <Busy label={t("preview.rendering")} />
+        </div>
+      ) : null}
+      <iframe
+        ref={frame}
+        sandbox="allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+        srcDoc={ISOLATED_DOC}
+        onLoad={() => setReady(true)}
+        title="docx"
+        className={cn("size-full border-0", state === "busy" && "invisible")}
+      />
     </div>
   );
 }
@@ -489,13 +551,23 @@ function MarkdownPreview({ blob }: { blob: Blob }) {
       const raw = await marked.parse(await blob.text(), { gfm: true, async: true });
       // Nothing from outside: images only from inside the file, links open apart.
       DOMPurify.addHook("afterSanitizeAttributes", (node) => {
-        if (node.tagName === "IMG" && !/^data:/i.test(node.getAttribute("src") ?? "")) node.removeAttribute("src");
+        if (node.tagName === "IMG" && !/^data:image\/(png|jpe?g|gif|webp|avif);/i.test(node.getAttribute("src") ?? "")) node.removeAttribute("src");
         if (node.tagName === "A") {
           node.setAttribute("target", "_blank");
           node.setAttribute("rel", "noopener noreferrer");
         }
       });
-      const clean = DOMPurify.sanitize(raw, { USE_PROFILES: { html: true } });
+      // Only the tags Markdown makes, and no attribute that could style or
+      // reach out: no <style>, style, class or id (the Drive's own classes
+      // could paint a fake screen over it), no forms, no media sources.
+      const clean = DOMPurify.sanitize(raw, {
+        ALLOWED_TAGS: [
+          "a", "abbr", "b", "blockquote", "br", "code", "dd", "del", "details", "div", "dl", "dt", "em", "h1", "h2", "h3", "h4", "h5", "h6",
+          "hr", "i", "img", "kbd", "li", "ol", "p", "pre", "s", "span", "strong", "sub", "summary", "sup", "table", "tbody", "td", "tfoot",
+          "th", "thead", "tr", "u", "ul",
+        ],
+        ALLOWED_ATTR: ["href", "title", "alt", "src", "colspan", "rowspan", "align", "start"],
+      });
       DOMPurify.removeHook("afterSanitizeAttributes");
       if (live) setHtml(clean);
     })();

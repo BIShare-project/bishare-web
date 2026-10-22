@@ -160,7 +160,8 @@ export function DropZone() {
       const parent = f && index.get(f) ? f : null;
       const { loose, tree } = await dropped(e.dataTransfer);
       if (loose.length) uploader.add(loose, parent);
-      if (tree.length) await uploader.addTree(tree, parent);
+      // Folders are made first; if that fails (offline, too many requests) say so.
+      if (tree.length) await uploader.addTree(tree, parent).catch(() => toast(t("errors.upload"), { tone: "error" }));
       if (!loose.length && !tree.length) toast(t("errors.dropEmpty"), { tone: "error" });
     };
     window.addEventListener("dragenter", enter);

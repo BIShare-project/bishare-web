@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { usePathname } from "next/navigation";
 import { toast as sonner } from "sonner";
 import { DriveClient } from "@/lib/vault/client";
+import { downloadsBusy } from "@/lib/vault/download";
 import { DriveOps } from "@/lib/vault/ops";
 import { clearSession, loadSession, saveSession, type DriveSession } from "@/lib/vault/session";
 import { DriveIndex, isLockedOut } from "@/lib/vault/store";
@@ -216,7 +217,8 @@ export function DriveApp({ base, className, children }: { base: string; classNam
     };
   }, [live]);
 
-  // Without "Stay", a browser left alone locks itself (never mid-upload).
+  // Without "Stay", a browser left alone locks itself (never mid-upload, while
+  // files are being opened, or while a video or song plays).
   useEffect(() => {
     if (!live || !session || session.stay) return;
     let last = Date.now();
@@ -226,7 +228,9 @@ export function DriveApp({ base, className, children }: { base: string; classNam
     const events = ["pointerdown", "keydown", "wheel", "touchstart"] as const;
     for (const e of events) window.addEventListener(e, seen, { passive: true });
     const timer = setInterval(() => {
-      if (Date.now() - last > IDLE_LOCK_MS && !live.uploader.busy) void lock();
+      const playing = Array.from(document.querySelectorAll<HTMLMediaElement>("video, audio")).some((m) => !m.paused && !m.ended);
+      if (playing || live.uploader.busy || downloadsBusy()) seen();
+      else if (Date.now() - last > IDLE_LOCK_MS) void lock();
     }, 30_000);
     return () => {
       for (const e of events) window.removeEventListener(e, seen);

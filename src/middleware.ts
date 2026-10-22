@@ -1,7 +1,7 @@
-// Marketing-only routing. next-intl rewrites unprefixed default-locale paths
+// Host routing. next-intl rewrites unprefixed default-locale paths
 // ("/features" → internal "/en/features"), keeps other locales prefixed, and
-// redirects a redundant default prefix ("/en/features" → "/features"). The admin
-// panel and Web Drive were removed — BIShare is a free, no-account transfer tool.
+// redirects a redundant default prefix ("/en/features" → "/features"). The web
+// Drive has its own host and a strict policy (drivePolicy below).
 //
 // Since 2026-09-26 this file also splits the site across two hosts. Safe
 // Browsing flagged bishare.app for "harmful downloads" after a user shared
@@ -13,7 +13,7 @@
 // githubusercontent.com. Links keep working: bishare.app/transfer/<code>
 // redirects across, and the #k= fragment survives redirects in every browser
 // because fragments never leave the client.
-import { NextResponse, type NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
 import { LINK_PREVIEW_GROUP } from "@/lib/preview-bots";
@@ -56,6 +56,56 @@ function driveLocale(request: NextRequest): string {
 // /transfer/<code>, with or without a locale prefix. `/transfer` itself (the
 // send tool) stays on the marketing host.
 const RECEIVE_PATH = new RegExp(`^/(?:(?:${routing.locales.join("|")})/)?transfer/[^/]+$`);
+
+/**
+ * The Drive's pages hold a vault key in memory, so they run nothing but
+ * Next's own scripts (a nonce per request, 'strict-dynamic' for the chunks
+ * they load) and talk to nothing but this host, the API and R2. 'unsafe-eval'
+ * is for heic2any (Emscripten builds functions with new Function), never for
+ * a script someone else wrote: injected markup still cannot run. Styles may
+ * be inline: React style props, and docx-preview writes <style> into the
+ * sandboxed frame, which inherits this policy.
+ */
+function drivePolicy(): { nonce: string; csp: string } {
+  const nonce = btoa(crypto.randomUUID());
+  const api = process.env.NEXT_PUBLIC_API_URL || "https://api.bishare.app";
+  const apiOrigin = /^https?:\/\//.test(api) ? new URL(api).origin : "";
+  const dev = process.env.NODE_ENV === "development";
+  const csp = [
+    "default-src 'self'",
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval'`,
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' blob: data:",
+    "font-src 'self' data: blob:",
+    "media-src 'self' blob:",
+    `connect-src 'self' ${apiOrigin} ${apiOrigin.replace(/^http/, "ws")} https://*.r2.cloudflarestorage.com${dev ? " ws:" : ""}`,
+    "frame-src 'self' blob:",
+    "worker-src 'self' blob:",
+    "object-src 'none'",
+    "base-uri 'none'",
+    "form-action 'none'",
+    "frame-ancestors 'none'",
+  ].join("; ");
+  return { nonce, csp };
+}
+
+/** The request headers Next reads the nonce from, and the same policy on the answer. */
+function withDrivePolicy(request: NextRequest): { headers: Headers; secure: (res: NextResponse) => NextResponse } {
+  const { nonce, csp } = drivePolicy();
+  const headers = new Headers(request.headers);
+  headers.set("x-nonce", nonce);
+  headers.set("Content-Security-Policy", csp);
+  return {
+    headers,
+    secure: (res) => {
+      res.headers.set("Content-Security-Policy", csp);
+      res.headers.set("X-Content-Type-Options", "nosniff");
+      res.headers.set("Referrer-Policy", "no-referrer");
+      res.headers.set("X-Robots-Tag", "noindex, nofollow");
+      return res;
+    },
+  };
+}
 
 /**
  * 302 by default, not 308: cheap to roll back, and easy to upgrade once this
@@ -120,15 +170,17 @@ export function middleware(request: NextRequest): NextResponse {
     const url = request.nextUrl.clone();
     url.pathname = `/${driveLocale(request)}/drive${path === "/" ? "" : path}`;
     // The pages link to the host's own paths (no /drive in front).
-    const headers = new Headers(request.headers);
+    const { headers, secure } = withDrivePolicy(request);
     headers.set("x-drive-base", "root");
-    const res = NextResponse.rewrite(url, { request: { headers } });
-    res.headers.set("X-Robots-Tag", "noindex, nofollow");
-    return res;
+    return secure(NextResponse.rewrite(url, { request: { headers } }));
   }
 
   // localhost, *.workers.dev previews: single-host behaviour, unchanged.
-  // The web Drive is at /drive there.
+  // The web Drive is at /drive there, under the same policy as on its host.
+  if (DRIVE_PATH.test(path)) {
+    const { headers, secure } = withDrivePolicy(request);
+    return secure(intlMiddleware(new NextRequest(request, { headers })));
+  }
   return intlMiddleware(request);
 }
 

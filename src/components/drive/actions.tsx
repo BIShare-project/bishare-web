@@ -190,15 +190,18 @@ export function useActions() {
     [ops, t, toast, fail]
   );
 
+  /** Asks first; true when the items are gone. */
   const deleteForGood = useCallback(
-    async (ids: string[]) => {
+    async (ids: string[]): Promise<boolean> => {
       const ok = await confirm({ title: t("dialog.deleteTitle", { n: ids.length }), body: t("dialog.deleteBody"), confirm: t("act.deleteForever"), danger: true });
-      if (!ok) return;
+      if (!ok) return false;
       try {
         await ops.deleteForGood(ids);
         toast(t("toast.deleted", { n: ids.length }), { tone: "ok" });
+        return true;
       } catch (e) {
         fail(e);
+        return false;
       }
     },
     [confirm, ops, t, toast, fail]
@@ -230,12 +233,12 @@ export function useActions() {
           void uploader.addTree(
             files.map((f) => ({ file: f, path: (f.webkitRelativePath || f.name).split("/").slice(0, -1) })),
             parent
-          );
+          ).catch(fail);
         } else uploader.add(files, parent);
       };
       input.click();
     },
-    [uploader]
+    [uploader, fail]
   );
 
   /** What can be done with [objs], for the row menu, the right-click menu and the selection bar. */

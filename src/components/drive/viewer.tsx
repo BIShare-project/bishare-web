@@ -93,7 +93,7 @@ export function Viewer({ ids, at, onClose }: { ids: string[]; at: number; onClos
       ctrl.abort();
       end?.();
     };
-  }, [o?.id, o?.seq, client, scope]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [o?.id, o?.blobId, client, scope]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

@@ -28,6 +28,7 @@ export class DriveIndex {
   private kMeta: Uint8Array | null = null;
   private listeners = new Set<Listener>();
   private pulling: Promise<void> | null = null;
+  private queued: Promise<void> | null = null;
   private version = 0;
   seq = 0;
   info: VaultInfo | null = null;
@@ -59,11 +60,24 @@ export class DriveIndex {
     return (this.kMeta ??= await metaKey(this.vaultKey));
   }
 
-  /** Bring the index up to the server; calls made meanwhile join it. */
+  /**
+   * Bring the index up to the server. A call made while a pull runs gets one
+   * more pull after it (shared by every call made meanwhile), so a change
+   * committed after the running pull read the server is never missed.
+   */
   pull(): Promise<void> {
-    return (this.pulling ??= this.pullOnce().finally(() => {
-      this.pulling = null;
-    }));
+    if (!this.pulling) {
+      this.pulling = this.pullOnce().finally(() => {
+        this.pulling = null;
+      });
+      return this.pulling;
+    }
+    return (this.queued ??= this.pulling
+      .catch(() => undefined)
+      .then(() => {
+        this.queued = null;
+        return this.pull();
+      }));
   }
 
   private async pullOnce(): Promise<void> {

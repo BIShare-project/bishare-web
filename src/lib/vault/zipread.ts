@@ -54,13 +54,35 @@ export function zipEntries(bytes: Uint8Array): ZipEntry[] | null {
   return out;
 }
 
-/** The bytes of one entry (stored or deflated). */
-export async function zipRead(bytes: Uint8Array, e: ZipEntry): Promise<Uint8Array> {
+/** No entry a preview reads is bigger; a zip bomb stops here, not in the tab's memory. */
+export const ZIP_ENTRY_MAX = 64 * 1024 * 1024;
+
+/** The bytes of one entry (stored or deflated), at most [max] of them. */
+export async function zipRead(bytes: Uint8Array, e: ZipEntry, max = ZIP_ENTRY_MAX): Promise<Uint8Array> {
   if (u32(bytes, e.offset) !== 0x04034b50) throw new Error("bad local header");
   const start = e.offset + 30 + u16(bytes, e.offset + 26) + u16(bytes, e.offset + 28);
   const raw = bytes.subarray(start, start + e.compressedSize);
   if (e.method === 0) return raw;
   if (e.method !== 8) throw new Error(`zip method ${e.method}`);
-  const stream = new Blob([raw as Uint8Array<ArrayBuffer>]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
-  return new Uint8Array(await new Response(stream).arrayBuffer());
+  // The size in the header can lie, so the inflated bytes are counted as they come.
+  const reader = new Blob([raw as Uint8Array<ArrayBuffer>]).stream().pipeThrough(new DecompressionStream("deflate-raw")).getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.length;
+    if (total > max) {
+      await reader.cancel();
+      throw new Error("zip entry too large");
+    }
+    chunks.push(value);
+  }
+  const out = new Uint8Array(total);
+  let at = 0;
+  for (const c of chunks) {
+    out.set(c, at);
+    at += c.length;
+  }
+  return out;
 }

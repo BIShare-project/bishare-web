@@ -113,7 +113,12 @@ export function FilesPage() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const el = e.target as HTMLElement | null;
-      if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el?.closest("[role=dialog],[role=menu]")) return;
+      // Keys belong to whatever has focus (a button, a link, a list), and to an
+      // open sheet or dialog even when focus stayed behind it.
+      if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el?.isContentEditable) return;
+      if (el?.closest("[role=dialog],[role=menu],[role=listbox],[role=combobox],a[href]")) return;
+      if (el?.closest("button") && !el.closest("[data-slot=checkbox]")) return;
+      if (document.querySelector("[role=dialog][data-state=open],[role=alertdialog][data-state=open]")) return;
       const k = keys.current;
       const s = k.selected;
       if ((e.key === "Delete" || e.key === "Backspace") && s.length) {

@@ -94,6 +94,47 @@ function unb64(s: string): Uint8Array {
   return out;
 }
 
+// Browsers bring sessionStorage back with a closed tab (Reopen closed tab,
+// session restore), so "closing the tab forgets them" needs help: leaving the
+// page leaves a mark, and only a reload may open the session past it. Coming
+// back any other way (a reopened tab, typing the address again) asks for the
+// code again. A page kept whole in the back-forward cache clears the mark.
+const LEFT = "bishare-drive-left";
+let watching = false;
+
+function watchTab(): void {
+  if (watching || typeof window === "undefined") return;
+  watching = true;
+  addEventListener("pagehide", () => {
+    try {
+      sessionStorage.setItem(LEFT, String(Date.now()));
+    } catch {
+      // No storage, no session to protect.
+    }
+  });
+  addEventListener("pageshow", (e) => {
+    if (!e.persisted) return;
+    try {
+      sessionStorage.removeItem(LEFT);
+    } catch {
+      // As above.
+    }
+  });
+}
+
+/** The tab was left and this load is not a reload of it. */
+function tabWasLeft(): boolean {
+  try {
+    const left = sessionStorage.getItem(LEFT);
+    sessionStorage.removeItem(LEFT);
+    if (!left) return false;
+    const nav = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+    return nav?.type !== "reload";
+  } catch {
+    return false;
+  }
+}
+
 // A tab's wrapping key outlives the tab (sessionStorage goes, IndexedDB
 // stays) but opens nothing without it; old ones are swept at the next save.
 const TAB_PREFIX = "tab:";
@@ -109,6 +150,7 @@ async function sweepTabs(): Promise<void> {
 }
 
 export async function saveSession(s: DriveSession): Promise<void> {
+  watchTab();
   const wrapKey = await crypto.subtle.generateKey({ name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
   const iv = crypto.getRandomValues(new Uint8Array(12));
   const secrets = new Uint8Array(64);
@@ -142,7 +184,12 @@ export async function saveSession(s: DriveSession): Promise<void> {
 
 /** This tab's session, else the browser's "Stay" session, else null (never opened, locked, or the tab was closed). */
 export async function loadSession(): Promise<DriveSession | null> {
-  const tab = tabSession();
+  watchTab();
+  let tab = tabSession();
+  if (tab && tabWasLeft()) {
+    await forget(tab.key);
+    tab = null;
+  }
   let key = KEY;
   let rec: StoredSession | undefined;
   try {

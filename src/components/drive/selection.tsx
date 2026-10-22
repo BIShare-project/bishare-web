@@ -50,7 +50,10 @@ export function useSelection<T extends { id: string }>(rows: T[]) {
     selected,
     click,
     has: (id: string) => sel.has(id),
-    clear: () => setSel(new Set()),
+    clear: () => {
+      anchor.current = null;
+      setSel(new Set());
+    },
     all: () => setSel(new Set(rows.map((r) => r.id))),
     /** The header box: none, some (indeterminate) or all. */
     headState: (sel.size === 0 ? false : selected.length === rows.length ? true : "indeterminate") as boolean | "indeterminate",

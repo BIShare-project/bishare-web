@@ -118,6 +118,30 @@ function safeNames(files: File[]): string[] {
   });
 }
 
+/**
+ * Folder paths given by the caller, held to the same rule: each segment loses
+ * what a Windows or Unix extractor would read as a separator, a drive or a
+ * step up ("..", "\", ":", leading dots), and whole paths are made unique the
+ * same way as names.
+ */
+function safePaths(paths: string[]): string[] {
+  const used = new Set<string>();
+  return paths.map((p) => {
+    const parts = p.split("/").map((seg) => seg.replace(/[\\:*?"<>|\u0000-\u001f]/g, "_").replace(/^\.+/, "").replace(/[. ]+$/, "") || "_");
+    const base = parts.pop()!;
+    const dir = parts.length ? parts.join("/") + "/" : "";
+    let name = base;
+    let n = 1;
+    while (used.has((dir + name).toLowerCase())) {
+      const dot = base.lastIndexOf(".");
+      name = dot > 0 ? `${base.slice(0, dot)} (${n})${base.slice(dot)}` : `${base} (${n})`;
+      n++;
+    }
+    used.add((dir + name).toLowerCase());
+    return dir + name;
+  });
+}
+
 export interface ZipProgress {
   /** Bytes hashed so far (the CRC pass), against the total to hash. */
   hashed: number;
@@ -141,7 +165,7 @@ export async function buildStoreZip(
   /** Names inside the archive ("Folder/a.jpg"); defaults to each file's own name, made unique. */
   paths?: string[],
 ): Promise<Blob> {
-  const names = paths ?? safeNames(files);
+  const names = paths ? safePaths(paths) : safeNames(files);
   const encoder = new TextEncoder();
   const total = files.reduce((s, f) => s + f.size, 0);
   let hashed = 0;

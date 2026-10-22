@@ -64,6 +64,9 @@ export function mimeOf(file: File): string {
 
 class Stop extends Error {}
 
+/** A part link is asked for again when older than this; they live an hour. */
+const PART_URL_FRESH_MS = 50 * 60_000;
+
 /** PUT with progress; resolves to the ETag (parts) or "". */
 function put(url: string, body: Uint8Array<ArrayBuffer>, onProgress: (n: number) => void, aborts: Set<() => void>): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -306,17 +309,22 @@ export class Uploader {
     src: EncryptedSource,
     first: { partNumber: number; url: string }[]
   ): Promise<{ partNumber: number; etag: string }[]> {
-    const urls = new Map(first.map((p) => [p.partNumber, p.url]));
+    // Part links live an hour (the API's URL_TTL_S); a long upload asks for
+    // fresh ones before they lapse, and again if storage refuses one anyway.
+    const now = Date.now();
+    const urls = new Map(first.map((p) => [p.partNumber, { url: p.url, at: now }]));
     const sentBy = new Map<number, number>();
     const etags: string[] = new Array(count);
     let next = 1;
     const urlFor = async (n: number): Promise<string> => {
-      if (!urls.has(n)) {
+      const have = urls.get(n);
+      if (!have || Date.now() - have.at > PART_URL_FRESH_MS) {
         const want = Array.from({ length: Math.min(MAX_PART_URLS, count - n + 1) }, (_, i) => n + i);
         const more = await this.client.partUrls(uploadId, want);
-        for (const p of more.partUrls) urls.set(p.partNumber, p.url);
+        const at = Date.now();
+        for (const p of more.partUrls) urls.set(p.partNumber, { url: p.url, at });
       }
-      return urls.get(n)!;
+      return urls.get(n)!.url;
     };
     const progress = () => {
       let total = 0;
@@ -331,10 +339,17 @@ export class Uploader {
         const end = Math.min(src.size, start + partSize);
         const body = await src.slice(start, end);
         etags[n - 1] = await retry(async () => {
-          const etag = await put(await urlFor(n), body, (b) => {
-            sentBy.set(n, b);
-            progress();
-          }, job.aborts);
+          let etag: string;
+          try {
+            etag = await put(await urlFor(n), body, (b) => {
+              sentBy.set(n, b);
+              progress();
+            }, job.aborts);
+          } catch (e) {
+            if (!(e instanceof DriveApiError) || e.status !== 403) throw e;
+            urls.delete(n);
+            throw new DriveApiError(0, "VAULT_URL_EXPIRED", "The part's link had expired");
+          }
           if (!etag) throw new DriveApiError(0, "VAULT_NO_ETAG", "Storage did not return the part's ETag");
           return etag;
         });

@@ -19,8 +19,24 @@ export async function blobUrlOf(client: DriveClient, o: DriveObject): Promise<st
   return item.url;
 }
 
+let opening = 0;
+
+/** Files being opened in the page right now (a zip of many takes a while); the idle lock waits for them. */
+export function downloadsBusy(): boolean {
+  return opening > 0;
+}
+
 /** The whole file, opened (and inflated) in the page. */
 export async function fetchPlain(client: DriveClient, o: DriveObject, onProgress?: (done: number, total: number) => void, signal?: AbortSignal): Promise<Blob> {
+  opening++;
+  try {
+    return await openPlain(client, o, onProgress, signal);
+  } finally {
+    opening--;
+  }
+}
+
+async function openPlain(client: DriveClient, o: DriveObject, onProgress?: (done: number, total: number) => void, signal?: AbortSignal): Promise<Blob> {
   if (!o.fileKey) throw new Error("no key");
   const url = await blobUrlOf(client, o);
   const res = await fetch(url, { signal });
@@ -45,7 +61,19 @@ export async function fetchPlain(client: DriveClient, o: DriveObject, onProgress
     }
     parts = [(await inflateRaw(joined, o.size ?? 0)) as Uint8Array<ArrayBuffer>];
   }
-  return new Blob(parts, { type: o.mime || "application/octet-stream" });
+  return new Blob(parts, { type: inertType(o.mime) });
+}
+
+/**
+ * The type a decrypted blob may carry. A blob: URL has the Drive's origin, so a
+ * type a browser would run (HTML, SVG, XML, script) is never given to one;
+ * images, sound, video, PDF and plain text keep theirs.
+ */
+export function inertType(mime: string | null | undefined): string {
+  const m = (mime ?? "").toLowerCase().split(";")[0]!.trim();
+  if (/^image\/(png|jpeg|gif|webp|avif|bmp|heic|heif|tiff|x-icon|vnd\.microsoft\.icon)$/.test(m)) return m;
+  if (/^(video|audio)\/[\w.+-]+$/.test(m) || m === "application/pdf" || m === "text/plain") return m;
+  return "application/octet-stream";
 }
 
 export function saveBlob(blob: Blob, name: string): void {
@@ -150,7 +178,7 @@ export async function streamMedia(client: DriveClient, o: DriveObject, scope: st
   const worker = await streamWorker(scope);
   if (!worker || !navigator.serviceWorker.controller) return null;
   const id = crypto.randomUUID();
-  const ok = await handshake(worker, { type: "session", id, url: await blobUrlOf(client, o), key: Array.from(o.fileKey), mime: o.mime || "application/octet-stream" });
+  const ok = await handshake(worker, { type: "session", id, url: await blobUrlOf(client, o), key: Array.from(o.fileKey), mime: inertType(o.mime) });
   if (!ok) return null;
   return { src: `/stream/${id}`, end: () => worker.postMessage({ type: "end", id }) };
 }
