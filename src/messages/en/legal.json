@@ -22,10 +22,11 @@
     "hero": {
       "title": "Privacy Policy",
       "effective": "Effective date: April 8, 2026",
-      "updated": "Last updated: April 8, 2026"
+      "updated": "Last updated: October 22, 2026"
     },
     "sections": {
       "overview": "Overview",
+      "drive": "BIShare Drive",
       "collect": "1. Information We Collect",
       "use": "2. How We Use Your Information",
       "storage": "3. Data Storage and Security",
@@ -40,6 +41,59 @@
     "overview": {
       "p1": "BIShare (“we,” “our,” or “us”) operates the BIShare mobile applications (iOS and Android), the desktop application (Windows and macOS), and the website located at <link>bishare.app</link> (collectively, the “Service”). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service.",
       "p2": "Please read this Privacy Policy carefully. By using the Service, you agree to the collection and use of information in accordance with this policy. If you do not agree with the terms of this Privacy Policy, please do not access or use the Service."
+    },
+    "drive": {
+      "intro": "BIShare Drive is optional storage in the BIShare apps and at drive.bishare.app. It is the only part of BIShare with an account, and you have one only if you choose to use Drive. Drive is end-to-end encrypted: your devices encrypt everything before it is uploaded, with a key only they hold.",
+      "items": [
+        {
+          "term": "Sign-in.",
+          "desc": "You open Drive with Sign in with Apple or Google sign-in, which gives us an account identifier. We keep only a keyed hash of that identifier, never your name, email address or password. For Apple sign-ins we also keep a sealed token, used only to revoke the sign-in when you delete your Drive."
+        },
+        {
+          "term": "Your files.",
+          "desc": "Files, file and folder names, thumbnails and device names are encrypted on your devices before upload. We store them encrypted and cannot read them."
+        },
+        {
+          "term": "What we can see.",
+          "desc": "To run the service we see each item's encrypted size and when it was added or changed, how much storage your Drive uses, your plan, and the region where it is stored."
+        },
+        {
+          "term": "Devices.",
+          "desc": "For each phone, computer or browser with access: a public key, whether it is an app or a browser, and when it was added and last used."
+        },
+        {
+          "term": "Key copy.",
+          "desc": "So you can return on a new device, a copy of your Drive's key is kept in your iCloud Keychain (Apple) or in a hidden app folder of your Google Drive (Google). It is sealed together with a value only our server holds, so neither the copy nor our server can open it alone. Your recovery phrase is shown only on your devices."
+        },
+        {
+          "term": "Photo backup.",
+          "desc": "If you turn on photo backup, the app reads your photo library on your device and uploads, encrypted, the photos and videos it has not backed up yet. Nothing else from your library leaves the device."
+        },
+        {
+          "term": "Links.",
+          "desc": "When you share a file or a folder as a link, the list of what it holds (names, sizes and the keys that open the files) is encrypted with a key that exists only in the link. We keep that sealed list, which items it covers, when the link ends and how many times it was opened. A copy of the link's key, sealed so that only your devices can open it, lets them show the link again. A link that was turned off, ended or was blocked is removed after 30 days."
+        },
+        {
+          "term": "Emailing a link.",
+          "desc": "If you ask BIShare to email a link, we receive the recipient's address, the whole link (its key included) and the name of what you share, only to write and send that email. We do not keep the link or the name; the address and the time stay in our delivery log for 30 days."
+        },
+        {
+          "term": "Purchases.",
+          "desc": "Paid plans are bought through the App Store or Google Play. Apple or Google tell us the plan, its dates and renewal status, and a transaction identifier, which we keep hashed. We never receive your payment details. Store notices are kept in full for 30 days for support, and removed after 400 days."
+        },
+        {
+          "term": "How long we keep it.",
+          "desc": "Items in the trash are deleted after 30 days. When a paid plan ends, the Drive stays readable for 30 days (7 days after a refund); anything above the free 5 GB is then deleted. A free Drive that no device opens for 12 months is deleted. When you delete your Drive, deletion starts at once and its stored files are removed within days."
+        },
+        {
+          "term": "Where it is stored.",
+          "desc": "Drive files are stored with Cloudflare R2 in one of six regions (Asia-Pacific, Western Europe, Eastern Europe, eastern North America, western North America, Oceania), chosen from where the Drive is first created."
+        },
+        {
+          "term": "Deleting your Drive.",
+          "desc": "Delete it at any time in the app under Drive, then Drive account. How to do it, also without a device, is at drive.bishare.app/delete-account."
+        }
+      ]
     },
     "collect": {
       "sub1": "1.1 Information You Provide",
@@ -95,11 +149,11 @@
       "legalDesc": "We may disclose information if required by law, subpoena, or court order, or if necessary to protect the rights, property, or safety of BIShare, our users, or the public."
     },
     "rights": {
-      "intro": "BIShare has no user accounts, so there is no profile, password, or stored personal data tied to you. You retain the following control over your data:",
+      "intro": "Sending files with BIShare needs no account, so there is no profile, password, or stored personal data tied to you. If you use BIShare Drive, see BIShare Drive above. You retain the following control over your data:",
       "items": [
         {
-          "title": "No Account",
-          "desc": "BIShare does not require an account. There is no profile or stored personal data to access, correct, or delete."
+          "title": "No Account to Send",
+          "desc": "Sending files needs no account. A BIShare Drive, if you have one, can be deleted with everything in it at any time."
         },
         {
           "title": "Local Transfers Collect Nothing",
@@ -137,10 +191,11 @@
     "hero": {
       "title": "Terms of Service",
       "effective": "Effective date: April 8, 2026",
-      "updated": "Last updated: April 8, 2026"
+      "updated": "Last updated: October 22, 2026"
     },
     "sections": {
       "overview": "Overview",
+      "drive": "BIShare Drive and paid plans",
       "eligibility": "1. Eligibility",
       "description": "2. Description of Service",
       "acceptableUse": "3. Acceptable Use",
@@ -158,6 +213,42 @@
     "overview": {
       "p1": "These Terms of Service (“Terms”) govern your access to and use of BIShare’s mobile applications, desktop applications, website, and related services (collectively, the “Service”) operated by Billion Group (PT Billion Jaya Group) (“we,” “our,” or “us”).",
       "p2": "By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use the Service."
+    },
+    "drive": {
+      "items": [
+        {
+          "term": "What Drive is.",
+          "desc": "BIShare Drive is optional, end-to-end encrypted storage for your files and photos, in the BIShare apps and at drive.bishare.app. You sign in with Apple or Google; a Windows or Linux computer, or a browser, is approved by a device that already has the Drive."
+        },
+        {
+          "term": "Free and paid plans.",
+          "desc": "Every Drive includes 5 GB free. More storage is a monthly or yearly subscription, bought in the BIShare app through the App Store or Google Play. The price is shown before you buy."
+        },
+        {
+          "term": "Renewal and cancellation.",
+          "desc": "Subscriptions renew automatically at the end of each period unless cancelled at least 24 hours before it ends. Payment is charged to your Apple or Google account. Manage or cancel a subscription in your App Store or Google Play account. Refunds are handled by Apple or Google under their terms."
+        },
+        {
+          "term": "When a plan ends.",
+          "desc": "The Drive becomes read-only for 30 days, so you can download or delete what is in it; after that, anything above the free 5 GB is deleted. A free Drive that no device opens for 12 months is deleted."
+        },
+        {
+          "term": "Your key.",
+          "desc": "Your files are encrypted with a key only your devices hold. Keep your recovery phrase safe: if you lose every device, the key copy in your Apple or Google account and the recovery phrase, nobody can recover your files, BIShare included."
+        },
+        {
+          "term": "Links.",
+          "desc": "Anyone who has a link from your Drive can open what it holds until the link ends or you turn it off, so share it only with people you trust. We may block a link that is reported for abuse."
+        },
+        {
+          "term": "Use of Drive.",
+          "desc": "The Acceptable Use rules apply to Drive. We cannot see what you store; we may suspend or delete a Drive when the law requires it or to stop abuse of the Service."
+        },
+        {
+          "term": "Deleting your Drive.",
+          "desc": "You can delete your Drive at any time in the app. Deleting it does not cancel a subscription; cancel that in your App Store or Google Play account."
+        }
+      ]
     },
     "eligibility": {
       "text": "You must be at least 13 years old to use the Service. If you are under 18, you represent that you have your parent or guardian’s permission to use the Service. By using the Service, you represent and warrant that you meet these eligibility requirements."

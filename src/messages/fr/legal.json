@@ -22,10 +22,11 @@
     "hero": {
       "title": "Politique de confidentialité",
       "effective": "Date d’entrée en vigueur : 8 avril 2026",
-      "updated": "Dernière mise à jour : 8 avril 2026"
+      "updated": "Dernière mise à jour : 22 octobre 2026"
     },
     "sections": {
       "overview": "Aperçu",
+      "drive": "BIShare Drive",
       "collect": "1. Informations que Nous Collectons",
       "use": "2. Comment Nous Utilisons vos Informations",
       "storage": "3. Stockage et Sécurité des Données",
@@ -40,6 +41,59 @@
     "overview": {
       "p1": "BIShare (« nous ») exploite les applications mobiles BIShare (iOS et Android), l’application de bureau (Windows et macOS) et le site web situé à l’adresse <link>bishare.app</link> (collectivement, le « Service »). La présente Politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous utilisez notre Service.",
       "p2": "Veuillez lire attentivement cette Politique de confidentialité. En utilisant le Service, vous acceptez la collecte et l’utilisation des informations conformément à cette politique. Si vous n’acceptez pas les termes de cette Politique de confidentialité, veuillez ne pas accéder au Service ni l’utiliser."
+    },
+    "drive": {
+      "intro": "BIShare Drive est un espace de stockage facultatif dans les applications BIShare et sur drive.bishare.app. C’est la seule partie de BIShare qui comporte un compte, et vous n’en avez un que si vous choisissez d’utiliser Drive. Drive est chiffré de bout en bout : vos appareils chiffrent tout avant l’envoi, avec une clé qu’eux seuls détiennent.",
+      "items": [
+        {
+          "term": "Connexion.",
+          "desc": "Vous ouvrez Drive avec « Se connecter avec Apple » ou la connexion Google, qui nous transmet un identifiant de compte. Nous n’en conservons qu’une empreinte (hachage à clé), jamais votre nom, votre adresse e-mail ni votre mot de passe. Pour une connexion Apple, nous conservons aussi un jeton scellé, utilisé uniquement pour révoquer la connexion lorsque vous supprimez votre Drive."
+        },
+        {
+          "term": "Vos fichiers.",
+          "desc": "Les fichiers, les noms de fichiers et de dossiers, les miniatures et les noms d’appareils sont chiffrés sur vos appareils avant l’envoi. Nous les conservons chiffrés et ne pouvons pas les lire."
+        },
+        {
+          "term": "Ce que nous pouvons voir.",
+          "desc": "Pour faire fonctionner le service, nous voyons la taille chiffrée de chaque élément et la date de son ajout ou de sa modification, l’espace utilisé par votre Drive, votre forfait et la région où il est stocké."
+        },
+        {
+          "term": "Appareils.",
+          "desc": "Pour chaque téléphone, ordinateur ou navigateur ayant accès : une clé publique, s’il s’agit d’une application ou d’un navigateur, et la date de son ajout et de sa dernière utilisation."
+        },
+        {
+          "term": "Copie de la clé.",
+          "desc": "Pour que vous puissiez revenir sur un nouvel appareil, une copie de la clé de votre Drive est conservée dans votre trousseau iCloud (Apple) ou dans un dossier d’application masqué de votre Google Drive (Google). Elle est scellée avec une valeur que seul notre serveur détient : ni la copie ni notre serveur ne peuvent l’ouvrir seuls. Votre phrase de récupération n’est affichée que sur vos appareils."
+        },
+        {
+          "term": "Sauvegarde des photos.",
+          "desc": "Si vous activez la sauvegarde des photos, l’application lit votre photothèque sur votre appareil et envoie, chiffrées, les photos et vidéos qu’elle n’a pas encore sauvegardées. Rien d’autre de votre photothèque ne quitte l’appareil."
+        },
+        {
+          "term": "Liens.",
+          "desc": "Lorsque vous partagez un fichier ou un dossier en lien, la liste de son contenu (noms, tailles et clés qui ouvrent les fichiers) est chiffrée avec une clé qui n’existe que dans le lien. Nous conservons cette liste scellée, les éléments qu’elle couvre, la date de fin du lien et le nombre de fois où il a été ouvert. Une copie de la clé du lien, scellée pour que seuls vos appareils puissent l’ouvrir, leur permet d’afficher le lien à nouveau. Un lien désactivé, expiré ou bloqué est supprimé au bout de 30 jours."
+        },
+        {
+          "term": "Envoyer un lien par e-mail.",
+          "desc": "Si vous demandez à BIShare d’envoyer un lien par e-mail, nous recevons l’adresse du destinataire, le lien complet (clé comprise) et le nom de ce que vous partagez, uniquement pour rédiger et envoyer cet e-mail. Nous ne conservons ni le lien ni le nom ; l’adresse et l’heure restent 30 jours dans notre journal d’envoi."
+        },
+        {
+          "term": "Achats.",
+          "desc": "Les forfaits payants s’achètent via l’App Store ou Google Play. Apple ou Google nous indiquent le forfait, ses dates, l’état du renouvellement et un identifiant de transaction, que nous conservons haché. Nous ne recevons jamais vos données de paiement. Les notifications des stores sont conservées en entier 30 jours pour l’assistance, puis supprimées au bout de 400 jours."
+        },
+        {
+          "term": "Durée de conservation.",
+          "desc": "Les éléments de la corbeille sont supprimés au bout de 30 jours. Quand un forfait payant se termine, le Drive reste lisible pendant 30 jours (7 jours après un remboursement) ; tout ce qui dépasse les 5 Go gratuits est ensuite supprimé. Un Drive gratuit qu’aucun appareil n’ouvre pendant 12 mois est supprimé. Quand vous supprimez votre Drive, la suppression commence aussitôt et ses fichiers stockés sont effacés en quelques jours."
+        },
+        {
+          "term": "Lieu de stockage.",
+          "desc": "Les fichiers Drive sont stockés chez Cloudflare R2 dans l’une de six régions (Asie-Pacifique, Europe de l’Ouest, Europe de l’Est, est de l’Amérique du Nord, ouest de l’Amérique du Nord, Océanie), choisie selon l’endroit où le Drive est créé pour la première fois."
+        },
+        {
+          "term": "Supprimer votre Drive.",
+          "desc": "Supprimez-le à tout moment dans l’application, sous Drive, puis Compte Drive. La marche à suivre, y compris sans appareil, se trouve sur drive.bishare.app/delete-account."
+        }
+      ]
     },
     "collect": {
       "sub1": "1.1 Informations que Vous Fournissez",
@@ -95,11 +149,11 @@
       "legalDesc": "Nous pouvons divulguer des informations si la loi, une assignation ou une décision de justice l’exige, ou si cela est nécessaire pour protéger les droits, les biens ou la sécurité de BIShare, de nos utilisateurs ou du public."
     },
     "rights": {
-      "intro": "BIShare n’a pas de comptes utilisateurs : aucun profil, mot de passe ni donnée personnelle stockée n’est associé à vous. Vous conservez le contrôle suivant sur vos données :",
+      "intro": "L’envoi de fichiers avec BIShare ne nécessite aucun compte : aucun profil, mot de passe ni donnée personnelle stockée n’est associé à vous. Si vous utilisez BIShare Drive, consultez la section BIShare Drive ci-dessus. Vous conservez le contrôle suivant sur vos données :",
       "items": [
         {
-          "title": "Aucun Compte",
-          "desc": "BIShare ne nécessite pas de compte. Il n’y a aucun profil ni donnée personnelle stockée à consulter, corriger ou supprimer."
+          "title": "Aucun Compte pour Envoyer",
+          "desc": "L’envoi de fichiers ne nécessite aucun compte. Un BIShare Drive, si vous en avez un, peut être supprimé avec tout son contenu à tout moment."
         },
         {
           "title": "Les Transferts Locaux ne Collectent Rien",
@@ -137,10 +191,11 @@
     "hero": {
       "title": "Conditions d’utilisation",
       "effective": "Date d’entrée en vigueur : 8 avril 2026",
-      "updated": "Dernière mise à jour : 8 avril 2026"
+      "updated": "Dernière mise à jour : 22 octobre 2026"
     },
     "sections": {
       "overview": "Aperçu",
+      "drive": "BIShare Drive et forfaits payants",
       "eligibility": "1. Admissibilité",
       "description": "2. Description du Service",
       "acceptableUse": "3. Utilisation Acceptable",
@@ -158,6 +213,42 @@
     "overview": {
       "p1": "Les présentes Conditions d’utilisation (« Conditions ») régissent votre accès et votre utilisation des applications mobiles, des applications de bureau, du site web et des services associés de BIShare (collectivement, le « Service ») exploités par Billion Group (PT Billion Jaya Group) (« nous »).",
       "p2": "En accédant au Service ou en l’utilisant, vous acceptez d’être lié par ces Conditions. Si vous n’acceptez pas ces Conditions, vous ne pouvez pas accéder au Service ni l’utiliser."
+    },
+    "drive": {
+      "items": [
+        {
+          "term": "Ce qu’est Drive.",
+          "desc": "BIShare Drive est un stockage facultatif, chiffré de bout en bout, pour vos fichiers et vos photos, dans les applications BIShare et sur drive.bishare.app. Vous vous connectez avec Apple ou Google ; un ordinateur Windows ou Linux, ou un navigateur, est approuvé par un appareil qui a déjà le Drive."
+        },
+        {
+          "term": "Forfaits gratuits et payants.",
+          "desc": "Chaque Drive comprend 5 Go gratuits. Davantage d’espace est proposé en abonnement mensuel ou annuel, acheté dans l’application BIShare via l’App Store ou Google Play. Le prix est affiché avant l’achat."
+        },
+        {
+          "term": "Renouvellement et résiliation.",
+          "desc": "Les abonnements se renouvellent automatiquement à la fin de chaque période, sauf résiliation au moins 24 heures avant son terme. Le paiement est débité de votre compte Apple ou Google. Gérez ou résiliez un abonnement dans votre compte App Store ou Google Play. Les remboursements sont traités par Apple ou Google selon leurs conditions."
+        },
+        {
+          "term": "À la fin d’un forfait.",
+          "desc": "Le Drive passe en lecture seule pendant 30 jours, pour que vous puissiez télécharger ou supprimer son contenu ; ensuite, tout ce qui dépasse les 5 Go gratuits est supprimé. Un Drive gratuit qu’aucun appareil n’ouvre pendant 12 mois est supprimé."
+        },
+        {
+          "term": "Votre clé.",
+          "desc": "Vos fichiers sont chiffrés avec une clé que seuls vos appareils détiennent. Conservez votre phrase de récupération en lieu sûr : si vous perdez tous vos appareils, la copie de la clé dans votre compte Apple ou Google et la phrase de récupération, personne ne pourra récupérer vos fichiers, pas même BIShare."
+        },
+        {
+          "term": "Liens.",
+          "desc": "Toute personne disposant d’un lien de votre Drive peut ouvrir son contenu jusqu’à la fin du lien ou jusqu’à ce que vous le désactiviez ; ne le partagez donc qu’avec des personnes de confiance. Nous pouvons bloquer un lien signalé pour abus."
+        },
+        {
+          "term": "Utilisation de Drive.",
+          "desc": "Les règles d’Utilisation Acceptable s’appliquent à Drive. Nous ne pouvons pas voir ce que vous stockez ; nous pouvons suspendre ou supprimer un Drive lorsque la loi l’exige ou pour mettre fin à un abus du Service."
+        },
+        {
+          "term": "Supprimer votre Drive.",
+          "desc": "Vous pouvez supprimer votre Drive à tout moment dans l’application. Le supprimer ne résilie pas un abonnement ; résiliez-le dans votre compte App Store ou Google Play."
+        }
+      ]
     },
     "eligibility": {
       "text": "Vous devez avoir au moins 13 ans pour utiliser le Service. Si vous avez moins de 18 ans, vous déclarez disposer de l’autorisation de votre parent ou tuteur pour utiliser le Service. En utilisant le Service, vous déclarez et garantissez remplir ces conditions d’admissibilité."

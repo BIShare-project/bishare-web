@@ -22,10 +22,11 @@
     "hero": {
       "title": "Política de Privacidade",
       "effective": "Data de vigência: 8 de abril de 2026",
-      "updated": "Última atualização: 8 de abril de 2026"
+      "updated": "Última atualização: 22 de outubro de 2026"
     },
     "sections": {
       "overview": "Visão geral",
+      "drive": "BIShare Drive",
       "collect": "1. Informações que Coletamos",
       "use": "2. Como Usamos suas Informações",
       "storage": "3. Armazenamento e Segurança de Dados",
@@ -40,6 +41,59 @@
     "overview": {
       "p1": "O BIShare (“nós”) opera os aplicativos móveis BIShare (iOS e Android), o aplicativo desktop (Windows e macOS) e o site localizado em <link>bishare.app</link> (em conjunto, o “Serviço”). Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações quando você usa o nosso Serviço.",
       "p2": "Leia esta Política de Privacidade com atenção. Ao usar o Serviço, você concorda com a coleta e o uso de informações de acordo com esta política. Se você não concordar com os termos desta Política de Privacidade, não acesse nem use o Serviço."
+    },
+    "drive": {
+      "intro": "O BIShare Drive é um armazenamento opcional nos apps do BIShare e em drive.bishare.app. É a única parte do BIShare com conta, e você só tem uma se escolher usar o Drive. O Drive tem criptografia de ponta a ponta: seus dispositivos criptografam tudo antes do envio, com uma chave que só eles têm.",
+      "items": [
+        {
+          "term": "Login.",
+          "desc": "Você abre o Drive com Iniciar sessão com a Apple ou com o login do Google, que nos fornece um identificador de conta. Guardamos apenas um hash com chave desse identificador, nunca seu nome, endereço de e-mail ou senha. Nos logins com a Apple também guardamos um token selado, usado apenas para revogar o login quando você exclui seu Drive."
+        },
+        {
+          "term": "Seus arquivos.",
+          "desc": "Arquivos, nomes de arquivos e pastas, miniaturas e nomes de dispositivos são criptografados nos seus dispositivos antes do envio. Nós os guardamos criptografados e não conseguimos lê-los."
+        },
+        {
+          "term": "O que podemos ver.",
+          "desc": "Para operar o serviço, vemos o tamanho criptografado de cada item e quando ele foi adicionado ou alterado, quanto armazenamento seu Drive usa, seu plano e a região onde ele fica guardado."
+        },
+        {
+          "term": "Dispositivos.",
+          "desc": "Para cada celular, computador ou navegador com acesso: uma chave pública, se é um app ou um navegador, e quando foi adicionado e usado pela última vez."
+        },
+        {
+          "term": "Cópia da chave.",
+          "desc": "Para que você possa voltar em um dispositivo novo, uma cópia da chave do seu Drive fica no seu Chaves do iCloud (Apple) ou em uma pasta oculta do app no seu Google Drive (Google). Ela é selada junto com um valor que só o nosso servidor tem, então nem a cópia nem o nosso servidor conseguem abri-la sozinhos. Sua frase de recuperação só aparece nos seus dispositivos."
+        },
+        {
+          "term": "Backup de fotos.",
+          "desc": "Se você ativar o backup de fotos, o app lê sua biblioteca de fotos no dispositivo e envia, criptografados, as fotos e vídeos que ainda não foram copiados. Nada mais da sua biblioteca sai do dispositivo."
+        },
+        {
+          "term": "Links.",
+          "desc": "Quando você compartilha um arquivo ou uma pasta como link, a lista do que ele contém (nomes, tamanhos e as chaves que abrem os arquivos) é criptografada com uma chave que só existe no link. Guardamos essa lista selada, quais itens ela cobre, quando o link termina e quantas vezes foi aberto. Uma cópia da chave do link, selada para que só seus dispositivos possam abri-la, permite que eles mostrem o link de novo. Um link desativado, expirado ou bloqueado é removido após 30 dias."
+        },
+        {
+          "term": "Enviar um link por e-mail.",
+          "desc": "Se você pedir ao BIShare para enviar um link por e-mail, recebemos o endereço do destinatário, o link completo (incluindo a chave) e o nome do que você compartilha, apenas para escrever e enviar esse e-mail. Não guardamos o link nem o nome; o endereço e o horário ficam no nosso registro de envios por 30 dias."
+        },
+        {
+          "term": "Compras.",
+          "desc": "Os planos pagos são comprados pela App Store ou pelo Google Play. A Apple ou o Google nos informam o plano, suas datas e o status de renovação, e um identificador de transação, que guardamos como hash. Nunca recebemos seus dados de pagamento. Os avisos das lojas ficam completos por 30 dias para suporte e são removidos após 400 dias."
+        },
+        {
+          "term": "Por quanto tempo guardamos.",
+          "desc": "Itens na lixeira são excluídos após 30 dias. Quando um plano pago termina, o Drive continua legível por 30 dias (7 dias após um reembolso); depois, tudo o que passar dos 5 GB gratuitos é excluído. Um Drive gratuito que nenhum dispositivo abre por 12 meses é excluído. Quando você exclui seu Drive, a exclusão começa na hora e os arquivos guardados são removidos em poucos dias."
+        },
+        {
+          "term": "Onde fica guardado.",
+          "desc": "Os arquivos do Drive ficam no Cloudflare R2 em uma de seis regiões (Ásia-Pacífico, Europa Ocidental, Europa Oriental, leste da América do Norte, oeste da América do Norte, Oceania), escolhida conforme o local onde o Drive é criado pela primeira vez."
+        },
+        {
+          "term": "Excluir seu Drive.",
+          "desc": "Exclua quando quiser no app, em Drive e depois Conta do Drive. Como fazer isso, inclusive sem um dispositivo, está em drive.bishare.app/delete-account."
+        }
+      ]
     },
     "collect": {
       "sub1": "1.1 Informações que Você Fornece",
@@ -95,11 +149,11 @@
       "legalDesc": "Podemos divulgar informações se exigido por lei, intimação ou ordem judicial, ou se necessário para proteger os direitos, a propriedade ou a segurança do BIShare, dos nossos usuários ou do público."
     },
     "rights": {
-      "intro": "O BIShare não tem contas de usuário, portanto não há perfil, senha ou dados pessoais armazenados vinculados a você. Você mantém o seguinte controle sobre seus dados:",
+      "intro": "Enviar arquivos com o BIShare não exige conta, portanto não há perfil, senha ou dados pessoais armazenados vinculados a você. Se você usa o BIShare Drive, veja a seção BIShare Drive acima. Você mantém o seguinte controle sobre seus dados:",
       "items": [
         {
-          "title": "Sem Conta",
-          "desc": "O BIShare não exige uma conta. Não há perfil nem dados pessoais armazenados para acessar, corrigir ou excluir."
+          "title": "Sem Conta para Enviar",
+          "desc": "Enviar arquivos não exige conta. Um BIShare Drive, se você tiver um, pode ser excluído com tudo o que contém a qualquer momento."
         },
         {
           "title": "Transferências Locais não Coletam Nada",
@@ -137,10 +191,11 @@
     "hero": {
       "title": "Termos de Serviço",
       "effective": "Data de vigência: 8 de abril de 2026",
-      "updated": "Última atualização: 8 de abril de 2026"
+      "updated": "Última atualização: 22 de outubro de 2026"
     },
     "sections": {
       "overview": "Visão geral",
+      "drive": "BIShare Drive e planos pagos",
       "eligibility": "1. Elegibilidade",
       "description": "2. Descrição do Serviço",
       "acceptableUse": "3. Uso Aceitável",
@@ -158,6 +213,42 @@
     "overview": {
       "p1": "Estes Termos de Serviço (“Termos”) regem seu acesso e uso dos aplicativos móveis, aplicativos desktop, site e serviços relacionados do BIShare (em conjunto, o “Serviço”), operados pelo Billion Group (PT Billion Jaya Group) (“nós”).",
       "p2": "Ao acessar ou usar o Serviço, você concorda em ficar vinculado a estes Termos. Se você não concordar com estes Termos, não poderá acessar nem usar o Serviço."
+    },
+    "drive": {
+      "items": [
+        {
+          "term": "O que é o Drive.",
+          "desc": "O BIShare Drive é um armazenamento opcional, com criptografia de ponta a ponta, para seus arquivos e fotos, nos apps do BIShare e em drive.bishare.app. Você entra com a Apple ou o Google; um computador Windows ou Linux, ou um navegador, é aprovado por um dispositivo que já tem o Drive."
+        },
+        {
+          "term": "Planos gratuitos e pagos.",
+          "desc": "Todo Drive inclui 5 GB grátis. Mais armazenamento é uma assinatura mensal ou anual, comprada no app BIShare pela App Store ou pelo Google Play. O preço aparece antes da compra."
+        },
+        {
+          "term": "Renovação e cancelamento.",
+          "desc": "As assinaturas se renovam automaticamente ao fim de cada período, a menos que sejam canceladas pelo menos 24 horas antes do fim. O pagamento é cobrado na sua conta Apple ou Google. Gerencie ou cancele uma assinatura na sua conta da App Store ou do Google Play. Reembolsos são tratados pela Apple ou pelo Google conforme os termos deles."
+        },
+        {
+          "term": "Quando um plano termina.",
+          "desc": "O Drive fica somente leitura por 30 dias, para que você possa baixar ou excluir o que há nele; depois, tudo o que passar dos 5 GB gratuitos é excluído. Um Drive gratuito que nenhum dispositivo abre por 12 meses é excluído."
+        },
+        {
+          "term": "Sua chave.",
+          "desc": "Seus arquivos são criptografados com uma chave que só seus dispositivos têm. Guarde bem sua frase de recuperação: se você perder todos os dispositivos, a cópia da chave na sua conta Apple ou Google e a frase de recuperação, ninguém poderá recuperar seus arquivos, nem o BIShare."
+        },
+        {
+          "term": "Links.",
+          "desc": "Qualquer pessoa com um link do seu Drive pode abrir o que ele contém até o link terminar ou você desativá-lo, então compartilhe só com quem você confia. Podemos bloquear um link denunciado por abuso."
+        },
+        {
+          "term": "Uso do Drive.",
+          "desc": "As regras de Uso Aceitável valem para o Drive. Não conseguimos ver o que você guarda; podemos suspender ou excluir um Drive quando a lei exigir ou para impedir abuso do Serviço."
+        },
+        {
+          "term": "Excluir seu Drive.",
+          "desc": "Você pode excluir seu Drive a qualquer momento no app. Excluí-lo não cancela uma assinatura; cancele-a na sua conta da App Store ou do Google Play."
+        }
+      ]
     },
     "eligibility": {
       "text": "Você deve ter pelo menos 13 anos para usar o Serviço. Se você tiver menos de 18 anos, declara que tem a permissão do seu pai, mãe ou responsável para usar o Serviço. Ao usar o Serviço, você declara e garante que atende a esses requisitos de elegibilidade."

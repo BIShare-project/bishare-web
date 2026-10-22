@@ -22,10 +22,11 @@
     "hero": {
       "title": "Kebijakan Privasi",
       "effective": "Tanggal berlaku: 8 April 2026",
-      "updated": "Terakhir diperbarui: 8 April 2026"
+      "updated": "Terakhir diperbarui: 22 Oktober 2026"
     },
     "sections": {
       "overview": "Ikhtisar",
+      "drive": "BIShare Drive",
       "collect": "1. Informasi yang Kami Kumpulkan",
       "use": "2. Cara Kami Menggunakan Informasi Anda",
       "storage": "3. Penyimpanan dan Keamanan Data",
@@ -40,6 +41,59 @@
     "overview": {
       "p1": "BIShare (“kami”) mengoperasikan aplikasi seluler BIShare (iOS dan Android), aplikasi desktop (Windows dan macOS), serta situs web yang berada di <link>bishare.app</link> (secara kolektif disebut “Layanan”). Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, mengungkapkan, dan melindungi informasi Anda saat Anda menggunakan Layanan kami.",
       "p2": "Harap baca Kebijakan Privasi ini dengan saksama. Dengan menggunakan Layanan, Anda menyetujui pengumpulan dan penggunaan informasi sesuai kebijakan ini. Jika Anda tidak menyetujui ketentuan Kebijakan Privasi ini, harap jangan mengakses atau menggunakan Layanan."
+    },
+    "drive": {
+      "intro": "BIShare Drive adalah penyimpanan opsional di aplikasi BIShare dan di drive.bishare.app. Inilah satu-satunya bagian BIShare yang memakai akun, dan Anda hanya memilikinya jika memilih memakai Drive. Drive terenkripsi end-to-end: perangkat Anda mengenkripsi semuanya sebelum diunggah, dengan kunci yang hanya dipegang perangkat Anda.",
+      "items": [
+        {
+          "term": "Masuk.",
+          "desc": "Anda membuka Drive dengan Masuk dengan Apple atau masuk dengan Google, yang memberi kami sebuah pengenal akun. Kami hanya menyimpan hash berkunci dari pengenal itu, tidak pernah nama, alamat email, atau kata sandi Anda. Untuk masuk dengan Apple, kami juga menyimpan token tersegel yang hanya dipakai untuk mencabut izin masuk saat Anda menghapus Drive."
+        },
+        {
+          "term": "File Anda.",
+          "desc": "File, nama file dan folder, gambar mini, serta nama perangkat dienkripsi di perangkat Anda sebelum diunggah. Kami menyimpannya dalam keadaan terenkripsi dan tidak dapat membacanya."
+        },
+        {
+          "term": "Yang dapat kami lihat.",
+          "desc": "Untuk menjalankan layanan, kami melihat ukuran terenkripsi setiap item dan kapan item itu ditambahkan atau diubah, berapa banyak penyimpanan yang dipakai Drive Anda, paket Anda, dan wilayah tempat Drive disimpan."
+        },
+        {
+          "term": "Perangkat.",
+          "desc": "Untuk setiap ponsel, komputer, atau browser yang memiliki akses: kunci publik, apakah itu aplikasi atau browser, serta kapan perangkat itu ditambahkan dan terakhir dipakai."
+        },
+        {
+          "term": "Salinan kunci.",
+          "desc": "Agar Anda bisa kembali di perangkat baru, salinan kunci Drive Anda disimpan di iCloud Keychain Anda (Apple) atau di folder aplikasi tersembunyi di Google Drive Anda (Google). Salinan itu disegel bersama nilai yang hanya dipegang server kami, sehingga baik salinan itu maupun server kami tidak dapat membukanya sendiri. Frasa pemulihan Anda hanya ditampilkan di perangkat Anda."
+        },
+        {
+          "term": "Pencadangan foto.",
+          "desc": "Jika Anda menyalakan pencadangan foto, aplikasi membaca galeri foto di perangkat Anda dan mengunggah, dalam keadaan terenkripsi, foto dan video yang belum dicadangkan. Tidak ada hal lain dari galeri Anda yang keluar dari perangkat."
+        },
+        {
+          "term": "Tautan.",
+          "desc": "Saat Anda membagikan file atau folder sebagai tautan, daftar isinya (nama, ukuran, dan kunci pembuka file) dienkripsi dengan kunci yang hanya ada di dalam tautan. Kami menyimpan daftar tersegel itu, item mana saja yang dicakupnya, kapan tautan berakhir, dan berapa kali tautan dibuka. Salinan kunci tautan, yang disegel sehingga hanya perangkat Anda yang dapat membukanya, membuat perangkat Anda bisa menampilkan tautan itu lagi. Tautan yang dimatikan, sudah berakhir, atau diblokir dihapus setelah 30 hari."
+        },
+        {
+          "term": "Mengirim tautan lewat email.",
+          "desc": "Jika Anda meminta BIShare mengirim tautan lewat email, kami menerima alamat penerima, tautan lengkapnya (termasuk kuncinya), dan nama yang Anda bagikan, hanya untuk menulis dan mengirim email itu. Kami tidak menyimpan tautan maupun nama itu; alamat dan waktunya tetap ada di log pengiriman kami selama 30 hari."
+        },
+        {
+          "term": "Pembelian.",
+          "desc": "Paket berbayar dibeli melalui App Store atau Google Play. Apple atau Google memberi tahu kami paketnya, tanggalnya, status perpanjangannya, dan pengenal transaksi, yang kami simpan dalam bentuk hash. Kami tidak pernah menerima detail pembayaran Anda. Pemberitahuan dari toko disimpan utuh selama 30 hari untuk keperluan dukungan, dan dihapus setelah 400 hari."
+        },
+        {
+          "term": "Berapa lama kami menyimpannya.",
+          "desc": "Item di sampah dihapus setelah 30 hari. Saat paket berbayar berakhir, Drive tetap bisa dibaca selama 30 hari (7 hari setelah pengembalian dana); setelah itu, apa pun yang melebihi 5 GB gratis dihapus. Drive gratis yang tidak dibuka perangkat mana pun selama 12 bulan dihapus. Saat Anda menghapus Drive, penghapusan langsung dimulai dan file yang tersimpan dihapus dalam beberapa hari."
+        },
+        {
+          "term": "Tempat penyimpanan.",
+          "desc": "File Drive disimpan di Cloudflare R2 di salah satu dari enam wilayah (Asia-Pasifik, Eropa Barat, Eropa Timur, Amerika Utara bagian timur, Amerika Utara bagian barat, Oseania), yang dipilih berdasarkan lokasi saat Drive pertama kali dibuat."
+        },
+        {
+          "term": "Menghapus Drive Anda.",
+          "desc": "Hapus kapan saja di aplikasi melalui Drive, lalu Akun Drive. Cara melakukannya, termasuk tanpa perangkat, ada di drive.bishare.app/delete-account."
+        }
+      ]
     },
     "collect": {
       "sub1": "1.1 Informasi yang Anda Berikan",
@@ -95,11 +149,11 @@
       "legalDesc": "Kami dapat mengungkapkan informasi jika diwajibkan oleh hukum, panggilan pengadilan, atau perintah pengadilan, atau jika diperlukan untuk melindungi hak, properti, atau keselamatan BIShare, pengguna kami, atau publik."
     },
     "rights": {
-      "intro": "BIShare tidak memiliki akun pengguna, sehingga tidak ada profil, kata sandi, atau data pribadi tersimpan yang terkait dengan Anda. Anda tetap memegang kendali berikut atas data Anda:",
+      "intro": "Mengirim file dengan BIShare tidak memerlukan akun, sehingga tidak ada profil, kata sandi, atau data pribadi tersimpan yang terkait dengan Anda. Jika Anda memakai BIShare Drive, lihat bagian BIShare Drive di atas. Anda tetap memegang kendali berikut atas data Anda:",
       "items": [
         {
-          "title": "Tanpa Akun",
-          "desc": "BIShare tidak memerlukan akun. Tidak ada profil atau data pribadi tersimpan yang perlu diakses, dikoreksi, atau dihapus."
+          "title": "Tanpa Akun untuk Mengirim",
+          "desc": "Mengirim file tidak memerlukan akun. BIShare Drive, jika Anda memilikinya, dapat dihapus beserta seluruh isinya kapan saja."
         },
         {
           "title": "Transfer Lokal Tidak Mengumpulkan Apa Pun",
@@ -137,10 +191,11 @@
     "hero": {
       "title": "Ketentuan Layanan",
       "effective": "Tanggal berlaku: 8 April 2026",
-      "updated": "Terakhir diperbarui: 8 April 2026"
+      "updated": "Terakhir diperbarui: 22 Oktober 2026"
     },
     "sections": {
       "overview": "Ikhtisar",
+      "drive": "BIShare Drive dan paket berbayar",
       "eligibility": "1. Kelayakan",
       "description": "2. Deskripsi Layanan",
       "acceptableUse": "3. Penggunaan yang Wajar",
@@ -158,6 +213,42 @@
     "overview": {
       "p1": "Ketentuan Layanan ini (“Ketentuan”) mengatur akses dan penggunaan Anda atas aplikasi seluler, aplikasi desktop, situs web, dan layanan terkait BIShare (secara kolektif disebut “Layanan”) yang dioperasikan oleh Billion Group (PT Billion Jaya Group) (“kami”).",
       "p2": "Dengan mengakses atau menggunakan Layanan, Anda setuju untuk terikat oleh Ketentuan ini. Jika Anda tidak menyetujui Ketentuan ini, Anda tidak boleh mengakses atau menggunakan Layanan."
+    },
+    "drive": {
+      "items": [
+        {
+          "term": "Apa itu Drive.",
+          "desc": "BIShare Drive adalah penyimpanan opsional yang terenkripsi end-to-end untuk file dan foto Anda, di aplikasi BIShare dan di drive.bishare.app. Anda masuk dengan Apple atau Google; komputer Windows atau Linux, atau browser, disetujui oleh perangkat yang sudah memiliki Drive."
+        },
+        {
+          "term": "Paket gratis dan berbayar.",
+          "desc": "Setiap Drive mendapat 5 GB gratis. Penyimpanan lebih besar tersedia sebagai langganan bulanan atau tahunan, dibeli di aplikasi BIShare melalui App Store atau Google Play. Harganya ditampilkan sebelum Anda membeli."
+        },
+        {
+          "term": "Perpanjangan dan pembatalan.",
+          "desc": "Langganan diperpanjang otomatis di akhir setiap periode kecuali dibatalkan paling lambat 24 jam sebelum periode berakhir. Pembayaran ditagihkan ke akun Apple atau Google Anda. Kelola atau batalkan langganan di akun App Store atau Google Play Anda. Pengembalian dana ditangani oleh Apple atau Google sesuai ketentuan mereka."
+        },
+        {
+          "term": "Saat paket berakhir.",
+          "desc": "Drive menjadi hanya-baca selama 30 hari, sehingga Anda bisa mengunduh atau menghapus isinya; setelah itu, apa pun yang melebihi 5 GB gratis dihapus. Drive gratis yang tidak dibuka perangkat mana pun selama 12 bulan dihapus."
+        },
+        {
+          "term": "Kunci Anda.",
+          "desc": "File Anda dienkripsi dengan kunci yang hanya dipegang perangkat Anda. Simpan frasa pemulihan Anda dengan aman: jika Anda kehilangan semua perangkat, salinan kunci di akun Apple atau Google Anda, dan frasa pemulihan, tidak ada yang dapat memulihkan file Anda, termasuk BIShare."
+        },
+        {
+          "term": "Tautan.",
+          "desc": "Siapa pun yang memiliki tautan dari Drive Anda dapat membuka isinya sampai tautan berakhir atau Anda mematikannya, jadi bagikan hanya kepada orang yang Anda percaya. Kami dapat memblokir tautan yang dilaporkan karena penyalahgunaan."
+        },
+        {
+          "term": "Penggunaan Drive.",
+          "desc": "Aturan Penggunaan yang Dapat Diterima berlaku untuk Drive. Kami tidak dapat melihat apa yang Anda simpan; kami dapat menangguhkan atau menghapus Drive bila diwajibkan hukum atau untuk menghentikan penyalahgunaan Layanan."
+        },
+        {
+          "term": "Menghapus Drive Anda.",
+          "desc": "Anda dapat menghapus Drive kapan saja di aplikasi. Menghapus Drive tidak membatalkan langganan; batalkan langganan di akun App Store atau Google Play Anda."
+        }
+      ]
     },
     "eligibility": {
       "text": "Anda harus berusia minimal 13 tahun untuk menggunakan Layanan. Jika Anda berusia di bawah 18 tahun, Anda menyatakan bahwa Anda memiliki izin dari orang tua atau wali untuk menggunakan Layanan. Dengan menggunakan Layanan, Anda menyatakan dan menjamin bahwa Anda memenuhi persyaratan kelayakan ini."

@@ -35,9 +35,16 @@ const TABLE_WRAP = "overflow-x-auto rounded-xl border border-border";
 const TH = "px-4 py-3 text-left font-mono text-[11px] font-semibold tracking-[0.14em] text-muted-foreground uppercase";
 const TERM = "font-medium text-foreground";
 
+/** A term and its explanation, as the BIShare Drive section lists them. */
+interface DriveItem {
+  term: string;
+  desc: string;
+}
+
 /** id → sections translation key (labels shared by the TOC and section headings). */
 const SECTION_IDS: { id: string; key: string }[] = [
   { id: "overview", key: "overview" },
+  { id: "bishare-drive", key: "drive" },
   { id: "information-we-collect", key: "collect" },
   { id: "how-we-use-information", key: "use" },
   { id: "data-storage-security", key: "storage" },
@@ -109,6 +116,23 @@ export default async function PrivacyPage({
                   <p className="mt-3 text-muted-foreground">
                     {t("privacy.overview.p2")}
                   </p>
+                </LegalSection>
+
+                <LegalSection
+                  id="bishare-drive"
+                  title={t("privacy.sections.drive")}
+                >
+                  <p className="mb-3 text-muted-foreground">
+                    {t("privacy.drive.intro")}
+                  </p>
+                  <ul className={LIST}>
+                    {(t.raw("privacy.drive.items") as DriveItem[]).map((item) => (
+                      <li key={item.term}>
+                        <strong className={TERM}>{item.term}</strong>{" "}
+                        {item.desc}
+                      </li>
+                    ))}
+                  </ul>
                 </LegalSection>
 
                 <LegalSection
