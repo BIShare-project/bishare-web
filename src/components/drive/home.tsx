@@ -307,7 +307,7 @@ function GrowthChart({ files, days, locale }: { files: DriveObject[]; days: numb
   const step = Math.max(1, Math.round(days / 10));
   const fmtSize = (v: number) => (v >= 1e9 ? `${(v / 1e9).toFixed(1)} GB` : v >= 1e6 ? `${Math.round(v / 1e6)} MB` : `${Math.round(v / 1e3)} KB`);
   return (
-    <svg ref={ref} viewBox={`0 0 ${w} ${H}`} style={{ display: "block", width: "100%", height: H }} role="img" aria-label="">
+    <svg ref={ref} viewBox={`0 0 ${w} ${H}`} style={{ display: "block", width: "100%", height: H }} role="img" aria-label="" direction="ltr">
       {[0, 1, 2, 3, 4].map((g) => {
         const v = (max * g) / 4;
         return (

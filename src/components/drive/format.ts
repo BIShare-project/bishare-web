@@ -1,9 +1,13 @@
 // Numbers and dates as the Drive shows them (the app's drive_format.dart).
 
+// A value with its unit, kept in one left-to-right piece inside Arabic text
+// (first-strong isolate), where "21.7 MB" would otherwise read "MB 21.7".
+const iso = (s: string) => `\u2068${s}\u2069`;
+
 /** Decimal units, as the quota counts them (1 GB = 1,000,000,000 bytes). */
 export function bytes(n: number | null | undefined): string {
   const v = n ?? 0;
-  if (v < 1000) return `${v} B`;
+  if (v < 1000) return iso(`${v} B`);
   const units = ["KB", "MB", "GB", "TB"];
   let x = v / 1000;
   let i = 0;
@@ -11,13 +15,13 @@ export function bytes(n: number | null | undefined): string {
     x /= 1000;
     i++;
   }
-  return `${x >= 100 ? Math.round(x) : x.toFixed(x >= 10 ? 1 : 2).replace(/\.?0+$/, "")} ${units[i]}`;
+  return iso(`${x >= 100 ? Math.round(x) : x.toFixed(x >= 10 ? 1 : 2).replace(/\.?0+$/, "")} ${units[i]}`);
 }
 
 export function percent(part: number, whole: number): string {
-  if (whole <= 0) return "0%";
+  if (whole <= 0) return iso("0%");
   const p = (part * 100) / whole;
-  return p > 0 && p < 1 ? "<1%" : `${Math.round(p)}%`;
+  return iso(p > 0 && p < 1 ? "<1%" : `${Math.round(p)}%`);
 }
 
 /** "Today, 06:12", "Yesterday, 21:40", or "21 Oct 2026". */
