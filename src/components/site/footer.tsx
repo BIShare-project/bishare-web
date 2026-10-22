@@ -25,6 +25,7 @@ const COLUMNS: Array<{
       links: [
         { labelKey: "transfer", href: "/transfer" },
         { labelKey: "rooms", href: "/rooms" },
+        { label: "BIShare Drive", href: "https://drive.bishare.app", external: true },
         { labelKey: "download", href: "/download" },
         { labelKey: "features", href: "/features" },
         { labelKey: "pricing", href: "/pricing" },

@@ -12,25 +12,45 @@ import { VButton } from "./vbutton";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
 
+const DRIVE_URL = "https://drive.bishare.app";
+
 /**
  * Curated top-level nav — product surface only. About/Philosophy/Contact
  * live in the footer so the bar stays scannable. Labels are resolved from the
  * "chrome" namespace at render time (`nav.<key>`).
  */
-const NAV_LINKS = [
+const NAV_LINKS: readonly { href: string; key: string; wide?: boolean; external?: boolean; badge?: boolean }[] = [
   { href: "/transfer", key: "transfer" },
   { href: "/rooms", key: "rooms" },
+  // The web Drive is its own host; "Drive" is the product's name in every language.
+  { href: DRIVE_URL, key: "drive", external: true, badge: true },
   { href: "/features", key: "features" },
   { href: "/how-it-works", key: "howItWorks" },
   { href: "/security", key: "security" },
   { href: "/faq", key: "faq", wide: true },
   { href: "/blog", key: "blog", wide: true },
   { href: "/stats", key: "stats", wide: true },
-] as const;
+];
+
+/** A link's label: the product's own name for the Drive, else from "chrome". */
+function navLabel(t: (key: string) => string, key: string): string {
+  return key === "drive" ? "Drive" : t(`nav.${key}`);
+}
+
+/** The small "New" pill next to a link that just arrived. */
+function NewBadge({ label }: { label: string }) {
+  return (
+    <span className="ms-1.5 inline-flex items-center rounded-full bg-accent-blue px-1.5 py-px align-middle text-[10px] font-semibold leading-4 tracking-wide text-white">
+      {label}
+    </span>
+  );
+}
 
 /* Measured 2026-10-19: the full bar needs 928px in English and up to 1,189px in
    Russian (Spanish 1,112, German 1,058), so all eight links only show from xl.
-   Between lg and xl the `wide` links stay in the footer and the mobile menu. */
+   Between lg and xl the `wide` links stay in the footer and the mobile menu.
+   2026-10-22: Drive and its "New" badge added; the links sit 20px apart (was
+   24) so Russian still fits from 1024px and at xl (tool/_nav_check.mjs). */
 
 /**
  * Sticky header that floats on scroll: flush and full-width at the top, then —
@@ -88,29 +108,35 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3 lg:gap-6">
           {/* Five links need more room than md allows — nav expands at lg */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-5">
             {NAV_LINKS.map((link) => {
               const active = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
+              const className = cn(
+                "group relative whitespace-nowrap py-1 text-sm transition-colors",
+                link.wide && "hidden xl:block",
+                active
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              );
+              const underline = (
+                <span
+                  aria-hidden
                   className={cn(
-                    "group relative whitespace-nowrap py-1 text-sm transition-colors",
-                    "wide" in link && link.wide && "hidden xl:block",
-                    active
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                    "absolute -bottom-0.5 left-1/2 h-px w-4 -translate-x-1/2 rounded-full bg-primary transition-opacity duration-300",
+                    active ? "opacity-100" : "opacity-0 group-hover:opacity-70"
                   )}
-                >
-                  {t(`nav.${link.key}`)}
-                  <span
-                    aria-hidden
-                    className={cn(
-                      "absolute -bottom-0.5 left-1/2 h-px w-4 -translate-x-1/2 rounded-full bg-primary transition-opacity duration-300",
-                      active ? "opacity-100" : "opacity-0 group-hover:opacity-70"
-                    )}
-                  />
+                />
+              );
+              return link.external ? (
+                <a key={link.href} href={link.href} className={className}>
+                  {navLabel(t, link.key)}
+                  {link.badge && <NewBadge label={t("nav.new")} />}
+                  {underline}
+                </a>
+              ) : (
+                <Link key={link.href} href={link.href} className={className}>
+                  {navLabel(t, link.key)}
+                  {underline}
                 </Link>
               );
             })}
@@ -146,22 +172,28 @@ export function SiteHeader() {
             className="lg:hidden absolute inset-x-0 top-full border-b border-border bg-background/95 backdrop-blur-xl px-6 py-4"
           >
             <ul className="space-y-1">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className={cn(
-                      "block rounded-xl px-3 py-2.5 text-[15px] transition-colors",
-                      pathname === link.href
-                        ? "bg-primary/10 text-foreground"
-                        : "text-muted-foreground hover:bg-foreground/[0.04] hover:text-foreground"
+              {NAV_LINKS.map((link) => {
+                const className = cn(
+                  "block rounded-xl px-3 py-2.5 text-[15px] transition-colors",
+                  pathname === link.href
+                    ? "bg-primary/10 text-foreground"
+                    : "text-muted-foreground hover:bg-foreground/[0.04] hover:text-foreground"
+                );
+                return (
+                  <li key={link.href}>
+                    {link.external ? (
+                      <a href={link.href} onClick={() => setOpen(false)} className={className}>
+                        {navLabel(t, link.key)}
+                        {link.badge && <NewBadge label={t("nav.new")} />}
+                      </a>
+                    ) : (
+                      <Link href={link.href} onClick={() => setOpen(false)} className={className}>
+                        {navLabel(t, link.key)}
+                      </Link>
                     )}
-                  >
-                    {t(`nav.${link.key}`)}
-                  </Link>
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
             <div className="mt-3 flex items-center justify-between border-t border-[var(--border)] px-3 pt-3">
               <span className="text-[13px] text-muted-foreground">
