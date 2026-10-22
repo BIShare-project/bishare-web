@@ -26,6 +26,8 @@ import {
   isVaultId,
   keyCheck,
   keyFromPhrase,
+  linkFromJson,
+  linkToJson,
   metaFromJson,
   metaKey,
   pairAuthorization,
@@ -33,12 +35,14 @@ import {
   sealDeviceName,
   metaToJson,
   openKeyCopy,
+  openLink,
   openMeta,
   openThumbnail,
   parseAuthorization,
   phraseFromKey,
   requestMessage,
   sealKeyCopy,
+  sealLink,
   sealMeta,
   sealThumbnail,
   signinNonce,
@@ -233,6 +237,29 @@ await fails("device name, a lone surrogate", "bad_device_name", () => sealDevice
     if (!threw) throw new Error(`fromB64u accepted ${bad}`);
   }
   checks += 6;
+}
+
+// ── links from Drive ──
+{
+  const l = v.link;
+  const key = fromB64u(l.linkKey);
+  const m = await openLink(key, l.linkId, l.manifest);
+  same("link manifest opens to the canonical JSON", linkToJson(m), l.manifestJson);
+  same("link manifest seals byte for byte", await sealLink(key, l.linkId, linkFromJson(l.manifestJson), fromB64u(l.nonce)), l.manifest);
+  same("link file path", m.files[0]!.path, "Trip/" + JSON.parse(v.file.metaJson).n);
+  same("link thumbnail flag", m.files[0]!.hasThumb, true);
+  same("link compression", m.files[1]!.compression, "deflate");
+  await fails("link, other id", "auth_failed", () => openLink(key, v.file.objectId, l.manifest));
+  await fails("link, other key", "auth_failed", () => openLink(seq(32, 0x01), l.linkId, l.manifest));
+  await fails("link, id not an id", "invalid_object_id", () => openLink(key, "nope", l.manifest));
+  for (const bad of ["", "/a", "a/", "a//b", "../a", "a/./b"]) {
+    await fails(`link path ${JSON.stringify(bad)}`, "bad_link", () => linkToJson({ ...m, files: [{ ...m.files[0]!, path: bad }, m.files[1]!] }));
+  }
+  await fails("file link, path is not the name", "bad_link", () => linkToJson({ ...m, kind: "file", files: [m.files[0]!] }));
+  await fails("link, a file twice", "bad_link", () => linkToJson({ ...m, files: [m.files[0]!, { ...m.files[1]!, objectId: m.files[0]!.objectId }] }));
+  await fails("link, unknown version", "bad_link", () => linkFromJson(l.manifestJson.replace('"v":1', '"v":2')));
+  await fails("link, unknown compression", "bad_link", () => linkFromJson(l.manifestJson.replace('"z":"deflate"', '"z":"zstd"')));
+  await fails("link, a key twice", "bad_link", () => linkFromJson(l.manifestJson.replace('{"v":1,', '{"v":1,"v":1,')));
 }
 
 // ── grant ──

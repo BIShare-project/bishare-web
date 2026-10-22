@@ -38,6 +38,11 @@ const INFO_DEDUPE = "bishare-vault-dedupe-v1";
 const AAD_META = "bishare-vault-meta-v1";
 const AAD_THUMB = "bishare-vault-thumb-v1";
 const AAD_DEVICE = "bishare-vault-device-v1";
+const INFO_LINK = "bishare-vault-link-v1";
+const AAD_LINK = "bishare-vault-link-v1";
+export const LINK_VERSION = 1;
+/** Files one link may list (the server takes 2000 ids: the folder and its files). */
+export const LINK_MAX_FILES = 1999;
 /** Longest device name a writer emits, in characters (VAULT-SPEC "Device names"). */
 export const DEVICE_NAME_MAX = 100;
 const REQ_PREFIX = "bishare-vault-req-v1";
@@ -58,7 +63,8 @@ export type VaultErrorCode =
   | "bad_signature"
   | "bad_authorization"
   | "key_check_mismatch"
-  | "bad_compression";
+  | "bad_compression"
+  | "bad_link";
 
 export class VaultError extends Error {
   constructor(
@@ -568,6 +574,153 @@ export async function sealThumbnail(fileKey: Uint8Array, vaultId: string, object
 export async function openThumbnail(fileKey: Uint8Array, vaultId: string, objectId: string, sealed: Uint8Array): Promise<Uint8Array> {
   const aad = thumbAad(vaultId, objectId);
   return open(await thumbKey(fileKey), sealed, aad);
+}
+
+// ── links from Drive (VAULT-SPEC "Links from Drive") ────────────────────────
+
+/** One file a link opens. */
+export interface LinkFile {
+  objectId: string;
+  /** Where it sits under the shared folder ("/"-separated, ending with its name); for a file link, the name. */
+  path: string;
+  size: number;
+  mime: string;
+  mtimeMs: number;
+  fileKey: Uint8Array;
+  compression?: "deflate";
+  hasThumb: boolean;
+}
+
+/** What a link opens: one file, or a folder with the files under it. */
+export interface LinkManifest {
+  kind: "file" | "dir";
+  /** The shared file's or folder's name. */
+  name: string;
+  /** The vault the files are in (a thumbnail's AAD names it). */
+  vaultId: string;
+  files: LinkFile[];
+}
+
+function validLinkPath(path: string): boolean {
+  return path.length > 0 && path.split("/").every((seg) => seg.length > 0 && seg !== "." && seg !== ".." && !seg.includes("\0"));
+}
+
+function validateLink(m: LinkManifest): void {
+  const bad = (why: string) => new VaultError("bad_link", why);
+  if (!m.name || m.name.includes("/") || m.name.includes("\0") || LONE_SURROGATE.test(m.name)) throw bad("link name");
+  if (!isVaultId(m.vaultId)) throw new VaultError("invalid_vault_id");
+  if (m.kind !== "file" && m.kind !== "dir") throw bad("unknown kind");
+  if (m.kind === "file" ? m.files.length !== 1 : m.files.length > LINK_MAX_FILES) throw bad("file count");
+  const seen = new Set<string>();
+  for (const f of m.files) {
+    if (!isObjectId(f.objectId)) throw new VaultError("invalid_object_id");
+    if (seen.has(f.objectId)) throw bad("a file listed twice");
+    seen.add(f.objectId);
+    if (m.kind === "file" ? f.path !== m.name : !validLinkPath(f.path) || LONE_SURROGATE.test(f.path)) throw bad("file path");
+    if (!Number.isInteger(f.size) || f.size < 0) throw bad("size");
+    if (!Number.isInteger(f.mtimeMs)) throw bad("mtime");
+    if (!f.mime) throw bad("file without mime type");
+    if (f.fileKey?.length !== KEY_SIZE) throw bad("file key");
+    if (f.compression !== undefined && f.compression !== "deflate") throw bad("unknown compression");
+  }
+}
+
+/** The canonical JSON of the spec. */
+export function linkToJson(m: LinkManifest): string {
+  validateLink(m);
+  return JSON.stringify({
+    v: LINK_VERSION,
+    k: m.kind,
+    n: m.name,
+    vault: m.vaultId,
+    items: m.files.map((f) => {
+      const it: Record<string, unknown> = { id: f.objectId, path: f.path, s: f.size, t: f.mime, m: f.mtimeMs, fk: b64u(f.fileKey) };
+      if (f.compression) it.z = f.compression;
+      if (f.hasThumb) it.th = true;
+      return it;
+    }),
+  });
+}
+
+/** Reads any JSON serialization; unknown keys are ignored. */
+export function linkFromJson(json: string): LinkManifest {
+  const bad = (why: string) => new VaultError("bad_link", why);
+  let j: Record<string, unknown>;
+  try {
+    j = JSON.parse(json) as Record<string, unknown>;
+  } catch {
+    throw bad("not JSON");
+  }
+  if (j === null || typeof j !== "object" || Array.isArray(j)) throw bad("not an object");
+  const keys = topLevelKeys(json);
+  if (new Set(keys).size !== keys.length) throw bad("a key appears twice");
+  if (j.v !== LINK_VERSION) throw bad("unknown version");
+  if (j.k !== "file" && j.k !== "dir") throw bad("unknown kind");
+  if (typeof j.n !== "string" || typeof j.vault !== "string" || !Array.isArray(j.items)) throw bad("a field is missing or of the wrong type");
+  const files = j.items.map((raw): LinkFile => {
+    const it = raw as Record<string, unknown>;
+    if (it === null || typeof it !== "object") throw bad("item");
+    if (typeof it.id !== "string" || typeof it.path !== "string" || typeof it.s !== "number" || typeof it.t !== "string" || typeof it.m !== "number" || typeof it.fk !== "string") {
+      throw bad("a field is missing or of the wrong type");
+    }
+    if (it.z !== undefined && it.z !== "deflate") throw bad("unknown compression");
+    if (it.th !== undefined && typeof it.th !== "boolean") throw bad("th is not a boolean");
+    let fileKey: Uint8Array;
+    try {
+      fileKey = fromB64u(it.fk);
+    } catch {
+      throw bad("file key is not base64url");
+    }
+    return {
+      objectId: it.id,
+      path: it.path,
+      size: it.s,
+      mime: it.t,
+      mtimeMs: it.m,
+      fileKey,
+      ...(it.z === "deflate" ? { compression: "deflate" as const } : {}),
+      hasThumb: it.th === true,
+    };
+  });
+  const m: LinkManifest = { kind: j.k, name: j.n, vaultId: j.vault, files };
+  validateLink(m);
+  return m;
+}
+
+/** The key a link carries after `#`. */
+export function generateLinkKey(): Uint8Array {
+  return random(KEY_SIZE);
+}
+
+function linkAad(linkId: string): Uint8Array {
+  if (!isObjectId(linkId)) throw new VaultError("invalid_object_id");
+  return enc.encode(`${AAD_LINK}|${linkId}`);
+}
+
+/** The sealed manifest the server keeps for a link. `nonce` is fixed only by tests. */
+export async function sealLink(linkKey: Uint8Array, linkId: string, m: LinkManifest, nonce?: Uint8Array): Promise<string> {
+  const aad = linkAad(linkId);
+  const key = await hkdf(key32(linkKey), ZERO_SALT, INFO_LINK, KEY_SIZE);
+  return b64u(await seal(key, enc.encode(linkToJson(m)), aad, nonce));
+}
+
+export async function openLink(linkKey: Uint8Array, linkId: string, sealed: string): Promise<LinkManifest> {
+  const aad = linkAad(linkId);
+  const key = await hkdf(key32(linkKey), ZERO_SALT, INFO_LINK, KEY_SIZE);
+  let box: Uint8Array;
+  try {
+    box = fromB64u(sealed);
+  } catch {
+    throw new VaultError("sealed_box_too_short");
+  }
+  const plain = await open(key, box, aad);
+  let json: string;
+  try {
+    json = dec.decode(plain);
+  } catch {
+    throw new VaultError("bad_link", "not UTF-8");
+  }
+  return linkFromJson(json);
 }
 
 // ── the grant: VK from one device to another ────────────────────────────────
