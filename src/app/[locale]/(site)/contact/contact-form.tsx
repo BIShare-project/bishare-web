@@ -19,7 +19,7 @@ import { Input } from "@/components/site/ui/input";
 import { cn } from "@/lib/utils";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.bishare.app";
-const SUPPORT_EMAIL = "support@billiongroup.net";
+const SUPPORT_EMAIL = "cakrabudiman@icloud.com";
 
 /* Backend limits (POST /api/v1/contact): name/email <= 200, message <= 5000. */
 const NAME_MAX = 200;

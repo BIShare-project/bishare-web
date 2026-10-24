@@ -7,8 +7,7 @@ of the project is to move files safely.
 
 **Please do not open a public issue for security vulnerabilities.**
 
-Instead, email **security@billiongroup.net** (or **support@billiongroup.net**)
-with:
+Instead, email **cakrabudiman@icloud.com** with:
 
 - a description of the issue and its impact,
 - steps to reproduce (a proof of concept if possible),

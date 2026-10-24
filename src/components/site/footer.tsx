@@ -3,7 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { appStoreUrl, MICROSOFT_STORE_URL, playStoreUrl } from "./store-buttons";
 
-const SUPPORT_EMAIL = "support@billiongroup.net";
+const SUPPORT_EMAIL = "cakrabudiman@icloud.com";
 const GITHUB_URL = "https://github.com/BIShare-project/bishare-web";
 
 /**

@@ -13,7 +13,7 @@ import { FAQ_GROUPS } from "./faq-data";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { HeroRise } from "@/components/site/hero-rise";
 
-const SUPPORT_EMAIL = "support@billiongroup.net";
+const SUPPORT_EMAIL = "cakrabudiman@icloud.com";
 
 export async function generateMetadata({
   params,

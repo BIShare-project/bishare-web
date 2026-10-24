@@ -309,11 +309,11 @@ export default async function AboutPage({
                   {t("contact.body")}
                 </p>
                 <a
-                  href="mailto:support@billiongroup.net"
+                  href="mailto:cakrabudiman@icloud.com"
                   className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-strong bg-transparent px-5 text-sm font-medium text-foreground transition-colors hover:bg-secondary hover:border-foreground/25"
                 >
                   <Mail className="h-4 w-4" />
-                  support@billiongroup.net
+                  cakrabudiman@icloud.com
                 </a>
               </SpotlightCard>
             </FadeUp>

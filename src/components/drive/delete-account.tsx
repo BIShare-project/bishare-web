@@ -58,8 +58,8 @@ export function DeleteAccountPage({ base }: { base: string }) {
           ))}
         </section>
         <Button asChild className="self-start">
-          <a href="mailto:support@billiongroup.net?subject=Delete%20my%20BIShare%20Drive">
-            <Mail /> support@billiongroup.net
+          <a href="mailto:cakrabudiman@icloud.com?subject=Delete%20my%20BIShare%20Drive">
+            <Mail /> cakrabudiman@icloud.com
           </a>
         </Button>
       </main>

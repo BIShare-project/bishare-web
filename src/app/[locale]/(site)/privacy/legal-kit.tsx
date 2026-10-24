@@ -12,7 +12,7 @@ import type { TocItem } from "./legal-toc";
  * (Candidate for promotion to components/site/ if a third legal page lands.)
  */
 
-const SUPPORT_EMAIL = "support@billiongroup.net";
+const SUPPORT_EMAIL = "cakrabudiman@icloud.com";
 
 /* ── Page header: hairline grid, mono eyebrow, tight display title ──────── */
 export function LegalHero({
