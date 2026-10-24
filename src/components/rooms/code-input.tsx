@@ -65,26 +65,37 @@ export function CodeInput({
     focus(Math.min(text.length, length - 1));
   };
 
+  // Fixed square boxes rather than boxes stretched to the row: a code is a few
+  // characters, and the button beside it takes the rest of the line. Always
+  // left to right: a Latin code read in an Arabic page must not come out
+  // reversed.
   return (
-    <div className="flex gap-2" onPaste={handlePaste}>
-      {Array.from({ length }).map((_, i) => (
-        <input
-          key={i}
-          ref={(el) => {
-            refs.current[i] = el;
-          }}
-          value={value[i] ?? ""}
-          onChange={(e) => handleChange(i, e.target.value)}
-          onKeyDown={(e) => handleKeyDown(i, e)}
-          onFocus={(e) => e.currentTarget.select()}
-          inputMode="text"
-          autoComplete="off"
-          autoCapitalize="characters"
-          maxLength={1}
-          aria-label={`Code character ${i + 1}`}
-          className="h-12 w-full min-w-0 rounded-xl border border-border bg-background text-center font-mono text-lg font-semibold uppercase caret-primary outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/30"
-        />
-      ))}
+    <div dir="ltr" className="flex shrink-0 gap-2" onPaste={handlePaste}>
+      {Array.from({ length }).map((_, i) => {
+        const filled = (value[i] ?? " ") !== " ";
+        return (
+          <input
+            key={i}
+            ref={(el) => {
+              refs.current[i] = el;
+            }}
+            value={value[i] ?? ""}
+            onChange={(e) => handleChange(i, e.target.value)}
+            onKeyDown={(e) => handleKeyDown(i, e)}
+            onFocus={(e) => e.currentTarget.select()}
+            inputMode="text"
+            autoComplete="off"
+            autoCapitalize="characters"
+            maxLength={1}
+            placeholder="•"
+            aria-label={`Code character ${i + 1}`}
+            className={
+              "h-12 w-11 rounded-xl border text-center font-mono text-xl font-semibold uppercase caret-accent-blue outline-none transition-colors placeholder:text-muted-foreground/40 focus:border-accent-blue focus:bg-card focus:ring-2 focus:ring-accent-blue/25 sm:h-14 sm:w-12 " +
+              (filled ? "border-foreground/25 bg-card" : "border-border bg-secondary/40")
+            }
+          />
+        );
+      })}
     </div>
   );
 }

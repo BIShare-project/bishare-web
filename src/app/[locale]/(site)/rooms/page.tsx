@@ -100,10 +100,9 @@ export default async function RoomsPage({
             </p>
           </div>
 
-          {/* Same glass shell the transfer studio uses — one visual language
-              for the two tools the site is actually built around. */}
-          <div className="studio-shell mt-9 overflow-hidden">
-            <div className="studio-aurora" aria-hidden />
+          {/* The studio card the transfer tool uses, drawn by RoomsApp itself:
+              narrow while choosing, wider once inside a room. */}
+          <div className="mt-9">
             <RoomsApp initialCode={initialCode} initialMode={initialMode} />
           </div>
 

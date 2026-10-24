@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useReducer, useRef, useState } from "react";
+import { useCallback, useEffect, useReducer, useRef, useState, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 import {
   Cloud,
   DoorOpen,
@@ -18,7 +19,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch";
 import {
   createRoom,
   closeRoom,
@@ -367,45 +367,61 @@ export function RoomsApp({
 
   if (session.phase === "landing") {
     return (
-      <Landing
-        t={t}
-        mode={mode}
-        setMode={setMode}
-        alias={alias}
-        setAlias={setAliasState}
-        code={code}
-        setCode={setCode}
-        busy={busy}
-        error={error}
-        onCreate={handleCreate}
-        onJoin={handleJoin}
-      />
+      <Shell wide={false}>
+        <Landing
+          t={t}
+          mode={mode}
+          setMode={setMode}
+          alias={alias}
+          setAlias={setAliasState}
+          code={code}
+          setCode={setCode}
+          busy={busy}
+          error={error}
+          onCreate={handleCreate}
+          onJoin={handleJoin}
+        />
+      </Shell>
     );
   }
 
   if (session.mode === "local") {
     return (
-      <LocalRoomView
-        code={session.code}
-        alias={alias.trim() || t("landing.anon")}
-        onLeave={handleLeave}
-      />
+      <Shell wide>
+        <LocalRoomView
+          code={session.code}
+          alias={alias.trim() || t("landing.anon")}
+          onLeave={handleLeave}
+        />
+      </Shell>
     );
   }
 
   return (
-    <RoomView
-      t={t}
-      code={session.code}
-      isHost={session.hostToken !== null}
-      fingerprint={fpRef.current}
-      alias={alias.trim() || t("landing.anon")}
-      state={state}
-      roomKey={roomKey}
-      onLeave={handleLeave}
-      onError={setError}
-      error={error}
-    />
+    <Shell wide>
+      <RoomView
+        t={t}
+        code={session.code}
+        isHost={session.hostToken !== null}
+        fingerprint={fpRef.current}
+        alias={alias.trim() || t("landing.anon")}
+        state={state}
+        roomKey={roomKey}
+        onLeave={handleLeave}
+        onError={setError}
+        error={error}
+      />
+    </Shell>
+  );
+}
+
+/** The studio card around the room: one narrow column while choosing, wider
+ *  once inside a room, where the files sit beside the code and the people. */
+function Shell({ wide, children }: { wide: boolean; children: ReactNode }) {
+  return (
+    <div className={"studio-shell mx-auto w-full overflow-hidden " + (wide ? "max-w-4xl" : "max-w-lg")}>
+      {children}
+    </div>
   );
 }
 
@@ -435,41 +451,43 @@ function Landing({
   onCreate: () => void;
   onJoin: () => void;
 }) {
-  const cloud = mode === "cloud";
   return (
-    <div className="relative lg:grid lg:grid-cols-[minmax(0,1.55fr)_minmax(300px,1fr)]">
-      {/* left pane — pick a transport, name yourself, open a room */}
-      <div className="flex min-w-0 flex-col gap-6 p-5 sm:p-6 lg:p-7">
-        {/* mode switch: Cloud (relay) ⇄ Local (P2P) — one pill toggle, not tabs */}
-        <div className="space-y-2">
-          <div className="mx-auto flex w-fit items-center gap-3 rounded-full border border-border bg-muted/40 py-1.5 pl-4 pr-4 text-sm">
-            <button
-              onClick={() => setMode("cloud")}
-              className={
-                "flex items-center gap-1.5 transition " +
-                (cloud ? "font-medium text-foreground" : "text-muted-foreground hover:text-foreground")
-              }
-            >
-              <Cloud className="h-3.5 w-3.5" />
-              {t("mode.cloud")}
-            </button>
-            <Switch
-              checked={mode === "local"}
-              onCheckedChange={(v) => setMode(v ? "local" : "cloud")}
-              aria-label={t("mode.local")}
-            />
-            <button
-              onClick={() => setMode("local")}
-              className={
-                "flex items-center gap-1.5 transition " +
-                (!cloud ? "font-medium text-foreground" : "text-muted-foreground hover:text-foreground")
-              }
-            >
-              <Radio className="h-3.5 w-3.5" />
-              {t("mode.local")}
-            </button>
+    <div className="flex flex-col">
+      {/* make a room: pick a transport, name yourself, open it */}
+      <div className="flex flex-col gap-5 p-5 sm:p-6">
+        {/* Cloud (relay) or Local (P2P), in the transfer studio's own
+            segmented selector so the two tools read as one product */}
+        <div>
+          <div className="studio-track relative flex gap-1 p-1">
+            {(["cloud", "local"] as const).map((m) => (
+              <button
+                key={m}
+                type="button"
+                aria-pressed={mode === m}
+                onClick={() => setMode(m)}
+                className={
+                  "relative flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg text-sm font-semibold tracking-[-0.01em] outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-accent-blue/40 " +
+                  (mode === m ? "text-foreground" : "text-muted-foreground hover:text-foreground/80")
+                }
+              >
+                {mode === m && (
+                  <motion.span
+                    layoutId="rooms-mode"
+                    className="studio-pill absolute inset-0"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                  />
+                )}
+                {m === "cloud" ? (
+                  <Cloud className={"relative h-4 w-4 shrink-0 " + (mode === m ? "text-accent-blue" : "")} />
+                ) : (
+                  <Radio className={"relative h-4 w-4 shrink-0 " + (mode === m ? "text-accent-blue" : "")} />
+                )}
+                <span className="relative">{t(`mode.${m}`)}</span>
+              </button>
+            ))}
           </div>
-          <p className="mx-auto max-w-sm text-center text-xs leading-relaxed text-muted-foreground">
+          <p aria-live="polite" className="mt-2.5 flex gap-2 text-[12.5px] leading-snug text-muted-foreground">
+            <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent-blue" />
             {t(`mode.${mode}Desc`)}
           </p>
         </div>
@@ -493,49 +511,40 @@ function Landing({
           </div>
         </div>
 
-        {/* create — primary CTA */}
+        {/* create, the primary action */}
         <Button
           onClick={onCreate}
           disabled={busy !== null}
           size="lg"
-          className="mt-auto h-12 w-full rounded-xl text-[15px] font-semibold shadow-sm"
+          className="h-11 w-full rounded-xl text-[15px] font-semibold"
         >
           <DoorOpen className="mr-2 h-[18px] w-[18px]" />
           {busy === "create" ? t("landing.creating") : t("landing.create")}
         </Button>
-
-        {error && (
-          <p className="rounded-xl bg-destructive/10 px-3.5 py-2.5 text-sm text-destructive" role="alert">
-            {error}
-          </p>
-        )}
       </div>
 
-      {/* right pane — joining is always reachable, exactly like the transfer
-          studio keeps "enter a code" beside whichever send route is showing */}
-      <section
-        aria-label={t("landing.joinLabel")}
-        className="relative border-t border-border/60 bg-background-raised/30 p-5 backdrop-blur-sm sm:p-6 lg:border-l lg:border-t-0 lg:p-7"
-      >
-        <div className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-blue/10 text-accent-blue">
-            <LogIn className="h-4 w-4" />
-          </span>
-          <h2 className="min-w-0 text-[15px] font-semibold tracking-[-0.01em]">
-            {t("landing.joinLabel")}
-          </h2>
-        </div>
-        <div className="mt-4 space-y-2.5 sm:mt-5 sm:max-w-md lg:max-w-none">
+      {/* join: the code boxes and the button on one line */}
+      <section aria-label={t("landing.joinLabel")} className="border-t border-border/60 p-5 sm:p-6">
+        <h2 className="flex items-center gap-2 text-sm font-semibold tracking-[-0.01em]">
+          <LogIn className="h-4 w-4 shrink-0 text-accent-blue" />
+          {t("landing.joinLabel")}
+        </h2>
+        <div className="mt-3 flex items-center gap-2">
           <CodeInput value={code} onChange={setCode} onEnter={onJoin} length={4} />
           <Button
             onClick={onJoin}
             disabled={busy !== null}
             variant="secondary"
-            className="h-11 w-full rounded-xl"
+            className="h-12 min-w-0 flex-1 rounded-xl sm:h-14"
           >
             {busy === "join" ? t("landing.joining") : t("landing.join")}
           </Button>
         </div>
+        {error && (
+          <p className="mt-4 rounded-xl bg-destructive/10 px-3.5 py-2.5 text-sm text-destructive" role="alert">
+            {error}
+          </p>
+        )}
       </section>
     </div>
   );

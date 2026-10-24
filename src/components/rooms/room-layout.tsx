@@ -100,7 +100,7 @@ export function RoomLayout({
   };
 
   return (
-    <div className="relative flex flex-col lg:grid lg:grid-cols-[minmax(0,1.55fr)_minmax(300px,1fr)]">
+    <div className="relative flex flex-col md:grid md:grid-cols-[minmax(0,1fr)_280px] md:grid-rows-[auto_1fr]">
       {/* ── left: the files themselves, the reason the room exists ──────── */}
       <section
         onDragOver={(e) => {
@@ -114,7 +114,7 @@ export function RoomLayout({
           if (canPick) pick(e.dataTransfer.files);
         }}
         className={
-          "relative order-2 flex min-h-[20rem] min-w-0 flex-col p-5 transition sm:p-6 lg:order-1 lg:p-7 " +
+          "relative order-2 flex min-h-[16rem] min-w-0 flex-col p-5 transition sm:p-6 md:order-none md:col-start-1 md:row-span-2 md:row-start-1 " +
           (dragging ? "bg-primary/[0.06]" : "")
         }
       >
@@ -142,7 +142,7 @@ export function RoomLayout({
             onClick={() => fileInput.current?.click()}
             size="sm"
             disabled={!canPick}
-            className="rounded-lg"
+            className="h-11 rounded-lg px-4"
           >
             <Upload className="mr-1.5 h-4 w-4" />
             {uploadPct !== null ? `${t("room.uploading")} ${uploadPct}%` : uploadLabel}
@@ -169,50 +169,45 @@ export function RoomLayout({
           <button
             onClick={() => fileInput.current?.click()}
             disabled={!canPick}
-            className="flex flex-1 flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-border px-6 py-12 text-center transition enabled:hover:border-foreground/25 enabled:hover:bg-muted/30"
+            className="flex flex-1 flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-border px-6 py-10 text-center transition enabled:hover:border-accent-blue/50 enabled:hover:bg-muted/30"
           >
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-muted">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-muted">
               <Upload className="h-5 w-5 text-muted-foreground" />
             </span>
             <span className="text-sm text-muted-foreground">{filesPlaceholder}</span>
           </button>
         ) : (
-          <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 xl:grid-cols-4">
+          // One row per file: the name is what people scan for, and a row
+          // never leaves a half-empty grid behind when the room holds one file.
+          <ul className="divide-y divide-border/60 overflow-hidden rounded-xl border border-border">
             {files.map((f) => (
-              <li
-                key={f.id}
-                className="group relative overflow-hidden rounded-xl border border-border bg-card transition duration-200 hover:border-foreground/20 hover:shadow-lg hover:shadow-black/20"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+              <li key={f.id} className="flex items-center gap-3 bg-card px-3 py-2.5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted">
                   {f.thumbnailSrc ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={f.thumbnailSrc}
-                      alt=""
-                      className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.04]"
-                    />
+                    <img src={f.thumbnailSrc} alt="" className="h-full w-full object-cover" />
                   ) : (
-                    <span className="flex h-full w-full items-center justify-center">
-                      <FileIcon className="h-6 w-6 text-muted-foreground/70" />
-                    </span>
+                    <FileIcon className="h-5 w-5 text-muted-foreground/70" />
                   )}
-                  <Button
-                    onClick={f.onDownload}
-                    size="icon"
-                    aria-label={t("room.download")}
-                    className="absolute right-1.5 top-1.5 h-7 w-7 rounded-lg opacity-0 shadow-md transition group-hover:opacity-100 focus-visible:opacity-100 [@media(hover:none)]:opacity-100"
-                  >
-                    <Download className="h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="p-2.5">
-                  <p className="truncate text-[13px] font-medium leading-tight" title={f.name}>
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-medium leading-tight" title={f.name}>
                     {f.name}
                   </p>
                   <p className="mt-0.5 truncate text-xs text-muted-foreground">
                     {formatBytes(f.size)} · {t("room.by", { who: f.byAlias })}
                   </p>
                 </div>
+                <Button
+                  onClick={f.onDownload}
+                  size="icon"
+                  variant="secondary"
+                  aria-label={t("room.download")}
+                  title={t("room.download")}
+                  className="h-11 w-11 shrink-0 rounded-lg"
+                >
+                  <Download className="h-4 w-4" />
+                </Button>
               </li>
             ))}
           </ul>
@@ -228,8 +223,10 @@ export function RoomLayout({
         )}
       </section>
 
-      {/* ── right: who and where — the room's identity, always in view ──── */}
-      <aside className="relative order-1 flex flex-col gap-6 border-b border-border/60 bg-background-raised/30 p-5 backdrop-blur-sm sm:p-6 lg:order-2 lg:border-b-0 lg:border-l lg:p-7">
+      {/* ── right: where and who, the room's identity. Two blocks so a phone
+          shows the code, then the files, then the people and the way out;
+          from md up they stack in the right column. ──────────────────────── */}
+      <div className="relative order-1 border-b border-border/60 bg-background-raised/30 p-5 sm:p-6 md:col-start-2 md:row-start-1 md:border-b-0 md:border-l md:pb-3">
         <div>
           <div className="flex items-center justify-between gap-2">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
@@ -270,7 +267,9 @@ export function RoomLayout({
             </p>
           )}
         </div>
+      </div>
 
+      <aside className="relative order-3 flex flex-col gap-6 border-t border-border/60 bg-background-raised/30 p-5 sm:p-6 md:col-start-2 md:row-start-2 md:border-l md:border-t-0 md:pt-3">
         <div className="min-w-0">
           <p className="mb-2.5 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground">
             <Users className="h-3.5 w-3.5" />
@@ -306,7 +305,7 @@ export function RoomLayout({
           onClick={leave.onClick}
           variant="ghost"
           size="sm"
-          className="mt-auto justify-start text-destructive hover:text-destructive"
+          className="mt-auto min-h-11 justify-start text-destructive hover:text-destructive"
         >
           {leave.icon}
           {leave.label}
