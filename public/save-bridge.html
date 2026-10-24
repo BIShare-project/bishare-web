@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>BIShare</title>
+</head>
+<body>
+<script>
+// The save bridge (src/lib/save-bridge.ts). A file someone received on
+// bishare.app (Nearby, QR Beam, Rooms) is handed here and saved from
+// get.bishare.app, the host that already takes every download of a shared
+// link: Safe Browsing marks the host a download comes from, and the
+// marketing site should not be it. The page holds nothing and fetches
+// nothing; it only turns the Blob it is given into a download.
+(function () {
+  var local = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+  function allowed(origin) {
+    if (origin === "https://bishare.app" || origin === "https://www.bishare.app") return true;
+    // A local copy of the bridge serves a local site, for testing.
+    return local && /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
+  }
+  addEventListener("message", function (e) {
+    if (e.source !== parent || !allowed(e.origin)) return;
+    var d = e.data;
+    if (!d || d.type !== "bishare-save" || !(d.blob instanceof Blob) || typeof d.name !== "string") return;
+    var url = URL.createObjectURL(d.blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = d.name.slice(0, 255) || "download";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    // Not at once: the download starts asynchronously, and a revoked URL fails it.
+    setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
+  });
+  if (parent !== window) parent.postMessage({ type: "bishare-save-ready" }, "*");
+})();
+</script>
+</body>
+</html>

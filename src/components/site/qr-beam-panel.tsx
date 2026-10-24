@@ -5,6 +5,7 @@ import { QRCodeCanvas } from "qrcode.react";
 import { useTranslations } from "next-intl";
 import { FileUp, QrCode, ScanLine, X } from "lucide-react";
 import { encodeBeam, BeamCollector, type BeamMeta } from "@/lib/qrbeam/codec";
+import { saveFile } from "@/lib/save-bridge";
 
 // QR throughput is tiny (~1 KB/frame) — QR Beam is for text, keys, and small
 // docs, not media. Above this we refuse.
@@ -222,12 +223,7 @@ function BeamReceive({ t, onBack }: { t: T; onBack: () => void }) {
     const blob = new Blob([bytes.buffer as ArrayBuffer], {
       type: meta.mime.includes("/") ? meta.mime : "application/octet-stream",
     });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = meta.name;
-    a.click();
-    URL.revokeObjectURL(url);
+    void saveFile(blob, meta.name);
     setDone(meta.name);
   }, []);
 

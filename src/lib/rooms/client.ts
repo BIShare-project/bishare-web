@@ -13,6 +13,7 @@ import type { RoomCreated, RoomE2E, RoomEvent, RoomFile } from "./types";
 import { DEVICE_TYPE } from "./identity";
 import { EncryptedSource, decryptTransform, importKey } from "@/lib/e2e/crypto";
 import type { SealedFile } from "./e2e";
+import { saveFile } from "@/lib/save-bridge";
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || "https://api.bishare.app";
@@ -63,14 +64,7 @@ export async function downloadRoomFile(
     sealed && res.body
       ? await new Response(res.body.pipeThrough(decryptTransform(sealed.fileKey))).blob()
       : await res.blob();
-  const url = URL.createObjectURL(sealed ? new Blob([blob], { type: sealed.type }) : blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = sealed ? sealed.name : file.fileName;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  await saveFile(sealed ? new Blob([blob], { type: sealed.type }) : blob, sealed ? sealed.name : file.fileName);
 }
 
 // What an encrypted upload calls itself on the wire; the real name is sealed.

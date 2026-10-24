@@ -193,6 +193,8 @@ export const config = {
   // host split: the receive host answers it inline, the marketing host passes
   // it straight to app/robots.ts. Real static assets are served by the ASSETS
   // binding before the worker, so they never reach here; unknown dotted paths
-  // still rewrite into [locale] → [...rest] → a clean 404.
-  matcher: ["/", "/((?!api|_next|sitemap\\.xml|feed\\.xml).*)"],
+  // still rewrite into [locale] → [...rest] → a clean 404. The save bridge
+  // (public/save-bridge.html) is skipped too, so `next dev` serves it as the
+  // assets binding does.
+  matcher: ["/", "/((?!api|_next|sitemap\\.xml|feed\\.xml|save-bridge).*)"],
 };

@@ -8,6 +8,7 @@ import { getNearbySelf } from "@/lib/nearby/identity";
 import { reportNearbyTelemetry } from "@/lib/api";
 import { NearbyRTC, type IncomingFile } from "@/lib/nearby/webrtc";
 import { canStageToDisk, saveToPickedLocation } from "@/lib/nearby/stage";
+import { saveFile, savesThroughBridge } from "@/lib/save-bridge";
 import { formatFileSize } from "@/lib/format";
 
 // Code alphabet omits ambiguous chars (0/O, 1/I) so shared codes are easy to read.
@@ -18,6 +19,10 @@ const CODE_LEN = 6;
 const MEMORY_WARN_BYTES = 512 * 1024 * 1024;
 // How long to keep showing "connecting" before admitting the network is gone.
 const OFFLINE_AFTER_MS = 8000;
+// A staged file saved through the bridge is a blob download, which never says
+// when it has finished reading the file: the staged copy stays this long (or
+// until the stale sweep of a later visit) instead of going at once.
+const BRIDGE_KEEP_MS = 30 * 60 * 1000;
 
 type Mode = "local" | "code";
 type Conn = "idle" | "connecting" | "online" | "offline";
@@ -45,20 +50,6 @@ interface Received {
   status: "ready" | "saving" | "saved";
   pct: number;
   failed?: boolean;
-}
-
-/** Hand an in-memory file to the browser's download flow. */
-function downloadBlob(blob: Blob, name: string) {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = name;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  // Not at once: the download starts asynchronously (slowly, where the browser
-  // first asks the user where to save) and a revoked URL fails it.
-  window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
 }
 
 /** WebRTC is required for browser-to-browser transfer. */
@@ -380,7 +371,7 @@ export function NearbyPanel({
         setIncoming((cur) => (cur && cur.from === inc.from ? null : cur));
         return;
       }
-      downloadBlob(file.blob, inc.name);
+      void saveFile(file.blob, inc.name);
       setIncoming((cur) => (cur && cur.from === inc.from ? { ...cur, status: "done" } : cur));
     });
     inc.handle.accept();
@@ -391,6 +382,19 @@ export function NearbyPanel({
     setReceived((cur) => cur.map((r) => (r.id === id ? { ...r, ...patch } : r)));
 
   function saveReceived(r: Received) {
+    if (savesThroughBridge()) {
+      // A frame on another host may not open the save dialog: the file goes
+      // to Downloads. The staged copy is released later (BRIDGE_KEEP_MS), so
+      // leaving the page right after the tap cannot cut the download short.
+      const release = r.release;
+      patchReceived(r.id, { status: "saving", pct: 100, release: async () => {} });
+      void saveFile(r.blob, r.name).then(() => {
+        patchReceived(r.id, { status: "saved", pct: 100, failed: false });
+        window.setTimeout(() => void release(), BRIDGE_KEEP_MS);
+        window.setTimeout(() => setReceived((cur) => cur.filter((x) => x.id !== r.id)), 2500);
+      });
+      return;
+    }
     // Straight from the tap, nothing awaited first: the picker inside needs
     // this click's user activation.
     const saving = saveToPickedLocation(r.blob, r.name, (written) =>

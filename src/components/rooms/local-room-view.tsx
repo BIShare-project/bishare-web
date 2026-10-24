@@ -5,20 +5,10 @@ import { useTranslations } from "next-intl";
 import { LogOut } from "lucide-react";
 import { NearbySignaling, type NearbyPeer } from "@/lib/nearby/signaling";
 import { RoomRTC, type ReceivedRoomFile } from "@/lib/rooms/local/room-rtc";
+import { saveFile } from "@/lib/save-bridge";
 import { RoomLayout } from "./room-layout";
 
 const EMOJIS = ["🦊", "🐼", "🐧", "🦉", "🐙", "🦜", "🐳", "🦄", "🐝", "🦩"];
-
-function saveBlob(blob: Blob, name: string) {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = name;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
 
 /** Local (WebRTC) room: file bytes go straight peer-to-peer, never via a server. */
 export function LocalRoomView({
@@ -217,7 +207,7 @@ export function LocalRoomView({
         size: f.size,
         byAlias: f.fromAlias,
         thumbnailSrc: previewOf(f),
-        onDownload: () => saveBlob(f.blob, f.name),
+        onDownload: () => void saveFile(f.blob, f.name),
       }))}
       filesPlaceholder={t("local.noFiles")}
       note={t("local.p2pNote")}
