@@ -83,7 +83,7 @@ async function streamedSave(url: string, f: LinkFile, onDone: () => void, onErro
 
 type Failure = LinkError["code"];
 
-/** The page for https://get.bishare.app/d/<id>#<key>: what someone shared from their Drive. */
+/** The page for https://dl.bishareusercontent.com/d/<id>#<key>: what someone shared from their Drive. */
 export function DriveLink({ id }: { id: string }) {
   const t = useTranslations("flows");
   const [link, setLink] = useState<OpenedLink | null>(null);

@@ -20,7 +20,7 @@
 const VISIT_KEY = "bishare.loopVisit";
 const COUNTED_KEY = "bishare.loopCounted";
 const OPEN_KEY = "bishare.receiveOpen.";
-const RECEIVE_HOST = "get.bishare.app";
+const RECEIVE_HOST = "dl.bishareusercontent.com";
 const MAIN_ORIGIN = "https://bishare.app";
 /** /transfer/<code>, with or without a locale prefix. */
 const RECEIVE_PATH = /^\/(?:[A-Za-z]{2}(?:-[A-Za-z]{2,4})?\/)?transfer\/[^/]+$/;

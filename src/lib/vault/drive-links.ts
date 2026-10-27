@@ -9,7 +9,7 @@ import type { DriveClient, LinkInfo } from "./client";
 import { b64u, generateLinkKey, generateObjectId, metaKey, openLinkKey, sealLink, sealLinkKey, type LinkFile } from "./crypto";
 import type { DriveIndex, DriveObject } from "./store";
 
-export const LINK_PAGE = "https://get.bishare.app/d/";
+export const LINK_PAGE = "https://dl.bishareusercontent.com/d/";
 /** Files one link may list (the server takes the folder and 1999 files). */
 export const LINK_MAX_FILES = 1999;
 

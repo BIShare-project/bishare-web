@@ -65,8 +65,10 @@ jobs:
             routes: [
               { pattern: "bishare.app", custom_domain: true },
               { pattern: "www.bishare.app", custom_domain: true },
-              // Receive pages: their own host, so a user-shared bad file gets
-              // flagged by Safe Browsing on this host, not the marketing site.
+              // Receive pages: their own domain, so a user-shared bad file gets
+              // flagged by Safe Browsing there, not on the marketing site.
+              { pattern: "dl.bishareusercontent.com", custom_domain: true },
+              // The first receive host: only redirects to the one above now.
               { pattern: "get.bishare.app", custom_domain: true },
               // The web Drive (src/middleware.ts DRIVE_HOST), noindex.
               { pattern: "drive.bishare.app", custom_domain: true },

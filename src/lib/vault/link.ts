@@ -1,5 +1,5 @@
 // Links from Drive, for the person who got one (drive-plan.md 6B.3; VAULT-SPEC
-// "Links from Drive"). https://get.bishare.app/d/<id>#<key>: the key after `#`
+// "Links from Drive"). https://dl.bishareusercontent.com/d/<id>#<key>: the key after `#`
 // never leaves the browser. It opens the sealed manifest (names, sizes, file
 // keys); the files come straight from the vault bucket through short signed
 // URLs and are decrypted here, as the Drive's own pages do.

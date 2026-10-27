@@ -3,16 +3,19 @@
 // redirects a redundant default prefix ("/en/features" → "/features"). The web
 // Drive has its own host and a strict policy (drivePolicy below).
 //
-// Since 2026-09-26 this file also splits the site across two hosts. Safe
+// Since 2026-09-26 this file also splits the site across hosts. Safe
 // Browsing flagged bishare.app for "harmful downloads" after a user shared
 // malware: recipient downloads are attributed to the host that serves them,
 // and we cannot scan end-to-end encrypted files, so the only controllable
 // variable is which host takes the blame. The receive page (/transfer/<code>)
-// therefore lives on get.bishare.app — the next bad file flags that host, not
-// the marketing site. Same pattern as googleusercontent.com /
-// githubusercontent.com. Links keep working: bishare.app/transfer/<code>
-// redirects across, and the #k= fragment survives redirects in every browser
-// because fragments never leave the client.
+// and Drive links (/d/<id>) therefore live on their own domain, so the next
+// bad file flags that domain, not the marketing site. Same pattern as
+// googleusercontent.com / githubusercontent.com. Since 2026-10-28 that is
+// dl.bishareusercontent.com, on a separate registrable domain; the first receive
+// host, get.bishare.app, was a subdomain of the site and now only redirects.
+// Links keep working: bishare.app/transfer/<code> and every get.bishare.app
+// URL redirect across, and the #k= fragment survives redirects in every
+// browser because fragments never leave the client.
 import { NextRequest, NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
@@ -23,7 +26,9 @@ const intlMiddleware = createIntlMiddleware(routing);
 const APEX_HOST = "bishare.app";
 const WWW_HOST = "www.bishare.app";
 const MAIN_HOSTS = new Set([APEX_HOST, WWW_HOST]);
-const RECEIVE_HOST = "get.bishare.app";
+const RECEIVE_HOST = "dl.bishareusercontent.com";
+/** The receive host before 2026-10-28: links already shared still point here. */
+const LEGACY_RECEIVE_HOST = "get.bishare.app";
 // The web Drive (drive-plan.md phase 6) lives on its own host for the same
 // reason as the receive pages: user files are never served from the marketing
 // site. Its pages are /[locale]/drive/... inside; the host shows them at its
@@ -143,6 +148,19 @@ export function middleware(request: NextRequest): NextResponse {
     if (host === WWW_HOST) return moveTo(APEX_HOST, request, 301);
     if (path === "/robots.txt") return NextResponse.next(); // app/robots.ts as before
     return intlMiddleware(request);
+  }
+
+  // Everything on the old receive host moves to the new one, path and query
+  // kept: shared transfer links, Drive links made by apps before 2.8.0, and
+  // the save bridge of pages loaded before the move.
+  if (host === LEGACY_RECEIVE_HOST) {
+    if (path === "/robots.txt") {
+      // Preview fetchers may still follow an old link across to its card.
+      return new NextResponse(`${LINK_PREVIEW_GROUP}\nUser-Agent: *\nDisallow: /\n`, {
+        headers: { "Content-Type": "text/plain" },
+      });
+    }
+    return moveTo(RECEIVE_HOST, request);
   }
 
   if (host === RECEIVE_HOST) {

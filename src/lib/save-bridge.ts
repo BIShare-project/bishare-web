@@ -1,10 +1,10 @@
-// Saving a received file from get.bishare.app instead of the page it arrived
-// on (safe-browsing-audit-2026-10-24.md).
+// Saving a received file from dl.bishareusercontent.com instead of the page it
+// arrived on (safe-browsing-audit-2026-10-24.md).
 //
 // Safe Browsing marks the host that downloads come from. Files people share
 // are new every time and end-to-end encrypted, so they always look
 // "uncommon", and Google flagged bishare.app for it on 2026-10-23. Received
-// shared links already save from get.bishare.app (middleware.ts); Nearby,
+// shared links already save from dl.bishareusercontent.com (middleware.ts); Nearby,
 // QR Beam and Rooms receive into the marketing pages themselves, so their
 // last step, the save, goes through a hidden frame on that host
 // (public/save-bridge.html). Nothing on the page changes.
@@ -14,7 +14,7 @@
 // saved right here as before: a save never fails because of the bridge.
 
 // public/save-bridge.html: static HTML answers at its path without ".html".
-const BRIDGE_URL = "https://get.bishare.app/save-bridge";
+const BRIDGE_URL = "https://dl.bishareusercontent.com/save-bridge";
 const MAIN_HOSTS = new Set(["bishare.app", "www.bishare.app"]);
 const READY_MS = 4000;
 

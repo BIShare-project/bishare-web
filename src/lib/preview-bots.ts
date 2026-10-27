@@ -2,7 +2,7 @@
  * Link-preview fetchers that read robots.txt before they draw a preview.
  *
  * The receive page (/transfer/<code>) is disallowed for every crawler: on
- * bishare.app by app/robots.ts, and the whole get.bishare.app host by the
+ * bishare.app by app/robots.ts, and the whole dl.bishareusercontent.com host by the
  * middleware. That kept X, Slack, LinkedIn, Discord, Teams and Reddit from
  * previewing a BIShare link at all, so the preview card the page carries
  * (og:image, twitter:*) only showed in apps that fetch without asking, such
