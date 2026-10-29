@@ -400,7 +400,27 @@ export function reportInterest(event: InterestEvent): void {
   sendTelemetry("interest", { topic: "drive", event, platform: "web" });
 }
 
-function sendTelemetry(path: "transfer" | "interest", payload: Record<string, unknown>): void {
+export type CtaId = "drive_hint" | "drive_after_upload" | "drive_after_upload_app" | "drive_after_upload_open";
+
+/**
+ * One anonymous tally for a site link: that it was shown, or that it was
+ * tapped. The id and the event, nothing else. A view is sent once per browser
+ * tab session for each id, so reloading a page does not inflate it.
+ */
+export function reportCta(id: CtaId, event: "view" | "click"): void {
+  if (event === "view") {
+    try {
+      const key = `bishare:cta-view:${id}`;
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, "1");
+    } catch {
+      /* no storage: send it anyway */
+    }
+  }
+  sendTelemetry("cta", { id, event });
+}
+
+function sendTelemetry(path: "transfer" | "interest" | "cta", payload: Record<string, unknown>): void {
   try {
     const body = JSON.stringify(payload);
     const url = `${API_URL}/api/v1/telemetry/${path}`;

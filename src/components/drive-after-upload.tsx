@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { getVaultOpen } from "@/lib/api";
+import { getVaultOpen, reportCta, type CtaId } from "@/lib/api";
 import { getPathname } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/site/ui/button";
 
@@ -22,6 +22,7 @@ export function DriveAfterUpload({ hours }: { hours: number }) {
   const t = useTranslations("tool.driveAfterUpload");
   const locale = useLocale();
   const open = useVaultOpen();
+  useCtaView(open, "drive_after_upload");
 
   if (!open) return null;
   return (
@@ -31,6 +32,7 @@ export function DriveAfterUpload({ hours }: { hours: number }) {
       <div className="mt-4 flex flex-col gap-2 sm:flex-row">
         <a
           href={`${getPathname({ href: "/download", locale })}?ref=drive_after_upload`}
+          onClick={() => reportCta("drive_after_upload_app", "click")}
           className={buttonVariants({ variant: "default", size: "default", className: "sm:flex-1" })}
         >
           {t("app")}
@@ -39,6 +41,7 @@ export function DriveAfterUpload({ hours }: { hours: number }) {
           href={DRIVE_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => reportCta("drive_after_upload_open", "click")}
           className={buttonVariants({ variant: "outline", size: "default", className: "sm:flex-1" })}
         >
           {t("open")}
@@ -56,6 +59,7 @@ export function DriveAfterUpload({ hours }: { hours: number }) {
 export function DriveLinkHint({ hours }: { hours: number }) {
   const t = useTranslations("tool.driveHint");
   const open = useVaultOpen();
+  useCtaView(open, "drive_hint");
 
   if (!open) return null;
   return (
@@ -67,6 +71,7 @@ export function DriveLinkHint({ hours }: { hours: number }) {
             href={DRIVE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => reportCta("drive_hint", "click")}
             className="font-medium text-primary underline-offset-4 hover:underline"
           >
             {chunks}
@@ -92,4 +97,11 @@ function useVaultOpen(): boolean {
   }, []);
 
   return open;
+}
+
+/** Counts the card as shown once it is on screen. The two buttons share one view. */
+function useCtaView(open: boolean, id: CtaId): void {
+  useEffect(() => {
+    if (open) reportCta(id, "view");
+  }, [open, id]);
 }
