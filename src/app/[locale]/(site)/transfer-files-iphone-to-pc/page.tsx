@@ -58,7 +58,7 @@ const VIDEO = {
   name: "AirDrop to PC: Send iPhone Videos to Windows over Wi-Fi (Free, No Cable)",
   description:
     "How to send videos and any file from an iPhone to a Windows PC over your own Wi-Fi, free and without a cable, with BIShare.",
-  uploadDate: "2026-10-21",
+  uploadDate: "2026-10-20T19:15:28-07:00",
   duration: "PT1M",
   thumbnail: "/img/video/airdrop-to-pc.jpg",
 };
