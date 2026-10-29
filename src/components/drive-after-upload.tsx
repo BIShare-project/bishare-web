@@ -21,17 +21,7 @@ const DRIVE_URL = "https://drive.bishare.app";
 export function DriveAfterUpload({ hours }: { hours: number }) {
   const t = useTranslations("tool.driveAfterUpload");
   const locale = useLocale();
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    let alive = true;
-    void getVaultOpen().then((on) => {
-      if (alive) setOpen(on);
-    });
-    return () => {
-      alive = false;
-    };
-  }, []);
+  const open = useVaultOpen();
 
   if (!open) return null;
   return (
@@ -56,4 +46,50 @@ export function DriveAfterUpload({ hours }: { hours: number }) {
       </div>
     </section>
   );
+}
+
+/**
+ * Under the drop zone: a link from here lasts [hours] at most, Drive's up to
+ * 30 days. Only the lifetime is offered, never size: a Drive link holds about
+ * 5 GiB per file while a transfer takes 100 GiB. Same flag as above.
+ */
+export function DriveLinkHint({ hours }: { hours: number }) {
+  const t = useTranslations("tool.driveHint");
+  const open = useVaultOpen();
+
+  if (!open) return null;
+  return (
+    <p className="text-center text-[12.5px] text-muted-foreground">
+      {t.rich("text", {
+        hours,
+        a: (chunks) => (
+          <a
+            href={DRIVE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary underline-offset-4 hover:underline"
+          >
+            {chunks}
+          </a>
+        ),
+      })}
+    </p>
+  );
+}
+
+/** Whether `vault_enabled` is on for everyone. */
+function useVaultOpen(): boolean {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    void getVaultOpen().then((on) => {
+      if (alive) setOpen(on);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  return open;
 }

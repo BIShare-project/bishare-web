@@ -35,7 +35,7 @@ import { QRDisplay } from "@/components/site/qr-display";
 import { TagBadge } from "@/components/site/status-pill";
 import { TransferEmailForm } from "@/components/transfer-email-form";
 import { DriveInterest } from "@/components/drive-interest";
-import { DriveAfterUpload } from "@/components/drive-after-upload";
+import { DriveAfterUpload, DriveLinkHint } from "@/components/drive-after-upload";
 import { AppAfterUpload } from "@/components/app-after-upload";
 import {
   CheckCircle2,
@@ -1362,6 +1362,8 @@ export function FileUpload() {
           )}
         </div>
       </div>
+
+      {!isUploading && <DriveLinkHint hours={EXPIRY_CHOICES[EXPIRY_CHOICES.length - 1]} />}
 
       {zipping > 0 && (
         <div className="rounded-2xl border border-border bg-card px-4 py-3">
