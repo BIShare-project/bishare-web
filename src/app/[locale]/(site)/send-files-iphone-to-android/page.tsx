@@ -34,9 +34,9 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/send-files-iphone-to-android";
 const NS = "iphoneToAndroid";
-const LAST_UPDATED = "2026-10-14";
+const LAST_UPDATED = "2026-10-29";
 
-const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
+const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5", "6"] as const;
 const CHANGED_ITEMS = ["0", "1", "2"] as const;
 const ALT_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7"] as const;
 const SWITCH_ITEMS = ["0", "1", "2"] as const;

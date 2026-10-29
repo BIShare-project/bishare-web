@@ -38,7 +38,7 @@ const SPEED_POST = "airdrop-for-windows-speeds";
  * update `LAST_UPDATED` whenever those facts are re-checked.
  */
 
-const LAST_UPDATED = "2026-09-12";
+const LAST_UPDATED = "2026-10-29";
 const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
@@ -84,7 +84,7 @@ const SPEED_ROWS = ["0", "1", "2", "3", "4"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
 const PHONE_LINK_ITEMS = ["0", "1", "2", "3"] as const;
 const HOW_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"] as const;
+const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"] as const;
 const STEP_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const FIX_ITEMS = ["0", "1", "2"] as const;
 
