@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
-import { AppleGlyph, appStoreUrl, PlayGlyph, playStoreUrl } from "@/components/site/store-buttons";
+import { AppleGlyph, appStoreUrl, PlayGlyph, playStoreUrl, StoreButtons } from "@/components/site/store-buttons";
 import { buttonVariants } from "@/components/site/ui/button";
 import { detectMobileOS } from "@/lib/pwa-install";
 
@@ -34,6 +34,39 @@ export function AppAfterUpload() {
         <Glyph />
         {t("nativeApp.button", { store: android ? "Google Play" : "App Store" })}
       </a>
+    </section>
+  );
+}
+
+/**
+ * In the Nearby panel, once a file has arrived and been saved: the person just
+ * received from a nearby device through a browser tab and a code, which is
+ * what the app does by itself on the same Wi-Fi. A phone gets its own store,
+ * a computer the store row (the desktop apps are there too).
+ */
+export function AppAfterReceive() {
+  const t = useTranslations("nearby.appAfter");
+  const tc = useTranslations("chrome");
+  const mobile = useSyncExternalStore(noopSubscribe, detectMobileOS, () => null);
+  const android = mobile === "android";
+  const Glyph = android ? PlayGlyph : AppleGlyph;
+  return (
+    <section className="mt-5 rounded-xl border border-border bg-card p-5 text-left">
+      <h4 className="text-base font-semibold tracking-[-0.01em]">{t("title")}</h4>
+      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t("body")}</p>
+      {mobile ? (
+        <a
+          href={android ? playStoreUrl("nearby_receive") : appStoreUrl("nearby_receive")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={buttonVariants({ variant: "default", size: "default", className: "mt-4 w-full" })}
+        >
+          <Glyph />
+          {tc("nativeApp.button", { store: android ? "Google Play" : "App Store" })}
+        </a>
+      ) : (
+        <StoreButtons className="mt-4" campaign="nearby_receive" />
+      )}
     </section>
   );
 }

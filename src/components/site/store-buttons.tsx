@@ -72,12 +72,12 @@ export function PlayGlyph({ className }: { className?: string }) {
  * every landing page that shows the stores also offers the instant route.
  * For an OS-aware version use <DownloadCTA /> instead.
  */
-export function StoreButtons({ className }: { className?: string }) {
+export function StoreButtons({ className, campaign = "store_buttons" }: { className?: string; campaign?: string }) {
   const t = useTranslations("chrome");
   return (
     <div className={cn("flex flex-wrap items-center gap-4", className)}>
       <a
-        href={appStoreUrl("store_buttons")}
+        href={appStoreUrl(campaign)}
         target="_blank"
         rel="noopener noreferrer"
         className={brandButton("primary", "md", "px-5")}
@@ -86,7 +86,7 @@ export function StoreButtons({ className }: { className?: string }) {
         <span className="text-sm font-semibold">{t("store.appStore")}</span>
       </a>
       <a
-        href={playStoreUrl("store_buttons")}
+        href={playStoreUrl(campaign)}
         target="_blank"
         rel="noopener noreferrer"
         className={brandButton("outline", "md", "px-5")}

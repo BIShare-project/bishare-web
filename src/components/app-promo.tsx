@@ -52,14 +52,19 @@ function SendBack({
  * page is the highest-intent surface — someone just got a file cross-platform
  * with no app). Turns that moment into an install: the wedge copy + store
  * buttons. Localized via the `flows.appPromo` namespace.
+ *
+ * [campaign] names where the install came from in the store reports; without
+ * it the phone button says "receive" (or "transfer_promo") and the desktop
+ * buttons "store_buttons", as they always have.
  */
-export function AppPromo({ sendCta = true }: { sendCta?: boolean }) {
+export function AppPromo({ sendCta = true, campaign }: { sendCta?: boolean; campaign?: string }) {
   const t = useTranslations("flows.appPromo");
   const tc = useTranslations("chrome");
   // null on the server and on desktop; the platform never changes mid-visit.
   const mobile = useSyncExternalStore(noopSubscribe, detectMobileOS, () => null);
   const android = mobile === "android";
   const Glyph = android ? PlayGlyph : AppleGlyph;
+  const phoneCampaign = campaign ?? (sendCta ? "receive" : "transfer_promo");
   return (
     <section className="mt-12">
       <div className="mb-8 h-px bg-border" aria-hidden />
@@ -79,7 +84,7 @@ export function AppPromo({ sendCta = true }: { sendCta?: boolean }) {
              stays one tap below. */
           <div className="mt-6 flex flex-col items-center gap-3">
             <VButton
-              href={android ? playStoreUrl(sendCta ? "receive" : "transfer_promo") : appStoreUrl(sendCta ? "receive" : "transfer_promo")}
+              href={android ? playStoreUrl(phoneCampaign) : appStoreUrl(phoneCampaign)}
               size="lg"
             >
               <Glyph />
@@ -102,13 +107,13 @@ export function AppPromo({ sendCta = true }: { sendCta?: boolean }) {
               <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                 {t("orGetApp")}
               </p>
-              <StoreButtons className="justify-center" />
+              <StoreButtons className="justify-center" campaign={campaign} />
             </div>
           </div>
         ) : (
           /* On the send tool itself there is nothing to send back to. */
           <div className="mt-6 flex flex-col items-center">
-            <StoreButtons className="justify-center" />
+            <StoreButtons className="justify-center" campaign={campaign} />
           </div>
         )}
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">

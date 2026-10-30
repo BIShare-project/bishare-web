@@ -38,7 +38,7 @@ export default async function DriveLinkPage({ params }: Props) {
   return (
     <FlowShell maxWidthClassName="max-w-xl">
       <DriveLink id={id} />
-      <AppPromo />
+      <AppPromo campaign="drive_link" />
     </FlowShell>
   );
 }

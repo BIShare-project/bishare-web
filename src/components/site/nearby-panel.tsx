@@ -10,6 +10,7 @@ import { NearbyRTC, type IncomingFile } from "@/lib/nearby/webrtc";
 import { canStageToDisk, saveToPickedLocation } from "@/lib/nearby/stage";
 import { saveFile, savesThroughBridge } from "@/lib/save-bridge";
 import { formatFileSize } from "@/lib/format";
+import { AppAfterReceive } from "@/components/app-after-upload";
 
 // Code alphabet omits ambiguous chars (0/O, 1/I) so shared codes are easy to read.
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -104,6 +105,8 @@ export function NearbyPanel({
   const [sending, setSending] = useState<Record<string, number>>({}); // peerId → pct
   const [incoming, setIncoming] = useState<Incoming | null>(null);
   const [received, setReceived] = useState<Received[]>([]);
+  // A file was saved in this visit: the app's offer shows from then on.
+  const [gotFile, setGotFile] = useState(false);
   // Per-peer send queue. The transport allows ONE transfer per peer pair at a
   // time (starting a second tears the first down), so a multi-file pick has to
   // be drained one at a time rather than fired in parallel.
@@ -390,6 +393,7 @@ export function NearbyPanel({
       patchReceived(r.id, { status: "saving", pct: 100, release: async () => {} });
       void saveFile(r.blob, r.name).then(() => {
         patchReceived(r.id, { status: "saved", pct: 100, failed: false });
+        setGotFile(true);
         window.setTimeout(() => void release(), BRIDGE_KEEP_MS);
         window.setTimeout(() => setReceived((cur) => cur.filter((x) => x.id !== r.id)), 2500);
       });
@@ -404,6 +408,7 @@ export function NearbyPanel({
       (saved) => {
         if (!saved) return; // dialog dismissed — still ready
         patchReceived(r.id, { status: "saved", pct: 100, failed: false });
+        setGotFile(true);
         void r.release();
         window.setTimeout(() => setReceived((cur) => cur.filter((x) => x.id !== r.id)), 2500);
       },
@@ -717,6 +722,8 @@ export function NearbyPanel({
         </div>
         </div>
       )}
+
+      {gotFile && <AppAfterReceive />}
 
       {incoming?.status === "canceled" && (
         <div className="mt-5 rounded-xl border border-border bg-secondary/40 p-4 text-sm text-muted-foreground">
