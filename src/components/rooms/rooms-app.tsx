@@ -23,6 +23,7 @@ import {
   createRoom,
   closeRoom,
   downloadRoomFile,
+  fromHeader,
   uploadRoomFile,
   makeThumbnail,
   RoomConnection,
@@ -211,7 +212,10 @@ export function RoomsApp({
           // In an encrypted room the name on the wire is a placeholder.
           dispatch({
             type: "upload_start",
-            label: e.data.fileName === SEALED_NAME ? e.data.alias : `${e.data.alias} · ${e.data.fileName}`,
+            label:
+              e.data.fileName === SEALED_NAME
+                ? fromHeader(e.data.alias)
+                : `${fromHeader(e.data.alias)} · ${fromHeader(e.data.fileName)}`,
           });
           break;
         case "upload_done":
@@ -677,9 +681,9 @@ function RoomView({
         const thumb = f.enc ? meta?.thumbnail : f.thumbnail;
         return {
           id: f.id,
-          name: f.enc ? (meta?.name ?? t("room.encryptedFile")) : f.fileName,
+          name: f.enc ? (meta?.name ?? t("room.encryptedFile")) : fromHeader(f.fileName),
           size: f.enc ? (meta?.size ?? f.size) : f.size,
-          byAlias: f.ownerAlias || t("landing.anon"),
+          byAlias: fromHeader(f.ownerAlias) || t("landing.anon"),
           thumbnailSrc: thumb ? `data:image/jpeg;base64,${thumb}` : undefined,
           onDownload: () => {
             const run = async () => {

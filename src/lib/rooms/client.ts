@@ -50,6 +50,21 @@ export async function closeRoom(code: string, hostToken: string): Promise<void> 
   if (!res.ok) throw new Error(await readError(res));
 }
 
+/**
+ * An alias or file name as the uploader put it in a header. This client and
+ * the apps percent-encode those (a header cannot carry most non-ASCII names)
+ * and the server stores them as sent. A value with a stray '%' that does not
+ * decode is kept as it is.
+ */
+export function fromHeader(raw: string): string {
+  if (!raw.includes("%")) return raw;
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return raw;
+  }
+}
+
 /** Download a shared file (server-proxied stream) and save it via the browser.
  *  An end-to-end encrypted file is opened on the way in with its BSE2 key and
  *  saved under the name from its sealed metadata. */
@@ -64,7 +79,7 @@ export async function downloadRoomFile(
     sealed && res.body
       ? await new Response(res.body.pipeThrough(decryptTransform(sealed.fileKey))).blob()
       : await res.blob();
-  await saveFile(sealed ? new Blob([blob], { type: sealed.type }) : blob, sealed ? sealed.name : file.fileName);
+  await saveFile(sealed ? new Blob([blob], { type: sealed.type }) : blob, sealed ? sealed.name : fromHeader(file.fileName));
 }
 
 // What an encrypted upload calls itself on the wire; the real name is sealed.
