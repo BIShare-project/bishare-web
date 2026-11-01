@@ -50,16 +50,17 @@ const SPEED_ITEMS = ["0", "1", "2"] as const;
 const FIX_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
 
-/* The one-minute "AirDrop to PC" video (YouTube, English, published 2026-10-21;
-   source and render scripts in bishare-project/video/airdrop-to-pc). Shown on
-   the English page only, behind a click-to-load facade. */
+/* The one-minute "AirDrop to PC" video (YouTube, English, re-published
+   2026-10-31 after the first upload, tb4ycLQdJv0, went away; source and render
+   scripts in bishare-project/video/airdrop-to-pc). Shown on the English page
+   only, behind a click-to-load facade. */
 const VIDEO = {
-  id: "tb4ycLQdJv0",
+  id: "4FgXK0x3rdU",
   name: "AirDrop to PC: Send iPhone Videos to Windows over Wi-Fi (Free, No Cable)",
   description:
     "How to send videos and any file from an iPhone to a Windows PC over your own Wi-Fi, free and without a cable, with BIShare.",
-  uploadDate: "2026-10-20T19:15:28-07:00",
-  duration: "PT1M",
+  uploadDate: "2026-10-31T20:38:29-07:00",
+  duration: "PT1M1S",
   thumbnail: "/img/video/airdrop-to-pc.jpg",
 };
 const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] as const;
