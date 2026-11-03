@@ -27,6 +27,21 @@ export function StatsLiveSocket({ fallbackMs = 60000 }: { fallbackMs?: number })
     let ws: WebSocket | null = null;
     let retry: ReturnType<typeof setTimeout> | undefined;
     let pending: ReturnType<typeof setTimeout> | undefined;
+    // A "changed" that arrived while nobody was looking: one refresh when the
+    // tab is shown again, instead of a server render of /stats for every ping
+    // into a hidden tab (a tab left open for days made thousands of them).
+    let stale = false;
+    const refresh = () => {
+      if (document.visibilityState === "visible") router.refresh();
+      else stale = true;
+    };
+    const onVisible = () => {
+      if (document.visibilityState === "visible" && stale) {
+        stale = false;
+        router.refresh();
+      }
+    };
+    document.addEventListener("visibilitychange", onVisible);
 
     const connect = () => {
       if (stopped) return;
@@ -37,7 +52,7 @@ export function StatsLiveSocket({ fallbackMs = 60000 }: { fallbackMs?: number })
           if (e.data === "changed" && pending === undefined) {
             pending = setTimeout(() => {
               pending = undefined;
-              router.refresh();
+              refresh();
             }, REFRESH_MIN_DELAY_MS + Math.random() * REFRESH_JITTER_MS);
           }
         };
@@ -64,6 +79,7 @@ export function StatsLiveSocket({ fallbackMs = 60000 }: { fallbackMs?: number })
 
     return () => {
       stopped = true;
+      document.removeEventListener("visibilitychange", onVisible);
       clearTimeout(retry);
       clearTimeout(pending);
       clearInterval(fb);
