@@ -14,6 +14,7 @@ import { HeroCta } from "@/components/site/hero-cta";
 import { StoreButtons } from "@/components/site/store-buttons";
 import { ArrowRight, Check, X } from "lucide-react";
 import { guideLinks } from "@/components/site/guide-links";
+import { YouTubeFacade } from "@/components/site/youtube-facade";
 
 /**
  * "Best file sharing apps" buyer's guide — the page AI answers cite most and
@@ -30,6 +31,19 @@ const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
 const SLUG = "/best-file-sharing-app";
+
+/* "How to send files between any phone and computer" (YouTube, English,
+   published 2026-11-02; Remotion source in bishare-project/video/share-any-device).
+   Shown on the English page only, behind a click-to-load facade. */
+const VIDEO = {
+  id: "Rsx7yzl0okY",
+  name: "How to Send Files Between Any Phone and Computer (Free, No Cable)",
+  description:
+    "Three ways to move photos, videos and files between iPhone, Android, Windows, Mac and Linux with BIShare: over the same Wi-Fi, with a link anyone can open, or in the browser.",
+  uploadDate: "2026-11-02T20:59:44-08:00",
+  duration: "PT43S",
+  thumbnail: "/img/video/share-any-device.jpg",
+};
 
 export async function generateMetadata({
   params,
@@ -159,10 +173,23 @@ export default async function BestFileSharingAppPage({
     datePublished: FIRST_PUBLISHED,
     dateModified: LAST_UPDATED,
   };
+  const videoLd =
+    locale === "en"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: VIDEO.name,
+          description: VIDEO.description,
+          thumbnailUrl: [`${SITE}${VIDEO.thumbnail}`],
+          uploadDate: VIDEO.uploadDate,
+          duration: VIDEO.duration,
+          embedUrl: `https://www.youtube.com/embed/${VIDEO.id}`,
+        }
+      : null;
 
   return (
     <div className="min-h-screen bg-background">
-      {[listLd, faqLd, pageLd, breadcrumbLd("/best-file-sharing-app", "Best file sharing apps")].map((ld, i) => (
+      {[listLd, faqLd, pageLd, breadcrumbLd("/best-file-sharing-app", "Best file sharing apps"), ...(videoLd ? [videoLd] : [])].map((ld, i) => (
         <script
           key={i}
           type="application/ld+json"
@@ -222,6 +249,20 @@ export default async function BestFileSharingAppPage({
           zoomHint={chrome("imageZoom")}
           className="mt-8"
         />
+
+        {locale === "en" && (
+          <section className="mt-14">
+            <H2 id="video">{t("video.title")}</H2>
+            <YouTubeFacade
+              id={VIDEO.id}
+              title={VIDEO.name}
+              playLabel={t("video.play")}
+              thumbnail={VIDEO.thumbnail}
+              className="mt-5"
+            />
+            <p className="mt-3 text-sm text-muted-foreground">{t("video.note")}</p>
+          </section>
+        )}
 
         {/* How we judged */}
         <section className="mt-14">
