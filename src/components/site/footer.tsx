@@ -123,9 +123,8 @@ function FooterLink({
       </a>
     );
   }
-  // /stats is rendered on every request: no prefetch from every page's footer.
   return (
-    <Link href={href} prefetch={href === "/stats" ? false : undefined} className={cls}>
+    <Link href={href} className={cls}>
       {label}
     </Link>
   );
