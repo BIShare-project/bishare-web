@@ -192,6 +192,17 @@ export function RoomsApp({
     setAliasState(getAlias());
   }, []);
 
+  // A shared link (bishare.app/rooms?code=ABCD&mode=local, as the apps make
+  // them) fills the code in. Read here, not on the server, so the page stays
+  // prerendered.
+  useEffect(() => {
+    if (initialCode !== undefined) return;
+    const q = new URLSearchParams(window.location.search);
+    const c = q.get("code");
+    if (c) setCode(c.toUpperCase());
+    if (q.get("mode") === "local") setMode("local");
+  }, [initialCode]);
+
   const onEvent = useCallback(
     (e: RoomEvent) => {
       switch (e.type) {

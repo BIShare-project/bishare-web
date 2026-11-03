@@ -50,17 +50,15 @@ const STEP_ICONS = [DoorOpen, Share2, FileDown];
  */
 export default async function RoomsPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ code?: string; mode?: string }>;
 }) {
+  // No searchParams here: reading them made every view (and every prefetch of
+  // the nav link) a server render. The page is prerendered; RoomsApp reads
+  // ?code= and ?mode= in the browser.
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("rooms");
-  const sp = await searchParams;
-  const initialCode = sp.code;
-  const initialMode = sp.mode === "local" ? "local" : "cloud";
 
   const steps = t.raw("seo.how.steps") as Step[];
   const cloud = t.raw("seo.compare.cloud") as ComparePane;
@@ -103,7 +101,7 @@ export default async function RoomsPage({
           {/* The studio card the transfer tool uses, drawn by RoomsApp itself:
               narrow while choosing, wider once inside a room. */}
           <div className="mt-9">
-            <RoomsApp initialCode={initialCode} initialMode={initialMode} />
+            <RoomsApp />
           </div>
 
           <p className="mx-auto mt-8 max-w-lg text-center text-sm leading-relaxed text-muted-foreground">

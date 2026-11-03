@@ -19,7 +19,7 @@ const DRIVE_URL = "https://drive.bishare.app";
  * live in the footer so the bar stays scannable. Labels are resolved from the
  * "chrome" namespace at render time (`nav.<key>`).
  */
-const NAV_LINKS: readonly { href: string; key: string; wide?: boolean; external?: boolean; badge?: boolean }[] = [
+const NAV_LINKS: readonly { href: string; key: string; wide?: boolean; external?: boolean; badge?: boolean; live?: boolean }[] = [
   { href: "/transfer", key: "transfer" },
   { href: "/rooms", key: "rooms" },
   // The web Drive is its own host; "Drive" is the product's name in every language.
@@ -29,7 +29,8 @@ const NAV_LINKS: readonly { href: string; key: string; wide?: boolean; external?
   { href: "/security", key: "security" },
   { href: "/faq", key: "faq", wide: true },
   { href: "/blog", key: "blog", wide: true },
-  { href: "/stats", key: "stats", wide: true },
+  // live: rendered on every request, so it is not prefetched from every page.
+  { href: "/stats", key: "stats", wide: true, live: true },
 ];
 
 /** A link's label: the product's own name for the Drive, else from "chrome". */
@@ -134,7 +135,7 @@ export function SiteHeader() {
                   {underline}
                 </a>
               ) : (
-                <Link key={link.href} href={link.href} className={className}>
+                <Link key={link.href} href={link.href} prefetch={link.live ? false : undefined} className={className}>
                   {navLabel(t, link.key)}
                   {underline}
                 </Link>
@@ -187,7 +188,7 @@ export function SiteHeader() {
                         {link.badge && <NewBadge label={t("nav.new")} />}
                       </a>
                     ) : (
-                      <Link href={link.href} onClick={() => setOpen(false)} className={className}>
+                      <Link href={link.href} prefetch={link.live ? false : undefined} onClick={() => setOpen(false)} className={className}>
                         {navLabel(t, link.key)}
                       </Link>
                     )}
