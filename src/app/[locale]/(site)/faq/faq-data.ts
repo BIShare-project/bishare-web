@@ -29,7 +29,8 @@ export const FAQ_GROUPS: FaqGroupMeta[] = [
   {
     id: "transfers",
     icon: ArrowLeftRight,
-    items: [{}, {}, {}, {}, {}],
+    // 6-8: original files and GPS, Live Photos, a name already there (app 2.8.2).
+    items: [{}, {}, {}, {}, {}, {}, {}, {}],
   },
   {
     id: "privacy-security",
