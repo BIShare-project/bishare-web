@@ -43,5 +43,6 @@
     "R2_BUCKET_NAME": "<YOUR_R2_BUCKET>",
     "R2_PUBLIC_URL": "https://cdn.example.com"
   },
-  "observability": { "enabled": true }
+  // Workers Logs sampled at 1% (every page view was stored at 100%).
+  "observability": { "enabled": true, "head_sampling_rate": 0.01 }
 }

@@ -91,7 +91,9 @@ jobs:
               R2_BUCKET_NAME: "bishare-cloud",
               R2_PUBLIC_URL: "https://cdn.bishare.app",
             },
-            observability: { enabled: true },
+            // Workers Logs sampled at 1%: every page view was stored at
+            // 100% (~100 GB a cycle with the API). /stats does not read logs.
+            observability: { enabled: true, head_sampling_rate: 0.01 },
           };
 
           writeFileSync("wrangler.jsonc", `${JSON.stringify(config, null, 2)}\n`);
