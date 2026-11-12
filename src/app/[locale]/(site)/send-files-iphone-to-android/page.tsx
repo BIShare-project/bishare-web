@@ -34,7 +34,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/send-files-iphone-to-android";
 const NS = "iphoneToAndroid";
-const LAST_UPDATED = "2026-10-29";
+const LAST_UPDATED = "2026-11-12";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5", "6"] as const;
 const CHANGED_ITEMS = ["0", "1", "2"] as const;
@@ -45,10 +45,13 @@ const PHOTO_ITEMS = ["0", "1", "2", "3"] as const;
 // Long videos: added 2026-10-14 for the video queries Search Console shows at
 // positions 10 to 21 ("how to send long videos from iphone to android").
 const VIDEO_ITEMS = ["0", "1", "2", "3"] as const;
+// Sending a video at all: added 2026-11-12 for the 60+ video queries Search
+// Console shows at positions 6 to 9 ("how to send video from iphone to android").
+const SEND_VIDEO_ITEMS = ["0", "1", "2", "3"] as const;
 const SPEED_ITEMS = ["0", "1", "2"] as const;
 const FIX_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "10", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["0", "1", "11", "12", "2", "13", "3", "4", "10", "5", "6", "7", "8", "9"] as const;
 
 /* Comparison truth table. Columns: BIShare · AirDrop to Quick Share ·
    iCloud link / Mail Drop · Google Drive · WhatsApp document · USB-C drive.
@@ -424,6 +427,19 @@ export default async function IphoneToAndroidPage({
                 items={PHOTO_ITEMS}
                 head={(i) => t(`photos.items.${i}.h`)}
                 body={(i) => t.rich(`photos.items.${i}.b`, links)}
+              />
+            </section>
+
+            {/* Sending a video */}
+            <section className="mt-14">
+              <H2 id="send-video">{t("video.title")}</H2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                {t("video.body")}
+              </p>
+              <ProseList
+                items={SEND_VIDEO_ITEMS}
+                head={(i) => t(`video.items.${i}.h`)}
+                body={(i) => t(`video.items.${i}.b`)}
               />
             </section>
 

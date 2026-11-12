@@ -10,7 +10,7 @@
     "ctaPrimary": "免費取得BIShare",
     "ctaSecondary": "運作方式"
   },
-  "updated": "2026年10月更新 · 機型清單對照Google的Quick Share頁面，移轉步驟對照Apple關於iOS 26.3的支援文章，影片上限對照WhatsApp、Telegram和Apple的說明",
+  "updated": "2026年11月更新 · 機型清單對照Google的Quick Share頁面，移轉步驟對照Apple關於iOS 26.3的支援文章，影片上限對照WhatsApp、Telegram和Apple的說明",
   "disclosure": "BIShare是我們的產品。下面有幾種方法是手機內建、完全免費；如果Android手機在Google的支援清單中，可能只用AirDrop就夠了，適用時我們會說明。",
   "quick": {
     "title": "快速回答",
@@ -172,7 +172,7 @@
       },
       "1": {
         "h": "原況照片",
-        "b": "原況照片是一張靜態照片加上一段短影片，而Android沒有能同時播放兩者的格式。收到的會是靜態照片。如果那一刻很重要，打開原況照片，點分享，選「儲存為影片」，再傳送這段影片。"
+        "b": "原況照片是一張靜態照片加上一段短影片，而Android沒有能同時播放兩者的格式。收到的會是靜態照片。如果那一刻很重要，打開原況照片，點分享，選「儲存為影片」，再傳送這段影片。兩支手機都裝有BIShare 2.9或更新版本時，照片和動態會一起傳過去：Android上顯示為一個LIVE項目，再傳回iPhone時會重新變成原況照片。"
       },
       "2": {
         "h": "聊天App的壓縮",
@@ -291,6 +291,18 @@
       "10": {
         "q": "怎麼把影片當作文件從iPhone傳到Android？",
         "a": "先把影片存到「檔案」App（分享→「儲存到檔案」）。在WhatsApp裡點加號，選文件，再選存好的檔案；在Telegram裡以檔案附加。影片不會被壓縮，兩個App都最多2 GB，Telegram Premium最多4 GB。"
+      },
+      "11": {
+        "q": "怎麼把影片從iPhone傳到Android？",
+        "a": "依距離選。旁邊是Pixel、Galaxy S或其他在Google Quick Share清單上的手機，就用AirDrop。在同一個Wi-Fi下，任何Android手機都能用兩邊都裝好的BIShare傳送。其他情況下，分享最多100 GB的BIShare連結，或照片裡的iCloud連結。"
+      },
+      "12": {
+        "q": "怎麼把影片從iPhone傳到Android又不損失畫質？",
+        "a": "傳送檔案本身，而不是訊息附件：Wi-Fi直傳、AirDrop到支援的Android手機、BIShare或iCloud連結，或WhatsApp、Telegram裡的文件。在聊天App裡把影片當一般影片選，才會讓它變小變模糊。"
+      },
+      "13": {
+        "q": "可以用藍牙把影片從iPhone傳到Android嗎？",
+        "a": "不行。iPhone不會透過藍牙把影片或其他任何檔案傳給Android手機。而且藍牙對影片來說也太慢了。請用Wi-Fi、AirDrop到支援的手機，或連結。"
       }
     }
   },
@@ -368,6 +380,28 @@
         "name": "HEVC影片",
         "what": "Android從5.0起能播放HEVC",
         "fix": "大的4K影片：用Wi-Fi直傳"
+      }
+    }
+  },
+  "video": {
+    "title": "如何把影片從iPhone傳到Android",
+    "body": "適合的方法取決於兩件事：Android手機是否就在身邊，以及影片是否必須和拍攝時一模一樣地送到。",
+    "items": {
+      "0": {
+        "h": "Android就在旁邊，而且在Google的清單上",
+        "b": "在照片裡打開影片，點分享，再點AirDrop，選擇Android手機。之前先把iPhone設為「所有人（10分鐘）」，並讓Android對所有人顯示。傳輸途中影片不會被重新壓縮。"
+      },
+      "1": {
+        "h": "兩支手機連著同一個Wi-Fi",
+        "b": "兩支手機都裝好BIShare，在傳送畫面選一部影片或一整批，點Android手機即可。原始檔案逐位元組不變地送達，拍攝日期和位置都保留，在自己的網路裡也沒有大小限制。"
+      },
+      "2": {
+        "h": "Android在別的地方",
+        "b": "傳連結，而不是傳檔案。BIShare連結最多可裝100 GB，在Chrome裡不用安裝任何東西就能播放或下載。照片裡的「拷貝iCloud連結」也適用於影片，並保持30天可開啟。"
+      },
+      "3": {
+        "h": "你們只有一個共同的聊天App",
+        "b": "把影片當作文件傳送，而不是當作影片。WhatsApp和Telegram會壓縮從相簿選的內容，文件則原樣送達，最多2 GB。先把影片存到「檔案」，文件選擇畫面才找得到。"
       }
     }
   },

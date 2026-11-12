@@ -214,6 +214,28 @@
       }
     }
   },
+  "sharing": {
+    "title": "Compartir archivos con cifrado de extremo a extremo con un grupo o durante semanas",
+    "body": "Enviar entrega una copia a una persona. Compartir mantiene los archivos abiertos para varias personas, a menudo durante días o semanas, y eso cambia las preguntas: quién puede seguir abriéndolos y quién guarda la clave mientras esperan.",
+    "items": {
+      "0": {
+        "h": "Un enlace, unas pocas personas",
+        "b": "Un enlace cifrado de extremo a extremo también sirve para un grupo pequeño. Quien tenga el enlace completo, clave incluida, puede descargar, mientras el servidor solo guarda texto cifrado. Cada reenvío es otra copia de la clave, así que mantén el grupo pequeño y la caducidad corta."
+      },
+      "1": {
+        "h": "Un espacio común para los archivos de todos",
+        "b": "<goRooms>Una Room en la nube de BIShare</goRooms> da a un grupo una sola lista a la que cada miembro puede añadir. Cada archivo se cifra en el dispositivo que lo añade y la clave de la sala pasa de miembro a miembro, así que el servidor transmite archivos que no puede abrir."
+      },
+      "2": {
+        "h": "Archivos que siguen compartidos durante semanas",
+        "b": "Para almacenar y no solo entregar, elige un almacenamiento cifrado de extremo a extremo. Proton Drive comparte un archivo o una carpeta por enlace con contraseña opcional, y BIShare Drive cifra archivos y fotos con AES-256-GCM en tu dispositivo antes de subirlos."
+      },
+      "3": {
+        "h": "Retirar el acceso",
+        "b": "El cifrado no puede recuperar un archivo que alguien ya descargó. Lo que sí puedes frenar es la siguiente descarga: deja que caduquen los enlaces, borra la copia compartida o pasa el grupo a una sala nueva."
+      }
+    }
+  },
   "choose": {
     "title": "Qué método para cada situación",
     "body": "Elige según qué es el archivo, quién lo recibe y cuánto tiempo debe estar disponible.",
@@ -308,6 +330,14 @@
       "9": {
         "q": "¿BIShare es gratis?",
         "a": "Sí. No cuesta nada, su código se publica bajo Apache 2.0 y funciona sin registro ni publicidad."
+      },
+      "10": {
+        "q": "¿Qué es compartir archivos con cifrado de extremo a extremo?",
+        "a": "Compartir archivos de forma que solo las personas con quienes los compartes puedan abrirlos. Cada archivo se cifra en el dispositivo de quien lo envía y la clave llega a los destinatarios sin que el servicio la tenga nunca, así que el servicio solo guarda o transmite texto cifrado. Si solo se cifra en tránsito y en reposo, el proveedor puede leer los archivos."
+      },
+      "11": {
+        "q": "¿Qué servicios para compartir archivos tienen cifrado de extremo a extremo?",
+        "a": "De las opciones de esta página: los enlaces y las Rooms en la nube de BIShare, Wormhole, Proton Drive, OnionShare y magic-wormhole, además de LocalSend y las transferencias directas de BIShare en una red local. Un servicio que solo habla de cifrado en tránsito y en reposo puede seguir abriendo tus archivos."
       }
     }
   },

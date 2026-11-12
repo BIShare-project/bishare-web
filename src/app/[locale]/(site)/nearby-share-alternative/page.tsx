@@ -32,7 +32,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/nearby-share-alternative";
 const NS = "nearbyShareAlt";
-const LAST_UPDATED = "2026-09-14";
+const LAST_UPDATED = "2026-11-12";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const WHAT_ITEMS = ["0", "1", "2", "3", "4"] as const;
@@ -43,7 +43,7 @@ const UNOFFICIAL_ITEMS = ["0", "1", "2", "3"] as const;
 const CHOOSE_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const FIXES_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["0", "1", "2", "3", "10", "4", "5", "6", "7", "8", "9"] as const;
 
 /* Comparison truth table. Columns: Quick Share, BIShare, LocalSend, KDE Connect,
    PairDrop, NearDrop, RQuickShare.

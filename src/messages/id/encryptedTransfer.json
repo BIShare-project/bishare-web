@@ -214,6 +214,28 @@
       }
     }
   },
+  "sharing": {
+    "title": "Berbagi file terenkripsi end-to-end dengan grup, atau selama berminggu-minggu",
+    "body": "Mengirim berarti menyerahkan satu salinan ke satu orang. Berbagi membuat file tetap terbuka bagi beberapa orang, sering berhari-hari atau berminggu-minggu, dan pertanyaannya pun berubah: siapa yang masih bisa membukanya, dan siapa yang memegang kuncinya selama file menunggu.",
+    "items": {
+      "0": {
+        "h": "Satu tautan, beberapa orang",
+        "b": "Tautan terenkripsi end-to-end juga cocok untuk grup kecil. Siapa pun yang memegang tautan lengkap, termasuk kuncinya, bisa mengunduh, sementara server hanya menyimpan ciphertext. Setiap kali diteruskan, ada satu salinan kunci lagi, jadi jaga grupnya tetap kecil dan masa berlakunya singkat."
+      },
+      "1": {
+        "h": "Satu ruang bersama untuk file semua orang",
+        "b": "<goRooms>Room cloud di BIShare</goRooms> memberi grup satu daftar yang bisa ditambah oleh setiap anggota. Setiap file dienkripsi di perangkat yang menambahkannya, dan kunci room berpindah dari anggota ke anggota, sehingga server hanya meneruskan file yang tidak bisa dibukanya."
+      },
+      "2": {
+        "h": "File yang tetap dibagikan berminggu-minggu",
+        "b": "Untuk penyimpanan, bukan serah terima cepat, pilih penyimpanan terenkripsi end-to-end. Proton Drive membagikan file atau folder lewat tautan dengan kata sandi opsional, dan BIShare Drive mengenkripsi file dan foto dengan AES-256-GCM di perangkat Anda sebelum diunggah."
+      },
+      "3": {
+        "h": "Mencabut akses",
+        "b": "Enkripsi tidak bisa menarik kembali file yang sudah diunduh orang. Yang bisa dihentikan adalah unduhan berikutnya: biarkan tautan kedaluwarsa, hapus salinan yang dibagikan, atau pindahkan grup ke room baru."
+      }
+    }
+  },
   "choose": {
     "title": "Metode mana untuk situasi apa",
     "body": "Pilih berdasarkan jenis file, siapa penerimanya, dan berapa lama file harus tersedia.",
@@ -308,6 +330,14 @@
       "9": {
         "q": "Apakah BIShare gratis?",
         "a": "Ya. Tidak berbayar, kode sumbernya diterbitkan dengan lisensi Apache 2.0, dan berjalan tanpa pendaftaran maupun iklan."
+      },
+      "10": {
+        "q": "Apa itu berbagi file terenkripsi end-to-end?",
+        "a": "Berbagi file sehingga hanya orang yang Anda bagikan yang bisa membukanya. Setiap file dienkripsi di perangkat pengirim, dan kuncinya sampai ke penerima tanpa pernah dipegang layanannya, jadi layanan hanya menyimpan atau meneruskan ciphertext. Berbagi yang hanya dienkripsi saat transit dan saat disimpan tetap membuat penyedia bisa membaca file."
+      },
+      "11": {
+        "q": "Layanan berbagi file mana yang terenkripsi end-to-end?",
+        "a": "Dari pilihan di halaman ini: tautan dan Room cloud BIShare, Wormhole, Proton Drive, OnionShare, dan magic-wormhole, ditambah LocalSend dan transfer langsung BIShare di jaringan lokal. Layanan yang hanya menyebut enkripsi saat transit dan saat disimpan masih bisa membuka file Anda."
       }
     }
   },

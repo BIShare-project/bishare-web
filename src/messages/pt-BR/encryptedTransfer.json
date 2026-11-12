@@ -214,6 +214,28 @@
       }
     }
   },
+  "sharing": {
+    "title": "Compartilhamento de arquivos com criptografia de ponta a ponta em grupo ou por semanas",
+    "body": "Enviar entrega uma cópia a uma pessoa. Compartilhar mantém os arquivos abertos para várias pessoas, muitas vezes por dias ou semanas, e isso muda as perguntas: quem ainda consegue abri-los e quem guarda a chave enquanto esperam.",
+    "items": {
+      "0": {
+        "h": "Um link, poucas pessoas",
+        "b": "Um link com criptografia de ponta a ponta também serve para um grupo pequeno. Quem tem o link completo, com a chave, pode baixar, enquanto o servidor guarda só texto cifrado. Cada encaminhamento é mais uma cópia da chave, então mantenha o grupo pequeno e a validade curta."
+      },
+      "1": {
+        "h": "Um espaço comum para os arquivos de todos",
+        "b": "<goRooms>Uma Room na nuvem do BIShare</goRooms> dá ao grupo uma única lista em que cada membro pode incluir arquivos. Cada arquivo é criptografado no aparelho que o adiciona, e a chave da sala passa de membro para membro, então o servidor repassa arquivos que não consegue abrir."
+      },
+      "2": {
+        "h": "Arquivos compartilhados por semanas",
+        "b": "Para guardar, e não só entregar, escolha armazenamento com criptografia de ponta a ponta. O Proton Drive compartilha arquivo ou pasta por link com senha opcional, e o BIShare Drive criptografa arquivos e fotos com AES-256-GCM no seu aparelho antes do envio."
+      },
+      "3": {
+        "h": "Retirar o acesso",
+        "b": "A criptografia não recupera um arquivo que alguém já baixou. O que dá para impedir é o próximo download: deixe os links expirarem, apague a cópia compartilhada ou leve o grupo para uma sala nova."
+      }
+    }
+  },
   "choose": {
     "title": "Qual método para cada situação",
     "body": "Escolha pelo que é o arquivo, quem recebe e por quanto tempo ele precisa ficar disponível.",
@@ -308,6 +330,14 @@
       "9": {
         "q": "O BIShare é gratuito?",
         "a": "Sim. Não custa nada, o código é publicado sob Apache 2.0 e ele funciona sem cadastro nem anúncios."
+      },
+      "10": {
+        "q": "O que é compartilhamento de arquivos com criptografia de ponta a ponta?",
+        "a": "Compartilhar arquivos de modo que só as pessoas com quem você compartilha consigam abri-los. Cada arquivo é criptografado no aparelho de quem envia, e a chave chega aos destinatários sem que o serviço a tenha, então o serviço só guarda ou repassa texto cifrado. Se a criptografia for só em trânsito e em repouso, o provedor consegue ler os arquivos."
+      },
+      "11": {
+        "q": "Quais serviços de compartilhamento de arquivos têm criptografia de ponta a ponta?",
+        "a": "Entre as opções desta página: links e Rooms na nuvem do BIShare, Wormhole, Proton Drive, OnionShare e magic-wormhole, além do LocalSend e das transferências diretas do BIShare numa rede local. Um serviço que só fala em criptografia em trânsito e em repouso ainda consegue abrir seus arquivos."
       }
     }
   },

@@ -214,6 +214,28 @@
       }
     }
   },
+  "sharing": {
+    "title": "Ende-zu-Ende-verschlüsselte Dateifreigabe für eine Gruppe oder über Wochen",
+    "body": "Senden übergibt einer Person eine Kopie. Teilen hält Dateien für mehrere Personen offen, oft tage- oder wochenlang, und damit ändern sich die Fragen: Wer kann sie noch öffnen, und wer hält den Schlüssel, solange sie warten?",
+    "items": {
+      "0": {
+        "h": "Ein Link, ein paar Personen",
+        "b": "Ein Ende-zu-Ende-verschlüsselter Link funktioniert auch für eine kleine Gruppe. Wer den vollständigen Link samt Schlüssel hat, kann herunterladen, während der Server nur Chiffretext aufbewahrt. Jede Weiterleitung ist eine weitere Kopie des Schlüssels, also die Gruppe klein und die Ablaufzeit kurz halten."
+      },
+      "1": {
+        "h": "Ein gemeinsamer Ort für alle Dateien",
+        "b": "<goRooms>Ein Cloud-Raum in BIShare</goRooms> gibt einer Gruppe eine Liste, zu der jedes Mitglied beitragen kann. Jede Datei wird auf dem Gerät verschlüsselt, das sie hinzufügt, und der Raumschlüssel geht von Mitglied zu Mitglied, sodass der Server Dateien weiterreicht, die er nicht öffnen kann."
+      },
+      "2": {
+        "h": "Dateien, die wochenlang geteilt bleiben",
+        "b": "Für Speicherung statt schneller Übergabe eignet sich Ende-zu-Ende-verschlüsselter Speicher. Proton Drive teilt eine Datei oder einen Ordner per Link mit optionalem Passwort, und BIShare Drive verschlüsselt Dateien und Fotos mit AES-256-GCM auf Ihrem Gerät, bevor sie hochgeladen werden."
+      },
+      "3": {
+        "h": "Zugriff zurücknehmen",
+        "b": "Verschlüsselung holt keine Datei zurück, die jemand schon heruntergeladen hat. Stoppen lässt sich der nächste Download: Links ablaufen lassen, die geteilte Kopie löschen oder die Gruppe in einen neuen Raum umziehen."
+      }
+    }
+  },
   "choose": {
     "title": "Welche Methode für welche Situation",
     "body": "Wählen Sie danach, was die Datei ist, wer sie bekommt und wie lange sie verfügbar sein muss.",
@@ -308,6 +330,14 @@
       "9": {
         "q": "Ist BIShare kostenlos?",
         "a": "Ja. Es kostet nichts, der Quellcode steht unter Apache 2.0, und es läuft ohne Anmeldung und ohne Werbung."
+      },
+      "10": {
+        "q": "Was ist Ende-zu-Ende-verschlüsselte Dateifreigabe?",
+        "a": "Dateien so zu teilen, dass nur die Personen, mit denen Sie teilen, sie öffnen können. Jede Datei wird auf dem Gerät des Absenders verschlüsselt, und der Schlüssel erreicht die Empfänger, ohne dass der Dienst ihn je hält, sodass der Dienst nur Chiffretext speichert oder weiterleitet. Wird nur beim Transport und im Speicher verschlüsselt, kann der Anbieter die Dateien lesen."
+      },
+      "11": {
+        "q": "Welche Dienste zur Dateifreigabe sind Ende-zu-Ende-verschlüsselt?",
+        "a": "Von den Optionen auf dieser Seite: BIShare-Links und Cloud-Räume, Wormhole, Proton Drive, OnionShare und magic-wormhole, dazu LocalSend und direkte BIShare-Übertragungen im lokalen Netz. Ein Dienst, der nur Verschlüsselung beim Transport und im Speicher nennt, kann Ihre Dateien weiterhin öffnen."
       }
     }
   },

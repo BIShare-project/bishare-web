@@ -214,6 +214,28 @@
       }
     }
   },
+  "sharing": {
+    "title": "End-to-end encrypted file sharing with a group, or for weeks",
+    "body": "Sending hands one copy to one person. Sharing keeps files open to several people, often for days or weeks, and that changes the questions: who can still open them, and who holds the key while they wait.",
+    "items": {
+      "0": {
+        "h": "One link, a few people",
+        "b": "An end-to-end encrypted link works for a small group too. Everyone holding the full link, key included, can download, while the server keeps only ciphertext. Every forward is one more copy of the key, so keep the group small and the expiry short."
+      },
+      "1": {
+        "h": "A shared space for everyone's files",
+        "b": "<goRooms>A cloud Room in BIShare</goRooms> gives a group one list that every member can add to. Each file is encrypted on the device that adds it, and the room key passes from member to member, so the server relays files it cannot open."
+      },
+      "2": {
+        "h": "Files that stay shared for weeks",
+        "b": "For storage rather than a quick handoff, choose end-to-end encrypted storage. Proton Drive shares a file or folder by link with an optional password, and BIShare Drive encrypts files and photos with AES-256-GCM on your device before they upload."
+      },
+      "3": {
+        "h": "Taking access back",
+        "b": "Encryption cannot recall a file someone has already downloaded. What you can stop is the next download: let links expire, delete the shared copy, or move the group to a new room."
+      }
+    }
+  },
   "choose": {
     "title": "Which method for which situation",
     "body": "Pick by what the file is, who receives it and how long it must be available.",
@@ -308,6 +330,14 @@
       "9": {
         "q": "Is BIShare free?",
         "a": "Yes. It costs nothing, its source is published under Apache 2.0, and it runs without sign-up or advertising."
+      },
+      "10": {
+        "q": "What is end-to-end encrypted file sharing?",
+        "a": "Sharing files so that only the people you share with can open them. Each file is encrypted on the sender's device, and the key reaches the recipients without the service ever holding it, so the service stores or relays nothing but ciphertext. Sharing that is only encrypted in transit and at rest leaves the provider able to read the files."
+      },
+      "11": {
+        "q": "Which file sharing services are end-to-end encrypted?",
+        "a": "Of the options on this page: BIShare links and cloud Rooms, Wormhole, Proton Drive, OnionShare and magic-wormhole, plus LocalSend and direct BIShare transfers on a local network. A service that only describes encryption in transit and at rest can still open your files."
       }
     }
   },

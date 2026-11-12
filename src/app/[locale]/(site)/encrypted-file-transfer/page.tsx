@@ -31,7 +31,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/encrypted-file-transfer";
 const NS = "encryptedTransfer";
-const LAST_UPDATED = "2026-09-14";
+const LAST_UPDATED = "2026-11-12";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const LEVELS_ITEMS = ["0", "1", "2", "3"] as const;
@@ -40,9 +40,12 @@ const ALT_ITEMS = ["0", "1", "2", "3", "4", "5", "6"] as const;
 const METADATA_ITEMS = ["0", "1", "2", "3"] as const;
 const BISHARE_ITEMS = ["0", "1", "2", "3"] as const;
 const PASSWORD_ITEMS = ["0", "1", "2", "3"] as const;
+// Sharing with a group or for weeks: added 2026-11-12 for "end to end encrypted
+// file sharing", which Search Console shows at position 11 to 12.
+const SHARING_ITEMS = ["0", "1", "2", "3"] as const;
 const CHOOSE_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const MISTAKES_ITEMS = ["0", "1", "2", "3"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["0", "10", "11", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 
 /* Comparison truth table. Columns: BIShare, Wormhole, Proton Drive, OnionShare,
    magic-wormhole, 7-Zip archive.
@@ -435,6 +438,19 @@ export default async function EncryptedTransferPage({
                 items={PASSWORD_ITEMS}
                 head={(i) => t(`password.items.${i}.h`)}
                 body={(i) => t.rich(`password.items.${i}.b`, tags)}
+              />
+            </section>
+
+            {/* Sharing with a group, or for weeks */}
+            <section className="mt-14">
+              <H2 id="sharing">{t("sharing.title")}</H2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                {t("sharing.body")}
+              </p>
+              <ProseList
+                items={SHARING_ITEMS}
+                head={(i) => t(`sharing.items.${i}.h`)}
+                body={(i) => t.rich(`sharing.items.${i}.b`, tags)}
               />
             </section>
 

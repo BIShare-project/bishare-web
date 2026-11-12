@@ -214,6 +214,28 @@
       }
     }
   },
+  "sharing": {
+    "title": "Partage de fichiers chiffré de bout en bout, en groupe ou pour des semaines",
+    "body": "Envoyer remet une copie à une personne. Partager garde les fichiers ouverts à plusieurs personnes, souvent pendant des jours ou des semaines, et les questions changent : qui peut encore les ouvrir, et qui détient la clé pendant qu'ils attendent ?",
+    "items": {
+      "0": {
+        "h": "Un lien, quelques personnes",
+        "b": "Un lien chiffré de bout en bout convient aussi à un petit groupe. Quiconque possède le lien complet, clé comprise, peut télécharger, tandis que le serveur ne garde que du texte chiffré. Chaque transfert est une copie de plus de la clé : gardez le groupe restreint et l'expiration courte."
+      },
+      "1": {
+        "h": "Un espace commun pour les fichiers de tous",
+        "b": "<goRooms>Une Room dans le cloud de BIShare</goRooms> donne à un groupe une seule liste que chaque membre peut compléter. Chaque fichier est chiffré sur l'appareil qui l'ajoute, et la clé de la room passe de membre en membre, si bien que le serveur relaie des fichiers qu'il ne peut pas ouvrir."
+      },
+      "2": {
+        "h": "Des fichiers partagés pendant des semaines",
+        "b": "Pour stocker plutôt que remettre vite, choisissez un stockage chiffré de bout en bout. Proton Drive partage un fichier ou un dossier par lien avec mot de passe facultatif, et BIShare Drive chiffre fichiers et photos en AES-256-GCM sur votre appareil avant l'envoi."
+      },
+      "3": {
+        "h": "Retirer l'accès",
+        "b": "Le chiffrement ne rappelle pas un fichier déjà téléchargé. Ce que vous pouvez arrêter, c'est le prochain téléchargement : laissez les liens expirer, supprimez la copie partagée ou déplacez le groupe dans une nouvelle room."
+      }
+    }
+  },
   "choose": {
     "title": "Quelle méthode pour quelle situation",
     "body": "Choisissez selon la nature du fichier, qui le reçoit et combien de temps il doit rester disponible.",
@@ -308,6 +330,14 @@
       "9": {
         "q": "BIShare est-il gratuit ?",
         "a": "Oui. Il ne coûte rien, son code est publié sous Apache 2.0, et il fonctionne sans inscription ni publicité."
+      },
+      "10": {
+        "q": "Qu'est-ce que le partage de fichiers chiffré de bout en bout ?",
+        "a": "Partager des fichiers de façon que seules les personnes avec qui vous les partagez puissent les ouvrir. Chaque fichier est chiffré sur l'appareil de l'expéditeur, et la clé parvient aux destinataires sans que le service la détienne jamais, si bien qu'il ne stocke ou ne relaie que du texte chiffré. Un partage chiffré seulement en transit et au repos laisse le fournisseur lire les fichiers."
+      },
+      "11": {
+        "q": "Quels services de partage de fichiers sont chiffrés de bout en bout ?",
+        "a": "Parmi les options de cette page : les liens et les Rooms cloud de BIShare, Wormhole, Proton Drive, OnionShare et magic-wormhole, ainsi que LocalSend et les transferts directs BIShare sur un réseau local. Un service qui ne mentionne que le chiffrement en transit et au repos peut toujours ouvrir vos fichiers."
       }
     }
   },

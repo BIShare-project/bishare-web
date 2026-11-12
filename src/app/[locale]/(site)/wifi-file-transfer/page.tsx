@@ -42,7 +42,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/wifi-file-transfer";
 const NS = "wifiTransfer";
-const LAST_UPDATED = "2026-10-03";
+const LAST_UPDATED = "2026-11-12";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const MEANING_ITEMS = ["0", "1", "2"] as const;
@@ -53,7 +53,7 @@ const STEP_ITEMS = ["0", "1", "2", "3"] as const;
 const HIDDEN_ITEMS = ["0", "1", "2", "3"] as const;
 const SITUATION_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["0", "1", "11", "10", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 
 /* Comparison truth table. Columns: BIShare · LocalSend · PairDrop · AirDrop
    · Quick Share · Nearby sharing, as of 3 October 2026; table.note carries

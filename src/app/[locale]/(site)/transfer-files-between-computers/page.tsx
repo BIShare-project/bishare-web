@@ -32,7 +32,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/transfer-files-between-computers";
 const NS = "pcToPc";
-const LAST_UPDATED = "2026-09-13";
+const LAST_UPDATED = "2026-11-12";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const PAIR_ITEMS = ["0", "1", "2", "3"] as const;
@@ -43,7 +43,7 @@ const STEP_ITEMS = ["0", "1", "2"] as const;
 const SPEED_ITEMS = ["0", "1", "2"] as const;
 const FIX_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "10", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["0", "11", "1", "10", "12", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 
 /* Comparison truth table. Columns: BIShare · Windows Backup transfer ·
    Nearby sharing · network sharing · external drive · cloud folder.

@@ -10,7 +10,7 @@
     "ctaPrimary": "Obtenir BIShare gratuitement",
     "ctaSecondary": "Comment ça marche"
   },
-  "updated": "Mis à jour en octobre 2026 · Liste des téléphones vérifiée sur la page Quick Share de Google, étapes de migration sur l'article d'assistance d'Apple consacré à iOS 26.3, limites vidéo chez WhatsApp, Telegram et Apple",
+  "updated": "Mis à jour en novembre 2026 · Liste des téléphones vérifiée sur la page Quick Share de Google, étapes de migration sur l'article d'assistance d'Apple consacré à iOS 26.3, limites vidéo chez WhatsApp, Telegram et Apple",
   "disclosure": "BIShare est notre produit. Plusieurs options ci-dessous sont intégrées aux téléphones et gratuites, et si l'Android figure sur la liste de Google, AirDrop peut suffire ; nous le signalons là où c'est le cas.",
   "quick": {
     "title": "Réponse rapide",
@@ -172,7 +172,7 @@
       },
       "1": {
         "h": "Live Photos",
-        "b": "Une Live Photo est une image fixe accompagnée d'une courte vidéo, et Android n'a aucun format qui lise les deux ensemble. Attendez-vous à recevoir l'image fixe. Si le moment compte, ouvrez la Live Photo, touchez Partager, choisissez Enregistrer comme vidéo, puis envoyez cette vidéo."
+        "b": "Une Live Photo est une image fixe accompagnée d'une courte vidéo, et Android n'a aucun format qui lise les deux ensemble. Attendez-vous à recevoir l'image fixe. Si le moment compte, ouvrez la Live Photo, touchez Partager, choisissez Enregistrer comme vidéo, puis envoyez cette vidéo. Avec BIShare 2.9 ou plus récent sur les deux téléphones, la photo et son mouvement voyagent ensemble : Android les affiche comme un seul élément LIVE, et renvoyé vers un iPhone, il redevient une Live Photo."
       },
       "2": {
         "h": "La compression des messageries",
@@ -291,6 +291,18 @@
       "10": {
         "q": "Comment envoyer une vidéo comme document d'un iPhone vers Android ?",
         "a": "Enregistrez d'abord la vidéo dans l'app Fichiers (Partager, Enregistrer dans Fichiers). Dans WhatsApp, touchez le bouton plus, choisissez Document puis le fichier enregistré ; dans Telegram, joignez-la comme Fichier. Elle arrive sans compression, jusqu'à 2 Go dans les deux apps, ou 4 Go avec Telegram Premium."
+      },
+      "11": {
+        "q": "Comment envoyer une vidéo d'un iPhone vers Android ?",
+        "a": "Choisissez selon la distance. À côté d'un Pixel, d'un Galaxy S ou d'un autre téléphone de la liste Quick Share de Google, par AirDrop. Sur le même Wi-Fi avec n'importe quel Android, avec BIShare installé des deux côtés. Ailleurs, partagez un lien BIShare jusqu'à 100 Go, ou un lien iCloud depuis Photos."
+      },
+      "12": {
+        "q": "Comment envoyer des vidéos d'un iPhone vers Android sans perte de qualité ?",
+        "a": "Envoyez le fichier lui-même plutôt qu'une pièce jointe de message : un transfert direct en Wi-Fi, AirDrop vers un Android compatible, un lien BIShare ou iCloud, ou un document dans WhatsApp ou Telegram. C'est le fait de choisir la séquence comme vidéo normale dans une app de messagerie qui la fait arriver plus petite et moins nette."
+      },
+      "13": {
+        "q": "Peut-on envoyer une vidéo d'un iPhone vers Android en Bluetooth ?",
+        "a": "Non. Un iPhone ne transmet ni vidéo ni aucun autre fichier à un Android en Bluetooth. Le Bluetooth serait de toute façon bien trop lent pour la vidéo. Utilisez le Wi-Fi, AirDrop vers un téléphone compatible, ou un lien."
       }
     }
   },
@@ -368,6 +380,28 @@
         "name": "Vidéo HEVC",
         "what": "Android lit le HEVC depuis 5.0",
         "fix": "Gros clips 4K : envoi direct en Wi-Fi"
+      }
+    }
+  },
+  "video": {
+    "title": "Comment envoyer une vidéo d'un iPhone vers Android",
+    "body": "Le bon chemin dépend de deux choses : l'Android est-il à côté de vous, et la séquence doit-elle arriver exactement telle qu'elle a été filmée ?",
+    "items": {
+      "0": {
+        "h": "L'Android est à côté et figure sur la liste de Google",
+        "b": "Ouvrez la séquence dans Photos, touchez Partager, puis AirDrop, et choisissez l'Android. Avant cela, réglez l'iPhone sur Tout le monde pendant 10 minutes et rendez l'Android visible par tous. La vidéo n'est pas recompressée en route."
+      },
+      "1": {
+        "h": "Les deux téléphones sont sur le même Wi-Fi",
+        "b": "Avec BIShare sur les deux, choisissez une séquence ou tout un lot sur l'écran d'envoi et touchez l'Android. Le fichier d'origine arrive à l'octet près, avec sa date et son lieu, et votre propre réseau ne limite pas sa taille."
+      },
+      "2": {
+        "h": "L'Android est ailleurs",
+        "b": "Envoyez un lien plutôt que le fichier. Un lien BIShare contient jusqu'à 100 Go et se lit ou se télécharge dans Chrome sans rien installer. Dans Photos, Copier le lien iCloud marche aussi pour une vidéo et la garde accessible 30 jours."
+      },
+      "3": {
+        "h": "Vous n'avez qu'une app de messagerie en commun",
+        "b": "Joignez la séquence comme document et non comme vidéo. WhatsApp et Telegram réduisent tout ce qui est choisi depuis la galerie, alors qu'un document passe intact, jusqu'à 2 Go. Enregistrez d'abord la séquence dans Fichiers pour que le sélecteur de documents la trouve."
       }
     }
   },

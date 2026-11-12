@@ -30,7 +30,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/airdrop-not-working";
 const NS = "airdropFix";
-const LAST_UPDATED = "2026-09-14";
+const LAST_UPDATED = "2026-11-12";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const DIAGNOSE_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
@@ -41,7 +41,7 @@ const CHANGE_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const OTHER_ITEMS = ["0", "1", "2"] as const;
 const ALT_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["10", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["10", "11", "12", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 
 /* Comparison truth table. Columns: BIShare, Quick Share with AirDrop, iCloud
    link, the open-source local app, USB cable. Conditions behind each cell are

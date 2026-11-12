@@ -10,7 +10,7 @@
     "ctaPrimary": "Get BIShare free",
     "ctaSecondary": "How it works"
   },
-  "updated": "Updated October 2026 · Device list checked against Google's Quick Share page, migration steps against Apple's iOS 26.3 support article, video limits against WhatsApp, Telegram and Apple",
+  "updated": "Updated November 2026 · Device list checked against Google's Quick Share page, migration steps against Apple's iOS 26.3 support article, video limits against WhatsApp, Telegram and Apple",
   "disclosure": "BIShare is ours. Several options below are built into the phones and cost nothing, and if the Android phone is on Google's supported list, AirDrop itself may be all you need; we say so where it applies.",
   "quick": {
     "title": "Quick answer",
@@ -172,7 +172,7 @@
       },
       "1": {
         "h": "Live Photos",
-        "b": "A Live Photo is a still image with a short video attached, and Android has no format that plays the two together. Expect the still to arrive. If the moment matters, open the Live Photo, tap Share and choose Save as Video, then send that video."
+        "b": "A Live Photo is a still image with a short video attached, and Android has no format that plays the two together. Expect the still to arrive. If the moment matters, open the Live Photo, tap Share and choose Save as Video, then send that video. With BIShare 2.9 or later on both phones, the photo and its motion travel together: Android shows them as one LIVE item, and sending it on to an iPhone makes it a Live Photo again."
       },
       "2": {
         "h": "Compression by chat apps",
@@ -291,6 +291,18 @@
       "10": {
         "q": "How do I send a video as a document from iPhone to Android?",
         "a": "Save the video to the Files app first (Share, Save to Files). In WhatsApp, tap the plus button, choose Document and pick the saved file; in Telegram, attach it as a File. It arrives uncompressed, up to 2 GB in either app, or 4 GB with Telegram Premium."
+      },
+      "11": {
+        "q": "How do I send a video from iPhone to Android?",
+        "a": "Choose by distance. Beside a Pixel, Galaxy S or another phone on Google's Quick Share list, AirDrop it. On one Wi-Fi with any Android phone, send it with BIShare installed on both. Anywhere else, share a BIShare link of up to 100 GB, or an iCloud link from Photos."
+      },
+      "12": {
+        "q": "How do I send videos from iPhone to Android without losing quality?",
+        "a": "Send the file itself instead of a message attachment: a direct transfer over Wi-Fi, AirDrop to a supported Android phone, a BIShare or iCloud link, or a document in WhatsApp or Telegram. Picking the clip as a normal video in a chat app is what makes it arrive smaller and softer."
+      },
+      "13": {
+        "q": "Can I send a video from iPhone to Android over Bluetooth?",
+        "a": "No. An iPhone will not hand a video, or any other file, to an Android phone over Bluetooth. Bluetooth would be far too slow for video anyway. Use Wi-Fi, AirDrop to a supported phone, or a link."
       }
     }
   },
@@ -368,6 +380,28 @@
         "name": "HEVC video",
         "what": "Android has played HEVC since 5.0",
         "fix": "Big 4K clips: send directly over Wi-Fi"
+      }
+    }
+  },
+  "video": {
+    "title": "How to send a video from iPhone to Android",
+    "body": "The right route depends on two things: whether the Android phone is next to you, and whether the clip has to arrive exactly as it was filmed.",
+    "items": {
+      "0": {
+        "h": "The Android phone is beside you and on Google's list",
+        "b": "Open the clip in Photos, tap Share, then AirDrop, and pick the Android phone. Before that, switch the iPhone to Everyone for 10 minutes and make the Android phone visible to everyone. The video is not recompressed on the way."
+      },
+      "1": {
+        "h": "Both phones are on the same Wi-Fi",
+        "b": "With BIShare on both phones, pick one clip or a whole batch on the send screen and tap the Android phone. The original file arrives byte for byte, with its date and location, and your own network puts no cap on its size."
+      },
+      "2": {
+        "h": "The Android phone is somewhere else",
+        "b": "Send a link instead of the file. A BIShare link carries up to 100 GB and plays or downloads in Chrome with nothing to install. In Photos, Copy iCloud Link works for a video too and keeps it reachable for 30 days."
+      },
+      "3": {
+        "h": "A chat app is all you share",
+        "b": "Attach the clip as a document rather than as a video. WhatsApp and Telegram shrink whatever is picked from the gallery, while a document goes through untouched, up to 2 GB. Save the clip to Files first so the document picker can find it."
       }
     }
   },

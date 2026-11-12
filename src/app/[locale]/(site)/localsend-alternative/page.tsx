@@ -31,7 +31,7 @@ import { guideLinks } from "@/components/site/guide-links";
 
 const SLUG = "/localsend-alternative";
 const NS = "localsendAlt";
-const LAST_UPDATED = "2026-09-13";
+const LAST_UPDATED = "2026-11-12";
 
 const QUICK_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const LIMIT_ITEMS = ["0", "1", "2"] as const;
@@ -41,7 +41,7 @@ const CHOOSE_ITEMS = ["0", "1", "2", "3"] as const;
 const STEP_ITEMS = ["0", "1", "2"] as const;
 const FIX_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const SECURITY_ITEMS = ["0", "1", "2"] as const;
-const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
+const FAQ_ITEMS = ["0", "10", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
 
 /* Comparison truth table. Columns: BIShare · LocalSend · PairDrop ·
    KDE Connect · Blip · Warpinator. Conditions behind each cell are in
