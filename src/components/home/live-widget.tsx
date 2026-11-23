@@ -1,6 +1,6 @@
-"use client";
+"island";
 
-import dynamic from "next/dynamic";
+import dynamic from "@/ui/lazy";
 
 // Client island: `dynamic(..., { ssr: false })` isn't allowed in a Server
 // Component, so the lazy studio lives here. It pulls the whole upload stack
@@ -12,7 +12,7 @@ import dynamic from "next/dynamic";
 // route selector, thumbnail grid, preview — beats a simplified stand-in that
 // behaves differently from the page it is advertising.
 const TransferStudio = dynamic(
-  () => import("@/components/site/transfer-studio").then((m) => m.TransferStudio),
+  () => import("@/ui/transfer-studio").then((m) => m.TransferStudio),
   {
     ssr: false,
     loading: () => (

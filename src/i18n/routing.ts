@@ -1,14 +1,12 @@
-import { defineRouting } from "next-intl/routing";
-
 /**
  * Locale routing for the site (bishare.app / (site)).
  *
  * Order matters: `en` is the default and renders WITHOUT a URL prefix
  * (localePrefix "as-needed" → "/features"); every other locale is prefixed
  * ("/id/features", "/ar/features", …). `ar` is right-to-left (see the
- * per-locale <html dir> in src/app/[locale]/layout.tsx).
+ * per-locale <html dir> in src/site/layout/document.tsx).
  */
-export const routing = defineRouting({
+export const routing = {
   locales: [
     "en", // default — no URL prefix
     "id",
@@ -25,8 +23,7 @@ export const routing = defineRouting({
     "zh-Hant",
   ],
   defaultLocale: "en",
-  localePrefix: "as-needed",
-});
+} as const;
 
 export type Locale = (typeof routing.locales)[number];
 

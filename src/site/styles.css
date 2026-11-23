@@ -1,0 +1,44 @@
+/* The site's stylesheet: its looks, its fonts, and no motion. */
+@import "./site.css";
+@import "./fonts/fonts.css";
+
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+@layer components {
+  .i {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg font-medium tracking-[-0.01em] whitespace-nowrap select-none outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn .i {
+    flex-shrink: 0;
+  }
+  .btn-sm {
+    @apply h-9 gap-1.5 px-3.5 text-[13px];
+  }
+  .btn-md {
+    @apply h-10 gap-2 px-4 text-sm;
+  }
+  .btn-lg {
+    @apply h-11 gap-2 px-5 text-[15px];
+  }
+  .btn-primary {
+    @apply border border-primary bg-primary text-primary-foreground hover:opacity-90;
+  }
+  .btn-secondary {
+    @apply border border-border-strong bg-transparent text-foreground hover:border-foreground/25 hover:bg-secondary;
+  }
+}

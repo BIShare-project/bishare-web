@@ -1,8 +1,7 @@
+import { API_URL } from "@/lib/api-url";
+import { requestFetch } from "@/site/request-context";
 import type { APIResponse, FlatResponse, TransferStatus } from "./types";
 
-const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "https://api.bishare.app";
 
 /** Mirror of the backend transfer limits (do not raise without a server change). */
 export const TRANSFER_MAX_FILE_SIZE = 2_147_483_648; // 2 GB (legacy — see getTransferMaxFileSizeFree)
@@ -32,33 +31,9 @@ export function isBlockedFileType(name: string): boolean {
   return BLOCKED_EXTENSIONS.some((ext) => lower.endsWith(ext));
 }
 
-/**
- * Fetch the frozen API. On the SERVER (worker, e.g. SSR of the share/transfer/
- * request pages) a plain fetch to api.bishare.app is a worker→self subrequest —
- * the same worker serves that host — which trips Cloudflare's loop guard and
- * returns 522. The SELF service binding dispatches in-process (no loop). In the
- * BROWSER (interactive verify/download/status) a plain fetch is correct, and the
- * getCloudflareContext import is only loaded server-side (typeof window guard),
- * keeping the client bundle clean.
- */
-async function doFetch(url: string, init?: RequestInit): Promise<Response> {
-  if (typeof window === "undefined") {
-    try {
-      const { getCloudflareContext } = await import("@opennextjs/cloudflare");
-      const self = (getCloudflareContext().env as Record<string, unknown>)?.SELF as
-        | { fetch: (req: Request) => Promise<Response> }
-        | undefined;
-      if (self && typeof self.fetch === "function") return self.fetch(new Request(url, init));
-    } catch {
-      // getCloudflareContext unavailable — fall through to global fetch.
-    }
-  }
-  return fetch(url, init);
-}
-
 async function fetchJSON<T>(url: string, init?: RequestInit): Promise<APIResponse<T>> {
   try {
-    const res = await doFetch(url, init);
+    const res = await requestFetch(url, init);
     if (!res.ok && res.status >= 500) {
       return {
         success: false,
@@ -93,7 +68,7 @@ function cloudConfig(): Promise<CloudConfigData | null> {
   if (!cloudConfigPromise) {
     cloudConfigPromise = (async () => {
       try {
-        const res = await doFetch(`${API_URL}/api/v1/config`, { cache: "no-store" });
+        const res = await requestFetch(`${API_URL}/api/v1/config`, { cache: "no-store" });
         if (!res.ok) return null;
         const body = (await res.json()) as { data?: CloudConfigData };
         return body?.data ?? null;

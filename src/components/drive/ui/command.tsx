@@ -1,8 +1,6 @@
-"use client"
-
-import * as React from "react"
+import type { ComponentProps } from "@/jsx";
 import { Command as CommandPrimitive } from "./command-list"
-import { SearchIcon } from "lucide-react"
+import { Search } from "@/ui/icons"
 import { cn } from "@/lib/utils"
 import type { Parts } from "./primitives"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/drive/ui/dialog"
@@ -23,7 +21,7 @@ function CommandDialog({
   shouldFilter,
   children,
   ...props
-}: React.ComponentProps<typeof Dialog> & { title?: string; description?: string; shouldFilter?: boolean }) {
+}: ComponentProps<typeof Dialog> & { title?: string; description?: string; shouldFilter?: boolean }) {
   return (
     <Dialog {...props}>
       <DialogHeader className="sr-only">
@@ -31,7 +29,7 @@ function CommandDialog({
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
       <DialogContent className="overflow-hidden p-0 sm:max-w-xl" showCloseButton={false}>
-        <Command shouldFilter={shouldFilter} className="[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-2xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground">
+        <Command shouldFilter={shouldFilter} className="[&_[data-command-group-heading]]:px-3 [&_[data-command-group-heading]]:py-1.5 [&_[data-command-group-heading]]:text-2xs [&_[data-command-group-heading]]:font-medium [&_[data-command-group-heading]]:text-muted-foreground">
           {children}
         </Command>
       </DialogContent>
@@ -42,7 +40,7 @@ function CommandDialog({
 function CommandInput({ className, ...props }: Parts) {
   return (
     <div data-slot="command-input-wrapper" className="flex h-11 items-center gap-2 border-b px-3">
-      <SearchIcon className="size-4 shrink-0 text-muted-foreground" />
+      <Search className="size-4 shrink-0 text-muted-foreground" />
       <CommandPrimitive.Input
         data-slot="command-input"
         className={cn("flex h-10 w-full bg-transparent py-3 text-xs outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50", className)}
@@ -77,7 +75,7 @@ function CommandItem({ className, ...props }: Parts) {
   )
 }
 
-function CommandShortcut({ className, ...props }: React.ComponentProps<"span">) {
+function CommandShortcut({ className, ...props }: ComponentProps<"span">) {
   return <span data-slot="command-shortcut" className={cn("ml-auto text-2xs tracking-wide text-muted-foreground", className)} {...props} />
 }
 

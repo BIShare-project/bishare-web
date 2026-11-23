@@ -1,10 +1,10 @@
-"use client";
+"island";
 
-import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
-import { X } from "lucide-react";
+import { useEffect, useState } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { X } from "@/ui/icons";
 import { getDriveInterestEnabled, getVaultOpen, reportInterest, type InterestEvent } from "@/lib/api";
-import { Button } from "@/components/site/ui/button";
+import { Button } from "@/ui/tool-button";
 
 /** What this browser answered ("yes_paid", "yes_free", "no" or "dismiss"). */
 const ANSWER_KEY = "bishare.interest.drive";

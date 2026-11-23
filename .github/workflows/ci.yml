@@ -29,14 +29,16 @@ jobs:
 
       - run: npm ci
 
-      # ── PR path: compile check only ─────────────────────────────────────
-      - name: Build (check)
-        if: github.event_name == 'pull_request'
+      - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_API_URL: https://api.bishare.app
+          API_URL: https://api.bishare.app
 
-      # ── main path: build the Worker with real config, then deploy ───────
+      - run: npm run typecheck
+
+      - run: npm test
+
+      # ── main path: the real config, then deploy ─────────────────────────
       - name: Validate deployment secrets
         if: github.event_name == 'push'
         env:
@@ -59,6 +61,7 @@ jobs:
           const config = {
             name: "bishare-web",
             main: "worker/index.ts",
+            minify: true,
             compatibility_date: "2026-06-01",
             compatibility_flags: ["nodejs_compat"],
             workers_dev: true,
@@ -70,12 +73,12 @@ jobs:
               { pattern: "dl.bishareusercontent.com", custom_domain: true },
               // The first receive host: only redirects to the one above now.
               { pattern: "get.bishare.app", custom_domain: true },
-              // The web Drive (src/middleware.ts DRIVE_HOST), noindex.
+              // The web Drive (src/lib/hosts.ts DRIVE_HOST), noindex.
               { pattern: "drive.bishare.app", custom_domain: true },
             ],
-            // /_p holds the built Hono pages; the Worker answers it (with a 404) so no page has a second URL. The .html
-            // files of public/ are served by the Worker without their extension (src/hono/serve.ts, htmlFile).
-            assets: { directory: ".open-next/assets", binding: "ASSETS", run_worker_first: ["/_p/*", "/offline.html", "/save-bridge.html"], html_handling: "none" },
+            // /_p holds the built pages; the Worker answers it (with a 404) so no page has a second URL. The .html
+            // files of public/ are served by the Worker without their extension (src/site/app.ts, HTML_FILES).
+            assets: { directory: "dist/assets", binding: "ASSETS", run_worker_first: ["/_p/*", "/offline.html", "/save-bridge.html"], html_handling: "none" },
             d1_databases: [
               {
                 binding: "DB",
@@ -83,16 +86,10 @@ jobs:
                 database_id: process.env.CLOUDFLARE_D1_DATABASE_ID,
               },
             ],
-            r2_buckets: [{ binding: "BUCKET", bucket_name: "bishare-cloud" }],
             durable_objects: {
               bindings: [{ name: "STATS_LIVE_DO", class_name: "StatsLiveDO" }],
             },
             migrations: [{ tag: "v1", new_sqlite_classes: ["StatsLiveDO"] }],
-            vars: {
-              BASE_URL: "https://bishare.app",
-              R2_BUCKET_NAME: "bishare-cloud",
-              R2_PUBLIC_URL: "https://cdn.bishare.app",
-            },
             // Workers Logs sampled at 1%: every page view was stored at
             // 100% (~100 GB a cycle with the API). /stats does not read logs.
             observability: { enabled: true, head_sampling_rate: 0.01 },
@@ -100,23 +97,6 @@ jobs:
 
           writeFileSync("wrangler.jsonc", `${JSON.stringify(config, null, 2)}\n`);
           NODE
-
-      - name: Build Cloudflare Worker
-        if: github.event_name == 'push'
-        env:
-          NEXT_PUBLIC_API_URL: https://api.bishare.app
-        run: npm run build:cloudflare
-
-      # populateCache writes the prerendered payloads into the worker's static
-      # assets, which is where the incremental cache reads them from. It runs
-      # on deploy, never on build — so `wrangler deploy` alone left the cache
-      # empty and every request re-rendered on the worker.
-      - name: Populate the incremental cache
-        if: github.event_name == 'push'
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: npx @opennextjs/cloudflare populateCache remote
 
       - name: Deploy Worker
         if: github.event_name == 'push'

@@ -1,8 +1,7 @@
-"use client";
+"island";
 
-import { useCallback, useEffect, useReducer, useRef, useState, type ReactNode } from "react";
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { useCallback, useEffect, useReducer, useRef, useState, type Child } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
 import {
   Cloud,
   DoorOpen,
@@ -16,9 +15,9 @@ import {
   Radio,
   Smartphone,
   User,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+} from "@/ui/icons";
+import { Button } from "@/ui/room-button";
+import { Input } from "@/ui/room-input";
 import {
   createRoom,
   closeRoom,
@@ -127,21 +126,14 @@ type Session =
   | { phase: "landing" }
   | { phase: "room"; code: string; hostToken: string | null; mode: RoomMode };
 
-export function RoomsApp({
-  initialCode,
-  initialMode = "cloud",
-}: {
-  initialCode?: string;
-  initialMode?: RoomMode;
-}) {
+export function RoomsApp() {
   const t = useTranslations("rooms");
   const [session, setSession] = useState<Session>({ phase: "landing" });
-  // A link to a room (?code=, ?mode=local). The page passes them when it is rendered per request; a page built ahead of
-  // time cannot, so the browser reads its own address.
+  // A link to a room (?code=, ?mode=local).
   const link = typeof window === "undefined" ? null : new URLSearchParams(window.location.search);
-  const [mode, setMode] = useState<RoomMode>(link?.get("mode") === "local" ? "local" : initialMode);
+  const [mode, setMode] = useState<RoomMode>(link?.get("mode") === "local" ? "local" : "cloud");
   const [alias, setAliasState] = useState("");
-  const [code, setCode] = useState((initialCode ?? link?.get("code") ?? "").toUpperCase());
+  const [code, setCode] = useState((link?.get("code") ?? "").toUpperCase());
   const [busy, setBusy] = useState<"create" | "join" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -424,7 +416,7 @@ export function RoomsApp({
 
 /** The studio card around the room: one narrow column while choosing, wider
  *  once inside a room, where the files sit beside the code and the people. */
-function Shell({ wide, children }: { wide: boolean; children: ReactNode }) {
+function Shell({ wide, children }: { wide: boolean; children: Child }) {
   return (
     <div className={"studio-shell mx-auto w-full overflow-hidden " + (wide ? "max-w-4xl" : "max-w-lg")}>
       {children}
@@ -478,11 +470,7 @@ function Landing({
                 }
               >
                 {mode === m && (
-                  <motion.span
-                    layoutId="rooms-mode"
-                    className="studio-pill absolute inset-0"
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                  />
+                  <span className="studio-pill absolute inset-0" />
                 )}
                 {m === "cloud" ? (
                   <Cloud className={"relative h-4 w-4 shrink-0 " + (mode === m ? "text-accent-blue" : "")} />
@@ -650,7 +638,6 @@ function RoomView({
     queued.current = [];
     void handleFiles(files);
     // handleFiles from this render already sees the new key.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [canSend, roomKey]);
 
   if (state.closed) {

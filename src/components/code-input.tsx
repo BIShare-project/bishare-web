@@ -1,11 +1,11 @@
-"use client";
+"island";
 
-import { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useState, useRef, type ClipboardEvent, type KeyboardEvent } from "@/jsx";
+import { useRouter } from "@/ui/navigation";
+import { useTranslations } from "@/i18n/translate";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/site/ui/button";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { Button } from "@/ui/tool-button";
+import { ArrowRight, Loader2 } from "@/ui/icons";
 
 const CODE_ALPHABET_RE = /[^ABCDEFGHJKLMNPQRSTUVWXYZ23456789]/g;
 
@@ -43,13 +43,13 @@ export function CodeInput({ autoFocus = false }: CodeInputProps) {
     }
   }
 
-  function handleKeyDown(index: number, e: React.KeyboardEvent) {
+  function handleKeyDown(index: number, e: KeyboardEvent) {
     if (e.key === "Backspace" && !values[index] && index > 0) {
       inputsRef.current[index - 1]?.focus();
     }
   }
 
-  function handlePaste(e: React.ClipboardEvent) {
+  function handlePaste(e: ClipboardEvent) {
     e.preventDefault();
     const text = e.clipboardData
       .getData("text")

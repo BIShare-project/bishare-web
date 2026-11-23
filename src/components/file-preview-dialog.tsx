@@ -1,8 +1,8 @@
-"use client";
+"island";
 
-import { useEffect, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { FileIcon, X } from "lucide-react";
+import { useEffect, useState } from "@/jsx";
+import { useLocale, useTranslations } from "@/i18n/translate";
+import { File, X } from "@/ui/icons";
 import { formatFileSize } from "@/lib/format";
 import { previewKind } from "@/lib/preview-kind";
 
@@ -72,7 +72,6 @@ export function FilePreviewDialog({ file, onClose }: { file: File; onClose: () =
 
         <div className="flex max-h-[70vh] items-center justify-center overflow-auto bg-background-raised/40 p-4">
           {url && kind === "image" && (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={url}
               alt={t("upload.previewAlt", { name: file.name })}
@@ -89,7 +88,7 @@ export function FilePreviewDialog({ file, onClose }: { file: File; onClose: () =
           {!kind && (
             <div className="flex flex-col items-center gap-3 py-10 text-center">
               <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-blue/10 text-accent-blue">
-                <FileIcon className="h-6 w-6" strokeWidth={1.8} />
+                <File className="h-6 w-6" strokeWidth={1.8} />
               </span>
               <p className="text-sm text-muted-foreground">{t("upload.noPreview")}</p>
             </div>

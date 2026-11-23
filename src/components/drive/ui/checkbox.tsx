@@ -1,10 +1,7 @@
-"use client"
-
-import * as React from "react"
 import { cn } from "@/lib/utils"
 import type { Parts } from "./primitives"
 import { Checkbox as CheckboxPrimitive } from "./primitives"
-import { CheckIcon, MinusIcon } from "lucide-react"
+import { Check, MinusIcon } from "@/ui/icons"
 
 // Lyra's square checkbox (the LaundryAman admin has none; same tokens as its inputs).
 function Checkbox({ className, ...props }: Parts) {
@@ -18,7 +15,7 @@ function Checkbox({ className, ...props }: Parts) {
       {...props}
     >
       <CheckboxPrimitive.Indicator data-slot="checkbox-indicator" className="grid place-items-center">
-        {props.checked === "indeterminate" ? <MinusIcon className="size-3" /> : <CheckIcon className="size-3" />}
+        {props.checked === "indeterminate" ? <MinusIcon className="size-3" /> : <Check className="size-3" />}
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   )

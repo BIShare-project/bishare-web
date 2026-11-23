@@ -1,7 +1,5 @@
-"use client";
-
-import { useEffect, useState, type ReactNode, type Ref } from "react";
-import { Archive, File, FileAudio, FileImage, FileSpreadsheet, FileText, FileVideo, Folder, Presentation, type LucideIcon } from "lucide-react";
+import { useEffect, useState, type Child, type Ref } from "@/jsx";
+import { Archive, File, FileAudio, FileImage, FileSpreadsheet, FileText, FileVideo, Folder, Presentation, type IconComponent } from "@/ui/icons";
 import type { DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
 import { useDrive } from "./drive-app";
@@ -33,7 +31,7 @@ const TINTS: Record<string, string> = {
   slides: "text-docs",
 };
 
-export function iconFor(o: DriveObject): LucideIcon {
+export function iconFor(o: DriveObject): IconComponent {
   return o.kind === "dir" ? Folder : ICONS[kindOf(o.mime)];
 }
 
@@ -52,7 +50,7 @@ export function ObjectIcon({ o, className, ref }: { o: DriveObject; className?: 
  * photos): the first [limit] items, and a [mark] to put below them that adds
  * more as it nears the screen.
  */
-export function useStepped(count: number, step = 300): { limit: number; mark: ReactNode } {
+export function useStepped(count: number, step = 300): { limit: number; mark: Child } {
   const [limit, setLimit] = useState(step);
   const [end, setEnd] = useState<HTMLElement | null>(null);
   useEffect(() => {
@@ -72,7 +70,6 @@ export function ObjectThumb({ o, className, large }: { o: DriveObject; className
   const url = useThumb(client, session.vaultId, o, useNear(el), attempt);
   if (url) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
       <img
         className={cn(large ? "size-full object-cover" : "size-7 shrink-0 border object-cover", className)}
         src={url}
@@ -104,12 +101,12 @@ export function Panel({
   className,
   bodyClassName,
 }: {
-  title?: ReactNode;
-  description?: ReactNode;
-  actions?: ReactNode;
+  title?: Child;
+  description?: Child;
+  actions?: Child;
   /** What this panel shows and how it is counted, as an ⓘ next to the title. */
-  help?: ReactNode;
-  children: ReactNode;
+  help?: Child;
+  children: Child;
   className?: string;
   bodyClassName?: string;
 }) {
@@ -135,7 +132,7 @@ export function Panel({
 }
 
 /** A grid of figures on shared 1 px lines. */
-export function KpiGrid({ children, cols = 5 }: { children: ReactNode; cols?: 3 | 4 | 5 }) {
+export function KpiGrid({ children, cols = 5 }: { children: Child; cols?: 3 | 4 | 5 }) {
   return (
     <div
       className={cn(
@@ -150,7 +147,7 @@ export function KpiGrid({ children, cols = 5 }: { children: ReactNode; cols?: 3 
   );
 }
 
-export function Kpi({ label, value, sub, icon: Icon, tone, help }: { label: string; value: string; sub?: string; icon?: LucideIcon; tone?: "warn" | "bad"; help?: ReactNode }) {
+export function Kpi({ label, value, sub, icon: Icon, tone, help }: { label: string; value: string; sub?: string; icon?: IconComponent; tone?: "warn" | "bad"; help?: Child }) {
   return (
     <div className="flex min-w-0 flex-col gap-1 bg-card px-4 py-3.5">
       <div className="flex items-center gap-1.5 text-2xs text-muted-foreground">
@@ -164,7 +161,7 @@ export function Kpi({ label, value, sub, icon: Icon, tone, help }: { label: stri
   );
 }
 
-export function EmptyState({ icon: Icon, title, description, action, className }: { icon?: LucideIcon; title: string; description?: string; action?: ReactNode; className?: string }) {
+export function EmptyState({ icon: Icon, title, description, action, className }: { icon?: IconComponent; title: string; description?: string; action?: Child; className?: string }) {
   return (
     <div className={cn("flex flex-col items-center justify-center gap-2 px-6 py-12 text-center", className)}>
       {Icon ? (
@@ -187,7 +184,7 @@ export const KIND_COLORS: Record<string, string> = {
   trash: "var(--trash)",
 };
 
-export function PageHead({ title, sub, actions, crumbs }: { title: ReactNode; sub?: ReactNode; actions?: ReactNode; crumbs?: ReactNode }) {
+export function PageHead({ title, sub, actions, crumbs }: { title: Child; sub?: Child; actions?: Child; crumbs?: Child }) {
   return (
     <div className="mb-4 flex flex-wrap items-end gap-3">
       <div className="min-w-0">

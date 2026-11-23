@@ -1,0 +1,133 @@
+"island";
+
+import { useEffect, useState, type Child } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { ArrowDown, HardDriveDownload } from "@/ui/icons";
+import { cn } from "@/lib/utils";
+import { VButton } from "@/ui/vbutton";
+import {
+  appStoreUrl,
+  playStoreUrl,
+  MICROSOFT_STORE_URL,
+  AppleGlyph,
+  PlayGlyph,
+  MicrosoftGlyph,
+} from "@/ui/store-buttons";
+import { RELEASES_URL } from "./availability";
+
+/** Secondary VButton classes for plain anchors (mailto/hash) VButton can't route. */
+const SECONDARY_ANCHOR =
+  "inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-strong bg-transparent px-5 text-[15px] font-medium tracking-[-0.01em] text-foreground outline-none transition-colors hover:border-foreground/25 hover:bg-secondary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
+/** Current app version, surfaced in the CTA captions. */
+const VERSION = "v2.5.0";
+
+type DetectedOS = "android" | "ios" | "macos" | "windows" | "linux" | "unknown";
+
+function detectOS(): DetectedOS {
+  const ua = navigator.userAgent.toLowerCase();
+  if (/android/.test(ua)) return "android";
+  if (/iphone|ipad|ipod/.test(ua)) return "ios";
+  if (/macintosh|mac os x/.test(ua)) {
+    // iPadOS 13+ masquerades as a Mac; multi-touch gives it away.
+    return navigator.maxTouchPoints > 1 ? "ios" : "macos";
+  }
+  if (/windows/.test(ua)) return "windows";
+  // ChromeOS ("CrOS", also reports X11) runs the Play Store build.
+  if (/cros/.test(ua)) return "android";
+  if (/linux|x11/.test(ua)) return "linux";
+  return "unknown";
+}
+
+/**
+ * OS-aware hero CTA. SSR renders the neutral state; detection only upgrades
+ * after mount, so the first client render always matches the server and
+ * hydration stays clean. Live today: Android (Google Play), iOS & macOS
+ * (App Store, id6760924092), Windows (Microsoft Store), and Linux (the .deb,
+ * AppImage and tarball attached to every release).
+ */
+export function DownloadHero({ className }: { className?: string }) {
+  const t = useTranslations("download");
+  const [os, setOs] = useState<DetectedOS>("unknown");
+
+  useEffect(() => {
+    setOs(detectOS());
+  }, []);
+
+  const osLabel = t(`detected.os.${os}`);
+
+  let ctas: Child;
+  let caption: string;
+
+  if (os === "ios" || os === "macos") {
+    ctas = (
+      <>
+        <VButton href={appStoreUrl("download")} variant="primary" size="lg">
+          <AppleGlyph />
+          {t("detected.appStoreCta")}
+        </VButton>
+        <a href="#platforms" className={SECONDARY_ANCHOR}>
+          {t("detected.allPlatforms")}
+          <ArrowDown className="h-4 w-4" />
+        </a>
+      </>
+    );
+    caption = t("detected.caption", { version: VERSION });
+  } else if (os === "windows") {
+    ctas = (
+      <>
+        <VButton href={MICROSOFT_STORE_URL} variant="primary" size="lg">
+          <MicrosoftGlyph />
+          {t("detected.microsoftStoreCta")}
+        </VButton>
+        <a href="#platforms" className={SECONDARY_ANCHOR}>
+          {t("detected.allPlatforms")}
+          <ArrowDown className="h-4 w-4" />
+        </a>
+      </>
+    );
+    caption = t("detected.caption", { version: VERSION });
+  } else if (os === "linux") {
+    ctas = (
+      <>
+        <VButton href={RELEASES_URL} variant="primary" size="lg">
+          <HardDriveDownload className="h-4 w-4" />
+          {t("detected.linuxCta")}
+        </VButton>
+        <a href="#platforms" className={SECONDARY_ANCHOR}>
+          {t("detected.allPlatforms")}
+          <ArrowDown className="h-4 w-4" />
+        </a>
+      </>
+    );
+    caption = t("detected.caption", { version: VERSION });
+  } else {
+    ctas = (
+      <>
+        <VButton href={playStoreUrl("download")} variant="primary" size="lg">
+          <PlayGlyph />
+          {t("detected.playCta")}
+        </VButton>
+        <a href="#platforms" className={SECONDARY_ANCHOR}>
+          {t("detected.allPlatforms")}
+          <ArrowDown className="h-4 w-4" />
+        </a>
+      </>
+    );
+    caption = t("detected.caption", { version: VERSION });
+  }
+
+  return (
+    <div className={cn("flex flex-col gap-5", className)} aria-live="polite">
+      <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+        {os === "unknown"
+          ? t("detected.oneApp")
+          : t("detected.label", { os: osLabel })}
+      </p>
+      <div className="flex flex-wrap items-center gap-4">{ctas}</div>
+      <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
+        {caption}
+      </p>
+    </div>
+  );
+}

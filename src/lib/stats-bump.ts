@@ -1,4 +1,4 @@
-import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { requestContext } from "@/site/request-context";
 
 interface D1Lite {
   prepare(q: string): {
@@ -7,15 +7,14 @@ interface D1Lite {
 }
 
 /**
- * Best-effort additive stats_daily counter, fired from marketing server
- * components for growth observability (receive-loop metrics). Never throws and
+ * Best-effort additive stats_daily counter, fired while a page is rendered for growth observability (receive-loop metrics). Never throws and
  * never blocks the render — the write runs via ctx.waitUntil. Read back from the
  * admin report; the cron leaves these metrics alone (additive event counters).
  */
 export function bumpStat(metric: string, by = 1): void {
   try {
-    const { env, ctx } = getCloudflareContext();
-    const db = (env as unknown as { DB: D1Lite }).DB;
+    const { env, ctx } = requestContext();
+    const db = env.DB as D1Lite;
     const p = db
       .prepare(
         `INSERT INTO stats_daily (date, metric, value)
@@ -27,6 +26,6 @@ export function bumpStat(metric: string, by = 1): void {
       .catch(() => {});
     ctx?.waitUntil?.(p as Promise<unknown>);
   } catch {
-    /* no Cloudflare context (e.g. at build time) — skip */
+    /* no request (a page rendered at build time) */
   }
 }

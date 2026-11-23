@@ -1,7 +1,7 @@
-"use client";
+"island";
 
-import { useEffect, useState } from "react";
-import { FileText, Film, Music, File as FileIcon, Image as ImageIcon } from "lucide-react";
+import { useEffect, useState } from "@/jsx";
+import { FileText, Film, Music, File as FileIcon, Image as ImageIcon } from "@/ui/icons";
 import { previewKind } from "@/lib/preview-kind";
 
 /**
@@ -86,7 +86,6 @@ export function FileThumb({ file }: { file: File }) {
 
   if (src) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
       <img src={src} alt="" aria-hidden className="h-full w-full object-cover" />
     );
   }

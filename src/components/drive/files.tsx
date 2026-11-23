@@ -1,10 +1,8 @@
-"use client";
-
-import { useEffect, useMemo, useRef, useState, type DragEvent, type MouseEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type DragEvent, type MouseEvent } from "@/jsx";
 import { Link } from "./nav";
 import { useSearchParams } from "./nav";
-import { useLocale, useTranslations } from "next-intl";
-import { ArrowDown, ArrowUp, ChevronRight, Copy, Download, FolderInput, FolderPlus, FolderUp, LayoutGrid, List, MoreHorizontal, PanelRight, Search, Trash2, Upload, X } from "lucide-react";
+import { useLocale, useTranslations } from "@/i18n/translate";
+import { ArrowDown, ArrowUp, ChevronRight, Copy, Download, FolderInput, FolderPlus, FolderUp, LayoutGrid, List, MoreHorizontal, PanelRight, Search, Trash2, Upload, X } from "@/ui/icons";
 import type { DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
 import { useActions } from "./actions";
@@ -13,12 +11,12 @@ import { useDrive, useIndex } from "./drive-app";
 import { bytes, isMedia, kindOf, when } from "./format";
 import { ActionContextMenu, ActionDropdown } from "./menus";
 import { RowCheck, SelectionBar, useSelection } from "./selection";
-import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { Button } from "@/components/drive/ui/button";
+import { Checkbox } from "@/components/drive/ui/checkbox";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/drive/ui/dropdown-menu";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/drive/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/drive/ui/table";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/tooltip";
 
 type KindFilter = "all" | "dir" | "media" | "documents" | "audio" | "other";
 type SortKey = "name" | "modified" | "size";

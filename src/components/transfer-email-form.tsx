@@ -1,9 +1,9 @@
-"use client";
+"island";
 
-import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useState, type FormEvent } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
 import { sendTransferEmail } from "@/lib/api";
-import { Mail, Loader2, Check } from "lucide-react";
+import { Mail, Loader2, Check } from "@/ui/icons";
 import { cn } from "@/lib/utils";
 
 /**
@@ -34,7 +34,7 @@ export function TransferEmailForm({
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [err, setErr] = useState("");
 
-  async function submit(e: React.FormEvent) {
+  async function submit(e: FormEvent) {
     e.preventDefault();
     if (!email.trim() || state === "sending") return;
     setState("sending");

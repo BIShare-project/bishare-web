@@ -1,9 +1,8 @@
-"use client";
+"island";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useLocale, useTranslations } from "next-intl";
-import { useDropzone } from "react-dropzone";
+import { useCallback, useEffect, useRef, useState } from "@/jsx";
+import { useLocale, useTranslations } from "@/i18n/translate";
+import { useDropzone } from "@/lib/dropzone";
 import { cn } from "@/lib/utils";
 import { reportLoopCompleted } from "@/lib/loop";
 import { formatFileSize, formatExpiry } from "@/lib/format";
@@ -22,17 +21,17 @@ import {
 import {
   forgetTransfer,
   rememberTransfer,
-} from "@/app/[locale]/(site)/transfer/recent-transfers";
+} from "@/pages/transfer/recent-transfers";
 import { EncryptedSource, generateKey, encodeKey, maxPlaintextFor } from "@/lib/e2e/crypto";
 import { takeSharedFiles, SHARED_PARAM } from "@/lib/share-target";
 import { FilePreviewDialog } from "@/components/file-preview-dialog";
 import { buildStoreZip } from "@/lib/zip";
 import { FileThumb } from "@/components/file-thumb";
 import type { TransferUploadResponse } from "@/lib/types";
-import { Button } from "@/components/site/ui/button";
-import { GlowProgress, SuccessCheck } from "@/components/flow-shell";
-import { QRDisplay } from "@/components/site/qr-display";
-import { TagBadge } from "@/components/site/status-pill";
+import { Button } from "@/ui/tool-button";
+import { GlowProgress, SuccessCheck } from "@/ui/progress";
+import { QRDisplay } from "@/ui/qr-display";
+import { TagBadge } from "@/ui/status-pill";
 import { TransferEmailForm } from "@/components/transfer-email-form";
 import { DriveInterest } from "@/components/drive-interest";
 import { DriveAfterUpload, DriveLinkHint } from "@/components/drive-after-upload";
@@ -51,9 +50,9 @@ import {
   Trash2,
   Upload,
   X,
-} from "lucide-react";
+} from "@/ui/icons";
 
-/** next-intl translator for the "tool" namespace, threaded into the pure
+/** The translator of the "tool" namespace, threaded into the pure
  *  upload helpers so their error strings stay localized. */
 type Translator = ReturnType<typeof useTranslations>;
 
@@ -774,9 +773,6 @@ export function FileUpload() {
   }, [onDrop]);
 
   const { getRootProps, isDragActive } = useDropzone({
-    multiple: true,
-    noClick: true,
-    noKeyboard: true, // we run our own keyboard affordance on the visible zone
     onDrop,
   });
 
@@ -971,7 +967,7 @@ export function FileUpload() {
     const single = completedFiles.length === 1 && failed.length === 0 ? completedFiles[0] : null;
 
     return (
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
+      <div className="space-y-6">
         <div className="space-y-3 text-center">
           <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-success/10">
             <SuccessCheck size={76} />
@@ -986,12 +982,7 @@ export function FileUpload() {
 
         {/* Single-file: hero QR + code */}
         {single && single.status === "done" && single.webURL && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.15 }}
-            className="flex flex-col items-center gap-5"
-          >
+          <div className="flex flex-col items-center gap-5">
             <QRDisplay value={single.webURL} size={168} />
             {single.encrypted ? (
               <div className="flex flex-col items-center gap-1.5 text-center">
@@ -1013,7 +1004,7 @@ export function FileUpload() {
                 </div>
               )
             )}
-          </motion.div>
+          </div>
         )}
 
         {/* Single-file: email the link straight to a recipient. End-to-end
@@ -1127,18 +1118,13 @@ export function FileUpload() {
 
                   {f.deleteError && <p className="text-xs text-destructive">{f.deleteError}</p>}
 
-                  <AnimatePresence>
+                  <>
                     {expandedQR === f.id && f.webURL && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="flex justify-center overflow-hidden pt-1"
-                      >
+                      <div className="flex justify-center overflow-hidden pt-1">
                         <QRDisplay value={f.webURL} size={144} />
-                      </motion.div>
+                      </div>
                     )}
-                  </AnimatePresence>
+                  </>
                 </div>
               )}
             </div>
@@ -1207,7 +1193,7 @@ export function FileUpload() {
         <AppAfterUpload />
         <DriveAfterUpload hours={expiry} />
         <DriveInterest />
-      </motion.div>
+      </div>
     );
   }
 
@@ -1278,19 +1264,13 @@ export function FileUpload() {
               it. Each tile opens the preview dialog on tap. */}
           {files.length > 0 && (
             <div className="mt-5 grid w-full grid-cols-3 gap-2 text-left sm:grid-cols-4 lg:grid-cols-5">
-              <AnimatePresence>
+              <>
                 {files.map((f) => (
-                  <motion.div
+                  <div
                     key={f.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.96 }}
                     role="button"
                     tabIndex={0}
                     aria-label={t("upload.previewAlt", { name: f.file.name })}
-                    // The box behind these tiles opens the file picker, so a tap
-                    // meant for a preview must never reach it.
                     onClick={(e) => {
                       e.stopPropagation();
                       setPreviewFile(f.file);
@@ -1306,8 +1286,7 @@ export function FileUpload() {
                       "group/tile relative cursor-pointer overflow-hidden rounded-xl border bg-background/60 transition-colors hover:border-accent-blue/50",
                       f.status === "uploading" ? "border-accent-blue/40" : "border-border",
                       f.status === "blocked" && "border-destructive/50"
-                    )}
-                  >
+                    )}>
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary/60">
                       <FileThumb file={f.file} />
 
@@ -1355,9 +1334,9 @@ export function FileUpload() {
                     {f.status === "uploading" && (
                       <GlowProgress value={f.progress} className="absolute inset-x-0 bottom-0" />
                     )}
-                  </motion.div>
+                  </div>
                 ))}
-              </AnimatePresence>
+              </>
             </div>
           )}
         </div>
@@ -1374,7 +1353,7 @@ export function FileUpload() {
 
       {/* Bundle + one-time toggles + upload button */}
       {pendingFiles.length > 0 && !isUploading && (
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
+        <div className="space-y-3">
           {pendingFiles.length > 1 && (
             <button
               type="button"
@@ -1525,11 +1504,11 @@ export function FileUpload() {
             <Upload />
             {t("upload.uploadButton", { count: pendingFiles.length })}
           </Button>
-        </motion.div>
+        </div>
       )}
 
       {isUploading && (
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+        <div>
           <Button
             onClick={cancelAll}
             variant="outline"
@@ -1539,7 +1518,7 @@ export function FileUpload() {
             <X className="h-4 w-4" />
             {t("upload.cancel")}
           </Button>
-        </motion.div>
+        </div>
       )}
     </div>
   );

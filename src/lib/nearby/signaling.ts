@@ -1,9 +1,9 @@
+import { API_URL } from "@/lib/api-url";
 // Nearby signaling client — thin wrapper over the /api/v1/nearby/ws WebSocket.
 // Announces this browser (hello), tracks the peer roster, and relays WebRTC
 // SDP/ICE to a specific peer. Transport only — no WebRTC here (that's the next
 // phase). Reused by the debug page (P1) and the Nearby UI (P4).
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.bishare.app";
 
 export interface NearbyPeer {
   peerId: string;

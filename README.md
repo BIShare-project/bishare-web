@@ -8,12 +8,12 @@
 
 Send a file, get a link the recipient opens in any browser — no app, no sign-up,
 nothing stored in the clear. The web app + marketing site behind
-[**bishare.app**](https://bishare.app), built with **Next.js** and running on
+[**bishare.app**](https://bishare.app), built with **Hono** and running on
 **Cloudflare Workers**.
 
 [![CI](https://github.com/BIShare-project/bishare-web/actions/workflows/ci.yml/badge.svg)](https://github.com/BIShare-project/bishare-web/actions/workflows/ci.yml)
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue)
-![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)
+![Hono](https://img.shields.io/badge/Hono-4-E36002?logo=hono&logoColor=white)
 ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)
 ![Languages](https://img.shields.io/badge/i18n-13_languages-2563eb)
 ![PRs welcome](https://img.shields.io/badge/PRs-welcome-16a34a)
@@ -92,12 +92,12 @@ end-to-end encrypted, no account, and open source.**
 - 👥 **Rooms** — share files with a group in a live, shared room over WebRTC/WS.
 - 📊 **Live public stats** (`/stats`) — server-rendered counters with a realtime
   WebSocket (`/stats-live`) backed by a Durable Object.
-- 🌍 **13 languages** — fully localized via `next-intl`, dark-first design with a
+- 🌍 **13 languages** — fully localized, dark-first design with a
   light toggle.
 - 🔎 **SEO-first** — hreflang across every locale, structured data (`SoftwareApplication`,
   `FAQPage`, `ItemList`), sitemap, and an `llms.txt` for AI search engines.
-- ☁️ **Runs on the edge** — Next.js App Router on Cloudflare Workers via
-  `@opennextjs/cloudflare`; no origin server to babysit.
+- ☁️ **Runs on the edge** — pages are built ahead of time and served by one small
+  Cloudflare Worker; no origin server to babysit.
 
 ## 🔐 How the encryption works
 
@@ -133,7 +133,7 @@ BIShare is a full cross-platform file-sharing project — this repo is the web p
 
 The file-transfer **API** (upload/download, rooms, presigned R2 storage,
 telemetry) is a separate service; this site talks to it over HTTPS at
-`NEXT_PUBLIC_API_URL` (default `https://api.bishare.app`).
+`API_URL` (default `https://api.bishare.app`).
 
 ## 🚀 Run it locally
 
@@ -143,8 +143,8 @@ telemetry) is a separate service; this site talks to it over HTTPS at
 git clone https://github.com/BIShare-project/bishare-web.git
 cd bishare-web
 npm install
-cp .env.example .env.local     # set NEXT_PUBLIC_API_URL
-npm run dev                    # http://localhost:3000
+cp .env.example .env           # optional: another API_URL
+npm run dev                    # http://localhost:8788
 ```
 
 The site talks to the transfer API over HTTPS at `NEXT_PUBLIC_API_URL`
@@ -155,7 +155,7 @@ backend out of the box — no local server needed to develop the UI.
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/BIShare-project/bishare-web)
 
-1. Fill in your own resource IDs in `wrangler.jsonc` (D1 database, R2 bucket,
+1. Fill in your own resource IDs in `wrangler.jsonc` (D1 database,
    custom domain). The committed file uses `<PLACEHOLDER>` values so no infra
    details are baked into the public repo.
 2. Create the D1 database:
@@ -164,20 +164,20 @@ backend out of the box — no local server needed to develop the UI.
    ```
 3. Build + deploy:
    ```bash
-   npm run deploy        # opennextjs build + wrangler deploy
+   npm run deploy        # build + wrangler deploy
    ```
 
 The web Worker needs **no runtime secrets** — it only reads D1 and serves pages. Point
-`NEXT_PUBLIC_API_URL` at your own backend if you self-host the API.
+`API_URL` at your own backend if you self-host the API.
 
 ### Automatic deployment from GitHub
 
-Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
-which builds the OpenNext Worker and deploys it to `bishare.app`. Add these
+Every push to `main` runs [`.github/workflows/ci.yml`](.github/workflows/ci.yml),
+which builds the site and deploys it to `bishare.app`. Add these
 repository secrets under **Settings → Secrets and variables → Actions**:
 
 - `CLOUDFLARE_API_TOKEN` — a token allowed to deploy Workers and access the
-  configured D1/R2 resources.
+  configured D1 database.
 - `CLOUDFLARE_ACCOUNT_ID` — the Cloudflare account ID that owns the Worker.
 - `CLOUDFLARE_D1_DATABASE_ID` — the production `bishare-cloud` D1 database ID.
 
@@ -188,39 +188,36 @@ the real infrastructure config remains gitignored.
 
 ```
 src/
-├─ app/
-│  └─ [locale]/
-│     ├─ (site)/          # marketing + SEO pages (localized)
-│     │  ├─ transfer/     #   in-browser E2E transfer tool
-│     │  ├─ rooms/        #   group sharing (WebRTC/WS)
-│     │  ├─ stats/        #   live public counters
-│     │  └─ …             #   features, pricing, comparisons, FAQ, legal
-│     └─ layout.tsx       # <html>/<body>, fonts, per-locale dir
-├─ components/            # UI (site shell, rooms, transfer widgets)
+├─ site/                  # routing, the document, <head>, sitemap, styles, client modules
+├─ pages/                 # one module per page: marketing, guides, blog, /transfer, /rooms, /stats
+├─ ui/                    # components shared by the pages
+├─ components/            # the tools: upload, rooms, the web Drive
+├─ jsx/                   # the elements: hono/jsx for pages, hono/jsx/dom in the browser
+├─ i18n/                  # languages, messages, translators
 ├─ lib/                   # crypto, API client, rooms/webrtc, SEO helpers
-├─ i18n/                  # next-intl routing + request config
 └─ messages/<locale>/     # 13-locale message catalogs
 
-worker/index.ts           # Cloudflare Worker entry (Next handler + StatsLiveDO)
-server/do/stats-live.ts    # Durable Object powering /stats-live
-public/                    # static assets, llms.txt, sitemap inputs
+scripts/                  # build: assets and islands, then every page in every language
+worker/index.ts           # Cloudflare Worker entry (site + StatsLiveDO)
+server/do/stats-live.ts   # Durable Object powering /stats-live
+public/                   # static assets, llms.txt
+tool/parity/              # compares two builds: HTML for search engines, pixels, the tools
 ```
 
 ## 🛠️ Stack
 
-- **Next.js 15** (App Router) · React · Tailwind · `next-intl` (13 locales)
+- **Hono** (`hono/jsx` for pages, `hono/jsx/dom` for the interactive parts) · Tailwind · esbuild
 - **Cloudflare Workers** · **D1** (read-only stats) · **Durable Objects** (`StatsLiveDO`)
-- **`@opennextjs/cloudflare`** for the Worker build
 - **WebCrypto** (AES-256-GCM) for zero-knowledge browser transfers
 
 ## 📜 Scripts
 
 | Command | What it does |
 |---|---|
-| `npm run dev` | Start the dev server (`next dev`) |
-| `npm run build` | Production Next.js build |
-| `npm run build:cloudflare` | Build the Cloudflare Worker bundle (OpenNext) |
-| `npm run preview` | Build + run the Worker locally (`wrangler dev`) |
+| `npm run dev` | Build, run the Worker locally, rebuild on save |
+| `npm run build` | Build the site into `dist/` |
+| `npm test` | Unit tests |
+| `npm run typecheck` | Types of the site, the Worker and the service worker |
 | `npm run deploy` | Build + deploy to Cloudflare Workers |
 
 ## 🤝 Contributing
@@ -243,7 +240,7 @@ No — neither to send nor to receive. Links auto-expire.
 
 **Can I self-host the whole thing?**
 Yes. Deploy this repo to your own Cloudflare Workers, and point
-`NEXT_PUBLIC_API_URL` at your own instance of the transfer API.
+`API_URL` at your own instance of the transfer API.
 
 **How is this different from the native app?**
 The app ([bishare-flutter](https://github.com/BIShare-project/bishare-flutter))

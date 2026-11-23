@@ -3,10 +3,11 @@
 // never leaves the browser. It opens the sealed manifest (names, sizes, file
 // keys); the files come straight from the vault bucket through short signed
 // URLs and are decrypted here, as the Drive's own pages do.
+import { API_URL } from "@/lib/api-url";
 import { decryptStream } from "@/lib/e2e/crypto";
 import { fromB64u, inflateRaw, openLink, openThumbnail, type LinkFile, type LinkManifest } from "./crypto";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "https://api.bishare.app";
+const API = API_URL;
 
 export class LinkError extends Error {
   constructor(

@@ -1,18 +1,16 @@
-"use client";
-
-import { useCallback, useEffect, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { QRCodeSVG } from "qrcode.react";
-import { Copy, File as FileIcon, Folder, Link2, Loader2, Mail, X } from "lucide-react";
+import { useCallback, useEffect, useState } from "@/jsx";
+import { useLocale, useTranslations } from "@/i18n/translate";
+import { QRCodeSVG } from "@/ui/qr";
+import { Copy, File as FileIcon, Folder, Link2, Loader2, Mail, X } from "@/ui/icons";
 import { DriveApiError } from "@/lib/vault/client";
 import { createLink, LinkTooManyFiles, listLinks, revokeLink, type DriveLink } from "@/lib/vault/drive-links";
 import { browserName } from "@/lib/vault/session";
 import type { DriveObject } from "@/lib/vault/store";
 import { EmptyState, PageHead, Panel } from "./bits";
 import { useDrive } from "./drive-app";
-import { Button } from "./ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "./ui/dialog";
-import { Input } from "./ui/input";
+import { Button } from "@/components/drive/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/drive/ui/dialog";
+import { Input } from "@/components/drive/ui/input";
 
 const LIFETIMES = [1, 7, 30, 0] as const;
 
@@ -128,7 +126,7 @@ export function LinkDialog({ o, link: given, onDone }: { o?: DriveObject; link?:
                 <div className="mx-auto bg-white p-2">
                   <QRCodeSVG value={link.url} size={168} level="M" />
                 </div>
-                <Input readOnly value={link.url} onFocus={(e) => e.currentTarget.select()} className="font-mono text-2xs" aria-label={t("links.address")} />
+                <Input readOnly value={link.url} onFocus={(e: { currentTarget: HTMLInputElement }) => e.currentTarget.select()} className="font-mono text-2xs" aria-label={t("links.address")} />
                 <div className="grid gap-2 sm:grid-cols-2">
                   <Button
                     variant="outline"

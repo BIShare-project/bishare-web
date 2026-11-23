@@ -1,12 +1,10 @@
-"use client";
-
-import { Fragment, type ReactNode } from "react";
+import { Fragment, type Child } from "@/jsx";
 import type { ActionItem } from "./actions";
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuTrigger } from "./ui/context-menu";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuTrigger } from "@/components/drive/ui/context-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from "@/components/drive/ui/dropdown-menu";
 
 /** The "⋯" menu of a row or a tile. */
-export function ActionDropdown({ items, children, align = "end" }: { items: ActionItem[]; children: ReactNode; align?: "start" | "end" }) {
+export function ActionDropdown({ items, children, align = "end" }: { items: ActionItem[]; children: Child; align?: "start" | "end" }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
@@ -27,7 +25,7 @@ export function ActionDropdown({ items, children, align = "end" }: { items: Acti
 }
 
 /** The same actions on a right click. */
-export function ActionContextMenu({ items, children, onOpen }: { items: ActionItem[]; children: ReactNode; onOpen?: () => void }) {
+export function ActionContextMenu({ items, children, onOpen }: { items: ActionItem[]; children: Child; onOpen?: () => void }) {
   return (
     <ContextMenu onOpenChange={(o) => o && onOpen?.()}>
       <ContextMenuTrigger asChild>{children}</ContextMenuTrigger>

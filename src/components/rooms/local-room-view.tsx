@@ -1,8 +1,8 @@
-"use client";
+"island";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
-import { LogOut } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { LogOut } from "@/ui/icons";
 import { NearbySignaling, type NearbyPeer } from "@/lib/nearby/signaling";
 import { RoomRTC, type ReceivedRoomFile } from "@/lib/rooms/local/room-rtc";
 import { saveFile } from "@/lib/save-bridge";
@@ -135,7 +135,6 @@ export function LocalRoomView({
     };
     // Run once per code — alias/t/callbacks are captured intentionally (aliasOf
     // reads the live peers ref), so re-subscribing on every render is avoided.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [code]);
 
 

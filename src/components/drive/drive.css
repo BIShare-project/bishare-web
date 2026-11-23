@@ -1,11 +1,10 @@
-/* The web Drive (drive.bishare.app): shadcn Lyra with the LaundryAman admin's
-   tokens (~/Documents/laundryku/admin/styles/globals.css: radius 0, shadcn
-   neutral, 1 px lines) and BIShare blue as the one accent. Loaded by the
-   Drive's layout only, so the marketing site's Tailwind and these never meet;
+/* The web Drive (drive.bishare.app): square corners, neutral greys, 1 px lines
+   and BIShare blue as the one accent. Loaded by the Drive's document only, so
+   the site's Tailwind and these never meet;
    Tailwind scans the Drive's folders only. The theme follows
    <html data-drive-theme>, not the site's "dark" class. */
 @import "tailwindcss" source(none);
-@import "../../hono/fonts/fonts.css";
+@import "../../site/fonts/fonts.css";
 
 @source "../drive";
 
@@ -232,7 +231,7 @@
 [data-drive-theme="dark"] .hljs-attr, [data-drive-theme="dark"] .hljs-variable, [data-drive-theme="dark"] .hljs-template-variable, [data-drive-theme="dark"] .hljs-property { color: #ffa657; }
 [data-drive-theme="dark"] .hljs-built_in, [data-drive-theme="dark"] .hljs-class .hljs-title, [data-drive-theme="dark"] .hljs-meta { color: #7ee787; }
 
-/* Messages (ui/sonner.tsx): the newest in front, the older ones behind it; all of them under the pointer. */
+/* Messages (ui/toaster.tsx): the newest in front, the older ones behind it; all of them under the pointer. */
 .toasts { position: fixed; bottom: 24px; left: 50%; z-index: 999; width: 356px; max-width: calc(100vw - 32px); margin: 0; padding: 0; list-style: none; transform: translateX(-50%); display: flex; flex-direction: column; gap: 14px; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif; }
 .toast { display: flex; align-items: center; gap: 6px; padding: 16px; font-size: 13px; overflow-wrap: anywhere; background: var(--popover); color: var(--popover-foreground); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); outline: none; }
 .toast-icon { display: flex; flex-shrink: 0; width: 16px; height: 16px; align-items: center; margin-inline: -3px 4px; }

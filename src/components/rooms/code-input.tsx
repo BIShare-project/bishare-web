@@ -1,6 +1,6 @@
-"use client";
+"island";
 
-import { useRef, type ClipboardEvent, type KeyboardEvent } from "react";
+import { useRef, type ClipboardEvent, type KeyboardEvent } from "@/jsx";
 
 /**
  * OTP-style room code input: one box per character, auto-advancing, with
@@ -82,7 +82,7 @@ export function CodeInput({
             value={value[i] ?? ""}
             onChange={(e) => handleChange(i, e.target.value)}
             onKeyDown={(e) => handleKeyDown(i, e)}
-            onFocus={(e) => e.currentTarget.select()}
+            onFocus={(e: { currentTarget: HTMLInputElement }) => e.currentTarget.select()}
             inputMode="text"
             autoComplete="off"
             autoCapitalize="characters"

@@ -1,13 +1,11 @@
-"use client"
-
-import * as React from "react"
+import type { ComponentProps } from "@/jsx";
 import { cn } from "@/lib/utils"
 import type { Parts } from "./primitives"
 import { Dialog as DialogPrimitive } from "./primitives"
 
 import { Button } from "@/components/drive/ui/button"
-import { XIcon } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { X } from "@/ui/icons"
+import { useTranslations } from "@/i18n/translate"
 
 function Dialog({
   ...props
@@ -43,7 +41,7 @@ function DialogContent({
               className="absolute top-2 right-2"
               size="icon-sm"
             >
-              <XIcon
+              <X
               />
               <span className="sr-only">{t("act.close")}</span>
             </Button>
@@ -54,7 +52,7 @@ function DialogContent({
   )
 }
 
-function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
+function DialogHeader({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
       data-slot="dialog-header"
@@ -69,7 +67,7 @@ function DialogFooter({
   showCloseButton = false,
   children,
   ...props
-}: React.ComponentProps<"div"> & {
+}: ComponentProps<"div"> & {
   showCloseButton?: boolean
 }) {
   return (

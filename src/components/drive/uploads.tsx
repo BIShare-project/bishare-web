@@ -1,15 +1,13 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
-import { Check, ChevronDown, CloudUpload, Link2, RotateCw, X } from "lucide-react";
+import { useEffect, useRef, useState } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { Check, ChevronDown, CloudUpload, Link2, RotateCw, X } from "@/ui/icons";
 import type { UploadItem } from "@/lib/vault/upload";
 import { cn } from "@/lib/utils";
 import { useDrive, useIndex, useUploads } from "./drive-app";
 import { bytes } from "./format";
 import { InfoTip } from "./help";
-import { Button } from "./ui/button";
-import { Progress } from "./ui/progress";
+import { Button } from "@/components/drive/ui/button";
+import { Progress } from "@/components/drive/ui/progress";
 
 function statusOf(t: ReturnType<typeof useTranslations>, it: UploadItem): string {
   const pct = it.total ? Math.floor((it.done * 100) / it.total) : 0;

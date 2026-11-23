@@ -7,7 +7,10 @@
   "compilerOptions": {
     "lib": ["ES2022", "WebWorker"],
     "types": [],
-    "noEmit": true
+    "noEmit": true,
+    // No elements here: without this the types of @/jsx, which are the page's, join the program.
+    "jsx": "preserve",
+    "jsxImportSource": null
   },
   "include": ["src/sw/**/*.ts", "src/lib/e2e/**/*.ts"]
 }

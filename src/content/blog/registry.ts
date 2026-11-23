@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType } from "@/jsx";
 
 /**
  * The blog's single source of truth. Every published article registers its

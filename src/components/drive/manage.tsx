@@ -1,6 +1,5 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import type { Child } from "@/jsx";
+import { useLocale, useTranslations } from "@/i18n/translate";
 import {
   ArchiveRestore,
   Check,
@@ -24,7 +23,7 @@ import {
   Undo2,
   Upload,
   X,
-} from "lucide-react";
+} from "@/ui/icons";
 import { DriveApiError } from "@/lib/vault/client";
 import type { DriveDevice, DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
@@ -34,14 +33,14 @@ import { useDrive, useIndex } from "./drive-app";
 import { bytes, dayTitle, percent, when } from "./format";
 import { ExplainGrid, InfoTip, Term } from "./help";
 import { RowCheck, SelectionBar, useSelection } from "./selection";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
+import { Badge } from "@/components/drive/ui/badge";
+import { Button } from "@/components/drive/ui/button";
+import { Checkbox } from "@/components/drive/ui/checkbox";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/drive/ui/table";
 
 const DAY = 86_400_000;
 
-function HeadWithHelp({ children, help, className }: { children: React.ReactNode; help: React.ReactNode; className?: string }) {
+function HeadWithHelp({ children, help, className }: { children: Child; help: Child; className?: string }) {
   return (
     <TableHead className={className}>
       <span className="inline-flex items-center gap-1">
@@ -478,7 +477,7 @@ export function StoragePage() {
   );
 }
 
-function Fact({ icon: Icon, tone, badge, title, body }: { icon: typeof Lock; tone?: "good" | "warn"; badge: string; title: React.ReactNode; body: string }) {
+function Fact({ icon: Icon, tone, badge, title, body }: { icon: typeof Lock; tone?: "good" | "warn"; badge: string; title: Child; body: string }) {
   return (
     <div className="flex items-start gap-3 border-b px-4 py-3.5 last:border-b-0">
       <span className={cn("grid size-8 shrink-0 place-items-center border bg-muted/60", tone === "good" && "border-good/40 text-good", tone === "warn" && "border-warn/40 text-warn")}>

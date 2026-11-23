@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "@/jsx";
 import { openThumbnail } from "@/lib/vault/crypto";
 import type { DriveClient } from "@/lib/vault/client";
 import type { DriveObject } from "@/lib/vault/store";

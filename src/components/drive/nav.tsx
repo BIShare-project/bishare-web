@@ -1,6 +1,4 @@
-"use client";
-
-import { useSyncExternalStore, type MouseEvent, type ReactNode } from "react";
+import { useSyncExternalStore, type MouseEvent, type Child } from "@/jsx";
 
 // Moving between the Drive's pages without loading the document again: the keys live in this tab's memory.
 
@@ -42,7 +40,7 @@ export function useSearchParams(): URLSearchParams {
 
 interface Props {
   href: string;
-  children?: ReactNode;
+  children?: Child;
   className?: string;
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
   [key: string]: unknown;

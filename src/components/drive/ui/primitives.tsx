@@ -1,7 +1,5 @@
-"use client";
-
-import { cloneElement, createContext, isValidElement, useCallback, useContext, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { cloneElement, createContext, isValidElement, useCallback, useContext, useEffect, useId, useLayoutEffect, useRef, useState } from "@/jsx";
+import { createPortal } from "@/jsx";
 import { cn } from "@/lib/utils";
 
 // The behaviour under the Drive's controls: dialogs, menus, a select, tooltips, switches. Looks come from the files
@@ -18,6 +16,10 @@ export interface Parts {
   onCheckedChange?: (checked: Any) => void;
   onOpenAutoFocus?: (e: Event) => void;
   onSelect?: () => void;
+  onClick?: (e: Any) => void;
+  onChange?: (e: Any) => void;
+  onKeyDown?: (e: Any) => void;
+  onSubmit?: (e: Any) => void;
   [attribute: string]: Any;
 }
 

@@ -9,14 +9,14 @@
 // alias,deviceType}}, then the server replies "sync" (full state) and streams
 // member_joined / member_left / file_added / upload_start / upload_done /
 // room_closed / error. See server/do/room.ts for the wire contract.
+import { API_URL } from "@/lib/api-url";
 import type { RoomCreated, RoomE2E, RoomEvent, RoomFile } from "./types";
 import { DEVICE_TYPE } from "./identity";
 import { EncryptedSource, decryptTransform, importKey } from "@/lib/e2e/crypto";
 import type { SealedFile } from "./e2e";
 import { saveFile } from "@/lib/save-bridge";
 
-const API_URL =
-  process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || "https://api.bishare.app";
+
 const WS_URL = API_URL.replace(/^http/, "ws");
 
 async function readError(res: Response): Promise<string> {

@@ -1,14 +1,12 @@
-"use client";
-
-import { useState } from "react";
+import { useState } from "@/jsx";
 import { useRouter } from "./nav";
-import { useTranslations } from "next-intl";
-import { Clock, Database, Folder, FolderPlus, FolderUp, Image as ImageIcon, LayoutGrid, Lock, Monitor, Moon, ShieldCheck, Sun, Trash2, Upload } from "lucide-react";
+import { useTranslations } from "@/i18n/translate";
+import { Clock, Database, Folder, FolderPlus, FolderUp, Image as ImageIcon, LayoutGrid, Lock, Monitor, Moon, ShieldCheck, Sun, Trash2, Upload } from "@/ui/icons";
 import { useActions } from "./actions";
 import { ObjectThumb } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes } from "./format";
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandShortcut } from "./ui/command";
+import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandShortcut } from "@/components/drive/ui/command";
 
 /** ⌘K: every name in the Drive (opened here, searched here) and every page and action. */
 export function Palette({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
@@ -47,7 +45,7 @@ export function Palette({ open, onOpenChange }: { open: boolean; onOpenChange: (
   return (
     <CommandDialog
       open={open}
-      onOpenChange={(o) => {
+      onOpenChange={(o: boolean) => {
         onOpenChange(o);
         if (!o) setQ("");
       }}

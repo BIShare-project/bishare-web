@@ -1,14 +1,12 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
-import { ChevronRight, Folder, FolderPlus, HardDrive } from "lucide-react";
+import { useEffect, useRef, useState } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { ChevronRight, Folder, FolderPlus, HardDrive } from "@/ui/icons";
 import type { DriveIndex } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "./ui/dialog";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+import { Button } from "@/components/drive/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/drive/ui/dialog";
+import { Input } from "@/components/drive/ui/input";
+import { Label } from "@/components/drive/ui/label";
 
 export function PromptDialog({
   title,

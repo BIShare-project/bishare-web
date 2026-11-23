@@ -1,10 +1,10 @@
-"use client";
+"island";
 
-import { useEffect, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useState } from "@/jsx";
+import { useLocale, useTranslations } from "@/i18n/translate";
 import { getVaultOpen, reportCta, type CtaId } from "@/lib/api";
-import { getPathname } from "@/i18n/navigation";
-import { buttonVariants } from "@/components/site/ui/button";
+import { getPathname } from "@/ui/link";
+import { buttonVariants } from "@/ui/tool-button";
 
 /** Where the Drive opens in a browser (the middleware serves /drive there). */
 const DRIVE_URL = "https://drive.bishare.app";

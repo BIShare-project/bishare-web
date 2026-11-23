@@ -4,7 +4,7 @@
 // Safe Browsing marks the host that downloads come from. Files people share
 // are new every time and end-to-end encrypted, so they always look
 // "uncommon", and Google flagged bishare.app for it on 2026-10-23. Received
-// shared links already save from dl.bishareusercontent.com (middleware.ts); Nearby,
+// shared links already save from dl.bishareusercontent.com (site/host-rules.ts); Nearby,
 // QR Beam and Rooms receive into the marketing pages themselves, so their
 // last step, the save, goes through a hidden frame on that host
 // (public/save-bridge.html). Nothing on the page changes.
@@ -26,7 +26,7 @@ function bridgeUrl(): string | null {
   // Local tests point it at another origin of the dev server
   // (http://127.0.0.1:<port>/save-bridge.html for a page on localhost), where
   // the bridge accepts local parents.
-  const local = process.env.NEXT_PUBLIC_SAVE_BRIDGE_URL;
+  const local = process.env.SAVE_BRIDGE_URL;
   if (local) return local;
   return MAIN_HOSTS.has(location.hostname) ? BRIDGE_URL : null;
 }

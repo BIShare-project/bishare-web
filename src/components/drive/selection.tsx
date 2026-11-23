@@ -1,13 +1,11 @@
-"use client";
-
 // Selecting in every list of the Drive the way Google Drive does it: a click
 // picks one, Cmd/Ctrl adds or removes, Shift takes the range, the box in the
 // header takes all; with something picked, a bar of actions stays on top.
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { useTranslations } from "next-intl";
-import { X } from "lucide-react";
-import { Button } from "./ui/button";
-import { Checkbox } from "./ui/checkbox";
+import { useEffect, useRef, useState, type Child } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { X } from "@/ui/icons";
+import { Button } from "@/components/drive/ui/button";
+import { Checkbox } from "@/components/drive/ui/checkbox";
 
 export function useSelection<T extends { id: string }>(rows: T[]) {
   const [sel, setSel] = useState<Set<string>>(new Set());
@@ -76,7 +74,7 @@ export function RowCheck({ checked, label, onToggle }: { checked: boolean; label
 }
 
 /** What can be done with the picked items; stays on top while the list scrolls. */
-export function SelectionBar({ count, onClear, children }: { count: number; onClear: () => void; children: ReactNode }) {
+export function SelectionBar({ count, onClear, children }: { count: number; onClear: () => void; children: Child }) {
   const t = useTranslations("drive");
   return (
     <div className="sticky top-14 z-20 flex min-h-12 flex-wrap items-center gap-2 border border-blau/30 bg-blau-soft px-2 py-1.5 shadow-sm">

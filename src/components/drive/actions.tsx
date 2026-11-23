@@ -1,10 +1,8 @@
-"use client";
-
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "@/jsx";
 import { useRouter } from "./nav";
-import { useTranslations } from "next-intl";
-import { ArchiveRestore, Copy, Download, Eye, FolderInput, FolderOpen, Link2, Pencil, Trash2, X } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { useTranslations } from "@/i18n/translate";
+import { ArchiveRestore, Copy, Download, Eye, FolderInput, FolderOpen, Link2, Pencil, Trash2, X } from "@/ui/icons";
+import type { IconComponent } from "@/ui/icons";
 import { DriveApiError } from "@/lib/vault/client";
 import { FALLBACK_MAX, fetchPlain, IN_PAGE_MAX, saveBlob, streamSave } from "@/lib/vault/download";
 import type { DriveObject } from "@/lib/vault/store";
@@ -18,7 +16,7 @@ const ZIP_MAX = 1024 * 1024 * 1024;
 export interface ActionItem {
   key: string;
   label: string;
-  icon: LucideIcon;
+  icon: IconComponent;
   run: () => void;
   danger?: boolean;
   shortcut?: string;

@@ -1,6 +1,3 @@
-"use client"
-
-import * as React from "react"
 import { cn } from "@/lib/utils"
 import type { Parts } from "./primitives"
 import { Label as LabelPrimitive } from "./primitives"

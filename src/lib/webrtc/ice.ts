@@ -1,3 +1,4 @@
+import { API_URL } from "@/lib/api-url";
 // Shared ICE-server source for every WebRTC path (nearby tab, local rooms).
 //
 // The API mints short-lived Cloudflare TURN credentials at
@@ -7,7 +8,6 @@
 // credentials are cached here until shortly before their TTL and every failure
 // degrades to STUN-only — the pre-TURN behaviour, never an error.
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.bishare.app";
 
 /** Direct-only fallback when the mint fails — keeps today's behaviour. */
 const STUN_FALLBACK: RTCIceServer[] = [

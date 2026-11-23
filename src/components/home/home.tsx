@@ -1,6 +1,6 @@
-import { Link } from "@/i18n/navigation";
-import type { CSSProperties, ReactNode } from "react";
-import { getTranslations } from "next-intl/server";
+import { Link } from "@/ui/link";
+import type { CSSProperties, Child } from "@/jsx";
+import { getTranslations } from "@/i18n/translate";
 import {
   ArrowRight,
   Check,
@@ -13,12 +13,11 @@ import {
   ShieldCheck,
   Users,
   Zap,
-} from "lucide-react";
+} from "@/ui/icons";
 import { cn } from "@/lib/utils";
-import { FadeUp } from "@/components/site/motion";
-import { VButton } from "@/components/site/vbutton";
-import { StoreButtons } from "@/components/site/store-buttons";
-import { QRDisplay } from "@/components/site/qr-display";
+import { VButton } from "@/ui/vbutton";
+import { StoreButtons } from "@/ui/store-buttons";
+import { QRDisplay } from "@/ui/qr-display";
 import { LiveWidget } from "@/components/home/live-widget";
 
 /**
@@ -32,7 +31,7 @@ import { LiveWidget } from "@/components/home/live-widget";
  * JS / hydration work minimal.
  */
 
-function Eyebrow({ children }: { children: ReactNode }) {
+function Eyebrow({ children }: { children: Child }) {
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background-raised px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
       <span className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue" />
@@ -48,26 +47,26 @@ function SectionHead({
   center,
 }: {
   eyebrow: string;
-  title: ReactNode;
+  title: Child;
   sub?: string;
   center?: boolean;
 }) {
   return (
     <div className={cn("max-w-2xl", center && "mx-auto text-center")}>
-      <FadeUp>
+      <div>
         <Eyebrow>{eyebrow}</Eyebrow>
-      </FadeUp>
-      <FadeUp delay={0.05}>
+      </div>
+      <div>
         <h2 className="mt-5 text-[clamp(2rem,3.8vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.03em]">
           {title}
         </h2>
-      </FadeUp>
+      </div>
       {sub && (
-        <FadeUp delay={0.1}>
+        <div>
           <p className="mt-4 text-[17px] leading-relaxed text-muted-foreground">
             {sub}
           </p>
-        </FadeUp>
+        </div>
       )}
     </div>
   );
@@ -84,9 +83,6 @@ async function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="geist-grid pointer-events-none absolute inset-0 -z-10" />
-      {/* Hero uses the CSS `.hero-rise` entrance (SSR-visible, no JS) instead of
-          a framer-motion reveal: the LCP <h1> must paint immediately, not wait
-          for the bundle to hydrate + an IntersectionObserver to fire. */}
       <div className="spotlight-radial relative mx-auto max-w-5xl px-5 pt-12 pb-12 text-center sm:px-6 sm:pt-20 sm:pb-16 md:pt-28">
         <div className="hero-rise flex justify-center" style={rise(0)}>
           <Eyebrow>{t("hero.eyebrow")}</Eyebrow>
@@ -310,7 +306,7 @@ async function Guides() {
   return (
     <section className="relative">
       <div className="mx-auto max-w-6xl px-5 pb-4 sm:px-6">
-        <FadeUp>
+        <div>
           <h2 className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             {t("heading")}
           </h2>
@@ -327,7 +323,7 @@ async function Guides() {
               </li>
             ))}
           </ul>
-        </FadeUp>
+        </div>
       </div>
     </section>
   );
@@ -339,7 +335,7 @@ async function DownloadCTA() {
     <section className="relative overflow-hidden">
       <div className="geist-grid pointer-events-none absolute inset-0 -z-10" />
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-14 sm:px-6 sm:py-24 md:grid-cols-[1.1fr_0.9fr] md:py-32">
-        <FadeUp>
+        <div>
           <div>
             <h2 className="text-[clamp(2.25rem,4.4vw,3.75rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-balance">
               {t("cta.title")}
@@ -367,9 +363,9 @@ async function DownloadCTA() {
               <StoreButtons />
             </div>
           </div>
-        </FadeUp>
+        </div>
 
-        <FadeUp delay={0.1}>
+        <div>
           <div className="flex justify-center md:justify-end">
             <div className="flex flex-col items-center gap-4 rounded-xl border border-border bg-card p-7">
               <QRDisplay value="https://bishare.app" size={150} />
@@ -385,7 +381,7 @@ async function DownloadCTA() {
               </Link>
             </div>
           </div>
-        </FadeUp>
+        </div>
       </div>
     </section>
   );

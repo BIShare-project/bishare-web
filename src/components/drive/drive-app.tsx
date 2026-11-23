@@ -1,6 +1,4 @@
-"use client";
-
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore, type Child } from "@/jsx";
 import { DriveApiError, DriveClient } from "@/lib/vault/client";
 import { downloadsBusy } from "@/lib/vault/download";
 import { refreshFolderLinks, type DriveLink } from "@/lib/vault/drive-links";
@@ -14,8 +12,8 @@ import { SignIn } from "./sign-in";
 import { LinkDialog } from "./links";
 import { forgetThumbs } from "./thumbs";
 import { ConfirmDialog, FolderPicker, PromptDialog } from "./ui";
-import { toast as sonner, Toaster } from "./ui/sonner";
-import { TooltipProvider } from "./ui/tooltip";
+import { toast as message, Toaster } from "@/components/drive/ui/toaster";
+import { TooltipProvider } from "@/components/drive/ui/tooltip";
 import { Viewer } from "./viewer";
 
 type Theme = "light" | "dark";
@@ -80,11 +78,11 @@ const PULL_WITH_SOCKET_MS = 120_000;
 const IDLE_LOCK_MS = 15 * 60_000;
 
 /** `open`: a page anyone may read, without signing in. */
-export function DriveApp({ base, open: publicPage, children }: { base: string; open?: boolean; children: ReactNode }) {
+export function DriveApp({ base, open: publicPage, children }: { base: string; open?: boolean; children: Child }) {
   const [session, setSession] = useState<DriveSession | null | undefined>(undefined);
   const [theme, setThemeState] = useState<Theme>("light");
   const [syncError, setSyncError] = useState<string | null>(null);
-  const [dialog, setDialog] = useState<ReactNode>(null);
+  const [dialog, setDialog] = useState<Child>(null);
   const [viewer, setViewer] = useState<{ ids: string[]; at: number } | null>(null);
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [socketUp, setSocketUp] = useState(false);
@@ -275,9 +273,9 @@ export function DriveApp({ base, open: publicPage, children }: { base: string; o
       action: opts.action ? { label: opts.action.label, onClick: opts.action.run } : undefined,
       duration: opts.action ? 8000 : opts.tone === "error" ? 7000 : 4000,
     };
-    if (opts.tone === "error") sonner.error(text, o);
-    else if (opts.tone === "ok") sonner.success(text, o);
-    else sonner(text, o);
+    if (opts.tone === "error") message.error(text, o);
+    else if (opts.tone === "ok") message.success(text, o);
+    else message(text, o);
   }, []);
 
   const prompt = useCallback(

@@ -1,10 +1,8 @@
-"use client"
-
-import * as React from "react"
+import type { ComponentProps } from "@/jsx";
 import { cn } from "@/lib/utils"
 import type { Parts } from "./primitives"
 import { DropdownMenu as DropdownMenuPrimitive } from "./primitives"
-import { CheckIcon } from "lucide-react"
+import { Check } from "@/ui/icons"
 
 function DropdownMenu({
   ...props
@@ -99,7 +97,7 @@ function DropdownMenuRadioItem({
         data-slot="dropdown-menu-radio-item-indicator"
       >
         <DropdownMenuPrimitive.ItemIndicator>
-          <CheckIcon
+          <Check
           />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
@@ -144,7 +142,7 @@ function DropdownMenuSeparator({
 function DropdownMenuShortcut({
   className,
   ...props
-}: React.ComponentProps<"span">) {
+}: ComponentProps<"span">) {
   return (
     <span
       data-slot="dropdown-menu-shortcut"

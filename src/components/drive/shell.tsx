@@ -1,11 +1,9 @@
-"use client";
-
-import { useEffect, useId, useState, type ReactNode } from "react";
+import { useEffect, useId, useState, type Child } from "@/jsx";
 import { Link } from "./nav";
 import { usePathname } from "./nav";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "@/i18n/translate";
 import {
-  CircleAlert,
+  AlertCircle,
   Clock,
   Database,
   Folder,
@@ -25,13 +23,13 @@ import {
   Trash2,
   Upload,
   Link2,
-} from "lucide-react";
+} from "@/ui/icons";
 import { cn } from "@/lib/utils";
 import { useActions } from "./actions";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, percent } from "./format";
 import { DropZone, UploadTray } from "./uploads";
-import { Button } from "./ui/button";
+import { Button } from "@/components/drive/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -41,10 +39,10 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import { Sheet, SheetContent, SheetTitle } from "./ui/sheet";
-import { Skeleton } from "./ui/skeleton";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+} from "@/components/drive/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetTitle } from "@/components/drive/ui/sheet";
+import { Skeleton } from "@/components/drive/ui/skeleton";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/tooltip";
 
 const NAV = [
   { href: "", key: "home", icon: LayoutGrid },
@@ -224,7 +222,7 @@ function SideNav({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 /** The Drive's frame: the sidebar, the top bar and the page (the LaundryAman admin's shell). */
-export function DriveShell({ children }: { children: ReactNode }) {
+export function DriveShell({ children }: { children: Child }) {
   const t = useTranslations("drive");
   const { session, theme, setTheme, lock, syncError, refresh, palette, base } = useDrive();
   const index = useIndex();
@@ -278,7 +276,7 @@ export function DriveShell({ children }: { children: ReactNode }) {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button variant="ghost" size="sm" className={cn("hidden gap-1.5 md:inline-flex", syncError ? "text-destructive" : "text-muted-foreground")} onClick={() => void refresh()}>
-                  {syncError ? <CircleAlert /> : <RefreshCw />}
+                  {syncError ? <AlertCircle /> : <RefreshCw />}
                   {syncError ? t("syncFailed") : t("synced")}
                 </Button>
               </TooltipTrigger>

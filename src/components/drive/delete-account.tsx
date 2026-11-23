@@ -1,10 +1,8 @@
-"use client";
-
 import { Link } from "./nav";
-import { useTranslations } from "next-intl";
-import { CreditCard, Mail, ShieldCheck, Smartphone, Trash2 } from "lucide-react";
+import { useTranslations } from "@/i18n/translate";
+import { CreditCard, Mail, ShieldCheck, Smartphone, Trash2 } from "@/ui/icons";
 import { BrandMark } from "./shell";
-import { Button } from "./ui/button";
+import { Button } from "@/components/drive/ui/button";
 
 /**
  * How to delete a BIShare Drive (drive-plan.md task 6.6; Google Play asks for

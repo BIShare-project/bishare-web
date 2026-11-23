@@ -1,9 +1,10 @@
 // The web Drive's calls to the API (VAULT-SPEC "Signed requests"). Every
 // call but opening a pairing slot is signed with this browser's device key.
+import { API_URL } from "@/lib/api-url";
 import { authorization, pairAuthorization } from "./crypto";
 import type { DriveSession } from "./session";
 
-export const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://api.bishare.app";
+export const API_BASE = API_URL;
 
 const enc = new TextEncoder();
 

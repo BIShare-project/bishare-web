@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { IconComponent } from "@/ui/icons";
 import {
   File,
   FileArchive,
@@ -10,11 +10,11 @@ import {
   FileVideo,
   FolderClosed,
   Presentation,
-} from "lucide-react";
+} from "@/ui/icons";
 import { cn } from "@/lib/utils";
 
-/** Lucide icon for a MIME type (replaces the old emoji mapping). */
-export function fileIconFor(mimeType?: string): LucideIcon {
+/** The icon for a MIME type. */
+export function fileIconFor(mimeType?: string): IconComponent {
   if (!mimeType) return File;
   const mime = mimeType.toLowerCase();
   if (mime.startsWith("image/")) return FileImage;

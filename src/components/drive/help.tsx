@@ -1,20 +1,18 @@
-"use client";
-
 // Plain-language help, the way the midcos console does it: a small ⓘ next to
 // a label (InfoTip), a glossary word with a dotted underline (Term), and a row
 // of numbered steps that says how a page works (ExplainGrid). Every
 // definition comes from the "glossary" strings, so each screen explains a
 // word the same way.
-import type { ReactNode } from "react";
-import { useTranslations } from "next-intl";
-import { Info, type LucideIcon } from "lucide-react";
+import type { Child } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { Info, type IconComponent } from "@/ui/icons";
 import { cn } from "@/lib/utils";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/tooltip";
 
 export type GlossaryId = "e2e" | "key" | "device" | "browser" | "stay" | "trash" | "linked" | "region" | "thumbnail" | "plan" | "phrase" | "quota";
 
 /** A small ⓘ that explains the thing next to it; clicks never reach the parent. */
-export function InfoTip({ children, className }: { children: ReactNode; className?: string }) {
+export function InfoTip({ children, className }: { children: Child; className?: string }) {
   const t = useTranslations("drive");
   return (
     <Tooltip>
@@ -34,7 +32,7 @@ export function InfoTip({ children, className }: { children: ReactNode; classNam
 }
 
 /** A glossary word: dotted underline, its plain-language definition on hover or focus. */
-export function Term({ id, children, className }: { id: GlossaryId; children?: ReactNode; className?: string }) {
+export function Term({ id, children, className }: { id: GlossaryId; children?: Child; className?: string }) {
   const t = useTranslations("drive");
   return (
     <Tooltip>
@@ -56,7 +54,7 @@ export function Term({ id, children, className }: { id: GlossaryId; children?: R
 }
 
 /** Numbered steps that say how a page works, on shared 1 px lines. */
-export function ExplainGrid({ items }: { items: { icon: LucideIcon; title: string; text: ReactNode }[] }) {
+export function ExplainGrid({ items }: { items: { icon: IconComponent; title: string; text: Child }[] }) {
   return (
     <div className={cn("grid gap-px overflow-hidden border bg-border", items.length === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3")}>
       {items.map((it, i) => (

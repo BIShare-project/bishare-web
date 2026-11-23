@@ -1,10 +1,7 @@
-"use client"
-
-import * as React from "react"
 import { cn } from "@/lib/utils"
 import type { Parts } from "./primitives"
 import { Select as SelectPrimitive } from "./primitives"
-import { ChevronDownIcon, CheckIcon } from "lucide-react"
+import { ChevronDown, Check } from "@/ui/icons"
 
 function Select({
   ...props
@@ -38,7 +35,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="pointer-events-none size-4 text-muted-foreground" />
+        <ChevronDown className="pointer-events-none size-4 text-muted-foreground" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )
@@ -64,7 +61,7 @@ function SelectContent({
         <SelectPrimitive.Viewport
           data-position={position}
           className={cn(
-            "data-[position=popper]:h-(--radix-select-trigger-height) data-[position=popper]:w-full data-[position=popper]:min-w-(--trigger-width)",
+            "data-[position=popper]:h-(--trigger-height) data-[position=popper]:w-full data-[position=popper]:min-w-(--trigger-width)",
             position === "popper" && ""
           )}
         >
@@ -91,7 +88,7 @@ function SelectItem({
     >
       <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <CheckIcon className="pointer-events-none" />
+          <Check className="pointer-events-none" />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>

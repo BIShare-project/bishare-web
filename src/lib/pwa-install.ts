@@ -2,7 +2,7 @@
  * The web-app install offer, in one place.
  *
  * Chromium fires `beforeinstallprompt` exactly once, as soon as it judges the
- * site installable, often before React has hydrated. The listener is attached
+ * site installable, often before the islands have started. The listener is attached
  * when this module loads, and the module is imported by the service-worker
  * registration in the (site) layout, so it is there on every page. It used to
  * live in the install button's own chunk, which only /transfer and /download

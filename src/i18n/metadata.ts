@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from "@/site/metadata";
 import { routing } from "./routing";
 
 /**

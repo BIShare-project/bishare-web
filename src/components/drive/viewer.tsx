@@ -1,8 +1,6 @@
-"use client";
-
-import { useCallback, useEffect, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { ChevronLeft, ChevronRight, Copy, Download, FolderInput, Loader2, Pencil, Trash2, X } from "lucide-react";
+import { useCallback, useEffect, useState, type Child } from "@/jsx";
+import { useLocale, useTranslations } from "@/i18n/translate";
+import { ChevronLeft, ChevronRight, Copy, Download, FolderInput, Loader2, Pencil, Trash2, X } from "@/ui/icons";
 import { fetchPlain, IN_PAGE_MAX, streamMedia } from "@/lib/vault/download";
 import { FilePreview, PREVIEW_MAX, previewKindOf, type PreviewKind } from "./previews";
 import type { DriveObject } from "@/lib/vault/store";
@@ -11,10 +9,10 @@ import { ObjectIcon } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, kindOf } from "./format";
 import { useThumb } from "./thumbs";
-import { Button } from "./ui/button";
-import { Progress } from "./ui/progress";
-import { Sheet, SheetContent, SheetDescription, SheetTitle } from "./ui/sheet";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { Button } from "@/components/drive/ui/button";
+import { Progress } from "@/components/drive/ui/progress";
+import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/drive/ui/sheet";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/tooltip";
 
 type Shown =
   | { kind: "loading"; done: number; total: number }
@@ -22,7 +20,7 @@ type Shown =
   | { kind: "file"; preview: PreviewKind; blob: Blob }
   | { kind: "none"; reason: "type" | "size" | "failed" };
 
-function Icon({ label, onClick, disabled, children }: { label: string; onClick: () => void; disabled?: boolean; children: React.ReactNode }) {
+function Icon({ label, onClick, disabled, children }: { label: string; onClick: () => void; disabled?: boolean; children: Child }) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -36,7 +34,7 @@ function Icon({ label, onClick, disabled, children }: { label: string; onClick: 
 }
 
 /** A square outlined action next to Download, named by its tooltip. */
-function Action({ label, onClick, danger, children }: { label: string; onClick: () => void; danger?: boolean; children: React.ReactNode }) {
+function Action({ label, onClick, danger, children }: { label: string; onClick: () => void; danger?: boolean; children: Child }) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -95,7 +93,7 @@ export function Viewer({ ids, at, onClose }: { ids: string[]; at: number; onClos
       ctrl.abort();
       end?.();
     };
-  }, [o?.id, o?.blobId, client, scope]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [o?.id, o?.blobId, client, scope]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -154,7 +152,6 @@ export function Viewer({ ids, at, onClose }: { ids: string[]; at: number; onClos
             {shown.kind === "loading" ? (
               <div className="flex w-full flex-col items-center gap-3 p-6 text-2xs text-muted-foreground">
                 {thumb ? (
-                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={thumb} alt="" className="max-h-72 max-w-full object-contain opacity-60 blur-[2px]" />
                 ) : (
                   <Loader2 className="size-6 animate-spin" />

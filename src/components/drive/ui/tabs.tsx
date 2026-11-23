@@ -1,7 +1,4 @@
-"use client"
-
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import { variants, type VariantProps } from "@/ui/variants"
 import { cn } from "@/lib/utils"
 import type { Parts } from "./primitives"
 import { Tabs as TabsPrimitive } from "./primitives"
@@ -24,7 +21,7 @@ function Tabs({
   )
 }
 
-const tabsListVariants = cva(
+const tabsListVariants = variants(
   "group/tabs-list inline-flex w-fit items-center justify-center rounded-none p-[3px] text-muted-foreground group-data-horizontal/tabs:h-8 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none",
   {
     variants: {

@@ -1,8 +1,6 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "@/jsx";
 import { Link } from "./nav";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "@/i18n/translate";
 import {
   CalendarPlus,
   ChevronRight,
@@ -19,16 +17,16 @@ import {
   Smartphone,
   Trash2,
   Upload,
-} from "lucide-react";
+} from "@/ui/icons";
 import type { DriveObject } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
 import { useActions } from "./actions";
 import { EmptyState, KIND_COLORS, Kpi, KpiGrid, ObjectThumb, PageHead, Panel } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, isMedia, percent, when } from "./format";
-import { Button } from "./ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
-import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
+import { Button } from "@/components/drive/ui/button";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/drive/ui/table";
+import { Tabs, TabsList, TabsTrigger } from "@/components/drive/ui/tabs";
 
 const DAY = 86_400_000;
 

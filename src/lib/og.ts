@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from "@/site/metadata";
 
 export const SITE_URL = "https://bishare.app";
 export const SITE_NAME = "BIShare";

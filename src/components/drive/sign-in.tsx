@@ -1,17 +1,15 @@
-"use client";
-
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
-import { QRCodeSVG } from "qrcode.react";
-import { Lock, Moon, RotateCw, ScanLine, ShieldCheck, Smartphone, Sun } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { QRCodeSVG } from "@/ui/qr";
+import { Lock, Moon, RotateCw, ScanLine, ShieldCheck, Smartphone, Sun } from "@/ui/icons";
 import { DriveApiError } from "@/lib/vault/client";
 import { cancelPairing, checkPairing, showCode, startPairing, type Pairing } from "@/lib/vault/pair";
 import { browserName, type DriveSession } from "@/lib/vault/session";
 import { BrandMark } from "./shell";
-import { Button } from "./ui/button";
-import { Progress } from "./ui/progress";
-import { Skeleton } from "./ui/skeleton";
-import { Switch } from "./ui/switch";
+import { Button } from "@/components/drive/ui/button";
+import { Progress } from "@/components/drive/ui/progress";
+import { Skeleton } from "@/components/drive/ui/skeleton";
+import { Switch } from "@/components/drive/ui/switch";
 
 const POLL_MS = 2000;
 const CODE_LIFE_S = 300;

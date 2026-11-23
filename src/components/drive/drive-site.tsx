@@ -1,7 +1,7 @@
-"use client";
+"island";
 
-import { useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useEffect } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
 import { DeleteAccountPage } from "./delete-account";
 import { DriveApp } from "./drive-app";
 import { FilesPage, RecentPage } from "./files";

@@ -1,18 +1,18 @@
-"use client";
+"island";
 
 // The in-room screen, shared by Cloud and Local rooms so the two cannot drift
 // apart: the files on the left (the reason the room exists), the code and the
 // people on the right. Each mode maps its own state onto these props — the
 // relay's WS events for Cloud, the WebRTC mesh for Local.
-import { useRef, useState, type ReactNode } from "react";
-import { useTranslations } from "next-intl";
-import { Check, Cloud, Copy, Download, FileIcon, Radio, Upload, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useRef, useState, type Child } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { Check, Cloud, Copy, Download, File, Radio, Upload, Users } from "@/ui/icons";
+import { Button } from "@/ui/room-button";
 
 export interface RoomLayoutMember {
   id: string;
   alias: string;
-  icon: ReactNode;
+  icon: Child;
   badge?: "host" | "you";
 }
 
@@ -70,9 +70,9 @@ export function RoomLayout({
   uploadLabel: string;
   uploadDisabled?: boolean;
   onFiles: (files: File[]) => void;
-  leave: { label: string; icon: ReactNode; onClick: () => void };
+  leave: { label: string; icon: Child; onClick: () => void };
   /** one line under the code — e.g. whether the room is end-to-end encrypted */
-  status?: { icon: ReactNode; text: string; tone: "ok" | "warn" | "muted" };
+  status?: { icon: Child; text: string; tone: "ok" | "warn" | "muted" };
   error: string | null;
 }) {
   const t = useTranslations("rooms");
@@ -127,7 +127,7 @@ export function RoomLayout({
 
         <div className="mb-4 flex items-center justify-between gap-3">
           <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground">
-            <FileIcon className="h-3.5 w-3.5" />
+            <File className="h-3.5 w-3.5" />
             {t("room.files")}
             <span className="tabular-nums">{files.length}</span>
           </p>
@@ -184,10 +184,9 @@ export function RoomLayout({
               <li key={f.id} className="flex items-center gap-3 bg-card px-3 py-2.5">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted">
                   {f.thumbnailSrc ? (
-                    // eslint-disable-next-line @next/next/no-img-element
                     <img src={f.thumbnailSrc} alt="" className="h-full w-full object-cover" />
                   ) : (
-                    <FileIcon className="h-5 w-5 text-muted-foreground/70" />
+                    <File className="h-5 w-5 text-muted-foreground/70" />
                   )}
                 </span>
                 <div className="min-w-0 flex-1">

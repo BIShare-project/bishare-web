@@ -1,16 +1,16 @@
-"use client";
+"island";
 
-import { useSyncExternalStore, type ReactNode } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useSyncExternalStore, type Child } from "@/jsx";
+import { useLocale, useTranslations } from "@/i18n/translate";
 import {
   AppleGlyph,
   appStoreUrl,
   PlayGlyph,
   playStoreUrl,
   StoreButtons,
-} from "@/components/site/store-buttons";
-import { VButton, vbuttonClass } from "@/components/site/vbutton";
-import { getPathname } from "@/i18n/navigation";
+} from "@/ui/store-buttons";
+import { VButton, buttonClass } from "@/ui/vbutton";
+import { getPathname } from "@/ui/link";
 import { sendBackHref } from "@/lib/loop";
 import { detectMobileOS } from "@/lib/pwa-install";
 
@@ -31,7 +31,7 @@ function SendBack({
 }: {
   variant: "primary" | "secondary";
   size: "md" | "lg";
-  children: ReactNode;
+  children: Child;
 }) {
   const path = getPathname({ href: "/transfer", locale: useLocale() });
   return (
@@ -40,7 +40,7 @@ function SendBack({
       onClick={(e) => {
         e.currentTarget.href = sendBackHref(path);
       }}
-      className={vbuttonClass(variant, size)}
+      className={buttonClass(variant, size)}
     >
       {children}
     </a>

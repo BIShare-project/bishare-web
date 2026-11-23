@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from "@/site/metadata";
 import { buildAlternates } from "@/i18n/metadata";
 import { APP_ID } from "@/lib/app-ld";
 import { sharedOpenGraph } from "@/lib/og";

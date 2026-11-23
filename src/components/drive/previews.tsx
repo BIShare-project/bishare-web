@@ -1,17 +1,15 @@
-"use client";
-
 // Previews for every kind of file the browser can make sense of, all made in
 // this browser: an end-to-end encrypted file is never sent to an online
 // viewer (Office Online, Google's) to be shown. Each library loads only when
 // a file of its kind is opened.
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { Download, File, Folder, Loader2 } from "lucide-react";
+import { useEffect, useRef, useState, type Child } from "@/jsx";
+import { useLocale, useTranslations } from "@/i18n/translate";
+import { Download, File, Folder, Loader2 } from "@/ui/icons";
 import { saveBlob } from "@/lib/vault/download";
 import { zipEntries, zipRead, type ZipEntry } from "@/lib/vault/zipread";
 import { cn } from "@/lib/utils";
 import { bytes } from "./format";
-import { Button } from "./ui/button";
+import { Button } from "@/components/drive/ui/button";
 
 export type PreviewKind =
   | "image"
@@ -107,7 +105,7 @@ function Busy({ label }: { label: string }) {
   );
 }
 
-function Problem({ title, body, action }: { title: string; body: string; action?: ReactNode }) {
+function Problem({ title, body, action }: { title: string; body: string; action?: Child }) {
   return (
     <div className="flex max-w-xs flex-col items-center gap-2 p-8 text-center">
       <p className="text-xs font-medium">{title}</p>
@@ -177,7 +175,6 @@ function useObjectUrl(blob: Blob | null): string | null {
 
 function ImagePreview({ blob, name }: { blob: Blob; name: string }) {
   const url = useObjectUrl(blob);
-  // eslint-disable-next-line @next/next/no-img-element
   return url ? <img src={url} alt={name} className="max-h-[62vh] w-full object-contain" /> : null;
 }
 
@@ -196,11 +193,10 @@ function SvgPreview({ blob, name }: { blob: Blob; name: string }) {
       live = false;
     };
   }, [blob]);
-  // eslint-disable-next-line @next/next/no-img-element
   return url ? <img src={url} alt={name} className="max-h-[62vh] w-full object-contain" /> : null;
 }
 
-function HeicPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: ReactNode }) {
+function HeicPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: Child }) {
   const t = useTranslations("drive");
   const [shown, setShown] = useState<Blob | null>(null);
   const [state, setState] = useState<"try" | "convert" | "failed">("try");
@@ -224,11 +220,10 @@ function HeicPreview({ blob, name, fallback }: { blob: Blob; name: string; fallb
   if (state === "failed") return <>{fallback}</>;
   if (state === "convert" && !shown) return <Busy label={t("preview.converting")} />;
   // Safari shows HEIC itself; elsewhere the <img> fails and the file is converted here.
-  // eslint-disable-next-line @next/next/no-img-element
   return url ? <img src={url} alt={name} className="max-h-[62vh] w-full object-contain" onError={() => !shown && setState("convert")} /> : null;
 }
 
-function TiffPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: ReactNode }) {
+function TiffPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: Child }) {
   const t = useTranslations("drive");
   const [png, setPng] = useState<string | null>(null);
   const [failed, setFailed] = useState(false);
@@ -258,11 +253,10 @@ function TiffPreview({ blob, name, fallback }: { blob: Blob; name: string; fallb
     };
   }, [blob]);
   if (failed) return <>{fallback}</>;
-  // eslint-disable-next-line @next/next/no-img-element
   return png ? <img src={png} alt={name} className="max-h-[62vh] w-full object-contain" /> : <Busy label={t("preview.converting")} />;
 }
 
-function MediaPreview({ blob, kind, fallback }: { blob: Blob; kind: "video" | "audio"; fallback: ReactNode }) {
+function MediaPreview({ blob, kind, fallback }: { blob: Blob; kind: "video" | "audio"; fallback: Child }) {
   const url = useObjectUrl(blob);
   const [failed, setFailed] = useState(false);
   if (failed) return <>{fallback}</>;
@@ -302,7 +296,7 @@ function tameLinks(doc: Document): void {
   }
 }
 
-function DocxPreview({ blob, fallback }: { blob: Blob; fallback: ReactNode }) {
+function DocxPreview({ blob, fallback }: { blob: Blob; fallback: Child }) {
   const t = useTranslations("drive");
   const frame = useRef<HTMLIFrameElement>(null);
   const [ready, setReady] = useState(false);
@@ -378,7 +372,7 @@ function colName(i: number): string {
   return s;
 }
 
-function SheetPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: ReactNode }) {
+function SheetPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: Child }) {
   const t = useTranslations("drive");
   const [book, setBook] = useState<{ names: string[]; rows: (name: string) => string[][]; total: (name: string) => number } | null>(null);
   const [sheet, setSheet] = useState(0);
@@ -470,7 +464,7 @@ function xmlParagraphs(xml: string, para: string, run: string): string[] {
   return out;
 }
 
-function SlidesPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: ReactNode }) {
+function SlidesPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: Child }) {
   const t = useTranslations("drive");
   const [deck, setDeck] = useState<{ thumb: string | null; slides: string[][] } | null>(null);
   const [failed, setFailed] = useState(false);
@@ -517,7 +511,6 @@ function SlidesPreview({ blob, name, fallback }: { blob: Blob; name: string; fal
   return (
     <div className="max-h-[62vh] w-full overflow-auto bg-muted p-3">
       {deck.thumb ? (
-        // eslint-disable-next-line @next/next/no-img-element
         <img src={deck.thumb} alt="" className="mb-3 w-full border bg-white shadow-sm" />
       ) : null}
       <p className="mb-2 text-3xs text-muted-foreground">{t("preview.slidesNote", { n: deck.slides.length })}</p>
@@ -677,7 +670,7 @@ function RtfPreview({ blob }: { blob: Blob }) {
   return <pre className="m-0 max-h-[62vh] w-full overflow-auto bg-background p-5 font-sans text-xs leading-relaxed whitespace-pre-wrap">{text ?? ""}</pre>;
 }
 
-function ArchivePreview({ blob, fallback }: { blob: Blob; fallback: ReactNode }) {
+function ArchivePreview({ blob, fallback }: { blob: Blob; fallback: Child }) {
   const t = useTranslations("drive");
   const locale = useLocale();
   const [data, setData] = useState<{ buf: Uint8Array; entries: ZipEntry[] } | null>(null);
@@ -733,7 +726,7 @@ function ArchivePreview({ blob, fallback }: { blob: Blob; fallback: ReactNode })
   );
 }
 
-function FontPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: ReactNode }) {
+function FontPreview({ blob, name, fallback }: { blob: Blob; name: string; fallback: Child }) {
   const t = useTranslations("drive");
   const [family, setFamily] = useState<string | null>(null);
   const [failed, setFailed] = useState(false);

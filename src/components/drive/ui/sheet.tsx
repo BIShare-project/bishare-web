@@ -1,13 +1,11 @@
-"use client"
-
-import * as React from "react"
+import type { ComponentProps } from "@/jsx";
 import { cn } from "@/lib/utils"
 import type { Parts } from "./primitives"
 import { Dialog as SheetPrimitive } from "./primitives"
 
 import { Button } from "@/components/drive/ui/button"
-import { XIcon } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { X } from "@/ui/icons"
+import { useTranslations } from "@/i18n/translate"
 
 function Sheet({ ...props }: Parts) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
@@ -66,7 +64,7 @@ function SheetContent({
               className="absolute top-3 right-3"
               size="icon-sm"
             >
-              <XIcon
+              <X
               />
               <span className="sr-only">{t("act.close")}</span>
             </Button>
@@ -77,7 +75,7 @@ function SheetContent({
   )
 }
 
-function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
+function SheetHeader({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
       data-slot="sheet-header"
@@ -87,7 +85,7 @@ function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
+function SheetFooter({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
       data-slot="sheet-footer"

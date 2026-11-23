@@ -1,9 +1,9 @@
-"use client";
+"island";
 
-import { useSyncExternalStore } from "react";
-import { useTranslations } from "next-intl";
-import { AppleGlyph, appStoreUrl, PlayGlyph, playStoreUrl, StoreButtons } from "@/components/site/store-buttons";
-import { buttonVariants } from "@/components/site/ui/button";
+import { useSyncExternalStore } from "@/jsx";
+import { useTranslations } from "@/i18n/translate";
+import { AppleGlyph, appStoreUrl, PlayGlyph, playStoreUrl, StoreButtons } from "@/ui/store-buttons";
+import { buttonVariants } from "@/ui/tool-button";
 import { detectMobileOS } from "@/lib/pwa-install";
 
 const noopSubscribe = () => () => {};

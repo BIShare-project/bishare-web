@@ -19,8 +19,8 @@ sizes are welcome — from fixing a typo to adding a language to shipping a feat
 git clone https://github.com/BIShare-project/bishare-web.git
 cd bishare-web
 npm install
-cp .env.example .env.local     # set NEXT_PUBLIC_API_URL
-npm run dev                    # http://localhost:3000
+cp .env.example .env           # optional: another API_URL
+npm run dev                    # http://localhost:8788
 ```
 
 The site talks to the hosted transfer API by default (`https://api.bishare.app`),
@@ -34,14 +34,14 @@ The app ships in **13 languages**. Message catalogs live in
 1. To improve an existing language, edit the JSON values in
    `src/messages/<locale>/`. **Only translate the values** — keep the keys, any
    `<strong>`/`<highlight>` tags, and `{placeholders}` intact.
-2. To add a new language, copy `src/messages/en/`, translate the values, register
-   the locale in `src/i18n/routing.ts`, and add the namespaces are picked up
-   automatically via `src/i18n/request.ts`.
+2. To add a new language, copy `src/messages/en/`, translate the values, and register
+   the locale in `src/i18n/routing.ts`. A message that is missing falls back to English.
 3. Do not translate brand names (BIShare, AirDrop, LocalSend, etc.).
 
 ## Coding conventions
 
-- **TypeScript + React** (Next.js App Router). Match the style of the file you're editing.
+- **TypeScript + Hono JSX.** A page renders to HTML at build time; a component that does something in the
+  browser starts with `"island";`. Match the style of the file you're editing.
 - **Tailwind** for styling; prefer the existing design tokens/components.
 - **Localize all user-facing strings** — never hardcode UI text; add it to the message catalogs.
 - Keep the public repo free of real infrastructure IDs and secrets.
@@ -51,7 +51,7 @@ The app ships in **13 languages**. Message catalogs live in
 1. Fork the repo and create a feature branch (`git checkout -b feat/my-change`).
 2. Make your change and verify the build:
    ```bash
-   npm run build
+   npm run build && npm test && npm run typecheck
    ```
 3. Open a PR with a clear description of what and why. Link any related issue.
 
