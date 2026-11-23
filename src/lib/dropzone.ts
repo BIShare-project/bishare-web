@@ -7,6 +7,7 @@ export function useDropzone({ onDrop }: { onDrop: (files: File[]) => void }) {
   const depth = useRef(0);
   const hasFiles = (e: DragEvent) => [...(e.dataTransfer?.types ?? [])].includes("Files");
   const getRootProps = () => ({
+    role: "presentation",
     onDragEnter: (e: DragEvent) => {
       if (!hasFiles(e)) return;
       e.preventDefault();
