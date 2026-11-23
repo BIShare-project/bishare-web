@@ -6,8 +6,8 @@
   "description": "BIShare v3 — unified Next.js app: backend API (Hono) + admin + web on Cloudflare Workers",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run build:sw && next build",
-    "build:cloudflare": "npm run build:sw && npx @opennextjs/cloudflare build",
+    "build": "npm run build:sw && npm run build:hono && next build",
+    "build:cloudflare": "npm run build:sw && npm run build:hono && npx @opennextjs/cloudflare build",
     "preview": "npm run build:cloudflare && npx wrangler dev --port 8788",
     "deploy": "npm run build:cloudflare && npx wrangler deploy",
     "typecheck": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && tsc -p tsconfig.sw.json --noEmit",
@@ -15,6 +15,8 @@
     "migrate:remote": "wrangler d1 migrations apply bishare-cloud --remote",
     "record:golden": "node tools/contract/record.mjs",
     "record:ws": "node tools/contract/ws-record.mjs",
+    "build:hono": "node scripts/build-hono-assets.mjs",
+    "test": "vitest run",
     "build:sw": "esbuild src/sw/stream-sw.ts --bundle --format=iife --target=es2022 --outfile=public/stream-sw.js --alias:@=./src"
   },
   "dependencies": {
