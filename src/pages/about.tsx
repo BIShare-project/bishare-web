@@ -50,8 +50,6 @@ export default async function AboutPage() {
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
-            {/* CSS `.hero-rise` (SSR-visible) instead of a JS reveal so the LCP
-                <h1> paints without waiting for hydration. */}
             <div>
               <div className="mb-7 inline-block">
                 <Image

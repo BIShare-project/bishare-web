@@ -402,13 +402,13 @@ const SCENARIOS = {
     await shot(side, "palette", page);
     await page.keyboard.type("repo");
     await page.waitForTimeout(300);
-    const items = (await page.locator("[cmdk-item]").allInnerTexts()).map((t) => t.replace(/\s+/g, " "));
-    const chosen = await page.locator('[cmdk-item][data-selected="true"]').innerText();
+    const items = (await page.locator(":is([cmdk-item],[data-command-item])").allInnerTexts()).map((t) => t.replace(/\s+/g, " "));
+    const chosen = await page.locator(':is([cmdk-item],[data-command-item])[data-selected="true"]').innerText();
     await shot(side, "palette search", page);
     await page.keyboard.press("ControlOrMeta+a");
     await page.keyboard.type("zzzz");
     await page.waitForTimeout(250);
-    const empty = await page.locator("[cmdk-empty]").count();
+    const empty = await page.locator(":is([cmdk-empty],[data-command-empty])").count();
     await page.keyboard.press("ControlOrMeta+a");
     await page.keyboard.type("trash");
     await page.waitForTimeout(250);

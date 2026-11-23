@@ -780,24 +780,13 @@
 /* ── Transfer studio ─────────────────────────────────────────────────────
    Flat by decision: no gradient, no glass, no glow. The card is a solid
    surface and every division in it is a 1px hairline, which is also what the
-   rest of the site already does — the studio used to be the one exception.
-   Class names are unchanged so the markup and the framer-motion pill keep
-   working untouched; only their appearance is redefined here. */
+   rest of the site already does. */
 .studio-shell {
   position: relative;
   isolation: isolate;
   border-radius: 12px;
   border: 1px solid var(--color-border);
   background: var(--color-card);
-}
-
-/* The aurora bloom and the instrument grid are gone. Both elements are
-   decorative and aria-hidden, so hiding them changes nothing but the look —
-   keeping the rules (rather than deleting the nodes) means the component
-   needs no edit and nothing can reference a missing class. */
-.studio-aurora,
-.studio-grid {
-  display: none;
 }
 
 /* Selector track — a recessed strip the selected segment sits inside. */
@@ -807,8 +796,7 @@
   border-radius: 10px;
 }
 
-/* The selected segment. Still the element framer-motion animates between
-   tabs, so it must stay a filled block with its own border — just a flat one. */
+/* The selected segment: a filled block with its own border. */
 .studio-pill {
   background: var(--color-card);
   border: 1px solid var(--border-strong, var(--color-border));

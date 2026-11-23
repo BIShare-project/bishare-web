@@ -230,8 +230,6 @@ export default async function SecurityPage() {
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 text-center md:pt-24">
-            {/* CSS `.hero-rise` (SSR-visible) instead of a JS reveal so the LCP
-                <h1> paints without waiting for hydration. */}
             <div>
               <p className="mb-4 flex items-center justify-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                 <span

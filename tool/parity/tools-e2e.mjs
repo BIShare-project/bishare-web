@@ -1,7 +1,7 @@
 // Uses the transfer tool for real on two builds of the site, the same steps on each, and checks what arrives.
 //   node tool/parity/tools-e2e.mjs <receive base> <build A> [build B…] [--only name,name] [--path /]
 // The builds must reach an API (local: bishare-api `wrangler dev --local --var CORS_ALLOW_LOOPBACK:true`, the web built
-// with NEXT_PUBLIC_API_URL pointing at it). Receiving uses the receive pages of <receive base> (still on Next).
+// with API_URL pointing at it). Receiving uses the receive pages of <receive base>.
 import { createHash, randomBytes } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -417,7 +417,7 @@ const SCENARIOS = {
     await page.getByText(/^Frame \d+ of \d+$/).waitFor();
     const meta = await page.getByText(/KB · \d+ chunks$/).innerText();
     const total = Number(/of (\d+)/.exec(await page.getByText(/^Frame \d+ of \d+$/).innerText())[1]);
-    // Slider to the slowest speed: the label follows while dragging, as with React's onChange.
+    // Slider to the slowest speed: the label follows while dragging, not only when it is let go.
     await page.locator('.studio-shell input[type=range]').fill("3");
     const speed = await page.getByText(/^\d+ fps$/).innerText();
     const frames = new Map();

@@ -21,13 +21,10 @@ import { LiveWidget } from "@/components/home/live-widget";
 
 /**
  * Geist/Vercel-grade homepage — high-contrast monochrome, big tight type,
- * hairline bordered grids, a framed product surface, restrained motion. Color
+ * hairline bordered grids, a framed product surface. Color
  * appears once, as a single blue accent. Premium through precision, not effects.
  *
- * This is a SERVER component: all the static translated markup streams
- * server-rendered, and only the small reveal wrappers (FadeUp) + the lazy
- * transfer widget hydrate as client islands. That keeps the homepage's client
- * JS / hydration work minimal.
+ * Everything is in the HTML; only the transfer widget is an island.
  */
 
 function Eyebrow({ children }: { children: Child }) {
@@ -117,8 +114,8 @@ async function Hero() {
             bishare.app and scrolling nearly two screens before the device on
             your own Wi-Fi could show itself — even though discovery finds it in
             about a second. Tools people call effortless (PairDrop, ShareDrop)
-            land you *in* the thing. The headline above stays server-rendered so
-            it remains the LCP element; the studio hydrates underneath it into a
+            land you *in* the thing. The headline above is in the HTML, so it
+            remains the LCP element; the studio starts underneath it in a
             fixed-height placeholder, so nothing shifts. */}
         <div className="mx-auto mt-12 max-w-4xl text-left">
           <LiveWidget />

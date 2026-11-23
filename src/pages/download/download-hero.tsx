@@ -41,8 +41,7 @@ function detectOS(): DetectedOS {
 
 /**
  * OS-aware hero CTA. SSR renders the neutral state; detection only upgrades
- * after mount, so the first client render always matches the server and
- * hydration stays clean. Live today: Android (Google Play), iOS & macOS
+ * after mount, so the first render in the browser matches the HTML. Live today: Android (Google Play), iOS & macOS
  * (App Store, id6760924092), Windows (Microsoft Store), and Linux (the .deb,
  * AppImage and tarball attached to every release).
  */

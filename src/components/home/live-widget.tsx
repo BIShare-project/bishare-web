@@ -2,10 +2,7 @@
 
 import dynamic from "@/ui/lazy";
 
-// Client island: `dynamic(..., { ssr: false })` isn't allowed in a Server
-// Component, so the lazy studio lives here. It pulls the whole upload stack
-// (dropzone, QR, config fetch) and sits below the fold, so deferring it keeps
-// the (server-rendered) homepage's initial paint and hydration light.
+// The lazy studio pulls the whole upload stack (dropzone, QR, config fetch), so it waits for the page's first paint.
 //
 // This is the SAME component /transfer uses, deliberately: the homepage
 // promises "send a real file, right here", and landing on the real thing —

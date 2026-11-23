@@ -3,7 +3,7 @@ import { createReadStream, existsSync, statSync } from "node:fs";
 import { createServer } from "node:http";
 import { extname, join, normalize, resolve } from "node:path";
 
-const [port = "3312", pages = ".hono/pages"] = process.argv.slice(2);
+const [port = "3312", pages = "dist/assets/_p"] = process.argv.slice(2);
 const TYPES = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".svg": "image/svg+xml", ".webp": "image/webp", ".jpg": "image/jpeg", ".png": "image/png", ".woff2": "font/woff2", ".json": "application/json", ".webmanifest": "application/manifest+json", ".ico": "image/x-icon", ".txt": "text/plain" };
 const LOCALES = ["id", "es", "fr", "de", "pt-BR", "ru", "ar", "hi", "ja", "ko", "zh-Hans", "zh-Hant"];
 createServer((req, res) => {

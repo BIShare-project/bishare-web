@@ -147,7 +147,7 @@ cp .env.example .env           # optional: another API_URL
 npm run dev                    # http://localhost:8788
 ```
 
-The site talks to the transfer API over HTTPS at `NEXT_PUBLIC_API_URL`
+The site talks to the transfer API over HTTPS at `API_URL`
 (default `https://api.bishare.app`), so `/transfer` works against the hosted
 backend out of the box — no local server needed to develop the UI.
 

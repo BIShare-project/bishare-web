@@ -138,14 +138,10 @@ export function TransferStudio() {
 
   return (
     <div className="studio-shell overflow-hidden">
-      {/* Decorative layers: aurora bloom behind the glass, technical grid in
-          the header. Both are pointer-events:none and reduced-motion aware. */}
-      <div className="studio-aurora" aria-hidden />
 
       <div className="relative lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
       <div className="flex min-w-0 flex-col">
       <div className="relative border-b border-border/60 p-3.5 sm:px-5 sm:pb-4 sm:pt-5">
-        <div className="studio-grid" aria-hidden />
 
         {/* Plain toggle buttons with aria-pressed, matching TransferWidget —
             role=tab without full keyboard semantics is worse than no role. */}

@@ -58,7 +58,7 @@ async function shoot(base, path, size, theme, state) {
     await Promise.all([...document.images].map((i) => i.decode().catch(() => {})));
     await document.fonts.ready;
   });
-  // React splits a sentence into several text nodes with comments between; joined, the font spaces the letters as it
+  // The previous site split a sentence into several text nodes with comments between; joined, the font spaces the letters as it
   // does in one node. --join-text tells that (invisible) effect from a real difference.
   if (joinText) await page.evaluate(() => { const w = document.createTreeWalker(document.body, NodeFilter.SHOW_COMMENT), c = []; while (w.nextNode()) c.push(w.currentNode); c.forEach((n) => n.remove()); document.body.normalize(); });
   await page.waitForTimeout(400);

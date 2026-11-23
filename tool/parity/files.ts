@@ -1,4 +1,4 @@
-// The prerendered HTML of a URL path in a folder that mirrors Next's output (<locale>/<path>.html, the home page <locale>.html).
+// The prerendered HTML of a URL path in a folder of pages (<locale>/<path>.html, the home page <locale>.html).
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { routing } from "../../src/i18n/routing";

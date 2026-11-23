@@ -109,7 +109,6 @@ export function ExpiryCountdown({ expiresAt }: { expiresAt: string }) {
 
   return (
     <span
-      suppressHydrationWarning
       className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background-raised px-3 py-[5px] text-xs text-muted-foreground"
     >
       <Clock className="h-3.5 w-3.5 text-muted-foreground" />
