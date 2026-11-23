@@ -28,27 +28,29 @@ const fonts = [
   ),
 ];
 
-// Stylesheet.
-const tmp = join(OUT, "site.tmp.css");
-execFileSync(join(ROOT, "node_modules/.bin/tailwindcss"), ["-i", join(HONO, "styles.css"), "-o", tmp, "--minify"], {
-  cwd: ROOT,
-  stdio: ["ignore", "ignore", "inherit"],
-});
-const css = readFileSync(tmp);
-rmSync(tmp);
-const cssName = `site-${hash8(css)}.css`;
-writeFileSync(join(OUT, cssName), css);
+// Stylesheets: the site's, and the web Drive's own.
+function stylesheet(name, from) {
+  const tmp = join(OUT, `${name}.tmp.css`);
+  execFileSync(join(ROOT, "node_modules/.bin/tailwindcss"), ["-i", from, "-o", tmp, "--minify"], { cwd: ROOT, stdio: ["ignore", "ignore", "inherit"] });
+  const css = readFileSync(tmp);
+  rmSync(tmp);
+  const file = `${name}-${hash8(css)}.css`;
+  writeFileSync(join(OUT, file), css);
+  return { file, bytes: css.length };
+}
+const site = stylesheet("site", join(HONO, "styles.css"));
+const drive = stylesheet("drive", join(ROOT, "src/components/drive/drive.css"));
 
 // Browser modules: the shared ones of src/hono/client, and one per island the pages use.
 const clientDir = join(HONO, "client");
-const entries = ["site.ts"].map((f) => join(clientDir, f));
+const entries = ["site.ts", "drive.ts"].map((f) => join(clientDir, f));
 const look = { outfile: join(ROOT, "node_modules/.cache/hono-islands.mjs"), write: false };
 const islandFiles = [...new Set([...(await bundlePages(look)), ...(await bundleWorker(look))])].sort();
 const { scripts, islands } = await bundleBrowser({ entries, islands: islandFiles, outdir: OUT });
 
-const assets = { css: `/_h/${cssName}`, fonts, scripts, islands };
+const assets = { css: `/_h/${site.file}`, driveCss: `/_h/${drive.file}`, fonts, scripts, islands };
 writeFileSync(
   join(HONO, "assets.gen.ts"),
-  `// Written by scripts/build-hono-assets.mjs; do not edit.\nexport const ASSETS: { css: string; fonts: string[]; scripts: Record<string, string>; islands: Record<string, string> } = ${JSON.stringify(assets, null, 2)};\n`,
+  `// Written by scripts/build-hono-assets.mjs; do not edit.\nexport const ASSETS: { css: string; driveCss: string; fonts: string[]; scripts: Record<string, string>; islands: Record<string, string> } = ${JSON.stringify(assets, null, 2)};\n`,
 );
-console.log(`hono assets: ${cssName} ${css.length} B, ${fonts.length} preloaded fonts, ${Object.keys(scripts).length} shared modules, ${Object.keys(islands).length} islands`);
+console.log(`hono assets: ${site.file} ${site.bytes} B, ${drive.file} ${drive.bytes} B, ${fonts.length} preloaded fonts, ${Object.keys(scripts).length} shared modules, ${Object.keys(islands).length} islands`);

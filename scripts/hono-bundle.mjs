@@ -68,7 +68,6 @@ function exportsOf(text) {
   return { components: names.filter((n) => /^[A-Z][a-z]/.test(n)), others: names.filter((n) => !/^[A-Z][a-z]/.test(n)), hasDefault: /^export\s+default\b/m.test(text) };
 }
 
-/** @param {{ target: "pages" | "browser", islands?: Set<string> }} o */
 /** The namespaces the Worker's own pages read (src/hono/dynamic.tsx). */
 const WORKER_MESSAGES = ["chrome", "common", "cookies", "beam", "flows", "nearby", "tool", "stats"];
 
@@ -106,6 +105,7 @@ function plugin({ target, islands, worker = false }) {
           if (a.path === "react" || a.path === "hono/jsx" || a.path === "hono/jsx/dom") return { path: hono(`${dir}react.ts`) };
           if (/^(react|hono\/jsx(\/dom)?)\/jsx-(dev-)?runtime$/.test(a.path)) return { path: hono(`${dir}jsx-runtime.ts`) };
         }
+        if (a.path === "react-dom") return target === "browser" ? { path: hono("client/react.ts") } : { path: "no-portal", namespace: "virtual" };
         if (a.path === "react") return b.resolve(jsx, { kind: a.kind, resolveDir: ROOT, pluginData: { skip: true } });
         if (a.path === "react/jsx-runtime") return b.resolve(`${jsx}/jsx-runtime`, { kind: a.kind, resolveDir: ROOT, pluginData: { skip: true } });
         if (target === "browser" && /^hono\/jsx(\/jsx-(dev-)?runtime)?$/.test(a.path)) return b.resolve(a.path.replace("hono/jsx", "hono/jsx/dom"), { kind: a.kind, resolveDir: ROOT, pluginData: { skip: true } });
@@ -129,6 +129,8 @@ function plugin({ target, islands, worker = false }) {
         contents: `import { jsx } from "hono/jsx";\nexport default ({ priority, className, ...p }) => jsx("img", { loading: priority ? undefined : "lazy", decoding: "async", ...p, class: className });`,
         resolveDir: ROOT,
       }));
+      // A portal has nowhere to go while a page is built: nothing is open yet.
+      b.onLoad({ filter: /^no-portal$/, namespace: "virtual" }, () => ({ contents: "export const createPortal = () => null;" }));
       b.onLoad({ filter: /^messages$/, namespace: "virtual" }, () => ({ contents: workerMessages(), resolveDir: ROOT }));
       b.onLoad({ filter: /^no-cloudflare$/, namespace: "virtual" }, () => ({
         contents: 'export function getCloudflareContext() { throw new Error("no Cloudflare context in the browser"); }',
@@ -145,6 +147,8 @@ function plugin({ target, islands, worker = false }) {
           if (a.suffix === "?impl") return;
           const file = relative(ROOT, a.path);
           const text = readFileSync(a.path, "utf8");
+          // The web Drive is one island; what it is made of is ordinary code inside it.
+          if (file.startsWith("src/components/drive/") && !file.endsWith("/drive-site.tsx")) return;
           if (!isClient(text) || STATIC.has(file)) return;
           islands?.add(file);
           const { components, others, hasDefault } = exportsOf(text);

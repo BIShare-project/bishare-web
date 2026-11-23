@@ -22,7 +22,7 @@ export function reactProps(type: unknown, props: Props): Props {
   for (const key in props) {
     const value = props[key];
     // React writes aria-pressed={false} as "false"; hono/jsx/dom would remove the attribute.
-    if (key.startsWith("aria-") && typeof value === "boolean") edit()[key] = String(value);
+    if (typeof value === "boolean" && (key.startsWith("aria-") || key.startsWith("data-"))) edit()[key] = String(value);
   }
   const textField = type === "textarea" || (type === "input" && !CHANGE_INPUTS.has(props.type));
   if (props.onChange && textField) {
@@ -58,7 +58,8 @@ export function reactProps(type: unknown, props: Props): Props {
       refs.push((el) => {
         if (!focused.has(el)) {
           focused.add(el);
-          el.focus();
+          // Its ref is called before it is put into the page.
+          queueMicrotask(() => el.focus());
         }
       });
     }

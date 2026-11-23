@@ -1,4 +1,5 @@
 import { APEX_HOST, DRIVE_HOST, DRIVE_PATH, RECEIVE_HOST } from "@/lib/hosts";
+import { serveDrive } from "./drive-host";
 import { hostRule, slashRedirect } from "./host-rules";
 import { siteLocale } from "./locale";
 
@@ -9,6 +10,7 @@ export const PAGE_DIR = "/_p";
 
 /** The parts of the Worker's bindings used here. */
 export interface AppEnv {
+  API_URL?: string;
   ASSETS: { fetch(req: Request): Promise<Response> };
   STATS_LIVE_DO: { idFromName(name: string): unknown; get(id: unknown): { fetch(req: Request): Promise<Response> } };
 }
@@ -59,7 +61,7 @@ async function file(req: Request, env: AppEnv, path: string): Promise<Response |
   return res.status === 200 ? res : null;
 }
 
-export async function handle(req: Request, env: AppEnv, ctx: Ctx, load: () => Promise<Pages>, drive: (req: Request) => Promise<Response>): Promise<Response> {
+export async function handle(req: Request, env: AppEnv, ctx: Ctx, load: () => Promise<Pages>): Promise<Response> {
   const url = new URL(req.url);
   const path = url.pathname;
 
@@ -79,7 +81,10 @@ export async function handle(req: Request, env: AppEnv, ctx: Ctx, load: () => Pr
   }
 
   const preview = isPreview(url.host);
-  if (url.host === DRIVE_HOST || (preview && DRIVE_PATH.test(path))) return drive(req);
+  if (url.host === DRIVE_HOST || (preview && DRIVE_PATH.test(path))) {
+    const answer = await serveDrive(req, env);
+    if (answer) return answer;
+  }
   if (req.method !== "GET" && req.method !== "HEAD") return new Response(null, { status: 405, headers: { allow: "GET, HEAD" } });
 
   const site = siteLocale(req);

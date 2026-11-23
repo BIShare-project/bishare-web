@@ -1,8 +1,6 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
-import { usePathname } from "next/navigation";
-import { toast as sonner } from "sonner";
 import { DriveApiError, DriveClient } from "@/lib/vault/client";
 import { downloadsBusy } from "@/lib/vault/download";
 import { refreshFolderLinks, type DriveLink } from "@/lib/vault/drive-links";
@@ -16,7 +14,7 @@ import { SignIn } from "./sign-in";
 import { LinkDialog } from "./links";
 import { forgetThumbs } from "./thumbs";
 import { ConfirmDialog, FolderPicker, PromptDialog } from "./ui";
-import { Toaster } from "./ui/sonner";
+import { toast as sonner, Toaster } from "./ui/sonner";
 import { TooltipProvider } from "./ui/tooltip";
 import { Viewer } from "./viewer";
 
@@ -81,7 +79,8 @@ const PULL_WITH_SOCKET_MS = 120_000;
 /** A browser that does not stay signed in locks after this long without use. */
 const IDLE_LOCK_MS = 15 * 60_000;
 
-export function DriveApp({ base, className, children }: { base: string; className?: string; children: ReactNode }) {
+/** `open`: a page anyone may read, without signing in. */
+export function DriveApp({ base, open: publicPage, children }: { base: string; open?: boolean; children: ReactNode }) {
   const [session, setSession] = useState<DriveSession | null | undefined>(undefined);
   const [theme, setThemeState] = useState<Theme>("light");
   const [syncError, setSyncError] = useState<string | null>(null);
@@ -89,8 +88,6 @@ export function DriveApp({ base, className, children }: { base: string; classNam
   const [viewer, setViewer] = useState<{ ids: string[]; at: number } | null>(null);
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [socketUp, setSocketUp] = useState(false);
-  const path = usePathname();
-  const publicPage = /\/delete-account\/?$/.test(path ?? "");
   const scope = `${base}/`;
 
   useEffect(() => {
@@ -112,13 +109,6 @@ export function DriveApp({ base, className, children }: { base: string; classNam
       delete document.documentElement.dataset.driveTheme;
     };
   }, [theme]);
-  // The fonts' CSS variables on <html> too: --font-sans is resolved there
-  // (drive.css), and menus, sheets and toasts portal outside this tree.
-  useEffect(() => {
-    const names = (className ?? "").split(/\s+/).filter(Boolean);
-    document.documentElement.classList.add(...names);
-    return () => document.documentElement.classList.remove(...names);
-  }, [className]);
 
   const setTheme = useCallback((t: Theme) => {
     setThemeState(t);
@@ -381,7 +371,7 @@ export function DriveApp({ base, className, children }: { base: string; classNam
 
   return (
     <TooltipProvider delayDuration={300}>
-      <div className={`min-h-svh bg-background font-sans text-xs text-foreground ${className ?? ""}`}>
+      <div className="min-h-svh bg-background font-sans text-xs text-foreground">
         {publicPage ? (
           children
         ) : session === undefined ? null : !value ? (
@@ -394,7 +384,7 @@ export function DriveApp({ base, className, children }: { base: string; classNam
             {dialog}
           </Ctx.Provider>
         )}
-        <Toaster theme={theme} position="bottom-center" />
+        <Toaster />
       </div>
     </TooltipProvider>
   );

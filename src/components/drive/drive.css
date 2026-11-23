@@ -5,11 +5,16 @@
    Tailwind scans the Drive's folders only. The theme follows
    <html data-drive-theme>, not the site's "dark" class. */
 @import "tailwindcss" source(none);
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import "../../hono/fonts/fonts.css";
 
 @source "../drive";
-@source "../../app/[locale]/(drive)";
+
+/* What a part of a control says about itself (ui/primitives.tsx). */
+@custom-variant data-checked (&:where([data-state="checked"]));
+@custom-variant data-unchecked (&:where([data-state="unchecked"]));
+@custom-variant data-active (&:where([data-state="active"]));
+@custom-variant data-horizontal (&:where([data-orientation="horizontal"]));
+@custom-variant data-vertical (&:where([data-orientation="vertical"]));
 
 @custom-variant dark (&:where([data-drive-theme="dark"], [data-drive-theme="dark"] *));
 
@@ -75,7 +80,7 @@
 }
 
 :root {
-  --font-sans: var(--font-drive), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -158,6 +163,10 @@
   --trash: #737373;
 }
 
+@layer components {
+  .i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -222,3 +231,17 @@
 [data-drive-theme="dark"] .hljs-title, [data-drive-theme="dark"] .hljs-title.function_, [data-drive-theme="dark"] .hljs-section { color: #d2a8ff; }
 [data-drive-theme="dark"] .hljs-attr, [data-drive-theme="dark"] .hljs-variable, [data-drive-theme="dark"] .hljs-template-variable, [data-drive-theme="dark"] .hljs-property { color: #ffa657; }
 [data-drive-theme="dark"] .hljs-built_in, [data-drive-theme="dark"] .hljs-class .hljs-title, [data-drive-theme="dark"] .hljs-meta { color: #7ee787; }
+
+/* Messages (ui/sonner.tsx): the newest in front, the older ones behind it; all of them under the pointer. */
+.toasts { position: fixed; bottom: 24px; left: 50%; z-index: 999; width: 356px; max-width: calc(100vw - 32px); margin: 0; padding: 0; list-style: none; transform: translateX(-50%); display: flex; flex-direction: column; gap: 14px; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif; }
+.toast { display: flex; align-items: center; gap: 6px; padding: 16px; font-size: 13px; overflow-wrap: anywhere; background: var(--popover); color: var(--popover-foreground); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); outline: none; }
+.toast-icon { display: flex; flex-shrink: 0; width: 16px; height: 16px; align-items: center; margin-inline: -3px 4px; }
+.toast-icon svg { flex-shrink: 0; margin-inline-start: -1px; }
+.toast-content { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 2px; }
+.toast-title { font-weight: 500; line-height: 1.5; }
+.toast-description { font-weight: 400; line-height: 1.4; color: #3f3f3f; }
+[data-drive-theme="dark"] .toast-description { color: hsl(0 0% 91%); }
+.toast-button { display: flex; flex-shrink: 0; height: 24px; align-items: center; margin-inline-start: auto; padding-inline: 8px; border: 0; border-radius: 4px; font-size: 12px; font-weight: 500; cursor: pointer; background: var(--popover-foreground); color: var(--popover); }
+
+/* No motion, as on the rest of the site. */
+*, *::before, *::after { animation: none !important; transition: none !important; }

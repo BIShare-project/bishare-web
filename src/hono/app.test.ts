@@ -13,6 +13,8 @@ const FILES: Record<string, string> = {
   [`${P}/robots.txt`]: "User-Agent: *",
   [`${P}/sitemap.xml`]: "<urlset/>",
   [`${P}/feed.xml`]: "<rss/>",
+  [`${P}/drive/en.html`]: "drive",
+  [`${P}/drive/id.html`]: "drive id",
   "/save-bridge.html": "bridge",
 };
 const env = {
@@ -26,7 +28,7 @@ const pages: Pages = {
   api: (req) => (new URL(req.url).pathname === "/api/loop-done" ? new Response(null, { status: 204 }) : null),
 };
 const go = (url: string, headers: Record<string, string> = {}, init: RequestInit = {}) =>
-  handle(new Request(url.startsWith("/") ? `https://bishare.app${url}` : url, { headers: { cookie: "NEXT_LOCALE=en", ...headers }, ...init }), env, ctx, async () => pages, async () => new Response("drive"));
+  handle(new Request(url.startsWith("/") ? `https://bishare.app${url}` : url, { headers: { cookie: "NEXT_LOCALE=en", ...headers }, ...init }), env, ctx, async () => pages);
 
 describe("static pages", () => {
   it.each([["/", "home"], ["/ar", "home ar"], ["/features", "features"], ["/id/features", "fitur"]])("%s", async (url, body) => {
@@ -131,7 +133,7 @@ describe("files and endpoints", () => {
     expect(await (await go("/stats-live")).text()).toBe("live");
     expect(await (await go("https://drive.bishare.app/files")).text()).toBe("drive");
     expect(await (await go("http://localhost:8788/drive/files")).text()).toBe("drive");
-    expect(await (await go("http://localhost:8788/id/drive")).text()).toBe("drive");
+    expect(await (await go("http://localhost:8788/id/drive")).text()).toBe("drive id");
   });
 });
 

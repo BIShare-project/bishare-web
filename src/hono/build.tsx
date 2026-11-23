@@ -8,7 +8,9 @@ import { publishedPosts } from "@/content/blog/registry";
 import { routing } from "@/i18n/routing";
 import NotFound from "@/app/[locale]/(site)/not-found";
 import { robotsTxt, sitemapXml } from "./files";
+import { translator } from "./i18n";
 import { renderDocument } from "./layout/document";
+import { renderDrive } from "./layout/drive-document";
 import { withPage } from "./page-context";
 import { BLOG_POST, LAYOUTS, PAGES, type LayoutModule, type PageModule } from "./pages";
 
@@ -45,6 +47,13 @@ for (const post of publishedPosts()) await page(`/blog/${post.slug}`, (await BLO
 for (const locale of routing.locales) {
   const html = await withPage(locale, "/404", async () => renderDocument({ locale, metadata: { robots: { index: false } }, body: await NotFound() }));
   write(`${locale}/404.html`, html);
+}
+
+for (const locale of routing.locales) {
+  await withPage(locale, "/drive", async () => {
+    write(`drive/${locale}.html`, await renderDrive(locale, "BIShare Drive", ""));
+    write(`drive/${locale}/delete-account.html`, await renderDrive(locale, `${translator("drive")("deletePage.title")} — BIShare Drive`, "/delete-account"));
+  });
 }
 
 write("sitemap.xml", sitemapXml(sitemap()));

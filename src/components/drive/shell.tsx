@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useId, useState, type ReactNode } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from "./nav";
+import { usePathname } from "./nav";
 import { useTranslations } from "next-intl";
 import {
   CircleAlert,

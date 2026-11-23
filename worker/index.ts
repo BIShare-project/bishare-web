@@ -6,14 +6,5 @@ import { handle } from "../src/hono/app";
 export { StatsLiveDO } from "../server/do/stats-live";
 
 export default {
-  fetch(req, env, ctx) {
-    return handle(
-      req,
-      env,
-      ctx,
-      () => import("../.hono/worker.mjs"),
-      // Drive is still Next's.
-      async (r) => (await import("../.open-next/worker.js")).default.fetch(r, env, ctx),
-    );
-  },
+  fetch: (req, env, ctx) => handle(req, env, ctx, () => import("../.hono/worker.mjs")),
 } satisfies ExportedHandler<Env>;

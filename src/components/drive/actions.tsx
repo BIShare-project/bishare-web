@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useMemo } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "./nav";
 import { useTranslations } from "next-intl";
 import { ArchiveRestore, Copy, Download, Eye, FolderInput, FolderOpen, Link2, Pencil, Trash2, X } from "lucide-react";
 import type { LucideIcon } from "lucide-react";

@@ -8,6 +8,10 @@ describe("reactProps", () => {
     expect(reactProps("button", { "aria-pressed": false, "aria-expanded": true })).toEqual({ "aria-pressed": "false", "aria-expanded": "true" });
   });
 
+  it("writes boolean data attributes as React does", () => {
+    expect(reactProps("div", { "data-selected": true, "data-open": false })).toEqual({ "data-selected": "true", "data-open": "false" });
+  });
+
   it("leaves other booleans to the runtime", () => {
     expect(reactProps("button", { disabled: false, hidden: true })).toEqual({ disabled: false, hidden: true });
   });
@@ -24,7 +28,7 @@ describe("reactProps", () => {
     expect(reactProps("select", { onChange: f })).toEqual({ onChange: f });
   });
 
-  it("focuses an autoFocus element once it is in the page, keeping its own ref", () => {
+  it("focuses an autoFocus element once it is in the page, keeping its own ref", async () => {
     const own = { current: null as unknown };
     const p = reactProps("input", { autoFocus: true, ref: own }) as { ref: (el: unknown) => void; autoFocus?: boolean };
     expect(p.autoFocus).toBeUndefined();
@@ -32,13 +36,17 @@ describe("reactProps", () => {
     const el = { focus: () => focused++ };
     p.ref(el);
     expect(own.current).toBe(el);
+    // The element is not in the page yet when its ref is called.
+    expect(focused).toBe(0);
+    await Promise.resolve();
     expect(focused).toBe(1);
   });
 
-  it("focuses an element only the first time, not on every render", () => {
+  it("focuses an element only the first time, not on every render", async () => {
     let focused = 0;
     const el = { focus: () => focused++ };
     for (let i = 0; i < 3; i++) (reactProps("input", { autoFocus: true }) as { ref: (el: unknown) => void }).ref(el);
+    await Promise.resolve();
     expect(focused).toBe(1);
   });
 

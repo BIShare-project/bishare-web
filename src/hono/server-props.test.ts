@@ -11,6 +11,10 @@ describe("serverProps", () => {
     expect(serverProps("div", props)).toEqual(props);
   });
 
+  it("writes a true aria or data attribute as \"true\"", () => {
+    expect(serverProps("div", { "data-selected": true, "aria-hidden": true, hidden: true })).toEqual({ "data-selected": "true", "aria-hidden": "true", hidden: true });
+  });
+
   it("leaves components alone", () => {
     const props = { open: false };
     expect(serverProps(() => null, props)).toBe(props);

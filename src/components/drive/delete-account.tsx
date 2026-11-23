@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "./nav";
 import { useTranslations } from "next-intl";
 import { CreditCard, Mail, ShieldCheck, Smartphone, Trash2 } from "lucide-react";
 import { BrandMark } from "./shell";

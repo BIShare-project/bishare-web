@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { Link } from "./nav";
 import { useLocale, useTranslations } from "next-intl";
 import {
   CalendarPlus,

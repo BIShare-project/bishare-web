@@ -45,7 +45,7 @@ export function UploadTray() {
   const title = active.length ? t("uploads.title", { n: active.length }) : failed ? t("uploads.someFailed", { n: failed }) : t("uploads.allDone", { n: items.filter((i) => i.state === "done").length });
 
   return (
-    <div className="fixed end-4 bottom-4 z-40 w-[min(380px,calc(100vw-32px))] border bg-popover text-popover-foreground shadow-xl ring-1 ring-foreground/5 animate-in slide-in-from-bottom-4 fade-in-0">
+    <div className="fixed end-4 bottom-4 z-40 w-[min(380px,calc(100vw-32px))] border bg-popover text-popover-foreground shadow-xl ring-1 ring-foreground/5">
       <div className="flex h-12 items-center gap-2 border-b px-3">
         {active.length ? <CloudUpload className="size-4 text-blau" /> : failed ? <X className="size-4 text-destructive" /> : <Check className="size-4 text-good" />}
         <span className="flex-1 truncate text-xs font-medium">{title}</span>
@@ -181,7 +181,7 @@ export function DropZone() {
   const f = params && location.pathname.endsWith("/files") ? params.get("f") : null;
   const where = f ? (index.get(f)?.name ?? "Drive") : "Drive";
   return (
-    <div className="pointer-events-none fixed inset-0 z-50 grid place-items-center bg-blau/10 p-6 backdrop-blur-[2px] animate-in fade-in-0">
+    <div className="pointer-events-none fixed inset-0 z-50 grid place-items-center bg-blau/10 p-6 backdrop-blur-[2px]">
       <div className="flex flex-col items-center gap-3 border-2 border-dashed border-blau bg-background/95 px-12 py-10 text-center shadow-2xl">
         <span className="grid size-12 place-items-center bg-blau text-white">
           <CloudUpload className="size-6" />

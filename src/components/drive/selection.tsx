@@ -79,7 +79,7 @@ export function RowCheck({ checked, label, onToggle }: { checked: boolean; label
 export function SelectionBar({ count, onClear, children }: { count: number; onClear: () => void; children: ReactNode }) {
   const t = useTranslations("drive");
   return (
-    <div className="sticky top-14 z-20 flex min-h-12 flex-wrap items-center gap-2 border border-blau/30 bg-blau-soft px-2 py-1.5 shadow-sm animate-in fade-in-0 slide-in-from-top-1">
+    <div className="sticky top-14 z-20 flex min-h-12 flex-wrap items-center gap-2 border border-blau/30 bg-blau-soft px-2 py-1.5 shadow-sm">
       <Button variant="ghost" size="icon-sm" aria-label={t("act.clearSelection")} onClick={onClear}>
         <X />
       </Button>

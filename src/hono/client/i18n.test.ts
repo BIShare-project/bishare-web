@@ -40,4 +40,16 @@ describe("island messages", () => {
     expect(useTranslations("y").raw("list")).toEqual([1]);
     expect(t.has("zz")).toBe(false);
   });
+
+  it("gives the same translator every time, so an effect that depends on it runs once", () => {
+    expect(useTranslations("tool")).toBe(useTranslations("tool"));
+    expect(useTranslations("tool")).not.toBe(useTranslations("flows"));
+  });
+
+  it("follows the messages of the page", () => {
+    setMessages("en", { zz: { a: "one" } });
+    expect(useTranslations("zz")("a")).toBe("one");
+    setMessages("en", { zz: { a: "two" } });
+    expect(useTranslations("zz")("a")).toBe("two");
+  });
 });

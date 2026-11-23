@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "./nav";
 import { useTranslations } from "next-intl";
 import { Clock, Database, Folder, FolderPlus, FolderUp, Image as ImageIcon, LayoutGrid, Lock, Monitor, Moon, ShieldCheck, Sun, Trash2, Upload } from "lucide-react";
 import { useActions } from "./actions";

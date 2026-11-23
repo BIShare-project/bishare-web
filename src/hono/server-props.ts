@@ -11,6 +11,10 @@ export function serverProps(type: unknown, props: Props): Props {
   if (typeof type !== "string" || !props) return props;
   let out: Props | null = null;
   for (const key in props) {
+    if (props[key] === true && (key.startsWith("aria-") || key.startsWith("data-"))) {
+      out ??= { ...props };
+      out[key] = "true";
+    }
     if (props[key] === false && !key.startsWith("aria-") && !key.startsWith("data-") && !BOOLEANISH.has(key)) {
       out ??= { ...props };
       delete out[key];

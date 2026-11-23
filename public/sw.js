@@ -6,14 +6,14 @@
 //     so a fresh deploy is always served. Only on a network failure do we fall
 //     back to the precached offline page.
 //   • Build assets       → cache-first, but only content-hashed files
-//     (/_next/static/*, images, fonts) whose URL changes on every rebuild, so
+//     (/_h/*, images, fonts) whose URL changes on every rebuild, so
 //     cached copies can never go stale.
 //   • Cross-origin (the api.bishare.app API, Google Fonts) and non-GET requests
 //     are never intercepted.
 // skipWaiting + clients.claim take control immediately; safe here because no
 // HTML is cached. Bump VERSION to drop old asset caches.
 
-const VERSION = "v3";
+const VERSION = "v4";
 
 // Encrypted-media streaming lives in a generated script (built from
 // src/sw/stream-sw.ts, so the record format has one definition). It is pulled
@@ -35,7 +35,7 @@ const CACHE = `bishare-static-${VERSION}`;
 const SHARE_CACHE = "bishare-share-inbox";
 const SHARE_ACTION = "/api/share-target";
 const SHARE_INDEX = "/__shared/index";
-// Canonical clean URL — OpenNext serves public/offline.html at /offline (200)
+// Canonical clean URL — the Worker serves public/offline.html at /offline (200)
 // and 307-redirects /offline.html to it, which cache.addAll can't precache.
 const OFFLINE_URL = "/offline";
 const PRECACHE = [OFFLINE_URL, "/icon-192.png", "/icon-512.png"];
@@ -148,7 +148,7 @@ self.addEventListener("fetch", (event) => {
 
   // Content-hashed static assets: cache-first (the hash guarantees freshness).
   const isHashedAsset =
-    url.pathname.startsWith("/_next/static/") ||
+    url.pathname.startsWith("/_h/") ||
     /\.(?:png|svg|ico|webp|jpg|jpeg|woff2?)$/.test(url.pathname);
   if (isHashedAsset) {
     event.respondWith(

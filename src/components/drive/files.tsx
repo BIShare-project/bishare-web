@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type DragEvent, type MouseEvent } from "react";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { Link } from "./nav";
+import { useSearchParams } from "./nav";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowDown, ArrowUp, ChevronRight, Copy, Download, FolderInput, FolderPlus, FolderUp, LayoutGrid, List, MoreHorizontal, PanelRight, Search, Trash2, Upload, X } from "lucide-react";
 import type { DriveObject } from "@/lib/vault/store";

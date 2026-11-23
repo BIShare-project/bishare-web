@@ -73,7 +73,13 @@ export function format(message: string, values: Record<string, Any> = {}, hash?:
   return out;
 }
 
-export function useTranslations(namespace: string) {
+type Translate = ((key: string, values?: Record<string, Any>) => string) & { rich: (key: string, values?: Record<string, Any>) => Any[]; raw: (key: string) => Any; has: (key: string) => boolean };
+/** One translator per namespace: components compare it to decide whether to run an effect again. */
+const translators = new Map<string, Translate>();
+
+export function useTranslations(namespace: string): Translate {
+  const made = translators.get(namespace);
+  if (made) return made;
   const at = (key: string) => [...namespace.split("."), ...key.split(".")].reduce<Any>((m, k) => m?.[k], state.messages);
   const text = (key: string): string => {
     const v = at(key);
@@ -83,9 +89,10 @@ export function useTranslations(namespace: string) {
     }
     return v;
   };
-  const t = (key: string, values?: Record<string, Any>) => format(text(key), values).join("");
+  const t = ((key, values) => format(text(key), values).join("")) as Translate;
   t.rich = (key: string, values?: Record<string, Any>) => format(text(key), values);
   t.raw = at;
   t.has = (key: string) => at(key) !== undefined;
+  translators.set(namespace, t);
   return t;
 }

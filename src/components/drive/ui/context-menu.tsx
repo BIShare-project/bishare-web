@@ -2,24 +2,25 @@
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { ContextMenu as ContextMenuPrimitive } from "radix-ui"
+import type { Parts } from "./primitives"
+import { ContextMenu as ContextMenuPrimitive } from "./primitives"
 
 // Right-click menus with the dropdown menu's Lyra look.
-function ContextMenu(props: React.ComponentProps<typeof ContextMenuPrimitive.Root>) {
+function ContextMenu(props: Parts) {
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />
 }
 
-function ContextMenuTrigger(props: React.ComponentProps<typeof ContextMenuPrimitive.Trigger>) {
+function ContextMenuTrigger(props: Parts) {
   return <ContextMenuPrimitive.Trigger data-slot="context-menu-trigger" {...props} />
 }
 
-function ContextMenuContent({ className, ...props }: React.ComponentProps<typeof ContextMenuPrimitive.Content>) {
+function ContextMenuContent({ className, ...props }: Parts) {
   return (
     <ContextMenuPrimitive.Portal>
       <ContextMenuPrimitive.Content
         data-slot="context-menu-content"
         className={cn(
-          "z-50 max-h-(--radix-context-menu-content-available-height) min-w-48 origin-(--radix-context-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-none bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          "z-50 max-h-(--available-height) min-w-48 overflow-x-hidden overflow-y-auto rounded-none bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10",
           className
         )}
         {...props}
@@ -32,7 +33,7 @@ function ContextMenuItem({
   className,
   variant = "default",
   ...props
-}: React.ComponentProps<typeof ContextMenuPrimitive.Item> & { variant?: "default" | "destructive" }) {
+}: Parts & { variant?: "default" | "destructive" }) {
   return (
     <ContextMenuPrimitive.Item
       data-slot="context-menu-item"
@@ -46,7 +47,7 @@ function ContextMenuItem({
   )
 }
 
-function ContextMenuSeparator({ className, ...props }: React.ComponentProps<typeof ContextMenuPrimitive.Separator>) {
+function ContextMenuSeparator({ className, ...props }: Parts) {
   return <ContextMenuPrimitive.Separator data-slot="context-menu-separator" className={cn("-mx-1 my-1 h-px bg-border", className)} {...props} />
 }
 
