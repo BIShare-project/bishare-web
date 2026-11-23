@@ -2,7 +2,7 @@ import type { Metadata } from "@/site/metadata";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { StoreButtons } from "@/ui/store-buttons";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import { sharedOpenGraph, SITE_URL } from "@/lib/og";
 import {
   ARTICLE_COMPONENTS,
@@ -214,13 +214,13 @@ export default async function BlogArticlePage({
             any browser.
           </p>
           <div className="mt-6 flex justify-center gap-3">
-            <VButton href="/transfer" size="lg">
+            <Button href="/transfer" size="lg">
               Try it in your browser
               <ArrowRight className="h-4 w-4" />
-            </VButton>
-            <VButton href="/download" size="lg" variant="secondary">
+            </Button>
+            <Button href="/download" size="lg" variant="secondary">
               Get the app
-            </VButton>
+            </Button>
           </div>
           <div className="mt-5 flex justify-center">
             <StoreButtons />

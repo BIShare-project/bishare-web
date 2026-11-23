@@ -1,19 +1,7 @@
-import type { Child } from "@/jsx";
-import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
-import { buildAlternates } from "@/i18n/metadata";
-import { sharedOpenGraph, pageUrl } from "@/lib/og";
-import { SiteHeader } from "@/ui/header";
-import { SiteFooter } from "@/ui/footer";
-import { RelatedLinks } from "@/ui/related-links";
-import { VButton } from "@/ui/vbutton";
-import { HeroCta } from "@/ui/hero-cta";
-import { StoreButtons } from "@/ui/store-buttons";
-import { ArticleToc } from "@/ui/article-toc";
+import { type Article, articleMetadata, faqPageLd, webPageLd, methodsLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, Methods, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
+import { pageUrl } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { LandingArt } from "@/ui/landing-art";
-import { ImageLightbox } from "@/ui/image-lightbox";
-import { ArrowRight, Check, X } from "@/ui/icons";
 import { guideLinks } from "@/ui/guide-links";
 
 /**
@@ -61,69 +49,7 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
   { id: "r5", v: [true, true, true, true, true, false] },
 ];
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: NS });
-  const title = t("meta.title");
-  const description = t("meta.description");
-  return {
-    title: { absolute: title },
-    description,
-    alternates: buildAlternates(locale, SLUG),
-    ...sharedOpenGraph(title, description, SLUG, locale),
-  };
-}
-
-function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) {
-  return ok ? (
-    <Check className="mx-auto h-4 w-4 text-success" aria-label={yes} />
-  ) : (
-    <X className="mx-auto h-4 w-4 text-muted-foreground/50" aria-label={no} />
-  );
-}
-
-function H2({ id, children }: { id: string; children: Child }) {
-  return (
-    <h2 id={id} className="scroll-mt-28 text-2xl font-semibold tracking-[-0.02em]">
-      {children}
-    </h2>
-  );
-}
-
-const strong = (chunks: Child) => (
-  <strong className="text-foreground">{chunks}</strong>
-);
-const highlight = (chunks: Child) => (
-  <span className="text-foreground">{chunks}</span>
-);
-
-/** Prose list section — a heading and a paragraph per item. */
-function ProseList({
-  items,
-  head,
-  body,
-}: {
-  items: readonly string[];
-  head: (i: string) => string;
-  body: (i: string) => Child;
-}) {
-  return (
-    <div className="mt-6 space-y-7">
-      {items.map((i) => (
-        <div key={i}>
-          <h3 className="font-semibold">{head(i)}</h3>
-          <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">
-            {body(i)}
-          </p>
-        </div>
-      ))}
-    </div>
-  );
-}
+export const generateMetadata = articleMetadata(NS, SLUG);
 
 export default async function SharedropAltPage({
   params,
@@ -136,73 +62,17 @@ export default async function SharedropAltPage({
   const chrome = await getTranslations("chrome");
 
   const tags = { strong, highlight, ...links };
-  const yes = t("a11y.yes");
+  const a: Article = { t, chrome, tags, locale, slug: SLUG };
   const no = t("a11y.no");
 
-  const selfUrl = pageUrl(SLUG, locale);
+  const listLd = methodsLd(a, ALT_ITEMS);
 
-  const listLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: t("methods.title"),
-    itemListElement: ALT_ITEMS.map((i, n) => ({
-      "@type": "ListItem",
-      position: n + 1,
-      name: t(`methods.items.${i}.name`),
-      description: t(`methods.items.${i}.tag`),
-      // Each entry needs an address of its own: the anchor on its card below.
-      url: `${selfUrl}#item-${n + 1}`,
-    })),
-  };
+  const faqLd = faqPageLd(t, FAQ_ITEMS);
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((i) => ({
-      "@type": "Question",
-      name: t(`faq.items.${i}.q`),
-      acceptedAnswer: { "@type": "Answer", text: t(`faq.items.${i}.a`) },
-    })),
-  };
+  const pageLd = webPageLd(a, LAST_UPDATED);
 
-  const pageLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: t("meta.title"),
-    description: t("meta.description"),
-    url: selfUrl,
-    dateModified: LAST_UPDATED,
-    isPartOf: { "@type": "WebSite", name: "BIShare", url: "https://bishare.app" },
-  };
-
-  return (
-    <div className="min-h-screen bg-background">
-      {[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "ShareDrop alternative")].map(
-        (ld, i) => (
-          <script
-            key={i}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(ld).replace(/</g, "\\u003c"),
-            }}
-          />
-        )
-      )}
-      <SiteHeader />
-
-      <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
-        <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
-          <article className="min-w-0 lg:max-w-3xl">
-            {/* Hero */}
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-              {t("hero.eyebrow")}
-            </p>
-            <h1 className="mt-4 text-[clamp(2.25rem,5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-              {t("hero.title")}
-            </h1>
-            <p className="mt-3 text-sm text-muted-foreground">
-              <time dateTime={LAST_UPDATED}>{t("updated")}</time>
-            </p>
+  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "ShareDrop alternative")]}>
+            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               {t.rich("hero.body", { strong, highlight, ...links })}
             </p>
@@ -210,317 +80,50 @@ export default async function SharedropAltPage({
               {t("disclosure")}
             </p>
 
-            {/* Quick answer */}
-            <section
-              className="mt-8 rounded-xl border border-border bg-card p-5 sm:p-6"
-              aria-labelledby="quick-answer"
-            >
-              <h2
-                id="quick-answer"
-                className="scroll-mt-28 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-              >
-                {t("quick.title")}
-              </h2>
-              <ul className="mt-3 space-y-2.5">
-                {QUICK_ITEMS.map((i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[15px] leading-relaxed text-muted-foreground"
-                  >
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue"
-                      aria-hidden
-                    />
-                    <span>{t.rich(`quick.items.${i}`, { strong, ...links })}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            <div className="mt-8">
-              <HeroCta downloadLabel={t("hero.ctaPrimary")} />
-            </div>
-            <div className="mt-6">
-              <StoreButtons />
-            </div>
-
-            <LandingArt
-              slug={SLUG}
-              name="hero"
-              locale={locale}
-              alt={t("art.hero.alt")}
-              width={1200}
-              height={630}
-              zoomHint={chrome("imageZoom")}
-              className="mt-8"
-            />
-
-            {/* What happened */}
-            <section className="mt-14">
-              <H2 id="what">{t("what.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("what.body", tags)}
-              </p>
-              <ProseList
-                items={WHAT_ITEMS}
-                head={(i) => t(`what.items.${i}.h`)}
-                body={(i) => t.rich(`what.items.${i}.b`, tags)}
-              />
-            </section>
+            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
+            <Art a={a} name="hero" height={630} className="mt-8" />
+{/* What happened */}
+            <Section a={a} id="what" lead><ProseList a={a} name="what" items={WHAT_ITEMS} />
+            </Section>
 
             {/* How discovery worked */}
-            <section className="mt-14">
-              <H2 id="how">{t("how.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("how.body", tags)}
-              </p>
-              <LandingArt
-                slug={SLUG}
-                name="grouping"
-                locale={locale}
-                alt={t("art.grouping.alt")}
-                width={1200}
-                height={600}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-              <ProseList
-                items={HOW_ITEMS}
-                head={(i) => t(`how.items.${i}.h`)}
-                body={(i) => t.rich(`how.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="how" lead><Art a={a} name="grouping" height={600} />
+<ProseList a={a} name="how" items={HOW_ITEMS} />
+            </Section>
 
             {/* Where it falls short */}
-            <section className="mt-14">
-              <H2 id="limits">{t("limits.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("limits.body", tags)}
-              </p>
-              <ProseList
-                items={LIMITS_ITEMS}
-                head={(i) => t(`limits.items.${i}.h`)}
-                body={(i) => t.rich(`limits.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="limits" lead><ProseList a={a} name="limits" items={LIMITS_ITEMS} />
+            </Section>
 
             {/* The alternatives */}
-            <section className="mt-14">
-              <H2 id="methods">{t("methods.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("methods.body", tags)}
-              </p>
-              <div className="mt-6 space-y-8">
-                {ALT_ITEMS.map((i, n) => (
-                  <div
-                    key={i}
-                    id={`item-${n + 1}`}
-                    className="scroll-mt-28 border-b border-border pb-8 last:border-0 last:pb-0"
-                  >
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-mono text-sm font-semibold text-accent-blue">
-                        {String(n + 1).padStart(2, "0")}
-                      </span>
-                      <div className="min-w-0">
-                        <h3 className="text-lg font-semibold">
-                          {t(`methods.items.${i}.name`)}
-                        </h3>
-                        <p className="mt-0.5 text-sm font-medium text-accent-blue">
-                          {t(`methods.items.${i}.tag`)}
-                        </p>
-                        <p className="mt-3 font-mono text-[12px] leading-relaxed text-muted-foreground">
-                          {t(`methods.items.${i}.facts`)}
-                        </p>
-                        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                          {t.rich(`methods.items.${i}.body`, tags)}
-                        </p>
-                        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                          <span className="font-medium text-foreground">
-                            {t("methods.consLabel")}
-                          </span>{" "}
-                          {t(`methods.items.${i}.cons`)}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
+            <Section a={a} id="methods" lead><Methods a={a} items={ALT_ITEMS} />
+            </Section>
 
             {/* Comparison table */}
-            <section className="mt-14">
-              <H2 id="glance">{t("table.title")}</H2>
-              <div className="mt-5 overflow-x-auto rounded-xl border border-border">
-                <table className="w-full min-w-[700px] text-sm">
-                  <thead>
-                    <tr className="border-b border-border bg-background-raised text-muted-foreground">
-                      <th className="px-4 py-3 text-left font-medium">
-                        {t("table.cols.feature")}
-                      </th>
-                      {APPS.map((a) => (
-                        <th
-                          key={a}
-                          className={`px-4 py-3 font-medium ${
-                            a === "bishare" ? "font-semibold text-foreground" : ""
-                          }`}
-                        >
-                          {t(`table.cols.${a}`)}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {ROWS.map((r) => (
-                      <tr
-                        key={r.id}
-                        className="border-b border-border last:border-0"
-                      >
-                        <td className="px-4 py-3 text-foreground">
-                          {t(`table.rows.${r.id}`)}
-                        </td>
-                        {r.v.map((ok, n) => (
-                          <td key={n} className="px-4 py-3">
-                            <Cell ok={ok} yes={yes} no={no} />
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                {t("table.note")}
-              </p>
-            </section>
+            <Section a={a} id="glance" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[700px]" />
+            </Section>
 
             {/* Other networks */}
-            <section className="mt-14">
-              <H2 id="rooms">{t("rooms.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("rooms.body", tags)}
-              </p>
-              <LandingArt
-                slug={SLUG}
-                name="online"
-                locale={locale}
-                alt={t("art.online.alt")}
-                width={1200}
-                height={600}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-              <ProseList
-                items={ROOMS_ITEMS}
-                head={(i) => t(`rooms.items.${i}.h`)}
-                body={(i) => t.rich(`rooms.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="rooms" lead><Art a={a} name="online" height={600} />
+<ProseList a={a} name="rooms" items={ROOMS_ITEMS} />
+            </Section>
 
             {/* Self-hosting */}
-            <section className="mt-14">
-              <H2 id="selfhost">{t("selfhost.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("selfhost.body", tags)}
-              </p>
-              <LandingArt
-                slug={SLUG}
-                name="hosting"
-                locale={locale}
-                alt={t("art.hosting.alt")}
-                width={1200}
-                height={600}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-              <ProseList
-                items={SELFHOST_ITEMS}
-                head={(i) => t(`selfhost.items.${i}.h`)}
-                body={(i) => t.rich(`selfhost.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="selfhost" lead><Art a={a} name="hosting" height={600} />
+<ProseList a={a} name="selfhost" items={SELFHOST_ITEMS} />
+            </Section>
 
             {/* Pick by moment */}
-            <section className="mt-14">
-              <H2 id="choose">{t("choose.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("choose.body", tags)}
-              </p>
-              <ProseList
-                items={CHOOSE_ITEMS}
-                head={(i) => t(`choose.items.${i}.h`)}
-                body={(i) => t.rich(`choose.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="choose" lead><ProseList a={a} name="choose" items={CHOOSE_ITEMS} />
+            </Section>
 
             {/* Security */}
-            <section className="mt-14">
-              <H2 id="security">{t("security.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("security.body", tags)}
-              </p>
-              <ProseList
-                items={SECURITY_ITEMS}
-                head={(i) => t(`security.items.${i}.h`)}
-                body={(i) => t.rich(`security.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
+            </Section>
 
             {/* FAQ */}
-            <section className="mt-14">
-              <H2 id="faq">{t("faq.title")}</H2>
-              <div className="mt-5 space-y-3">
-                {FAQ_ITEMS.map((i) => (
-                  <details
-                    key={i}
-                    className="group rounded-xl border border-border bg-card p-5"
-                  >
-                    <summary className="cursor-pointer list-none font-medium marker:content-['']">
-                      {t(`faq.items.${i}.q`)}
-                    </summary>
-                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                      {t(`faq.items.${i}.a`)}
-                    </p>
-                  </details>
-                ))}
-              </div>
-            </section>
+            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
+            </Section>
 
-            {/* CTA */}
-            <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
-              <h2 className="text-2xl font-semibold tracking-[-0.02em]">
-                {t("cta.title")}
-              </h2>
-              <p className="mx-auto mt-2 max-w-md text-muted-foreground">
-                {t("cta.body")}
-              </p>
-              <div className="mt-6 flex justify-center">
-                <VButton href="/download" size="lg">
-                  {t("cta.download")}
-                  <ArrowRight className="h-4 w-4" />
-                </VButton>
-              </div>
-              <div className="mt-5 flex justify-center">
-                <StoreButtons />
-              </div>
-            </section>
-
-            <RelatedLinks current={SLUG} />
-          </article>
-
-          {/* Sticky table of contents — desktop only; lists the H2 ids above. */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-24">
-              <ArticleToc
-                selector="main article h2[id]"
-                label={chrome("toc.onThisPage")}
-              />
-            </div>
-          </aside>
-        </div>
-      </main>
-
-      <SiteFooter />
-      <ImageLightbox closeLabel={chrome("imageClose")} />
-    </div>
-  );
+            {/* CTA */}<Cta a={a} /></ArticlePage>);
 }

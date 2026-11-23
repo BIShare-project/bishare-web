@@ -1,6 +1,6 @@
 import { getTranslations } from "@/i18n/translate";
 import { ArrowRight } from "@/ui/icons";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 
 /**
  * The landing-page hero action pair, in the order that matches what the
@@ -20,13 +20,13 @@ export async function HeroCta({ downloadLabel }: { downloadLabel: string }) {
 
   return (
     <div className="flex flex-wrap items-center gap-3">
-      <VButton href="/transfer" size="lg">
+      <Button href="/transfer" size="lg">
         {t("tryTransfer")}
         <ArrowRight className="h-4 w-4" />
-      </VButton>
-      <VButton href="/download" size="lg" variant="secondary">
+      </Button>
+      <Button href="/download" size="lg" variant="secondary">
         {downloadLabel}
-      </VButton>
+      </Button>
     </div>
   );
 }

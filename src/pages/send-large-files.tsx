@@ -1,17 +1,15 @@
-import type { Child } from "@/jsx";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
+import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, H2, Section, Cell, strong, highlight } from "@/ui/article";
+import { Button } from "@/ui/button";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { LandingArt } from "@/ui/landing-art";
 import { ImageLightbox } from "@/ui/image-lightbox";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { ArticleToc } from "@/ui/article-toc";
 import { RelatedLinks } from "@/ui/related-links";
-import { VButton } from "@/ui/vbutton";
-import { HeroCta } from "@/ui/hero-cta";
 import { StoreButtons } from "@/ui/store-buttons";
 import { Link } from "@/ui/link";
 import { publishedSlugs } from "@/content/blog/registry";
@@ -86,26 +84,6 @@ const TIP_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const DEVICE_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const FAQ_ITEMS = ["0", "16", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "17"] as const;
 
-function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) {
-  return ok ? (
-    <Check className="mx-auto h-4 w-4 text-success" aria-label={yes} />
-  ) : (
-    <X className="mx-auto h-4 w-4 text-muted-foreground/50" aria-label={no} />
-  );
-}
-
-function H2({ id, children }: { id: string; children: Child }) {
-  return (
-    <h2 id={id} className="scroll-mt-28 text-2xl font-semibold tracking-[-0.02em]">
-      {children}
-    </h2>
-  );
-}
-
-const strong = (chunks: Child) => (
-  <strong className="text-foreground">{chunks}</strong>
-);
-
 function Shot({
   src,
   alt,
@@ -163,7 +141,9 @@ export default async function SendLargeFilesPage({
   const { locale } = await params;
   const t = await getTranslations("largeFiles");
   const links = guideLinks();
+  const tags = { strong, highlight, ...links };
   const chrome = await getTranslations("chrome");
+  const a: Article = { t, chrome, tags, locale, slug: SLUG };
   const tocLabel = chrome("toc.onThisPage");
   const yes = t("a11y.yes");
   const no = t("a11y.no");
@@ -171,15 +151,8 @@ export default async function SendLargeFilesPage({
     rows.map((r) => Array.from({ length: n }, (_, j) => t(`${ns}.rows.${r}.${j}`)));
   const cols = (ns: string, n: number) => Array.from({ length: n }, (_, j) => t(`${ns}.cols.${j}`));
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((i) => ({
-      "@type": "Question",
-      name: t(`faq.items.${i}.q`),
-      acceptedAnswer: { "@type": "Answer", text: t(`faq.items.${i}.a`) },
-    })),
-  };
+  const faqLd = faqPageLd(t, FAQ_ITEMS);
+
   const howToLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -216,17 +189,8 @@ export default async function SendLargeFilesPage({
       <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
         <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
         <article className="min-w-0 lg:max-w-3xl">
-        {/* Hero */}
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-          {t("hero.eyebrow")}
-        </p>
-        <h1 className="mt-4 text-[clamp(2.25rem,5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-          {t("hero.title")}
-        </h1>
-        <p className="mt-3 text-sm text-muted-foreground">
-          <time dateTime={LAST_UPDATED}>{t("updated")}</time>
-        </p>
-        <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+        {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
           {t.rich("hero.body", {
             strong,
             highlight: (chunks) => <span className="text-foreground">{chunks}</span>,
@@ -247,35 +211,13 @@ export default async function SendLargeFilesPage({
               </li>
             ))}
           </ul>
-        </section>
-
-        <div className="mt-8">
-          <HeroCta downloadLabel={t("hero.ctaPrimary")} />
-        </div>
-        <div className="mt-6">
-          <StoreButtons />
-        </div>
-
-        <LandingArt
-          slug={SLUG}
-          name="hero"
-          locale={locale}
-          alt={t("art.hero.alt")}
-          width={1200}
-          height={630}
-          zoomHint={chrome("imageZoom")}
-          className="mt-10"
-        />
-
-        {/* Why it is still a pain */}
-        <section className="mt-14">
-          <H2 id="why">{t("why.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("why.body", { strong, ...links })}</p>
-        </section>
+        </section><HeroButtons a={a} />
+            <Art a={a} name="hero" height={630} className="mt-10" />
+{/* Why it is still a pain */}
+        <Section a={a} id="why" lead />
 
         {/* The angle: what each headline number actually measures */}
-        <section className="mt-14">
-          <H2 id="headline">{t("headline.title")}</H2>
+        <Section a={a} id="headline">
           <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("headline.intro", { strong, ...links })}</p>
           <ul className="mt-6 space-y-4">
             {HEADLINE_ITEMS.map((i) => (
@@ -286,19 +228,17 @@ export default async function SendLargeFilesPage({
             ))}
           </ul>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{t("headline.note")}</p>
-        </section>
+            </Section>
 
         {/* Pick the route from the file size — the long-tail people search with */}
-        <section className="mt-14">
-          <H2 id="bysize">{t("bysize.title")}</H2>
+        <Section a={a} id="bysize">
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("bysize.intro")}</p>
           <DataTable cols={cols("bysize", 3)} rows={table("bysize", BYSIZE_ROWS, 3)} minWidth={640} />
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("bysize.note")}</p>
-        </section>
+            </Section>
 
         {/* Steps — the how-to, with the real screen */}
-        <section className="mt-14">
-          <H2 id="steps">{t("steps.title")}</H2>
+        <Section a={a} id="steps">
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("steps.intro")}</p>
           <ol className="mt-6 space-y-7">
             {STEP_ITEMS.map((i, n) => (
@@ -314,19 +254,16 @@ export default async function SendLargeFilesPage({
           <div className="mt-6">
             <Shot src="/img/send-large-files/transfer" alt={t("shots.transfer")} width={1280} height={800} />
           </div>
-        </section>
+            </Section>
 
         {/* How big is big */}
-        <section className="mt-14">
-          <H2 id="sizes">{t("sizes.title")}</H2>
+        <Section a={a} id="sizes">
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("sizes.intro")}</p>
           <DataTable cols={cols("sizes", 4)} rows={table("sizes", SIZE_ROWS, 4)} />
-        </section>
+            </Section>
 
         {/* By email, the route most people try first */}
-        <section className="mt-14">
-          <H2 id="email">{t("email.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t("email.body")}</p>
+        <Section a={a} id="email" lead>
           <ul className="mt-6 space-y-4">
             {EMAIL_ITEMS.map((i) => (
               <li key={i} className="flex items-start gap-3 text-[15.5px] leading-relaxed text-muted-foreground">
@@ -336,12 +273,10 @@ export default async function SendLargeFilesPage({
             ))}
           </ul>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{t("email.note")}</p>
-        </section>
+            </Section>
 
         {/* From a phone */}
-        <section className="mt-14">
-          <H2 id="phone">{t("phone.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t("phone.body")}</p>
+        <Section a={a} id="phone" lead>
           <ul className="mt-6 space-y-4">
             {PHONE_ITEMS.map((i) => (
               <li key={i} className="flex items-start gap-3 text-[15.5px] leading-relaxed text-muted-foreground">
@@ -351,29 +286,17 @@ export default async function SendLargeFilesPage({
             ))}
           </ul>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{t.rich("phone.note", { strong, ...links })}</p>
-        </section>
+            </Section>
 
         {/* Free limits compared */}
-        <section className="mt-14">
-          <H2 id="limits">{t("limits.title")}</H2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("limits.intro")}</p>
-          <LandingArt
-            slug={SLUG}
-            name="limits"
-            locale={locale}
-            alt={t("art.limits.alt")}
-            width={1200}
-            height={720}
-            zoomHint={chrome("imageZoom")}
-            className="mt-6"
-          />
-          <DataTable cols={cols("limits", 5)} rows={table("limits", LIMIT_ROWS, 5)} minWidth={720} />
+        <Section a={a} id="limits">
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("limits.intro")}</p><Art a={a} name="limits" height={720} />
+<DataTable cols={cols("limits", 5)} rows={table("limits", LIMIT_ROWS, 5)} minWidth={720} />
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t("limits.note")}</p>
-        </section>
+            </Section>
 
         {/* Privacy: where the file is stored and who can read it */}
-        <section className="mt-14">
-          <H2 id="privacy">{t("privacy.title")}</H2>
+        <Section a={a} id="privacy">
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("privacy.intro")}</p>
           <DataTable cols={cols("privacy", 5)} rows={table("privacy", PRIVACY_ROWS, 5)} minWidth={760} />
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t("privacy.note")}</p>
@@ -385,23 +308,11 @@ export default async function SendLargeFilesPage({
               </div>
             ))}
           </div>
-        </section>
+            </Section>
 
         {/* Speed */}
-        <section className="mt-14">
-          <H2 id="speed">{t("speed.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t("speed.body")}</p>
-          <LandingArt
-            slug={SLUG}
-            name="time"
-            locale={locale}
-            alt={t("art.time.alt")}
-            width={1200}
-            height={620}
-            zoomHint={chrome("imageZoom")}
-            className="mt-6"
-          />
-          <DataTable cols={cols("speed", 3)} rows={table("speed", SPEED_ROWS, 3)} />
+        <Section a={a} id="speed" lead><Art a={a} name="time" height={620} />
+<DataTable cols={cols("speed", 3)} rows={table("speed", SPEED_ROWS, 3)} />
           <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{t("speed.local")}</p>
           {/* The speed article is scheduled; link it only once it is live so
               the page never points at a 404 while it waits. */}
@@ -413,11 +324,10 @@ export default async function SendLargeFilesPage({
               </Link>
             </p>
           )}
-        </section>
+            </Section>
 
         {/* Every way, and when each fits */}
-        <section className="mt-14">
-          <H2 id="ways">{t("ways.title")}</H2>
+        <Section a={a} id="ways">
           <ul className="mt-6 space-y-7">
             {WAY_ITEMS.map((i) => (
               <li key={i} >
@@ -426,11 +336,10 @@ export default async function SendLargeFilesPage({
               </li>
             ))}
           </ul>
-        </section>
+            </Section>
 
         {/* Device-pair guides — the sibling landings, linked with their own anchor text */}
-        <section className="mt-14">
-          <H2 id="devices">{t("devices.title")}</H2>
+        <Section a={a} id="devices">
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {DEVICE_ITEMS.map((i) => (
               <li key={i}>
@@ -445,11 +354,10 @@ export default async function SendLargeFilesPage({
             ))}
           </ul>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("devices.note")}</p>
-        </section>
+            </Section>
 
         {/* When it breaks halfway */}
-        <section className="mt-14">
-          <H2 id="failed">{t("failed.title")}</H2>
+        <Section a={a} id="failed">
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("failed.intro")}</p>
           <ul className="mt-6 space-y-4">
             {FAILED_ITEMS.map((i) => (
@@ -459,11 +367,10 @@ export default async function SendLargeFilesPage({
               </li>
             ))}
           </ul>
-        </section>
+            </Section>
 
         {/* Security */}
-        <section className="mt-14">
-          <H2 id="security">{t("security.title")}</H2>
+        <Section a={a} id="security">
           <ul className="mt-6 space-y-6">
             {SECURITY_ITEMS.map((i) => (
               <li key={i} className="flex items-start gap-3 text-[15px] leading-relaxed text-muted-foreground">
@@ -473,22 +380,11 @@ export default async function SendLargeFilesPage({
                 <span>{t.rich(`security.items.${i}`, links)}</span>
               </li>
             ))}
-          </ul>
-          <LandingArt
-            slug={SLUG}
-            name="link"
-            locale={locale}
-            alt={t("art.link.alt")}
-            width={1200}
-            height={560}
-            zoomHint={chrome("imageZoom")}
-            className="mt-8"
-          />
-        </section>
+          </ul><Art a={a} name="link" height={560} className="mt-8" />
+            </Section>
 
         {/* Tips */}
-        <section className="mt-14">
-          <H2 id="tips">{t("tips.title")}</H2>
+        <Section a={a} id="tips">
           <ul className="mt-6 space-y-6">
             {TIP_ITEMS.map((i) => (
               <li key={i} >
@@ -497,11 +393,10 @@ export default async function SendLargeFilesPage({
               </li>
             ))}
           </ul>
-        </section>
+            </Section>
 
         {/* Comparison */}
-        <section className="mt-14">
-          <H2 id="comparison">{t("comparison.title")}</H2>
+        <Section a={a} id="comparison">
           <div className="mt-5 overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[520px] text-sm">
               <thead>
@@ -524,11 +419,10 @@ export default async function SendLargeFilesPage({
               </tbody>
             </table>
           </div>
-        </section>
+            </Section>
 
         {/* FAQ */}
-        <section className="mt-14">
-          <H2 id="faq">{t("faq.title")}</H2>
+        <Section a={a} id="faq">
           <div className="mt-6 space-y-6">
             {FAQ_ITEMS.map((i) => (
               <details key={i} className="group rounded-xl border border-border bg-card p-5">
@@ -537,17 +431,17 @@ export default async function SendLargeFilesPage({
               </details>
             ))}
           </div>
-        </section>
+            </Section>
 
         {/* CTA */}
         <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
           <h2 className="text-2xl font-semibold tracking-[-0.02em]">{t("cta.title")}</h2>
           <p className="mx-auto mt-2 max-w-md text-muted-foreground">{t("cta.body")}</p>
           <div className="mt-6 flex justify-center">
-            <VButton href="/transfer" size="lg">
+            <Button href="/transfer" size="lg">
               {t("hero.ctaSecondaryTransfer")}
               <ArrowRight className="h-4 w-4" />
-            </VButton>
+            </Button>
           </div>
           <div className="mt-5 flex justify-center">
             <StoreButtons />

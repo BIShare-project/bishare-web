@@ -1,7 +1,7 @@
 import { getTranslations } from "@/i18n/translate";
 import { Home, Send } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 
 /**
  * 404 in the Geist system: monochrome, hairline-bordered shell, a giant
@@ -30,14 +30,14 @@ export default async function NotFound() {
             {t("notFound.body")}
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <VButton href="/" size="md">
+            <Button href="/" size="md">
               <Home className="h-4 w-4" />
               {t("notFound.backHome")}
-            </VButton>
-            <VButton href="/transfer" variant="secondary" size="md">
+            </Button>
+            <Button href="/transfer" variant="secondary" size="md">
               <Send className="h-4 w-4" />
               {t("notFound.sendFile")}
-            </VButton>
+            </Button>
           </div>
         </div>
       </main>

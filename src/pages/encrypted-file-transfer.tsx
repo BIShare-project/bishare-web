@@ -1,19 +1,7 @@
-import type { Child } from "@/jsx";
-import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
-import { buildAlternates } from "@/i18n/metadata";
-import { sharedOpenGraph, pageUrl } from "@/lib/og";
-import { SiteHeader } from "@/ui/header";
-import { SiteFooter } from "@/ui/footer";
-import { RelatedLinks } from "@/ui/related-links";
-import { VButton } from "@/ui/vbutton";
-import { HeroCta } from "@/ui/hero-cta";
-import { StoreButtons } from "@/ui/store-buttons";
-import { ArticleToc } from "@/ui/article-toc";
+import { type Article, articleMetadata, faqPageLd, webPageLd, methodsLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, Methods, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
+import { pageUrl } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { LandingArt } from "@/ui/landing-art";
-import { ImageLightbox } from "@/ui/image-lightbox";
-import { ArrowRight, Check, X } from "@/ui/icons";
 import { guideLinks } from "@/ui/guide-links";
 
 /**
@@ -63,69 +51,7 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
   { id: "r5", v: [true, false, true, true, true, true] },
 ];
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: NS });
-  const title = t("meta.title");
-  const description = t("meta.description");
-  return {
-    title: { absolute: title },
-    description,
-    alternates: buildAlternates(locale, SLUG),
-    ...sharedOpenGraph(title, description, SLUG, locale),
-  };
-}
-
-function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) {
-  return ok ? (
-    <Check className="mx-auto h-4 w-4 text-success" aria-label={yes} />
-  ) : (
-    <X className="mx-auto h-4 w-4 text-muted-foreground/50" aria-label={no} />
-  );
-}
-
-function H2({ id, children }: { id: string; children: Child }) {
-  return (
-    <h2 id={id} className="scroll-mt-28 text-2xl font-semibold tracking-[-0.02em]">
-      {children}
-    </h2>
-  );
-}
-
-const strong = (chunks: Child) => (
-  <strong className="text-foreground">{chunks}</strong>
-);
-const highlight = (chunks: Child) => (
-  <span className="text-foreground">{chunks}</span>
-);
-
-/** Prose list section — a heading and a paragraph per item. */
-function ProseList({
-  items,
-  head,
-  body,
-}: {
-  items: readonly string[];
-  head: (i: string) => string;
-  body: (i: string) => Child;
-}) {
-  return (
-    <div className="mt-6 space-y-7">
-      {items.map((i) => (
-        <div key={i}>
-          <h3 className="font-semibold">{head(i)}</h3>
-          <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">
-            {body(i)}
-          </p>
-        </div>
-      ))}
-    </div>
-  );
-}
+export const generateMetadata = articleMetadata(NS, SLUG);
 
 export default async function EncryptedTransferPage({
   params,
@@ -138,73 +64,16 @@ export default async function EncryptedTransferPage({
   const chrome = await getTranslations("chrome");
 
   const tags = { strong, highlight, ...links };
-  const yes = t("a11y.yes");
-  const no = t("a11y.no");
+  const a: Article = { t, chrome, tags, locale, slug: SLUG };
 
-  const selfUrl = pageUrl(SLUG, locale);
+  const listLd = methodsLd(a, ALT_ITEMS);
 
-  const listLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: t("methods.title"),
-    itemListElement: ALT_ITEMS.map((i, n) => ({
-      "@type": "ListItem",
-      position: n + 1,
-      name: t(`methods.items.${i}.name`),
-      description: t(`methods.items.${i}.tag`),
-      // Each entry needs an address of its own: the anchor on its card below.
-      url: `${selfUrl}#item-${n + 1}`,
-    })),
-  };
+  const faqLd = faqPageLd(t, FAQ_ITEMS);
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((i) => ({
-      "@type": "Question",
-      name: t(`faq.items.${i}.q`),
-      acceptedAnswer: { "@type": "Answer", text: t(`faq.items.${i}.a`) },
-    })),
-  };
+  const pageLd = webPageLd(a, LAST_UPDATED);
 
-  const pageLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: t("meta.title"),
-    description: t("meta.description"),
-    url: selfUrl,
-    dateModified: LAST_UPDATED,
-    isPartOf: { "@type": "WebSite", name: "BIShare", url: "https://bishare.app" },
-  };
-
-  return (
-    <div className="min-h-screen bg-background">
-      {[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Encrypted file transfer")].map(
-        (ld, i) => (
-          <script
-            key={i}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(ld).replace(/</g, "\\u003c"),
-            }}
-          />
-        )
-      )}
-      <SiteHeader />
-
-      <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
-        <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
-          <article className="min-w-0 lg:max-w-3xl">
-            {/* Hero */}
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-              {t("hero.eyebrow")}
-            </p>
-            <h1 className="mt-4 text-[clamp(2.25rem,5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-              {t("hero.title")}
-            </h1>
-            <p className="mt-3 text-sm text-muted-foreground">
-              <time dateTime={LAST_UPDATED}>{t("updated")}</time>
-            </p>
+  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Encrypted file transfer")]}>
+            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               {t.rich("hero.body", { strong, highlight, ...links })}
             </p>
@@ -212,330 +81,54 @@ export default async function EncryptedTransferPage({
               {t("disclosure")}
             </p>
 
-            {/* Quick answer */}
-            <section
-              className="mt-8 rounded-xl border border-border bg-card p-5 sm:p-6"
-              aria-labelledby="quick-answer"
-            >
-              <h2
-                id="quick-answer"
-                className="scroll-mt-28 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-              >
-                {t("quick.title")}
-              </h2>
-              <ul className="mt-3 space-y-2.5">
-                {QUICK_ITEMS.map((i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[15px] leading-relaxed text-muted-foreground"
-                  >
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue"
-                      aria-hidden
-                    />
-                    <span>{t.rich(`quick.items.${i}`, { strong, ...links })}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            <div className="mt-8">
-              <HeroCta downloadLabel={t("hero.ctaPrimary")} />
-            </div>
-            <div className="mt-6">
-              <StoreButtons />
-            </div>
-
-            <LandingArt
-              slug={SLUG}
-              name="hero"
-              locale={locale}
-              alt={t("art.hero.alt")}
-              width={1200}
-              height={630}
-              zoomHint={chrome("imageZoom")}
-              className="mt-8"
-            />
-
-            {/* Three kinds of encryption */}
-            <section className="mt-14">
-              <H2 id="levels">{t("levels.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("levels.body", tags)}
-              </p>
-              <LandingArt
-                slug={SLUG}
-                name="levels"
-                locale={locale}
-                alt={t("art.levels.alt")}
-                width={1200}
-                height={600}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-              <ProseList
-                items={LEVELS_ITEMS}
-                head={(i) => t(`levels.items.${i}.h`)}
-                body={(i) => t.rich(`levels.items.${i}.b`, tags)}
-              />
-            </section>
+            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
+            <Art a={a} name="hero" height={630} className="mt-8" />
+{/* Three kinds of encryption */}
+            <Section a={a} id="levels" lead><Art a={a} name="levels" height={600} />
+<ProseList a={a} name="levels" items={LEVELS_ITEMS} />
+            </Section>
 
             {/* How to tell */}
-            <section className="mt-14">
-              <H2 id="test">{t("test.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("test.body", tags)}
-              </p>
-              <LandingArt
-                slug={SLUG}
-                name="fragment"
-                locale={locale}
-                alt={t("art.fragment.alt")}
-                width={1200}
-                height={600}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-              <ProseList
-                items={TEST_ITEMS}
-                head={(i) => t(`test.items.${i}.h`)}
-                body={(i) => t.rich(`test.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="test" lead><Art a={a} name="fragment" height={600} />
+<ProseList a={a} name="test" items={TEST_ITEMS} />
+            </Section>
 
             {/* The methods */}
-            <section className="mt-14">
-              <H2 id="methods">{t("methods.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("methods.body", tags)}
-              </p>
-              <div className="mt-6 space-y-8">
-                {ALT_ITEMS.map((i, n) => (
-                  <div
-                    key={i}
-                    id={`item-${n + 1}`}
-                    className="scroll-mt-28 border-b border-border pb-8 last:border-0 last:pb-0"
-                  >
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-mono text-sm font-semibold text-accent-blue">
-                        {String(n + 1).padStart(2, "0")}
-                      </span>
-                      <div className="min-w-0">
-                        <h3 className="text-lg font-semibold">
-                          {t(`methods.items.${i}.name`)}
-                        </h3>
-                        <p className="mt-0.5 text-sm font-medium text-accent-blue">
-                          {t(`methods.items.${i}.tag`)}
-                        </p>
-                        <p className="mt-3 font-mono text-[12px] leading-relaxed text-muted-foreground">
-                          {t(`methods.items.${i}.facts`)}
-                        </p>
-                        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                          {t.rich(`methods.items.${i}.body`, tags)}
-                        </p>
-                        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                          <span className="font-medium text-foreground">
-                            {t("methods.consLabel")}
-                          </span>{" "}
-                          {t(`methods.items.${i}.cons`)}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
+            <Section a={a} id="methods" lead><Methods a={a} items={ALT_ITEMS} />
+            </Section>
 
             {/* Comparison table */}
-            <section className="mt-14">
-              <H2 id="glance">{t("table.title")}</H2>
-              <div className="mt-5 overflow-x-auto rounded-xl border border-border">
-                <table className="w-full min-w-[720px] text-sm">
-                  <thead>
-                    <tr className="border-b border-border bg-background-raised text-muted-foreground">
-                      <th className="px-4 py-3 text-left font-medium">
-                        {t("table.cols.feature")}
-                      </th>
-                      {APPS.map((a) => (
-                        <th
-                          key={a}
-                          className={`px-4 py-3 font-medium ${
-                            a === "bishare" ? "font-semibold text-foreground" : ""
-                          }`}
-                        >
-                          {t(`table.cols.${a}`)}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {ROWS.map((r) => (
-                      <tr
-                        key={r.id}
-                        className="border-b border-border last:border-0"
-                      >
-                        <td className="px-4 py-3 text-foreground">
-                          {t(`table.rows.${r.id}`)}
-                        </td>
-                        {r.v.map((ok, n) => (
-                          <td key={n} className="px-4 py-3">
-                            <Cell ok={ok} yes={yes} no={no} />
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                {t("table.note")}
-              </p>
-            </section>
+            <Section a={a} id="glance" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[720px]" />
+            </Section>
 
             {/* What stays visible */}
-            <section className="mt-14">
-              <H2 id="metadata">{t("metadata.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("metadata.body", tags)}
-              </p>
-              <LandingArt
-                slug={SLUG}
-                name="visible"
-                locale={locale}
-                alt={t("art.visible.alt")}
-                width={1200}
-                height={600}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-              <ProseList
-                items={METADATA_ITEMS}
-                head={(i) => t(`metadata.items.${i}.h`)}
-                body={(i) => t.rich(`metadata.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="metadata" lead><Art a={a} name="visible" height={600} />
+<ProseList a={a} name="metadata" items={METADATA_ITEMS} />
+            </Section>
 
             {/* BIShare in detail */}
-            <section className="mt-14">
-              <H2 id="bishare">{t("bishare.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("bishare.body", tags)}
-              </p>
-              <ProseList
-                items={BISHARE_ITEMS}
-                head={(i) => t(`bishare.items.${i}.h`)}
-                body={(i) => t.rich(`bishare.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="bishare" lead><ProseList a={a} name="bishare" items={BISHARE_ITEMS} />
+            </Section>
 
             {/* Sharing the secret */}
-            <section className="mt-14">
-              <H2 id="password">{t("password.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("password.body", tags)}
-              </p>
-              <ProseList
-                items={PASSWORD_ITEMS}
-                head={(i) => t(`password.items.${i}.h`)}
-                body={(i) => t.rich(`password.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="password" lead><ProseList a={a} name="password" items={PASSWORD_ITEMS} />
+            </Section>
 
             {/* Sharing with a group, or for weeks */}
-            <section className="mt-14">
-              <H2 id="sharing">{t("sharing.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("sharing.body")}
-              </p>
-              <ProseList
-                items={SHARING_ITEMS}
-                head={(i) => t(`sharing.items.${i}.h`)}
-                body={(i) => t.rich(`sharing.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="sharing" lead><ProseList a={a} name="sharing" items={SHARING_ITEMS} />
+            </Section>
 
             {/* Pick by situation */}
-            <section className="mt-14">
-              <H2 id="choose">{t("choose.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("choose.body", tags)}
-              </p>
-              <ProseList
-                items={CHOOSE_ITEMS}
-                head={(i) => t(`choose.items.${i}.h`)}
-                body={(i) => t.rich(`choose.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="choose" lead><ProseList a={a} name="choose" items={CHOOSE_ITEMS} />
+            </Section>
 
             {/* Mistakes */}
-            <section className="mt-14">
-              <H2 id="mistakes">{t("mistakes.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("mistakes.body", tags)}
-              </p>
-              <ProseList
-                items={MISTAKES_ITEMS}
-                head={(i) => t(`mistakes.items.${i}.h`)}
-                body={(i) => t.rich(`mistakes.items.${i}.b`, tags)}
-              />
-            </section>
+            <Section a={a} id="mistakes" lead><ProseList a={a} name="mistakes" items={MISTAKES_ITEMS} />
+            </Section>
 
             {/* FAQ */}
-            <section className="mt-14">
-              <H2 id="faq">{t("faq.title")}</H2>
-              <div className="mt-5 space-y-3">
-                {FAQ_ITEMS.map((i) => (
-                  <details
-                    key={i}
-                    className="group rounded-xl border border-border bg-card p-5"
-                  >
-                    <summary className="cursor-pointer list-none font-medium marker:content-['']">
-                      {t(`faq.items.${i}.q`)}
-                    </summary>
-                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                      {t(`faq.items.${i}.a`)}
-                    </p>
-                  </details>
-                ))}
-              </div>
-            </section>
+            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
+            </Section>
 
-            {/* CTA */}
-            <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
-              <h2 className="text-2xl font-semibold tracking-[-0.02em]">
-                {t("cta.title")}
-              </h2>
-              <p className="mx-auto mt-2 max-w-md text-muted-foreground">
-                {t("cta.body")}
-              </p>
-              <div className="mt-6 flex justify-center">
-                <VButton href="/download" size="lg">
-                  {t("cta.download")}
-                  <ArrowRight className="h-4 w-4" />
-                </VButton>
-              </div>
-              <div className="mt-5 flex justify-center">
-                <StoreButtons />
-              </div>
-            </section>
-
-            <RelatedLinks current={SLUG} />
-          </article>
-
-          {/* Sticky table of contents — desktop only; lists the H2 ids above. */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-24">
-              <ArticleToc
-                selector="main article h2[id]"
-                label={chrome("toc.onThisPage")}
-              />
-            </div>
-          </aside>
-        </div>
-      </main>
-
-      <SiteFooter />
-      <ImageLightbox closeLabel={chrome("imageClose")} />
-    </div>
-  );
+            {/* CTA */}<Cta a={a} /></ArticlePage>);
 }

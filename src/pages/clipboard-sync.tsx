@@ -1,19 +1,17 @@
 import type { Child } from "@/jsx";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
+import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, Section, strong, highlight } from "@/ui/article";
+import { Button } from "@/ui/button";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { LandingArt } from "@/ui/landing-art";
 import { ImageLightbox } from "@/ui/image-lightbox";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { ArticleToc } from "@/ui/article-toc";
 import { RelatedLinks } from "@/ui/related-links";
-import { VButton } from "@/ui/vbutton";
-import { HeroCta } from "@/ui/hero-cta";
 import { StoreButtons } from "@/ui/store-buttons";
-import { Link } from "@/ui/link";
 
 const SLUG = "/clipboard-sync";
 import { ArrowRight } from "@/ui/icons";
@@ -54,7 +52,6 @@ export async function generateMetadata({
   };
 }
 
-
 const QUICK_ITEMS = ["0", "1", "2", "3"] as const;
 const LOYALTY_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const TABLE_ROWS = ["0", "1", "2", "3", "4", "5"] as const;
@@ -66,18 +63,6 @@ const FIX_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const DAILY_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const ALT_ITEMS = ["0", "1", "2", "3", "4"] as const;
 const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"] as const;
-
-function H2({ id, children }: { id: string; children: Child }) {
-  return (
-    <h2 id={id} className="scroll-mt-28 text-2xl font-semibold tracking-[-0.02em]">
-      {children}
-    </h2>
-  );
-}
-
-const strong = (chunks: Child) => (
-  <strong className="text-foreground">{chunks}</strong>
-);
 
 /** A plain data table; the first column is the row label. */
 function DataTable({ cols, rows, minWidth = 560 }: { cols: string[]; rows: string[][]; minWidth?: number }) {
@@ -156,22 +141,17 @@ export default async function ClipboardSyncPage({
   const { locale } = await params;
   const t = await getTranslations("clipboardSync");
   const links = guideLinks();
+  const tags = { strong, highlight, ...links };
   const chrome = await getTranslations("chrome");
+  const a: Article = { t, chrome, tags, locale, slug: SLUG };
   const tocLabel = chrome("toc.onThisPage");
   const rich = (key: string) => t.rich(key, { strong, ...links });
   const table = (ns: string, rows: readonly string[], n: number) =>
     rows.map((r) => Array.from({ length: n }, (_, j) => t(`${ns}.rows.${r}.${j}`)));
   const cols = (ns: string, n: number) => Array.from({ length: n }, (_, j) => t(`${ns}.cols.${j}`));
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((i) => ({
-      "@type": "Question",
-      name: t(`faq.items.${i}.q`),
-      acceptedAnswer: { "@type": "Answer", text: t(`faq.items.${i}.a`) },
-    })),
-  };
+  const faqLd = faqPageLd(t, FAQ_ITEMS);
+
   const howToLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -207,17 +187,8 @@ export default async function ClipboardSyncPage({
       <SiteHeader />
       <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
         <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
-        <article className="min-w-0 lg:max-w-3xl">
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-          {t("hero.eyebrow")}
-        </p>
-        <h1 className="mt-4 text-[clamp(2.25rem,5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-          {t("hero.title")}
-        </h1>
-        <p className="mt-3 text-sm text-muted-foreground">
-          <time dateTime={LAST_UPDATED}>{t("updated")}</time>
-        </p>
-        <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{rich("hero.body")}</p>
+        <article className="min-w-0 lg:max-w-3xl"><ArticleHead a={a} updated={LAST_UPDATED} />
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{rich("hero.body")}</p>
 
         <section className="mt-8 rounded-xl border border-border bg-card p-5 sm:p-6" aria-labelledby="quick-answer">
           <h2 id="quick-answer" className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
@@ -231,48 +202,32 @@ export default async function ClipboardSyncPage({
               </li>
             ))}
           </ul>
-        </section>
-
-        <div className="mt-8">
-          <HeroCta downloadLabel={t("hero.ctaPrimary")} />
-        </div>
-        <div className="mt-6">
-          <StoreButtons />
-        </div>
-
-        <LandingArt slug={SLUG} name="hero" locale={locale} alt={t("art.hero.alt")} width={1200} height={630} zoomHint={chrome("imageZoom")} className="mt-10" />
-
-        {/* The angle: every built-in sync is gated on an account */}
-        <section className="mt-14">
-          <H2 id="loyalty">{t("loyalty.title")}</H2>
+        </section><HeroButtons a={a} />
+            <Art a={a} name="hero" height={630} className="mt-10" />
+{/* The angle: every built-in sync is gated on an account */}
+        <Section a={a} id="loyalty">
           <p className="mt-4 leading-relaxed text-muted-foreground">{rich("loyalty.intro")}</p>
           <Bullets items={LOYALTY_ITEMS} read={(i) => rich(`loyalty.items.${i}`)} />
-          <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{t("loyalty.note")}</p>
-          <LandingArt slug={SLUG} name="gates" locale={locale} alt={t("art.gates.alt")} width={1200} height={640} zoomHint={chrome("imageZoom")} className="mt-8" />
-        </section>
+          <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{t("loyalty.note")}</p><Art a={a} name="gates" height={640} className="mt-8" />
+            </Section>
 
-        <section className="mt-14">
-          <H2 id="table">{t("table.title")}</H2>
+        <Section a={a} id="table">
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t("table.intro")}</p>
           <DataTable cols={cols("table", 5)} rows={table("table", TABLE_ROWS, 5)} minWidth={760} />
-          <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t("table.note")}</p>
-          <LandingArt slug={SLUG} name="reach" locale={locale} alt={t("art.reach.alt")} width={1200} height={560} zoomHint={chrome("imageZoom")} className="mt-8" />
-        </section>
+          <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t("table.note")}</p><Art a={a} name="reach" height={560} className="mt-8" />
+            </Section>
 
-        <section className="mt-14">
-          <H2 id="setup">{t("setup.title")}</H2>
+        <Section a={a} id="setup">
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("setup.intro")}</p>
           <HeadedList items={SETUP_ITEMS} numbered read={(i, k) => t(`setup.items.${i}.${k}`)} />
-        </section>
+            </Section>
 
-        <section className="mt-14">
-          <H2 id="what">{t("what.title")}</H2>
+        <Section a={a} id="what">
           <Bullets items={WHAT_ITEMS} read={(i) => rich(`what.items.${i}`)} />
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{rich("what.note")}</p>
-        </section>
+            </Section>
 
-        <section className="mt-14">
-          <H2 id="pairs">{t("pairs.title")}</H2>
+        <Section a={a} id="pairs">
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("pairs.intro")}</p>
           <ul className="mt-6 space-y-7">
             {PAIR_ITEMS.map((i) => (
@@ -282,11 +237,9 @@ export default async function ClipboardSyncPage({
               </li>
             ))}
           </ul>
-        </section>
+            </Section>
 
-        <section className="mt-14">
-          <H2 id="privacy">{t("privacy.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t("privacy.body")}</p>
+        <Section a={a} id="privacy" lead>
           <Bullets items={PRIVACY_ITEMS} read={(i) => rich(`privacy.items.${i}`)} />
           {/* Said in its own box, not buried in a bullet: the traffic on the
               network is not encrypted yet, and a reader would otherwise take
@@ -295,23 +248,20 @@ export default async function ClipboardSyncPage({
             {rich("privacy.warning")}
           </p>
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{rich("privacy.note")}</p>
-        </section>
+            </Section>
 
-        <section className="mt-14">
-          <H2 id="fixes">{t("fixes.title")}</H2>
+        <Section a={a} id="fixes">
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("fixes.intro")}</p>
           <Bullets items={FIX_ITEMS} read={(i) => rich(`fixes.items.${i}`)} />
           <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">{rich("fixes.note")}</p>
-        </section>
+            </Section>
 
-        <section className="mt-14">
-          <H2 id="daily">{t("daily.title")}</H2>
+        <Section a={a} id="daily">
           <p className="mt-3 leading-relaxed text-muted-foreground">{t("daily.intro")}</p>
           <HeadedList items={DAILY_ITEMS} read={(i, k) => t(`daily.items.${i}.${k}`)} />
-        </section>
+            </Section>
 
-        <section className="mt-14">
-          <H2 id="alternatives">{t("alternatives.title")}</H2>
+        <Section a={a} id="alternatives">
           <ul className="mt-6 space-y-7">
             {ALT_ITEMS.map((i) => (
               <li key={i}>
@@ -320,10 +270,9 @@ export default async function ClipboardSyncPage({
               </li>
             ))}
           </ul>
-        </section>
+            </Section>
 
-        <section className="mt-14">
-          <H2 id="faq">{t("faq.title")}</H2>
+        <Section a={a} id="faq">
           <div className="mt-6 space-y-6">
             {FAQ_ITEMS.map((i) => (
               <details key={i} className="group rounded-xl border border-border bg-card p-5">
@@ -332,16 +281,16 @@ export default async function ClipboardSyncPage({
               </details>
             ))}
           </div>
-        </section>
+            </Section>
 
         <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
           <h2 className="text-2xl font-semibold tracking-[-0.02em]">{t("cta.title")}</h2>
           <p className="mx-auto mt-2 max-w-md text-muted-foreground">{t("cta.body")}</p>
           <div className="mt-6 flex justify-center">
-            <VButton href="/download" size="lg">
+            <Button href="/download" size="lg">
               {t("hero.ctaPrimary")}
               <ArrowRight className="h-4 w-4" />
-            </VButton>
+            </Button>
           </div>
           <div className="mt-5 flex justify-center">
             <StoreButtons />

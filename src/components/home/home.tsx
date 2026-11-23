@@ -15,7 +15,7 @@ import {
   Zap,
 } from "@/ui/icons";
 import { cn } from "@/lib/utils";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import { StoreButtons } from "@/ui/store-buttons";
 import { QRDisplay } from "@/ui/qr-display";
 import { LiveWidget } from "@/components/home/live-widget";
@@ -105,13 +105,13 @@ async function Hero() {
           className="hero-rise mt-9 flex flex-wrap items-center justify-center gap-3"
           style={rise(0.18)}
         >
-          <VButton href="/download" size="lg">
+          <Button href="/download" size="lg">
             {t("hero.ctaPrimary")}
             <ArrowRight className="h-4 w-4" />
-          </VButton>
-          <VButton href="/transfer" size="lg" variant="secondary">
+          </Button>
+          <Button href="/transfer" size="lg" variant="secondary">
             {t("hero.ctaSecondary")}
-          </VButton>
+          </Button>
         </div>
         <p
           className="hero-rise mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
@@ -354,10 +354,10 @@ async function DownloadCTA() {
               ))}
             </ul>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <VButton href="/download" size="lg">
+              <Button href="/download" size="lg">
                 {t("cta.download")}
                 <ArrowRight className="h-4 w-4" />
-              </VButton>
+              </Button>
             </div>
             <div className="mt-6">
               <StoreButtons />

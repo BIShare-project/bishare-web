@@ -10,7 +10,7 @@ import { FileTypeTile } from "@/components/file-icon";
 import { FlowShell } from "@/components/flow-shell";
 import { FlowStatusCard } from "@/components/flow-cards";
 import { TagBadge } from "@/ui/status-pill";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import { CheckCircle2, CloudOff, FileX, Flame, Hourglass } from "@/ui/icons";
 import { DownloadTransferButton, ExpiryCountdown } from "./transfer-actions";
 import { StreamPlayer } from "./stream-player";
@@ -92,9 +92,9 @@ export default async function TransferPage({ params }: Props) {
             message={tr("transfer.rateLimit.message")}
             tone="primary"
           >
-            <VButton href={`/transfer/${code}`} variant="secondary" size="md">
+            <Button href={`/transfer/${code}`} variant="secondary" size="md">
               {tr("transfer.rateLimit.action")}
-            </VButton>
+            </Button>
           </FlowStatusCard>
         ) : isServerIssue ? (
           <FlowStatusCard
@@ -102,9 +102,9 @@ export default async function TransferPage({ params }: Props) {
             title={tr("transfer.server.title")}
             message={tr("transfer.server.message")}
           >
-            <VButton href={`/transfer/${code}`} variant="secondary" size="md">
+            <Button href={`/transfer/${code}`} variant="secondary" size="md">
               {tr("transfer.server.action")}
-            </VButton>
+            </Button>
           </FlowStatusCard>
         ) : (
           <FlowStatusCard
@@ -112,9 +112,9 @@ export default async function TransferPage({ params }: Props) {
             title={tr("transfer.notFound.title")}
             message={tr("transfer.notFound.message")}
           >
-            <VButton href="/transfer" variant="secondary" size="md">
+            <Button href="/transfer" variant="secondary" size="md">
               {tr("transfer.notFound.action")}
-            </VButton>
+            </Button>
           </FlowStatusCard>
         )}
         <AppPromo />
@@ -138,9 +138,9 @@ export default async function TransferPage({ params }: Props) {
           title={tr("transfer.alreadyDownloaded.title")}
           message={tr("transfer.alreadyDownloaded.message")}
         >
-          <VButton href="/transfer" variant="secondary" size="md">
+          <Button href="/transfer" variant="secondary" size="md">
             {tr("transfer.alreadyDownloaded.action")}
-          </VButton>
+          </Button>
         </FlowStatusCard>
         <ReceiveOpen code={t.code} />
         <AppPromo />

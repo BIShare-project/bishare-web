@@ -9,7 +9,7 @@ import {
   playStoreUrl,
   StoreButtons,
 } from "@/ui/store-buttons";
-import { VButton, buttonClass } from "@/ui/vbutton";
+import { Button, buttonClass } from "@/ui/button";
 import { getPathname } from "@/ui/link";
 import { sendBackHref } from "@/lib/loop";
 import { detectMobileOS } from "@/lib/pwa-install";
@@ -83,13 +83,13 @@ export function AppPromo({ sendCta = true, campaign }: { sendCta?: boolean; camp
              upload, which the browser cannot do. Sending from the browser
              stays one tap below. */
           <div className="mt-6 flex flex-col items-center gap-3">
-            <VButton
+            <Button
               href={android ? playStoreUrl(phoneCampaign) : appStoreUrl(phoneCampaign)}
               size="lg"
             >
               <Glyph />
               {tc("nativeApp.button", { store: android ? "Google Play" : "App Store" })}
-            </VButton>
+            </Button>
             {sendCta && (
               <SendBack variant="secondary" size="md">
                 {t("sendCta")}

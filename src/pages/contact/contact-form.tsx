@@ -15,7 +15,7 @@ import {
   Send,
 } from "@/ui/icons";
 import { GlowButton } from "@/ui/glow-button";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import { Input } from "@/ui/tool-input";
 import { cn } from "@/lib/utils";
 
@@ -158,9 +158,9 @@ export function ContactForm() {
         <p className="mx-auto mb-8 max-w-sm leading-relaxed text-muted-foreground">
           {t("form.successBody")}
         </p>
-        <VButton variant="secondary" onClick={() => setStatus("idle")}>
+        <Button variant="secondary" onClick={() => setStatus("idle")}>
           {t("form.successAnother")}
-        </VButton>
+        </Button>
       </div>
     );
   }

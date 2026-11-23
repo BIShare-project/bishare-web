@@ -12,7 +12,7 @@ import { buildAlternates } from "@/i18n/metadata";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { Section } from "@/ui/section";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import { WebQuickCta } from "@/ui/web-quick-cta";
 import { RelatedLinks } from "@/ui/related-links";
 import { sharedOpenGraph } from "@/lib/og";
@@ -132,9 +132,9 @@ export default async function PricingPage({
           </div>
 
           <div className="mt-10 flex flex-col items-center gap-3">
-            <VButton href="/download" size="lg">
+            <Button href="/download" size="lg">
               {t("cta")}
-            </VButton>
+            </Button>
             <p className="max-w-md text-center text-xs text-muted-foreground">
               {t("ctaNote")}
             </p>

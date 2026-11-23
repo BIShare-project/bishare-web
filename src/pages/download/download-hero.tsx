@@ -4,7 +4,7 @@ import { useEffect, useState, type Child } from "@/jsx";
 import { useTranslations } from "@/i18n/translate";
 import { ArrowDown, HardDriveDownload } from "@/ui/icons";
 import { cn } from "@/lib/utils";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import {
   appStoreUrl,
   playStoreUrl,
@@ -15,7 +15,7 @@ import {
 } from "@/ui/store-buttons";
 import { RELEASES_URL } from "./availability";
 
-/** Secondary VButton classes for plain anchors (mailto/hash) VButton can't route. */
+/** A secondary button's classes, for anchors Button does not route (mailto, hash). */
 const SECONDARY_ANCHOR =
   "inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-strong bg-transparent px-5 text-[15px] font-medium tracking-[-0.01em] text-foreground outline-none transition-colors hover:border-foreground/25 hover:bg-secondary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
@@ -62,10 +62,10 @@ export function DownloadHero({ className }: { className?: string }) {
   if (os === "ios" || os === "macos") {
     ctas = (
       <>
-        <VButton href={appStoreUrl("download")} variant="primary" size="lg">
+        <Button href={appStoreUrl("download")} variant="primary" size="lg">
           <AppleGlyph />
           {t("detected.appStoreCta")}
-        </VButton>
+        </Button>
         <a href="#platforms" className={SECONDARY_ANCHOR}>
           {t("detected.allPlatforms")}
           <ArrowDown className="h-4 w-4" />
@@ -76,10 +76,10 @@ export function DownloadHero({ className }: { className?: string }) {
   } else if (os === "windows") {
     ctas = (
       <>
-        <VButton href={MICROSOFT_STORE_URL} variant="primary" size="lg">
+        <Button href={MICROSOFT_STORE_URL} variant="primary" size="lg">
           <MicrosoftGlyph />
           {t("detected.microsoftStoreCta")}
-        </VButton>
+        </Button>
         <a href="#platforms" className={SECONDARY_ANCHOR}>
           {t("detected.allPlatforms")}
           <ArrowDown className="h-4 w-4" />
@@ -90,10 +90,10 @@ export function DownloadHero({ className }: { className?: string }) {
   } else if (os === "linux") {
     ctas = (
       <>
-        <VButton href={RELEASES_URL} variant="primary" size="lg">
+        <Button href={RELEASES_URL} variant="primary" size="lg">
           <HardDriveDownload className="h-4 w-4" />
           {t("detected.linuxCta")}
-        </VButton>
+        </Button>
         <a href="#platforms" className={SECONDARY_ANCHOR}>
           {t("detected.allPlatforms")}
           <ArrowDown className="h-4 w-4" />
@@ -104,10 +104,10 @@ export function DownloadHero({ className }: { className?: string }) {
   } else {
     ctas = (
       <>
-        <VButton href={playStoreUrl("download")} variant="primary" size="lg">
+        <Button href={playStoreUrl("download")} variant="primary" size="lg">
           <PlayGlyph />
           {t("detected.playCta")}
-        </VButton>
+        </Button>
         <a href="#platforms" className={SECONDARY_ANCHOR}>
           {t("detected.allPlatforms")}
           <ArrowDown className="h-4 w-4" />

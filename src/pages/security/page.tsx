@@ -14,7 +14,7 @@ import { GridBackdrop } from "@/ui/grid-backdrop";
 import { IconTile, MetricBar, MockSurface } from "@/ui/mock-surface";
 import { StatusPill, TagBadge } from "@/ui/status-pill";
 import { Beam } from "@/ui/beam";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import { WebQuickCta } from "@/ui/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { E2EFlowDiagram } from "./e2e-flow";
@@ -464,10 +464,10 @@ export default async function SecurityPage({
                 {t("disclosure.body")}
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <VButton href={`mailto:${SUPPORT_EMAIL}`} size="lg">
+                <Button href={`mailto:${SUPPORT_EMAIL}`} size="lg">
                   <Mail className="h-4 w-4" />
                   {SUPPORT_EMAIL}
-                </VButton>
+                </Button>
                 <Link
                   href="/privacy"
                   className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"

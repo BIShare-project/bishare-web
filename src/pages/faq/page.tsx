@@ -5,7 +5,7 @@ import { Link } from "@/ui/link";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { Section } from "@/ui/section";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import { WebQuickCta } from "@/ui/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { FAQ_GROUPS } from "./faq-data";
@@ -213,10 +213,10 @@ export default async function FaqPage({
             </p>
             <div className="mt-10 flex flex-col items-center gap-6">
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <VButton size="lg" href="/contact">
+                <Button size="lg" href="/contact">
                   {t("cta.contact")}
                   <ArrowRight className="h-4 w-4" />
-                </VButton>
+                </Button>
                 <a
                   href={`mailto:${SUPPORT_EMAIL}`}
                   className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"

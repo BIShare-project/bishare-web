@@ -1,19 +1,14 @@
-import type { Child } from "@/jsx";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
+import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, Section, QuickAnswer, Cell, Cta, strong, highlight } from "@/ui/article";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { LandingArt } from "@/ui/landing-art";
 import { ImageLightbox } from "@/ui/image-lightbox";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { ArticleToc } from "@/ui/article-toc";
 import { RelatedLinks } from "@/ui/related-links";
-import { VButton } from "@/ui/vbutton";
-import { HeroCta } from "@/ui/hero-cta";
-import { StoreButtons } from "@/ui/store-buttons";
-import { ArrowRight, Check, X } from "@/ui/icons";
 import { guideLinks } from "@/ui/guide-links";
 import { YouTubeFacade } from "@/ui/youtube-facade";
 
@@ -106,26 +101,6 @@ const APP_URLS: Record<string, string> = {
   "9": "https://www.ushareit.com",
 };
 
-function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) {
-  return ok ? (
-    <Check className="mx-auto h-4 w-4 text-success" aria-label={yes} />
-  ) : (
-    <X className="mx-auto h-4 w-4 text-muted-foreground/50" aria-label={no} />
-  );
-}
-
-function H2({ id, children }: { id: string; children: Child }) {
-  return (
-    <h2 id={id} className="scroll-mt-28 text-2xl font-semibold tracking-[-0.02em]">
-      {children}
-    </h2>
-  );
-}
-
-const strong = (chunks: Child) => (
-  <strong className="text-foreground">{chunks}</strong>
-);
-
 export default async function BestFileSharingAppPage({
   params,
 }: {
@@ -134,7 +109,9 @@ export default async function BestFileSharingAppPage({
   const { locale } = await params;
   const t = await getTranslations("bestApps");
   const links = guideLinks();
+  const tags = { strong, highlight, ...links };
   const chrome = await getTranslations("chrome");
+  const a: Article = { t, chrome, tags, locale, slug: SLUG };
   const tocLabel = chrome("toc.onThisPage");
   const yes = t("a11y.yes");
   const no = t("a11y.no");
@@ -154,15 +131,8 @@ export default async function BestFileSharingAppPage({
       url: APP_URLS[i],
     })),
   };
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((i) => ({
-      "@type": "Question",
-      name: t(`faq.items.${i}.q`),
-      acceptedAnswer: { "@type": "Answer", text: t(`faq.items.${i}.a`) },
-    })),
-  };
+  const faqLd = faqPageLd(t, FAQ_ITEMS);
+
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -200,59 +170,18 @@ export default async function BestFileSharingAppPage({
       <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
         <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
         <article className="min-w-0 lg:max-w-3xl">
-        {/* Hero */}
-        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-          {t("hero.eyebrow")}
-        </p>
-        <h1 className="mt-4 text-[clamp(2.25rem,5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-          {t("hero.title")}
-        </h1>
-        <p className="mt-3 text-sm text-muted-foreground">
-          <time dateTime={LAST_UPDATED}>{t("updated")}</time>
-        </p>
-        <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+        {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
           {t.rich("hero.body", { strong, ...links })}
         </p>
         <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
           {t("disclosure")}
         </p>
 
-        {/* Quick answer */}
-        <section className="mt-8 rounded-xl border border-border bg-card p-5 sm:p-6" aria-labelledby="quick-answer">
-          <h2 id="quick-answer" className="scroll-mt-28 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-            {t("quick.title")}
-          </h2>
-          <ul className="mt-3 space-y-2.5">
-            {QUICK_ITEMS.map((i) => (
-              <li key={i} className="flex items-start gap-3 text-[15px] leading-relaxed text-muted-foreground">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue" aria-hidden />
-                <span>{t.rich(`quick.items.${i}`, { strong, ...links })}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <div className="mt-8">
-          <HeroCta downloadLabel={t("hero.ctaPrimary")} />
-        </div>
-        <div className="mt-6">
-          <StoreButtons />
-        </div>
-
-        <LandingArt
-          slug={SLUG}
-          name="hero"
-          locale={locale}
-          alt={t("art.hero.alt")}
-          width={1200}
-          height={630}
-          zoomHint={chrome("imageZoom")}
-          className="mt-8"
-        />
-
-        {locale === "en" && (
-          <section className="mt-14">
-            <H2 id="video">{t("video.title")}</H2>
+        {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
+            <Art a={a} name="hero" height={630} className="mt-8" />
+{locale === "en" && (
+          <Section a={a} id="video">
             <YouTubeFacade
               id={VIDEO.id}
               title={VIDEO.name}
@@ -261,23 +190,12 @@ export default async function BestFileSharingAppPage({
               className="mt-5"
             />
             <p className="mt-3 text-sm text-muted-foreground">{t("video.note")}</p>
-          </section>
+            </Section>
         )}
 
         {/* How we judged */}
-        <section className="mt-14">
-          <H2 id="criteria">{t("criteria.title")}</H2>
-              <LandingArt
-                slug={SLUG}
-                name="criteria"
-                locale={locale}
-                alt={t("art.criteria.alt")}
-                width={1200}
-                height={640}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-          <div className="mt-6 space-y-7">
+        <Section a={a} id="criteria"><Art a={a} name="criteria" height={640} />
+<div className="mt-6 space-y-7">
             {CRITERIA_ITEMS.map((i) => (
               <div key={i} >
                 <h3 className="font-semibold">{t(`criteria.items.${i}.h`)}</h3>
@@ -285,22 +203,11 @@ export default async function BestFileSharingAppPage({
               </div>
             ))}
           </div>
-        </section>
+            </Section>
 
         {/* At a glance */}
-        <section className="mt-14">
-          <H2 id="glance">{t("table.title")}</H2>
-              <LandingArt
-                slug={SLUG}
-                name="quadrant"
-                locale={locale}
-                alt={t("art.quadrant.alt")}
-                width={1200}
-                height={760}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-          <div className="mt-5 overflow-x-auto rounded-xl border border-border">
+        <Section a={a} id="glance" name="table"><Art a={a} name="quadrant" height={760} />
+<div className="mt-5 overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[820px] text-sm">
               <thead>
                 <tr className="border-b border-border bg-background-raised text-muted-foreground">
@@ -327,11 +234,10 @@ export default async function BestFileSharingAppPage({
             </table>
           </div>
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{t("table.note")}</p>
-        </section>
+            </Section>
 
         {/* The ten, ranked */}
-        <section className="mt-14">
-          <H2 id="ranking">{t("list.title")}</H2>
+        <Section a={a} id="ranking" name="list">
           <ol className="mt-6 space-y-7">
             {LIST_ITEMS.map((i, n) => (
               <li key={i} className="border-b border-border pb-8 last:border-0 last:pb-0">
@@ -351,12 +257,10 @@ export default async function BestFileSharingAppPage({
               </li>
             ))}
           </ol>
-        </section>
+            </Section>
 
         {/* speed */}
-        <section className="mt-14">
-          <H2 id="speed">{t("speed.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t("speed.body")}</p>
+        <Section a={a} id="speed" lead>
           <div className="mt-6 space-y-7">
             {SPEED_ITEMS.map((i) => (
               <div key={i}>
@@ -365,12 +269,10 @@ export default async function BestFileSharingAppPage({
               </div>
             ))}
           </div>
-        </section>
+            </Section>
 
         {/* p2p */}
-        <section className="mt-14">
-          <H2 id="p2p">{t("p2p.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t("p2p.body")}</p>
+        <Section a={a} id="p2p" lead>
           <div className="mt-6 space-y-7">
             {P2P_ITEMS.map((i) => (
               <div key={i}>
@@ -379,22 +281,11 @@ export default async function BestFileSharingAppPage({
               </div>
             ))}
           </div>
-        </section>
+            </Section>
 
         {/* Which app for which situation */}
-        <section className="mt-14">
-          <H2 id="situations">{t("useCases.title")}</H2>
-              <LandingArt
-                slug={SLUG}
-                name="choose"
-                locale={locale}
-                alt={t("art.choose.alt")}
-                width={1200}
-                height={860}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-          <div className="mt-6 space-y-7">
+        <Section a={a} id="situations" name="useCases"><Art a={a} name="choose" height={860} />
+<div className="mt-6 space-y-7">
             {USE_CASE_ITEMS.map((i) => (
               <div key={i} >
                 <h3 className="font-semibold">{t(`useCases.items.${i}.h`)}</h3>
@@ -402,12 +293,10 @@ export default async function BestFileSharingAppPage({
               </div>
             ))}
           </div>
-        </section>
+            </Section>
 
         {/* teams */}
-        <section className="mt-14">
-          <H2 id="teams">{t("teams.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t("teams.body")}</p>
+        <Section a={a} id="teams" lead>
           <div className="mt-6 space-y-7">
             {TEAM_ITEMS.map((i) => (
               <div key={i}>
@@ -416,12 +305,10 @@ export default async function BestFileSharingAppPage({
               </div>
             ))}
           </div>
-        </section>
+            </Section>
 
         {/* File-sharing collaboration apps: security, price, reliability */}
-        <section className="mt-14">
-          <H2 id="collaboration">{t("collab.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t("collab.body")}</p>
+        <Section a={a} id="collaboration" name="collab" lead>
           <div className="mt-5 overflow-x-auto rounded-xl border border-border">
             <table className="w-full min-w-[760px] text-sm">
               <thead>
@@ -453,12 +340,10 @@ export default async function BestFileSharingAppPage({
               </div>
             ))}
           </div>
-        </section>
+            </Section>
 
         {/* safety */}
-        <section className="mt-14">
-          <H2 id="safety">{t("safety.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t("safety.body")}</p>
+        <Section a={a} id="safety" lead>
           <div className="mt-6 space-y-7">
             {SAFETY_ITEMS.map((i) => (
               <div key={i}>
@@ -467,17 +352,13 @@ export default async function BestFileSharingAppPage({
               </div>
             ))}
           </div>
-        </section>
+            </Section>
 
         {/* Why BIShare */}
-        <section className="mt-14">
-          <H2 id="why">{t("why.title")}</H2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">{t.rich("why.body", { strong, ...links })}</p>
-        </section>
+        <Section a={a} id="why" lead />
 
         {/* FAQ */}
-        <section className="mt-14">
-          <H2 id="faq">{t("faq.title")}</H2>
+        <Section a={a} id="faq">
           <div className="mt-6 space-y-6">
             {FAQ_ITEMS.map((i) => (
               <details key={i} className="group rounded-xl border border-border bg-card p-5">
@@ -486,24 +367,11 @@ export default async function BestFileSharingAppPage({
               </details>
             ))}
           </div>
-        </section>
+            </Section>
 
-        {/* CTA */}
-        <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
-          <h2 className="text-2xl font-semibold tracking-[-0.02em]">{t("cta.title")}</h2>
-          <p className="mx-auto mt-2 max-w-md text-muted-foreground">{t("cta.body")}</p>
-          <div className="mt-6 flex justify-center">
-            <VButton href="/download" size="lg">
-              {t("cta.download")}
-              <ArrowRight className="h-4 w-4" />
-            </VButton>
-          </div>
-          <div className="mt-5 flex justify-center">
-            <StoreButtons />
-          </div>
-        </section>
+        {/* CTA */}<Cta a={a} />
 
-        <RelatedLinks current="/best-file-sharing-app" />
+            <RelatedLinks current="/best-file-sharing-app" />
         </article>
         <aside className="hidden lg:block">
           <div className="sticky top-24">

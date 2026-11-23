@@ -1,19 +1,9 @@
-import type { Child } from "@/jsx";
-import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
-import { buildAlternates } from "@/i18n/metadata";
-import { sharedOpenGraph, pageUrl } from "@/lib/og";
-import { SiteHeader } from "@/ui/header";
-import { SiteFooter } from "@/ui/footer";
-import { RelatedLinks } from "@/ui/related-links";
-import { VButton } from "@/ui/vbutton";
-import { HeroCta } from "@/ui/hero-cta";
+import { type Article, articleMetadata, faqPageLd, webPageLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, TruthTable, Faq, strong, highlight } from "@/ui/article";
+import { Button } from "@/ui/button";
 import { StoreButtons } from "@/ui/store-buttons";
-import { ArticleToc } from "@/ui/article-toc";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { LandingArt } from "@/ui/landing-art";
-import { ImageLightbox } from "@/ui/image-lightbox";
-import { ArrowRight, Check, X } from "@/ui/icons";
+import { ArrowRight } from "@/ui/icons";
 import { guideLinks } from "@/ui/guide-links";
 
 /**
@@ -72,69 +62,7 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
   { id: "r7", v: [false, true] },
 ];
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: NS });
-  const title = t("meta.title");
-  const description = t("meta.description");
-  return {
-    title: { absolute: title },
-    description,
-    alternates: buildAlternates(locale, SLUG),
-    ...sharedOpenGraph(title, description, SLUG, locale),
-  };
-}
-
-function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) {
-  return ok ? (
-    <Check className="mx-auto h-4 w-4 text-success" aria-label={yes} />
-  ) : (
-    <X className="mx-auto h-4 w-4 text-muted-foreground/50" aria-label={no} />
-  );
-}
-
-function H2({ id, children }: { id: string; children: Child }) {
-  return (
-    <h2 id={id} className="scroll-mt-28 text-2xl font-semibold tracking-[-0.02em]">
-      {children}
-    </h2>
-  );
-}
-
-const strong = (chunks: Child) => (
-  <strong className="text-foreground">{chunks}</strong>
-);
-const highlight = (chunks: Child) => (
-  <span className="text-foreground">{chunks}</span>
-);
-
-/** Prose list section — a heading and a paragraph per item. */
-function ProseList({
-  items,
-  head,
-  body,
-}: {
-  items: readonly string[];
-  head: (i: string) => string;
-  body: (i: string) => Child;
-}) {
-  return (
-    <div className="mt-6 space-y-7">
-      {items.map((i) => (
-        <div key={i}>
-          <h3 className="font-semibold">{head(i)}</h3>
-          <p className="mt-2 text-[15.5px] leading-relaxed text-muted-foreground">
-            {body(i)}
-          </p>
-        </div>
-      ))}
-    </div>
-  );
-}
+export const generateMetadata = articleMetadata(NS, SLUG);
 
 export default async function HowToAirdropPage({
   params,
@@ -144,57 +72,18 @@ export default async function HowToAirdropPage({
   const { locale } = await params;
   const t = await getTranslations(NS);
   const links = guideLinks();
+  const tags = { strong, highlight, ...links };
   const chrome = await getTranslations("chrome");
+  const a: Article = { t, chrome, tags, locale, slug: SLUG };
 
-  const yes = t("a11y.yes");
   const no = t("a11y.no");
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((i) => ({
-      "@type": "Question",
-      name: t(`faq.items.${i}.q`),
-      acceptedAnswer: { "@type": "Answer", text: t(`faq.items.${i}.a`) },
-    })),
-  };
+  const faqLd = faqPageLd(t, FAQ_ITEMS);
 
-  const pageLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: t("meta.title"),
-    description: t("meta.description"),
-    url: pageUrl(SLUG, locale),
-    dateModified: LAST_UPDATED,
-    isPartOf: { "@type": "WebSite", name: "BIShare", url: "https://bishare.app" },
-  };
+  const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (
-    <div className="min-h-screen bg-background">
-      {[faqLd, pageLd, breadcrumbLd(SLUG, "How to AirDrop")].map((ld, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(ld).replace(/</g, "\\u003c"),
-          }}
-        />
-      ))}
-      <SiteHeader />
-
-      <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
-        <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
-          <article className="min-w-0 lg:max-w-3xl">
-            {/* Hero */}
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-              {t("hero.eyebrow")}
-            </p>
-            <h1 className="mt-4 text-[clamp(2.25rem,5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-              {t("hero.title")}
-            </h1>
-            <p className="mt-3 text-sm text-muted-foreground">
-              <time dateTime={LAST_UPDATED}>{t("updated")}</time>
-            </p>
+  return (<ArticlePage a={a} ld={[faqLd, pageLd, breadcrumbLd(SLUG, "How to AirDrop")]}>
+            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               {t.rich("hero.body", { strong, highlight, ...links })}
             </p>
@@ -202,283 +91,62 @@ export default async function HowToAirdropPage({
               {t("disclosure")}
             </p>
 
-            {/* Quick answer */}
-            <section
-              className="mt-8 rounded-xl border border-border bg-card p-5 sm:p-6"
-              aria-labelledby="quick-answer"
-            >
-              <h2
-                id="quick-answer"
-                className="scroll-mt-28 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-              >
-                {t("quick.title")}
-              </h2>
-              <ul className="mt-3 space-y-2.5">
-                {QUICK_ITEMS.map((i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[15px] leading-relaxed text-muted-foreground"
-                  >
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue"
-                      aria-hidden
-                    />
-                    <span>{t.rich(`quick.items.${i}`, { strong, ...links })}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            <div className="mt-8">
-              <HeroCta downloadLabel={t("hero.ctaPrimary")} />
-            </div>
-            <div className="mt-6">
-              <StoreButtons />
-            </div>
-
-            <LandingArt
-              slug={SLUG}
-              name="hero"
-              locale={locale}
-              alt={t("art.hero.alt")}
-              width={1200}
-              height={630}
-              zoomHint={chrome("imageZoom")}
-              className="mt-8"
-            />
-
-            {/* What it is and what it needs */}
-            <section className="mt-14">
-              <H2 id="basics">{t("basics.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("basics.body")}
-              </p>
-              <ProseList
-                items={BASICS_ITEMS}
-                head={(i) => t(`basics.items.${i}.h`)}
-                body={(i) => t(`basics.items.${i}.b`)}
-              />
-            </section>
+            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
+            <Art a={a} name="hero" height={630} className="mt-8" />
+{/* What it is and what it needs */}
+            <Section a={a} id="basics" lead><ProseList a={a} name="basics" items={BASICS_ITEMS} />
+            </Section>
 
             {/* Turn it on */}
-            <section className="mt-14">
-              <H2 id="turn-on">{t("turnon.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("turnon.body")}
-              </p>
-              <LandingArt
-                slug={SLUG}
-                name="options"
-                locale={locale}
-                alt={t("art.options.alt")}
-                width={1200}
-                height={600}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-              <ProseList
-                items={TURNON_ITEMS}
-                head={(i) => t(`turnon.items.${i}.h`)}
-                body={(i) => t(`turnon.items.${i}.b`)}
-              />
-            </section>
+            <Section a={a} id="turn-on" name="turnon" lead><Art a={a} name="options" height={600} />
+<ProseList a={a} name="turnon" items={TURNON_ITEMS} />
+            </Section>
 
             {/* Send from iPhone or iPad */}
-            <section className="mt-14">
-              <H2 id="send">{t("send.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("send.body")}
-              </p>
-              <ProseList
-                items={SEND_ITEMS}
-                head={(i) => t(`send.items.${i}.h`)}
-                body={(i) => t(`send.items.${i}.b`)}
-              />
-            </section>
+            <Section a={a} id="send" lead><ProseList a={a} name="send" items={SEND_ITEMS} />
+            </Section>
 
             {/* Mac */}
-            <section className="mt-14">
-              <H2 id="mac">{t("mac.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("mac.body")}
-              </p>
-              <ProseList
-                items={MAC_ITEMS}
-                head={(i) => t(`mac.items.${i}.h`)}
-                body={(i) => t(`mac.items.${i}.b`)}
-              />
-            </section>
+            <Section a={a} id="mac" lead><ProseList a={a} name="mac" items={MAC_ITEMS} />
+            </Section>
 
             {/* Receive, and where files go */}
-            <section className="mt-14">
-              <H2 id="receive">{t("receive.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("receive.body")}
-              </p>
-              <LandingArt
-                slug={SLUG}
-                name="landing"
-                locale={locale}
-                alt={t("art.landing.alt")}
-                width={1200}
-                height={640}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-              <ProseList
-                items={RECEIVE_ITEMS}
-                head={(i) => t(`receive.items.${i}.h`)}
-                body={(i) => t.rich(`receive.items.${i}.b`, links)}
-              />
-            </section>
+            <Section a={a} id="receive" lead><Art a={a} name="landing" height={640} />
+<ProseList a={a} name="receive" items={RECEIVE_ITEMS} />
+            </Section>
 
             {/* Not in your contacts */}
-            <section className="mt-14">
-              <H2 id="not-in-contacts">{t("strangers.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("strangers.body")}
-              </p>
-              <ProseList
-                items={STRANGER_ITEMS}
-                head={(i) => t(`strangers.items.${i}.h`)}
-                body={(i) => t(`strangers.items.${i}.b`)}
-              />
-            </section>
+            <Section a={a} id="not-in-contacts" name="strangers" lead><ProseList a={a} name="strangers" items={STRANGER_ITEMS} />
+            </Section>
 
             {/* Name, off switch and other settings */}
-            <section className="mt-14">
-              <H2 id="settings">{t("settings.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("settings.body")}
-              </p>
-              <ProseList
-                items={SETTING_ITEMS}
-                head={(i) => t(`settings.items.${i}.h`)}
-                body={(i) => t(`settings.items.${i}.b`)}
-              />
-            </section>
+            <Section a={a} id="settings" lead><ProseList a={a} name="settings" items={SETTING_ITEMS} />
+            </Section>
 
             {/* What it reaches */}
-            <section className="mt-14">
-              <H2 id="reach">{t("reach.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("reach.body")}
-              </p>
-              <LandingArt
-                slug={SLUG}
-                name="reach"
-                locale={locale}
-                alt={t("art.reach.alt")}
-                width={1200}
-                height={620}
-                zoomHint={chrome("imageZoom")}
-                className="mt-6"
-              />
-              <ProseList
-                items={REACH_ITEMS}
-                head={(i) => t(`reach.items.${i}.h`)}
-                body={(i) => t.rich(`reach.items.${i}.b`, links)}
-              />
-            </section>
+            <Section a={a} id="reach" lead><Art a={a} name="reach" height={620} />
+<ProseList a={a} name="reach" items={REACH_ITEMS} />
+            </Section>
 
             {/* Reach table */}
-            <section className="mt-14">
-              <H2 id="compare">{t("table.title")}</H2>
-              <div className="mt-5 overflow-x-auto rounded-xl border border-border">
-                <table className="w-full min-w-[460px] text-sm">
-                  <thead>
-                    <tr className="border-b border-border bg-background-raised text-muted-foreground">
-                      <th className="px-4 py-3 text-left font-medium">
-                        {t("table.cols.feature")}
-                      </th>
-                      {APPS.map((a) => (
-                        <th
-                          key={a}
-                          className={`px-4 py-3 font-medium ${
-                            a === "bishare" ? "font-semibold text-foreground" : ""
-                          }`}
-                        >
-                          {t(`table.cols.${a}`)}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {ROWS.map((r) => (
-                      <tr key={r.id} className="border-b border-border last:border-0">
-                        <td className="px-4 py-3 text-foreground">
-                          {t(`table.rows.${r.id}`)}
-                        </td>
-                        {r.v.map((ok, n) => (
-                          <td key={n} className="px-4 py-3">
-                            <Cell ok={ok} yes={yes} no={no} />
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                {t("table.note")}
-              </p>
-            </section>
+            <Section a={a} id="compare" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[460px]" />
+            </Section>
 
             {/* Sending to a device AirDrop cannot reach */}
-            <section className="mt-14">
-              <H2 id="steps">{t("steps.title")}</H2>
-              <ProseList
-                items={STEP_ITEMS}
-                head={(i) => t(`steps.items.${i}.h`)}
-                body={(i) => t.rich(`steps.items.${i}.b`, links)}
-              />
-            </section>
+            <Section a={a} id="steps"><ProseList a={a} name="steps" items={STEP_ITEMS} />
+            </Section>
 
             {/* When it does not work */}
-            <section className="mt-14">
-              <H2 id="not-working">{t("trouble.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t.rich("trouble.body", links)}
-              </p>
-              <ProseList
-                items={TROUBLE_ITEMS}
-                head={(i) => t(`trouble.items.${i}.h`)}
-                body={(i) => t(`trouble.items.${i}.b`)}
-              />
-            </section>
+            <Section a={a} id="not-working" name="trouble" lead><ProseList a={a} name="trouble" items={TROUBLE_ITEMS} />
+            </Section>
 
             {/* Safety */}
-            <section className="mt-14">
-              <H2 id="security">{t("security.title")}</H2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {t("security.body")}
-              </p>
-              <ProseList
-                items={SECURITY_ITEMS}
-                head={(i) => t(`security.items.${i}.h`)}
-                body={(i) => t(`security.items.${i}.b`)}
-              />
-            </section>
+            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
+            </Section>
 
             {/* FAQ */}
-            <section className="mt-14">
-              <H2 id="faq">{t("faq.title")}</H2>
-              <div className="mt-5 space-y-3">
-                {FAQ_ITEMS.map((i) => (
-                  <details
-                    key={i}
-                    className="group rounded-xl border border-border bg-card p-5"
-                  >
-                    <summary className="cursor-pointer list-none font-medium marker:content-['']">
-                      {t(`faq.items.${i}.q`)}
-                    </summary>
-                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                      {t(`faq.items.${i}.a`)}
-                    </p>
-                  </details>
-                ))}
-              </div>
-            </section>
+            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
+            </Section>
 
             {/* CTA */}
             <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
@@ -489,36 +157,16 @@ export default async function HowToAirdropPage({
                 {t("cta.body")}
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <VButton href="/download" size="lg">
+                <Button href="/download" size="lg">
                   {t("cta.download")}
                   <ArrowRight className="h-4 w-4" />
-                </VButton>
-                <VButton href="/transfer" size="lg" variant="secondary">
+                </Button>
+                <Button href="/transfer" size="lg" variant="secondary">
                   {t("cta.transfer")}
-                </VButton>
+                </Button>
               </div>
               <div className="mt-5 flex justify-center">
                 <StoreButtons />
               </div>
-            </section>
-
-            <RelatedLinks current={SLUG} />
-          </article>
-
-          {/* Sticky table of contents — desktop only; lists the H2 ids above. */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-24">
-              <ArticleToc
-                selector="main article h2[id]"
-                label={chrome("toc.onThisPage")}
-              />
-            </div>
-          </aside>
-        </div>
-      </main>
-
-      <SiteFooter />
-      <ImageLightbox closeLabel={chrome("imageClose")} />
-    </div>
-  );
+            </section></ArticlePage>);
 }

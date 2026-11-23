@@ -10,7 +10,7 @@ import { Section, SectionHeading } from "@/ui/section";
 import { SpotlightCard } from "@/ui/spotlight-card";
 import { TagBadge } from "@/ui/status-pill";
 import { Beam } from "@/ui/beam";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import { WebQuickCta } from "@/ui/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { cn } from "@/lib/utils";
@@ -262,13 +262,13 @@ export default async function HowItWorksPage({
             </p>
             <div className="mt-10 flex flex-col items-center gap-6">
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <VButton size="lg" href="/#send-live">
+                <Button size="lg" href="/#send-live">
                   {t("cta.sendNow")}
                   <ArrowRight className="h-4 w-4" />
-                </VButton>
-                <VButton size="lg" variant="secondary" href="/#get">
+                </Button>
+                <Button size="lg" variant="secondary" href="/#get">
                   {t("cta.getApp")}
-                </VButton>
+                </Button>
               </div>
               <Link
                 href="/features"

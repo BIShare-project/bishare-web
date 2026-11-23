@@ -9,7 +9,7 @@ import { GradientBorderCard } from "@/ui/gradient-border-card";
 import { QRDisplay } from "@/ui/qr-display";
 import { GridBackdrop } from "@/ui/grid-backdrop";
 import { StatusPill, TagBadge } from "@/ui/status-pill";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import {
   appStoreUrl,
   playStoreUrl,
@@ -128,10 +128,10 @@ function AndroidCard({ t }: { t: T }) {
           </div>
         </div>
         <div className="flex shrink-0 flex-col items-start gap-3 md:items-end">
-          <VButton href={playStoreUrl("download")} variant="primary" size="lg">
+          <Button href={playStoreUrl("download")} variant="primary" size="lg">
             <PlayGlyph />
             {t("android.cta")}
-          </VButton>
+          </Button>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
             {t("android.free")}
           </p>
@@ -162,11 +162,11 @@ function AvailableCard({ platform, t }: { platform: LivePlatform; t: T }) {
           </div>
         </div>
         <div className="mt-7 flex flex-1 flex-col justify-end gap-3">
-          <VButton
+          <Button
             href={platform.href}
             variant="primary"
             size="md"
-            className="w-full"
+            class="w-full"
           >
             {platform.store === "apple" ? (
               <AppleGlyph />
@@ -180,7 +180,7 @@ function AvailableCard({ platform, t }: { platform: LivePlatform; t: T }) {
               : platform.store === "microsoft"
                 ? t("cards.microsoftStore")
                 : t("cards.directDownload")}
-          </VButton>
+          </Button>
           <p className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
             {t("cards.free")}
           </p>

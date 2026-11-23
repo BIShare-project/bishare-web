@@ -7,7 +7,7 @@ import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { Section, SectionHeading } from "@/ui/section";
 import { SpotlightCard } from "@/ui/spotlight-card";
-import { VButton } from "@/ui/vbutton";
+import { Button } from "@/ui/button";
 import { RoomsApp } from "@/components/rooms/rooms-app";
 import {
   DoorOpen,
@@ -210,10 +210,10 @@ export default async function RoomsPage({
               {t("seo.cta.sub")}
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <VButton size="lg" href="/transfer">
+              <Button size="lg" href="/transfer">
                 {t("seo.cta.transfer")}
                 <ArrowRight className="h-4 w-4" />
-              </VButton>
+              </Button>
               <Link
                 href="/features"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
