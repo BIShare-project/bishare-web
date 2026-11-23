@@ -20,22 +20,15 @@ import { NextRequest, NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
 import { LINK_PREVIEW_GROUP } from "@/lib/preview-bots";
+import { APEX_HOST, DRIVE_HOST, DRIVE_PATH, LEGACY_RECEIVE_HOST, LINK_PATH, MAIN_HOSTS, RECEIVE_HOST, RECEIVE_PATH, WWW_HOST } from "@/lib/hosts";
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-const APEX_HOST = "bishare.app";
-const WWW_HOST = "www.bishare.app";
-const MAIN_HOSTS = new Set([APEX_HOST, WWW_HOST]);
-const RECEIVE_HOST = "dl.bishareusercontent.com";
-/** The receive host before 2026-10-28: links already shared still point here. */
-const LEGACY_RECEIVE_HOST = "get.bishare.app";
 // The web Drive (drive-plan.md phase 6) lives on its own host for the same
 // reason as the receive pages: user files are never served from the marketing
 // site. Its pages are /[locale]/drive/... inside; the host shows them at its
 // root (drive.bishare.app/files) and picks the language from the cookie or
 // the browser, not from the URL.
-const DRIVE_HOST = "drive.bishare.app";
-const DRIVE_PATH = new RegExp(`^/(?:(?:${routing.locales.join("|")})/)?drive(?=/|$)`);
 const LOCALE_COOKIE = "NEXT_LOCALE";
 
 /** The site language that best fits the cookie, then the browser's list. */
@@ -58,12 +51,6 @@ function driveLocale(request: NextRequest): string {
   return routing.defaultLocale;
 }
 
-// /transfer/<code>, with or without a locale prefix. `/transfer` itself (the
-// send tool) stays on the marketing host.
-const RECEIVE_PATH = new RegExp(`^/(?:(?:${routing.locales.join("|")})/)?transfer/[^/]+$`);
-// /d/<id>: a link from someone's Drive (drive-plan.md 6B.3), on the receive
-// host for the same reason as a transfer.
-const LINK_PATH = new RegExp(`^/(?:(?:${routing.locales.join("|")})/)?d/[A-Za-z0-9_-]{22}$`);
 
 /**
  * The Drive's pages hold a vault key in memory, so they run nothing but
