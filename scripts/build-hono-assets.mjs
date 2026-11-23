@@ -3,16 +3,17 @@
 // Run from the repo root: node scripts/build-hono-assets.mjs. The outputs are git-ignored.
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
-import { build } from "esbuild";
+import { copyFileSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { join, resolve } from "node:path";
+import { bundleBrowser, bundlePages } from "./hono-bundle.mjs";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const HONO = join(ROOT, "src/hono");
 const OUT = join(ROOT, "public/_h");
 const hash8 = (buf) => createHash("sha256").update(buf).digest("hex").slice(0, 8);
 
-rmSync(OUT, { recursive: true, force: true });
+// A build for production starts clean; while developing, pages built a moment ago still point at the old names.
+if (process.argv.includes("--clean")) rmSync(OUT, { recursive: true, force: true });
 mkdirSync(join(OUT, "fonts"), { recursive: true });
 
 // Fonts. next/font preloads the latin subset of IBM Plex Sans only: the Sans faces whose range starts with U+??.
@@ -38,37 +39,15 @@ rmSync(tmp);
 const cssName = `site-${hash8(css)}.css`;
 writeFileSync(join(OUT, cssName), css);
 
-// Client modules.
+// Browser modules: the shared ones of src/hono/client, and one per island the pages use.
 const clientDir = join(HONO, "client");
-const entries = existsSync(clientDir)
-  ? readdirSync(clientDir).filter((f) => /\.tsx?$/.test(f) && !/\.test\./.test(f)).map((f) => join(clientDir, f))
-  : [];
-const scripts = {};
-if (entries.length) {
-  const { metafile } = await build({
-    absWorkingDir: ROOT,
-    entryPoints: entries,
-    outdir: OUT,
-    entryNames: "[name]-[hash]",
-    chunkNames: "chunk-[hash]",
-    bundle: true,
-    splitting: true,
-    format: "esm",
-    minify: true,
-    target: "es2022",
-    alias: { "@": join(ROOT, "src") },
-    metafile: true,
-    logLevel: "warning",
-  });
-  for (const [file, meta] of Object.entries(metafile.outputs)) {
-    if (!meta.entryPoint || !entries.includes(join(ROOT, meta.entryPoint))) continue;
-    scripts[basename(meta.entryPoint).replace(/\.tsx?$/, "")] = `/_h/${basename(file)}`;
-  }
-}
+const entries = ["site.ts"].map((f) => join(clientDir, f));
+const islandFiles = await bundlePages({ outfile: join(ROOT, "node_modules/.cache/hono-islands.mjs"), write: false });
+const { scripts, islands } = await bundleBrowser({ entries, islands: islandFiles, outdir: OUT });
 
-const assets = { css: `/_h/${cssName}`, fonts, scripts };
+const assets = { css: `/_h/${cssName}`, fonts, scripts, islands };
 writeFileSync(
   join(HONO, "assets.gen.ts"),
-  `// Written by scripts/build-hono-assets.mjs; do not edit.\nexport const ASSETS: { css: string; fonts: string[]; scripts: Record<string, string> } = ${JSON.stringify(assets, null, 2)};\n`,
+  `// Written by scripts/build-hono-assets.mjs; do not edit.\nexport const ASSETS: { css: string; fonts: string[]; scripts: Record<string, string>; islands: Record<string, string> } = ${JSON.stringify(assets, null, 2)};\n`,
 );
-console.log(`hono assets: ${cssName} ${css.length} B, ${fonts.length} preloaded fonts, ${Object.keys(scripts).length} client modules`);
+console.log(`hono assets: ${cssName} ${css.length} B, ${fonts.length} preloaded fonts, ${Object.keys(scripts).length} shared modules, ${Object.keys(islands).length} islands`);

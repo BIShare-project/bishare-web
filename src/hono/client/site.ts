@@ -2,6 +2,9 @@
 // marketing page, so keep it small.
 import "@/lib/pwa-install"; // catches the browser's "install this web app" event (src/lib/pwa-install.ts)
 
+// Parts with behaviour of their own; the code that runs them is fetched only where there is one.
+if (document.querySelector("[data-island]")) void import("./islands").then((m) => m.startIslands());
+
 const $ = <T extends Element = HTMLElement>(s: string, root: ParentNode = document) => root.querySelector<T>(s);
 const $$ = <T extends Element = HTMLElement>(s: string, root: ParentNode = document) => [...root.querySelectorAll<T>(s)];
 const stored = (k: string) => {

@@ -9,7 +9,7 @@ import * as lucide from "lucide-react";
 const SRC = resolve(import.meta.dirname, "../src");
 const names = new Set();
 for (const f of readdirSync(SRC, { recursive: true })) {
-  if (!f.endsWith(".tsx") || /(^|\/)(drive|\(drive\))\//.test(f) || f.includes(".test.")) continue;
+  if (!/\.tsx?$/.test(f) || f.endsWith(".gen.ts") || /(^|\/)(drive|\(drive\))\//.test(f) || f.includes(".test.")) continue;
   const text = readFileSync(join(SRC, f), "utf8");
   for (const [, list] of text.matchAll(/import\s*\{([^}]*)\}\s*from\s*"lucide-react"/g)) {
     for (const item of list.split(",")) {

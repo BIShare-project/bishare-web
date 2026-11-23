@@ -30,6 +30,15 @@ function merge(base: Messages, over: Messages): Messages {
   return out;
 }
 
+function namespaceMessages(locale: string, ns: string): Messages {
+  const given = pageContext().messages?.();
+  const of = (l: string) => (given ? ((given[l]?.[ns] ?? {}) as Messages) : file(l, ns));
+  return locale === routing.defaultLocale ? of(locale) : merge(of(routing.defaultLocale), of(locale));
+}
+
+/** The messages of some namespaces in the page's language, for an island. */
+export const messagesOf = (namespaces: string[]) => Object.fromEntries(namespaces.map((ns) => [ns, namespaceMessages(pageContext().locale, ns)]));
+
 // Typed loosely on purpose: message keys are checked when the pages are built, by rendering every one of them.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Translator = any;
@@ -39,9 +48,8 @@ export function translator(arg: string | { locale?: string; namespace: string })
   const ctx = pageContext();
   const { locale = ctx.locale, namespace } = typeof arg === "string" ? { namespace: arg } : arg;
   const [ns, ...rest] = namespace.split(".");
-  const given = ctx.messages?.();
-  const of = (l: string) => (given ? ((given[l]?.[ns!] ?? {}) as Messages) : file(l, ns!));
-  const messages = locale === routing.defaultLocale ? of(locale) : merge(of(routing.defaultLocale), of(locale));
+  ctx.namespaces?.add(ns!);
+  const messages = namespaceMessages(locale, ns!);
   return createTranslator({
     locale,
     messages: { [ns!]: messages } as never,

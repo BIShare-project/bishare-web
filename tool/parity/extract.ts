@@ -42,7 +42,8 @@ const tags = (html: string, name: string) => [...html.matchAll(new RegExp(`<${na
 export function extract(html: string): PageFacts {
   const jsonLd = [...html.matchAll(/<script(?=[^>]*type="?application\/ld\+json)[^>]*>([\s\S]*?)<\/script>/gi)].map((m) => JSON.stringify(sorted(JSON.parse(m[1]!))));
   // The table of contents is drawn by script in both builds; one of them leaves an empty placeholder for it.
-  const clean = html.replace(/<div data-toc=(?:"[^"]*"|'[^']*'|[^>"'])*><\/div>/g, "").replace(/<!--[\s\S]*?-->/g, "").replace(/<(script|style|template|svg|noscript)\b[\s\S]*?<\/\1>/gi, "");
+  // An island's wrapper draws nothing (display: contents); its data is a script, removed with the others.
+  const clean = html.replace(/<div data-island=(?:"[^"]*") style="display:contents">([\s\S]*?)<script type="application\/json">[\s\S]*?<\/script><\/div>/g, "$1").replace(/<div data-toc=(?:"[^"]*"|'[^']*'|[^>"'])*><\/div>/g, "").replace(/<!--[\s\S]*?-->/g, "").replace(/<(script|style|template|svg|noscript)\b[\s\S]*?<\/\1>/gi, "");
   const root = tags(clean, "html")[0] ?? {};
   const meta = tags(clean, "meta");
   const link = tags(clean, "link");
@@ -79,6 +80,9 @@ function structureOf(html: string): string[] {
   return [...html.matchAll(/<(\/?)([a-z][\w-]*)((?:"[^"]*"|'[^']*'|[^>"'])*)>/gi)]
     .map((m) => {
       const a = attributes(`<${m[2]}${m[3]}`);
+      // Inert: a button is focusable anyway, and an empty value is what a textarea has.
+      if (m[2]!.toLowerCase() === "button" && a.tabindex === "0") delete a.tabindex;
+      if (m[2]!.toLowerCase() === "textarea" && a.value === "") delete a.value;
       const hidden = /display:\s*none|visibility:\s*hidden/.test(a.style ?? "") ? " (hidden)" : "";
       const attrs = Object.keys(a).filter((k) => !IGNORED.test(k)).sort().map((k) => `${k}=${a[k] === "true" ? "" : a[k]}`).join(" ");
       return `${m[1]}${m[2]!.toLowerCase()}${attrs ? ` ${attrs}` : ""}${hidden}`;
