@@ -1,0 +1,115 @@
+import type { Metadata } from "next";
+import { buildAlternates } from "@/i18n/metadata";
+import { APP_ID } from "@/lib/app-ld";
+import { sharedOpenGraph } from "@/lib/og";
+
+// What every marketing page shares, for both engines.
+
+const DESCRIPTION =
+  "Send any file to any device — iPhone, Android, Windows, Mac, Linux. Nearby it’s instant and end-to-end encrypted, device to device. Far away, send a link they open in any browser — no app needed on their end. No sign-up; links auto-expire.";
+
+/** The site's default metadata; a page overrides it key by key. */
+export function siteMetadata(locale: string): Metadata {
+  return {
+    metadataBase: new URL("https://bishare.app"),
+    title: {
+      default: "BIShare — Send Files to Any Device, Instantly",
+      template: "%s — BIShare",
+    },
+    description: DESCRIPTION,
+    manifest: "/manifest.webmanifest",
+    appleWebApp: {
+      capable: true,
+      title: "BIShare",
+      statusBarStyle: "black-translucent",
+    },
+    alternates: buildAlternates(locale, "/"),
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "48x48" },
+        { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: "/apple-touch-icon.png",
+    },
+    ...sharedOpenGraph("BIShare — Send Files to Any Device, Instantly", DESCRIPTION, "/"),
+    // Site ownership proof for Bing Webmaster Tools. Site-wide (not just "/")
+    // so the check passes on whichever URL Bing happens to fetch.
+    verification: {
+      other: { "msvalidate.01": "DB0F388D10A48BC6932FF71D88A9AB59" },
+    },
+    other: {
+      "apple-itunes-app": "app-id=6760924092",
+    },
+  };
+}
+
+export const THEME_COLORS = [
+  { media: "(prefers-color-scheme: light)", color: "#f7f9fd" },
+  { media: "(prefers-color-scheme: dark)", color: "#030711" },
+];
+
+/**
+ * Structured data (schema.org) — tells search engines this is a free,
+ * cross-platform file-transfer app, which reinforces relevance for the
+ * high-intent queries we target ("AirDrop for Android", "send files iPhone to
+ * Android", "cross-platform file transfer"). English is fine site-wide; the
+ * hreflang alternates cover the localized pages.
+ */
+export const SITE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bishare.app/#org",
+      name: "BIShare",
+      url: "https://bishare.app",
+      logo: "https://bishare.app/logo.png",
+      description: DESCRIPTION,
+      // sameAs is how an entity gets stitched together across the web. One
+      // App Store link left the GitHub org — the thing that proves the
+      // open-source claim — unconnected to this name.
+      sameAs: [
+        "https://github.com/BIShare-project",
+        "https://apps.apple.com/app/id6760924092",
+        "https://play.google.com/store/apps/details?id=com.bishare.app",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bishare.app/#website",
+      url: "https://bishare.app",
+      name: "BIShare",
+      description: DESCRIPTION,
+      inLanguage: "en",
+      publisher: { "@id": "https://bishare.app/#org" },
+    },
+    {
+      // The open-source facts, on every page. The app node itself lives on the
+      // home page and /download only (see lib/app-ld.tsx); this points at it.
+      "@type": "SoftwareSourceCode",
+      name: "BIShare source code",
+      codeRepository: "https://github.com/BIShare-project",
+      license: "https://www.apache.org/licenses/LICENSE-2.0",
+      targetProduct: { "@id": APP_ID },
+    },
+  ],
+};
+
+/**
+ * Theme boot (Nightglass §1.9): a stored `bishare-theme` choice wins; with
+ * no stored choice the OS preference applies, and the media-query listener
+ * stays live ONLY until the user picks explicitly (review fixes #10/#31).
+ * Dark is the server-rendered default (`<html class="dark">` from the root
+ * layout), and this runs at the top of the site subtree before the content
+ * below it paints — a stored/OS light preference flips it with minimal flash.
+ *
+ * It also keeps `<meta name="theme-color">` in sync (review #5): the
+ * media-scoped metas from `viewport` only follow the OS preference, so when
+ * the applied theme differs (stored choice or manual toggle) every
+ * theme-color meta gets the active `--background` value — #f7f9fd light /
+ * #030711 dark. Keep these hex values in sync with site.css, the `viewport`
+ * export below, and theme-toggle.tsx.
+ */
+export const THEME_SCRIPT = `try{var d=document.documentElement,k="bishare-theme",s=localStorage.getItem(k),m=window.matchMedia("(prefers-color-scheme: light)"),f=function(l){d.classList.toggle("dark",!l);d.classList.toggle("light",!!l);var c=l?"#f7f9fd":"#030711",t=document.querySelectorAll('meta[name="theme-color"]'),i=0;if(t.length)for(;i<t.length;i++)t[i].setAttribute("content",c);else{var n=document.createElement("meta");n.setAttribute("name","theme-color");n.setAttribute("content",c);document.head.appendChild(n)}};f(s?s==="light":m.matches);m.addEventListener("change",function(e){if(!localStorage.getItem(k))f(e.matches)})}catch(e){}`;

@@ -6,6 +6,8 @@ import { routing } from "@/i18n/routing";
 export type Messages = Record<string, unknown>;
 interface PageContext {
   locale: string;
+  /** The page's path without its locale prefix. */
+  path?: string;
   /** Messages per locale instead of src/messages, for tests. */
   messages?: () => Record<string, Messages>;
 }
@@ -13,6 +15,11 @@ interface PageContext {
 const store = new AsyncLocalStorage<PageContext>();
 
 /** Renders with `locale` as the page's language. */
+/** Renders the page at `path` in `locale`. */
+export function withPage<T>(locale: string, path: string, fn: () => T): T {
+  return store.run({ locale, path }, fn);
+}
+
 export function withLocale<T>(locale: string, fn: () => T, messages?: PageContext["messages"]): T {
   return store.run({ locale, messages }, fn);
 }

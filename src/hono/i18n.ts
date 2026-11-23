@@ -34,7 +34,8 @@ function merge(base: Messages, over: Messages): Messages {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Translator = any;
 
-export async function getTranslations(arg: string | { locale?: string; namespace: string }): Promise<Translator> {
+/** A translator for a namespace ("chrome", "home.hero") in the page's language, or in `locale`. */
+export function translator(arg: string | { locale?: string; namespace: string }): Translator {
   const ctx = pageContext();
   const { locale = ctx.locale, namespace } = typeof arg === "string" ? { namespace: arg } : arg;
   const [ns, ...rest] = namespace.split(".");
@@ -51,3 +52,13 @@ export async function getTranslations(arg: string | { locale?: string; namespace
     },
   });
 }
+
+// next-intl's names for the pages that still import them.
+export async function getTranslations(arg: string | { locale?: string; namespace: string }): Promise<Translator> {
+  return translator(arg);
+}
+export const useTranslations = translator;
+export const useLocale = () => pageContext().locale;
+export const getLocale = async () => pageContext().locale;
+/** The language comes from the page being rendered; there is nothing to set. */
+export function setRequestLocale(_locale: string): void {}
