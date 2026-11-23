@@ -222,7 +222,7 @@ const reveal = () => {
     store("bishare-cookie-notice", "1");
     notice.remove();
   });
-  document.body.append(notice);
+  $("#cookie-notice")!.after(notice); // inside the page, for its font
 };
 if ("requestIdleCallback" in window) requestIdleCallback(reveal, { timeout: 2500 });
 else setTimeout(reveal, 1800);

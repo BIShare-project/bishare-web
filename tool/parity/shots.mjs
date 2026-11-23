@@ -1,12 +1,13 @@
 // Pixel comparison of two running builds: node tool/parity/shots.mjs <url a> <url b> <out folder> <path> [path…]
-// With --states the same actions (menus, zoom, theme…) are done on both first, and the visible part is compared.
+// With --states (or --states=menu,zoom) the same actions (menus, zoom, theme…) are done on both first, and the visible part is compared.
 // Both are drawn without motion, with every image loaded; the report says how many pixels differ, the folder has the pictures.
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { extname, join } from "node:path";
 import { chromium } from "@playwright/test";
 
-const states = process.argv.includes("--states");
-const [a, b, out, ...paths] = process.argv.slice(2).filter((x) => x !== "--states");
+const flag = process.argv.find((x) => x.startsWith("--states"));
+const [a, b, out, ...paths] = process.argv.slice(2).filter((x) => x !== flag && x !== "--join-text");
+const joinText = process.argv.includes("--join-text");
 
 const header = (p) => p.locator("header").first();
 const STATES = {
@@ -51,6 +52,9 @@ async function shoot(base, path, size, theme, state) {
     await Promise.all([...document.images].map((i) => i.decode().catch(() => {})));
     await document.fonts.ready;
   });
+  // React splits a sentence into several text nodes with comments between; joined, the font spaces the letters as it
+  // does in one node. --join-text tells that (invisible) effect from a real difference.
+  if (joinText) await page.evaluate(() => { const w = document.createTreeWalker(document.body, NodeFilter.SHOW_COMMENT), c = []; while (w.nextNode()) c.push(w.currentNode); c.forEach((n) => n.remove()); document.body.normalize(); });
   await page.waitForTimeout(400);
   if (state) {
     if ((await STATES[state](page, size)) === false) { await ctx.close(); return null; }
@@ -87,7 +91,7 @@ async function compare(x, y) {
 }
 
 let bad = 0;
-for (const path of paths) for (const size of Object.keys(SIZES)) for (const theme of ["dark", "light"]) for (const state of states ? Object.keys(STATES) : [undefined]) {
+for (const path of paths) for (const size of Object.keys(SIZES)) for (const theme of ["dark", "light"]) for (const state of flag ? (flag.split("=")[1]?.split(",") ?? Object.keys(STATES)) : [undefined]) {
   const [x, y] = [await shoot(a, path, size, theme, state), await shoot(b, path, size, theme, state)];
   if (!x && !y) continue;
   const r = await compare(x.png, y.png);
