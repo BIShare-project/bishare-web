@@ -116,7 +116,7 @@ export async function bundlePages({ outfile, write = true }) {
     outfile,
     write,
     platform: "node",
-    target: "node22",
+    target: "node26",
     plugins: [plugin({ target: "pages", islands })],
     banner: { js: 'import { createRequire } from "node:module"; const require = createRequire(import.meta.url);' },
     // Only looking for islands: the file that lists them is not written yet.
