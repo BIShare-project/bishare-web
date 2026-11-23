@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022"],
-    "types": ["@cloudflare/workers-types"],
+    "lib": [
+      "ES2022"
+    ],
+    "types": [
+      "@cloudflare/workers-types"
+    ],
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -12,8 +16,20 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "allowJs": true
   },
-  "include": ["server/**/*.ts", "worker/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "server/**/*.ts",
+    "worker/**/*.ts",
+    "src/hono/negotiator.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

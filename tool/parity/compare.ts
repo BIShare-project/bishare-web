@@ -1,7 +1,5 @@
 // Compares what search engines read in two builds of the site. A side is a base URL or a folder of prerendered HTML.
-//   npm run parity -- <a> <b> <urls.txt> [--only <regex>] [--engine <a engine>,<b engine>]
-// --engine sends x-bs-engine (and x-bs-token from $PARITY_TOKEN) to each URL side, so one Worker can be compared with
-// itself, Next against Hono.
+//   npm run parity -- <a> <b> <urls.txt> [--only <regex>]
 import { readFileSync } from "node:fs";
 import { type Difference, diff, extract } from "./extract";
 import { htmlFile } from "./files";
@@ -12,10 +10,9 @@ if (!a || !b || !list) {
   process.exit(2);
 }
 const only = flags.includes("--only") ? new RegExp(flags[flags.indexOf("--only") + 1]!) : /./;
-const engines = flags.includes("--engine") ? flags[flags.indexOf("--engine") + 1]!.split(",") : [];
 const paths = readFileSync(list, "utf8").split("\n").filter((l) => l.startsWith("/") && only.test(l));
 
-async function load(side: string, path: string, engine?: string): Promise<string | null> {
+async function load(side: string, path: string): Promise<string | null> {
   if (!/^https?:/.test(side)) {
     const f = htmlFile(side, path);
     return f && readFileSync(f, "utf8");
@@ -23,7 +20,7 @@ async function load(side: string, path: string, engine?: string): Promise<string
   for (let attempt = 0; ; attempt++) {
     // The cookie stops the language redirect, which is compared by its own tests.
     const locale = /^\/([a-z]{2}(?:-[A-Za-z]+)?)(?:\/|$)/.exec(path)?.[1] ?? "en";
-    const res = await fetch(side + path, { redirect: "manual", headers: { cookie: `NEXT_LOCALE=${locale}`, "user-agent": "BIShare-parity/1", ...(engine ? { "x-bs-engine": engine, "x-bs-token": process.env.PARITY_TOKEN ?? "" } : {}) } }).catch((e: unknown) => { if (attempt > 3) throw e; return null; });
+    const res = await fetch(side + path, { redirect: "manual", headers: { cookie: `NEXT_LOCALE=${locale}`, "user-agent": "BIShare-parity/1" } }).catch((e: unknown) => { if (attempt > 3) throw e; return null; });
     if (res?.status === 200) return res.text();
     if (attempt > 3) return null;
     await new Promise((r) => setTimeout(r, 1000 * (attempt + 1)));
@@ -37,7 +34,7 @@ const queue = [...paths];
 await Promise.all(
   Array.from({ length: 6 }, async () => {
     for (let p = queue.shift(); p; p = queue.shift()) {
-      const [x, y] = await Promise.all([load(a, p, engines[0]), load(b, p, engines[1])]);
+      const [x, y] = await Promise.all([load(a, p), load(b, p)]);
       if (x === null || y === null) {
         missing++;
         console.log(`MISSING ${p} on ${x === null ? a : ""} ${y === null ? b : ""}`);
