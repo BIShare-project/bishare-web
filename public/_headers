@@ -11,14 +11,17 @@
 
 # The save bridge (src/lib/save-bridge.ts) runs only inside bishare.app pages
 # (and a local site while testing), and is never indexed. Static HTML answers
-# at its path without ".html" (the ".html" path redirects there).
+# at its path without ".html" (the ".html" path redirects there). The Worker
+# serves that path from the .html file, so the .html rule carries every header.
 /save-bridge
   Content-Security-Policy: frame-ancestors https://bishare.app https://www.bishare.app http://localhost:* http://127.0.0.1:*
   X-Robots-Tag: noindex, nofollow
   Referrer-Policy: no-referrer
 
 /save-bridge.html
+  Content-Security-Policy: frame-ancestors https://bishare.app https://www.bishare.app http://localhost:* http://127.0.0.1:*
   X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
 
 # Never let the service worker itself get cached — a stale sw.js would pin an
 # old caching strategy on returning visitors. Browsers refetch it on every load.

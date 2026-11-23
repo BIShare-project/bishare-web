@@ -1,4 +1,4 @@
-import { readdirSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { engineFor, honoPage, HTML_FILES, htmlFile, PAGE_DIR, routeSwitch, type ServeEnv } from "./serve";
 
@@ -163,5 +163,20 @@ describe("HTML_FILES", () => {
   it("lists every .html file in public/", () => {
     const files = readdirSync("public", { recursive: true, encoding: "utf8" }).filter((f) => f.endsWith(".html") && !f.startsWith("_"));
     expect(files.map((f) => `/${f.slice(0, -5)}`).sort()).toEqual([...HTML_FILES].sort());
+  });
+});
+
+describe("public/_headers", () => {
+  // The Worker fetches <page>.html from ASSETS, so the headers of that file are the ones the page gets.
+  const rules = new Map<string, string[]>();
+  let current: string[] | null = null;
+  for (const line of readFileSync("public/_headers", "utf8").split("\n")) {
+    if (line.startsWith("/")) rules.set(line.trim(), (current = []));
+    else if (/^\s+\S/.test(line) && current) current.push(line.trim());
+    else if (!line.trim() || line.startsWith("#")) current = line.trim() ? current : null;
+  }
+
+  it.each(HTML_FILES)("gives the .html file of %s every header of its path", (path) => {
+    for (const header of rules.get(path) ?? []) expect(rules.get(`${path}.html`) ?? []).toContain(header);
   });
 });
