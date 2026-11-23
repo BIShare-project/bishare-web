@@ -21,5 +21,5 @@ const TransferStudio = dynamic(
 );
 
 export function LiveWidget() {
-  return <TransferStudio />;
+  return <TransferStudio stacked />;
 }

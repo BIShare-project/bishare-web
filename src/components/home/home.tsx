@@ -76,25 +76,21 @@ async function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="geist-grid pointer-events-none absolute inset-0 -z-10" />
-      <div className="spotlight-radial relative mx-auto max-w-5xl px-5 pt-12 pb-12 text-center sm:px-6 sm:pt-20 sm:pb-16 md:pt-28">
-        <div className="flex justify-center">
+      {/* Two columns from lg: the real tool on the left, the headline on the right. The headline stays first in the
+          HTML (search engines and screen readers read it first; it is the LCP element); only the grid moves it. */}
+      <div className="spotlight-radial relative mx-auto grid max-w-6xl px-5 pt-12 pb-12 text-center sm:px-6 sm:pt-20 sm:pb-16 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:grid-rows-[1fr_auto_auto_auto_1fr] lg:gap-x-14 lg:pt-24 lg:text-left">
+        <div className="flex justify-center lg:col-start-2 lg:row-start-1 lg:self-end lg:justify-start">
           <Eyebrow>{t("hero.eyebrow")}</Eyebrow>
         </div>
-        <h1
-          className="mx-auto mt-7 max-w-3xl text-[clamp(2.75rem,6.4vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-balance"
-        >
+        <h1 className="mx-auto mt-7 max-w-3xl text-[clamp(2.75rem,6.4vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-balance lg:col-start-2 lg:row-start-2 lg:mx-0 lg:text-[clamp(2.75rem,4.4vw,4.25rem)]">
           {t("hero.title")}
         </h1>
-        <p
-          className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground text-balance"
-        >
+        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground text-balance lg:col-start-2 lg:row-start-3 lg:mx-0">
           {t.rich("hero.body", {
             highlight: (chunks) => <span className="text-foreground">{chunks}</span>,
           })}
         </p>
-        <div
-          className="mt-9 flex flex-wrap items-center justify-center gap-3"
-        >
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-3 lg:col-start-2 lg:row-start-4 lg:justify-start">
           <Button href="/download" size="lg">
             {t("hero.ctaPrimary")}
             <ArrowRight className="h-4 w-4" />
@@ -103,21 +99,12 @@ async function Hero() {
             {t("hero.ctaSecondary")}
           </Button>
         </div>
-        <p
-          className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-        >
-          {t("hero.footnote")}
-        </p>
+        <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground lg:col-start-2 lg:row-start-5 lg:self-start">{t("hero.footnote")}</p>
 
-        {/* The real tool, at the fold. It used to be a drawing of the app here
-            and the working one 1,455px further down, which meant landing on
-            bishare.app and scrolling nearly two screens before the device on
-            your own Wi-Fi could show itself — even though discovery finds it in
-            about a second. Tools people call effortless (PairDrop, ShareDrop)
-            land you *in* the thing. The headline above is in the HTML, so it
-            remains the LCP element; the studio starts underneath it in a
-            fixed-height placeholder, so nothing shifts. */}
-        <div className="mx-auto mt-12 max-w-4xl text-left">
+        {/* The real tool, at the fold, on the left from lg: landing on bishare.app lands you in the thing, as PairDrop
+            and ShareDrop do. The headline stays first in the HTML (it is what search engines read first, and the LCP
+            element); only the grid puts the tool beside it. It starts in a fixed-height placeholder: nothing shifts. */}
+        <div className="mx-auto mt-12 w-full max-w-2xl text-left lg:col-start-1 lg:row-span-5 lg:row-start-1 lg:mt-0 lg:max-w-none lg:self-center">
           <LiveWidget />
         </div>
       </div>

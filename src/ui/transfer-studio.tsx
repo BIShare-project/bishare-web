@@ -44,7 +44,8 @@ const NEARBY_AUTO_MAX = 8;
  * Receiving stays outside the selector: it's the counterpart action, not a
  * fourth way to send, so a code can be pasted whichever mode is showing.
  */
-export function TransferStudio() {
+/** `stacked`: receiving under sending, for a narrow column. */
+export function TransferStudio({ stacked = false }: { stacked?: boolean } = {}) {
   const [mode, setMode] = useState<Mode>("link");
   // Nearby is mounted from the start (hidden until selected) so presence is
   // live on arrival: that is the whole trick Snapdrop-style tools rely on —
@@ -141,7 +142,7 @@ export function TransferStudio() {
       {/* Two empty, hidden layers the page has always had: its HTML stays the one search engines know. */}
       <div className="hidden" aria-hidden />
 
-      <div className="relative lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
+      <div className={stacked ? "relative" : "relative lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start"}>
       <div className="flex min-w-0 flex-col">
       <div className="relative border-b border-border/60 p-3.5 sm:px-5 sm:pb-4 sm:pt-5">
         <div className="hidden" aria-hidden />
@@ -198,7 +199,7 @@ export function TransferStudio() {
 
       <section
         aria-label={active?.label ?? t("send")}
-        className="relative flex-1 p-2.5 sm:p-5 lg:px-6 lg:pb-6 lg:pt-4"
+        className={stacked ? "relative flex-1 p-2.5 sm:p-5" : "relative flex-1 p-2.5 sm:p-5 lg:px-6 lg:pb-6 lg:pt-4"}
       >
         {mode === "link" && <FileUpload />}
         {/* Mounted whenever the flag allows, hidden until selected: presence
@@ -219,7 +220,7 @@ export function TransferStudio() {
           under the button. */}
       <section
         aria-label={t("receive")}
-        className="relative border-t border-border/60 p-3.5 sm:p-5 lg:border-l lg:border-t-0"
+        className={stacked ? "relative border-t border-border/60 p-3.5 sm:p-5" : "relative border-t border-border/60 p-3.5 sm:p-5 lg:border-l lg:border-t-0"}
       >
         <div className="flex items-center gap-2.5">
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border-strong text-muted-foreground">
@@ -232,7 +233,7 @@ export function TransferStudio() {
             <p className="text-[12px] text-muted-foreground">{t("codeSub")}</p>
           </div>
         </div>
-        <div className="mt-4 sm:max-w-md lg:max-w-none">
+        <div className={stacked ? "mt-4 sm:max-w-md" : "mt-4 sm:max-w-md lg:max-w-none"}>
           <CodeInput />
         </div>
       </section>
