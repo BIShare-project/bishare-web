@@ -1,10 +1,11 @@
-// BIShare web Worker entry (OpenNext). Serves the Next.js handler plus the
+// BIShare web Worker entry. Pages that are switched on are answered from their built HTML (src/hono/serve.ts); the
+// rest goes to Next (OpenNext), loaded only when a request needs it. Serves the Next.js handler plus the
 // realtime-stats WebSocket: /stats-live is forwarded to a single global
 // Durable Object (StatsLiveDO) that watches the public stats and pushes a
 // "changed" ping to connected clients. The file-transfer API is a separate
 // service reached over HTTPS (see NEXT_PUBLIC_API_URL).
-import nextHandler from "../.open-next/worker.js";
 import type { Env } from "../server/types";
+import { engineFor, honoPage, htmlFile, PAGE_DIR, routeSwitch } from "../src/hono/serve";
 
 export { StatsLiveDO } from "../server/do/stats-live";
 
@@ -28,7 +29,7 @@ export default {
       const id = env.STATS_LIVE_DO.idFromName("global");
       return env.STATS_LIVE_DO.get(id).fetch(req);
     }
-    if (PROBE.test(url.pathname)) {
+    if (PROBE.test(url.pathname) || url.pathname === PAGE_DIR || url.pathname.startsWith(`${PAGE_DIR}/`)) {
       return new Response("Not found", {
         status: 404,
         headers: {
@@ -38,6 +39,14 @@ export default {
         },
       });
     }
+    const file = await htmlFile(req, env);
+    if (file) return file;
+    const engine = engineFor(req, env);
+    if (engine !== "next") {
+      const page = await honoPage(req, env, engine === "hono" ? () => true : await routeSwitch(env));
+      if (page) return page;
+    }
+    const { default: nextHandler } = await import("../.open-next/worker.js");
     return nextHandler.fetch(req, env, ctx);
   },
 } satisfies ExportedHandler<Env>;

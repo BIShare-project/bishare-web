@@ -73,7 +73,9 @@ jobs:
               // The web Drive (src/middleware.ts DRIVE_HOST), noindex.
               { pattern: "drive.bishare.app", custom_domain: true },
             ],
-            assets: { directory: ".open-next/assets", binding: "ASSETS" },
+            // /_p holds the built Hono pages; the Worker answers it (with a 404) so no page has a second URL. The .html
+            // files of public/ are served by the Worker without their extension (src/hono/serve.ts, htmlFile).
+            assets: { directory: ".open-next/assets", binding: "ASSETS", run_worker_first: ["/_p/*", "/offline.html", "/save-bridge.html"], html_handling: "none" },
             d1_databases: [
               {
                 binding: "DB",

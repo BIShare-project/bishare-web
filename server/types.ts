@@ -15,6 +15,10 @@ export interface Env {
   /** Self service binding — lets Next route handlers reach the frozen Hono API
    * (same worker) without the self-subrequest loop guard. See src/lib/drive/api.ts. */
   SELF?: Fetcher;
+  /** cfg:web.hono — the routes answered by the Hono pages (src/hono/serve.ts). */
+  BISHARE_WEB_CFG?: KVNamespace;
+  /** Lets x-bs-engine force an engine in production, for parity checks. */
+  PARITY_TOKEN?: string;
   /** Workers Analytics Engine — additive metrics (F4/B6); absent in some envs. */
   METRICS?: AnalyticsEngineDataset;
   // vars (wrangler.jsonc)

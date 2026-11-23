@@ -16,7 +16,7 @@
   //   { "pattern": "www.example.com", "custom_domain": true }
   // ],
 
-  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS", "run_worker_first": ["/_p/*", "/offline.html", "/save-bridge.html"], "html_handling": "none" },
 
   // D1 powers the public /stats page (read-only aggregate counters) and the
   // StatsLiveDO fingerprint poll. Create one with `wrangler d1 create` and

@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run build:sw && npm run build:hono && next build",
-    "build:cloudflare": "npm run build:sw && npm run build:hono && npx @opennextjs/cloudflare build",
+    "build:cloudflare": "npm run build:sw && npm run build:hono && npx @opennextjs/cloudflare build && node scripts/build-hono-pages.mjs .open-next/assets/_p",
     "preview": "npm run build:cloudflare && npx wrangler dev --port 8788",
     "deploy": "npm run build:cloudflare && npx wrangler deploy",
     "typecheck": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && tsc -p tsconfig.sw.json --noEmit",
