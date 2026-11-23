@@ -1,0 +1,22 @@
+import { AsyncLocalStorage } from "node:async_hooks";
+import { routing } from "@/i18n/routing";
+
+// Pages are rendered at build time, many at once; each keeps its own language.
+
+export type Messages = Record<string, unknown>;
+interface PageContext {
+  locale: string;
+  /** Messages per locale instead of src/messages, for tests. */
+  messages?: () => Record<string, Messages>;
+}
+
+const store = new AsyncLocalStorage<PageContext>();
+
+/** Renders with `locale` as the page's language. */
+export function withLocale<T>(locale: string, fn: () => T, messages?: PageContext["messages"]): T {
+  return store.run({ locale, messages }, fn);
+}
+
+export function pageContext(): PageContext {
+  return store.getStore() ?? { locale: routing.defaultLocale };
+}
