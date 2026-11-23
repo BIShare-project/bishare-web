@@ -1,8 +1,23 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, methodsLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, Methods, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
-import { pageUrl } from "@/lib/og";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  methodsLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  Section,
+  QuickAnswer,
+  Methods,
+  TruthTable,
+  Faq,
+  Cta,
+} from "@/ui/article";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "Nearby Share alternative" — the SERP is AlternativeTo, Softonic, a 2020
@@ -53,18 +68,9 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function NearbyShareAltPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const chrome = await getTranslations("chrome");
-
-  const tags = { strong, highlight, ...links };
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
+export default async function NearbyShareAltPage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t } = a;
 
   const listLd = methodsLd(a, ALT_ITEMS);
 
@@ -72,59 +78,55 @@ export default async function NearbyShareAltPage({
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Nearby Share alternative")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight, ...links })}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Nearby Share alternative")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* What happened */}
-            <Section a={a} id="what" lead><Art a={a} name="timeline" height={600} />
-<ProseList a={a} name="what" items={WHAT_ITEMS} />
-            </Section>
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* What happened */}
+      <Section a={a} id="what" lead art={["timeline", 600]} items={WHAT_ITEMS} />
 
-            {/* Same name, three features */}
-            <Section a={a} id="names" lead><ProseList a={a} name="names" items={NAMES_ITEMS} />
-            </Section>
+      {/* Same name, three features */}
+      <Section a={a} id="names" lead items={NAMES_ITEMS} />
 
-            {/* Where Quick Share reaches */}
-            <Section a={a} id="reach" lead><Art a={a} name="reach" height={600} />
-<ProseList a={a} name="reach" items={REACH_ITEMS} />
-            </Section>
+      {/* Where Quick Share reaches */}
+      <Section a={a} id="reach" lead art={["reach", 600]} items={REACH_ITEMS} />
 
-            {/* The alternatives */}
-            <Section a={a} id="methods" lead><Methods a={a} items={ALT_ITEMS} />
-            </Section>
+      {/* The alternatives */}
+      <Section a={a} id="methods" lead>
+        <Methods a={a} items={ALT_ITEMS} />
+      </Section>
 
-            {/* Comparison table */}
-            <Section a={a} id="glance" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[760px]" />
-            </Section>
+      {/* Comparison table */}
+      <Section a={a} id="glance" name="table">
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[760px]" />
+      </Section>
 
-            {/* Unofficial Quick Share clients */}
-            <Section a={a} id="unofficial" lead><Art a={a} name="bridge" height={600} />
-<ProseList a={a} name="unofficial" items={UNOFFICIAL_ITEMS} />
-            </Section>
+      {/* Unofficial Quick Share clients */}
+      <Section a={a} id="unofficial" lead art={["bridge", 600]} items={UNOFFICIAL_ITEMS} />
 
-            {/* Pick by gap */}
-            <Section a={a} id="choose" lead><ProseList a={a} name="choose" items={CHOOSE_ITEMS} />
-            </Section>
+      {/* Pick by gap */}
+      <Section a={a} id="choose" lead items={CHOOSE_ITEMS} />
 
-            {/* Fix Quick Share first */}
-            <Section a={a} id="fixes" lead><ProseList a={a} name="fixes" items={FIXES_ITEMS} />
-            </Section>
+      {/* Fix Quick Share first */}
+      <Section a={a} id="fixes" lead items={FIXES_ITEMS} />
 
-            {/* Security */}
-            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
-            </Section>
+      {/* Security */}
+      <Section a={a} id="security" lead items={SECURITY_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}<Cta a={a} /></ArticlePage>);
+      {/* CTA */}
+      <Cta a={a} />
+    </ArticlePage>
+  );
 }

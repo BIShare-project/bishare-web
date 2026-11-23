@@ -1,10 +1,23 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, TruthTable, Faq, strong, highlight } from "@/ui/article";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  Section,
+  QuickAnswer,
+  TruthTable,
+  Faq,
+} from "@/ui/article";
 import { Button } from "@/ui/button";
 import { StoreButtons } from "@/ui/store-buttons";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
 import { ArrowRight } from "@/ui/icons";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "How to AirDrop" — the largest question cluster around AirDrop that we had
@@ -64,109 +77,85 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function HowToAirdropPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const tags = { strong, highlight, ...links };
-  const chrome = await getTranslations("chrome");
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
-
-  const no = t("a11y.no");
+export default async function HowToAirdropPage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t } = a;
 
   const faqLd = faqPageLd(t, FAQ_ITEMS);
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[faqLd, pageLd, breadcrumbLd(SLUG, "How to AirDrop")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight, ...links })}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[faqLd, pageLd, breadcrumbLd(SLUG, "How to AirDrop")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* What it is and what it needs */}
-            <Section a={a} id="basics" lead><ProseList a={a} name="basics" items={BASICS_ITEMS} />
-            </Section>
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* What it is and what it needs */}
+      <Section a={a} id="basics" lead items={BASICS_ITEMS} />
 
-            {/* Turn it on */}
-            <Section a={a} id="turn-on" name="turnon" lead><Art a={a} name="options" height={600} />
-<ProseList a={a} name="turnon" items={TURNON_ITEMS} />
-            </Section>
+      {/* Turn it on */}
+      <Section a={a} id="turn-on" name="turnon" lead art={["options", 600]} items={TURNON_ITEMS} />
 
-            {/* Send from iPhone or iPad */}
-            <Section a={a} id="send" lead><ProseList a={a} name="send" items={SEND_ITEMS} />
-            </Section>
+      {/* Send from iPhone or iPad */}
+      <Section a={a} id="send" lead items={SEND_ITEMS} />
 
-            {/* Mac */}
-            <Section a={a} id="mac" lead><ProseList a={a} name="mac" items={MAC_ITEMS} />
-            </Section>
+      {/* Mac */}
+      <Section a={a} id="mac" lead items={MAC_ITEMS} />
 
-            {/* Receive, and where files go */}
-            <Section a={a} id="receive" lead><Art a={a} name="landing" height={640} />
-<ProseList a={a} name="receive" items={RECEIVE_ITEMS} />
-            </Section>
+      {/* Receive, and where files go */}
+      <Section a={a} id="receive" lead art={["landing", 640]} items={RECEIVE_ITEMS} />
 
-            {/* Not in your contacts */}
-            <Section a={a} id="not-in-contacts" name="strangers" lead><ProseList a={a} name="strangers" items={STRANGER_ITEMS} />
-            </Section>
+      {/* Not in your contacts */}
+      <Section a={a} id="not-in-contacts" name="strangers" lead items={STRANGER_ITEMS} />
 
-            {/* Name, off switch and other settings */}
-            <Section a={a} id="settings" lead><ProseList a={a} name="settings" items={SETTING_ITEMS} />
-            </Section>
+      {/* Name, off switch and other settings */}
+      <Section a={a} id="settings" lead items={SETTING_ITEMS} />
 
-            {/* What it reaches */}
-            <Section a={a} id="reach" lead><Art a={a} name="reach" height={620} />
-<ProseList a={a} name="reach" items={REACH_ITEMS} />
-            </Section>
+      {/* What it reaches */}
+      <Section a={a} id="reach" lead art={["reach", 620]} items={REACH_ITEMS} />
 
-            {/* Reach table */}
-            <Section a={a} id="compare" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[460px]" />
-            </Section>
+      {/* Reach table */}
+      <Section a={a} id="compare" name="table">
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[460px]" />
+      </Section>
 
-            {/* Sending to a device AirDrop cannot reach */}
-            <Section a={a} id="steps"><ProseList a={a} name="steps" items={STEP_ITEMS} />
-            </Section>
+      {/* Sending to a device AirDrop cannot reach */}
+      <Section a={a} id="steps" items={STEP_ITEMS} />
 
-            {/* When it does not work */}
-            <Section a={a} id="not-working" name="trouble" lead><ProseList a={a} name="trouble" items={TROUBLE_ITEMS} />
-            </Section>
+      {/* When it does not work */}
+      <Section a={a} id="not-working" name="trouble" lead items={TROUBLE_ITEMS} />
 
-            {/* Safety */}
-            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
-            </Section>
+      {/* Safety */}
+      <Section a={a} id="security" lead items={SECURITY_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}
-            <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
-              <h2 className="text-2xl font-semibold tracking-[-0.02em]">
-                {t("cta.title")}
-              </h2>
-              <p className="mx-auto mt-2 max-w-md text-muted-foreground">
-                {t("cta.body")}
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Button href="/download" size="lg">
-                  {t("cta.download")}
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-                <Button href="/transfer" size="lg" variant="secondary">
-                  {t("cta.transfer")}
-                </Button>
-              </div>
-              <div className="mt-5 flex justify-center">
-                <StoreButtons />
-              </div>
-            </section></ArticlePage>);
+      {/* CTA */}
+      <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
+        <h2 className="text-2xl font-semibold tracking-[-0.02em]">{t("cta.title")}</h2>
+        <p className="mx-auto mt-2 max-w-md text-muted-foreground">{t("cta.body")}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Button href="/download" size="lg">
+            {t("cta.download")}
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+          <Button href="/transfer" size="lg" variant="secondary">
+            {t("cta.transfer")}
+          </Button>
+        </div>
+        <div className="mt-5 flex justify-center">
+          <StoreButtons />
+        </div>
+      </section>
+    </ArticlePage>
+  );
 }

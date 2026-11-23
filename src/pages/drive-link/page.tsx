@@ -4,18 +4,13 @@ import { AppPromo } from "@/components/app-promo";
 import { FlowShell } from "@/components/flow-shell";
 import { DriveLink } from "./drive-link";
 
-interface Props {
-  params: Promise<{ locale: string; id: string }>;
-}
-
 /**
  * A link from someone's BIShare Drive (drive-plan.md 6B.3). Everything about
  * it is sealed with the key after `#`, which the server never sees, so the
  * page is the same for every link until the browser opens it; it is never
  * indexed.
  */
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "flows" });
   const image = {
     url: `/img/transfer-share/hero.${locale}.jpg`,
@@ -32,8 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function DriveLinkPage({ params }: Props) {
-  const { locale, id } = await params;
+export default async function DriveLinkPage({ id }: { id: string }) {
   return (
     <FlowShell maxWidthClassName="max-w-xl">
       <DriveLink id={id} />

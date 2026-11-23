@@ -10,12 +10,7 @@ import { AppPromo } from "@/components/app-promo";
 import { YourUploads } from "./your-uploads";
 import { LoopMarker } from "./loop-marker";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "flows" });
   const description = t("transferLanding.metaDescription");
   return {
@@ -31,12 +26,7 @@ export async function generateMetadata({
  * marketing home). Send a file to get a shareable link/QR/code, or receive one
  * by entering a code. The send/receive tool is the whole page.
  */
-export default async function TransferToolPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function TransferToolPage() {
   const t = await getTranslations("tool");
 
   const faqLd = {

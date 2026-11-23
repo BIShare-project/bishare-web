@@ -33,12 +33,7 @@ const DATE_FMT = new Intl.DateTimeFormat("en", {
   day: "numeric",
 });
 
-export default async function BlogIndexPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function BlogIndexPage() {
 
   const posts = publishedPosts().sort((a, b) =>
     b.datePublished.localeCompare(a.datePublished)
@@ -85,7 +80,7 @@ export default async function BlogIndexPage({
             <a
               key={p.slug}
               href={`/blog/${p.slug}`}
-              className="group block overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-border-strong"
+              className="group block overflow-hidden rounded-2xl border border-border bg-card hover:border-border-strong"
             >
               <article className="grid gap-0 sm:grid-cols-[200px_1fr]">
                 <img

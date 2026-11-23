@@ -1,8 +1,23 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, methodsLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, Methods, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
-import { pageUrl } from "@/lib/og";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  methodsLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  Section,
+  QuickAnswer,
+  Methods,
+  TruthTable,
+  Faq,
+  Cta,
+} from "@/ui/article";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "Send files from Android to iPhone" — the SERP (Dr.Fone, MobileTrans,
@@ -58,17 +73,9 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function AndroidToIphonePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const tags = { strong, highlight, ...links };
-  const chrome = await getTranslations("chrome");
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
+export default async function AndroidToIphonePage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t } = a;
 
   const listLd = methodsLd(a, ALT_ITEMS);
 
@@ -76,63 +83,58 @@ export default async function AndroidToIphonePage({
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Send files from Android to iPhone")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight, ...links })}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Send files from Android to iPhone")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* Three 2026 shortcuts */}
-            <Section a={a} id="news" lead><Art a={a} name="qr" height={600} />
-<ProseList a={a} name="news" items={NEWS_ITEMS} />
-            </Section>
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* Three 2026 shortcuts */}
+      <Section a={a} id="news" lead art={["qr", 600]} items={NEWS_ITEMS} />
 
-            {/* The alternatives */}
-            <Section a={a} id="methods"><Methods a={a} items={ALT_ITEMS} />
-            </Section>
+      {/* The alternatives */}
+      <Section a={a} id="methods">
+        <Methods a={a} items={ALT_ITEMS} />
+      </Section>
 
-            {/* Comparison table */}
-            <Section a={a} id="glance" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
-            </Section>
+      {/* Comparison table */}
+      <Section a={a} id="glance" name="table">
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
+      </Section>
 
-            {/* Switching phones for good */}
-            <Section a={a} id="switching" lead><Art a={a} name="migrate" height={600} />
-<ProseList a={a} name="switching" items={SWITCH_ITEMS} />
-            </Section>
+      {/* Switching phones for good */}
+      <Section a={a} id="switching" lead art={["migrate", 600]} items={SWITCH_ITEMS} />
 
-            {/* Where files land on the iPhone */}
-            <Section a={a} id="landing" lead><Art a={a} name="landing" height={620} />
-<ProseList a={a} name="landing" items={LANDING_ITEMS} />
-            </Section>
+      {/* Where files land on the iPhone */}
+      <Section a={a} id="landing" lead art={["landing", 620]} items={LANDING_ITEMS} />
 
-            {/* Step by step */}
-            <Section a={a} id="steps"><ProseList a={a} name="steps" items={STEP_ITEMS} />
-            </Section>
+      {/* Step by step */}
+      <Section a={a} id="steps" items={STEP_ITEMS} />
 
-            {/* Motion photos and other quirks */}
-            <Section a={a} id="motion"><ProseList a={a} name="motion" items={MOTION_ITEMS} />
-            </Section>
+      {/* Motion photos and other quirks */}
+      <Section a={a} id="motion" items={MOTION_ITEMS} />
 
-            {/* Speed */}
-            <Section a={a} id="speed" lead><ProseList a={a} name="speed" items={SPEED_ITEMS} />
-            </Section>
+      {/* Speed */}
+      <Section a={a} id="speed" lead items={SPEED_ITEMS} />
 
-            {/* Troubleshooting */}
-            <Section a={a} id="fixes"><ProseList a={a} name="fixes" items={FIX_ITEMS} />
-            </Section>
+      {/* Troubleshooting */}
+      <Section a={a} id="fixes" items={FIX_ITEMS} />
 
-            {/* Security */}
-            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
-            </Section>
+      {/* Security */}
+      <Section a={a} id="security" lead items={SECURITY_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}<Cta a={a} /></ArticlePage>);
+      {/* CTA */}
+      <Cta a={a} />
+    </ArticlePage>
+  );
 }

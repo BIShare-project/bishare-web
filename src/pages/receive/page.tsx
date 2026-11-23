@@ -15,15 +15,10 @@ import { CheckCircle2, CloudOff, FileX, Flame, Hourglass } from "@/ui/icons";
 import { DownloadTransferButton, ExpiryCountdown } from "./transfer-actions";
 import { StreamPlayer } from "./stream-player";
 
-interface Props {
-  params: Promise<{ locale: string; code: string }>;
-}
-
 /** Ephemeral deep links must never be indexed (review #20). */
 const NOINDEX = { robots: { index: false, follow: false } } as const;
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, code } = await params;
+export async function generateMetadata({ locale, code }: { locale: string; code: string }): Promise<Metadata> {
   const tr = await getTranslations({ locale, namespace: "flows" });
   const res = await getTransferStatus(code);
 
@@ -73,8 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function TransferPage({ params }: Props) {
-  const { locale, code } = await params;
+export default async function TransferPage({ locale, code }: { locale: string; code: string }) {
   const tr = await getTranslations("flows");
   const res = await getTransferStatus(code);
 

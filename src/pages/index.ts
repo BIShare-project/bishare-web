@@ -7,7 +7,8 @@ export interface PageModule {
 }
 
 export interface PageProps {
-  params: Promise<{ locale: string; slug: string }>;
+  locale: string;
+  slug: string;
 }
 
 /** Every page built ahead of time, by its path without a locale prefix. Each is built in every language. */

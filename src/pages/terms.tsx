@@ -16,12 +16,7 @@ import {
   LegalTocMobile,
 } from "@/pages/privacy/legal-kit";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "legal" });
   const description = t("terms.metadata.description");
   return {
@@ -74,12 +69,7 @@ function LegalNotice({ children }: { children: Child }) {
   );
 }
 
-export default async function TermsPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function TermsPage() {
   const t = await getTranslations("legal");
 
   const TOC: TocItem[] = SECTION_IDS.map(({ id, key }) => ({

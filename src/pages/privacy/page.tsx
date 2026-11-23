@@ -13,12 +13,7 @@ import {
   LegalTocMobile,
 } from "./legal-kit";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "legal" });
   const description = t("privacy.metadata.description");
   return {
@@ -62,12 +57,7 @@ interface RightText {
   desc: string;
 }
 
-export default async function PrivacyPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function PrivacyPage() {
   const t = await getTranslations("legal");
 
   const TOC: TocItem[] = SECTION_IDS.map(({ id, key }) => ({
@@ -321,7 +311,7 @@ export default async function PrivacyPage({
                     {rights.map((right) => (
                       <div
                         key={right.title}
-                        className="rounded-xl border border-border bg-card p-4 transition-colors duration-200 hover:bg-background-raised hover:border-border-strong"
+                        className="rounded-xl border border-border bg-card p-4 hover:bg-background-raised hover:border-border-strong"
                       >
                         <h4 className="mb-1 text-sm font-semibold">
                           {right.title}

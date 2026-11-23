@@ -1,5 +1,5 @@
 import { Link } from "@/ui/link";
-import type { CSSProperties, Child } from "@/jsx";
+import type { Child } from "@/jsx";
 import { getTranslations } from "@/i18n/translate";
 import {
   ArrowRight,
@@ -7,7 +7,6 @@ import {
   Globe,
   KeyRound,
   Link2,
-  Lock,
   MonitorSmartphone,
   QrCode,
   ShieldCheck,
@@ -75,35 +74,29 @@ function SectionHead({
 /* ── Hero product mock — a clean, monochrome BIShare window ───────────────── */
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
-/** Above-the-fold stagger delay for the SSR-visible `.hero-rise` CSS entrance. */
-const rise = (d: number): CSSProperties => ({ "--rise-delay": `${d}s` } as CSSProperties);
-
 async function Hero() {
   const t = await getTranslations("home");
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="geist-grid pointer-events-none absolute inset-0 -z-10" />
       <div className="spotlight-radial relative mx-auto max-w-5xl px-5 pt-12 pb-12 text-center sm:px-6 sm:pt-20 sm:pb-16 md:pt-28">
-        <div className="hero-rise flex justify-center" style={rise(0)}>
+        <div className="flex justify-center">
           <Eyebrow>{t("hero.eyebrow")}</Eyebrow>
         </div>
         <h1
-          className="hero-rise mx-auto mt-7 max-w-3xl text-[clamp(2.75rem,6.4vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-balance"
-          style={rise(0.06)}
+          className="mx-auto mt-7 max-w-3xl text-[clamp(2.75rem,6.4vw,5.25rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-balance"
         >
           {t("hero.title")}
         </h1>
         <p
-          className="hero-rise mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground text-balance"
-          style={rise(0.12)}
+          className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground text-balance"
         >
           {t.rich("hero.body", {
             highlight: (chunks) => <span className="text-foreground">{chunks}</span>,
           })}
         </p>
         <div
-          className="hero-rise mt-9 flex flex-wrap items-center justify-center gap-3"
-          style={rise(0.18)}
+          className="mt-9 flex flex-wrap items-center justify-center gap-3"
         >
           <Button href="/download" size="lg">
             {t("hero.ctaPrimary")}
@@ -114,8 +107,7 @@ async function Hero() {
           </Button>
         </div>
         <p
-          className="hero-rise mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
-          style={rise(0.24)}
+          className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
         >
           {t("hero.footnote")}
         </p>
@@ -128,7 +120,7 @@ async function Hero() {
             land you *in* the thing. The headline above stays server-rendered so
             it remains the LCP element; the studio hydrates underneath it into a
             fixed-height placeholder, so nothing shifts. */}
-        <div className="hero-rise mx-auto mt-12 max-w-4xl text-left" style={rise(0.2)}>
+        <div className="mx-auto mt-12 max-w-4xl text-left">
           <LiveWidget />
         </div>
       </div>
@@ -223,9 +215,9 @@ async function Features() {
           {FEATURES.map((f) => (
             <div
               key={f.key}
-              className="group border-b border-r border-border p-8 transition-all duration-300 hover:bg-background-raised hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.07)]"
+              className="group border-b border-r border-border p-8 hover:bg-background-raised hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.07)]"
             >
-              <f.icon className="h-5 w-5 text-foreground transition-colors duration-300 group-hover:text-accent-blue" />
+              <f.icon className="h-5 w-5 text-foreground group-hover:text-accent-blue" />
               <h3 className="mt-5 text-base font-semibold tracking-[-0.01em]">
                 {t(`features.items.${f.key}.title`)}
               </h3>
@@ -315,10 +307,10 @@ async function Guides() {
               <li key={slug}>
                 <Link
                   href={`/${slug}`}
-                  className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3.5 transition-colors hover:border-border-strong hover:bg-background-raised"
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3.5 hover:border-border-strong hover:bg-background-raised"
                 >
                   <span className="text-sm font-medium">{t(`links.${slug}`)}</span>
-                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-accent-blue" />
+                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-accent-blue" />
                 </Link>
               </li>
             ))}
@@ -374,7 +366,7 @@ async function DownloadCTA() {
               </p>
               <Link
                 href="/download"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:opacity-80"
               >
                 {t("cta.allPlatforms")}
                 <ArrowRight className="h-3.5 w-3.5" />

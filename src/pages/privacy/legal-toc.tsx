@@ -71,7 +71,7 @@ export function LegalToc({ items }: { items: TocItem[] }) {
                 href={`#${item.id}`}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
-                  "block py-[7px] pr-2 pl-4 text-[13px] leading-snug transition-[color,transform] duration-200",
+                  "block py-[7px] pr-2 pl-4 text-[13px] leading-snug",
                   isActive
                     ? "translate-x-0.5 font-medium text-foreground"
                     : "text-muted-foreground hover:text-foreground"
@@ -81,7 +81,7 @@ export function LegalToc({ items }: { items: TocItem[] }) {
                 <span
                   aria-hidden
                   className={cn(
-                    "absolute top-1/2 left-[-1px] h-5 w-[2px] -translate-y-1/2 rounded-[1px] bg-accent-blue transition-opacity duration-200",
+                    "absolute top-1/2 left-[-1px] h-5 w-[2px] -translate-y-1/2 rounded-[1px] bg-accent-blue",
                     isActive ? "opacity-100" : "opacity-0"
                   )}
                 />

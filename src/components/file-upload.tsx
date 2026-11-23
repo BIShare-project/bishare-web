@@ -1071,7 +1071,7 @@ export function FileUpload() {
                       <button
                         type="button"
                         onClick={() => copyText(f.id, "code", f.code || "")}
-                        className="inline-flex items-center gap-1.5 rounded-[8px] bg-primary/[0.08] px-2 py-1 font-mono text-xs font-bold text-primary transition-colors hover:bg-primary/[0.14]"
+                        className="inline-flex items-center gap-1.5 rounded-[8px] bg-primary/[0.08] px-2 py-1 font-mono text-xs font-bold text-primary hover:bg-primary/[0.14]"
                       >
                         {f.code}
                         {f.copied === "code" ? (
@@ -1091,7 +1091,7 @@ export function FileUpload() {
                       <button
                         type="button"
                         onClick={() => setExpandedQR(expandedQR === f.id ? null : f.id)}
-                        className="inline-flex items-center gap-1 transition-colors hover:text-foreground"
+                        className="inline-flex items-center gap-1 hover:text-foreground"
                       >
                         <QrCode className="h-3 w-3" />
                         {expandedQR === f.id ? t("upload.hideQr") : t("upload.qrCode")}
@@ -1101,10 +1101,10 @@ export function FileUpload() {
                       type="button"
                       onClick={() => handleDelete(f)}
                       disabled={f.deleting}
-                      className="ml-auto inline-flex items-center gap-1 text-destructive/80 transition-colors hover:text-destructive disabled:opacity-60"
+                      className="ml-auto inline-flex items-center gap-1 text-destructive/80 hover:text-destructive disabled:opacity-60"
                     >
                       {f.deleting ? (
-                        <Loader2 className="h-3 w-3 animate-spin" />
+                        <Loader2 className="h-3 w-3" />
                       ) : (
                         <Trash2 className="h-3 w-3" />
                       )}
@@ -1230,7 +1230,7 @@ export function FileUpload() {
         }}
         className={cn(
           "group/zone relative block w-full cursor-pointer overflow-hidden rounded-2xl border border-dashed p-6 text-center outline-none",
-          "transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-ring/40",
+          "focus-visible:ring-2 focus-visible:ring-ring/40",
           isDragActive
             ? "border-accent-blue/50 bg-accent-blue/[0.06]"
             : "border-border hover:border-accent-blue/35 hover:bg-secondary/40",
@@ -1240,7 +1240,7 @@ export function FileUpload() {
         <div className="relative flex flex-col items-center">
           <div
             className={cn(
-              "flex h-11 w-11 items-center justify-center rounded-xl bg-accent-blue/10 text-accent-blue transition-transform duration-200",
+              "flex h-11 w-11 items-center justify-center rounded-xl bg-accent-blue/10 text-accent-blue",
               isDragActive ? "scale-105" : "group-hover/zone:scale-105"
             )}
           >
@@ -1283,7 +1283,7 @@ export function FileUpload() {
                       }
                     }}
                     className={cn(
-                      "group/tile relative cursor-pointer overflow-hidden rounded-xl border bg-background/60 transition-colors hover:border-accent-blue/50",
+                      "group/tile relative cursor-pointer overflow-hidden rounded-xl border bg-background/60 hover:border-accent-blue/50",
                       f.status === "uploading" ? "border-accent-blue/40" : "border-border",
                       f.status === "blocked" && "border-destructive/50"
                     )}>
@@ -1311,7 +1311,7 @@ export function FileUpload() {
                               e.stopPropagation();
                               removeFile(f.id);
                             }}
-                            className="absolute right-1.5 top-1.5 rounded-full bg-background/85 p-1 text-muted-foreground opacity-0 transition-opacity hover:text-destructive focus-visible:opacity-100 group-hover/tile:opacity-100"
+                            className="absolute right-1.5 top-1.5 rounded-full bg-background/85 p-1 text-muted-foreground opacity-0 hover:text-destructive focus-visible:opacity-100 group-hover/tile:opacity-100"
                           >
                             <X className="h-3 w-3" />
                           </button>
@@ -1361,7 +1361,7 @@ export function FileUpload() {
               aria-checked={combine}
               onClick={() => setCombine((v) => !v)}
               className={cn(
-                "flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left transition-colors duration-200",
+                "flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left",
                 combine
                   ? "border-accent-blue/40 bg-accent-blue/[0.06]"
                   : "border-border bg-card hover:bg-secondary/50"
@@ -1380,13 +1380,13 @@ export function FileUpload() {
               </span>
               <span
                 className={cn(
-                  "relative h-5 w-9 shrink-0 rounded-full transition-colors",
+                  "relative h-5 w-9 shrink-0 rounded-full",
                   combine ? "bg-accent-blue" : "bg-muted"
                 )}
               >
                 <span
                   className={cn(
-                    "absolute top-0.5 h-4 w-4 rounded-full bg-white transition-transform",
+                    "absolute top-0.5 h-4 w-4 rounded-full bg-white",
                     combine ? "translate-x-[1.15rem]" : "translate-x-0.5"
                   )}
                 />
@@ -1418,7 +1418,7 @@ export function FileUpload() {
                   aria-checked={expiry === h}
                   onClick={() => setExpiry(h)}
                   className={cn(
-                    "flex-1 rounded-lg py-1.5 text-sm font-medium transition-colors",
+                    "flex-1 rounded-lg py-1.5 text-sm font-medium",
                     expiry === h
                       ? "bg-background text-foreground shadow-sm"
                       : "text-muted-foreground hover:text-foreground/70"
@@ -1436,7 +1436,7 @@ export function FileUpload() {
             aria-checked={oneTime}
             onClick={() => setOneTime((v) => !v)}
             className={cn(
-              "flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left transition-colors duration-200",
+              "flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left",
               oneTime
                 ? "border-accent-blue/40 bg-accent-blue/[0.06]"
                 : "border-border bg-card hover:bg-secondary/50"
@@ -1452,13 +1452,13 @@ export function FileUpload() {
             <span
               aria-hidden
               className={cn(
-                "relative inline-flex h-5 w-9 shrink-0 rounded-full transition-colors duration-[180ms]",
+                "relative inline-flex h-5 w-9 shrink-0 rounded-full",
                 oneTime ? "bg-accent-blue" : "bg-muted"
               )}
             >
               <span
                 className={cn(
-                  "absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform duration-[180ms]",
+                  "absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow",
                   oneTime && "translate-x-4"
                 )}
               />
@@ -1471,7 +1471,7 @@ export function FileUpload() {
             aria-checked={encrypt}
             onClick={() => setEncrypt((v) => !v)}
             className={cn(
-              "flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left transition-colors duration-200",
+              "flex w-full items-center gap-3 rounded-2xl border px-4 py-3 text-left",
               encrypt
                 ? "border-accent-blue/40 bg-accent-blue/[0.06]"
                 : "border-border bg-card hover:bg-secondary/50"
@@ -1487,13 +1487,13 @@ export function FileUpload() {
             <span
               aria-hidden
               className={cn(
-                "relative inline-flex h-5 w-9 shrink-0 rounded-full transition-colors duration-[180ms]",
+                "relative inline-flex h-5 w-9 shrink-0 rounded-full",
                 encrypt ? "bg-accent-blue" : "bg-muted"
               )}
             >
               <span
                 className={cn(
-                  "absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform duration-[180ms]",
+                  "absolute top-0.5 left-0.5 h-4 w-4 rounded-full bg-white shadow",
                   encrypt && "translate-x-4"
                 )}
               />

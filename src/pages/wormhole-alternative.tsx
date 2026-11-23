@@ -1,8 +1,23 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, methodsLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, Methods, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
-import { pageUrl } from "@/lib/og";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  methodsLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  Section,
+  QuickAnswer,
+  Methods,
+  TruthTable,
+  Faq,
+  Cta,
+} from "@/ui/article";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "Wormhole alternative" — the SERP is nothing but software directories
@@ -57,19 +72,9 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function WormholeAltPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const chrome = await getTranslations("chrome");
-
-  const tags = { strong, highlight, ...links };
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
-  const no = t("a11y.no");
+export default async function WormholeAltPage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t } = a;
 
   const listLd = methodsLd(a, ALT_ITEMS);
 
@@ -77,50 +82,50 @@ export default async function WormholeAltPage({
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Wormhole alternative")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight, ...links })}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Wormhole alternative")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* The 5 GB line */}
-            <Section a={a} id="split" lead><Art a={a} name="split" height={600} />
-<ProseList a={a} name="split" items={SPLIT_ITEMS} />
-            </Section>
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* The 5 GB line */}
+      <Section a={a} id="split" lead art={["split", 600]} items={SPLIT_ITEMS} />
 
-            {/* The eight alternatives */}
-            <Section a={a} id="methods"><Methods a={a} items={ALT_ITEMS} />
-            </Section>
+      {/* The eight alternatives */}
+      <Section a={a} id="methods">
+        <Methods a={a} items={ALT_ITEMS} />
+      </Section>
 
-            {/* Comparison table */}
-            <Section a={a} id="glance" name="table"><Art a={a} name="limits" height={660} /><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
-            </Section>
+      {/* Comparison table */}
+      <Section a={a} id="glance" name="table">
+        <Art a={a} name="limits" height={660} />
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
+      </Section>
 
-            {/* Which Wormhole */}
-            <Section a={a} id="whichone" lead><ProseList a={a} name="whichone" items={WHICH_ITEMS} />
-            </Section>
+      {/* Which Wormhole */}
+      <Section a={a} id="whichone" lead items={WHICH_ITEMS} />
 
-            {/* Switching */}
-            <Section a={a} id="steps"><ProseList a={a} name="steps" items={STEP_ITEMS} />
-            </Section>
+      {/* Switching */}
+      <Section a={a} id="steps" items={STEP_ITEMS} />
 
-            {/* Pick by job */}
-            <Section a={a} id="choose" lead><Art a={a} name="choose" height={620} />
-<ProseList a={a} name="choose" items={CHOOSE_ITEMS} />
-            </Section>
+      {/* Pick by job */}
+      <Section a={a} id="choose" lead art={["choose", 620]} items={CHOOSE_ITEMS} />
 
-            {/* Who can read what */}
-            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
-            </Section>
+      {/* Who can read what */}
+      <Section a={a} id="security" lead items={SECURITY_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}<Cta a={a} /></ArticlePage>);
+      {/* CTA */}
+      <Cta a={a} />
+    </ArticlePage>
+  );
 }

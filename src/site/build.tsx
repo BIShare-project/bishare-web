@@ -30,7 +30,7 @@ function write(name: string, body: string) {
 
 async function page(path: string, module: PageModule, slug = "") {
   for (const locale of routing.locales) {
-    const props = { params: Promise.resolve({ locale, slug }) };
+    const props = { locale, slug };
     const html = await withPage(
       locale,
       path,

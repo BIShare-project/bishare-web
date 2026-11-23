@@ -89,7 +89,7 @@ export function LinkDialog({ o, link: given, onDone }: { o?: DriveObject; link?:
         {!link ? (
           <div className="grid gap-3">
             {existing === null ? (
-              <Loader2 className="mx-auto size-4 animate-spin text-muted-foreground" aria-hidden />
+              <Loader2 className="mx-auto size-4 text-muted-foreground" aria-hidden />
             ) : (
               existing.map((l) => (
                 <button key={l.id} type="button" onClick={() => setLink(l)} className="flex items-center gap-2 border px-3 py-2 text-left text-xs hover:bg-muted/50">
@@ -116,7 +116,7 @@ export function LinkDialog({ o, link: given, onDone }: { o?: DriveObject; link?:
                 })
               }
             >
-              {busy ? <Loader2 className="animate-spin" /> : <Link2 />} {t("links.create")}
+              {busy ? <Loader2 /> : <Link2 />} {t("links.create")}
             </Button>
           </div>
         ) : (
@@ -163,7 +163,7 @@ export function LinkDialog({ o, link: given, onDone }: { o?: DriveObject; link?:
                     <div className="flex gap-2">
                       <Input type="email" autoFocus value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t("links.emailHint")} aria-label={t("links.email")} />
                       <Button type="submit" disabled={busy}>
-                        {busy ? <Loader2 className="animate-spin" /> : null}
+                        {busy ? <Loader2 /> : null}
                         {t("links.send")}
                       </Button>
                     </div>
@@ -237,7 +237,7 @@ export function LinksPage() {
           <EmptyState icon={Link2} title={error} />
         ) : links === null ? (
           <div className="flex justify-center py-12">
-            <Loader2 className="size-4 animate-spin text-muted-foreground" aria-hidden />
+            <Loader2 className="size-4 text-muted-foreground" aria-hidden />
           </div>
         ) : links.length === 0 ? (
           <EmptyState icon={Link2} title={t("links.empty")} description={t("links.emptyBody")} />

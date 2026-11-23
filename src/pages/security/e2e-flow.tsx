@@ -1,4 +1,4 @@
-import type { CSSProperties, Child } from "@/jsx";
+import type { Child } from "@/jsx";
 import type { IconComponent } from "@/ui/icons";
 import { getTranslations } from "@/i18n/translate";
 import { Beam } from "@/ui/beam";
@@ -12,9 +12,7 @@ import { EyeOff, FileText, KeyRound, Laptop, Lock, Smartphone } from "@/ui/icons
  * a plaintext chip that dissolves into the seal and a ciphertext chip that
  * emerges from it, then a wire-tap ticker showing what anyone in between gets.
  *
- * Server component — every animation is CSS (transform/opacity only, see the
- * `.e2e-*` block in site.css) and falls back to a meaningful static pose under
- * prefers-reduced-motion: file before the seal, ciphertext after it.
+ * A still picture: file before the seal, ciphertext after it.
  */
 
 /** One row of the wire-tap ticker; rendered twice for the seamless loop. */
@@ -37,16 +35,11 @@ function DeviceNode({
   name,
   role,
   keyLabel,
-  orbitDuration,
-  keyDelay,
 }: {
   icon: IconComponent;
   name: string;
   role: string;
   keyLabel: string;
-  /** Desynchronize the two nodes so the pair never beats in lockstep. */
-  orbitDuration: string;
-  keyDelay: string;
 }) {
   return (
     <div className="e2e-node relative w-full overflow-hidden rounded-xl border border-border bg-card px-6 py-7 text-center md:w-[212px]">
@@ -55,13 +48,12 @@ function DeviceNode({
         aria-hidden
       />
 
-      {/* Icon tile inside a slowly rotating dashed orbit. The orbit radius
+      {/* Icon tile inside a dashed orbit. The orbit radius
           clears the tile's corners, so the ring reads as a full circle. */}
       <div className="relative mx-auto mb-4 h-[72px] w-[72px]">
         <svg
           viewBox="0 0 72 72"
           className="e2e-orbit absolute inset-0 h-full w-full text-border-strong"
-          style={{ "--orbit-dur": orbitDuration } as CSSProperties}
           aria-hidden
         >
           <circle
@@ -84,7 +76,6 @@ function DeviceNode({
 
       <span
         className="e2e-key mt-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-background-raised px-3 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground"
-        style={{ "--key-delay": keyDelay } as CSSProperties}
       >
         <KeyRound className="h-3 w-3 text-foreground" />
         {keyLabel}
@@ -103,7 +94,6 @@ function SealBadge() {
       />
       <span
         className="e2e-halo absolute inset-0 rounded-full border border-accent-blue/30"
-        style={{ "--halo-delay": "1.8s" } as CSSProperties}
         aria-hidden
       />
       <div className="conic-border relative flex h-full w-full items-center justify-center rounded-full border border-border bg-card shadow-[var(--shadow-card-hover)]">
@@ -193,8 +183,6 @@ export async function E2EFlowDiagram() {
             name={t("flow.deviceA.name")}
             role={t("flow.deviceA.role")}
             keyLabel={t("flow.keyStaysHere")}
-            orbitDuration="26s"
-            keyDelay="0s"
           />
 
           {/* Vertical channel (mobile) */}
@@ -207,7 +195,6 @@ export async function E2EFlowDiagram() {
               width={2}
               height={100}
               preserveAspectRatio="none"
-              duration={3}
               className="h-full w-[2px]"
             />
             <SealBadge />
@@ -219,8 +206,6 @@ export async function E2EFlowDiagram() {
               path="M 0 34 C 110 12, 290 62, 400 30"
               width={400}
               height={132}
-              duration={4.6}
-              delay={0.7}
               preserveAspectRatio="none"
               className="absolute inset-0 h-full w-full opacity-45"
             />
@@ -228,7 +213,6 @@ export async function E2EFlowDiagram() {
               path="M 0 66 L 400 66"
               width={400}
               height={132}
-              duration={3.2}
               preserveAspectRatio="none"
               className="absolute inset-0 h-full w-full"
             />
@@ -236,8 +220,6 @@ export async function E2EFlowDiagram() {
               path="M 0 98 C 110 120, 290 70, 400 102"
               width={400}
               height={132}
-              duration={5.2}
-              delay={1.4}
               preserveAspectRatio="none"
               className="absolute inset-0 h-full w-full opacity-45"
             />
@@ -262,8 +244,6 @@ export async function E2EFlowDiagram() {
             name={t("flow.deviceB.name")}
             role={t("flow.deviceB.role")}
             keyLabel={t("flow.keyStaysHere")}
-            orbitDuration="34s"
-            keyDelay="2.1s"
           />
         </div>
 

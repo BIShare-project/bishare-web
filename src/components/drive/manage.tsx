@@ -139,14 +139,14 @@ export function PhotosPage() {
                     }}
                     className={cn("group relative aspect-square cursor-pointer overflow-hidden bg-muted outline-none focus-visible:ring-2 focus-visible:ring-blau", on && "ring-2 ring-blau ring-inset")}
                   >
-                    <ObjectThumb o={o} large className={cn("transition-transform duration-300", on ? "scale-[0.88]" : "group-hover:scale-[1.04]")} />
+                    <ObjectThumb o={o} large className={cn("", on ? "scale-[0.88]" : "group-hover:scale-[1.04]")} />
                     {o.mime?.startsWith("video/") ? (
                       <span className="absolute end-1.5 bottom-1.5 grid size-6 place-items-center bg-black/55 text-white backdrop-blur">
                         <Play className="size-3 fill-current" />
                       </span>
                     ) : null}
-                    <span className={cn("absolute inset-0 bg-gradient-to-b from-black/30 to-transparent to-40% transition-opacity", picking || on ? "opacity-100" : "opacity-0 group-hover:opacity-100")} />
-                    <span className={cn("absolute start-1.5 top-1.5 bg-background/90 transition-opacity", picking || on ? "opacity-100" : "opacity-0 group-hover:opacity-100")}>
+                    <span className={cn("absolute inset-0 bg-gradient-to-b from-black/30 to-transparent to-40%", picking || on ? "opacity-100" : "opacity-0 group-hover:opacity-100")} />
+                    <span className={cn("absolute start-1.5 top-1.5 bg-background/90", picking || on ? "opacity-100" : "opacity-0 group-hover:opacity-100")}>
                       <RowCheck checked={on} label={o.name} onToggle={(e) => click(o, e, true)} />
                     </span>
                   </div>
@@ -433,7 +433,7 @@ export function StoragePage() {
           </div>
           <div className="flex h-3 overflow-hidden bg-muted">
             {(["media", "documents", "audio", "other", "trash"] as const).map((k) => (
-              <span key={k} className="h-full transition-all" style={{ width: `${quota > 0 ? Math.min(100, (stats.byKind[k] * scale * 100) / quota) : 0}%`, background: KIND_COLORS[k] }} />
+              <span key={k} className="h-full" style={{ width: `${quota > 0 ? Math.min(100, (stats.byKind[k] * scale * 100) / quota) : 0}%`, background: KIND_COLORS[k] }} />
             ))}
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-2xs">

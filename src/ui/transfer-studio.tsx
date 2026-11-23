@@ -163,7 +163,7 @@ export function TransferStudio() {
                 setTouched(true);
                 setMode(m.key);
               }}
-              className={`relative flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-sm sm:py-3 font-semibold tracking-[-0.01em] transition-colors duration-200 ease-out ${
+              className={`relative flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-sm sm:py-3 font-semibold tracking-[-0.01em] ease-out ${
                 mode === m.key
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground/80"
@@ -173,7 +173,7 @@ export function TransferStudio() {
                 <span className="studio-pill absolute inset-0 rounded-xl" />
               )}
               <m.icon
-                className={`relative h-4 w-4 shrink-0 transition-colors ${
+                className={`relative h-4 w-4 shrink-0 ${
                   mode === m.key ? "text-accent-blue" : ""
                 }`}
               />

@@ -1,3 +1,4 @@
+import { Card } from "@/ui/card";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
@@ -6,11 +7,7 @@ import { Link } from "@/ui/link";
 import type { IconComponent } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
-import { GridBackdrop } from "@/ui/grid-backdrop";
-import { Section, SectionHeading } from "@/ui/section";
-import { GlassCard } from "@/ui/glass-card";
-import { GradientBorderCard } from "@/ui/gradient-border-card";
-import { SpotlightCard } from "@/ui/spotlight-card";
+import { GridBackdrop, Section, SectionHeading } from "@/ui/section";
 import { StatusPill, TagBadge } from "@/ui/status-pill";
 import { StoreButtons } from "@/ui/store-buttons";
 import { sharedOpenGraph } from "@/lib/og";
@@ -24,12 +21,7 @@ import {
   Mail,
 } from "@/ui/icons";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "about" });
   const description = t("metadata.description");
   return {
@@ -51,12 +43,7 @@ interface ValueText {
 const CIPHER_TEXT =
   "9f2e 7c41 b3a8 d05f 66e1 4b9c 2ad7 8e30 51fa c96b 03d4 7e28 ";
 
-export default async function AboutPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function AboutPage() {
   const t = await getTranslations("about");
 
   const values = t.raw("values.items") as ValueText[];
@@ -74,7 +61,7 @@ export default async function AboutPage({
           <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
             {/* CSS `.hero-rise` (SSR-visible) instead of a JS reveal so the LCP
                 <h1> paints without waiting for hydration. */}
-            <div className="hero-rise">
+            <div>
               <div className="mb-7 inline-block">
                 <Image
                   src="/logo.svg"
@@ -127,10 +114,7 @@ export default async function AboutPage({
 
           {/* Pull quote */}
           <div className="mt-14">
-            <GradientBorderCard
-              radius="xl"
-              className="relative isolate overflow-hidden p-8 md:p-12"
-            >
+            <Card className="relative isolate overflow-hidden p-8 md:p-12">
               <GridBackdrop pattern="dots" />
               <p className="text-2xl md:text-[2.5rem] md:leading-[1.15] font-semibold tracking-[-0.03em] text-balance max-w-3xl">
                 {t("quote.text")}
@@ -138,7 +122,7 @@ export default async function AboutPage({
               <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                 {t("quote.steps")}
               </p>
-            </GradientBorderCard>
+            </Card>
           </div>
         </Section>
 
@@ -154,7 +138,7 @@ export default async function AboutPage({
               const Icon = VALUE_ICONS[i];
               return (
                 <div key={value.title} className="h-full">
-                  <SpotlightCard className="h-full p-6">
+                  <Card className="h-full p-6">
                     <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background text-foreground">
                       <Icon className="h-5 w-5" />
                     </div>
@@ -162,7 +146,7 @@ export default async function AboutPage({
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {value.desc}
                     </p>
-                  </SpotlightCard>
+                  </Card>
                 </div>
               );
             })}
@@ -187,14 +171,14 @@ export default async function AboutPage({
               <div className="mt-8">
                 <Link
                   href="/privacy"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:opacity-80"
                 >
                   {t("privacy.link")} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
             <div>
-              <GlassCard accent className="p-6 md:p-7">
+              <Card className="ring-1 ring-accent-blue/30 p-6 md:p-7">
                 <div className="mb-5 flex items-center justify-between">
                   <TagBadge>E2E</TagBadge>
                   <StatusPill variant="online">{t("privacy.status")}</StatusPill>
@@ -211,7 +195,7 @@ export default async function AboutPage({
                     </li>
                   ))}
                 </ul>
-              </GlassCard>
+              </Card>
             </div>
           </div>
         </Section>
@@ -234,14 +218,14 @@ export default async function AboutPage({
               <div className="mt-8">
                 <Link
                   href="/philosophy"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:opacity-80"
                 >
                   {t("technology.link")} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
             <div>
-              <GradientBorderCard className="overflow-hidden">
+              <Card className="overflow-hidden">
                 <div className="p-6">
                   <div className="flex items-center justify-between">
                     <TagBadge>RUST CORE</TagBadge>
@@ -273,7 +257,7 @@ export default async function AboutPage({
                     </span>
                   </div>
                 </div>
-              </GradientBorderCard>
+              </Card>
             </div>
           </div>
         </Section>
@@ -283,7 +267,7 @@ export default async function AboutPage({
         <Section containerClassName="max-w-5xl">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="h-full">
-              <SpotlightCard className="h-full p-7">
+              <Card className="h-full p-7">
                 <h2 className="text-xl font-semibold tracking-[-0.02em] mb-3">
                   {t("get.title")}
                 </h2>
@@ -291,10 +275,10 @@ export default async function AboutPage({
                   {t("get.body")}
                 </p>
                 <StoreButtons />
-              </SpotlightCard>
+              </Card>
             </div>
             <div className="h-full">
-              <SpotlightCard className="h-full p-7">
+              <Card className="h-full p-7">
                 <h2 className="text-xl font-semibold tracking-[-0.02em] mb-3">
                   {t("contact.title")}
                 </h2>
@@ -303,12 +287,12 @@ export default async function AboutPage({
                 </p>
                 <a
                   href="mailto:cakrabudiman@icloud.com"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-strong bg-transparent px-5 text-sm font-medium text-foreground transition-colors hover:bg-secondary hover:border-foreground/25"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-strong bg-transparent px-5 text-sm font-medium text-foreground hover:bg-secondary hover:border-foreground/25"
                 >
                   <Mail className="h-4 w-4" />
                   cakrabudiman@icloud.com
                 </a>
-              </SpotlightCard>
+              </Card>
             </div>
           </div>
         </Section>

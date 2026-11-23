@@ -1,4 +1,4 @@
-import type { CSSProperties } from "@/jsx";
+import { Card } from "@/ui/card";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
@@ -7,10 +7,7 @@ import type { IconComponent } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { Section, SectionHeading } from "@/ui/section";
-import { GradientBorderCard } from "@/ui/gradient-border-card";
-import { SpotlightCard } from "@/ui/spotlight-card";
-import { GlassCard } from "@/ui/glass-card";
-import { GridBackdrop } from "@/ui/grid-backdrop";
+import { GridBackdrop } from "@/ui/section";
 import { IconTile, MetricBar, MockSurface } from "@/ui/mock-surface";
 import { StatusPill, TagBadge } from "@/ui/status-pill";
 import { Beam } from "@/ui/beam";
@@ -39,12 +36,7 @@ import {
 
 const SUPPORT_EMAIL = "cakrabudiman@icloud.com";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "security" });
   const title = t("meta.title");
   const description = t("meta.description");
@@ -148,13 +140,11 @@ async function LocalFirstVisual() {
             path="M 0 20 L 200 20"
             width={200}
             height={40}
-            duration={2.6}
             preserveAspectRatio="none"
             className="h-10 w-full"
           />
           <div
             className="hud-runner absolute inset-x-0 top-0 h-10"
-            style={{ "--run-dur": "2.6s" } as CSSProperties}
           >
             <span className="absolute left-0 top-1/2 -ml-3 -mt-3 flex h-6 w-6 items-center justify-center rounded-md border border-border bg-card text-foreground shadow-[var(--glow-card-hover)]">
               <FileText className="h-3 w-3" />
@@ -244,12 +234,7 @@ const DONT_ITEMS: { icon: IconComponent; key: string }[] = [
 
 /* ── Page ────────────────────────────────────────────────────────────── */
 
-export default async function SecurityPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function SecurityPage() {
   const t = await getTranslations("security");
 
   const localPoints = t.raw("local.points") as string[];
@@ -266,7 +251,7 @@ export default async function SecurityPage({
           <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 text-center md:pt-24">
             {/* CSS `.hero-rise` (SSR-visible) instead of a JS reveal so the LCP
                 <h1> paints without waiting for hydration. */}
-            <div className="hero-rise">
+            <div>
               <p className="mb-4 flex items-center justify-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                 <span
                   className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -309,9 +294,9 @@ export default async function SecurityPage({
             centered
           />
           <div className="grid gap-5 md:grid-cols-3">
-            {ENCRYPTION_CARDS.map((card, i) => (
+            {ENCRYPTION_CARDS.map((card) => (
               <div key={card.key} className="flex">
-                <SpotlightCard className="flex w-full flex-col p-7">
+                <Card className="flex w-full flex-col p-7">
                   <div className="flex items-start justify-between">
                     <IconTile icon={card.icon} accent />
                     <TagBadge>{t(`encryption.cards.${card.key}.tag`)}</TagBadge>
@@ -322,7 +307,7 @@ export default async function SecurityPage({
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {t(`encryption.cards.${card.key}.desc`)}
                   </p>
-                </SpotlightCard>
+                </Card>
               </div>
             ))}
           </div>
@@ -415,9 +400,9 @@ export default async function SecurityPage({
             centered
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {DONT_ITEMS.map((item, i) => (
+            {DONT_ITEMS.map((item) => (
               <div key={item.key} className="flex">
-                <GlassCard className="flex w-full flex-col p-6">
+                <Card className="flex w-full flex-col p-6">
                   <div className="flex items-start justify-between">
                     <IconTile
                       icon={item.icon}
@@ -433,7 +418,7 @@ export default async function SecurityPage({
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                     {t(`dont.items.${item.key}.desc`)}
                   </p>
-                </GlassCard>
+                </Card>
               </div>
             ))}
           </div>
@@ -442,11 +427,7 @@ export default async function SecurityPage({
         {/* Responsible disclosure */}
         <Section backdrop="dots">
           <div>
-            <GradientBorderCard
-              glow="blue"
-              radius="xl"
-              className="mx-auto max-w-3xl p-8 text-center md:p-12"
-            >
+            <Card hover className="mx-auto max-w-3xl p-8 text-center md:p-12">
               <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-background text-foreground">
                 <ShieldCheck className="h-6 w-6" />
               </div>
@@ -470,12 +451,12 @@ export default async function SecurityPage({
                 </Button>
                 <Link
                   href="/privacy"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:opacity-80"
                 >
                   {t("disclosure.privacyLink")} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-            </GradientBorderCard>
+            </Card>
           </div>
         </Section>
       </main>

@@ -487,7 +487,7 @@ export function NearbyPanel({
             type="button"
             aria-pressed={mode === m}
             onClick={() => switchMode(m)}
-            className={`flex-1 rounded-md py-1.5 font-medium transition-colors ${
+            className={`flex-1 rounded-md py-1.5 font-medium ${
               mode === m
                 ? "bg-background text-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground/70"
@@ -528,13 +528,13 @@ export function NearbyPanel({
           <button
             onClick={joinCode}
             disabled={normalizeCode(codeDraft).length !== CODE_LEN}
-            className="w-full rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-40"
+            className="w-full rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 disabled:opacity-40"
           >
             {t("codeJoin")}
           </button>
           <button
             onClick={createCode}
-            className="w-full text-center text-sm text-accent-blue transition-opacity hover:opacity-80"
+            className="w-full text-center text-sm text-accent-blue hover:opacity-80"
           >
             {t("codeCreate")}
           </button>
@@ -551,7 +551,7 @@ export function NearbyPanel({
           <div className="flex items-center gap-1">
             <button
               onClick={copyCode}
-              className="inline-flex items-center gap-1 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-secondary"
+              className="inline-flex items-center gap-1 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-medium hover:bg-secondary"
             >
               <Copy className="h-3.5 w-3.5" />
               {copied ? t("codeCopied") : t("codeCopy")}
@@ -559,7 +559,7 @@ export function NearbyPanel({
             <button
               onClick={() => switchMode("local")}
               aria-label={t("codeLeave")}
-              className="rounded-lg border border-border bg-background p-1.5 text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-lg border border-border bg-background p-1.5 text-muted-foreground hover:text-foreground"
             >
               <X className="h-3.5 w-3.5" />
             </button>
@@ -610,14 +610,14 @@ export function NearbyPanel({
             <div className="mt-4 flex gap-2.5">
               <button
                 onClick={declineIncoming}
-                className="flex-1 rounded-lg border border-border px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
+                className="flex-1 rounded-lg border border-border px-3 py-2.5 text-sm font-medium hover:bg-secondary"
               >
                 {t("decline")}
               </button>
               <button
                 onClick={acceptIncoming}
                 autoFocus
-                className="flex-1 rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                className="flex-1 rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90"
               >
                 {t("accept")}
               </button>
@@ -631,14 +631,14 @@ export function NearbyPanel({
                 </span>
                 <button
                   onClick={cancelReceiving}
-                  className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
+                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
                 >
                   <X className="h-3.5 w-3.5" /> {t("cancel")}
                 </button>
               </div>
               <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-secondary">
                 <div
-                  className="h-full rounded-full bg-accent-blue transition-[width] duration-200"
+                  className="h-full rounded-full bg-accent-blue"
                   style={{ width: `${Math.round((incoming.received / incoming.size) * 100)}%` }}
                 />
               </div>
@@ -650,7 +650,7 @@ export function NearbyPanel({
               <button
                 onClick={() => setIncoming(null)}
                 autoFocus
-                className="rounded-lg border border-border px-3 py-1.5 text-sm font-medium transition-colors hover:bg-secondary"
+                className="rounded-lg border border-border px-3 py-1.5 text-sm font-medium hover:bg-secondary"
               >
                 {t("close")}
               </button>
@@ -688,14 +688,14 @@ export function NearbyPanel({
               <div className="mt-4 flex gap-2.5">
                 <button
                   onClick={() => discardReceived(r)}
-                  className="flex-1 rounded-lg border border-border px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
+                  className="flex-1 rounded-lg border border-border px-3 py-2.5 text-sm font-medium hover:bg-secondary"
                 >
                   {t("discard")}
                 </button>
                 <button
                   onClick={() => saveReceived(r)}
                   autoFocus={!showIncoming}
-                  className="flex-1 rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                  className="flex-1 rounded-lg bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90"
                 >
                   {t("save")}
                 </button>
@@ -708,7 +708,7 @@ export function NearbyPanel({
                 </p>
                 <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-secondary">
                   <div
-                    className="h-full rounded-full bg-accent-blue transition-[width] duration-200"
+                    className="h-full rounded-full bg-accent-blue"
                     style={{ width: `${r.pct}%` }}
                   />
                 </div>
@@ -736,7 +736,7 @@ export function NearbyPanel({
         <div className="mt-6">
           {conn === "connecting" && (
             <div className="flex items-center justify-center gap-2 py-8 text-sm text-muted-foreground">
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <Loader2 className="h-4 w-4" />
               {t("connecting")}
             </div>
           )}
@@ -780,14 +780,14 @@ export function NearbyPanel({
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") stageInput.current?.click();
                 }}
-                className={`mb-3 cursor-pointer rounded-xl border border-dashed px-4 py-5 text-center transition-colors ${
+                className={`mb-3 cursor-pointer rounded-xl border border-dashed px-4 py-5 text-center ${
                   zoneActive
                     ? "border-accent-blue bg-accent-blue/[0.06]"
                     : "border-border hover:border-border-strong hover:bg-background-raised/60"
                 }`}
               >
                 <Upload
-                  className={`mx-auto h-5 w-5 transition-colors ${
+                  className={`mx-auto h-5 w-5 ${
                     zoneActive ? "text-accent-blue" : "text-muted-foreground"
                   }`}
                 />
@@ -803,7 +803,7 @@ export function NearbyPanel({
                   </p>
                   <button
                     onClick={() => setStaged([])}
-                    className="shrink-0 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-secondary"
+                    className="shrink-0 rounded-lg border border-border bg-background px-2.5 py-1.5 text-xs font-medium hover:bg-secondary"
                   >
                     {t("clearStaged")}
                   </button>
@@ -831,7 +831,7 @@ export function NearbyPanel({
                       setDropPeer(null);
                       if (e.dataTransfer.files.length) enqueue(p.peerId, e.dataTransfer.files);
                     }}
-                    className={`flex items-center justify-between gap-3 rounded-xl border bg-card px-4 py-3 transition-colors ${
+                    className={`flex items-center justify-between gap-3 rounded-xl border bg-card px-4 py-3 ${
                       isDropTarget
                         ? "border-accent-blue bg-accent-blue/5"
                         : "border-border"
@@ -859,7 +859,7 @@ export function NearbyPanel({
                         }
                       }}
                       disabled={busy && pct < 100}
-                      className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+                      className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground hover:opacity-90 disabled:opacity-50"
                     >
                       <Send className="h-3.5 w-3.5" />
                       {staged.length ? t("sendCount", { count: staged.length }) : t("send")}

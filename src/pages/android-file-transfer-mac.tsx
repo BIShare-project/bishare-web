@@ -1,8 +1,23 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, methodsLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, Methods, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
-import { pageUrl } from "@/lib/og";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  methodsLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  Section,
+  QuickAnswer,
+  Methods,
+  TruthTable,
+  Faq,
+  Cta,
+} from "@/ui/article";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "Android File Transfer for Mac" — moving files between an Android phone and
@@ -60,19 +75,9 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function AndroidMacPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const chrome = await getTranslations("chrome");
-
-  const tags = { strong, highlight, ...links };
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
-  const no = t("a11y.no");
+export default async function AndroidMacPage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t } = a;
 
   const listLd = methodsLd(a, METHOD_ITEMS);
 
@@ -80,66 +85,61 @@ export default async function AndroidMacPage({
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Android File Transfer for Mac")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", tags)}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Android File Transfer for Mac")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* What happened to Google's app */}
-            <Section a={a} id="status" lead><Art a={a} name="status" height={600} />
-<ProseList a={a} name="status" items={STATUS_ITEMS} />
-            </Section>
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* What happened to Google's app */}
+      <Section a={a} id="status" lead art={["status", 600]} items={STATUS_ITEMS} />
 
-            {/* The eight routes */}
-            <Section a={a} id="methods"><Methods a={a} items={METHOD_ITEMS} />
-            </Section>
+      {/* The eight routes */}
+      <Section a={a} id="methods">
+        <Methods a={a} items={METHOD_ITEMS} />
+      </Section>
 
-            {/* Comparison table */}
-            <Section a={a} id="glance" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[680px]" />
-            </Section>
+      {/* Comparison table */}
+      <Section a={a} id="glance" name="table">
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[680px]" />
+      </Section>
 
-            {/* Pick a route */}
-            <Section a={a} id="choose" lead><Art a={a} name="routes" height={640} />
-<ProseList a={a} name="choose" items={CHOOSE_ITEMS} />
-            </Section>
+      {/* Pick a route */}
+      <Section a={a} id="choose" lead art={["routes", 640]} items={CHOOSE_ITEMS} />
 
-            {/* With a USB cable */}
-            <Section a={a} id="cable" lead><ProseList a={a} name="cable" items={CABLE_ITEMS} />
-            </Section>
+      {/* With a USB cable */}
+      <Section a={a} id="cable" lead items={CABLE_ITEMS} />
 
-            {/* Without a cable, step by step */}
-            <Section a={a} id="steps" lead><ProseList a={a} name="steps" items={STEP_ITEMS} />
-            </Section>
+      {/* Without a cable, step by step */}
+      <Section a={a} id="steps" lead items={STEP_ITEMS} />
 
-            {/* Mac to Android */}
-            <Section a={a} id="reverse" lead><ProseList a={a} name="reverse" items={REVERSE_ITEMS} />
-            </Section>
+      {/* Mac to Android */}
+      <Section a={a} id="reverse" lead items={REVERSE_ITEMS} />
 
-            {/* Photos and videos */}
-            <Section a={a} id="photos" lead><ProseList a={a} name="photos" items={PHOTO_ITEMS} />
-            </Section>
+      {/* Photos and videos */}
+      <Section a={a} id="photos" lead items={PHOTO_ITEMS} />
 
-            {/* Speed */}
-            <Section a={a} id="speed" lead><ProseList a={a} name="speed" items={SPEED_ITEMS} />
-            </Section>
+      {/* Speed */}
+      <Section a={a} id="speed" lead items={SPEED_ITEMS} />
 
-            {/* Troubleshooting */}
-            <Section a={a} id="fixes"><ProseList a={a} name="fixes" items={FIX_ITEMS} />
-            </Section>
+      {/* Troubleshooting */}
+      <Section a={a} id="fixes" items={FIX_ITEMS} />
 
-            {/* Security */}
-            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
-            </Section>
+      {/* Security */}
+      <Section a={a} id="security" lead items={SECURITY_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}<Cta a={a} /></ArticlePage>);
+      {/* CTA */}
+      <Cta a={a} />
+    </ArticlePage>
+  );
 }

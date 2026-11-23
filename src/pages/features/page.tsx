@@ -17,7 +17,7 @@ import { StatusPill, TagBadge } from "@/ui/status-pill";
 import { MoreFeaturesGrid } from "./more-features";
 import { QRDisplay } from "@/ui/qr-display";
 import { StoreButtons } from "@/ui/store-buttons";
-import { GridBackdrop } from "@/ui/grid-backdrop";
+import { GridBackdrop } from "@/ui/section";
 import { sharedOpenGraph } from "@/lib/og";
 import {
   Wifi,
@@ -44,14 +44,8 @@ import {
   FileUp,
   KeyRound,
 } from "@/ui/icons";
-import { HeroRise } from "@/ui/hero-rise";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "features" });
   const description = t("metadata.description");
   return {
@@ -222,7 +216,6 @@ async function ClipboardVisual() {
           width={2}
           height={100}
           preserveAspectRatio="none"
-          duration={2.8}
           className="h-full w-[2px]"
         />
         <div className="absolute left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-[var(--glow-card)]">
@@ -439,12 +432,7 @@ interface FlagshipText {
 
 /* ── Page ────────────────────────────────────────────────────────────── */
 
-export default async function FeaturesPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function FeaturesPage() {
   const t = await getTranslations("features");
 
   const overview = t.raw("overview.items") as OverviewText[];
@@ -461,7 +449,7 @@ export default async function FeaturesPage({
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
-            <HeroRise>
+            <div>
               <p className="mb-5 flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                 <span
                   className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -475,7 +463,7 @@ export default async function FeaturesPage({
               <p className="text-lg text-muted-foreground max-w-xl mx-auto mt-5 leading-relaxed">
                 {t("hero.subtitle")}
               </p>
-            </HeroRise>
+            </div>
           </div>
         </section>
 
@@ -597,7 +585,7 @@ export default async function FeaturesPage({
               <StoreButtons className="justify-center" />
               <Link
                 href="/how-it-works"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:opacity-80"
               >
                 {t("cta.link")} <ArrowRight className="h-4 w-4" />
               </Link>

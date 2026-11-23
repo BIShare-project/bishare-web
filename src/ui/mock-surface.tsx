@@ -8,8 +8,7 @@ import { cn } from "@/lib/utils";
  * diagram: hairline card, edge-faded grid, a top light-catch line, and — for
  * the "live" ones — an accent bloom plus corner ticks.
  *
- * Server-safe and zero-JS; the optional motion lives in `.hud-*` / `.metric-*`
- * classes in site.css, all gated behind prefers-reduced-motion.
+ * Zero-JS.
  */
 export function MockSurface({
   children,

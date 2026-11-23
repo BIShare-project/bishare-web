@@ -168,7 +168,7 @@ export function SignIn({
               <>
                 <div className="relative bg-white p-3.5 shadow-sm ring-1 ring-black/5" aria-label={t("signin.qrLabel")}>
                   <QRCodeSVG value={pairing.qr} size={232} level="M" />
-                  <span className="pointer-events-none absolute inset-0 animate-pulse ring-2 ring-blau/0" />
+                  <span className="pointer-events-none absolute inset-0 ring-2 ring-blau/0" />
                 </div>
                 <div className="text-center text-2xs text-muted-foreground">{t("signin.typeInstead")}</div>
                 <div className="border bg-background px-4 py-2 font-mono text-2xl font-semibold tracking-[0.18em] tabular-nums">{showCode(pairing.code)}</div>
@@ -176,7 +176,7 @@ export function SignIn({
                   <Progress value={(left / CODE_LIFE_S) * 100} />
                   <div className="flex items-center justify-center gap-2 text-3xs text-muted-foreground">
                     <span className="relative flex size-2">
-                      <span className="absolute inline-flex size-full animate-ping bg-blau opacity-60" />
+                      <span className="absolute inline-flex size-full bg-blau opacity-60" />
                       <span className="relative inline-flex size-2 bg-blau" />
                     </span>
                     {t("signin.waiting", { left: mm })}

@@ -17,7 +17,7 @@ import { RELEASES_URL } from "./availability";
 
 /** A secondary button's classes, for anchors Button does not route (mailto, hash). */
 const SECONDARY_ANCHOR =
-  "inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-strong bg-transparent px-5 text-[15px] font-medium tracking-[-0.01em] text-foreground outline-none transition-colors hover:border-foreground/25 hover:bg-secondary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border-strong bg-transparent px-5 text-[15px] font-medium tracking-[-0.01em] text-foreground outline-none hover:border-foreground/25 hover:bg-secondary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 /** Current app version, surfaced in the CTA captions. */
 const VERSION = "v2.5.0";

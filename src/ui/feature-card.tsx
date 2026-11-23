@@ -4,8 +4,6 @@ export interface FeatureCardProps {
   icon: IconComponent;
   title: string;
   desc: string;
-  /** Grid position for the stagger. */
-  index?: number;
   className?: string;
 }
 
@@ -19,12 +17,11 @@ export function FeatureCard({
   icon: Icon,
   title,
   desc,
-  index = 0,
   className,
 }: FeatureCardProps) {
   return (
     <div className={className}>
-      <div className="h-full rounded-xl border border-border bg-card p-6 transition-colors duration-300 hover:border-border-strong">
+      <div className="h-full rounded-xl border border-border bg-card p-6 hover:border-border-strong">
         <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background text-foreground">
           <Icon className="h-5 w-5" />
         </div>

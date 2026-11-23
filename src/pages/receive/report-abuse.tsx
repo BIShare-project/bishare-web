@@ -62,7 +62,7 @@ export function ReportAbuse({ code, fileName, subject }: { code: string; fileNam
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="inline-flex items-center gap-1.5 text-xs text-muted-foreground underline-offset-2 transition-colors hover:text-foreground hover:underline"
+        className="inline-flex items-center gap-1.5 text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
       >
         <Flag className="h-3 w-3" aria-hidden />
         {t("transfer.report.trigger")}
@@ -76,7 +76,7 @@ export function ReportAbuse({ code, fileName, subject }: { code: string; fileNam
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={t("transfer.report.emailPlaceholder")}
-            className="w-full rounded-lg border border-border-strong bg-secondary/40 px-3 py-2 text-sm outline-none transition-colors focus:border-accent-blue"
+            className="w-full rounded-lg border border-border-strong bg-secondary/40 px-3 py-2 text-sm outline-none focus:border-accent-blue"
           />
           <textarea
             required
@@ -86,14 +86,14 @@ export function ReportAbuse({ code, fileName, subject }: { code: string; fileNam
             value={reason}
             onChange={(e) => setReason(e.target.value)}
             placeholder={t("transfer.report.reasonPlaceholder")}
-            className="w-full resize-y rounded-lg border border-border-strong bg-secondary/40 px-3 py-2 text-sm outline-none transition-colors focus:border-accent-blue"
+            className="w-full resize-y rounded-lg border border-border-strong bg-secondary/40 px-3 py-2 text-sm outline-none focus:border-accent-blue"
           />
           <button
             type="submit"
             disabled={state === "sending"}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border-strong px-3 py-2 text-sm font-medium transition-colors hover:border-accent-blue disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border-strong px-3 py-2 text-sm font-medium hover:border-accent-blue disabled:opacity-60"
           >
-            {state === "sending" && <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden />}
+            {state === "sending" && <Loader2 className="h-3.5 w-3.5" aria-hidden />}
             {t("transfer.report.submit")}
           </button>
           {state === "error" && (

@@ -214,10 +214,10 @@ export function StreamPlayer({
       type="button"
       onClick={() => void start()}
       disabled={phase === "starting"}
-      className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary disabled:opacity-60"
+      className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-semibold hover:bg-secondary disabled:opacity-60"
     >
       {phase === "starting" ? (
-        <Loader2 className="h-4 w-4 animate-spin" />
+        <Loader2 className="h-4 w-4" />
       ) : (
         <Play className="h-4 w-4" />
       )}

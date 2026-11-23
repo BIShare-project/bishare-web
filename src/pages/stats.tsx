@@ -29,12 +29,7 @@ import { Link } from "@/ui/link";
 
 export const dynamic = "force-dynamic";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "stats" });
   const title = t("meta.title");
   const description = t("meta.description");
@@ -65,7 +60,7 @@ function Stat({
   accent?: boolean;
 }) {
   return (
-    <div className="rounded-xl border border-border bg-card/60 p-3.5 transition-colors hover:border-border-strong">
+    <div className="rounded-xl border border-border bg-card/60 p-3.5 hover:border-border-strong">
       <div className="flex items-center gap-2">
         <Icon
           className={`h-4 w-4 ${accent ? "text-accent-blue" : "text-muted-foreground"}`}
@@ -81,12 +76,7 @@ function Stat({
   );
 }
 
-export default async function StatsPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function StatsPage() {
   const t = await getTranslations("stats");
   const r = await publicReportBundle();
 
@@ -143,7 +133,7 @@ export default async function StatsPage({
           <header className="mb-10 text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-blue backdrop-blur">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-blue opacity-75" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-accent-blue opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-blue" />
               </span>
               {t("hero.eyebrow")}
@@ -236,7 +226,7 @@ export default async function StatsPage({
           <div className="mt-12 flex justify-center">
             <Link
               href="/download"
-              className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background hover:opacity-90"
             >
               {t("cta")}
             </Link>

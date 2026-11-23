@@ -220,7 +220,7 @@ export function FilesPage() {
             <Link
               key={d.id}
               href={`${base}/files?f=${d.id}`}
-              className={cn("flex min-w-0 items-center gap-3 bg-card px-4 py-3 transition-colors hover:bg-muted/60", dropOn === `qa-${d.id}` && "drop-target")}
+              className={cn("flex min-w-0 items-center gap-3 bg-card px-4 py-3 hover:bg-muted/60", dropOn === `qa-${d.id}` && "drop-target")}
               {...dropProps(d.id, `qa-${d.id}`)}
             >
               <ObjectThumb o={d} />
@@ -290,7 +290,7 @@ export function FilesPage() {
                             aria-label={label}
                             aria-pressed={view === v}
                             onClick={() => changeView(v)}
-                            className={cn("grid size-7 place-items-center text-muted-foreground transition-colors hover:text-foreground", view === v && "bg-muted text-foreground")}
+                            className={cn("grid size-7 place-items-center text-muted-foreground hover:text-foreground", view === v && "bg-muted text-foreground")}
                           >
                             <Icon className="size-4" />
                           </button>
@@ -401,7 +401,7 @@ export function FilesPage() {
                       onClick={(e) => rowClick(o, e)}
                       onDoubleClick={() => actions.open(o, rows)}
                       className={cn(
-                        "group relative flex cursor-default flex-col border bg-card transition-colors select-none hover:border-foreground/30",
+                        "group relative flex cursor-default flex-col border bg-card select-none hover:border-foreground/30",
                         on && "border-blau ring-1 ring-blau",
                         o.kind === "dir" && dropOn === o.id && "drop-target"
                       )}
@@ -425,7 +425,7 @@ export function FilesPage() {
                           </ActionDropdown>
                         </span>
                       </div>
-                      <span className={cn("absolute start-2 top-2 bg-background shadow-sm transition-opacity", on || sel.size ? "opacity-100" : "opacity-0 group-hover:opacity-100")}>
+                      <span className={cn("absolute start-2 top-2 bg-background shadow-sm", on || sel.size ? "opacity-100" : "opacity-0 group-hover:opacity-100")}>
                         <RowCheck checked={on} label={o.name} onToggle={(e) => click(o, e, true)} />
                       </span>
                     </div>
@@ -530,7 +530,7 @@ export function RecentPage() {
                 key={k}
                 type="button"
                 onClick={() => setFilter(k)}
-                className={cn("h-8 border-e px-3 text-2xs text-muted-foreground transition-colors last:border-e-0 hover:text-foreground", filter === k && "bg-foreground text-background hover:text-background")}
+                className={cn("h-8 border-e px-3 text-2xs text-muted-foreground last:border-e-0 hover:text-foreground", filter === k && "bg-foreground text-background hover:text-background")}
               >
                 {t(`files.kinds.${k}`)}
               </button>

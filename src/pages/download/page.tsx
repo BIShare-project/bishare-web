@@ -1,3 +1,4 @@
+import { Card } from "@/ui/card";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
@@ -5,9 +6,8 @@ import type { IconComponent } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { Section, SectionHeading } from "@/ui/section";
-import { GradientBorderCard } from "@/ui/gradient-border-card";
 import { QRDisplay } from "@/ui/qr-display";
-import { GridBackdrop } from "@/ui/grid-backdrop";
+import { GridBackdrop } from "@/ui/section";
 import { StatusPill, TagBadge } from "@/ui/status-pill";
 import { Button } from "@/ui/button";
 import {
@@ -32,7 +32,6 @@ import {
   TabletSmartphone,
   Terminal,
 } from "@/ui/icons";
-import { HeroRise } from "@/ui/hero-rise";
 
 /** Translator bound to the "download" namespace. */
 type T = Awaited<ReturnType<typeof getTranslations>>;
@@ -40,12 +39,7 @@ type T = Awaited<ReturnType<typeof getTranslations>>;
 /** Current app version, surfaced in the changelog badge. */
 const VERSION = "v2.5.0";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "download" });
   const description = t("meta.description");
 
@@ -107,7 +101,7 @@ const LIVE_PLATFORMS: LivePlatform[] = [
 /** The one live platform — the flagship card of the grid. */
 function AndroidCard({ t }: { t: T }) {
   return (
-    <GradientBorderCard animated glow="blue" radius="xl">
+    <Card hover>
       <div className="flex flex-col gap-8 p-7 md:flex-row md:items-center md:justify-between md:p-9">
         <div className="flex items-start gap-5">
           <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground">
@@ -137,7 +131,7 @@ function AndroidCard({ t }: { t: T }) {
           </p>
         </div>
       </div>
-    </GradientBorderCard>
+    </Card>
   );
 }
 
@@ -145,7 +139,7 @@ function AndroidCard({ t }: { t: T }) {
 function AvailableCard({ platform, t }: { platform: LivePlatform; t: T }) {
   const Icon = platform.icon;
   return (
-    <GradientBorderCard radius="lg" glow="blue" className="h-full">
+    <Card hover className="h-full">
       <div className="flex h-full flex-col p-6">
         <div className="flex items-center gap-3.5">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-foreground">
@@ -186,18 +180,13 @@ function AvailableCard({ platform, t }: { platform: LivePlatform; t: T }) {
           </p>
         </div>
       </div>
-    </GradientBorderCard>
+    </Card>
   );
 }
 
 /* ── Page ─────────────────────────────────────────────────────────────── */
 
-export default async function DownloadPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function DownloadPage() {
   const t = await getTranslations("download");
 
   return (
@@ -211,7 +200,7 @@ export default async function DownloadPage({
           <GridBackdrop pattern="dots" />
           <div className="mx-auto grid w-full max-w-7xl items-center gap-14 px-6 pb-16 pt-16 md:pt-24 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10 lg:pb-24">
             <div>
-              <HeroRise>
+              <div>
                 <p className="mb-4 flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                   <span
                     className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -225,7 +214,7 @@ export default async function DownloadPage({
                 <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted-foreground text-balance">
                   {t("hero.sub")}
                 </p>
-              </HeroRise>
+              </div>
               <div className="mt-9">
                 <DownloadHero />
                 <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
@@ -235,7 +224,7 @@ export default async function DownloadPage({
             </div>
 
             <div className="flex justify-center lg:justify-end lg:pr-4">
-              <GradientBorderCard radius="xl" glow="blue" className="p-7">
+              <Card hover className="p-7">
                 <div className="flex flex-col items-center text-center">
                   <QRDisplay
                     value="https://bishare.app/download"
@@ -248,7 +237,7 @@ export default async function DownloadPage({
                     {t("qr.hint")}
                   </p>
                 </div>
-              </GradientBorderCard>
+              </Card>
             </div>
           </div>
         </section>
@@ -272,7 +261,7 @@ export default async function DownloadPage({
             <div className="sm:col-span-2 lg:col-span-4">
               <AndroidCard t={t} />
             </div>
-            {LIVE_PLATFORMS.map((platform, i) => (
+            {LIVE_PLATFORMS.map((platform) => (
               <div key={platform.name} className="h-full">
                 <AvailableCard platform={platform} t={t} />
               </div>

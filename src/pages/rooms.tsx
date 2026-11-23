@@ -1,3 +1,4 @@
+import { Card } from "@/ui/card";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
@@ -6,7 +7,6 @@ import { Link } from "@/ui/link";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { Section, SectionHeading } from "@/ui/section";
-import { SpotlightCard } from "@/ui/spotlight-card";
 import { Button } from "@/ui/button";
 import { RoomsApp } from "@/components/rooms/rooms-app";
 import {
@@ -20,12 +20,7 @@ import {
   ArrowRight,
 } from "@/ui/icons";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "rooms" });
   const description = t("page.metaDescription");
   return {
@@ -47,12 +42,7 @@ const STEP_ICONS = [DoorOpen, Share2, FileDown];
  * together. The interactive client is the hero; rich content below explains how
  * it works (how-to, Cloud vs Local, FAQ with structured data) for search.
  */
-export default async function RoomsPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function RoomsPage() {
   const t = await getTranslations("rooms");
 
   const steps = t.raw("seo.how.steps") as Step[];
@@ -117,7 +107,7 @@ export default async function RoomsPage({
               const Icon = STEP_ICONS[i] ?? DoorOpen;
               return (
                 <div key={step.title} className="h-full">
-                  <SpotlightCard className="h-full p-6">
+                  <Card className="h-full p-6">
                     <div className="mb-4 flex items-center gap-3">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
                         <Icon className="h-5 w-5 text-foreground" />
@@ -128,7 +118,7 @@ export default async function RoomsPage({
                     </div>
                     <h3 className="text-base font-semibold tracking-[-0.01em]">{step.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
-                  </SpotlightCard>
+                  </Card>
                 </div>
               );
             })}
@@ -150,7 +140,7 @@ export default async function RoomsPage({
               { pane: local, icon: Radio },
             ].map(({ pane, icon: Icon }) => (
               <div key={pane.title} className="h-full">
-                <SpotlightCard className="h-full p-6 md:p-7">
+                <Card className="h-full p-6 md:p-7">
                   <div className="mb-5 flex items-center gap-3">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
                       <Icon className="h-5 w-5 text-foreground" />
@@ -165,7 +155,7 @@ export default async function RoomsPage({
                       </li>
                     ))}
                   </ul>
-                </SpotlightCard>
+                </Card>
               </div>
             ))}
           </div>
@@ -181,12 +171,12 @@ export default async function RoomsPage({
             centered
           />
           <div className="mx-auto max-w-3xl space-y-3">
-            {faqs.map((faq, i) => (
+            {faqs.map((faq) => (
               <div key={faq.q}>
                 <details className="group overflow-hidden rounded-xl border border-border bg-card">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-sm font-semibold md:text-base [&::-webkit-details-marker]:hidden">
                     <span>{faq.q}</span>
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-[transform,color] duration-300 group-open:rotate-180 group-open:text-foreground">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground group-open:rotate-180 group-open:text-foreground">
                       <ChevronDown className="h-4 w-4" />
                     </span>
                   </summary>
@@ -216,7 +206,7 @@ export default async function RoomsPage({
               </Button>
               <Link
                 href="/features"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:opacity-80"
               >
                 {t("seo.cta.features")} <ArrowRight className="h-4 w-4" />
               </Link>

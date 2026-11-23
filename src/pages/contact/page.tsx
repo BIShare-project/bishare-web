@@ -1,3 +1,4 @@
+import { Card } from "@/ui/card";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
@@ -7,21 +8,14 @@ import type { IconComponent } from "@/ui/icons";
 import { Clock, Mail, ShieldCheck } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
-import { GridBackdrop } from "@/ui/grid-backdrop";
-import { SpotlightCard } from "@/ui/spotlight-card";
+import { GridBackdrop } from "@/ui/section";
 import { StatusPill } from "@/ui/status-pill";
 import { sharedOpenGraph } from "@/lib/og";
 import { ContactForm } from "./contact-form";
-import { HeroRise } from "@/ui/hero-rise";
 
 const SUPPORT_EMAIL = "cakrabudiman@icloud.com";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "contact" });
   const description = t("metadata.description");
   return {
@@ -42,7 +36,7 @@ function AsideCard({
   children: Child;
 }) {
   return (
-    <SpotlightCard className="p-5" radius={280}>
+    <Card className="p-5">
       <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background text-foreground">
         <Icon className="h-5 w-5" />
       </div>
@@ -50,16 +44,11 @@ function AsideCard({
       <div className="text-sm leading-relaxed text-muted-foreground">
         {children}
       </div>
-    </SpotlightCard>
+    </Card>
   );
 }
 
-export default async function ContactPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function ContactPage() {
   const t = await getTranslations("contact");
 
   return (
@@ -71,7 +60,7 @@ export default async function ContactPage({
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="mx-auto max-w-3xl px-6 pt-16 pb-12 text-center md:pt-24 md:pb-16">
-            <HeroRise>
+            <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background-raised px-3 py-1 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                 <span
                   className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -90,7 +79,7 @@ export default async function ContactPage({
                   {t("hero.statusPill")}
                 </StatusPill>
               </div>
-            </HeroRise>
+            </div>
           </div>
         </section>
 

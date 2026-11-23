@@ -1,3 +1,4 @@
+import { Card } from "@/ui/card";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
@@ -5,11 +6,7 @@ import { Link } from "@/ui/link";
 import type { IconComponent } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
-import { GridBackdrop } from "@/ui/grid-backdrop";
-import { Section, SectionHeading } from "@/ui/section";
-import { GlassCard } from "@/ui/glass-card";
-import { GradientBorderCard } from "@/ui/gradient-border-card";
-import { SpotlightCard } from "@/ui/spotlight-card";
+import { GridBackdrop, Section, SectionHeading } from "@/ui/section";
 import { FeaturePill, TagBadge } from "@/ui/status-pill";
 import { sharedOpenGraph } from "@/lib/og";
 import {
@@ -22,14 +19,8 @@ import {
   EyeOff,
   ArrowRight,
 } from "@/ui/icons";
-import { HeroRise } from "@/ui/hero-rise";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "philosophy" });
   const description = t("metadata.description");
   return {
@@ -42,7 +33,7 @@ export async function generateMetadata({
 
 /** Geist button classes for plain anchors (file downloads keep native <a>). */
 const DL_BASE =
-  "inline-flex h-11 items-center justify-center gap-2 rounded-lg px-6 text-[15px] font-medium tracking-[-0.01em] whitespace-nowrap outline-none transition-[opacity,background-color,border-color] duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]";
+  "inline-flex h-11 items-center justify-center gap-2 rounded-lg px-6 text-[15px] font-medium tracking-[-0.01em] whitespace-nowrap outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]";
 const DL_PRIMARY =
   "bg-primary text-primary-foreground border border-primary hover:opacity-90";
 const DL_SECONDARY =
@@ -132,12 +123,7 @@ interface PrincipleText {
   desc: string;
 }
 
-export default async function PhilosophyPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function PhilosophyPage() {
   const t = await getTranslations("philosophy");
 
   const pillars = t.raw("mark.pillars") as PillarText[];
@@ -154,7 +140,7 @@ export default async function PhilosophyPage({
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
-            <HeroRise>
+            <div>
               <div className="mb-8 inline-block">
                 <AppIcon
                   id="hero"
@@ -182,18 +168,18 @@ export default async function PhilosophyPage({
                 <FeaturePill icon={Lock}>{t("hero.pills.private")}</FeaturePill>
                 <FeaturePill icon={Zap}>{t("hero.pills.instant")}</FeaturePill>
               </div>
-            </HeroRise>
+            </div>
           </div>
         </section>
 
         {/* Core idea */}
         <Section containerClassName="max-w-3xl">
           <div>
-            <GlassCard accent className="p-7 sm:p-10">
+            <Card className="ring-1 ring-accent-blue/30 p-7 sm:p-10">
               <p className="text-xl sm:text-[1.75rem] font-semibold tracking-[-0.02em] leading-snug text-balance">
                 {t("core.quote")}
               </p>
-            </GlassCard>
+            </Card>
           </div>
         </Section>
 
@@ -210,7 +196,7 @@ export default async function PhilosophyPage({
               const Icon = PILLAR_ICONS[i];
               return (
                 <div key={pillar.title} className="h-full">
-                  <SpotlightCard className="h-full p-6">
+                  <Card className="h-full p-6">
                     <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background text-foreground">
                       <Icon className="h-5 w-5" />
                     </div>
@@ -221,7 +207,7 @@ export default async function PhilosophyPage({
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {pillar.desc}
                     </p>
-                  </SpotlightCard>
+                  </Card>
                 </div>
               );
             })}
@@ -237,10 +223,7 @@ export default async function PhilosophyPage({
           />
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
-              <GradientBorderCard
-                radius="xl"
-                className="grid place-items-center p-8"
-              >
+              <Card className="grid place-items-center p-8">
                 <svg
                   viewBox="0 0 512 512"
                   className="w-56 h-56 md:w-64 md:h-64"
@@ -269,7 +252,7 @@ export default async function PhilosophyPage({
                   </g>
                   <circle cx="256" cy="256" r="18" fill="#22D3EE" />
                 </svg>
-              </GradientBorderCard>
+              </Card>
             </div>
             <div>
               <ul className="space-y-4">
@@ -347,7 +330,7 @@ export default async function PhilosophyPage({
               const Icon = PRINCIPLE_ICONS[i];
               return (
                 <div key={principle.title} className="h-full">
-                  <SpotlightCard className="h-full p-6">
+                  <Card className="h-full p-6">
                     <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background text-foreground">
                       <Icon className="h-5 w-5" />
                     </div>
@@ -357,7 +340,7 @@ export default async function PhilosophyPage({
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {principle.desc}
                     </p>
-                  </SpotlightCard>
+                  </Card>
                 </div>
               );
             })}
@@ -393,7 +376,7 @@ export default async function PhilosophyPage({
             </div>
             <Link
               href="/about"
-              className="mt-7 inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
+              className="mt-7 inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:opacity-80"
             >
               {t("downloads.back")} <ArrowRight className="h-4 w-4" />
             </Link>

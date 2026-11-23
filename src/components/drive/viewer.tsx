@@ -154,7 +154,7 @@ export function Viewer({ ids, at, onClose }: { ids: string[]; at: number; onClos
                 {thumb ? (
                   <img src={thumb} alt="" className="max-h-72 max-w-full object-contain opacity-60 blur-[2px]" />
                 ) : (
-                  <Loader2 className="size-6 animate-spin" />
+                  <Loader2 className="size-6" />
                 )}
                 <Progress value={shown.total ? (shown.done * 100) / shown.total : 5} className="max-w-56" />
                 <span>{t("viewer.opening")}</span>

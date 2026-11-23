@@ -1,8 +1,22 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  Section,
+  QuickAnswer,
+  TruthTable,
+  Faq,
+  Cta,
+} from "@/ui/article";
 import { pageUrl } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "AirDrop alternative" — the whole cross-platform cluster lands here. The
@@ -39,14 +53,7 @@ const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] as co
 /* Comparison truth table. Columns: AirDrop · BIShare · LocalSend ·
    Quick Share · PairDrop · Wormhole. Checked September 2026 against each
    tool's own documentation — see table.note for the conditions. */
-const APPS = [
-  "airdrop",
-  "bishare",
-  "localsend",
-  "quickshare",
-  "pairdrop",
-  "wormhole",
-] as const;
+const APPS = ["airdrop", "bishare", "localsend", "quickshare", "pairdrop", "wormhole"] as const;
 
 const ROWS: Array<{ id: string; v: boolean[] }> = [
   // cross-platform · nearby instant · other network · E2E · nothing to install
@@ -63,19 +70,9 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function AirdropAlternativePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const tags = { strong, highlight, ...links };
-  const chrome = await getTranslations("chrome");
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
-
-  const no = t("a11y.no");
+export default async function AirdropAlternativePage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t, tags } = a;
 
   const selfUrl = pageUrl(SLUG, locale);
 
@@ -97,90 +94,69 @@ export default async function AirdropAlternativePage({
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "AirDrop alternative")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight, ...links })}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "AirDrop alternative")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* Why AirDrop stops */}
-            <Section a={a} id="why" lead><ProseList a={a} name="why" items={WHY_ITEMS} />
-            </Section>
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* Why AirDrop stops */}
+      <Section a={a} id="why" lead items={WHY_ITEMS} />
 
-            {/* 2026: Quick Share ↔ AirDrop */}
-            <Section a={a} id="interop" lead><Art a={a} name="reach" height={700} />
-<ProseList a={a} name="interop" items={INTEROP_ITEMS} />
-            </Section>
+      {/* 2026: Quick Share ↔ AirDrop */}
+      <Section a={a} id="interop" lead art={["reach", 700]} items={INTEROP_ITEMS} />
 
-            {/* The alternatives */}
-            <Section a={a} id="alternatives" name="alts">
-              <div className="mt-6 space-y-8">
-                {ALT_ITEMS.map((i, n) => (
-                  <div
-                    key={i}
-                    id={`item-${n + 1}`}
-                    className="scroll-mt-28 border-b border-border pb-8 last:border-0 last:pb-0"
-                  >
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-mono text-sm font-semibold text-accent-blue">
-                        {String(n + 1).padStart(2, "0")}
-                      </span>
-                      <div className="min-w-0">
-                        <h3 className="text-lg font-semibold">
-                          {t(`alts.items.${i}.name`)}
-                        </h3>
-                        <p className="mt-0.5 text-sm font-medium text-accent-blue">
-                          {t(`alts.items.${i}.tag`)}
-                        </p>
-                        <p className="mt-3 font-mono text-[12px] leading-relaxed text-muted-foreground">
-                          {t(`alts.items.${i}.facts`)}
-                        </p>
-                        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                          {t.rich(`alts.items.${i}.body`, links)}
-                        </p>
-                        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                          <span className="font-medium text-foreground">
-                            {t("alts.consLabel")}
-                          </span>{" "}
-                          {t(`alts.items.${i}.cons`)}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+      {/* The alternatives */}
+      <Section a={a} id="alternatives" name="alts">
+        <div className="mt-6 space-y-8">
+          {ALT_ITEMS.map((i, n) => (
+            <div key={i} id={`item-${n + 1}`} className="scroll-mt-28 border-b border-border pb-8 last:border-0 last:pb-0">
+              <div className="flex items-baseline gap-3">
+                <span className="font-mono text-sm font-semibold text-accent-blue">{String(n + 1).padStart(2, "0")}</span>
+                <div className="min-w-0">
+                  <h3 className="text-lg font-semibold">{t(`alts.items.${i}.name`)}</h3>
+                  <p className="mt-0.5 text-sm font-medium text-accent-blue">{t(`alts.items.${i}.tag`)}</p>
+                  <p className="mt-3 font-mono text-[12px] leading-relaxed text-muted-foreground">{t(`alts.items.${i}.facts`)}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{t.rich(`alts.items.${i}.body`, tags)}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                    <span className="font-medium text-foreground">{t("alts.consLabel")}</span> {t(`alts.items.${i}.cons`)}
+                  </p>
+                </div>
               </div>
-            </Section>
+            </div>
+          ))}
+        </div>
+      </Section>
 
-            {/* Comparison table */}
-            <Section a={a} id="glance" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
-            </Section>
+      {/* Comparison table */}
+      <Section a={a} id="glance" name="table">
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
+      </Section>
 
-            {/* Device pairs */}
-            <Section a={a} id="pairs"><Art a={a} name="pairs" height={720} />
-<ProseList a={a} name="pairs" items={PAIR_ITEMS} />
-            </Section>
+      {/* Device pairs */}
+      <Section a={a} id="pairs" art={["pairs", 720]} items={PAIR_ITEMS} />
 
-            {/* Step by step */}
-            <Section a={a} id="steps"><ProseList a={a} name="steps" items={STEP_ITEMS} />
-            </Section>
+      {/* Step by step */}
+      <Section a={a} id="steps" items={STEP_ITEMS} />
 
-            {/* Speed */}
-            <Section a={a} id="speed" lead><Art a={a} name="time" height={520} />
-<ProseList a={a} name="speed" items={SPEED_ITEMS} />
-            </Section>
+      {/* Speed */}
+      <Section a={a} id="speed" lead art={["time", 520]} items={SPEED_ITEMS} />
 
-            {/* Security */}
-            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
-            </Section>
+      {/* Security */}
+      <Section a={a} id="security" lead items={SECURITY_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}<Cta a={a} /></ArticlePage>);
+      {/* CTA */}
+      <Cta a={a} />
+    </ArticlePage>
+  );
 }

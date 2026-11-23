@@ -1,12 +1,26 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, ArticlePage, ArticleHead, HeroButtons, Art, H2, Section, ProseList, QuickAnswer, TruthTable, Faq, strong, highlight } from "@/ui/article";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  H2,
+  Section,
+  QuickAnswer,
+  TruthTable,
+  Faq,
+} from "@/ui/article";
 import { Button } from "@/ui/button";
 import { pageUrl } from "@/lib/og";
 import { StoreButtons } from "@/ui/store-buttons";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
 import { NearbyEmbed } from "@/ui/nearby-embed";
 import { ArrowRight } from "@/ui/icons";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "AirDrop online" — the query people type when they want AirDrop's gesture
@@ -62,19 +76,9 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function AirdropOnlinePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const tags = { strong, highlight, ...links };
-  const chrome = await getTranslations("chrome");
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
-
-  const no = t("a11y.no");
+export default async function AirdropOnlinePage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t, tags } = a;
 
   const selfUrl = pageUrl(SLUG, locale);
 
@@ -96,132 +100,101 @@ export default async function AirdropOnlinePage({
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "AirDrop online")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight, ...links })}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "AirDrop online")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} />
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
 
-            {/* The tool itself — started on a click, see NearbyEmbed. */}
-            <section
-              className="mt-8 rounded-xl border border-accent-blue/40 bg-card p-5 sm:p-6"
-              aria-labelledby="try"
-            >
-              <H2 id="try">{t("try.title")}</H2>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                {t("try.body")}
-              </p>
-              <NearbyEmbed
-                labels={{
-                  start: t("try.start"),
-                  note: t("try.note"),
-                  full: t("try.full"),
-                  off: t("try.off"),
-                }}
-              />
-            </section><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* Is there a real AirDrop online? */}
-            <Section a={a} id="official" name="reality" lead><ProseList a={a} name="reality" items={REALITY_ITEMS} />
-            </Section>
+      {/* The tool itself — started on a click, see NearbyEmbed. */}
+      <section className="mt-8 rounded-xl border border-accent-blue/40 bg-card p-5 sm:p-6" aria-labelledby="try">
+        <H2 id="try">{t("try.title")}</H2>
+        <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{t("try.body")}</p>
+        <NearbyEmbed
+          labels={{
+            start: t("try.start"),
+            note: t("try.note"),
+            full: t("try.full"),
+            off: t("try.off"),
+          }}
+        />
+      </section>
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* Is there a real AirDrop online? */}
+      <Section a={a} id="official" name="reality" lead items={REALITY_ITEMS} />
 
-            {/* How it works */}
-            <Section a={a} id="how" lead><Art a={a} name="flow" height={620} />
-<ProseList a={a} name="how" items={HOW_ITEMS} />
-            </Section>
+      {/* How it works */}
+      <Section a={a} id="how" lead art={["flow", 620]} items={HOW_ITEMS} />
 
-            {/* The five tools */}
-            <Section a={a} id="tools">
-              <div className="mt-6 space-y-8">
-                {TOOL_ITEMS.map((i, n) => (
-                  <div
-                    key={i}
-                    id={`item-${n + 1}`}
-                    className="scroll-mt-28 border-b border-border pb-8 last:border-0 last:pb-0"
-                  >
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-mono text-sm font-semibold text-accent-blue">
-                        {String(n + 1).padStart(2, "0")}
-                      </span>
-                      <div className="min-w-0">
-                        <h3 className="text-lg font-semibold">
-                          {t(`tools.items.${i}.name`)}
-                        </h3>
-                        <p className="mt-0.5 text-sm font-medium text-accent-blue">
-                          {t(`tools.items.${i}.tag`)}
-                        </p>
-                        <p className="mt-3 font-mono text-[12px] leading-relaxed text-muted-foreground">
-                          {t(`tools.items.${i}.facts`)}
-                        </p>
-                        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                          {t.rich(`tools.items.${i}.body`, links)}
-                        </p>
-                        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                          <span className="font-medium text-foreground">
-                            {t("tools.consLabel")}
-                          </span>{" "}
-                          {t(`tools.items.${i}.cons`)}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+      {/* The five tools */}
+      <Section a={a} id="tools">
+        <div className="mt-6 space-y-8">
+          {TOOL_ITEMS.map((i, n) => (
+            <div key={i} id={`item-${n + 1}`} className="scroll-mt-28 border-b border-border pb-8 last:border-0 last:pb-0">
+              <div className="flex items-baseline gap-3">
+                <span className="font-mono text-sm font-semibold text-accent-blue">{String(n + 1).padStart(2, "0")}</span>
+                <div className="min-w-0">
+                  <h3 className="text-lg font-semibold">{t(`tools.items.${i}.name`)}</h3>
+                  <p className="mt-0.5 text-sm font-medium text-accent-blue">{t(`tools.items.${i}.tag`)}</p>
+                  <p className="mt-3 font-mono text-[12px] leading-relaxed text-muted-foreground">{t(`tools.items.${i}.facts`)}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{t.rich(`tools.items.${i}.body`, tags)}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                    <span className="font-medium text-foreground">{t("tools.consLabel")}</span> {t(`tools.items.${i}.cons`)}
+                  </p>
+                </div>
               </div>
-            </Section>
+            </div>
+          ))}
+        </div>
+      </Section>
 
-            {/* Comparison table */}
-            <Section a={a} id="compare" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[620px]" />
-            </Section>
+      {/* Comparison table */}
+      <Section a={a} id="compare" name="table">
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[620px]" />
+      </Section>
 
-            {/* Step by step */}
-            <Section a={a} id="steps"><ProseList a={a} name="steps" items={STEP_ITEMS} />
-            </Section>
+      {/* Step by step */}
+      <Section a={a} id="steps" items={STEP_ITEMS} />
 
-            {/* Devices cannot see each other */}
-            <Section a={a} id="not-found" name="trouble" lead><ProseList a={a} name="trouble" items={TROUBLE_ITEMS} />
-            </Section>
+      {/* Devices cannot see each other */}
+      <Section a={a} id="not-found" name="trouble" lead items={TROUBLE_ITEMS} />
 
-            {/* Situations */}
-            <Section a={a} id="situations"><Art a={a} name="choose" height={860} />
-<ProseList a={a} name="situations" items={SITUATION_ITEMS} />
-            </Section>
+      {/* Situations */}
+      <Section a={a} id="situations" art={["choose", 860]} items={SITUATION_ITEMS} />
 
-            {/* Where the real thing is better */}
-            <Section a={a} id="limits" lead><ProseList a={a} name="limits" items={LIMIT_ITEMS} />
-            </Section>
+      {/* Where the real thing is better */}
+      <Section a={a} id="limits" lead items={LIMIT_ITEMS} />
 
-            {/* Security */}
-            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
-            </Section>
+      {/* Security */}
+      <Section a={a} id="security" lead items={SECURITY_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}
-            <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
-              <h2 className="text-2xl font-semibold tracking-[-0.02em]">
-                {t("cta.title")}
-              </h2>
-              <p className="mx-auto mt-2 max-w-md text-muted-foreground">
-                {t("cta.body")}
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Button href="/transfer" size="lg">
-                  {t("try.full")}
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-                <Button href="/download" size="lg" variant="secondary">
-                  {t("cta.download")}
-                </Button>
-              </div>
-              <div className="mt-5 flex justify-center">
-                <StoreButtons />
-              </div>
-            </section></ArticlePage>);
+      {/* CTA */}
+      <section className="mt-16 rounded-xl border border-border bg-card p-8 text-center">
+        <h2 className="text-2xl font-semibold tracking-[-0.02em]">{t("cta.title")}</h2>
+        <p className="mx-auto mt-2 max-w-md text-muted-foreground">{t("cta.body")}</p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Button href="/transfer" size="lg">
+            {t("try.full")}
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+          <Button href="/download" size="lg" variant="secondary">
+            {t("cta.download")}
+          </Button>
+        </div>
+        <div className="mt-5 flex justify-center">
+          <StoreButtons />
+        </div>
+      </section>
+    </ArticlePage>
+  );
 }

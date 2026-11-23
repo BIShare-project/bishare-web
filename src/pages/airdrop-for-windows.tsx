@@ -1,6 +1,7 @@
+import { JsonLd } from "@/ui/article";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
-import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, H2, Section, Cell, Cta, strong, highlight } from "@/ui/article";
+import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, Section, Cell, Cta, strong, highlight } from "@/ui/article";
 import { Button } from "@/ui/button";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
@@ -39,12 +40,7 @@ const SITE = "https://bishare.app";
 
 const SLUG = "/airdrop-for-windows";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "airdropWindows" });
   const title = t("meta.title");
   const description = t("meta.description");
@@ -83,12 +79,7 @@ const FAQ_ITEMS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
 const STEP_ITEMS = ["0", "1", "2", "3", "4", "5"] as const;
 const FIX_ITEMS = ["0", "1", "2"] as const;
 
-export default async function AirdropForWindowsPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function AirdropForWindowsPage({ locale }: { locale: string }) {
   const t = await getTranslations("airdropWindows");
   const links = guideLinks();
   const tags = { strong, highlight, ...links };
@@ -116,13 +107,7 @@ export default async function AirdropForWindowsPage({
 
   return (
     <div className="min-h-screen bg-background">
-      {[faqLd, pageLd, breadcrumbLd("/airdrop-for-windows", "AirDrop for Windows")].map((ld, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, "\\u003c") }}
-        />
-      ))}
+      <JsonLd items={[faqLd, pageLd, breadcrumbLd("/airdrop-for-windows", "AirDrop for Windows")]} />
       <SiteHeader />
       <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
         <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">

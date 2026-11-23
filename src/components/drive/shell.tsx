@@ -171,7 +171,7 @@ function SideNav({ onNavigate }: { onNavigate?: () => void }) {
           onClick={onNavigate}
           aria-current={active ? "page" : undefined}
           className={cn(
-            "group relative flex h-8 items-center gap-2.5 px-2.5 text-xs transition-colors",
+            "group relative flex h-8 items-center gap-2.5 px-2.5 text-xs",
             active ? "bg-sidebar-accent font-medium text-sidebar-accent-foreground" : "text-muted-foreground hover:bg-sidebar-accent/60 hover:text-foreground"
           )}
         >
@@ -200,7 +200,7 @@ function SideNav({ onNavigate }: { onNavigate?: () => void }) {
         <div className="px-2.5 pt-5 pb-1.5 text-3xs font-medium tracking-wide text-muted-foreground uppercase">{t("nav.manage")}</div>
         <ul className="flex flex-col gap-px">{MANAGE.map(item)}</ul>
       </nav>
-      <Link href={`${base}/storage`} onClick={onNavigate} className="block border-t px-4 py-3 text-3xs text-muted-foreground transition-colors hover:bg-sidebar-accent/60">
+      <Link href={`${base}/storage`} onClick={onNavigate} className="block border-t px-4 py-3 text-3xs text-muted-foreground hover:bg-sidebar-accent/60">
         <div className="flex items-baseline gap-1">
           <b className="text-2xs font-semibold text-foreground tabular-nums">{bytes(used)}</b>
           <span>{t("of", { total: bytes(quota) })}</span>
@@ -266,7 +266,7 @@ export function DriveShell({ children }: { children: Child }) {
           <button
             type="button"
             onClick={palette}
-            className="flex h-8 w-full max-w-md min-w-0 items-center gap-2 border bg-muted/40 px-2.5 text-start text-xs text-muted-foreground transition-colors hover:bg-muted md:ms-6"
+            className="flex h-8 w-full max-w-md min-w-0 items-center gap-2 border bg-muted/40 px-2.5 text-start text-xs text-muted-foreground hover:bg-muted md:ms-6"
           >
             <Search className="size-4" />
             <span className="flex-1 truncate">{t("searchPlaceholder")}</span>

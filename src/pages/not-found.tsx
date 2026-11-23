@@ -7,7 +7,7 @@ import { Button } from "@/ui/button";
  * 404 in the Geist system: monochrome, hairline-bordered shell, a giant
  * near-black/near-white "404", and the two invert/secondary actions.
  *
- * not-found.tsx receives no params, so the active locale comes from the
+ * It is given no address, so the active locale comes from the
  * request config (resolved by the [locale] segment) rather than a prop.
  */
 export default async function NotFound() {

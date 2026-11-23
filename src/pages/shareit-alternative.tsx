@@ -1,8 +1,23 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, methodsLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, Methods, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
-import { pageUrl } from "@/lib/og";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  methodsLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  Section,
+  QuickAnswer,
+  Methods,
+  TruthTable,
+  Faq,
+  Cta,
+} from "@/ui/article";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "SHAREit alternative" — the SERP is AlternativeTo and 2021-era listicles
@@ -48,19 +63,9 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function ShareitAltPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const chrome = await getTranslations("chrome");
-
-  const tags = { strong, highlight, ...links };
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
-  const no = t("a11y.no");
+export default async function ShareitAltPage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t } = a;
 
   const listLd = methodsLd(a, ALT_ITEMS);
 
@@ -68,55 +73,52 @@ export default async function ShareitAltPage({
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "SHAREit alternative")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight, ...links })}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "SHAREit alternative")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* Why people leave */}
-            <Section a={a} id="why" lead><Art a={a} name="labels" height={600} />
-<ProseList a={a} name="why" items={WHY_ITEMS} />
-            </Section>
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* Why people leave */}
+      <Section a={a} id="why" lead art={["labels", 600]} items={WHY_ITEMS} />
 
-            {/* What to keep */}
-            <Section a={a} id="keep" lead><ProseList a={a} name="keep" items={KEEP_ITEMS} />
-            </Section>
+      {/* What to keep */}
+      <Section a={a} id="keep" lead items={KEEP_ITEMS} />
 
-            {/* The alternatives */}
-            <Section a={a} id="methods" lead><Methods a={a} items={ALT_ITEMS} />
-            </Section>
+      {/* The alternatives */}
+      <Section a={a} id="methods" lead>
+        <Methods a={a} items={ALT_ITEMS} />
+      </Section>
 
-            {/* Comparison table */}
-            <Section a={a} id="glance" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
-            </Section>
+      {/* Comparison table */}
+      <Section a={a} id="glance" name="table">
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
+      </Section>
 
-            {/* Sending installed apps */}
-            <Section a={a} id="apps" lead><Art a={a} name="apk" height={600} />
-<ProseList a={a} name="apps" items={APP_ITEMS} />
-            </Section>
+      {/* Sending installed apps */}
+      <Section a={a} id="apps" lead art={["apk", 600]} items={APP_ITEMS} />
 
-            {/* Pick by destination */}
-            <Section a={a} id="choose" lead><Art a={a} name="hub" height={600} />
-<ProseList a={a} name="choose" items={CHOOSE_ITEMS} />
-            </Section>
+      {/* Pick by destination */}
+      <Section a={a} id="choose" lead art={["hub", 600]} items={CHOOSE_ITEMS} />
 
-            {/* Step by step */}
-            <Section a={a} id="steps"><ProseList a={a} name="steps" items={STEP_ITEMS} />
-            </Section>
+      {/* Step by step */}
+      <Section a={a} id="steps" items={STEP_ITEMS} />
 
-            {/* Security */}
-            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
-            </Section>
+      {/* Security */}
+      <Section a={a} id="security" lead items={SECURITY_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}<Cta a={a} /></ArticlePage>);
+      {/* CTA */}
+      <Cta a={a} />
+    </ArticlePage>
+  );
 }

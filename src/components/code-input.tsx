@@ -95,7 +95,7 @@ export function CodeInput({ autoFocus = false }: CodeInputProps) {
         onPaste={handlePaste}
         className={cn(
           "h-12 w-10 rounded-lg border bg-secondary/40 text-center font-mono text-xl uppercase",
-          "caret-accent-blue outline-none transition-colors duration-150",
+          "caret-accent-blue outline-none",
           "focus:border-accent-blue focus:ring-0",
           "disabled:opacity-60",
           values[i] ? "border-accent-blue/60" : "border-[var(--border-strong)]"
@@ -121,7 +121,7 @@ export function CodeInput({ autoFocus = false }: CodeInputProps) {
       >
         {navigating ? (
           <>
-            <Loader2 className="animate-spin" />
+            <Loader2 />
             {t("code.lookingUp")}
           </>
         ) : (

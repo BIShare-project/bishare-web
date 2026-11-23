@@ -1,3 +1,4 @@
+import { Card } from "@/ui/card";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
@@ -5,9 +6,7 @@ import { Link } from "@/ui/link";
 import type { IconComponent } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
-import { GridBackdrop } from "@/ui/grid-backdrop";
-import { Section, SectionHeading } from "@/ui/section";
-import { SpotlightCard } from "@/ui/spotlight-card";
+import { GridBackdrop, Section, SectionHeading } from "@/ui/section";
 import { TagBadge } from "@/ui/status-pill";
 import { Beam } from "@/ui/beam";
 import { Button } from "@/ui/button";
@@ -26,14 +25,8 @@ import {
   ChevronDown,
   ArrowRight,
 } from "@/ui/icons";
-import { HeroRise } from "@/ui/hero-rise";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "how-it-works" });
   const description = t("meta.description");
   return {
@@ -60,7 +53,7 @@ type FaqContent = { q: string; a: string };
 
 /* ── Vertical beam rail segment between two step nodes ─────────────────── */
 
-function RailSegment({ delay }: { delay: number }) {
+function RailSegment() {
   return (
     <div
       aria-hidden
@@ -71,20 +64,13 @@ function RailSegment({ delay }: { delay: number }) {
         width={2}
         height={100}
         preserveAspectRatio="none"
-        duration={2.6}
-        delay={delay}
         className="h-full w-full"
       />
     </div>
   );
 }
 
-export default async function HowItWorksPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function HowItWorksPage() {
   const t = await getTranslations("how-it-works");
 
   const steps = t.raw("flow.steps") as StepContent[];
@@ -100,7 +86,7 @@ export default async function HowItWorksPage({
         <section className="relative isolate overflow-hidden border-b border-border">
           <GridBackdrop pattern="dots" />
           <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
-            <HeroRise>
+            <div>
               <p className="mb-5 flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
                 <span
                   className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue"
@@ -114,7 +100,7 @@ export default async function HowItWorksPage({
               <p className="text-lg text-muted-foreground max-w-xl mx-auto mt-5 leading-relaxed text-balance">
                 {t("hero.sub")}
               </p>
-            </HeroRise>
+            </div>
           </div>
         </section>
 
@@ -155,7 +141,7 @@ export default async function HowItWorksPage({
 
                   {/* Step card */}
                   <div className={cn( "md:w-[calc(50%-64px)]", cardLeft ? "md:mr-auto" : "md:ml-auto" )}>
-                    <SpotlightCard className="p-6 md:p-7">
+                    <Card className="p-6 md:p-7">
                       <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-blue">
                         {t("flow.stepLabel", { step: meta.step })}
                       </p>
@@ -166,10 +152,10 @@ export default async function HowItWorksPage({
                         {item.desc}
                       </p>
                       <TagBadge className="mt-4">{item.tag}</TagBadge>
-                    </SpotlightCard>
+                    </Card>
                   </div>
 
-                  {i < STEP_META.length - 1 && <RailSegment delay={i * 0.6} />}
+                  {i < STEP_META.length - 1 && <RailSegment />}
                 </li>
               );
             })}
@@ -189,7 +175,7 @@ export default async function HowItWorksPage({
               const Icon = METHOD_ICONS[i];
               return (
                 <div key={method.title} className="h-full">
-                  <SpotlightCard className="h-full p-6 md:p-7">
+                  <Card className="h-full p-6 md:p-7">
                     <div className="flex items-center gap-3.5 mb-5">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
                         <Icon className="h-5 w-5 text-foreground" />
@@ -213,7 +199,7 @@ export default async function HowItWorksPage({
                         </li>
                       ))}
                     </ul>
-                  </SpotlightCard>
+                  </Card>
                 </div>
               );
             })}
@@ -230,12 +216,12 @@ export default async function HowItWorksPage({
             centered
           />
           <div className="max-w-3xl mx-auto space-y-3">
-            {faqs.map((faq, i) => (
+            {faqs.map((faq) => (
               <div key={faq.q}>
                 <details className="group rounded-xl border border-border bg-card overflow-hidden">
                   <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-6 py-5 text-sm md:text-base font-semibold [&::-webkit-details-marker]:hidden">
                     <span>{faq.q}</span>
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-[transform,color] duration-300 group-open:rotate-180 group-open:text-foreground">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground group-open:rotate-180 group-open:text-foreground">
                       <ChevronDown className="h-4 w-4" />
                     </span>
                   </summary>
@@ -272,7 +258,7 @@ export default async function HowItWorksPage({
               </div>
               <Link
                 href="/features"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue hover:opacity-80"
               >
                 {t("cta.exploreAll")} <ArrowRight className="h-4 w-4" />
               </Link>

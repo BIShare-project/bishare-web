@@ -1,8 +1,23 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, methodsLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, Methods, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
-import { pageUrl } from "@/lib/og";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  methodsLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  Section,
+  QuickAnswer,
+  Methods,
+  TruthTable,
+  Faq,
+  Cta,
+} from "@/ui/article";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "Encrypted file transfer" — the SERP is patent PDFs, vendor pages
@@ -53,18 +68,9 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function EncryptedTransferPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const chrome = await getTranslations("chrome");
-
-  const tags = { strong, highlight, ...links };
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
+export default async function EncryptedTransferPage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t } = a;
 
   const listLd = methodsLd(a, ALT_ITEMS);
 
@@ -72,63 +78,58 @@ export default async function EncryptedTransferPage({
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Encrypted file transfer")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight, ...links })}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Encrypted file transfer")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* Three kinds of encryption */}
-            <Section a={a} id="levels" lead><Art a={a} name="levels" height={600} />
-<ProseList a={a} name="levels" items={LEVELS_ITEMS} />
-            </Section>
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* Three kinds of encryption */}
+      <Section a={a} id="levels" lead art={["levels", 600]} items={LEVELS_ITEMS} />
 
-            {/* How to tell */}
-            <Section a={a} id="test" lead><Art a={a} name="fragment" height={600} />
-<ProseList a={a} name="test" items={TEST_ITEMS} />
-            </Section>
+      {/* How to tell */}
+      <Section a={a} id="test" lead art={["fragment", 600]} items={TEST_ITEMS} />
 
-            {/* The methods */}
-            <Section a={a} id="methods" lead><Methods a={a} items={ALT_ITEMS} />
-            </Section>
+      {/* The methods */}
+      <Section a={a} id="methods" lead>
+        <Methods a={a} items={ALT_ITEMS} />
+      </Section>
 
-            {/* Comparison table */}
-            <Section a={a} id="glance" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[720px]" />
-            </Section>
+      {/* Comparison table */}
+      <Section a={a} id="glance" name="table">
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[720px]" />
+      </Section>
 
-            {/* What stays visible */}
-            <Section a={a} id="metadata" lead><Art a={a} name="visible" height={600} />
-<ProseList a={a} name="metadata" items={METADATA_ITEMS} />
-            </Section>
+      {/* What stays visible */}
+      <Section a={a} id="metadata" lead art={["visible", 600]} items={METADATA_ITEMS} />
 
-            {/* BIShare in detail */}
-            <Section a={a} id="bishare" lead><ProseList a={a} name="bishare" items={BISHARE_ITEMS} />
-            </Section>
+      {/* BIShare in detail */}
+      <Section a={a} id="bishare" lead items={BISHARE_ITEMS} />
 
-            {/* Sharing the secret */}
-            <Section a={a} id="password" lead><ProseList a={a} name="password" items={PASSWORD_ITEMS} />
-            </Section>
+      {/* Sharing the secret */}
+      <Section a={a} id="password" lead items={PASSWORD_ITEMS} />
 
-            {/* Sharing with a group, or for weeks */}
-            <Section a={a} id="sharing" lead><ProseList a={a} name="sharing" items={SHARING_ITEMS} />
-            </Section>
+      {/* Sharing with a group, or for weeks */}
+      <Section a={a} id="sharing" lead items={SHARING_ITEMS} />
 
-            {/* Pick by situation */}
-            <Section a={a} id="choose" lead><ProseList a={a} name="choose" items={CHOOSE_ITEMS} />
-            </Section>
+      {/* Pick by situation */}
+      <Section a={a} id="choose" lead items={CHOOSE_ITEMS} />
 
-            {/* Mistakes */}
-            <Section a={a} id="mistakes" lead><ProseList a={a} name="mistakes" items={MISTAKES_ITEMS} />
-            </Section>
+      {/* Mistakes */}
+      <Section a={a} id="mistakes" lead items={MISTAKES_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}<Cta a={a} /></ArticlePage>);
+      {/* CTA */}
+      <Cta a={a} />
+    </ArticlePage>
+  );
 }

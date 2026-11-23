@@ -111,7 +111,7 @@ function FooterLink({
   href: string;
   external?: boolean;
 }) {
-  const cls = "hover:text-foreground transition-colors break-all";
+  const cls = "hover:text-foreground break-all";
   if (external || href.startsWith("mailto:")) {
     return (
       <a
@@ -177,13 +177,13 @@ export async function SiteFooter() {
         <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
           <p>{t("footer.rights", { year: new Date().getFullYear() })}</p>
           <div className="flex items-center gap-5">
-            <Link href="/privacy" className="hover:text-foreground transition-colors">
+            <Link href="/privacy" className="hover:text-foreground">
               {t("footer.privacyShort")}
             </Link>
-            <Link href="/terms" className="hover:text-foreground transition-colors">
+            <Link href="/terms" className="hover:text-foreground">
               {t("footer.termsShort")}
             </Link>
-            <Link href="/about" className="hover:text-foreground transition-colors">
+            <Link href="/about" className="hover:text-foreground">
               {t("footer.aboutShort")}
             </Link>
           </div>

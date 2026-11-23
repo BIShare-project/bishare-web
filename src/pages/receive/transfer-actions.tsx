@@ -321,9 +321,9 @@ export function DownloadTransferButton({
         type="button"
         onClick={handleDownload}
         disabled={busy || locked}
-        className="inline-flex h-11 w-full items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-primary bg-primary px-5 text-[15px] font-medium tracking-[-0.01em] text-primary-foreground outline-none transition-[opacity,transform] duration-200 hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0"
+        className="inline-flex h-11 w-full items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-primary bg-primary px-5 text-[15px] font-medium tracking-[-0.01em] text-primary-foreground outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0"
       >
-        {busy && <Loader2 className="animate-spin" />}
+        {busy && <Loader2 />}
         {state === "started" && <CheckCircle2 />}
         {(state === "idle" || state === "gone") && (encKey ? <Lock /> : <Download />)}
         {state === "checking"

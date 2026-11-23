@@ -104,10 +104,10 @@ export function YourUploads() {
                 <div className="min-w-0 flex-1">
                   <Link
                     href={`/transfer/${t.rawCode}`}
-                    className="group/name flex min-w-0 items-center gap-1 text-sm font-medium transition-colors hover:text-foreground"
+                    className="group/name flex min-w-0 items-center gap-1 text-sm font-medium hover:text-foreground"
                   >
                     <span className="truncate">{t.fileName}</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0 opacity-0 transition-opacity group-hover/name:opacity-100" />
+                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0 opacity-0 group-hover/name:opacity-100" />
                   </Link>
                   <div className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-muted-foreground">
                     <span className="font-mono font-semibold text-foreground">
@@ -131,7 +131,7 @@ export function YourUploads() {
                     type="button"
                     aria-label={tr("uploads.copyLink", { name: t.fileName })}
                     onClick={() => copyLink(t)}
-                    className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-foreground/[0.06] hover:text-foreground"
+                    className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground hover:bg-foreground/[0.06] hover:text-foreground"
                   >
                     {row.copied ? (
                       <CheckCircle2 className="h-4 w-4 text-success" />
@@ -150,12 +150,12 @@ export function YourUploads() {
                       onClick={() => handleDelete(t)}
                       disabled={row.deleting}
                       className={cn(
-                        "flex h-8 items-center justify-center gap-1 rounded-lg px-2 text-destructive/80 transition-colors hover:bg-destructive/[0.08] hover:text-destructive disabled:opacity-60",
+                        "flex h-8 items-center justify-center gap-1 rounded-lg px-2 text-destructive/80 hover:bg-destructive/[0.08] hover:text-destructive disabled:opacity-60",
                         row.confirmDelete && "bg-destructive/[0.08] text-destructive"
                       )}
                     >
                       {row.deleting ? (
-                        <Loader2 className="h-4 w-4 animate-spin" />
+                        <Loader2 className="h-4 w-4" />
                       ) : (
                         <Trash2 className="h-4 w-4" />
                       )}

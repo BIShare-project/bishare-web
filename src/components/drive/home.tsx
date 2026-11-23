@@ -184,7 +184,7 @@ export function HomePage() {
             <EmptyState icon={ShieldCheck} title={t("needs.clear")} description={t("needs.clearBody")} />
           ) : (
             queue.map((q) => (
-              <Link key={q.title} href={`${base}${q.href}`} className="flex items-center gap-3 border-b px-4 py-3 transition-colors last:border-b-0 hover:bg-muted/60">
+              <Link key={q.title} href={`${base}${q.href}`} className="flex items-center gap-3 border-b px-4 py-3 last:border-b-0 hover:bg-muted/60">
                 <span className={cn("grid h-7 min-w-8 place-items-center border px-1.5 text-2xs font-semibold tabular-nums", q.hot && "border-foreground bg-foreground text-background")}>{q.n}</span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-xs font-medium">{q.title}</span>
@@ -203,7 +203,7 @@ export function HomePage() {
             <div key={k} className="grid grid-cols-[110px_1fr_72px] items-center gap-3 border-b px-4 py-2.5 text-2xs last:border-b-0">
               <span className="truncate">{t(`kind.${k}`)}</span>
               <div className="h-2 overflow-hidden bg-muted">
-                <span className="block h-full transition-all" style={{ width: `${(stats.byKind[k] * 100) / all}%`, background: KIND_COLORS[k] }} />
+                <span className="block h-full" style={{ width: `${(stats.byKind[k] * 100) / all}%`, background: KIND_COLORS[k] }} />
               </div>
               <span className="text-end tabular-nums">{bytes(stats.byKind[k])}</span>
             </div>
@@ -243,7 +243,7 @@ export function HomePage() {
             <EmptyState icon={FolderTree} title={t("empty.folders")} />
           ) : (
             largestFolders.map(({ d, size, n }) => (
-              <Link key={d.id} href={`${base}/files?f=${d.id}`} className="flex items-center gap-3 border-b px-4 py-2.5 transition-colors last:border-b-0 hover:bg-muted/60">
+              <Link key={d.id} href={`${base}/files?f=${d.id}`} className="flex items-center gap-3 border-b px-4 py-2.5 last:border-b-0 hover:bg-muted/60">
                 <ObjectThumb o={d} />
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-xs font-medium">{d.name}</span>

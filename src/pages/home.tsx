@@ -7,12 +7,7 @@ import { SiteFooter } from "@/ui/footer";
 import { Home } from "@/components/home/home";
 import { AppJsonLd } from "@/lib/app-ld";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "home" });
   const title = t("meta.title");
   const description = t("meta.description");
@@ -27,12 +22,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function HomePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">

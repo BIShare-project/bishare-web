@@ -54,7 +54,7 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /* Clean bordered focus treatment shared by the text fields. */
 const FIELD_FOCUS =
-  "rounded-lg bg-background transition-colors duration-200 hover:border-border-strong focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40";
+  "rounded-lg bg-background hover:border-border-strong focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40";
 
 function FieldLabel({
   htmlFor,
@@ -187,7 +187,7 @@ export function ContactForm() {
                   aria-pressed={selected}
                   onClick={() => setCategoryKey(cat.key)}
                   className={cn(
-                    "group flex items-center gap-3 rounded-lg border p-3.5 text-left transition-colors duration-200 outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40",
+                    "group flex items-center gap-3 rounded-lg border p-3.5 text-left outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40",
                     selected
                       ? "border-foreground/25 bg-secondary"
                       : "border-border hover:border-border-strong hover:bg-background-raised"
@@ -195,7 +195,7 @@ export function ContactForm() {
                 >
                   <span
                     className={cn(
-                      "flex h-10 w-10 shrink-0 items-center justify-center rounded-md border transition-colors duration-200",
+                      "flex h-10 w-10 shrink-0 items-center justify-center rounded-md border",
                       selected
                         ? "border-border bg-background text-foreground"
                         : "border-border bg-background text-muted-foreground group-hover:text-foreground"
@@ -205,7 +205,7 @@ export function ContactForm() {
                   </span>
                   <span
                     className={cn(
-                      "text-[13px] font-semibold tracking-[-0.01em] transition-colors duration-200",
+                      "text-[13px] font-semibold tracking-[-0.01em]",
                       selected
                         ? "text-foreground"
                         : "text-muted-foreground group-hover:text-foreground"
@@ -319,7 +319,7 @@ export function ContactForm() {
           }
         >
           {status === "sending" ? (
-            <Loader2 className="h-[18px] w-[18px] animate-spin" />
+            <Loader2 className="h-[18px] w-[18px]" />
           ) : (
             <Send className="h-[18px] w-[18px]" />
           )}

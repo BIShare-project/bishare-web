@@ -1,3 +1,4 @@
+import { JsonLd } from "@/ui/article";
 import type { Metadata } from "@/site/metadata";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
@@ -7,7 +8,6 @@ import { sharedOpenGraph, SITE_URL } from "@/lib/og";
 import {
   ARTICLE_COMPONENTS,
   isScheduled,
-  PREVIEW_KEY,
   CATEGORY_LABEL,
   getPost,
   publishedSlugs,
@@ -25,12 +25,7 @@ import { ImageLightbox } from "@/ui/image-lightbox";
  * every locale URL canonicalizes to the unprefixed /blog/<slug>.
  */
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
+export async function generateMetadata({ slug }: { slug: string }): Promise<Metadata> {
   const post = getPost(slug);
   if (!post) return {};
   const path = `/blog/${post.slug}`;
@@ -69,12 +64,7 @@ const DATE_FMT = new Intl.DateTimeFormat("en", {
   day: "numeric",
 });
 
-export default async function BlogArticlePage({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}) {
-  const { locale, slug } = await params;
+export default async function BlogArticlePage({ slug }: { slug: string }) {
 
   const post = getPost(slug);
   const load = ARTICLE_COMPONENTS[slug];
@@ -127,15 +117,7 @@ export default async function BlogArticlePage({
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      {[articleLd, breadcrumbLd, faqLd].map((ld, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(ld).replace(/</g, "\\u003c"),
-          }}
-        />
-      ))}
+      <JsonLd items={[articleLd, breadcrumbLd, faqLd]} />
       <SiteHeader />
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 md:py-16">
         <div className="mx-auto max-w-3xl lg:mx-0 lg:max-w-none lg:grid lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
@@ -250,7 +232,7 @@ export default async function BlogArticlePage({
                 <li key={r.slug}>
                   <a
                     href={`/blog/${r.slug}`}
-                    className="block rounded-xl border border-border bg-card px-4 py-3.5 text-sm font-medium transition-colors hover:border-border-strong"
+                    className="block rounded-xl border border-border bg-card px-4 py-3.5 text-sm font-medium hover:border-border-strong"
                   >
                     {r.title}
                   </a>

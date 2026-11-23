@@ -1,6 +1,6 @@
 import type { Child } from "@/jsx";
+import { Card } from "@/ui/card";
 import type { IconComponent } from "@/ui/icons";
-import { GlassCard } from "@/ui/glass-card";
 import { cn } from "@/lib/utils";
 
 type StatusTone = "muted" | "primary" | "success";
@@ -31,7 +31,7 @@ export function FlowStatusCard({
 }) {
   return (
     <div>
-      <GlassCard className="p-8 text-center">
+      <Card className="p-8 text-center">
         <div
           className={cn(
             "mx-auto flex h-16 w-16 items-center justify-center rounded-[18px]",
@@ -43,7 +43,7 @@ export function FlowStatusCard({
         <h1 className="mt-5 text-xl font-bold tracking-tight">{title}</h1>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{message}</p>
         {children && <div className="mt-6">{children}</div>}
-      </GlassCard>
+      </Card>
     </div>
   );
 }
@@ -52,7 +52,7 @@ export function FlowStatusCard({
 export function FlowSkeletonCard({ rows = 2 }: { rows?: number }) {
   return (
     <div className="rounded-xl border border-border bg-card p-8">
-      <div className="animate-pulse space-y-5">
+      <div className="space-y-5">
         <div className="mx-auto h-16 w-16 rounded-[18px] bg-muted" />
         <div className="mx-auto h-5 w-3/5 rounded-md bg-muted" />
         {Array.from({ length: rows }).map((_, i) => (

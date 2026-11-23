@@ -1,6 +1,7 @@
+import { JsonLd } from "@/ui/article";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
-import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, H2, Section, Cell, strong, highlight } from "@/ui/article";
+import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, Section, Cell, strong, highlight } from "@/ui/article";
 import { Button } from "@/ui/button";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
@@ -16,7 +17,7 @@ import { publishedSlugs } from "@/content/blog/registry";
 
 const SPEED_POST = "airdrop-for-windows-speeds";
 const SLUG = "/send-large-files";
-import { ArrowRight, Check, X } from "@/ui/icons";
+import { ArrowRight, Check } from "@/ui/icons";
 import { guideLinks } from "@/ui/guide-links";
 import { APP_ID } from "@/lib/app-ld";
 
@@ -37,12 +38,7 @@ const LAST_UPDATED = "2026-10-17";
 const FIRST_PUBLISHED = "2026-08-10";
 const SITE = "https://bishare.app";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "largeFiles" });
   const title = t("meta.title");
   const description = t("meta.description");
@@ -133,12 +129,7 @@ function DataTable({ cols, rows, minWidth = 560 }: { cols: string[]; rows: strin
   );
 }
 
-export default async function SendLargeFilesPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function SendLargeFilesPage({ locale }: { locale: string }) {
   const t = await getTranslations("largeFiles");
   const links = guideLinks();
   const tags = { strong, highlight, ...links };
@@ -178,13 +169,7 @@ export default async function SendLargeFilesPage({
 
   return (
     <div className="min-h-screen bg-background">
-      {[faqLd, howToLd, pageLd, breadcrumbLd("/send-large-files", "Send Large Files")].map((ld, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, "\\u003c") }}
-        />
-      ))}
+      <JsonLd items={[faqLd, howToLd, pageLd, breadcrumbLd("/send-large-files", "Send Large Files")]} />
       <SiteHeader />
       <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
         <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">
@@ -345,7 +330,7 @@ export default async function SendLargeFilesPage({
               <li key={i}>
                 <Link
                   href={t(`devices.items.${i}.href`)}
-                  className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 text-[15px] font-medium transition hover:border-foreground/25 hover:bg-muted/40"
+                  className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3 text-[15px] font-medium hover:border-foreground/25 hover:bg-muted/40"
                 >
                   {t(`devices.items.${i}.h`)}
                   <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />

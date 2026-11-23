@@ -59,14 +59,14 @@ export function NearbyEmbed({
           type="button"
           onClick={() => setStarted(true)}
           disabled={enabled === false}
-          className="inline-flex h-11 items-center gap-2 rounded-lg bg-foreground px-5 text-sm font-semibold text-background transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex h-11 items-center gap-2 rounded-lg bg-foreground px-5 text-sm font-semibold text-background hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <RadioTower className="h-4 w-4" aria-hidden />
           {labels.start}
         </button>
         <Link
           href="/transfer"
-          className="inline-flex h-11 items-center gap-2 rounded-lg border border-border-strong px-5 text-sm font-medium transition-colors hover:border-accent-blue"
+          className="inline-flex h-11 items-center gap-2 rounded-lg border border-border-strong px-5 text-sm font-medium hover:border-accent-blue"
         >
           {labels.full}
           <ArrowRight className="h-4 w-4" aria-hidden />

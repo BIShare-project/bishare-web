@@ -47,7 +47,6 @@ export function MoreFeaturesGrid() {
       {items.map((feature, i) => (
         <FeatureCard
           key={i}
-          index={i}
           icon={MORE_ICONS[i]}
           title={feature.title}
           desc={feature.desc}

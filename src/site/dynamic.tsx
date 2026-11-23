@@ -37,7 +37,7 @@ export async function renderDynamic(path: string, locale: string, env: object, c
   for (const route of ROUTES) {
     const m = route.pattern.exec(path);
     if (!m) continue;
-    const props = { params: Promise.resolve({ locale, ...route.params(m) }) };
+    const props = { locale, ...route.params(m) };
     return withRequest(env, ctx, () =>
       withPage(locale, path, async () => renderDocument({ locale, metadata: await route.page.generateMetadata(props), body: await route.page.default(props) }), scopeOf(path)),
     );

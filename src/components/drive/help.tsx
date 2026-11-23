@@ -21,7 +21,7 @@ export function InfoTip({ children, className }: { children: Child; className?: 
           type="button"
           aria-label={t("help.more")}
           onClick={(e) => e.stopPropagation()}
-          className={cn("inline-flex size-4 shrink-0 items-center justify-center text-muted-foreground/70 outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring", className)}
+          className={cn("inline-flex size-4 shrink-0 items-center justify-center text-muted-foreground/70 outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring", className)}
         >
           <Info className="size-3.5" aria-hidden />
         </button>

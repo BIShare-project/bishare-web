@@ -54,7 +54,7 @@ export function QrBeamPanel() {
       <div className="mt-5 space-y-2.5">
         <button
           onClick={() => setMode("send")}
-          className="flex w-full items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5 text-left transition-colors hover:border-border-strong hover:bg-secondary/40"
+          className="flex w-full items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5 text-left hover:border-border-strong hover:bg-secondary/40"
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-blue/[0.1] text-accent-blue">
             <QrCode className="h-5 w-5" />
@@ -66,7 +66,7 @@ export function QrBeamPanel() {
         </button>
         <button
           onClick={() => setMode("receive")}
-          className="flex w-full items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5 text-left transition-colors hover:border-border-strong hover:bg-secondary/40"
+          className="flex w-full items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5 text-left hover:border-border-strong hover:bg-secondary/40"
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-blue/[0.1] text-accent-blue">
             <ScanLine className="h-5 w-5" />
@@ -126,7 +126,7 @@ function BeamSend({ t, onBack }: { t: T; onBack: () => void }) {
           <p className="mx-auto max-w-xs text-sm text-muted-foreground">{t("sendEmpty")}</p>
           <button
             onClick={() => fileRef.current?.click()}
-            className="mx-auto mt-5 inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="mx-auto mt-5 inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90"
           >
             <FileUp className="h-4 w-4" /> {t("pickFile")}
           </button>
@@ -149,7 +149,7 @@ function BeamSend({ t, onBack }: { t: T; onBack: () => void }) {
           <div className="mx-auto mt-4 max-w-xs">
             <div className="h-1.5 overflow-hidden rounded-full bg-secondary">
               <div
-                className="h-full rounded-full bg-accent-blue transition-[width] duration-100"
+                className="h-full rounded-full bg-accent-blue"
                 style={{ width: `${Math.round(((idx + 1) / frames.length) * 100)}%` }}
               />
             </div>
@@ -185,7 +185,7 @@ function BeamSend({ t, onBack }: { t: T; onBack: () => void }) {
           </div>
           <button
             onClick={() => fileRef.current?.click()}
-            className="mx-auto mt-4 flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary"
+            className="mx-auto mt-4 flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium hover:bg-secondary"
           >
             <FileUp className="h-4 w-4" /> {t("pickAnother")}
           </button>
@@ -327,7 +327,7 @@ function BeamReceive({ t, onBack }: { t: T; onBack: () => void }) {
           <div className="mx-auto mt-4 max-w-xs">
             <div className="h-1.5 overflow-hidden rounded-full bg-secondary">
               <div
-                className="h-full rounded-full bg-accent-blue transition-[width] duration-200"
+                className="h-full rounded-full bg-accent-blue"
                 style={{ width: `${pct}%` }}
               />
             </div>
@@ -350,7 +350,7 @@ function BeamHeader({ title, onBack }: { title: string; onBack: () => void }) {
       <button
         onClick={onBack}
         aria-label="Back"
-        className="flex h-8 w-8 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        className="flex h-8 w-8 items-center justify-center rounded-lg border border-border text-muted-foreground hover:bg-secondary hover:text-foreground"
       >
         <X className="h-4 w-4" />
       </button>

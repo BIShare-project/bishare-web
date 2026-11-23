@@ -27,10 +27,7 @@ export function GlowProgress({
     >
       <div
         className="h-full rounded-full bg-accent-blue"
-        style={{
-          width: `${clamped}%`,
-          transition: "width 240ms cubic-bezier(0.16, 1, 0.3, 1)",
-        }}
+        style={{ width: `${clamped}%` }}
       />
     </div>
   );

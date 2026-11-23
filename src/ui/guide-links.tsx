@@ -78,7 +78,7 @@ const ARTICLES = {
 export type GuideLinkTag = keyof typeof GUIDES | keyof typeof ARTICLES;
 
 const CLASS =
-  "text-foreground underline decoration-foreground/35 underline-offset-[3px] transition-colors hover:decoration-foreground";
+  "text-foreground underline decoration-foreground/35 underline-offset-[3px] hover:decoration-foreground";
 
 type Renderer = (chunks: Child) => Child;
 

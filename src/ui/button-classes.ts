@@ -10,7 +10,7 @@ export type BrandButtonVariant = "primary" | "outline" | "ghost";
 export type BrandButtonSize = "sm" | "md" | "lg";
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-lg font-medium tracking-[-0.01em] whitespace-nowrap transition-[opacity,background-color,border-color] duration-200 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "inline-flex items-center justify-center gap-2 rounded-lg font-medium tracking-[-0.01em] whitespace-nowrap active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const SIZES: Record<BrandButtonSize, string> = {
   sm: "h-9 px-4 text-[13px]",

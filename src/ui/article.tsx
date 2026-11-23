@@ -6,6 +6,7 @@ import { pageUrl, sharedOpenGraph } from "@/lib/og";
 import { ArticleToc } from "./article-toc";
 import { Button } from "./button";
 import { SiteFooter } from "./footer";
+import { guideLinks } from "./guide-links";
 import { SiteHeader } from "./header";
 import { HeroCta } from "./hero-cta";
 import { ArrowRight, Check, X } from "./icons";
@@ -27,15 +28,18 @@ export interface Article {
   slug: string;
 }
 type Items = readonly string[];
-type PageParams = { params: Promise<{ locale: string }> };
 
 export const strong = (chunks: Child) => <strong className="text-foreground">{chunks}</strong>;
 export const highlight = (chunks: Child) => <span className="text-foreground">{chunks}</span>;
 
+/** What a guide's parts share, from its namespace. */
+export async function article(namespace: string, slug: string, locale: string): Promise<Article> {
+  return { t: await getTranslations(namespace), chrome: await getTranslations("chrome"), tags: { strong, highlight, ...guideLinks() }, locale, slug };
+}
+
 /** generateMetadata of a guide: its meta.title and meta.description. */
 export const articleMetadata = (namespace: string, slug: string) =>
-  async function generateMetadata({ params }: PageParams): Promise<Metadata> {
-    const { locale } = await params;
+  async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
     const t = await getTranslations({ locale, namespace });
     const title = t("meta.title");
     const description = t("meta.description");
@@ -117,6 +121,13 @@ export const ArticleHead = ({ a, updated }: { a: Article; updated: string }) => 
   </>
 );
 
+export const Lead = ({ a }: { a: Article }) => <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{a.t.rich("hero.body", a.tags)}</p>;
+
+/** Who wrote the comparison, and that it is one of the compared. */
+export const Disclosure = ({ a }: { a: Article }) => (
+  <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">{a.t("disclosure")}</p>
+);
+
 export const HeroButtons = ({ a }: { a: Article }) => (
   <>
     <div className="mt-8">
@@ -129,8 +140,32 @@ export const HeroButtons = ({ a }: { a: Article }) => (
 );
 
 /** A figure drawn for the guide (tool/landing-art.mjs), in the page's language. */
-export const Art = ({ a, name, height, width = 1200, className = "mt-6", eager }: { a: Article; name: string; height: number; width?: number; className?: string; eager?: boolean }) => (
-  <LandingArt slug={a.slug} name={name} locale={a.locale} alt={a.t(`art.${name}.alt`)} width={width} height={height} zoomHint={a.chrome("imageZoom")} className={className} eager={eager} />
+export const Art = ({
+  a,
+  name,
+  height,
+  width = 1200,
+  className = "mt-6",
+  eager,
+}: {
+  a: Article;
+  name: string;
+  height: number;
+  width?: number;
+  className?: string;
+  eager?: boolean;
+}) => (
+  <LandingArt
+    slug={a.slug}
+    name={name}
+    locale={a.locale}
+    alt={a.t(`art.${name}.alt`)}
+    width={width}
+    height={height}
+    zoomHint={a.chrome("imageZoom")}
+    className={className}
+    eager={eager}
+  />
 );
 
 export const H2 = ({ id, children }: { id: string; children: Child }) => (
@@ -139,12 +174,30 @@ export const H2 = ({ id, children }: { id: string; children: Child }) => (
   </h2>
 );
 
-/** A section: its title, its first paragraph (`lead`: <name>.body), then what it holds. */
-export const Section = ({ a, id, name = id, lead, children }: { a: Article; id: string; name?: string; lead?: boolean; children?: Child }) => (
+/** A section: its title, its first paragraph (`lead`: <name>.body), a figure (`art`: name and height), what it holds, its items. */
+export const Section = ({
+  a,
+  id,
+  name = id,
+  lead,
+  art,
+  items,
+  children,
+}: {
+  a: Article;
+  id: string;
+  name?: string;
+  lead?: boolean;
+  art?: [string, number];
+  items?: Items;
+  children?: Child;
+}) => (
   <section className="mt-14">
     <H2 id={id}>{a.t(`${name}.title`)}</H2>
     {lead ? <p className="mt-4 leading-relaxed text-muted-foreground">{a.t.rich(`${name}.body`, a.tags)}</p> : null}
+    {art ? <Art a={a} name={art[0]} height={art[1]} /> : null}
     {children}
+    {items ? <ProseList a={a} name={name} items={items} /> : null}
   </section>
 );
 
@@ -203,7 +256,19 @@ export function Cell({ ok, yes, no }: { ok: boolean; yes: string; no: string }) 
 }
 
 /** The comparison: one column per app, a check or a cross in every row. `min`: the class of its least width. */
-export function TruthTable({ a, apps, rows, min, name = "table" }: { a: Article; apps: Items; rows: readonly { id: string; v: readonly boolean[] }[]; min: string; name?: string }) {
+export function TruthTable({
+  a,
+  apps,
+  rows,
+  min,
+  name = "table",
+}: {
+  a: Article;
+  apps: Items;
+  rows: readonly { id: string; v: readonly boolean[] }[];
+  min: string;
+  name?: string;
+}) {
   const { t } = a;
   return (
     <>

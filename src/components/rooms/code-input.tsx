@@ -90,7 +90,7 @@ export function CodeInput({
             placeholder="•"
             aria-label={`Code character ${i + 1}`}
             className={
-              "h-12 w-11 rounded-xl border text-center font-mono text-xl font-semibold uppercase caret-accent-blue outline-none transition-colors placeholder:text-muted-foreground/40 focus:border-accent-blue focus:bg-card focus:ring-2 focus:ring-accent-blue/25 sm:h-14 sm:w-12 " +
+              "h-12 w-11 rounded-xl border text-center font-mono text-xl font-semibold uppercase caret-accent-blue outline-none placeholder:text-muted-foreground/40 focus:border-accent-blue focus:bg-card focus:ring-2 focus:ring-accent-blue/25 sm:h-14 sm:w-12 " +
               (filled ? "border-foreground/25 bg-card" : "border-border bg-secondary/40")
             }
           />

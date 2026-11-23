@@ -59,7 +59,7 @@ export function TransferEmailForm({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+        className="flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-3 text-sm font-medium text-foreground hover:bg-secondary"
       >
         <Mail className="h-4 w-4" />
         {t("cta")}
@@ -119,12 +119,12 @@ export function TransferEmailForm({
         type="submit"
         disabled={state === "sending" || !email.trim()}
         className={cn(
-          "flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+          "flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 disabled:opacity-50"
         )}
       >
         {state === "sending" ? (
           <>
-            <Loader2 className="h-4 w-4 animate-spin" />
+            <Loader2 className="h-4 w-4" />
             {t("sending")}
           </>
         ) : (

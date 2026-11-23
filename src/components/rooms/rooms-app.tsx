@@ -465,7 +465,7 @@ function Landing({
                 aria-pressed={mode === m}
                 onClick={() => setMode(m)}
                 className={
-                  "relative flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg text-sm font-semibold tracking-[-0.01em] outline-none transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-accent-blue/40 " +
+                  "relative flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg text-sm font-semibold tracking-[-0.01em] outline-none focus-visible:ring-2 focus-visible:ring-accent-blue/40 " +
                   (mode === m ? "text-foreground" : "text-muted-foreground hover:text-foreground/80")
                 }
               >
@@ -698,7 +698,7 @@ function RoomView({
             ? { icon: <LockOpen className="h-3.5 w-3.5" aria-hidden />, text: t("room.e2eOff"), tone: "warn" }
             : roomKey
               ? { icon: <Lock className="h-3.5 w-3.5" aria-hidden />, text: t("room.e2eOn"), tone: "ok" }
-              : { icon: <KeyRound className="h-3.5 w-3.5 animate-pulse" aria-hidden />, text: t("room.e2eWaiting"), tone: "muted" }
+              : { icon: <KeyRound className="h-3.5 w-3.5" aria-hidden />, text: t("room.e2eWaiting"), tone: "muted" }
       }
       leave={{
         label: isHost ? t("room.close") : t("room.leave"),

@@ -2,8 +2,7 @@ import type { Child } from "@/jsx";
 import { Link } from "@/ui/link";
 import { useTranslations } from "@/i18n/translate";
 import { ArrowRight, Globe, Mail, MessageSquare } from "@/ui/icons";
-import { GridBackdrop } from "@/ui/grid-backdrop";
-import { HeroRise } from "@/ui/hero-rise";
+import { GridBackdrop } from "@/ui/section";
 import type { TocItem } from "./legal-toc";
 
 /**
@@ -28,7 +27,7 @@ export function LegalHero({
     <section className="relative isolate overflow-hidden border-b border-border">
       <GridBackdrop pattern="lines" />
       <div className="mx-auto w-full max-w-6xl px-6 pt-16 pb-12 md:pt-24 md:pb-16">
-        <HeroRise>
+        <div>
           <p className="mb-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue" aria-hidden />
             {badge}
@@ -46,7 +45,7 @@ export function LegalHero({
               </span>
             ))}
           </div>
-        </HeroRise>
+        </div>
       </div>
     </section>
   );
@@ -88,7 +87,7 @@ export function LegalTocMobile({ items }: { items: TocItem[] }) {
           <li key={item.id}>
             <a
               href={`#${item.id}`}
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground"
             >
               {item.label}
             </a>
@@ -143,7 +142,7 @@ export function LegalContactChannels() {
           </>
         );
         const cls =
-          "block rounded-xl border border-border bg-card p-4 transition-colors duration-200 hover:bg-background-raised hover:border-border-strong";
+          "block rounded-xl border border-border bg-card p-4 hover:bg-background-raised hover:border-border-strong";
         return channel.internal ? (
           <Link key={channel.labelKey} href={channel.href} className={cls}>
             {inner}
@@ -172,10 +171,10 @@ export function LegalFooterLinks({
           <Link
             key={link.href}
             href={link.href}
-            className="group inline-flex items-center gap-2 rounded-lg border border-border-strong px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            className="group inline-flex items-center gap-2 rounded-lg border border-border-strong px-4 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
           >
             {link.label}
-            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+            <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5" />
           </Link>
         ))}
       </div>

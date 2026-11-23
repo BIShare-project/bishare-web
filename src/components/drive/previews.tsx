@@ -99,7 +99,7 @@ export const PREVIEW_MAX: Record<PreviewKind, number> = {
 function Busy({ label }: { label: string }) {
   return (
     <div className="flex flex-col items-center gap-2 p-10 text-2xs text-muted-foreground">
-      <Loader2 className="size-5 animate-spin" />
+      <Loader2 className="size-5" />
       {label}
     </div>
   );

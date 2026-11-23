@@ -80,7 +80,7 @@ export function DriveInterest() {
         type="button"
         onClick={() => answer("dismiss")}
         aria-label={t("close")}
-        className="absolute end-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-[8px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/40 focus-visible:outline-none"
+        className="absolute end-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-[8px] text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/40 focus-visible:outline-none"
       >
         <X className="h-4 w-4" />
       </button>

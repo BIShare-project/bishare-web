@@ -1,3 +1,4 @@
+import { JsonLd } from "@/ui/article";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, Section, QuickAnswer, Cell, Cta, strong, highlight } from "@/ui/article";
@@ -41,12 +42,7 @@ const VIDEO = {
   thumbnail: "/img/video/share-any-device.jpg",
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "bestApps" });
   const title = t("meta.title");
   const description = t("meta.description");
@@ -101,12 +97,7 @@ const APP_URLS: Record<string, string> = {
   "9": "https://www.ushareit.com",
 };
 
-export default async function BestFileSharingAppPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function BestFileSharingAppPage({ locale }: { locale: string }) {
   const t = await getTranslations("bestApps");
   const links = guideLinks();
   const tags = { strong, highlight, ...links };
@@ -159,13 +150,7 @@ export default async function BestFileSharingAppPage({
 
   return (
     <div className="min-h-screen bg-background">
-      {[listLd, faqLd, pageLd, breadcrumbLd("/best-file-sharing-app", "Best file sharing apps"), ...(videoLd ? [videoLd] : [])].map((ld, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, "\\u003c") }}
-        />
-      ))}
+      <JsonLd items={[listLd, faqLd, pageLd, breadcrumbLd("/best-file-sharing-app", "Best file sharing apps"), ...(videoLd ? [videoLd] : [])]} />
       <SiteHeader />
       <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 md:py-24">
         <div className="mx-auto max-w-3xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-[minmax(0,1fr)_230px] lg:gap-12">

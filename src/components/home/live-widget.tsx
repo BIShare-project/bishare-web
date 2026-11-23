@@ -17,7 +17,7 @@ const TransferStudio = dynamic(
     ssr: false,
     loading: () => (
       <div className="flex h-[420px] items-center justify-center">
-        <span className="h-6 w-6 animate-spin rounded-full border-2 border-border border-t-accent-blue" />
+        <span className="h-6 w-6 rounded-full border-2 border-border border-t-accent-blue" />
       </div>
     ),
   },

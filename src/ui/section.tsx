@@ -1,7 +1,10 @@
 import type { Child } from "@/jsx";
 import { cn } from "@/lib/utils";
-import { AuroraBackground } from "./aurora-background";
-import { GridBackdrop } from "./grid-backdrop";
+
+/** A grid of dots or lines behind a section, fading at its edges. Its host is `relative isolate`: the layer sits below 0. */
+export const GridBackdrop = ({ pattern, className }: { pattern: "dots" | "lines"; className?: string }) => (
+  <div aria-hidden className={cn("pointer-events-none absolute inset-0 -z-10", pattern === "dots" ? "grid-dots" : "grid-lines", className)} />
+);
 
 interface SectionProps {
   children: Child;
@@ -9,11 +12,7 @@ interface SectionProps {
   /** Inner container class; defaults to the marketing width. */
   containerClassName?: string;
   id?: string;
-  /**
-   * Ambient backdrop layer. "aurora" is animated — never combine with
-   * another animated background in the same viewport.
-   */
-  backdrop?: "none" | "dots" | "lines" | "aurora";
+  backdrop?: "none" | "dots" | "lines";
 }
 
 /** Standard page section: py-20 md:py-24 with a max-w-7xl px-6 container. */
@@ -37,7 +36,6 @@ export function Section({
     >
       {backdrop === "dots" && <GridBackdrop pattern="dots" />}
       {backdrop === "lines" && <GridBackdrop pattern="lines" />}
-      {backdrop === "aurora" && <AuroraBackground variant="section" />}
       <div className={cn("max-w-7xl mx-auto px-6", containerClassName)}>
         {children}
       </div>
@@ -55,8 +53,7 @@ interface SectionHeadingProps {
 }
 
 /**
- * Section header v2 (Nightglass §2.11): gradient mono eyebrow with an inline
- * gradient divider stub, display-scale H2, blur-in entrance.
+ * Section header: mono eyebrow, display-scale H2, a line under it.
  */
 export function SectionHeading({
   eyebrow,

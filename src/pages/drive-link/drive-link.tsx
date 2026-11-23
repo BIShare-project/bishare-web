@@ -109,7 +109,7 @@ export function DriveLink({ id }: { id: string }) {
   if (!link) {
     return (
       <div className="flex items-center justify-center gap-2 py-16 text-sm text-muted-foreground" role="status">
-        <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+        <Loader2 className="h-4 w-4" aria-hidden />
         {t("driveLink.loading")}
       </div>
     );
@@ -252,10 +252,10 @@ function FileButton({ link, f, primary }: { link: OpenedLink; f: LinkFile; prima
         disabled={busy}
         aria-label={`${t("driveLink.download")} ${f.path}`}
         title={error || undefined}
-        className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-border text-muted-foreground transition-colors hover:text-foreground disabled:opacity-60"
+        className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-border text-muted-foreground hover:text-foreground disabled:opacity-60"
       >
         {busy ? (
-          <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden />
+          <Loader2 className="h-3.5 w-3.5" aria-hidden />
         ) : state === "started" ? (
           <CheckCircle2 className="h-3.5 w-3.5 text-accent-blue" aria-hidden />
         ) : (
@@ -270,9 +270,9 @@ function FileButton({ link, f, primary }: { link: OpenedLink; f: LinkFile; prima
         type="button"
         onClick={() => void save(f)}
         disabled={busy}
-        className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-primary bg-primary px-5 text-[15px] font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50 [&_svg]:h-4 [&_svg]:w-4"
+        className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-primary bg-primary px-5 text-[15px] font-medium text-primary-foreground hover:opacity-90 disabled:opacity-50 [&_svg]:h-4 [&_svg]:w-4"
       >
-        {busy ? <Loader2 className="animate-spin" /> : state === "started" ? <CheckCircle2 /> : <Lock />}
+        {busy ? <Loader2 /> : state === "started" ? <CheckCircle2 /> : <Lock />}
         {label}
       </button>
       {error && <p className="text-center text-sm text-destructive">{error}</p>}
@@ -332,9 +332,9 @@ function FolderBody({ link, files, total }: { link: OpenedLink; files: LinkFile[
           type="button"
           onClick={() => void downloadAll()}
           disabled={zip !== null}
-          className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-primary bg-primary px-5 text-[15px] font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50 [&_svg]:h-4 [&_svg]:w-4"
+          className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-primary bg-primary px-5 text-[15px] font-medium text-primary-foreground hover:opacity-90 disabled:opacity-50 [&_svg]:h-4 [&_svg]:w-4"
         >
-          {zip ? <Loader2 className="animate-spin" /> : <Download />}
+          {zip ? <Loader2 /> : <Download />}
           {zip ? t("driveLink.zipping", { done: zip.done, n: files.length }) : t("driveLink.downloadAll")}
         </button>
       ) : (

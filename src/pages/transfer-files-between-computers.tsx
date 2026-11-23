@@ -1,8 +1,23 @@
-import { getTranslations } from "@/i18n/translate";
-import { type Article, articleMetadata, faqPageLd, webPageLd, methodsLd, ArticlePage, ArticleHead, HeroButtons, Art, Section, ProseList, QuickAnswer, Methods, TruthTable, Faq, Cta, strong, highlight } from "@/ui/article";
-import { pageUrl } from "@/lib/og";
+import {
+  article,
+  Lead,
+  Disclosure,
+  articleMetadata,
+  faqPageLd,
+  webPageLd,
+  methodsLd,
+  ArticlePage,
+  ArticleHead,
+  HeroButtons,
+  Art,
+  Section,
+  QuickAnswer,
+  Methods,
+  TruthTable,
+  Faq,
+  Cta,
+} from "@/ui/article";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
-import { guideLinks } from "@/ui/guide-links";
 
 /**
  * "Transfer files between two computers" — the SERP is vendor explainers
@@ -50,19 +65,9 @@ const ROWS: Array<{ id: string; v: boolean[] }> = [
 
 export const generateMetadata = articleMetadata(NS, SLUG);
 
-export default async function PcToPcPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const t = await getTranslations(NS);
-  const links = guideLinks();
-  const chrome = await getTranslations("chrome");
-
-  const tags = { strong, highlight, ...links };
-  const a: Article = { t, chrome, tags, locale, slug: SLUG };
-  const no = t("a11y.no");
+export default async function PcToPcPage({ locale }: { locale: string }) {
+  const a = await article(NS, SLUG, locale);
+  const { t } = a;
 
   const listLd = methodsLd(a, METHOD_ITEMS);
 
@@ -70,59 +75,55 @@ export default async function PcToPcPage({
 
   const pageLd = webPageLd(a, LAST_UPDATED);
 
-  return (<ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Transfer files between computers")]}>
-            {/* Hero */}<ArticleHead a={a} updated={LAST_UPDATED} />
-            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              {t.rich("hero.body", { strong, highlight, ...links })}
-            </p>
-            <p className="mt-4 rounded-xl border border-border bg-background-raised/60 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-              {t("disclosure")}
-            </p>
+  return (
+    <ArticlePage a={a} ld={[listLd, faqLd, pageLd, breadcrumbLd(SLUG, "Transfer files between computers")]}>
+      {/* Hero */}
+      <ArticleHead a={a} updated={LAST_UPDATED} />
+      <Lead a={a} />
+      <Disclosure a={a} />
 
-            {/* Quick answer */}<QuickAnswer a={a} items={QUICK_ITEMS} /><HeroButtons a={a} />
-            <Art a={a} name="hero" height={630} className="mt-8" />
-{/* Start from the pair */}
-            <Section a={a} id="pairs" lead><Art a={a} name="pairs" height={620} />
-<ProseList a={a} name="pairs" items={PAIR_ITEMS} />
-            </Section>
+      {/* Quick answer */}
+      <QuickAnswer a={a} items={QUICK_ITEMS} />
+      <HeroButtons a={a} />
+      <Art a={a} name="hero" height={630} className="mt-8" />
+      {/* Start from the pair */}
+      <Section a={a} id="pairs" lead art={["pairs", 620]} items={PAIR_ITEMS} />
 
-            {/* The alternatives */}
-            <Section a={a} id="methods"><Methods a={a} items={METHOD_ITEMS} />
-            </Section>
+      {/* The alternatives */}
+      <Section a={a} id="methods">
+        <Methods a={a} items={METHOD_ITEMS} />
+      </Section>
 
-            {/* Comparison table */}
-            <Section a={a} id="glance" name="table"><TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
-            </Section>
+      {/* Comparison table */}
+      <Section a={a} id="glance" name="table">
+        <TruthTable a={a} apps={APPS} rows={ROWS} min="min-w-[640px]" />
+      </Section>
 
-            {/* Migration to a new computer */}
-            <Section a={a} id="migrate" lead><Art a={a} name="moves" height={560} />
-<ProseList a={a} name="migrate" items={MIGRATE_ITEMS} />
-            </Section>
+      {/* Migration to a new computer */}
+      <Section a={a} id="migrate" lead art={["moves", 560]} items={MIGRATE_ITEMS} />
 
-            {/* Formats */}
-            <Section a={a} id="formats" lead><ProseList a={a} name="formats" items={FORMAT_ITEMS} />
-            </Section>
+      {/* Formats */}
+      <Section a={a} id="formats" lead items={FORMAT_ITEMS} />
 
-            {/* Step by step */}
-            <Section a={a} id="steps"><ProseList a={a} name="steps" items={STEP_ITEMS} />
-            </Section>
+      {/* Step by step */}
+      <Section a={a} id="steps" items={STEP_ITEMS} />
 
-            {/* Speed */}
-            <Section a={a} id="speed" lead><Art a={a} name="speed" height={600} />
-<ProseList a={a} name="speed" items={SPEED_ITEMS} />
-            </Section>
+      {/* Speed */}
+      <Section a={a} id="speed" lead art={["speed", 600]} items={SPEED_ITEMS} />
 
-            {/* Troubleshooting */}
-            <Section a={a} id="fixes"><ProseList a={a} name="fixes" items={FIX_ITEMS} />
-            </Section>
+      {/* Troubleshooting */}
+      <Section a={a} id="fixes" items={FIX_ITEMS} />
 
-            {/* Security */}
-            <Section a={a} id="security" lead><ProseList a={a} name="security" items={SECURITY_ITEMS} />
-            </Section>
+      {/* Security */}
+      <Section a={a} id="security" lead items={SECURITY_ITEMS} />
 
-            {/* FAQ */}
-            <Section a={a} id="faq"><Faq a={a} items={FAQ_ITEMS} />
-            </Section>
+      {/* FAQ */}
+      <Section a={a} id="faq">
+        <Faq a={a} items={FAQ_ITEMS} />
+      </Section>
 
-            {/* CTA */}<Cta a={a} /></ArticlePage>);
+      {/* CTA */}
+      <Cta a={a} />
+    </ArticlePage>
+  );
 }

@@ -64,7 +64,7 @@ export function FilePreviewDialog({ file, onClose }: { file: File; onClose: () =
             type="button"
             onClick={onClose}
             aria-label={t("upload.closePreview")}
-            className="shrink-0 rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            className="shrink-0 rounded-lg p-1.5 text-muted-foreground hover:bg-secondary hover:text-foreground"
           >
             <X className="h-4 w-4" />
           </button>

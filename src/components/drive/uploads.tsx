@@ -48,7 +48,7 @@ export function UploadTray() {
         {active.length ? <CloudUpload className="size-4 text-blau" /> : failed ? <X className="size-4 text-destructive" /> : <Check className="size-4 text-good" />}
         <span className="flex-1 truncate text-xs font-medium">{title}</span>
         <Button variant="ghost" size="icon-sm" aria-label={t("uploads.minimize")} onClick={() => setOpen((v) => !v)}>
-          <ChevronDown className={cn("transition-transform", !open && "rotate-180")} />
+          <ChevronDown className={cn("", !open && "rotate-180")} />
         </Button>
         <Button
           variant="ghost"

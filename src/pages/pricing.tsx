@@ -18,14 +18,8 @@ import { RelatedLinks } from "@/ui/related-links";
 import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";
 import { Check } from "@/ui/icons";
-import { HeroRise } from "@/ui/hero-rise";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "pricing" });
   const description = t("description");
   return {
@@ -59,12 +53,7 @@ const DRIVE_PLANS = [
   { key: "1tb", monthly: 19.99, yearly: 199.99 },
 ] as const;
 
-export default async function PricingPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function PricingPage({ locale }: { locale: string }) {
   const t = await getTranslations("pricing");
   // Latin digits in every locale, as the rest of the page writes numbers.
   const usd = new Intl.NumberFormat(`${locale}-u-nu-latn`, { style: "currency", currency: "USD" });
@@ -97,7 +86,7 @@ export default async function PricingPage({
       <SiteHeader />
       <main>
         <Section className="border-b border-border pt-24 pb-16 text-center">
-          <HeroRise>
+          <div>
             <p className="mb-5 inline-flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-[2px] bg-accent-blue" aria-hidden />
               {t("eyebrow")}
@@ -108,7 +97,7 @@ export default async function PricingPage({
             <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
               {t("description")}
             </p>
-          </HeroRise>
+          </div>
         </Section>
 
         <Section className="pb-14">

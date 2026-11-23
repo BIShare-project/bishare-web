@@ -93,7 +93,7 @@ export function AreaChart({ points }: { points: SeriesPoint[] }) {
       {/* marker: the latest point at rest, the pointed-at one on hover */}
       <span
         aria-hidden
-        className="pointer-events-none absolute h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent-blue)] ring-2 ring-background transition-[left,top] duration-75"
+        className="pointer-events-none absolute h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--accent-blue)] ring-2 ring-background"
         style={{ left: `${xPct(markerIdx)}%`, top: `${yPct(marker.value)}%` }}
       />
 
@@ -153,7 +153,7 @@ export function Donut({ slices, totalLabel }: { slices: Slice[]; totalLabel: str
                 strokeDashoffset={-acc}
                 strokeLinecap="butt"
                 opacity={dim ? 0.35 : 1}
-                className="cursor-pointer transition-[stroke-width,opacity] duration-150"
+                className="cursor-pointer"
                 onMouseEnter={() => setHover(i)}
                 onMouseLeave={() => setHover(null)}
               />
@@ -180,7 +180,7 @@ export function Donut({ slices, totalLabel }: { slices: Slice[]; totalLabel: str
             onMouseEnter={() => setHover(i)}
             onMouseLeave={() => setHover(null)}
             className={
-              "flex cursor-default items-center gap-2.5 rounded-md px-1 py-0.5 text-sm transition " +
+              "flex cursor-default items-center gap-2.5 rounded-md px-1 py-0.5 text-sm " +
               (hover === i ? "bg-foreground/[0.06]" : "")
             }
           >

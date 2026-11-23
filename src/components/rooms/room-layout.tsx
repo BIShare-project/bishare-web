@@ -114,7 +114,7 @@ export function RoomLayout({
           if (canPick) pick(e.dataTransfer.files);
         }}
         className={
-          "relative order-2 flex min-h-[16rem] min-w-0 flex-col p-5 transition sm:p-6 md:order-none md:col-start-1 md:row-span-2 md:row-start-1 " +
+          "relative order-2 flex min-h-[16rem] min-w-0 flex-col p-5 sm:p-6 md:order-none md:col-start-1 md:row-span-2 md:row-start-1 " +
           (dragging ? "bg-primary/[0.06]" : "")
         }
       >
@@ -154,7 +154,7 @@ export function RoomLayout({
         {uploadPct !== null && (
           <div className="mb-3 h-1 w-full overflow-hidden rounded-full bg-muted">
             <div
-              className="h-full rounded-full bg-primary transition-[width] duration-200"
+              className="h-full rounded-full bg-primary"
               style={{ width: `${uploadPct}%` }}
             />
           </div>
@@ -169,7 +169,7 @@ export function RoomLayout({
           <button
             onClick={() => fileInput.current?.click()}
             disabled={!canPick}
-            className="flex flex-1 flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-border px-6 py-10 text-center transition enabled:hover:border-accent-blue/50 enabled:hover:bg-muted/30"
+            className="flex flex-1 flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-border px-6 py-10 text-center enabled:hover:border-accent-blue/50 enabled:hover:bg-muted/30"
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-muted">
               <Upload className="h-5 w-5 text-muted-foreground" />
@@ -239,7 +239,7 @@ export function RoomLayout({
           <button
             onClick={copyCode}
             title={t("room.copy")}
-            className="group mt-1.5 flex w-full items-center justify-between gap-2 rounded-xl border border-border bg-muted/40 px-3.5 py-2.5 transition hover:border-foreground/25 hover:bg-muted/70"
+            className="group mt-1.5 flex w-full items-center justify-between gap-2 rounded-xl border border-border bg-muted/40 px-3.5 py-2.5 hover:border-foreground/25 hover:bg-muted/70"
           >
             <span className="font-mono text-[26px] font-semibold leading-none tracking-[0.18em]">
               {code}
@@ -247,7 +247,7 @@ export function RoomLayout({
             {copied ? (
               <Check className="h-4 w-4 shrink-0 text-primary" />
             ) : (
-              <Copy className="h-4 w-4 shrink-0 text-muted-foreground transition group-hover:text-foreground" />
+              <Copy className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-foreground" />
             )}
           </button>
           {status && (
