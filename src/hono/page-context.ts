@@ -12,6 +12,8 @@ interface PageContext {
   inIsland?: boolean;
   /** Collects the namespaces read, for an island's messages. */
   namespaces?: Set<string>;
+  /** Namespaces an IntlScope above hands to the islands below it. */
+  scope?: readonly string[];
   /** Messages per locale instead of src/messages, for tests. */
   messages?: () => Record<string, Messages>;
 }
@@ -23,7 +25,12 @@ export function withNamespaces<T>(namespaces: Set<string>, fn: () => T): T {
   return store.run({ ...pageContext(), namespaces, inIsland: true }, fn);
 }
 
-/** Renders with `locale` as the page's language. */
+/** Renders the part of a page inside an IntlScope. */
+export function withScope<T>(namespaces: readonly string[], fn: () => T): T {
+  const outer = pageContext();
+  return store.run({ ...outer, scope: [...(outer.scope ?? []), ...namespaces] }, fn);
+}
+
 /** Renders the page at `path` in `locale`. */
 export function withPage<T>(locale: string, path: string, fn: () => T): T {
   return store.run({ locale, path }, fn);

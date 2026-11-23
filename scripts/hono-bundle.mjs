@@ -23,6 +23,8 @@ const PAGES_ONLY = {
   "next-intl": hono("i18n.ts"),
   "next/link": hono("shim/next-link.tsx"),
   "next/navigation": hono("shim/next-navigation.ts"),
+  "next/dynamic": hono("shim/next-dynamic.tsx"),
+  "@/components/intl-scope": hono("shim/intl-scope.tsx"),
   "@/components/site/header": hono("ui/header.tsx"),
   "@/components/site/image-lightbox": hono("ui/image-lightbox.tsx"),
   "@/components/site/article-toc": hono("ui/article-toc.tsx"),
@@ -33,6 +35,9 @@ const BROWSER_ONLY = {
   // The page's language, for links.
   [hono("page-locale.ts")]: hono("client/page-locale.ts"),
   [hono("ui/svg-shapes.tsx")]: hono("client/svg-shapes.tsx"),
+  "next/dynamic": hono("client/next-dynamic.tsx"),
+  "next/navigation": hono("client/next-navigation.ts"),
+  "@/components/site/header": hono("client/no-header.ts"),
 };
 // MDX drops the line break between two one-line rows or cells of a table, which Next's compiler keeps: without it the
 // words of two rows join in the text of the page.
@@ -77,11 +82,21 @@ function plugin({ target, islands }) {
         if (a.pluginData?.skip) return;
         if (a.path.endsWith("?impl")) return { path: a.path.slice(0, -5), suffix: "?impl" };
         if (table[a.path]) return { path: table[a.path] };
+        // JSX and React's API come with React's prop meanings (server-props.ts at build time, client/react-props.ts in
+        // the browser); the modules that give them import hono/jsx themselves.
+        const dir = target === "browser" ? "client/" : "";
+        const own = new RegExp(`src/hono/${dir}(jsx-runtime|react)\\.ts$`).test(a.importer ?? "");
+        if (!own) {
+          if (a.path === "react" || a.path === "hono/jsx" || a.path === "hono/jsx/dom") return { path: hono(`${dir}react.ts`) };
+          if (/^(react|hono\/jsx(\/dom)?)\/jsx-(dev-)?runtime$/.test(a.path)) return { path: hono(`${dir}jsx-runtime.ts`) };
+        }
         if (a.path === "react") return b.resolve(jsx, { kind: a.kind, resolveDir: ROOT, pluginData: { skip: true } });
         if (a.path === "react/jsx-runtime") return b.resolve(`${jsx}/jsx-runtime`, { kind: a.kind, resolveDir: ROOT, pluginData: { skip: true } });
         if (target === "browser" && /^hono\/jsx(\/jsx-(dev-)?runtime)?$/.test(a.path)) return b.resolve(a.path.replace("hono/jsx", "hono/jsx/dom"), { kind: a.kind, resolveDir: ROOT, pluginData: { skip: true } });
         if (a.path === "lucide-react") return { path: "icons", namespace: "virtual" };
         if (a.path === "next/image") return { path: "image", namespace: "virtual" };
+        // Only Next's Worker has a Cloudflare context; src/lib/api.ts falls back to fetch without it.
+        if (a.path === "@opennextjs/cloudflare") return { path: "no-cloudflare", namespace: "virtual" };
         if (a.path === "next-intl/routing") return { path: "routing", namespace: "virtual" };
         if (FORBIDDEN.test(a.path)) return { errors: [{ text: `"${a.path}" must not reach a Hono page (imported by ${relative(ROOT, a.importer)})` }] };
         if (a.path.startsWith(".")) {
@@ -97,6 +112,9 @@ function plugin({ target, islands }) {
       b.onLoad({ filter: /^image$/, namespace: "virtual" }, () => ({
         contents: `import { jsx } from "hono/jsx";\nexport default ({ priority, className, ...p }) => jsx("img", { loading: priority ? undefined : "lazy", decoding: "async", ...p, class: className });`,
         resolveDir: ROOT,
+      }));
+      b.onLoad({ filter: /^no-cloudflare$/, namespace: "virtual" }, () => ({
+        contents: 'export function getCloudflareContext() { throw new Error("no Cloudflare context outside Next"); }',
       }));
       b.onLoad({ filter: /^routing$/, namespace: "virtual" }, () => ({ contents: "export const defineRouting = (config) => config;" }));
       // Articles. src/mdx-components.tsx gives headings their ids and links their behaviour, as it does for Next.
@@ -140,9 +158,12 @@ const common = (target) => ({
   // tsconfig says React; every file here is compiled for Hono.
   tsconfigRaw: { compilerOptions: { jsx: "react-jsx", jsxImportSource: target === "pages" ? "hono/jsx" : "hono/jsx/dom" } },
   alias: { "@": SRC },
+  // As Next does: NEXT_PUBLIC_* variables are written into the code, and any other process.env read is undefined.
   define: {
+    "process.env": "{}",
     "process.env.NODE_ENV": '"production"',
     "process.env.NEXT_PUBLIC_API_URL": JSON.stringify(process.env.NEXT_PUBLIC_API_URL ?? "https://api.bishare.app"),
+    ...Object.fromEntries(Object.entries(process.env).filter(([k]) => k.startsWith("NEXT_PUBLIC_") && k !== "NEXT_PUBLIC_API_URL").map(([k, v]) => [`process.env.${k}`, JSON.stringify(v)])),
   },
   logLevel: "warning",
 });

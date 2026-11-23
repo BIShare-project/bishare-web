@@ -6,6 +6,10 @@ export interface PageModule {
   generateMetadata: (props: PageProps) => Promise<Metadata>;
 }
 
+export interface LayoutModule {
+  default: (props: { children: unknown; params: Promise<{ locale: string }> }) => unknown;
+}
+
 export interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
   searchParams: Promise<Record<string, string>>;
@@ -55,8 +59,27 @@ export const PAGES: Record<string, () => Promise<unknown>> = {
   "/security": () => import("../app/[locale]/(site)/security/page"),
   "/privacy": () => import("../app/[locale]/(site)/privacy/page"),
   "/terms": () => import("../app/[locale]/(site)/terms/page"),
+  "/": () => import("../app/[locale]/(site)/page"),
+  "/transfer": () => import("../app/[locale]/(site)/transfer/page"),
+  "/airdrop-online": () => import("../app/[locale]/(site)/airdrop-online/page"),
+  "/wifi-file-transfer": () => import("../app/[locale]/(site)/wifi-file-transfer/page"),
   "/blog": () => import("../app/[locale]/(site)/blog/page"),
 };
 
 /** The articles, in every language too: the page around the English text is the same one Next renders. */
 export const BLOG_POST = () => import("../app/[locale]/(site)/blog/[slug]/page");
+
+/**
+ * Route layouts below (site), by first path segment. They hand the islands of their pages more message namespaces
+ * (IntlScope), for parts that only show after something happens in the browser.
+ */
+export const LAYOUTS: Record<string, () => Promise<unknown>> = {
+  "airdrop-online": () => import("../app/[locale]/(site)/airdrop-online/layout"),
+  contact: () => import("../app/[locale]/(site)/contact/layout"),
+  download: () => import("../app/[locale]/(site)/download/layout"),
+  features: () => import("../app/[locale]/(site)/features/layout"),
+  privacy: () => import("../app/[locale]/(site)/privacy/layout"),
+  terms: () => import("../app/[locale]/(site)/terms/layout"),
+  transfer: () => import("../app/[locale]/(site)/transfer/layout"),
+  "wifi-file-transfer": () => import("../app/[locale]/(site)/wifi-file-transfer/layout"),
+};

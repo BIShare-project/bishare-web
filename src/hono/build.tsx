@@ -10,7 +10,7 @@ import NotFound from "@/app/[locale]/(site)/not-found";
 import { robotsTxt, sitemapXml } from "./files";
 import { renderDocument } from "./layout/document";
 import { withPage } from "./page-context";
-import { BLOG_POST, PAGES, type PageModule } from "./pages";
+import { BLOG_POST, LAYOUTS, PAGES, type LayoutModule, type PageModule } from "./pages";
 
 // Renders every page in every language into <out>/<locale>/<path>.html (the home page: <out>/<locale>.html), the 404
 // page of each language into <out>/<locale>/404.html, and the files search engines read into <out>.
@@ -31,7 +31,9 @@ async function page(path: string, module: PageModule, slug = "") {
     const html = await withPage(locale, path, async () => {
       const props = { params: Promise.resolve({ locale, slug }), searchParams: Promise.resolve({}) };
       const metadata = await module.generateMetadata(props);
-      return renderDocument({ locale, metadata, body: await module.default(props) });
+      const body = await module.default(props);
+      const layout = LAYOUTS[path.split("/")[1] ?? ""];
+      return renderDocument({ locale, metadata, body: layout ? await ((await layout()) as LayoutModule).default({ children: body, params: props.params }) : body });
     });
     write(path === "/" ? `${locale}.html` : `${locale}${path}.html`, html);
   }

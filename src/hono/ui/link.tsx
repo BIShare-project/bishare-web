@@ -21,4 +21,5 @@ export function Link({ href, children, prefetch: _prefetch, ...rest }: Props) {
 }
 
 // next-intl's other navigation names.
+export const getPathname = ({ href, locale }: { href: string; locale: string }) => localizedPath(locale, href);
 export const usePathname = pagePath;

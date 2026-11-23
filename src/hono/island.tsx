@@ -14,7 +14,7 @@ export function island(file: string, name: string, Component: Any) {
   return async (props: Any) => {
     if (pageContext().inIsland) return <Component {...props} />;
     if ([props.children ?? []].flat().length) throw new Error(`island ${file} ${name}: children cannot be sent to the browser`);
-    const namespaces = new Set<string>();
+    const namespaces = new Set<string>(pageContext().scope);
     const html = await withNamespaces(namespaces, async () => (await (<Component {...props} />).toString()) as string);
     const src = ASSETS.islands[file];
     if (!src) throw new Error(`island ${file} is not built: run scripts/build-hono-assets.mjs`);
