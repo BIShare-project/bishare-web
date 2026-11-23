@@ -42,4 +42,3 @@ export async function getTranslations(arg: string | { locale?: string; namespace
 }
 export const useTranslations = translator;
 export const useLocale = () => pageContext().locale;
-export const getLocale = async () => pageContext().locale;

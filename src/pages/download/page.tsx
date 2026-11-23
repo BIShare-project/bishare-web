@@ -2,12 +2,11 @@ import { Card } from "@/ui/card";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
-import type { IconComponent } from "@/ui/icons";
+import { type IconComponent, HardDriveDownload, Laptop, Monitor, Smartphone, TabletSmartphone, Terminal } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
-import { Section, SectionHeading } from "@/ui/section";
+import { Section, SectionHeading, GridBackdrop } from "@/ui/section";
 import { QRDisplay } from "@/ui/qr-display";
-import { GridBackdrop } from "@/ui/section";
 import { StatusPill, TagBadge } from "@/ui/status-pill";
 import { Button } from "@/ui/button";
 import {
@@ -24,14 +23,6 @@ import { sharedOpenGraph } from "@/lib/og";
 import { DownloadHero } from "./download-hero";
 import { RELEASES_URL } from "./availability";
 import { AppJsonLd } from "@/lib/app-ld";
-import {
-  HardDriveDownload,
-  Laptop,
-  Monitor,
-  Smartphone,
-  TabletSmartphone,
-  Terminal,
-} from "@/ui/icons";
 
 /** Translator bound to the "download" namespace. */
 type T = Awaited<ReturnType<typeof getTranslations>>;

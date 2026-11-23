@@ -48,18 +48,3 @@ export function FlowStatusCard({
   );
 }
 
-/** Pulsing placeholder card used by the route loading skeletons. */
-export function FlowSkeletonCard({ rows = 2 }: { rows?: number }) {
-  return (
-    <div className="rounded-xl border border-border bg-card p-8">
-      <div className="space-y-5">
-        <div className="mx-auto h-16 w-16 rounded-[18px] bg-muted" />
-        <div className="mx-auto h-5 w-3/5 rounded-md bg-muted" />
-        {Array.from({ length: rows }).map((_, i) => (
-          <div key={i} className="mx-auto h-4 w-2/5 rounded-md bg-muted" />
-        ))}
-        <div className="h-[52px] w-full rounded-[13px] bg-muted" />
-      </div>
-    </div>
-  );
-}

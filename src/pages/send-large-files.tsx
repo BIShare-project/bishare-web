@@ -1,7 +1,6 @@
-import { JsonLd } from "@/ui/article";
+import { JsonLd, type Article, faqPageLd, ArticleHead, HeroButtons, Art, Section, Cell, strong, highlight } from "@/ui/article";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
-import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, Section, Cell, strong, highlight } from "@/ui/article";
 import { Button } from "@/ui/button";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
@@ -139,7 +138,7 @@ export default async function SendLargeFilesPage({ locale }: { locale: string })
   const yes = t("a11y.yes");
   const no = t("a11y.no");
   const table = (ns: string, rows: readonly string[], n: number) =>
-    rows.map((r) => Array.from({ length: n }, (_, j) => t(`${ns}.rows.${r}.${j}`)));
+    rows.map((r) => Array.from({ length: n }, (_, j) => t.raw(`${ns}.rows.${r}.${j}`) as string));
   const cols = (ns: string, n: number) => Array.from({ length: n }, (_, j) => t(`${ns}.cols.${j}`));
 
   const faqLd = faqPageLd(t, FAQ_ITEMS);

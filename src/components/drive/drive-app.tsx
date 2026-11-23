@@ -13,7 +13,7 @@ import { LinkDialog } from "./links";
 import { forgetThumbs } from "./thumbs";
 import { ConfirmDialog, FolderPicker, PromptDialog } from "./ui";
 import { toast as message, Toaster } from "@/components/drive/ui/toaster";
-import { TooltipProvider } from "@/components/drive/ui/tooltip";
+import { TooltipProvider } from "@/components/drive/ui/overlays";
 import { Viewer } from "./viewer";
 
 type Theme = "light" | "dark";

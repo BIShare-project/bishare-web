@@ -3,10 +3,10 @@ import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
 import type { Child } from "@/jsx";
 import { Link } from "@/ui/link";
-import type { IconComponent } from "@/ui/icons";
+import { type IconComponent, Wifi, PlayCircle, Play, Lock, LayoutGrid, ClipboardCopy, Users, Link2, Globe, Check, ArrowRight, ArrowDown, Laptop, Smartphone, Monitor, TabletSmartphone, FolderArchive, FileText, Image as ImageIcon, Clock, Download, FileUp, KeyRound } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
-import { Section, SectionHeading } from "@/ui/section";
+import { Section, SectionHeading, GridBackdrop } from "@/ui/section";
 import { Beam } from "@/ui/beam";
 import {
   IconTile,
@@ -17,33 +17,7 @@ import { StatusPill, TagBadge } from "@/ui/status-pill";
 import { MoreFeaturesGrid } from "./more-features";
 import { QRDisplay } from "@/ui/qr-display";
 import { StoreButtons } from "@/ui/store-buttons";
-import { GridBackdrop } from "@/ui/section";
 import { sharedOpenGraph } from "@/lib/og";
-import {
-  Wifi,
-  PlayCircle,
-  Play,
-  Lock,
-  LayoutGrid,
-  ClipboardCopy,
-  Users,
-  Link2,
-  Globe,
-  Check,
-  ArrowRight,
-  ArrowDown,
-  Laptop,
-  Smartphone,
-  Monitor,
-  TabletSmartphone,
-  FolderArchive,
-  FileText,
-  Image as ImageIcon,
-  Clock,
-  Download,
-  FileUp,
-  KeyRound,
-} from "@/ui/icons";
 
 export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "features" });

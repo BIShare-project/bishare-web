@@ -9,10 +9,8 @@ import { ObjectIcon } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, kindOf } from "./format";
 import { useThumb } from "./thumbs";
-import { Button } from "@/components/drive/ui/button";
-import { Progress } from "@/components/drive/ui/progress";
-import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/drive/ui/sheet";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/tooltip";
+import { Button, Progress } from "@/components/drive/ui/controls";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/overlays";
 
 type Shown =
   | { kind: "loading"; done: number; total: number }

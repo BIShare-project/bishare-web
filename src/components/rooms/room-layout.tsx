@@ -7,7 +7,7 @@
 import { useRef, useState, type Child } from "@/jsx";
 import { useTranslations } from "@/i18n/translate";
 import { Check, Cloud, Copy, Download, File, Radio, Upload, Users } from "@/ui/icons";
-import { Button } from "@/ui/room-button";
+import { RoomButton } from "@/ui/controls";
 
 export interface RoomLayoutMember {
   id: string;
@@ -138,7 +138,7 @@ export function RoomLayout({
             className="hidden"
             onChange={(e) => pick(e.target.files)}
           />
-          <Button
+          <RoomButton
             onClick={() => fileInput.current?.click()}
             size="sm"
             disabled={!canPick}
@@ -146,7 +146,7 @@ export function RoomLayout({
           >
             <Upload className="mr-1.5 h-4 w-4" />
             {uploadPct !== null ? `${t("room.uploading")} ${uploadPct}%` : uploadLabel}
-          </Button>
+          </RoomButton>
         </div>
 
         {note && <p className="-mt-2 mb-4 text-xs text-muted-foreground">{note}</p>}
@@ -197,7 +197,7 @@ export function RoomLayout({
                     {formatBytes(f.size)} · {t("room.by", { who: f.byAlias })}
                   </p>
                 </div>
-                <Button
+                <RoomButton
                   onClick={f.onDownload}
                   size="icon"
                   variant="secondary"
@@ -206,7 +206,7 @@ export function RoomLayout({
                   className="h-11 w-11 shrink-0 rounded-lg"
                 >
                   <Download className="h-4 w-4" />
-                </Button>
+                </RoomButton>
               </li>
             ))}
           </ul>
@@ -300,7 +300,7 @@ export function RoomLayout({
           )}
         </div>
 
-        <Button
+        <RoomButton
           onClick={leave.onClick}
           variant="ghost"
           size="sm"
@@ -308,7 +308,7 @@ export function RoomLayout({
         >
           {leave.icon}
           {leave.label}
-        </Button>
+        </RoomButton>
       </aside>
     </div>
   );

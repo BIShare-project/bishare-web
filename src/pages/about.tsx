@@ -4,22 +4,13 @@ import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
 import Image from "@/ui/image";
 import { Link } from "@/ui/link";
-import type { IconComponent } from "@/ui/icons";
+import { type IconComponent, Lock, Zap, Feather, MonitorSmartphone, Check, ArrowRight, Mail } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { GridBackdrop, Section, SectionHeading } from "@/ui/section";
 import { StatusPill, TagBadge } from "@/ui/status-pill";
 import { StoreButtons } from "@/ui/store-buttons";
 import { sharedOpenGraph } from "@/lib/og";
-import {
-  Lock,
-  Zap,
-  Feather,
-  MonitorSmartphone,
-  Check,
-  ArrowRight,
-  Mail,
-} from "@/ui/icons";
 
 export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "about" });

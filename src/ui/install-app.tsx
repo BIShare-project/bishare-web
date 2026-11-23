@@ -3,7 +3,7 @@
 import { useState, useSyncExternalStore } from "@/jsx";
 import { useTranslations } from "@/i18n/translate";
 import { Check, MonitorDown } from "@/ui/icons";
-import { Button, buttonVariants } from "@/ui/tool-button";
+import { ToolButton, toolButton } from "@/ui/controls";
 import { AppleGlyph, appStoreUrl, PlayGlyph, playStoreUrl } from "@/ui/store-buttons";
 import {
   detectMobileOS,
@@ -63,7 +63,7 @@ export function InstallApp({
           href={android ? playStoreUrl("transfer") : appStoreUrl("transfer")}
           target="_blank"
           rel="noopener noreferrer"
-          className={buttonVariants({ variant: "outline", size: "sm" })}
+          className={toolButton({ variant: "outline", size: "sm" })}
         >
           <Glyph />
           {t("nativeApp.button", { store })}
@@ -117,10 +117,10 @@ export function InstallApp({
             </p>
           </div>
         </div>
-        <Button onClick={install} disabled={busy} size="lg" className="shrink-0">
+        <ToolButton onClick={install} disabled={busy} size="lg" className="shrink-0">
           <MonitorDown />
           {busy ? t("installApp.installing") : t("installApp.button")}
-        </Button>
+        </ToolButton>
       </div>
     );
   }
@@ -133,10 +133,10 @@ export function InstallApp({
       )}
     >
       <span>{t("installApp.inline")}</span>
-      <Button onClick={install} disabled={busy} variant="outline" size="sm">
+      <ToolButton onClick={install} disabled={busy} variant="outline" size="sm">
         <MonitorDown />
         {busy ? t("installApp.installing") : t("installApp.button")}
-      </Button>
+      </ToolButton>
     </div>
   );
 }

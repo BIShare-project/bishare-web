@@ -1,5 +1,4 @@
-import type { IconComponent } from "@/ui/icons";
-import { ArrowLeftRight, Rocket, ShieldCheck, Wrench } from "@/ui/icons";
+import { type IconComponent, ArrowLeftRight, Rocket, ShieldCheck, Wrench } from "@/ui/icons";
 
 /**
  * FAQ structure (page-local). Only the non-translatable data lives here — the

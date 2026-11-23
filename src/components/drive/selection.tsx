@@ -4,8 +4,7 @@
 import { useEffect, useRef, useState, type Child } from "@/jsx";
 import { useTranslations } from "@/i18n/translate";
 import { X } from "@/ui/icons";
-import { Button } from "@/components/drive/ui/button";
-import { Checkbox } from "@/components/drive/ui/checkbox";
+import { Button, Checkbox } from "@/components/drive/ui/controls";
 
 export function useSelection<T extends { id: string }>(rows: T[]) {
   const [sel, setSel] = useState<Set<string>>(new Set());

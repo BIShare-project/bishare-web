@@ -1,7 +1,6 @@
-import { JsonLd } from "@/ui/article";
+import { JsonLd, type Article, faqPageLd, ArticleHead, HeroButtons, Art, Section, QuickAnswer, Cell, Cta, strong, highlight } from "@/ui/article";
 import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
-import { type Article, faqPageLd, ArticleHead, HeroButtons, Art, Section, QuickAnswer, Cell, Cta, strong, highlight } from "@/ui/article";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
 import { breadcrumbLd } from "@/lib/breadcrumb-ld";

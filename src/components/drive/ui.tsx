@@ -3,10 +3,8 @@ import { useTranslations } from "@/i18n/translate";
 import { ChevronRight, Folder, FolderPlus, HardDrive } from "@/ui/icons";
 import type { DriveIndex } from "@/lib/vault/store";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/drive/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/drive/ui/dialog";
-import { Input } from "@/components/drive/ui/input";
-import { Label } from "@/components/drive/ui/label";
+import { Button, Input, Label } from "@/components/drive/ui/controls";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/drive/ui/overlays";
 
 export function PromptDialog({
   title,

@@ -4,7 +4,7 @@ import { useEffect, useState } from "@/jsx";
 import { useTranslations } from "@/i18n/translate";
 import { X } from "@/ui/icons";
 import { getDriveInterestEnabled, getVaultOpen, reportInterest, type InterestEvent } from "@/lib/api";
-import { Button } from "@/ui/tool-button";
+import { ToolButton } from "@/ui/controls";
 
 /** What this browser answered ("yes_paid", "yes_free", "no" or "dismiss"). */
 const ANSWER_KEY = "bishare.interest.drive";
@@ -90,15 +90,15 @@ export function DriveInterest() {
       <h4 className="mt-2 text-base font-semibold tracking-[-0.01em]">{t("title")}</h4>
       <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t("body")}</p>
       <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-        <Button onClick={() => answer("yes_paid")} variant="outline" size="sm" className="sm:flex-1">
+        <ToolButton onClick={() => answer("yes_paid")} variant="outline" size="sm" className="sm:flex-1">
           {t("yesPaid")}
-        </Button>
-        <Button onClick={() => answer("yes_free")} variant="outline" size="sm" className="sm:flex-1">
+        </ToolButton>
+        <ToolButton onClick={() => answer("yes_free")} variant="outline" size="sm" className="sm:flex-1">
           {t("yesFree")}
-        </Button>
-        <Button onClick={() => answer("no")} variant="outline" size="sm" className="sm:flex-1">
+        </ToolButton>
+        <ToolButton onClick={() => answer("no")} variant="outline" size="sm" className="sm:flex-1">
           {t("no")}
-        </Button>
+        </ToolButton>
       </div>
     </section>
   );

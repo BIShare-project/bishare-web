@@ -24,9 +24,7 @@ import { useActions } from "./actions";
 import { EmptyState, KIND_COLORS, Kpi, KpiGrid, ObjectThumb, PageHead, Panel } from "./bits";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, isMedia, percent, when } from "./format";
-import { Button } from "@/components/drive/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/drive/ui/table";
-import { Tabs, TabsList, TabsTrigger } from "@/components/drive/ui/tabs";
+import { Button, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Tabs, TabsList, TabsTrigger } from "@/components/drive/ui/controls";
 
 const DAY = 86_400_000;
 

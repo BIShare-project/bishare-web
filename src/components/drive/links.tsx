@@ -8,9 +8,8 @@ import { browserName } from "@/lib/vault/session";
 import type { DriveObject } from "@/lib/vault/store";
 import { EmptyState, PageHead, Panel } from "./bits";
 import { useDrive } from "./drive-app";
-import { Button } from "@/components/drive/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/drive/ui/dialog";
-import { Input } from "@/components/drive/ui/input";
+import { Button, Input } from "@/components/drive/ui/controls";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/drive/ui/overlays";
 
 const LIFETIMES = [1, 7, 30, 0] as const;
 

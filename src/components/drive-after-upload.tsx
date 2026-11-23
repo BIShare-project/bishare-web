@@ -4,7 +4,7 @@ import { useEffect, useState } from "@/jsx";
 import { useLocale, useTranslations } from "@/i18n/translate";
 import { getVaultOpen, reportCta, type CtaId } from "@/lib/api";
 import { getPathname } from "@/ui/link";
-import { buttonVariants } from "@/ui/tool-button";
+import { toolButton } from "@/ui/controls";
 
 /** Where the Drive opens in a browser (the middleware serves /drive there). */
 const DRIVE_URL = "https://drive.bishare.app";
@@ -33,7 +33,7 @@ export function DriveAfterUpload({ hours }: { hours: number }) {
         <a
           href={`${getPathname({ href: "/download", locale })}?ref=drive_after_upload`}
           onClick={() => reportCta("drive_after_upload_app", "click")}
-          className={buttonVariants({ variant: "default", size: "default", className: "sm:flex-1" })}
+          className={toolButton({ variant: "default", size: "default", className: "sm:flex-1" })}
         >
           {t("app")}
         </a>
@@ -42,7 +42,7 @@ export function DriveAfterUpload({ hours }: { hours: number }) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => reportCta("drive_after_upload_open", "click")}
-          className={buttonVariants({ variant: "outline", size: "default", className: "sm:flex-1" })}
+          className={toolButton({ variant: "outline", size: "default", className: "sm:flex-1" })}
         >
           {t("open")}
         </a>

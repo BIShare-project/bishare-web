@@ -1,8 +1,7 @@
 import { useCallback, useMemo } from "@/jsx";
 import { useRouter } from "./nav";
 import { useTranslations } from "@/i18n/translate";
-import { ArchiveRestore, Copy, Download, Eye, FolderInput, FolderOpen, Link2, Pencil, Trash2, X } from "@/ui/icons";
-import type { IconComponent } from "@/ui/icons";
+import { ArchiveRestore, Copy, Download, Eye, FolderInput, FolderOpen, Link2, Pencil, Trash2, X, type IconComponent } from "@/ui/icons";
 import { DriveApiError } from "@/lib/vault/client";
 import { FALLBACK_MAX, fetchPlain, IN_PAGE_MAX, saveBlob, streamSave } from "@/lib/vault/download";
 import type { DriveObject } from "@/lib/vault/store";

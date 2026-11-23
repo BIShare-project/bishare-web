@@ -9,7 +9,7 @@ import { saveBlob } from "@/lib/vault/download";
 import { zipEntries, zipRead, type ZipEntry } from "@/lib/vault/zipread";
 import { cn } from "@/lib/utils";
 import { bytes } from "./format";
-import { Button } from "@/components/drive/ui/button";
+import { Button } from "@/components/drive/ui/controls";
 
 export type PreviewKind =
   | "image"

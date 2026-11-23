@@ -1,6 +1,5 @@
 import { useEffect, useId, useState, type Child } from "@/jsx";
-import { Link } from "./nav";
-import { usePathname } from "./nav";
+import { Link, usePathname } from "./nav";
 import { useTranslations } from "@/i18n/translate";
 import {
   AlertCircle,
@@ -29,20 +28,8 @@ import { useActions } from "./actions";
 import { useDrive, useIndex } from "./drive-app";
 import { bytes, percent } from "./format";
 import { DropZone, UploadTray } from "./uploads";
-import { Button } from "@/components/drive/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/drive/ui/dropdown-menu";
-import { Sheet, SheetContent, SheetTitle } from "@/components/drive/ui/sheet";
-import { Skeleton } from "@/components/drive/ui/skeleton";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/tooltip";
+import { Button, Skeleton } from "@/components/drive/ui/controls";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuTrigger, Sheet, SheetContent, SheetTitle, Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/overlays";
 
 const NAV = [
   { href: "", key: "home", icon: LayoutGrid },

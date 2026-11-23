@@ -3,7 +3,7 @@ import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
 import { Link } from "@/ui/link";
-import type { IconComponent } from "@/ui/icons";
+import { type IconComponent, FileUp, Radar, Lock, Check, Wifi, Link2, Globe, Users, ChevronDown, ArrowRight } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { GridBackdrop, Section, SectionHeading } from "@/ui/section";
@@ -13,18 +13,6 @@ import { Button } from "@/ui/button";
 import { WebQuickCta } from "@/ui/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { cn } from "@/lib/utils";
-import {
-  FileUp,
-  Radar,
-  Lock,
-  Check,
-  Wifi,
-  Link2,
-  Globe,
-  Users,
-  ChevronDown,
-  ArrowRight,
-} from "@/ui/icons";
 
 export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "how-it-works" });

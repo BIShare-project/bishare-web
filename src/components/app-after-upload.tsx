@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from "@/jsx";
 import { useTranslations } from "@/i18n/translate";
 import { AppleGlyph, appStoreUrl, PlayGlyph, playStoreUrl, StoreButtons } from "@/ui/store-buttons";
-import { buttonVariants } from "@/ui/tool-button";
+import { toolButton } from "@/ui/controls";
 import { detectMobileOS } from "@/lib/pwa-install";
 
 const noopSubscribe = () => () => {};
@@ -29,7 +29,7 @@ export function AppAfterUpload() {
         href={android ? playStoreUrl("after_upload") : appStoreUrl("after_upload")}
         target="_blank"
         rel="noopener noreferrer"
-        className={buttonVariants({ variant: "default", size: "default", className: "mt-4 w-full" })}
+        className={toolButton({ variant: "default", size: "default", className: "mt-4 w-full" })}
       >
         <Glyph />
         {t("nativeApp.button", { store: android ? "Google Play" : "App Store" })}
@@ -59,7 +59,7 @@ export function AppAfterReceive() {
           href={android ? playStoreUrl("nearby_receive") : appStoreUrl("nearby_receive")}
           target="_blank"
           rel="noopener noreferrer"
-          className={buttonVariants({ variant: "default", size: "default", className: "mt-4 w-full" })}
+          className={toolButton({ variant: "default", size: "default", className: "mt-4 w-full" })}
         >
           <Glyph />
           {tc("nativeApp.button", { store: android ? "Google Play" : "App Store" })}

@@ -2,11 +2,6 @@ import { API_URL } from "@/lib/api-url";
 import { requestFetch } from "@/site/request-context";
 import type { APIResponse, FlatResponse, TransferStatus } from "./types";
 
-
-/** Mirror of the backend transfer limits (do not raise without a server change). */
-export const TRANSFER_MAX_FILE_SIZE = 2_147_483_648; // 2 GB (legacy — see getTransferMaxFileSizeFree)
-export const TRANSFER_EXPIRY_HOURS = 24;
-
 /**
  * Anonymous/free transfer size ceiling used when GET /api/v1/config is
  * unreachable or malformed. The server now rejects >1 GiB for anonymous

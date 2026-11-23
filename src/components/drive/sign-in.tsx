@@ -6,10 +6,7 @@ import { DriveApiError } from "@/lib/vault/client";
 import { cancelPairing, checkPairing, showCode, startPairing, type Pairing } from "@/lib/vault/pair";
 import { browserName, type DriveSession } from "@/lib/vault/session";
 import { BrandMark } from "./shell";
-import { Button } from "@/components/drive/ui/button";
-import { Progress } from "@/components/drive/ui/progress";
-import { Skeleton } from "@/components/drive/ui/skeleton";
-import { Switch } from "@/components/drive/ui/switch";
+import { Button, Progress, Skeleton, Switch } from "@/components/drive/ui/controls";
 
 const POLL_MS = 2000;
 const CODE_LIFE_S = 300;

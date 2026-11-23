@@ -33,10 +33,7 @@ import { useDrive, useIndex } from "./drive-app";
 import { bytes, dayTitle, percent, when } from "./format";
 import { ExplainGrid, InfoTip, Term } from "./help";
 import { RowCheck, SelectionBar, useSelection } from "./selection";
-import { Badge } from "@/components/drive/ui/badge";
-import { Button } from "@/components/drive/ui/button";
-import { Checkbox } from "@/components/drive/ui/checkbox";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/drive/ui/table";
+import { Badge, Button, Checkbox, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/drive/ui/controls";
 
 const DAY = 86_400_000;
 

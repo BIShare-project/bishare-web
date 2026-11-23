@@ -28,7 +28,7 @@ import { FilePreviewDialog } from "@/components/file-preview-dialog";
 import { buildStoreZip } from "@/lib/zip";
 import { FileThumb } from "@/components/file-thumb";
 import type { TransferUploadResponse } from "@/lib/types";
-import { Button } from "@/ui/tool-button";
+import { ToolButton } from "@/ui/controls";
 import { GlowProgress, SuccessCheck } from "@/ui/progress";
 import { QRDisplay } from "@/ui/qr-display";
 import { TagBadge } from "@/ui/status-pill";
@@ -1051,14 +1051,14 @@ export function FileUpload() {
                       className="h-9 min-w-0 flex-1 select-all rounded-[10px] border border-input bg-muted/40 px-3 font-mono text-xs text-muted-foreground outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/40"
                       onClick={(e) => (e.target as HTMLInputElement).select()}
                     />
-                    <Button
+                    <ToolButton
                       onClick={() => copyText(f.id, "link", f.webURL || "")}
                       variant="outline"
                       size="icon-sm"
                       aria-label={t("upload.copyLinkAria")}
                     >
                       {f.copied === "link" ? <CheckCircle2 className="text-success" /> : <Copy />}
-                    </Button>
+                    </ToolButton>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-muted-foreground">
@@ -1145,7 +1145,7 @@ export function FileUpload() {
         {/* Primary actions (single-file convenience) */}
         {single && single.status === "done" && single.webURL && (
           <div className="flex gap-3">
-            <Button
+            <ToolButton
               onClick={() => {
                 if (navigator.share && single.webURL) {
                   navigator
@@ -1172,8 +1172,8 @@ export function FileUpload() {
             >
               <Share2 />
               {t("upload.share")}
-            </Button>
-            <Button
+            </ToolButton>
+            <ToolButton
               onClick={() => copyText(single.id, "link", single.webURL || "")}
               variant="outline"
               className="flex-1"
@@ -1181,14 +1181,14 @@ export function FileUpload() {
             >
               <Copy />
               {single.copied === "link" ? t("upload.copied") : t("upload.copyLink")}
-            </Button>
+            </ToolButton>
           </div>
         )}
 
-        <Button onClick={resetAll} variant="ghost" className="w-full">
+        <ToolButton onClick={resetAll} variant="ghost" className="w-full">
           <Upload />
           {t("upload.uploadMore")}
-        </Button>
+        </ToolButton>
 
         <AppAfterUpload />
         <DriveAfterUpload hours={expiry} />
@@ -1500,16 +1500,16 @@ export function FileUpload() {
             </span>
           </button>
 
-          <Button onClick={uploadAll} className="w-full" size="lg">
+          <ToolButton onClick={uploadAll} className="w-full" size="lg">
             <Upload />
             {t("upload.uploadButton", { count: pendingFiles.length })}
-          </Button>
+          </ToolButton>
         </div>
       )}
 
       {isUploading && (
         <div>
-          <Button
+          <ToolButton
             onClick={cancelAll}
             variant="outline"
             className="w-full"
@@ -1517,7 +1517,7 @@ export function FileUpload() {
           >
             <X className="h-4 w-4" />
             {t("upload.cancel")}
-          </Button>
+          </ToolButton>
         </div>
       )}
     </div>

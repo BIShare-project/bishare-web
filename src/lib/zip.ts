@@ -300,8 +300,3 @@ export async function buildStoreZip(
   return new Blob(parts, { type: "application/zip" });
 }
 
-/** A sensible archive name for a batch the user never named. */
-export function zipNameFor(files: File[], fallback: string): string {
-  if (files.length === 1) return `${files[0]!.name}.zip`;
-  return fallback;
-}

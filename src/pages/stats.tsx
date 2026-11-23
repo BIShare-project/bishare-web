@@ -2,22 +2,7 @@ import type { Metadata } from "@/site/metadata";
 import { buildAlternates } from "@/i18n/metadata";
 import { sharedOpenGraph } from "@/lib/og";
 import { getTranslations } from "@/i18n/translate";
-import {
-  Activity,
-  Globe,
-  ArrowLeftRight,
-  CalendarDays,
-  DoorOpen,
-  DownloadCloud,
-  HardDrive,
-  Layers,
-  Server,
-  Smartphone,
-  CloudUpload,
-  Users,
-  Wifi,
-} from "@/ui/icons";
-import type { IconComponent } from "@/ui/icons";
+import { Activity, Globe, ArrowLeftRight, CalendarDays, DoorOpen, DownloadCloud, HardDrive, Layers, Server, Smartphone, CloudUpload, Users, Wifi, type IconComponent } from "@/ui/icons";
 import { publicReportBundle } from "@/lib/stats/report";
 import { formatBytes } from "@/lib/stats/format";
 import { monthlyInfraCost } from "@/lib/infra-cost";

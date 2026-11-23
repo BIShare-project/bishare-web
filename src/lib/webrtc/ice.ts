@@ -8,7 +8,6 @@ import { API_URL } from "@/lib/api-url";
 // credentials are cached here until shortly before their TTL and every failure
 // degrades to STUN-only — the pre-TURN behaviour, never an error.
 
-
 /** Direct-only fallback when the mint fails — keeps today's behaviour. */
 const STUN_FALLBACK: RTCIceServer[] = [
   { urls: "stun:stun.cloudflare.com:3478" },
@@ -49,12 +48,6 @@ export async function getIceServers(): Promise<RTCIceServer[]> {
   } catch {
     return cached?.servers ?? STUN_FALLBACK;
   }
-}
-
-/** Fire-and-forget prefetch — call when a WebRTC surface mounts/connects so
- *  the first RTCPeerConnection is created with TURN already in hand. */
-export function warmIceServers(): void {
-  void getIceServers();
 }
 
 export { STUN_FALLBACK };

@@ -3,22 +3,12 @@ import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
 import { Link } from "@/ui/link";
-import type { IconComponent } from "@/ui/icons";
+import { type IconComponent, ArrowLeftRight, Waypoints, Zap, ShieldCheck, Lock, Wifi, EyeOff, ArrowRight } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
 import { GridBackdrop, Section, SectionHeading } from "@/ui/section";
 import { FeaturePill, TagBadge } from "@/ui/status-pill";
 import { sharedOpenGraph } from "@/lib/og";
-import {
-  ArrowLeftRight,
-  Waypoints,
-  Zap,
-  ShieldCheck,
-  Lock,
-  Wifi,
-  EyeOff,
-  ArrowRight,
-} from "@/ui/icons";
 
 export async function generateMetadata({ locale }: { locale: string }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "philosophy" });

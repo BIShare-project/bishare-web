@@ -2,8 +2,6 @@
 // RoomDO emits (server/do/room.ts) — member/file DTOs and the WebSocket event
 // envelope { type, data }.
 
-export type DeviceType = "web" | "mobile" | "desktop" | "unknown";
-
 export interface RoomMember {
   fingerprint: string;
   alias: string;

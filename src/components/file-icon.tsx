@@ -1,16 +1,4 @@
-import type { IconComponent } from "@/ui/icons";
-import {
-  File,
-  FileArchive,
-  FileAudio,
-  FileCode,
-  FileImage,
-  FileSpreadsheet,
-  FileText,
-  FileVideo,
-  FolderClosed,
-  Presentation,
-} from "@/ui/icons";
+import { type IconComponent, File, FileArchive, FileAudio, FileCode, FileImage, FileSpreadsheet, FileText, FileVideo, FolderClosed, Presentation } from "@/ui/icons";
 import { cn } from "@/lib/utils";
 
 /** The icon for a MIME type. */

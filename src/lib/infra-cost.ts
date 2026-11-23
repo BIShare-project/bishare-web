@@ -13,8 +13,6 @@
 
 /** R2 Standard storage, per GB-month. */
 export const R2_STORAGE_PER_GB_MONTH = 0.015;
-/** R2 bills nothing for data leaving to the internet. This is why BIShare is free. */
-export const R2_EGRESS_PER_GB = 0;
 /** R2 Standard free tier, in GB-month. */
 export const R2_FREE_GB_MONTH = 10;
 /** Workers Paid base fee, per account per month. Includes 10M requests. */

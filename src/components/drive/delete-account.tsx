@@ -2,7 +2,7 @@ import { Link } from "./nav";
 import { useTranslations } from "@/i18n/translate";
 import { CreditCard, Mail, ShieldCheck, Smartphone, Trash2 } from "@/ui/icons";
 import { BrandMark } from "./shell";
-import { Button } from "@/components/drive/ui/button";
+import { Button } from "@/components/drive/ui/controls";
 
 /**
  * How to delete a BIShare Drive (drive-plan.md task 6.6; Google Play asks for

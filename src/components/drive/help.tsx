@@ -7,7 +7,7 @@ import type { Child } from "@/jsx";
 import { useTranslations } from "@/i18n/translate";
 import { Info, type IconComponent } from "@/ui/icons";
 import { cn } from "@/lib/utils";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/drive/ui/overlays";
 
 export type GlossaryId = "e2e" | "key" | "device" | "browser" | "stay" | "trash" | "linked" | "region" | "thumbnail" | "plan" | "phrase" | "quota";
 

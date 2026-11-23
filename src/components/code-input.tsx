@@ -4,7 +4,7 @@ import { useState, useRef, type ClipboardEvent, type KeyboardEvent } from "@/jsx
 import { useRouter } from "@/ui/navigation";
 import { useTranslations } from "@/i18n/translate";
 import { cn } from "@/lib/utils";
-import { Button } from "@/ui/tool-button";
+import { ToolButton } from "@/ui/controls";
 import { ArrowRight, Loader2 } from "@/ui/icons";
 
 const CODE_ALPHABET_RE = /[^ABCDEFGHJKLMNPQRSTUVWXYZ23456789]/g;
@@ -113,7 +113,7 @@ export function CodeInput({ autoFocus = false }: CodeInputProps) {
         </span>
         {[3, 4, 5].map(renderBox)}
       </div>
-      <Button
+      <ToolButton
         onClick={handleSubmit}
         disabled={values.join("").length < 6 || navigating}
         className="w-full"
@@ -130,7 +130,7 @@ export function CodeInput({ autoFocus = false }: CodeInputProps) {
             <ArrowRight />
           </>
         )}
-      </Button>
+      </ToolButton>
     </div>
   );
 }

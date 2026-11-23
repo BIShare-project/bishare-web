@@ -1,7 +1,6 @@
 import { Fragment, type Child } from "@/jsx";
 import type { ActionItem } from "./actions";
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuTrigger } from "@/components/drive/ui/context-menu";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from "@/components/drive/ui/dropdown-menu";
+import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuShortcut, ContextMenuTrigger, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from "@/components/drive/ui/overlays";
 
 /** The "⋯" menu of a row or a tile. */
 export function ActionDropdown({ items, children, align = "end" }: { items: ActionItem[]; children: Child; align?: "start" | "end" }) {

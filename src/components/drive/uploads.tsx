@@ -6,8 +6,7 @@ import { cn } from "@/lib/utils";
 import { useDrive, useIndex, useUploads } from "./drive-app";
 import { bytes } from "./format";
 import { InfoTip } from "./help";
-import { Button } from "@/components/drive/ui/button";
-import { Progress } from "@/components/drive/ui/progress";
+import { Button, Progress } from "@/components/drive/ui/controls";
 
 function statusOf(t: ReturnType<typeof useTranslations>, it: UploadItem): string {
   const pct = it.total ? Math.floor((it.done * 100) / it.total) : 0;

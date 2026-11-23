@@ -1,9 +1,8 @@
 import type { Child } from "@/jsx";
-import type { IconComponent } from "@/ui/icons";
+import { type IconComponent, EyeOff, FileText, KeyRound, Laptop, Lock, Smartphone } from "@/ui/icons";
 import { getTranslations } from "@/i18n/translate";
 import { Beam } from "@/ui/beam";
 import { TagBadge } from "@/ui/status-pill";
-import { EyeOff, FileText, KeyRound, Laptop, Lock, Smartphone } from "@/ui/icons";
 
 /**
  * The trust-page centerpiece (page-local): Device A → encrypted channel →

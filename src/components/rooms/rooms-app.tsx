@@ -16,8 +16,7 @@ import {
   Smartphone,
   User,
 } from "@/ui/icons";
-import { Button } from "@/ui/room-button";
-import { Input } from "@/ui/room-input";
+import { RoomButton, RoomInput } from "@/ui/controls";
 import {
   createRoom,
   closeRoom,
@@ -494,7 +493,7 @@ function Landing({
           </label>
           <div className="relative">
             <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
+            <RoomInput
               id="room-alias"
               value={alias}
               onChange={(e) => setAlias(e.target.value)}
@@ -507,7 +506,7 @@ function Landing({
         </div>
 
         {/* create, the primary action */}
-        <Button
+        <RoomButton
           onClick={onCreate}
           disabled={busy !== null}
           size="lg"
@@ -515,7 +514,7 @@ function Landing({
         >
           <DoorOpen className="mr-2 h-[18px] w-[18px]" />
           {busy === "create" ? t("landing.creating") : t("landing.create")}
-        </Button>
+        </RoomButton>
       </div>
 
       {/* join: the code boxes and the button on one line */}
@@ -526,14 +525,14 @@ function Landing({
         </h2>
         <div className="mt-3 flex items-center gap-2">
           <CodeInput value={code} onChange={setCode} onEnter={onJoin} length={4} />
-          <Button
+          <RoomButton
             onClick={onJoin}
             disabled={busy !== null}
             variant="secondary"
             className="h-12 min-w-0 flex-1 rounded-xl sm:h-14"
           >
             {busy === "join" ? t("landing.joining") : t("landing.join")}
-          </Button>
+          </RoomButton>
         </div>
         {error && (
           <p className="mt-4 rounded-xl bg-destructive/10 px-3.5 py-2.5 text-sm text-destructive" role="alert">
@@ -645,9 +644,9 @@ function RoomView({
       <div className="space-y-4 p-8 text-center">
         <DoorOpen className="mx-auto h-8 w-8 text-muted-foreground" />
         <p className="text-lg font-medium">{t("room.roomClosed")}</p>
-        <Button onClick={onLeave} variant="secondary">
+        <RoomButton onClick={onLeave} variant="secondary">
           {t("room.backToStart")}
-        </Button>
+        </RoomButton>
       </div>
     );
   }

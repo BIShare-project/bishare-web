@@ -3,11 +3,10 @@ import type { Metadata } from "@/site/metadata";
 import { getTranslations } from "@/i18n/translate";
 import { buildAlternates } from "@/i18n/metadata";
 import { Link } from "@/ui/link";
-import type { IconComponent } from "@/ui/icons";
+import { type IconComponent, ArrowRight, Check, Clock, CloudOff, EyeOff, FileKey, FileSearch, FileText, HandCoins, KeyRound, Laptop, Lock, Mail, MegaphoneOff, ShieldCheck, Smartphone } from "@/ui/icons";
 import { SiteHeader } from "@/ui/header";
 import { SiteFooter } from "@/ui/footer";
-import { Section, SectionHeading } from "@/ui/section";
-import { GridBackdrop } from "@/ui/section";
+import { Section, SectionHeading, GridBackdrop } from "@/ui/section";
 import { IconTile, MetricBar, MockSurface } from "@/ui/mock-surface";
 import { StatusPill, TagBadge } from "@/ui/status-pill";
 import { Beam } from "@/ui/beam";
@@ -15,24 +14,6 @@ import { Button } from "@/ui/button";
 import { WebQuickCta } from "@/ui/web-quick-cta";
 import { sharedOpenGraph } from "@/lib/og";
 import { E2EFlowDiagram } from "./e2e-flow";
-import {
-  ArrowRight,
-  Check,
-  Clock,
-  CloudOff,
-  EyeOff,
-  FileKey,
-  FileSearch,
-  FileText,
-  HandCoins,
-  KeyRound,
-  Laptop,
-  Lock,
-  Mail,
-  MegaphoneOff,
-  ShieldCheck,
-  Smartphone,
-} from "@/ui/icons";
 
 const SUPPORT_EMAIL = "cakrabudiman@icloud.com";
 

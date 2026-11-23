@@ -3,20 +3,9 @@
 import { API_URL } from "@/lib/api-url";
 import { useState, type FormEvent, type Child } from "@/jsx";
 import { useTranslations } from "@/i18n/translate";
-import type { IconComponent } from "@/ui/icons";
-import {
-  AlertCircle,
-  Bug,
-  CheckCircle2,
-  Handshake,
-  HelpCircle,
-  Lightbulb,
-  Loader2,
-  Send,
-} from "@/ui/icons";
-import { GlowButton } from "@/ui/glow-button";
+import { type IconComponent, AlertCircle, Bug, CheckCircle2, Handshake, HelpCircle, Lightbulb, Loader2, Send } from "@/ui/icons";
+import { GlowButton, ToolInput } from "@/ui/controls";
 import { Button } from "@/ui/button";
-import { Input } from "@/ui/tool-input";
 import { cn } from "@/lib/utils";
 
 const SUPPORT_EMAIL = "cakrabudiman@icloud.com";
@@ -223,7 +212,7 @@ export function ContactForm() {
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <FieldLabel htmlFor="contact-name">{t("form.nameLabel")}</FieldLabel>
-            <Input
+            <ToolInput
               id="contact-name"
               type="text"
               autoComplete="name"
@@ -239,7 +228,7 @@ export function ContactForm() {
             <FieldLabel htmlFor="contact-email">
               {t("form.emailLabel")}
             </FieldLabel>
-            <Input
+            <ToolInput
               id="contact-email"
               type="email"
               autoComplete="email"
