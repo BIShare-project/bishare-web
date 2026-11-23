@@ -1,25 +1,10 @@
-import { existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
 import { createTranslator } from "use-intl/core";
 import { routing } from "@/i18n/routing";
+import { messageFile } from "./messages";
 import { type Messages, pageContext } from "./page-context";
 
-// Translations at build time: the files of src/messages, with the rules of src/i18n/request.ts and the engine next-intl
-// uses. Nothing here reaches the Worker.
-
-const DIR = join(process.cwd(), "src/messages");
-const cache = new Map<string, Messages>();
-
-function file(locale: string, ns: string): Messages {
-  const key = `${locale}/${ns}`;
-  let m = cache.get(key);
-  if (!m) {
-    const path = join(DIR, locale, `${ns}.json`);
-    m = existsSync(path) ? (JSON.parse(readFileSync(path, "utf8")) as Messages) : {};
-    cache.set(key, m);
-  }
-  return m;
-}
+// Translations: the files of src/messages (messages.ts), with the rules of src/i18n/request.ts and the engine next-intl
+// uses.
 
 const isObject = (v: unknown): v is Messages => typeof v === "object" && v !== null && !Array.isArray(v);
 
@@ -32,7 +17,7 @@ function merge(base: Messages, over: Messages): Messages {
 
 function namespaceMessages(locale: string, ns: string): Messages {
   const given = pageContext().messages?.();
-  const of = (l: string) => (given ? ((given[l]?.[ns] ?? {}) as Messages) : file(l, ns));
+  const of = (l: string) => (given ? ((given[l]?.[ns] ?? {}) as Messages) : messageFile(l, ns));
   return locale === routing.defaultLocale ? of(locale) : merge(of(routing.defaultLocale), of(locale));
 }
 

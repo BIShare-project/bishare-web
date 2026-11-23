@@ -63,6 +63,7 @@ export const PAGES: Record<string, () => Promise<unknown>> = {
   "/transfer": () => import("../app/[locale]/(site)/transfer/page"),
   "/airdrop-online": () => import("../app/[locale]/(site)/airdrop-online/page"),
   "/wifi-file-transfer": () => import("../app/[locale]/(site)/wifi-file-transfer/page"),
+  "/rooms": () => import("../app/[locale]/(site)/rooms/page"),
   "/blog": () => import("../app/[locale]/(site)/blog/page"),
 };
 
@@ -79,6 +80,7 @@ export const LAYOUTS: Record<string, () => Promise<unknown>> = {
   download: () => import("../app/[locale]/(site)/download/layout"),
   features: () => import("../app/[locale]/(site)/features/layout"),
   privacy: () => import("../app/[locale]/(site)/privacy/layout"),
+  rooms: () => import("../app/[locale]/(site)/rooms/layout"),
   terms: () => import("../app/[locale]/(site)/terms/layout"),
   transfer: () => import("../app/[locale]/(site)/transfer/layout"),
   "wifi-file-transfer": () => import("../app/[locale]/(site)/wifi-file-transfer/layout"),

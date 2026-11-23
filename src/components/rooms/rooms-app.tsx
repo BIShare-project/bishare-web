@@ -136,9 +136,12 @@ export function RoomsApp({
 }) {
   const t = useTranslations("rooms");
   const [session, setSession] = useState<Session>({ phase: "landing" });
-  const [mode, setMode] = useState<RoomMode>(initialMode);
+  // A link to a room (?code=, ?mode=local). The page passes them when it is rendered per request; a page built ahead of
+  // time cannot, so the browser reads its own address.
+  const link = typeof window === "undefined" ? null : new URLSearchParams(window.location.search);
+  const [mode, setMode] = useState<RoomMode>(link?.get("mode") === "local" ? "local" : initialMode);
   const [alias, setAliasState] = useState("");
-  const [code, setCode] = useState(initialCode?.toUpperCase() ?? "");
+  const [code, setCode] = useState((initialCode ?? link?.get("code") ?? "").toUpperCase());
   const [busy, setBusy] = useState<"create" | "join" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [state, dispatch] = useReducer(reducer, initialState);

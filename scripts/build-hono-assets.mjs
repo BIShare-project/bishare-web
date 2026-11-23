@@ -5,7 +5,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { copyFileSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
-import { bundleBrowser, bundlePages } from "./hono-bundle.mjs";
+import { bundleBrowser, bundlePages, bundleWorker } from "./hono-bundle.mjs";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const HONO = join(ROOT, "src/hono");
@@ -42,7 +42,8 @@ writeFileSync(join(OUT, cssName), css);
 // Browser modules: the shared ones of src/hono/client, and one per island the pages use.
 const clientDir = join(HONO, "client");
 const entries = ["site.ts"].map((f) => join(clientDir, f));
-const islandFiles = await bundlePages({ outfile: join(ROOT, "node_modules/.cache/hono-islands.mjs"), write: false });
+const look = { outfile: join(ROOT, "node_modules/.cache/hono-islands.mjs"), write: false };
+const islandFiles = [...new Set([...(await bundlePages(look)), ...(await bundleWorker(look))])].sort();
 const { scripts, islands } = await bundleBrowser({ entries, islands: islandFiles, outdir: OUT });
 
 const assets = { css: `/_h/${cssName}`, fonts, scripts, islands };

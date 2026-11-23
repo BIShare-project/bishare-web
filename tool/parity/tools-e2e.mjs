@@ -53,7 +53,7 @@ async function serveFrom(ctx, hosts, base) {
   });
 }
 
-async function open(base, { wait = ".studio-shell [role=group] button", init, ...opts } = {}) {
+async function open(base, { wait = ".studio-shell [role=group] button", init, at = path, ...opts } = {}) {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, acceptDownloads: true, serviceWorkers: "block", ...opts });
   if (site) await serveFrom(ctx, [new URL(site).hostname], base);
   const origin = site ?? base;
@@ -66,7 +66,7 @@ async function open(base, { wait = ".studio-shell [role=group] button", init, ..
   page.on("pageerror", (e) => errors.push(`pageerror: ${e.message}`));
   page.on("console", (m) => m.type() === "error" && !IGNORED.some((r) => r.test(m.text())) && errors.push(`console: ${m.text()}`));
   page.on("response", (r) => r.status() >= 400 && !IGNORED.some((x) => x.test(r.url())) && errors.push(`http ${r.status()}: ${r.url()}`));
-  await page.goto(origin + path, { waitUntil: "networkidle" });
+  await page.goto(origin + at, { waitUntil: "networkidle" });
   if (wait) await page.waitForSelector(wait);
   const cookie = page.getByRole("button", { name: "Got it" });
   if (await cookie.count()) await cookie.click();
@@ -212,7 +212,66 @@ async function nearbySend({ a, b, nameB }, files) {
   return got;
 }
 
+/** Two people in one room: A makes it, B opens its link (cloud) or types its code (local). */
+async function roomPair(base, mode) {
+  const enter = async (side, name) => side.page.getByLabel("Your name").fill(name);
+  const a = await open(base, { wait: "#room-alias", at: "/rooms" });
+  await a.page.evaluate(() => { delete window.showSaveFilePicker; window.showSaveFilePicker = undefined; });
+  // A name is asked for first.
+  await a.page.getByRole("button", { name: mode === "local" ? "Local (P2P)" : "Cloud" }).click();
+  await a.page.getByRole("button", { name: "Create a room" }).click();
+  const asked = await a.page.getByText("Enter your name first.").count();
+  await enter(a, "Ana");
+  await a.page.getByRole("button", { name: "Create a room" }).click();
+  await a.page.getByText("Room code").waitFor({ timeout: 20_000 });
+  const panel = (await a.page.getByText("Room code").locator("xpath=ancestor::*[2]").innerText()).replace(/\s+/g, " ");
+  const code = panel.replace(/^Room code/i, "").match(/\b(?!P2P\b|CLOUD\b|LOCAL\b)[A-Z0-9]{4}\b/)[0];
+  const b = await open(base, { wait: "#room-alias", at: `/rooms?code=${code}${mode === "local" ? "&mode=local" : ""}` });
+  await b.page.evaluate(() => { delete window.showSaveFilePicker; window.showSaveFilePicker = undefined; });
+  const prefilled = await b.page.getByRole("textbox", { name: /^Code character / }).evaluateAll((xs) => xs.map((x) => x.value).join(""));
+  const pressed = await b.page.getByRole("button", { name: mode === "local" ? "Local (P2P)" : "Cloud" }).getAttribute("aria-pressed");
+  await enter(b, "Budi");
+  await b.page.getByRole("button", { name: "Join", exact: true }).click();
+  await b.page.getByText("Room code").waitFor({ timeout: 20_000 });
+  await a.page.getByText("Budi").first().waitFor({ timeout: 30_000 });
+  return { a, b, code, asked, prefilled: prefilled === code, pressed };
+}
+
+/** A shares a file in the room, B downloads it. */
+async function roomShare({ a, b }, f) {
+  await b.page.waitForTimeout(1500);
+  await a.page.locator("input[type=file]").first().setInputFiles(f.file);
+  await b.page.getByText(f.name).first().waitFor({ timeout: 60_000 });
+  const [download] = await Promise.all([b.page.waitForEvent("download", { timeout: 60_000 }), b.page.getByRole("button", { name: "Download", exact: true }).first().click()]);
+  const file = join(dir, `room-${Date.now()}`);
+  await download.saveAs(file);
+  return { name: download.suggestedFilename(), ok: sha(readFileSync(file)) === f.sha };
+}
+
 const SCENARIOS = {
+  async roomCloud(base) {
+    const r = await roomPair(base, "cloud");
+    const sealed = await r.b.page.getByText("End-to-end encrypted").first().waitFor({ timeout: 20_000 }).then(() => true, () => false);
+    const got = await roomShare(r, FILES.text);
+    const people = await r.a.page.getByText(/^(Ana|Budi)$/).count();
+    await r.a.page.getByRole("button", { name: "Close room" }).click();
+    const closed = await r.b.page.getByText("The room was closed.").waitFor({ timeout: 15_000 }).then(() => true, () => false);
+    return { asked: r.asked, prefilled: r.prefilled, pressed: r.pressed, sealed, ...got, people, closed, errors: [...r.a.errors, ...r.b.errors] };
+  },
+  async roomLocal(base) {
+    const r = await roomPair(base, "local");
+    const got = await roomShare(r, FILES.bin);
+    await r.b.page.getByRole("button", { name: "Leave" }).click();
+    const back = await r.b.page.locator("#room-alias").waitFor({ timeout: 10_000 }).then(() => true, () => false);
+    return { asked: r.asked, prefilled: r.prefilled, pressed: r.pressed, ...got, back, errors: [...r.a.errors, ...r.b.errors] };
+  },
+  async roomMissing(base) {
+    const { page, errors } = await open(base, { wait: "#room-alias", at: "/rooms?code=zzzz" });
+    await page.getByLabel("Your name").fill("Ana");
+    await page.getByRole("button", { name: "Join", exact: true }).click();
+    const said = await page.getByText("Room not found or it has closed.").waitFor({ timeout: 45_000 }).then(() => true, () => false);
+    return { said, errors: errors.filter((e) => !/ZZZZ|404/.test(e)) };
+  },
   async load(base) {
     const { ctx, page, errors } = await open(base);
     const tabs = await page.$$eval(".studio-shell [role=group] button", (bs) => bs.map((b) => b.textContent.trim().replace(/ · \d+$/, "")));

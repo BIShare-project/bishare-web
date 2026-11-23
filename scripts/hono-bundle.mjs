@@ -1,7 +1,7 @@
 // How the site's components are compiled for Hono, once for the build (hono/jsx, to HTML) and once for the browser
 // (hono/jsx/dom, islands). Next, React and the UI libraries are replaced by the shared modules of src/hono; an import of
 // anything else from them stops the build, so nothing of them can slip into a page.
-import { readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 import { compile } from "@mdx-js/mdx";
 import { build } from "esbuild";
@@ -69,7 +69,22 @@ function exportsOf(text) {
 }
 
 /** @param {{ target: "pages" | "browser", islands?: Set<string> }} o */
-function plugin({ target, islands }) {
+/** The namespaces the Worker's own pages read (src/hono/dynamic.tsx). */
+const WORKER_MESSAGES = ["chrome", "common", "cookies", "beam", "flows", "nearby", "tool", "stats"];
+
+/** src/hono/messages.ts for the Worker: the messages themselves, of those namespaces. */
+function workerMessages() {
+  const locales = readdirSync(join(SRC, "messages")).filter((l) => statSync(join(SRC, "messages", l)).isDirectory());
+  const files = locales.flatMap((l) => WORKER_MESSAGES.map((ns) => [l, ns, join(SRC, "messages", l, `${ns}.json`)])).filter(([, , f]) => existsSync(f));
+  return [
+    ...files.map(([, , f], i) => `import m${i} from ${JSON.stringify(f)};`),
+    `const files = { ${files.map(([l, ns], i) => `"${l}/${ns}": m${i}`).join(", ")} };`,
+    `const known = new Set(${JSON.stringify(WORKER_MESSAGES)});`,
+    'export function messageFile(locale, ns) { if (!known.has(ns)) throw new Error("messages of " + ns + " are not in the Worker"); return files[locale + "/" + ns] ?? {}; }',
+  ].join("\n");
+}
+
+function plugin({ target, islands, worker = false }) {
   const named = { ...BOTH, ...(target === "pages" ? PAGES_ONLY : BROWSER_ONLY) };
   // A module is replaced however it is imported, "@/…" or "./…".
   const table = { ...named };
@@ -82,6 +97,7 @@ function plugin({ target, islands }) {
         if (a.pluginData?.skip) return;
         if (a.path.endsWith("?impl")) return { path: a.path.slice(0, -5), suffix: "?impl" };
         if (table[a.path]) return { path: table[a.path] };
+        if (worker && a.path === "./messages" && /src\/hono\/i18n\.ts$/.test(a.importer)) return { path: "messages", namespace: "virtual" };
         // JSX and React's API come with React's prop meanings (server-props.ts at build time, client/react-props.ts in
         // the browser); the modules that give them import hono/jsx themselves.
         const dir = target === "browser" ? "client/" : "";
@@ -95,8 +111,8 @@ function plugin({ target, islands }) {
         if (target === "browser" && /^hono\/jsx(\/jsx-(dev-)?runtime)?$/.test(a.path)) return b.resolve(a.path.replace("hono/jsx", "hono/jsx/dom"), { kind: a.kind, resolveDir: ROOT, pluginData: { skip: true } });
         if (a.path === "lucide-react") return { path: "icons", namespace: "virtual" };
         if (a.path === "next/image") return { path: "image", namespace: "virtual" };
-        // Only Next's Worker has a Cloudflare context; src/lib/api.ts falls back to fetch without it.
-        if (a.path === "@opennextjs/cloudflare") return { path: "no-cloudflare", namespace: "virtual" };
+        // The browser has no Cloudflare context; src/lib/api.ts falls back to fetch without it.
+        if (a.path === "@opennextjs/cloudflare") return target === "browser" ? { path: "no-cloudflare", namespace: "virtual" } : { path: hono("request-context.ts") };
         if (a.path === "next-intl/routing") return { path: "routing", namespace: "virtual" };
         if (FORBIDDEN.test(a.path)) return { errors: [{ text: `"${a.path}" must not reach a Hono page (imported by ${relative(ROOT, a.importer)})` }] };
         if (a.path.startsWith(".")) {
@@ -113,8 +129,9 @@ function plugin({ target, islands }) {
         contents: `import { jsx } from "hono/jsx";\nexport default ({ priority, className, ...p }) => jsx("img", { loading: priority ? undefined : "lazy", decoding: "async", ...p, class: className });`,
         resolveDir: ROOT,
       }));
+      b.onLoad({ filter: /^messages$/, namespace: "virtual" }, () => ({ contents: workerMessages(), resolveDir: ROOT }));
       b.onLoad({ filter: /^no-cloudflare$/, namespace: "virtual" }, () => ({
-        contents: 'export function getCloudflareContext() { throw new Error("no Cloudflare context outside Next"); }',
+        contents: 'export function getCloudflareContext() { throw new Error("no Cloudflare context in the browser"); }',
       }));
       b.onLoad({ filter: /^routing$/, namespace: "virtual" }, () => ({ contents: "export const defineRouting = (config) => config;" }));
       // Articles. src/mdx-components.tsx gives headings their ids and links their behaviour, as it does for Next.
@@ -182,6 +199,25 @@ export async function bundlePages({ outfile, write = true }) {
     banner: { js: 'import { createRequire } from "node:module"; const require = createRequire(import.meta.url);' },
     // Only looking for islands: the file that lists them is not written yet.
     ...(write ? {} : { external: ["*assets.gen"] }),
+  });
+  return [...islands].sort();
+}
+
+/** Compiles the pages the Worker renders itself (src/hono/dynamic.tsx). Returns the client components they use. */
+export async function bundleWorker({ outfile, write = true }) {
+  const islands = new Set();
+  await build({
+    ...common("pages"),
+    entryPoints: [hono("dynamic.tsx")],
+    outfile,
+    write,
+    platform: "neutral",
+    mainFields: ["module", "main"],
+    conditions: ["workerd", "worker", "browser", "import"],
+    target: "es2022",
+    minify: true,
+    external: ["node:async_hooks", ...(write ? [] : ["*assets.gen"])],
+    plugins: [plugin({ target: "pages", islands, worker: true })],
   });
   return [...islands].sort();
 }
