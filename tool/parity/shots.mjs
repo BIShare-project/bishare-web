@@ -47,6 +47,12 @@ async function shoot(base, path, size, theme, state) {
   });
   await page.goto(base + path, { waitUntil: "load" });
   await page.addStyleTag({ content: "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}" });
+  // Parts that appear when scrolled to: pass over the whole page once.
+  await page.evaluate(async () => {
+    for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight / 2) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 60)); }
+    scrollTo(0, 0);
+    await new Promise((r) => setTimeout(r, 700));
+  });
   await page.evaluate(async () => {
     for (const i of document.images) i.loading = "eager";
     await Promise.all([...document.images].map((i) => i.decode().catch(() => {})));

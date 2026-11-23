@@ -67,7 +67,8 @@ export function extract(html: string): PageFacts {
     }),
     links: [...body.matchAll(/<a\b((?:"[^"]*"|'[^']*'|[^>"'])*)>([\s\S]*?)<\/a>/gi)].map((m) => `${attributes(`<a${m[1]}`).href ?? ""} ${textOf(m[2]!)}`),
     images: tags(body, "img").map((i) => `${i.src} ${i.alt ?? ""}`),
-    icons: link.filter((l) => ["icon", "apple-touch-icon", "manifest", "author", "preconnect"].includes(l.rel ?? "")).map((l) => `${l.rel} ${l.href} ${l.sizes ?? ""} ${l.type ?? ""}`),
+    // The order is kept, except for the preconnect: Next writes it before or after the rest depending on the kind of page.
+    icons: link.filter((l) => ["icon", "apple-touch-icon", "manifest", "author", "preconnect"].includes(l.rel ?? "")).map((l) => `${l.rel} ${l.href} ${l.sizes ?? ""} ${l.type ?? ""}`).sort((a, b) => Number(a.startsWith("preconnect")) - Number(b.startsWith("preconnect"))),
     text: textOf(main),
     structure: ["header", "main", "footer"].flatMap((region) => structureOf(new RegExp(`<${region}\\b[\\s\\S]*</${region}>`, "i").exec(body)?.[0] ?? `(no ${region})`)),
   };

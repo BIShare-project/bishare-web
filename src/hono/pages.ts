@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 
 /** A page of the site: the component and metadata Next renders too, until Next goes. */
 export interface PageModule {
-  default: (props: { params: Promise<{ locale: string }> }) => unknown;
-  generateMetadata: (props: { params: Promise<{ locale: string }> }) => Promise<Metadata>;
+  default: (props: PageProps) => unknown;
+  generateMetadata: (props: PageProps) => Promise<Metadata>;
+}
+
+export interface PageProps {
+  params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<Record<string, string>>;
 }
 
 /** Every page Hono builds, by its path without a locale prefix. Each is built in every language. */
@@ -50,4 +55,8 @@ export const PAGES: Record<string, () => Promise<unknown>> = {
   "/security": () => import("../app/[locale]/(site)/security/page"),
   "/privacy": () => import("../app/[locale]/(site)/privacy/page"),
   "/terms": () => import("../app/[locale]/(site)/terms/page"),
+  "/blog": () => import("../app/[locale]/(site)/blog/page"),
 };
+
+/** The articles, in every language too: the page around the English text is the same one Next renders. */
+export const BLOG_POST = () => import("../app/[locale]/(site)/blog/[slug]/page");

@@ -3,6 +3,7 @@
 // anything else from them stops the build, so nothing of them can slip into a page.
 import { readFileSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
+import { compile } from "@mdx-js/mdx";
 import { build } from "esbuild";
 
 export const ROOT = resolve(import.meta.dirname, "..");
@@ -20,6 +21,8 @@ const BOTH = {
 const PAGES_ONLY = {
   "next-intl/server": hono("i18n.ts"),
   "next-intl": hono("i18n.ts"),
+  "next/link": hono("shim/next-link.tsx"),
+  "next/navigation": hono("shim/next-navigation.ts"),
   "@/components/site/header": hono("ui/header.tsx"),
   "@/components/site/image-lightbox": hono("ui/image-lightbox.tsx"),
   "@/components/site/article-toc": hono("ui/article-toc.tsx"),
@@ -31,6 +34,22 @@ const BROWSER_ONLY = {
   [hono("page-locale.ts")]: hono("client/page-locale.ts"),
   [hono("ui/svg-shapes.tsx")]: hono("client/svg-shapes.tsx"),
 };
+// MDX drops the line break between two one-line rows or cells of a table, which Next's compiler keeps: without it the
+// words of two rows join in the text of the page.
+const TABLE = new Set(["table", "thead", "tbody", "tr"]);
+const LINE_BREAK = { type: "Program", sourceType: "module", comments: [], body: [{ type: "ExpressionStatement", expression: { type: "Literal", value: "\n", raw: '"\\n"' } }] };
+function keepTableBreaks() {
+  return function visit(node) {
+    node.children?.forEach(visit);
+    if (!TABLE.has(node.name)) return;
+    node.children = node.children.flatMap((c, i, all) => {
+      const before = all[i - 1]?.position;
+      const apart = before && c.position && before.start.line === before.end.line && c.position.start.line > before.end.line;
+      return apart ? [{ type: "mdxTextExpression", value: "", data: { estree: LINE_BREAK } }, c] : [c];
+    });
+  };
+}
+
 /** Client components without behaviour: plain HTML, no island. */
 const STATIC = new Set(["src/app/[locale]/(site)/features/more-features.tsx", "src/components/site/feature-card.tsx", "src/components/site/qr-display.tsx", "src/components/site/glow-button.tsx"]);
 const FORBIDDEN = /^(react-dom|next(\/|$)|next-intl|radix-ui|@radix-ui|@base-ui|class-variance-authority\/|cmdk|shadcn|@radix)/;
@@ -80,8 +99,12 @@ function plugin({ target, islands }) {
         resolveDir: ROOT,
       }));
       b.onLoad({ filter: /^routing$/, namespace: "virtual" }, () => ({ contents: "export const defineRouting = (config) => config;" }));
-      // Articles are compiled with the blog (not ported yet); a landing page only reads the registry's dates and slugs.
-      b.onLoad({ filter: /\.mdx$/ }, (a) => ({ contents: `export default () => { throw new Error(${JSON.stringify(a.path)}); };` }));
+      // Articles. src/mdx-components.tsx gives headings their ids and links their behaviour, as it does for Next.
+      b.onLoad({ filter: /\.mdx$/ }, async (a) => {
+        if (target !== "pages") return { errors: [{ text: `${a.path} must not reach the browser` }] };
+        const js = await compile(readFileSync(a.path, "utf8"), { jsxImportSource: "hono/jsx", providerImportSource: join(SRC, "mdx-components.tsx"), rehypePlugins: [keepTableBreaks] });
+        return { contents: String(js), resolveDir: SRC };
+      });
       if (target === "pages") {
         b.onLoad({ filter: /src\/.*\.tsx$/ }, (a) => {
           if (a.suffix === "?impl") return;

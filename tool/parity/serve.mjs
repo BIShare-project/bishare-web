@@ -11,7 +11,13 @@ createServer((req, res) => {
   const first = path.split("/")[1];
   const page = LOCALES.includes(first) ? `${path}.html` : path === "/" ? "/en.html" : `/en${path}.html`;
   const file = [join(resolve("public"), path), join(resolve(pages), page)].find((f) => existsSync(f) && statSync(f).isFile());
-  if (!file) return res.writeHead(404).end("not found");
+  if (!file) {
+    // A page that does not exist: the 404 page of its language, as the Worker answers.
+    const missing = join(resolve(pages), LOCALES.includes(first) ? first : "en", "404.html");
+    if (!existsSync(missing)) return res.writeHead(404).end("not found");
+    res.writeHead(404, { "content-type": TYPES[".html"] });
+    return createReadStream(missing).pipe(res);
+  }
   res.writeHead(200, { "content-type": TYPES[extname(file)] ?? "application/octet-stream" });
   createReadStream(file).pipe(res);
 }).listen(Number(port), "127.0.0.1", () => console.log(`http://127.0.0.1:${port}`));
