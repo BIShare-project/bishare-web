@@ -79,9 +79,21 @@ const state = (open: boolean) => (open ? "open" : "closed");
 // ---- layers -----------------------------------------------------------------------------------
 
 interface Layer {
+  /** The press it was opened by, if any. */
+  openedBy: Press | null;
   inside: (n: Node) => boolean;
   close: (how: "escape" | "outside") => void;
 }
+
+interface Press {
+  x: number;
+  y: number;
+  at: number;
+}
+/** The last press on the page. */
+let lastPress: Press | null = null;
+/** The second press of a double-click: the same spot, moments after the press that opened the layer. */
+const repeats = (p: PointerEvent, first: Press | null) => !!first && p.timeStamp - first.at < 500 && Math.abs(p.clientX - first.x) < 6 && Math.abs(p.clientY - first.y) < 6;
 
 /** What is open, the top one last: only that one hears Escape and a press outside it. */
 const layers: Layer[] = [];
@@ -105,11 +117,16 @@ function listen() {
     "pointerdown",
     (e) => {
       const top = layers.at(-1);
-      if (top && e.target instanceof Node && !top.inside(e.target)) top.close("outside");
+      // The second press of the double-click that opened it is not a press outside it.
+      if (top && e.target instanceof Node && !top.inside(e.target) && !repeats(e, top.openedBy)) top.close("outside");
+      lastPress = { x: e.clientX, y: e.clientY, at: e.timeStamp };
     },
     true,
   );
 }
+
+// From the start: the press that opens the first layer must be known too.
+if (typeof document !== "undefined") listen();
 
 /** Holds the page still (no scrolling, no clicks) under what is open. */
 let held = 0;
@@ -132,7 +149,7 @@ function useLayer(ref: { current: HTMLElement | null }, close: (how: "escape" | 
   latest.current = close;
   useLayoutEffect(() => {
     listen();
-    const layer: Layer = { inside: (n) => !!ref.current?.contains(n) || !!also?.()?.contains(n), close: (how) => latest.current(how) };
+    const layer: Layer = { openedBy: lastPress, inside: (n) => !!ref.current?.contains(n) || !!also?.()?.contains(n), close: (how) => latest.current(how) };
     layers.push(layer);
     const free = holdPage();
     return () => {

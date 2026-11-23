@@ -78,6 +78,13 @@ describe("attributes", () => {
     vi.useRealTimers();
   });
 
+  it("listens to the browser's dblclick for onDoubleClick", () => {
+    const f = () => {};
+    const out = attributes("div", { onDoubleClick: f });
+    expect(out.onDblClick).toBe(f);
+    expect(out.onDoubleClick).toBeUndefined();
+  });
+
   it("leaves components alone", () => {
     const props = { "aria-pressed": false, onChange: f };
     expect(attributes(() => null, props)).toBe(props);

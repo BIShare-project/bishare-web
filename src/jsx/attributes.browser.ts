@@ -24,6 +24,12 @@ export function attributes(type: unknown, props: Props): Props {
     // aria-pressed={false} is "false"; hono/jsx/dom would remove the attribute.
     if (typeof value === "boolean" && (key.startsWith("aria-") || key.startsWith("data-"))) edit()[key] = String(value);
   }
+  // hono/jsx/dom listens to the event named after the handler; the browser's is "dblclick".
+  if (props.onDoubleClick) {
+    const o = edit();
+    o.onDblClick = props.onDoubleClick;
+    delete o.onDoubleClick;
+  }
   const textField = type === "textarea" || (type === "input" && !CHANGE_INPUTS.has(props.type));
   if (props.onChange && textField) {
     const o = edit();

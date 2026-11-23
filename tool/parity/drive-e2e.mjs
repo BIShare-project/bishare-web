@@ -350,6 +350,28 @@ const SCENARIOS = {
     await ctx.close();
     return { name: meta.name, mime: meta.mime, good, log: v.log, errors };
   },
+  async remount(base) {
+    // Run by name (--only remount): not part of the comparison of looks.
+    const { page, ctx } = await open(base, { path: "/files" });
+    await ready(page);
+    const id = () => page.locator("tr", { hasText: "notes.md" }).evaluate((el) => (el.dataset.k ??= String(Math.random()).slice(2, 7)));
+    const a = await id();
+    await page.getByRole("checkbox", { name: /file 1\.txt/ }).click({ force: true });
+    await page.waitForTimeout(300);
+    const b = await id();
+    await page.locator("tr", { hasText: "file 3.txt" }).click({ position: { x: 600, y: 10 } });
+    await page.waitForTimeout(300);
+    const c = await id();
+    await page.getByRole("button", { name: "notes.md" }).click();
+    await page.getByRole("dialog").waitFor();
+    const d = await id().catch(() => "gone");
+    await page.keyboard.press("Escape");
+    await page.waitForTimeout(400);
+    const e = await id();
+    await ctx.close();
+    // The row stays the same element through selection and the viewer: a double-click needs both presses on one.
+    return { kept: [b, c, d, e].every((x) => x === a) };
+  },
   async viewer(base, side) {
     const { page, ctx, v } = await open(base, { path: "/files" });
     await ready(page);

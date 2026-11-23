@@ -46,10 +46,15 @@ let live = [];
 async function serveFrom(ctx, hosts, base) {
   await ctx.route((url) => hosts.includes(url.hostname), async (route) => {
     const url = new URL(route.request().url());
-    const response = await route.fetch({ url: base + url.pathname + url.search, maxRedirects: 0 });
-    // The local builds talk to the local API; under the real site's address they talk to the real one.
-    if (!localApi && /javascript/.test(response.headers()["content-type"] ?? "")) return route.fulfill({ response, body: (await response.text()).replaceAll(LOCAL_API, API) });
-    await route.fulfill({ response });
+    try {
+      const response = await route.fetch({ url: base + url.pathname + url.search, maxRedirects: 0 });
+      // The local builds talk to the local API; under the real site's address they talk to the real one.
+      if (!localApi && /javascript/.test(response.headers()["content-type"] ?? "")) return await route.fulfill({ response, body: (await response.text()).replaceAll(LOCAL_API, API) });
+      await route.fulfill({ response });
+    } catch {
+      // The page closed while this was on its way.
+      await route.abort().catch(() => {});
+    }
   });
 }
 
