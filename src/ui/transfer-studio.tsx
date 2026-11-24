@@ -222,7 +222,7 @@ export function TransferStudio({ stacked = false }: { stacked?: boolean } = {}) 
         aria-label={t("receive")}
         className={stacked ? "relative border-t border-border/60 p-3.5 sm:p-5" : "relative border-t border-border/60 p-3.5 sm:p-5 lg:border-l lg:border-t-0"}
       >
-        <div className="flex items-center gap-2.5">
+        <div className={stacked ? "flex items-center justify-center gap-2.5 text-left" : "flex items-center gap-2.5"}>
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-border-strong text-muted-foreground">
             <Download className="h-4 w-4" />
           </span>
@@ -233,7 +233,7 @@ export function TransferStudio({ stacked = false }: { stacked?: boolean } = {}) 
             <p className="text-[12px] text-muted-foreground">{t("codeSub")}</p>
           </div>
         </div>
-        <div className={stacked ? "mt-4 sm:max-w-md" : "mt-4 sm:max-w-md lg:max-w-none"}>
+        <div className={stacked ? "mt-4" : "mt-4 sm:max-w-md lg:max-w-none"}>
           <CodeInput />
         </div>
       </section>
